@@ -38,36 +38,39 @@
   <ul id="results"></ul>
 
   <script>
-    // Load the database
-    fetch('final_workshop_db.json')
-      .then(response => response.json())
-      .then(db => {
-        const searchBox = document.getElementById('searchBox');
-        const results = document.getElementById('results');
+  fetch('final_workshop_db.json')
+    .then(response => response.json())
+    .then(db => {
+      const searchBox = document.getElementById('searchBox');
+      const results = document.getElementById('results');
 
-        searchBox.addEventListener('input', () => {
-          const query = searchBox.value.toLowerCase();
-          results.innerHTML = '';
+      searchBox.addEventListener('input', () => {
+        const query = searchBox.value.toLowerCase();
+        results.innerHTML = '';
 
-          if(query === '') return;
+        if(query === '') return;
 
-          const matches = db.filter(item => item.Name && item.Name.toLowerCase().includes(query));
+        const matches = db.filter(item => item.Name && item.Name.toLowerCase().includes(query));
 
-          if(matches.length === 0) {
-            results.innerHTML = '<li>No matches found</li>';
-          } else {
-            matches.forEach(r => {
-              const li = document.createElement('li');
+        if(matches.length === 0) {
+          results.innerHTML = '<li>No matches found</li>';
+        } else {
+          matches.forEach(r => {
+            const li = document.createElement('li');
+            if (r.Category.toLowerCase() === 'wallpapers') {
+              li.textContent = `${r.Name} → ${r.Category}`;
+            } else {
               li.textContent = `${r.Name} → ${r.Category} / ${r.SubCategory}`;
-              results.appendChild(li);
-            });
-          }
-        });
-      })
-      .catch(err => {
-        console.error("Failed to load database:", err);
-        document.getElementById('results').innerHTML = '<li>Error loading database.</li>';
+            }
+            results.appendChild(li);
+          });
+        }
       });
-  </script>
+    })
+    .catch(err => {
+      console.error("Failed to load database:", err);
+      document.getElementById('results').innerHTML = '<li>Error loading database.</li>';
+    });
+</script>
 </body>
 </html>
