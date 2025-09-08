@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="icon" type="image/svg" href="/assets/svg/skull.svg">
+<head>
+  <meta charset="UTF-8">
+  <title>Fallout Workshop Item Lookup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      color: #333;
+    }
+    input {
+      padding: 8px;
+      font-size: 16px;
+      width: 300px;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    li {
+      padding: 6px;
+      background-color: #fff;
+      margin-bottom: 4px;
+      border-radius: 4px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Fallout Workshop Item Lookup</h1>
+  <input type="text" id="searchBox" placeholder="Enter item name..." autofocus>
+  <ul id="results"></ul>
+
+  <script>
+    // Load the database
+    fetch('final_workshop_db.json')
+      .then(response => response.json())
+      .then(db => {
+        const searchBox = document.getElementById('searchBox');
+        const results = document.getElementById('results');
+
+        searchBox.addEventListener('input', () => {
+          const query = searchBox.value.toLowerCase();
+          results.innerHTML = '';
+
+          if(query === '') return;
+
+          const matches = db.filter(item => item.Name && item.Name.toLowerCase().includes(query));
+
+          if(matches.length === 0) {
+            results.innerHTML = '<li>No matches found</li>';
+          } else {
+            matches.forEach(r => {
+              const li = document.createElement('li');
+              li.textContent = `${r.Name} → ${r.Category} / ${r.SubCategory}`;
+              results.appendChild(li);
+            });
+          }
+        });
+      })
+      .catch(err => {
+        console.error("Failed to load database:", err);
+        document.getElementById('results').innerHTML = '<li>Error loading database.</li>';
+      });
+  </script>
+</body>
+</html>
