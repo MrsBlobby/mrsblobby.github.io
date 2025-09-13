@@ -13,54 +13,37 @@
     h1 {
       color: #333;
     }
-    input {
+    input[type="text"] {
       padding: 8px;
       font-size: 16px;
       width: 300px;
       margin-bottom: 10px;
     }
-    label {
+    .controls {
+      margin-bottom: 20px;
+    }
+    .controls label {
       font-size: 14px;
-      margin-left: 8px;
       color: #444;
+      margin-left: 4px;
     }
     ul {
       list-style-type: none;
       padding-left: 0;
     }
     li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       padding: 6px;
       background-color: #fff;
       margin-bottom: 10px;
       border-radius: 4px;
       box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
     li img {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
+      flex-shrink: 0;
       border-radius: 4px;
-      cursor: pointer;
-    }
-    /* Modal overlay */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      padding-top: 60px;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.9);
-    }
-    .modal img {
-      display: block;
-      margin: auto;
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 6px;
     }
   </style>
 </head>
@@ -68,7 +51,7 @@
   <h1>Fallout 76 C.A.M.P. Item Lookup</h1>
   <p style="color: #555; font-size: 14px;">Last Updated: September 9, 2025</p>
 
-  <div>
+  <div class="controls">
     <input type="text" id="searchBox" placeholder="Enter item name..." autofocus>
     <br>
     <input type="checkbox" id="toggleImages" checked>
@@ -77,40 +60,34 @@
 
   <ul id="results"></ul>
 
-  <!-- Modal -->
-  <div id="imgModal" class="modal">
-    <img id="modalImg" src="">
-  </div>
-
   <script>
   fetch('final_workshop_db.json')
     .then(response => response.json())
     .then(db => {
       const searchBox = document.getElementById('searchBox');
       const results = document.getElementById('results');
-      const modal = document.getElementById('imgModal');
-      const modalImg = document.getElementById('modalImg');
       const toggleImages = document.getElementById('toggleImages');
 
-      // Close modal on click or ESC
-      modal.addEventListener('click', () => modal.style.display = 'none');
-      document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') modal.style.display = 'none';
-      });
-
-      searchBox.addEventListener('input', () => {
-        const query = searchBox.value.toLowerCase();
+      function renderResults(query) {
         results.innerHTML = '';
 
-        if(query === '') return;
+        if (query === '') return;
 
         const matches = db.filter(item => item.Name && item.Name.toLowerCase().includes(query));
 
-        if(matches.length === 0) {
+        if (matches.length === 0) {
           results.innerHTML = '<li>No matches found</li>';
         } else {
           matches.forEach(r => {
             const li = document.createElement('li');
+
+            // Show image if checkbox is checked and image exists
+            if (toggleImages.checked && r.CNAM_FormID) {
+              const img = document.createElement('img');
+              img.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
+              img.alt = r.Name;
+              li.appendChild(img);
+            }
 
             let text;
             if (r.Category.toLowerCase() === 'wallpapers') {
@@ -123,28 +100,23 @@
             span.textContent = text;
             li.appendChild(span);
 
-            if (toggleImages.checked && r.CNAM_FormID) {
-              const img = document.createElement('img');
-              img.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
-              img.alt = r.Name;
-
-              img.addEventListener('click', () => {
-                modalImg.src = img.src;
-                modal.style.display = 'block';
-              });
-
-              li.appendChild(img);
-            }
-
             results.appendChild(li);
           });
         }
+      }
+
+      searchBox.addEventListener('input', () => {
+        renderResults(searchBox.value.toLowerCase());
+      });
+
+      toggleImages.addEventListener('change', () => {
+        renderResults(searchBox.value.toLowerCase());
       });
     })
     .catch(err => {
       console.error("Failed to load database:", err);
       document.getElementById('results').innerHTML = '<li>Error loading database.</li>';
     });
-</script>
+  </script>
 </body>
 </html>
