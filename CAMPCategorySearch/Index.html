@@ -24,11 +24,21 @@
       padding-left: 0;
     }
     li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       padding: 6px;
       background-color: #fff;
       margin-bottom: 4px;
       border-radius: 4px;
       box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    li img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 4px;
+      background: #eee;
     }
   </style>
 </head>
@@ -58,11 +68,25 @@
         } else {
           matches.forEach(r => {
             const li = document.createElement('li');
+
+            // Try to load an image from Images/<FormID>.png
+            const img = document.createElement('img');
+            img.src = `Images/${r.CNAM_FormID}.png`;
+            img.alt = r.Name;
+            img.onerror = () => { img.style.display = 'none'; }; // hide if not found
+
+            // Text description
+            let text;
             if (r.Category.toLowerCase() === 'wallpapers') {
-              li.textContent = `${r.Name} → ${r.Category}`;
+              text = `${r.Name} → ${r.Category}`;
             } else {
-              li.textContent = `${r.Name} → ${r.Category} / ${r.SubCategory}`;
+              text = `${r.Name} → ${r.Category} / ${r.SubCategory}`;
             }
+            const span = document.createElement('span');
+            span.textContent = text;
+
+            li.appendChild(img);
+            li.appendChild(span);
             results.appendChild(li);
           });
         }
