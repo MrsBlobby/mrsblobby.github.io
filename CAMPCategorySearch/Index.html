@@ -17,7 +17,12 @@
       padding: 8px;
       font-size: 16px;
       width: 300px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+    }
+    label {
+      font-size: 14px;
+      margin-left: 8px;
+      color: #444;
     }
     ul {
       list-style-type: none;
@@ -62,11 +67,18 @@
 <body>
   <h1>Fallout 76 C.A.M.P. Item Lookup</h1>
   <p style="color: #555; font-size: 14px;">Last Updated: September 9, 2025</p>
-  <input type="text" id="searchBox" placeholder="Enter item name..." autofocus>
+
+  <div>
+    <input type="text" id="searchBox" placeholder="Enter item name..." autofocus>
+    <br>
+    <input type="checkbox" id="toggleImages" checked>
+    <label for="toggleImages">Show Images</label>
+  </div>
+
   <ul id="results"></ul>
 
   <!-- Modal -->
-  <div id="imgModal" class="modal" onclick="this.style.display='none'">
+  <div id="imgModal" class="modal">
     <img id="modalImg" src="">
   </div>
 
@@ -78,6 +90,13 @@
       const results = document.getElementById('results');
       const modal = document.getElementById('imgModal');
       const modalImg = document.getElementById('modalImg');
+      const toggleImages = document.getElementById('toggleImages');
+
+      // Close modal on click or ESC
+      modal.addEventListener('click', () => modal.style.display = 'none');
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') modal.style.display = 'none';
+      });
 
       searchBox.addEventListener('input', () => {
         const query = searchBox.value.toLowerCase();
@@ -104,7 +123,7 @@
             span.textContent = text;
             li.appendChild(span);
 
-            if (r.CNAM_FormID) {
+            if (toggleImages.checked && r.CNAM_FormID) {
               const img = document.createElement('img');
               img.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
               img.alt = r.Name;
