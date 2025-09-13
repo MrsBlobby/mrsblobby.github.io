@@ -86,6 +86,7 @@
               const img = document.createElement('img');
               img.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
               img.alt = r.Name;
+              img.loading = "lazy";
               li.appendChild(img);
             }
 
