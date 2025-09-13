@@ -71,7 +71,7 @@
 
             // Try to load an image from Images/<FormID>.png
             const img = document.createElement('img');
-            img.src = `Images/${r.CNAM_FormID}.png`;
+            img.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
             img.alt = r.Name;
             img.onerror = () => { img.style.display = 'none'; }; // hide if not found
 
