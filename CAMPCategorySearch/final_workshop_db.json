@@ -55935,7 +55935,7 @@
     "CNAM_EditorID": "ATX_CAMPPets_IdleFurniture_Dog_MrFuzzyChewToy"
   },
   {
-    "Name": "ATX_workshop_WallPaper_RemoveWallPaper_AO",
+    "Name": "Remove Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -55944,7 +55944,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_RemoveWallPaper_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_ArtificialWood_AO",
+    "Name": "Artificial Wood Panels Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -55953,7 +55953,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_ArtificialWood_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Birds_AO",
+    "Name": "Birds Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -55962,7 +55962,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Birds_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_BigVertStripes_AO",
+    "Name": "Stripes Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -55971,7 +55971,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_BigVertStripes_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_BlueAndGoldTriangles_AO",
+    "Name": "Triangles Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -55980,7 +55980,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_BlueAndGoldTriangles_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_CorvegaFlowerBlue_AO",
+    "Name": "Blue Flowers Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -55989,7 +55989,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_CorvegaFlowerBlue_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_CorvegaFlowerYellow_AO",
+    "Name": "Yellow Flowers Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -55998,7 +55998,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_CorvegaFlowerYellow_AO"
   },
   {
-    "Name": "ATX_TP_workshop_WallPaper_ForksSpoons_AO",
+    "Name": "Forks and Spoons Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56007,7 +56007,7 @@
     "CNAM_EditorID": "ATX_TP_workshop_WallPaper_ForksSpoons_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_HuntingScene_AO",
+    "Name": "Joy of the Hunt Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56016,7 +56016,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_HuntingScene_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Spaceships_AO",
+    "Name": "Look to the Stars Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56025,7 +56025,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Spaceships_AO"
   },
   {
-    "Name": "ATX_F1_workshop_WallPaper_Squares_AO",
+    "Name": "Squares Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56034,7 +56034,7 @@
     "CNAM_EditorID": "ATX_F1_workshop_WallPaper_Squares_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Tech_AO",
+    "Name": "Hi-Tech Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56043,7 +56043,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Tech_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_TV_AO",
+    "Name": "TV Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56052,7 +56052,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_TV_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Unicorn_AO",
+    "Name": "Unicorns Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56061,7 +56061,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Unicorn_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Communist01_AO",
+    "Name": "Red Shift Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56070,7 +56070,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Communist01_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Communist02_AO",
+    "Name": "Red Menace Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56079,7 +56079,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Communist02_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Communist03_AO",
+    "Name": "Red Uprising Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56088,7 +56088,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Communist03_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_SolidColor_White_AO",
+    "Name": "White Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56097,7 +56097,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_SolidColor_White_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_SolidColor_Sienna_AO",
+    "Name": "Sienna Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56106,7 +56106,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_SolidColor_Sienna_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_SolidColor_Ochre_AO",
+    "Name": "Ochre Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56115,7 +56115,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_SolidColor_Ochre_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_SolidColor_Orange_AO",
+    "Name": "Orange Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56124,7 +56124,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_SolidColor_Orange_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_SolidColor_Teal_AO",
+    "Name": "Teal Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56133,7 +56133,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_SolidColor_Teal_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_SolidColor_CornflowerBlue_AO",
+    "Name": "Cornflower Blue Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56142,7 +56142,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_SolidColor_CornflowerBlue_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_SolidColor_Blue_AO",
+    "Name": "Blue Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56151,7 +56151,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_SolidColor_Blue_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_SolidColor_Mauve_AO",
+    "Name": "Mauve Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56160,7 +56160,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_SolidColor_Mauve_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_SolidColor_Pink_AO",
+    "Name": "Pink Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56169,7 +56169,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_SolidColor_Pink_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_SolidColor_Grey_AO",
+    "Name": "Grey Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56178,7 +56178,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_SolidColor_Grey_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Casino_01_AO",
+    "Name": "Royal Casino Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56187,7 +56187,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Casino_01_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Casino_02_AO",
+    "Name": "Cobalt Casino Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56196,7 +56196,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Casino_02_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Casino_03_AO",
+    "Name": "Lilac Casino Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56205,7 +56205,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Casino_03_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Casino_04_AO",
+    "Name": "Mahogany Casino Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56214,7 +56214,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Casino_04_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_NukaCola_01_AO",
+    "Name": "Nuka-Cherry Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56223,7 +56223,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_NukaCola_01_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_NukaCola_02_AO",
+    "Name": "Nuka-Cola Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56232,7 +56232,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_NukaCola_02_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_NukaCola_03_AO",
+    "Name": "Nuka-Cola Dark Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56241,7 +56241,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_NukaCola_03_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_NukaCola_04_AO",
+    "Name": "Nuka-Cola Quantum Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56250,7 +56250,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_NukaCola_04_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_ValentinesDay_01_AO",
+    "Name": "Nuclear Hearts Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56259,7 +56259,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_ValentinesDay_01_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_ValentinesDay_02_AO",
+    "Name": "Stripes and Hearts Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56268,7 +56268,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_ValentinesDay_02_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_ValentinesDay_03_AO",
+    "Name": "Smitten Vault Boy Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56277,7 +56277,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_ValentinesDay_03_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_ValentinesDay_04_AO",
+    "Name": "Cupids Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56286,7 +56286,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_ValentinesDay_04_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Nukashine_01_AO",
+    "Name": "Nukashine Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56295,7 +56295,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Nukashine_01_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_HubrisComics_AO",
+    "Name": "Hubris Comics Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56304,7 +56304,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_HubrisComics_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Sport_01",
+    "Name": "Flatwoods \"Green\" Monster Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56313,7 +56313,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Sport_01"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Sport_02",
+    "Name": "Sports Nostalgia Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56322,7 +56322,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Sport_02"
   },
   {
-    "Name": "ATX_workshop_WallPaper_WoodPanel_01_AO",
+    "Name": "Weathered Wood Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56331,7 +56331,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_WoodPanel_01_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_CeramicTile_01_AO",
+    "Name": "Porcelain Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56340,7 +56340,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_CeramicTile_01_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_CeramicTile_02_AO",
+    "Name": "Black Ceramic Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56349,7 +56349,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_CeramicTile_02_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_VintagePattern_01_AO",
+    "Name": "Vintage Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56358,7 +56358,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_VintagePattern_01_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Flagstone01_AO",
+    "Name": "Appalachian Slate Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56367,7 +56367,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Flagstone01_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Flagstone02_AO",
+    "Name": "Bluestone Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56376,7 +56376,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Flagstone02_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Flagstone03_AO",
+    "Name": "Limestone Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56385,7 +56385,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Flagstone03_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Fasnacht_01_AO",
+    "Name": "Faces of Fasnacht Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56394,7 +56394,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Fasnacht_01_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Mothman01_AO",
+    "Name": "Mothman Print Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56403,7 +56403,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Mothman01_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Mothman02_AO",
+    "Name": "Mothman Barn Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56412,7 +56412,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Mothman02_AO"
   },
   {
-    "Name": "SCORE_S1_workshop_WallPaper_GlowInTheDark_Stars_AO",
+    "Name": "Stars Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56421,7 +56421,7 @@
     "CNAM_EditorID": "SCORE_S1_workshop_WallPaper_GlowInTheDark_Stars_AO"
   },
   {
-    "Name": "SCORE_S1_workshop_WallPaper_GlowInTheDark_StarsAndPlanets_AO",
+    "Name": "Stars and Planets Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56430,7 +56430,7 @@
     "CNAM_EditorID": "SCORE_S1_workshop_WallPaper_GlowInTheDark_StarsAndPlanets_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_SlocumsDiner_AO",
+    "Name": "Slocum's Diner Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56439,7 +56439,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_SlocumsDiner_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_PalletWood_AO",
+    "Name": "Pallet Wood Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56448,7 +56448,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_PalletWood_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_CinderBlocks_AO",
+    "Name": "Cinder Blocks Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56457,7 +56457,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_CinderBlocks_AO"
   },
   {
-    "Name": "SCORE_S2_workshop_WallPaper_ArmorAce_AO",
+    "Name": "Armor Ace Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56466,7 +56466,7 @@
     "CNAM_EditorID": "SCORE_S2_workshop_WallPaper_ArmorAce_AO"
   },
   {
-    "Name": "ATX_F1_LP_workshop_WallPaper_Mechanic_AO",
+    "Name": "Mechanic's Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56475,7 +56475,7 @@
     "CNAM_EditorID": "ATX_F1_LP_workshop_WallPaper_Mechanic_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_ChallengePass_S3_AO",
+    "Name": "Vintage Shelter Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56484,7 +56484,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_ChallengePass_S3_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_WhitespringsRed_AO",
+    "Name": "Whitespring Wallpaper - Red",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56493,7 +56493,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_WhitespringsRed_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_WhitespringsWhite_AO",
+    "Name": "Whitespring Wallpaper - White",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56502,7 +56502,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_WhitespringsWhite_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_ArmorAce_MetalHull_AODUPLICATE000",
+    "Name": "Cold Steel Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56511,7 +56511,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_ArmorAce_MetalHull_AODUPLICATE000"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Dungeon_AO",
+    "Name": "Dungeon Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56520,7 +56520,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Dungeon_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_BoS_AO",
+    "Name": "Brotherhood of Steel Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56529,7 +56529,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_BoS_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Basement_01",
+    "Name": "Basement Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56538,7 +56538,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Basement_01"
   },
   {
-    "Name": "ATX_workshop_WallPaper_HauntedHouse_SinisterMansion_AO",
+    "Name": "Sinister Mansion Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56547,7 +56547,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_HauntedHouse_SinisterMansion_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_HauntedHouse_HauntedHouse_AO",
+    "Name": "Haunted House Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56556,7 +56556,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_HauntedHouse_HauntedHouse_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_HauntedHouse_EerieRoses_AO",
+    "Name": "Eerie Roses Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56565,7 +56565,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_HauntedHouse_EerieRoses_AO"
   },
   {
-    "Name": "SCORE_S6_workshop_WallPaper_Grognak_AO",
+    "Name": "Grognak Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56574,7 +56574,7 @@
     "CNAM_EditorID": "SCORE_S6_workshop_WallPaper_Grognak_AO"
   },
   {
-    "Name": "SCORE_S7_workshop_WallPaper_Starscape_AO",
+    "Name": "Starscape Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56583,7 +56583,7 @@
     "CNAM_EditorID": "SCORE_S7_workshop_WallPaper_Starscape_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_EnclaveOffice_AO",
+    "Name": "Enclave Office Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56592,7 +56592,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_EnclaveOffice_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Alien_AO",
+    "Name": "Alien Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56601,7 +56601,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Alien_AO"
   },
   {
-    "Name": "ATX_workshop_WallPaper_RustedBrick",
+    "Name": "Rusted Brick Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56610,7 +56610,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_RustedBrick"
   },
   {
-    "Name": "ATX_workshop_WallPaper_RustedBrick02",
+    "Name": "Rusted Red Brick Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56619,7 +56619,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_RustedBrick02"
   },
   {
-    "Name": "ATX_workshop_WallPaper_Catacomb_AO",
+    "Name": "Catacomb Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56628,7 +56628,7 @@
     "CNAM_EditorID": "ATX_workshop_WallPaper_Catacomb_AO"
   },
   {
-    "Name": "ATX_workshop_Wallpaper_Tavern_AO",
+    "Name": "Tavern Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56637,7 +56637,7 @@
     "CNAM_EditorID": "ATX_workshop_Wallpaper_Tavern_AO"
   },
   {
-    "Name": "ATX_TP_workshop_Wallpaper_ModernHome_AO",
+    "Name": "Modern Home Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56646,7 +56646,7 @@
     "CNAM_EditorID": "ATX_TP_workshop_Wallpaper_ModernHome_AO"
   },
   {
-    "Name": "SCORE_S11_workshop_Wallpaper_WalnutPanel_AO",
+    "Name": "Walnut Panel Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56655,7 +56655,7 @@
     "CNAM_EditorID": "SCORE_S11_workshop_Wallpaper_WalnutPanel_AO"
   },
   {
-    "Name": "ATX_workshop_Wallpaper_Holiday_AO",
+    "Name": "Holiday Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56664,7 +56664,7 @@
     "CNAM_EditorID": "ATX_workshop_Wallpaper_Holiday_AO"
   },
   {
-    "Name": "ATX_workshop_Wallpaper_AbandonedMine_AO",
+    "Name": "Abandoned Mine Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56673,7 +56673,7 @@
     "CNAM_EditorID": "ATX_workshop_Wallpaper_AbandonedMine_AO"
   },
   {
-    "Name": "SCORE_S12_workshop_Wallpaper_CryptidHunt_AO",
+    "Name": "Mothman Hatchling Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56682,7 +56682,7 @@
     "CNAM_EditorID": "SCORE_S12_workshop_Wallpaper_CryptidHunt_AO"
   },
   {
-    "Name": "SCORE_S13_workshop_Wallpaper_ArtDecoTheater_AO",
+    "Name": "Art Deco Theater Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56691,7 +56691,7 @@
     "CNAM_EditorID": "SCORE_S13_workshop_Wallpaper_ArtDecoTheater_AO"
   },
   {
-    "Name": "ATX_workshop_Wallpaper_PresidentialSuite_AO",
+    "Name": "Whitespring Presidential Suite Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56700,7 +56700,7 @@
     "CNAM_EditorID": "ATX_workshop_Wallpaper_PresidentialSuite_AO"
   },
   {
-    "Name": "ATX_workshop_Wallpaper_WindingPath_AO",
+    "Name": "Winding Path Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56709,7 +56709,7 @@
     "CNAM_EditorID": "ATX_workshop_Wallpaper_WindingPath_AO"
   },
   {
-    "Name": "SCORE_S14_workshop_Wallpaper_OvalOffice_AO",
+    "Name": "Oval Office Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56718,7 +56718,7 @@
     "CNAM_EditorID": "SCORE_S14_workshop_Wallpaper_OvalOffice_AO"
   },
   {
-    "Name": "ATX_workshop_Wallpaper_BirthdayWallpaper_AO",
+    "Name": "Birthday Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56727,7 +56727,7 @@
     "CNAM_EditorID": "ATX_workshop_Wallpaper_BirthdayWallpaper_AO"
   },
   {
-    "Name": "SCORE_S15_workshop_Wallpaper_GangHideoutWallpaper_AO",
+    "Name": "Poker Den Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56736,7 +56736,7 @@
     "CNAM_EditorID": "SCORE_S15_workshop_Wallpaper_GangHideoutWallpaper_AO"
   },
   {
-    "Name": "SCORE_S16_workshop_Wallpaper_PineBarrens_AO",
+    "Name": "Pine Barrens Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56745,7 +56745,7 @@
     "CNAM_EditorID": "SCORE_S16_workshop_Wallpaper_PineBarrens_AO"
   },
   {
-    "Name": "SCORE_S16_workshop_Wallpaper_CryptidHunt_AO",
+    "Name": "Cryptid Hunt Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56754,7 +56754,7 @@
     "CNAM_EditorID": "SCORE_S16_workshop_Wallpaper_CryptidHunt_AO"
   },
   {
-    "Name": "ATX_workshop_Wallpaper_Cardinal_AO",
+    "Name": "Cardinal Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56763,7 +56763,7 @@
     "CNAM_EditorID": "ATX_workshop_Wallpaper_Cardinal_AO"
   },
   {
-    "Name": "ATX_workshop_Wallpaper_BlueRidgeCaravan_AO",
+    "Name": "Blue Ridge Caravan Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56772,7 +56772,7 @@
     "CNAM_EditorID": "ATX_workshop_Wallpaper_BlueRidgeCaravan_AO"
   },
   {
-    "Name": "workshop_Wallpaper_Harmony_AO",
+    "Name": "Harmony Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56781,7 +56781,7 @@
     "CNAM_EditorID": "workshop_Wallpaper_Harmony_AO"
   },
   {
-    "Name": "ATX_workshop_Wallpaper_SchoolHouse_AO",
+    "Name": "School House Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56790,7 +56790,7 @@
     "CNAM_EditorID": "ATX_workshop_Wallpaper_SchoolHouse_AO"
   },
   {
-    "Name": "ATX_workshop_Wallpaper_RedShingle_AO",
+    "Name": "Red Shingle Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
@@ -56799,7 +56799,7 @@
     "CNAM_EditorID": "ATX_workshop_Wallpaper_RedShingle_AO"
   },
   {
-    "Name": "DE2024_ScienceOfLoveworkshop_Wallpaper_Dopamine_AO",
+    "Name": "Dopamine Wallpaper",
     "Category": "Wallpapers",
     "SubCategory": "SubCategory",
     "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
