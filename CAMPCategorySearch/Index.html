@@ -117,8 +117,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--text-muted);
-      font-size: 16px; /* bumped up */
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .result-right span {
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      border-radius: 20px;
+      padding: 4px 10px;
+      font-size: 18px;
+      color: var(--accent);
+      font-weight: bold;
     }
 
     /* Version history */
@@ -164,7 +174,11 @@
       .result-right {
         justify-content: center;
         margin-top: 10px;
-        font-size: 14px; /* slightly smaller for small screens */
+      }
+
+      .result-right span {
+        font-size: 16px;
+        padding: 3px 8px;
       }
     }
   </style>
@@ -256,13 +270,19 @@
               left.appendChild(img);
             }
 
-            // right column: categories
+            // right column: categories as pills
             const right = document.createElement('div');
             right.className = 'result-right';
-            if (r.Category && r.Category.toLowerCase() === 'wallpapers') {
-              right.textContent = `${r.Category}`;
-            } else {
-              right.textContent = `${r.Category || ''} / ${r.SubCategory || ''}`;
+
+            if (r.Category) {
+              const catSpan = document.createElement('span');
+              catSpan.textContent = r.Category;
+              right.appendChild(catSpan);
+            }
+            if (r.SubCategory && r.Category.toLowerCase() !== 'wallpapers') {
+              const subSpan = document.createElement('span');
+              subSpan.textContent = r.SubCategory;
+              right.appendChild(subSpan);
             }
 
             li.appendChild(left);
