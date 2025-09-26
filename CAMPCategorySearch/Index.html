@@ -52,7 +52,7 @@
     input[type="text"] {
       padding: 10px;
       font-size: 16px;
-      width: 90%;           /* narrower for mobile */
+      width: 90%;
       max-width: 400px;
       border: 2px solid var(--accent);
       border-radius: 6px;
@@ -77,27 +77,47 @@
 
     li {
       display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 10px;
+      align-items: center;
+      gap: 16px;
+      padding: 12px;
       background-color: var(--card-bg);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       border-radius: 6px;
+      border: 2px solid var(--accent);
       box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-      transition: transform 0.15s;
-      flex-wrap: wrap;
     }
 
-    li:hover {
-      transform: translateY(-2px);
+    .result-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      max-width: 150px;
     }
 
-    li img {
+    .result-name {
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 6px;
+      text-align: center;
+    }
+
+    .result-left img {
       border-radius: 6px;
-      max-width: 100%;
+      max-width: 128px;
       height: auto;
-      object-fit: contain;   /* preserve 128x128 aspect */
+      object-fit: contain;
       display: block;
+    }
+
+    .result-right {
+      flex: 1;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 14px;
     }
 
     /* Version history */
@@ -132,13 +152,17 @@
     @media (max-width: 600px) {
       li {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
       }
 
-      li img {
-        max-width: 100%;
-        height: auto;
-        object-fit: contain;
+      .result-left {
+        max-width: none;
+      }
+
+      .result-right {
+        justify-content: center;
+        margin-top: 10px;
       }
     }
   </style>
@@ -213,25 +237,34 @@
           matches.forEach(r => {
             const li = document.createElement('li');
 
+            // left column: name + image
+            const left = document.createElement('div');
+            left.className = 'result-left';
+
+            const name = document.createElement('div');
+            name.className = 'result-name';
+            name.textContent = r.Name;
+            left.appendChild(name);
+
             if (toggleImages.checked && r.CNAM_FormID) {
               const img = document.createElement('img');
               img.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
               img.alt = r.Name;
               img.loading = "lazy";
-              li.appendChild(img);
+              left.appendChild(img);
             }
 
-            let text;
+            // right column: categories
+            const right = document.createElement('div');
+            right.className = 'result-right';
             if (r.Category && r.Category.toLowerCase() === 'wallpapers') {
-              text = `${r.Name} → ${r.Category}`;
+              right.textContent = `${r.Category}`;
             } else {
-              text = `${r.Name} → ${r.Category || ''} / ${r.SubCategory || ''}`;
+              right.textContent = `${r.Category || ''} / ${r.SubCategory || ''}`;
             }
 
-            const span = document.createElement('span');
-            span.textContent = text;
-            li.appendChild(span);
-
+            li.appendChild(left);
+            li.appendChild(right);
             results.appendChild(li);
           });
         }
