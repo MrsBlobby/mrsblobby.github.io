@@ -12,7 +12,7 @@
       --card-bg: #2a2a2a;
       --text: #e0e0e0;
       --text-muted: #aaa;
-      --content-width: 700px; /* max width for centered content */
+      --content-width: 700px;
     }
 
     body {
@@ -52,7 +52,7 @@
     input[type="text"] {
       padding: 10px;
       font-size: 16px;
-      width: 100%;
+      width: 90%;           /* narrower for mobile */
       max-width: 400px;
       border: 2px solid var(--accent);
       border-radius: 6px;
@@ -96,6 +96,7 @@
       border-radius: 6px;
       max-width: 100%;
       height: auto;
+      object-fit: contain;   /* preserve 128x128 aspect */
       display: block;
     }
 
@@ -135,8 +136,9 @@
       }
 
       li img {
-        width: 100%;
+        max-width: 100%;
         height: auto;
+        object-fit: contain;
       }
     }
   </style>
