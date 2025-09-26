@@ -5,52 +5,165 @@
   <link rel="icon" type="image/svg" href="/assets/svg/CAMPIcon.svg">
   <title>Fallout 76 C.A.M.P. Item Lookup</title>
   <style>
+    :root {
+      --accent: #ffc00f;
+      --bg: #1a1a1a;
+      --card-bg: #2a2a2a;
+      --text: #e0e0e0;
+      --text-muted: #aaa;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f4f4f4;
+      margin: 20px;
+      background-color: var(--bg);
+      color: var(--text);
     }
+
     h1 {
-      color: #333;
+      color: var(--accent);
+      margin-bottom: 5px;
     }
+
+    p {
+      margin: 2px 0;
+    }
+
     input[type="text"] {
-      padding: 8px;
+      padding: 10px;
       font-size: 16px;
-      width: 300px;
-      margin-bottom: 10px;
+      width: 100%;
+      max-width: 400px;
+      border: 2px solid var(--accent);
+      border-radius: 6px;
+      background-color: var(--card-bg);
+      color: var(--text);
     }
+
     .controls {
       margin-bottom: 20px;
     }
+
     .controls label {
       font-size: 14px;
-      color: #444;
+      color: var(--text-muted);
       margin-left: 4px;
     }
+
     ul {
       list-style-type: none;
       padding-left: 0;
     }
+
     li {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 6px;
-      background-color: #fff;
-      margin-bottom: 10px;
-      border-radius: 4px;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      gap: 12px;
+      padding: 10px;
+      background-color: var(--card-bg);
+      margin-bottom: 12px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      transition: transform 0.15s;
     }
+
+    li:hover {
+      transform: translateY(-2px);
+    }
+
     li img {
       flex-shrink: 0;
-      border-radius: 4px;
+      border-radius: 6px;
+      max-width: 60px;
+      max-height: 60px;
+    }
+
+    /* Subtle version history */
+    details {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    details summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    .changelog-entry h4 {
+      margin: 2px 0;
+      font-size: 12px;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    .changelog-entry li {
+      background: none;
+      box-shadow: none;
+      margin-bottom: 2px;
+      padding: 0;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: list-item;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      body {
+        margin: 12px;
+      }
+
+      input[type="text"] {
+        max-width: 100%;
+        font-size: 14px;
+      }
+
+      li {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      li img {
+        max-width: 100%;
+        max-height: 120px;
+      }
     }
   </style>
 </head>
 <body>
   <h1>Fallout 76 C.A.M.P. Item Lookup</h1>
-  <p style="color: #555; font-size: 14px;">Last Updated: September 14, 2025</p>
-  <p style="color: #555; font-size: 10px;">Made by MrsBlobby</p>
+  <p style="color: var(--text-muted); font-size: 14px;">Made by MrsBlobby</p>
+  <p style="color: var(--text-muted); font-size: 12px;">
+    Last Updated: September 14, 2025. V1.2
+  </p>
+
+  <!-- Version history -->
+  <details>
+    <summary>Version History</summary>
+    <div class="changelog-entry">
+      <h4>v1.0</h4>
+      <ul>
+        <li>Initial creation</li>
+      </ul>
+    </div>
+    <div class="changelog-entry">
+      <h4>V1.1</h4>
+      <ul>
+        <li>Added image support</li>
+      </ul>
+    </div>
+    <div class="changelog-entry">
+      <h4>V1.1.1</h4>
+      <ul>
+        <li>Fixed wallpaper images</li>
+      </ul>
+    </div>
+    <div class="changelog-entry">
+      <h4>V1.2</h4>
+      <ul>
+        <li>Added version history</li>
+      </ul>
+    </div>
+  </details>
 
   <div class="controls">
     <input type="text" id="searchBox" placeholder="Enter item name..." autofocus>
@@ -82,7 +195,6 @@
           matches.forEach(r => {
             const li = document.createElement('li');
 
-            // Show image if checkbox is checked and image exists
             if (toggleImages.checked && r.CNAM_FormID) {
               const img = document.createElement('img');
               img.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
@@ -92,10 +204,10 @@
             }
 
             let text;
-            if (r.Category.toLowerCase() === 'wallpapers') {
+            if (r.Category && r.Category.toLowerCase() === 'wallpapers') {
               text = `${r.Name} → ${r.Category}`;
             } else {
-              text = `${r.Name} → ${r.Category} / ${r.SubCategory}`;
+              text = `${r.Name} → ${r.Category || ''} / ${r.SubCategory || ''}`;
             }
 
             const span = document.createElement('span');
