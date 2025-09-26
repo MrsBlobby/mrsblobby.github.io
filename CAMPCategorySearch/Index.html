@@ -112,23 +112,32 @@
     }
 
     .result-right {
-      flex: 1;
-      text-align: center;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
+      gap: 0; /* arrows handle spacing */
     }
 
     .result-right span {
       background: var(--bg);
       border: 2px solid var(--accent);
       border-radius: 20px;
-      padding: 4px 10px;
-      font-size: 18px;
+      padding: 2px 8px;       /* smaller padding */
+      font-size: 14px;         /* smaller font */
       color: var(--accent);
-      font-weight: bold;
+      font-weight: normal;     /* non-bold */
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* Add arrows between pills */
+    .result-right span:not(:last-child)::after {
+      content: "→";
+      margin-left: 6px;
+      margin-right: 6px;
+      color: var(--accent);
+      font-weight: normal;
     }
 
     /* Version history */
@@ -177,8 +186,8 @@
       }
 
       .result-right span {
-        font-size: 16px;
-        padding: 3px 8px;
+        font-size: 12px;
+        padding: 2px 6px;
       }
     }
   </style>
