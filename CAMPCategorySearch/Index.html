@@ -13,6 +13,7 @@
       --text: #e0e0e0;
       --text-muted: #aaa;
       --content-width: 700px;
+      --card-width: 600px;
     }
 
     body {
@@ -72,7 +73,7 @@
       list-style-type: none;
       padding: 16px;
       margin: 0 auto;
-      max-width: var(--content-width);
+      max-width: var(--card-width);
     }
 
     li {
@@ -117,7 +118,7 @@
       align-items: center;
       justify-content: center;
       color: var(--text-muted);
-      font-size: 14px;
+      font-size: 16px; /* bumped up */
     }
 
     /* Version history */
@@ -163,6 +164,7 @@
       .result-right {
         justify-content: center;
         margin-top: 10px;
+        font-size: 14px; /* slightly smaller for small screens */
       }
     }
   </style>
