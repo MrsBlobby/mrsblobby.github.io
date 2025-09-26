@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg" href="/assets/svg/CAMPIcon.svg">
   <title>Fallout 76 C.A.M.P. Item Lookup</title>
   <style>
@@ -11,22 +12,41 @@
       --card-bg: #2a2a2a;
       --text: #e0e0e0;
       --text-muted: #aaa;
+      --content-width: 700px; /* max width for centered content */
     }
 
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
+      margin: 0;
       background-color: var(--bg);
       color: var(--text);
+    }
+
+    .container {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 16px;
     }
 
     h1 {
       color: var(--accent);
       margin-bottom: 5px;
+      text-align: center;
     }
 
-    p {
-      margin: 2px 0;
+    .meta {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .controls {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--card-bg);
+      text-align: center;
     }
 
     input[type="text"] {
@@ -38,10 +58,8 @@
       border-radius: 6px;
       background-color: var(--card-bg);
       color: var(--text);
-    }
-
-    .controls {
-      margin-bottom: 20px;
+      display: block;
+      margin: 0 auto 10px auto;
     }
 
     .controls label {
@@ -52,12 +70,14 @@
 
     ul {
       list-style-type: none;
-      padding-left: 0;
+      padding: 16px;
+      margin: 0 auto;
+      max-width: var(--content-width);
     }
 
     li {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 12px;
       padding: 10px;
       background-color: var(--card-bg);
@@ -65,6 +85,7 @@
       border-radius: 6px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.4);
       transition: transform 0.15s;
+      flex-wrap: wrap;
     }
 
     li:hover {
@@ -72,16 +93,15 @@
     }
 
     li img {
-      flex-shrink: 0;
       border-radius: 6px;
-      max-width: 60px;
-      max-height: 60px;
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
-    /* Subtle version history */
+    /* Version history */
     details {
-      margin-top: 10px;
-      margin-bottom: 20px;
+      margin: 10px 0 20px 0;
       font-size: 12px;
       color: var(--text-muted);
     }
@@ -89,6 +109,7 @@
       cursor: pointer;
       font-weight: bold;
       color: var(--accent);
+      text-align: center;
     }
     .changelog-entry h4 {
       margin: 2px 0;
@@ -106,64 +127,59 @@
       display: list-item;
     }
 
-    /* Responsive adjustments */
+    /* Mobile tweaks */
     @media (max-width: 600px) {
-      body {
-        margin: 12px;
-      }
-
-      input[type="text"] {
-        max-width: 100%;
-        font-size: 14px;
-      }
-
       li {
         flex-direction: column;
         align-items: flex-start;
       }
 
       li img {
-        max-width: 100%;
-        max-height: 120px;
+        width: 100%;
+        height: auto;
       }
     }
   </style>
 </head>
 <body>
-  <h1>Fallout 76 C.A.M.P. Item Lookup</h1>
-  <p style="color: var(--text-muted); font-size: 14px;">Made by MrsBlobby</p>
-  <p style="color: var(--text-muted); font-size: 12px;">
-    Last Updated: September 14, 2025. V1.2
-  </p>
+  <div class="container">
+    <h1>Fallout 76 C.A.M.P. Item Lookup</h1>
+    <div class="meta">
+      <p style="color: var(--text-muted); font-size: 14px;">Made by MrsBlobby</p>
+      <p style="color: var(--text-muted); font-size: 12px;">
+        Last Updated: September 14, 2025. V1.2
+      </p>
+    </div>
 
-  <!-- Version history -->
-  <details>
-    <summary>Version History</summary>
-    <div class="changelog-entry">
-      <h4>v1.0</h4>
-      <ul>
-        <li>Initial creation</li>
-      </ul>
-    </div>
-    <div class="changelog-entry">
-      <h4>V1.1</h4>
-      <ul>
-        <li>Added image support</li>
-      </ul>
-    </div>
-    <div class="changelog-entry">
-      <h4>V1.1.1</h4>
-      <ul>
-        <li>Fixed wallpaper images</li>
-      </ul>
-    </div>
-    <div class="changelog-entry">
-      <h4>V1.2</h4>
-      <ul>
-        <li>Added version history</li>
-      </ul>
-    </div>
-  </details>
+    <!-- Version history -->
+    <details>
+      <summary>Version History</summary>
+      <div class="changelog-entry">
+        <h4>v1.0</h4>
+        <ul>
+          <li>Initial creation</li>
+        </ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>V1.1</h4>
+        <ul>
+          <li>Added image support</li>
+        </ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>V1.1.1</h4>
+        <ul>
+          <li>Fixed wallpaper images</li>
+        </ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>V1.2</h4>
+        <ul>
+          <li>Added version history</li>
+        </ul>
+      </div>
+    </details>
+  </div>
 
   <div class="controls">
     <input type="text" id="searchBox" placeholder="Enter item name..." autofocus>
