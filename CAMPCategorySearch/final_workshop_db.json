@@ -30629,7 +30629,7 @@
   {
     "Name": "Aquarium Pillar",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "workshop_co_XPD_AC_FloorDecor_AquariumPillar",
     "COBJ_FormID": "6d3a60",
     "CNAM_FormID": "007331D6",
@@ -30638,7 +30638,7 @@
   {
     "Name": "Aquarium Whale Display",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "XPD_AC_workshop_co_Structure_AquariumWhaleDisplay",
     "COBJ_FormID": "6e7360",
     "CNAM_FormID": "006E736F",
@@ -30647,7 +30647,7 @@
   {
     "Name": "TV Aquarium",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "workshop_co_FloorDecor_Aquariums",
     "COBJ_FormID": "621f58",
     "CNAM_FormID": "0061DD91",
@@ -30656,7 +30656,7 @@
   {
     "Name": "Brahmin Corpse",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "SCORE_S16_workshop_co_FloorDecor_BrahminCorpse",
     "COBJ_FormID": "74e403",
     "CNAM_FormID": "0074E405",
@@ -30665,7 +30665,7 @@
   {
     "Name": "Cardinal Bird Cage",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "ATX_workshop_co_FloorDecor_BirdInCage",
     "COBJ_FormID": "613993",
     "CNAM_FormID": "0060EC6B",
@@ -30674,7 +30674,7 @@
   {
     "Name": "Raven Perch",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "ATX_workshop_co_FloorDecor_BirdInCage",
     "COBJ_FormID": "613993",
     "CNAM_FormID": "00620395",
@@ -30683,7 +30683,7 @@
   {
     "Name": "Caged Owl",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "ATX_workshop_co_FloorDecor_BirdInCage",
     "COBJ_FormID": "613993",
     "CNAM_FormID": "00674C04",
@@ -30692,7 +30692,7 @@
   {
     "Name": "Butterfly Sanctuary",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "ATX_workshop_co_FloorDecor_BirdInCage",
     "COBJ_FormID": "613993",
     "CNAM_FormID": "0073273D",
@@ -30701,7 +30701,7 @@
   {
     "Name": "Mothman Moth Sanctuary",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "ATX_workshop_co_FloorDecor_BirdInCage",
     "COBJ_FormID": "613993",
     "CNAM_FormID": "0073554B",
@@ -30710,7 +30710,7 @@
   {
     "Name": "Turkey Buzzard",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "ATX_workshop_co_FloorDecor_BirdInCage",
     "COBJ_FormID": "613993",
     "CNAM_FormID": "00780458",
@@ -30719,7 +30719,7 @@
   {
     "Name": "Decoy Duck",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "workshop_co_FloorDecor_DecoyDuckSet",
     "COBJ_FormID": "60dbe5",
     "CNAM_FormID": "005FBF87",
@@ -30728,7 +30728,7 @@
   {
     "Name": "Decoy Duck",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "workshop_co_FloorDecor_DecoyDuckSet",
     "COBJ_FormID": "60dbe5",
     "CNAM_FormID": "005FBF88",
@@ -30737,7 +30737,7 @@
   {
     "Name": "Decoy Duck",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "workshop_co_FloorDecor_DecoyDuckSet",
     "COBJ_FormID": "60dbe5",
     "CNAM_FormID": "005FBF89",
@@ -30746,7 +30746,7 @@
   {
     "Name": "Dissection Kit",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "SCORE_S17_workshop_co_FloorDecor_DissectionKit",
     "COBJ_FormID": "76d892",
     "CNAM_FormID": "0076D8A2",
@@ -30755,7 +30755,7 @@
   {
     "Name": "Fluttering Moths",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "E07A_workshop_co_FloorDecor_MothVFX",
     "COBJ_FormID": "75f0f6",
     "CNAM_FormID": "0075F0F3",
@@ -30764,7 +30764,7 @@
   {
     "Name": "Giant Ant Farm",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "ATX_workshop_co_FloorDecor_GiantAntFarm",
     "COBJ_FormID": "6a90ad",
     "CNAM_FormID": "006A9188",
@@ -30773,7 +30773,7 @@
   {
     "Name": "Hanging Dolphish",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "SCORE_S21_workshop_co_MiscStructure_HangingDolphish",
     "COBJ_FormID": "7eebfd",
     "CNAM_FormID": "0080E98E",
@@ -30782,7 +30782,7 @@
   {
     "Name": "Mutated Goldfish",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "workshop_co_NWOT_FishInABag",
     "COBJ_FormID": "67f0e9",
     "CNAM_FormID": "0066DF0C",
@@ -30791,7 +30791,7 @@
   {
     "Name": "Ogua Egg",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "MOON_Ambush_Workshop_CO_OguaEgg",
     "COBJ_FormID": "69f67e",
     "CNAM_FormID": "006ABA11",
@@ -30800,7 +30800,7 @@
   {
     "Name": "Pet Lizard Terrarium",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "ATX_workshop_co_FloorDecor_PetLizardTerrarium",
     "COBJ_FormID": "7350ba",
     "CNAM_FormID": "007350B9",
@@ -30809,7 +30809,7 @@
   {
     "Name": "Thrasher Egg",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "SCORE_S17_workshop_co_FloorDecor_ThrasherEgg",
     "COBJ_FormID": "77299f",
     "CNAM_FormID": "007729A4",
@@ -30818,7 +30818,7 @@
   {
     "Name": "Worm Farm",
     "Category": "Decorations",
-    "SubCategory": "Workshop2_SubCategory_FloorDecor_Fauna",
+    "SubCategory": "Fauna",
     "COBJ_FormEditorID": "ATX_workshop_co_Decoration_WormFarm",
     "COBJ_FormID": "64ccf4",
     "CNAM_FormID": "0064CCE7",
