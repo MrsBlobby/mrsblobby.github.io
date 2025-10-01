@@ -14868,58 +14868,472 @@
     "CNAM_EditorID": "WorkshopTurretTripodMounted_Cryo"
   },
   {
-    "Name": "ATX_workshop_LChar_TurretLaser_Heavy",
+    "Name": "Heavy Laser Turret",
     "Category": "Defense",
     "SubCategory": "Turrets",
     "COBJ_FormEditorID": "workshop_co_TurretLaserHeavy",
     "COBJ_FormID": "22b59e",
-    "CNAM_FormID": "00556268",
-    "CNAM_EditorID": "ATX_workshop_LChar_TurretLaser_Heavy"
+    "CNAM_FormID": "0022B59D",
+    "CNAM_EditorID": "WorkshopTurretLaserHeavy"
   },
   {
-    "Name": "ATX_workshop_LChar_TurretMounted",
+    "Name": "Heavy Laser Turret Corvega",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretLaserHeavy",
+    "COBJ_FormID": "22b59e",
+    "CNAM_FormID": "003F6C28",
+    "CNAM_EditorID": "ATX_WorkshopTurretLaserHeavy_Corvega"
+  },
+  {
+    "Name": "Spooky Halloween Heavy Laser Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretLaserHeavy",
+    "COBJ_FormID": "22b59e",
+    "CNAM_FormID": "0057CE1D",
+    "CNAM_EditorID": "ATX_WorkshopTurretLaserHeavy_Halloween_Black"
+  },
+  {
+    "Name": "Jack-o'-lantern Heavy Laser Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretLaserHeavy",
+    "COBJ_FormID": "22b59e",
+    "CNAM_FormID": "0057CE1C",
+    "CNAM_EditorID": "ATX_WorkshopTurretLaserHeavy_Halloween_Orange"
+  },
+  {
+    "Name": "Red Painted Heavy Laser Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretLaserHeavy",
+    "COBJ_FormID": "22b59e",
+    "CNAM_FormID": "005A3CBA",
+    "CNAM_EditorID": "ATX_WorkshopTurretLaserHeavy_PaintedMetal_Red"
+  },
+  {
+    "Name": "Camo Heavy Laser Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretLaserHeavy",
+    "COBJ_FormID": "22b59e",
+    "CNAM_FormID": "0048A105",
+    "CNAM_EditorID": "ATX_WorkshopTurretLaserHeavy_Camo01"
+  },
+  {
+    "Name": "Enclave Heavy Laser Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretLaserHeavy",
+    "COBJ_FormID": "22b59e",
+    "CNAM_FormID": "00634343",
+    "CNAM_EditorID": "ATX_WorkshopTurretEnclaveHeavyLaser"
+  },
+  {
+    "Name": "Enclave Polished Steel Heavy Laser Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretLaserHeavy",
+    "COBJ_FormID": "22b59e",
+    "CNAM_FormID": "0064D0AC",
+    "CNAM_EditorID": "ATX_WorkshopTurretEnclaveHeavyLaser_PolishedSteel"
+  },
+  {
+    "Name": "Heavy Machinegun Turret",
     "Category": "Defense",
     "SubCategory": "Turrets",
     "COBJ_FormEditorID": "workshop_co_TurretTripodHeavy",
     "COBJ_FormID": "22b59f",
-    "CNAM_FormID": "00556264",
-    "CNAM_EditorID": "ATX_workshop_LChar_TurretMounted"
+    "CNAM_FormID": "001167A8",
+    "CNAM_EditorID": "WorkshopTurretTripodMounted"
   },
   {
-    "Name": "ATX_workshop_LChar_TurretLaser",
+    "Name": "Corvega Heavy Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripodHeavy",
+    "COBJ_FormID": "22b59f",
+    "CNAM_FormID": "003F6C25",
+    "CNAM_EditorID": "ATX_WorkshopTurretTripodMounted_Corvega"
+  },
+  {
+    "Name": "Spooky Halloween Heavy Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripodHeavy",
+    "COBJ_FormID": "22b59f",
+    "CNAM_FormID": "0057CE19",
+    "CNAM_EditorID": "ATX_WorkshopTurretTripodMounted_Halloween_Black"
+  },
+  {
+    "Name": "Jack-o'-lantern Heavy Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripodHeavy",
+    "COBJ_FormID": "22b59f",
+    "CNAM_FormID": "0057CE18",
+    "CNAM_EditorID": "ATX_WorkshopTurretTripodMounted_Halloween_Orange"
+  },
+  {
+    "Name": "Red Painted Heavy Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripodHeavy",
+    "COBJ_FormID": "22b59f",
+    "CNAM_FormID": "005A3CBD",
+    "CNAM_EditorID": "ATX_WorkshopTurretTripodMounted_PaintedMetal_Red"
+  },
+  {
+    "Name": "Camo Heavy Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripodHeavy",
+    "COBJ_FormID": "22b59f",
+    "CNAM_FormID": "00621FB5",
+    "CNAM_EditorID": "ATX_WorkshopTurretTripodMounted_Camo01"
+  },
+  {
+    "Name": "Enclave Heavy Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripodHeavy",
+    "COBJ_FormID": "22b59f",
+    "CNAM_FormID": "00634344",
+    "CNAM_EditorID": "ATX_WorkshopTurretEnclaveHeavyMinigun"
+  },
+  {
+    "Name": "Enclave Polished Steel Heavy Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripodHeavy",
+    "COBJ_FormID": "22b59f",
+    "CNAM_FormID": "0064D0B0",
+    "CNAM_EditorID": "ATX_WorkshopTurretEnclaveHeavyMinigun_PolishedSteel"
+  },
+  {
+    "Name": "Blue Ridge Heavy Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripodHeavy",
+    "COBJ_FormID": "22b59f",
+    "CNAM_FormID": "0078E653",
+    "CNAM_EditorID": "SCORE_S18_WorkshopTurretTripodMounted_BlueRidge"
+  },
+  {
+    "Name": "Rusted Heavy Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripodHeavy",
+    "COBJ_FormID": "22b59f",
+    "CNAM_FormID": "007964E1",
+    "CNAM_EditorID": "SCORE_S18_WorkshopTurretTripodMounted_Rusted"
+  },
+  {
+    "Name": "Laser Turret",
     "Category": "Defense",
     "SubCategory": "Turrets",
     "COBJ_FormEditorID": "workshop_co_TurretLaser",
     "COBJ_FormID": "d34d2",
-    "CNAM_FormID": "00556267",
-    "CNAM_EditorID": "ATX_workshop_LChar_TurretLaser"
+    "CNAM_FormID": "0019A7F2",
+    "CNAM_EditorID": "WorkshopTurretLaser"
   },
   {
-    "Name": "ATX_workshop_LChar_TurretTripod",
+    "Name": "Laser Turret Corvega",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretLaser",
+    "COBJ_FormID": "d34d2",
+    "CNAM_FormID": "003F6C27",
+    "CNAM_EditorID": "ATX_WorkshopTurretLaser_Corvega"
+  },
+  {
+    "Name": "Spooky Halloween Laser Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretLaser",
+    "COBJ_FormID": "d34d2",
+    "CNAM_FormID": "0057CE1B",
+    "CNAM_EditorID": "ATX_WorkshopTurretLaser_Halloween_Black"
+  },
+  {
+    "Name": "Jack-o'-lantern Laser Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretLaser",
+    "COBJ_FormID": "d34d2",
+    "CNAM_FormID": "0057CE1A",
+    "CNAM_EditorID": "ATX_WorkshopTurretLaser_Halloween_Orange"
+  },
+  {
+    "Name": "Red Painted Laser Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretLaser",
+    "COBJ_FormID": "d34d2",
+    "CNAM_FormID": "005A3CB9",
+    "CNAM_EditorID": "ATX_WorkshopTurretLaser_PaintedMetal_Red"
+  },
+  {
+    "Name": "Camo Laser Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretLaser",
+    "COBJ_FormID": "d34d2",
+    "CNAM_FormID": "0048A0F2",
+    "CNAM_EditorID": "ATX_WorkshopTurretLaser_Camo01"
+  },
+  {
+    "Name": "Enclave Laser Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretLaser",
+    "COBJ_FormID": "d34d2",
+    "CNAM_FormID": "0062E210",
+    "CNAM_EditorID": "ATX_WorkshopTurretEnclaveLaser"
+  },
+  {
+    "Name": "Enclave Polished Steel Laser Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretLaser",
+    "COBJ_FormID": "d34d2",
+    "CNAM_FormID": "0064D0B1",
+    "CNAM_EditorID": "ATX_WorkshopTurretEnclaveLaser_PolishedSteel"
+  },
+  {
+    "Name": "Machinegun Turret",
     "Category": "Defense",
     "SubCategory": "Turrets",
     "COBJ_FormEditorID": "workshop_co_TurretTripod",
     "COBJ_FormID": "76ab9",
-    "CNAM_FormID": "00556263",
-    "CNAM_EditorID": "ATX_workshop_LChar_TurretTripod"
+    "CNAM_FormID": "000B3036",
+    "CNAM_EditorID": "WorkshopTurretTripod"
   },
   {
-    "Name": "ATX_workshop_LChar_TurretMissileLauncher",
+    "Name": "Corvega Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripod",
+    "COBJ_FormID": "76ab9",
+    "CNAM_FormID": "003F6C24",
+    "CNAM_EditorID": "ATX_WorkshopTurretTripod_Corvega"
+  },
+  {
+    "Name": "Spooky Halloween Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripod",
+    "COBJ_FormID": "76ab9",
+    "CNAM_FormID": "0057CE17",
+    "CNAM_EditorID": "ATX_WorkshopTurretTripod_Halloween_Black"
+  },
+  {
+    "Name": "Jack-o'-lantern Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripod",
+    "COBJ_FormID": "76ab9",
+    "CNAM_FormID": "0057CE16",
+    "CNAM_EditorID": "ATX_WorkshopTurretTripod_Halloween_Orange"
+  },
+  {
+    "Name": "Red Painted Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripod",
+    "COBJ_FormID": "76ab9",
+    "CNAM_FormID": "005A3CB6",
+    "CNAM_EditorID": "ATX_WorkshopTurretTripod_PaintedMetal_Red"
+  },
+  {
+    "Name": "Camo Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripod",
+    "COBJ_FormID": "76ab9",
+    "CNAM_FormID": "00621FB4",
+    "CNAM_EditorID": "ATX_WorkshopTurretTripod_Camo01"
+  },
+  {
+    "Name": "Enclave Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripod",
+    "COBJ_FormID": "76ab9",
+    "CNAM_FormID": "0062977D",
+    "CNAM_EditorID": "ATX_WorkshopTurretEnclaveMinigun"
+  },
+  {
+    "Name": "Enclave Polished Steel Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripod",
+    "COBJ_FormID": "76ab9",
+    "CNAM_FormID": "0064D0AF",
+    "CNAM_EditorID": "ATX_WorkshopTurretEnclaveMinigun_PolishedSteel"
+  },
+  {
+    "Name": "Blue Ridge Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripod",
+    "COBJ_FormID": "76ab9",
+    "CNAM_FormID": "0078E652",
+    "CNAM_EditorID": "SCORE_S18_WorkshopTurretTripod_BlueRidge"
+  },
+  {
+    "Name": "Rusted Machinegun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretTripod",
+    "COBJ_FormID": "76ab9",
+    "CNAM_FormID": "007964E0",
+    "CNAM_EditorID": "SCORE_S18_WorkshopTurretTripod_Rusted"
+  },
+  {
+    "Name": "Missile Turret",
     "Category": "Defense",
     "SubCategory": "Turrets",
     "COBJ_FormEditorID": "workshop_co_TurretMissile",
     "COBJ_FormID": "22b176",
-    "CNAM_FormID": "00556266",
-    "CNAM_EditorID": "ATX_workshop_LChar_TurretMissileLauncher"
+    "CNAM_FormID": "0022B184",
+    "CNAM_EditorID": "WorkshopTurretMissileLauncher"
   },
   {
-    "Name": "ATX_workshop_LChar_TurretShotgun",
+    "Name": "Missile Turret Corvega",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretMissile",
+    "COBJ_FormID": "22b176",
+    "CNAM_FormID": "003F6C29",
+    "CNAM_EditorID": "ATX_WorkshopTurretMissileLauncher_Corvega"
+  },
+  {
+    "Name": "Spooky Halloween Missile Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretMissile",
+    "COBJ_FormID": "22b176",
+    "CNAM_FormID": "0057CE21",
+    "CNAM_EditorID": "ATX_WorkshopTurretMissileLauncher_Halloween_Black"
+  },
+  {
+    "Name": "Jack-o'-lantern Missile Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretMissile",
+    "COBJ_FormID": "22b176",
+    "CNAM_FormID": "0057CE20",
+    "CNAM_EditorID": "ATX_WorkshopTurretMissileLauncher_Halloween_Orange"
+  },
+  {
+    "Name": "Red Painted Missile Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretMissile",
+    "COBJ_FormID": "22b176",
+    "CNAM_FormID": "005A3CBB",
+    "CNAM_EditorID": "ATX_WorkshopTurretMissileLauncher_PaintedMetal_Red"
+  },
+  {
+    "Name": "Camo Missile Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretMissile",
+    "COBJ_FormID": "22b176",
+    "CNAM_FormID": "0048A109",
+    "CNAM_EditorID": "ATX_WorkshopTurretMissileLauncher_Camo01"
+  },
+  {
+    "Name": "Enclave Missile Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretMissile",
+    "COBJ_FormID": "22b176",
+    "CNAM_FormID": "0062E211",
+    "CNAM_EditorID": "ATX_WorkshopTurretEnclaveMissileLauncher"
+  },
+  {
+    "Name": "Enclave Polished Steel Missile Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretMissile",
+    "COBJ_FormID": "22b176",
+    "CNAM_FormID": "0064D0AE",
+    "CNAM_EditorID": "ATX_WorkshopTurretEnclaveMissileLauncher_PolishedSteel"
+  },
+  {
+    "Name": "Shotgun Turret",
     "Category": "Defense",
     "SubCategory": "Turrets",
     "COBJ_FormEditorID": "workshop_co_TurretShotgun",
     "COBJ_FormID": "22b175",
-    "CNAM_FormID": "00556265",
-    "CNAM_EditorID": "ATX_workshop_LChar_TurretShotgun"
+    "CNAM_FormID": "0022B183",
+    "CNAM_EditorID": "WorkshopTurretShotgun"
+  },
+  {
+    "Name": "Shotgun Turret Corvega",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretShotgun",
+    "COBJ_FormID": "22b175",
+    "CNAM_FormID": "003F6C2A",
+    "CNAM_EditorID": "ATX_WorkshopTurretShotgun_Corvega"
+  },
+  {
+    "Name": "Spooky Halloween Shotgun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretShotgun",
+    "COBJ_FormID": "22b175",
+    "CNAM_FormID": "0057CE1F",
+    "CNAM_EditorID": "ATX_WorkshopTurretShotgun_Halloween_Black"
+  },
+  {
+    "Name": "Jack-o'-lantern Shotgun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretShotgun",
+    "COBJ_FormID": "22b175",
+    "CNAM_FormID": "0057CE1E",
+    "CNAM_EditorID": "ATX_WorkshopTurretShotgun_Halloween_Orange"
+  },
+  {
+    "Name": "Red Painted Shotgun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretShotgun",
+    "COBJ_FormID": "22b175",
+    "CNAM_FormID": "005A3CBC",
+    "CNAM_EditorID": "ATX_WorkshopTurretShotgun_PaintedMetal_Red"
+  },
+  {
+    "Name": "Camo Shotgun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretShotgun",
+    "COBJ_FormID": "22b175",
+    "CNAM_FormID": "0048A10B",
+    "CNAM_EditorID": "ATX_WorkshopTurretShotgun_Camo01"
+  },
+  {
+    "Name": "Enclave Shotgun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretShotgun",
+    "COBJ_FormID": "22b175",
+    "CNAM_FormID": "0062E212",
+    "CNAM_EditorID": "ATX_WorkshopTurretEnclaveShotgun"
+  },
+  {
+    "Name": "Enclave Polished Steel Shotgun Turret",
+    "Category": "Defense",
+    "SubCategory": "Turrets",
+    "COBJ_FormEditorID": "workshop_co_TurretShotgun",
+    "COBJ_FormID": "22b175",
+    "CNAM_FormID": "0064D0AD",
+    "CNAM_EditorID": "ATX_WorkshopTurretEnclaveShotgun_PolishedSteel"
   },
   {
     "Name": "Generator - Fusion",
@@ -53091,13 +53505,22 @@
     "CNAM_EditorID": "WorkshopDisplay_GenericDisplayTall02"
   },
   {
-    "Name": "ATX_workshop_LChar_DrBones",
+    "Name": "Dr. Bones",
     "Category": "Storage",
     "SubCategory": "Displays",
     "COBJ_FormEditorID": "ATX_workshop_co_Displays_DrBones",
     "COBJ_FormID": "5c75e2",
-    "CNAM_FormID": "005EFB29",
-    "CNAM_EditorID": "ATX_workshop_LChar_DrBones"
+    "CNAM_FormID": "005EB62D",
+    "CNAM_EditorID": "ATX_Workshop_MannequinDisplay_DrBones_F"
+  },
+  {
+    "Name": "Dr. Bones",
+    "Category": "Storage",
+    "SubCategory": "Displays",
+    "COBJ_FormEditorID": "ATX_workshop_co_Displays_DrBones",
+    "COBJ_FormID": "5c75e2",
+    "CNAM_FormID": "005EAC66",
+    "CNAM_EditorID": "ATX_Workshop_MannequinDisplay_DrBones_M"
   },
   {
     "Name": "Enclave Weapon Rack Display Stand",
@@ -53406,13 +53829,94 @@
     "CNAM_EditorID": "SCORE_S19_WorkshopDisplay_WeaponRack_EnclaveRectangular"
   },
   {
-    "Name": "ATX_workshop_LChar_MannequinDisplays",
+    "Name": "Female Mannequin",
     "Category": "Storage",
     "SubCategory": "Displays",
     "COBJ_FormEditorID": "ATX_workshop_co_Displays_MannequinDisplays",
     "COBJ_FormID": "42a06a",
-    "CNAM_FormID": "005D2AF6",
-    "CNAM_EditorID": "ATX_workshop_LChar_MannequinDisplays"
+    "CNAM_FormID": "00111C0B",
+    "CNAM_EditorID": "SCORE_S2_Workshop_MannequinDisplay_Female"
+  },
+  {
+    "Name": "Male Mannequin",
+    "Category": "Storage",
+    "SubCategory": "Displays",
+    "COBJ_FormEditorID": "ATX_workshop_co_Displays_MannequinDisplays",
+    "COBJ_FormID": "42a06a",
+    "CNAM_FormID": "00111C05",
+    "CNAM_EditorID": "SCORE_S2_Workshop_MannequinDisplay_Male"
+  },
+  {
+    "Name": "Clean Female Mannequin",
+    "Category": "Storage",
+    "SubCategory": "Displays",
+    "COBJ_FormEditorID": "ATX_workshop_co_Displays_MannequinDisplays",
+    "COBJ_FormID": "42a06a",
+    "CNAM_FormID": "005DC92D",
+    "CNAM_EditorID": "ATX_Workshop_MannequinDisplay_Female_Clean"
+  },
+  {
+    "Name": "Clean Male Mannequin",
+    "Category": "Storage",
+    "SubCategory": "Displays",
+    "COBJ_FormEditorID": "ATX_workshop_co_Displays_MannequinDisplays",
+    "COBJ_FormID": "42a06a",
+    "CNAM_FormID": "005DC92E",
+    "CNAM_EditorID": "ATX_Workshop_MannequinDisplay_Male_Clean"
+  },
+  {
+    "Name": "Victory Female Mannequin",
+    "Category": "Storage",
+    "SubCategory": "Displays",
+    "COBJ_FormEditorID": "ATX_workshop_co_Displays_MannequinDisplays",
+    "COBJ_FormID": "42a06a",
+    "CNAM_FormID": "007DB356",
+    "CNAM_EditorID": "ATX_Workshop_MannequinDisplay_Female_Victory"
+  },
+  {
+    "Name": "Victory Male Mannequin",
+    "Category": "Storage",
+    "SubCategory": "Displays",
+    "COBJ_FormEditorID": "ATX_workshop_co_Displays_MannequinDisplays",
+    "COBJ_FormID": "42a06a",
+    "CNAM_FormID": "007DB357",
+    "CNAM_EditorID": "ATX_Workshop_MannequinDisplay_Male_Victory"
+  },
+  {
+    "Name": "Surprise Female Mannequin",
+    "Category": "Storage",
+    "SubCategory": "Displays",
+    "COBJ_FormEditorID": "ATX_workshop_co_Displays_MannequinDisplays",
+    "COBJ_FormID": "42a06a",
+    "CNAM_FormID": "00824BDA",
+    "CNAM_EditorID": "ATX_Workshop_MannequinDisplay_Female_Surprise"
+  },
+  {
+    "Name": "Surprise Male Mannequin",
+    "Category": "Storage",
+    "SubCategory": "Displays",
+    "COBJ_FormEditorID": "ATX_workshop_co_Displays_MannequinDisplays",
+    "COBJ_FormID": "42a06a",
+    "CNAM_FormID": "00824BD9",
+    "CNAM_EditorID": "ATX_Workshop_MannequinDisplay_Male_Surprise"
+  },
+  {
+    "Name": "Swooning Female Mannequin",
+    "Category": "Storage",
+    "SubCategory": "Displays",
+    "COBJ_FormEditorID": "ATX_workshop_co_Displays_MannequinDisplays",
+    "COBJ_FormID": "42a06a",
+    "CNAM_FormID": "00824BDC",
+    "CNAM_EditorID": "ATX_Workshop_MannequinDisplay_Female_Swooning"
+  },
+  {
+    "Name": "Swooning Male Mannequin",
+    "Category": "Storage",
+    "SubCategory": "Displays",
+    "COBJ_FormEditorID": "ATX_workshop_co_Displays_MannequinDisplays",
+    "COBJ_FormID": "42a06a",
+    "CNAM_FormID": "00824BDB",
+    "CNAM_EditorID": "ATX_Workshop_MannequinDisplay_Male_Swooning"
   },
   {
     "Name": "Marshal Mallow Fish Display",
