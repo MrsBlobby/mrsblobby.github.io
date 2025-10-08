@@ -44,6 +44,32 @@
       text-align: center;
       margin-bottom: 12px;
     }
+      .toggle-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px; 
+      margin-top: 8px; 
+    }
+
+    .toggle-container .separator {
+      color: var(--text-muted);
+      margin: 0 6px; 
+    }
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-color: var(--card-bg);
+      border: 2px solid var(--accent);
+      border-radius: 6px;
+      color: var(--text);
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      background-image: none; 
+    }
+
 
     select {
       appearance: none;
@@ -286,12 +312,16 @@
 
 <div class="controls">
   <input type="text" id="searchBox" placeholder="Enter item name..." autofocus>
-  <br>
-  <input type="checkbox" id="toggleImages" checked>
-  <label for="toggleImages">Show Images</label>
+
+  <div class="toggle-container">
+    <input type="checkbox" id="toggleImages" checked>
+    <span class="separator">|</span>
+    <label for="toggleImages">Show Images</label>
+  </div>
+
   <br><br>
   <label for="sortMode" style="color: var(--text-muted); font-size: 14px;">Sort By:</label>
-  <select id="sortMode" style="padding: 6px; border-radius: 6px; background-color: var(--card-bg); color: var(--text); border: 2px solid var(--accent);">
+  <select id="sortMode">
     <option value="camp-top" selected>Workshop Menu ▼</option>
     <option value="camp-bottom">Workshop Menu ▲</option>
     <option value="new-old">New ▲</option>
