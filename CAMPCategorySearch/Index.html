@@ -95,6 +95,8 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      justify-content: center;
+      margin-top: 8px;
     }
 
     ul {
@@ -280,15 +282,15 @@
   </div>
 
   <div class="controls">
+    <!-- Line 1: Search bar -->
     <input type="text" id="searchBox" placeholder="Enter item name..." autofocus>
 
+    <!-- Line 2: Show Images + Sort menu -->
     <div class="inline-group">
       <input type="checkbox" id="toggleImages" checked>
       <label for="toggleImages">Show Images</label>
-    </div>
 
-    <div class="inline-group">
-      <label for="sortMode" style="color: var(--text-muted); font-size: 14px;">Sort By:</label>
+      <label for="sortMode" style="color: var(--text-muted); font-size: 14px; margin-left: 16px;">Sort By:</label>
       <select id="sortMode">
         <option value="camp-top" selected>Workshop Menu ▼</option>
         <option value="camp-bottom">Workshop Menu ▲</option>
@@ -297,6 +299,7 @@
       </select>
     </div>
   </div>
+
 
   <ul id="results"></ul>
 
