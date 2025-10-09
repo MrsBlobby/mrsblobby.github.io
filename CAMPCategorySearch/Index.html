@@ -256,7 +256,7 @@
     <img src="/assets/CoverImage.png" alt="Fallout 76 C.A.M.P. Item Lookup" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
     <div class="meta">
       <p style="color: var(--text-muted); font-size: 14px;">Made by MrsBlobby</p>
-      <p style="color: var(--text-muted); font-size: 12px;">Last Updated: October 8, 2025</p>
+      <p style="color: var(--text-muted); font-size: 12px;">Last Updated: October 9, 2025</p>
     </div>
 
     <!-- Version history -->
@@ -347,7 +347,7 @@
 
         function renderResults(query) {
           results.innerHTML = '';
-          const filtered = db.filter(item => !query || (item.Name && item.Name.toLowerCase().includes(query)));
+          const filtered = db.filter(item => item.Name && item.Name.trim() !== '' && (!query || item.Name.toLowerCase().includes(query)));
           const sorted = sortItems(filtered);
 
           if (!sorted.length) {
