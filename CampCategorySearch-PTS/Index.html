@@ -45,6 +45,20 @@
       margin-bottom: 12px;
     }
 
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-color: var(--card-bg);
+      border: 2px solid var(--accent);
+      border-radius: 6px;
+      color: var(--text);
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      background-image: none;
+    }
+
     .controls {
       position: sticky;
       top: 0;
@@ -53,25 +67,52 @@
       padding: 12px 16px;
       border-bottom: 1px solid var(--card-bg);
       text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
     }
 
-    input[type="text"] {
+    .inline-group .separator {
+      color: var(--text-muted);
+      margin: 0 8px;
+      display: flex;
+      align-items: center;
+      user-select: none; 
+    }
+
+    .controls input[type="text"] {
       padding: 10px;
       font-size: 16px;
-      width: 90%;
+      width: 100%;
       max-width: 400px;
       border: 2px solid var(--accent);
       border-radius: 6px;
       background-color: var(--card-bg);
       color: var(--text);
-      display: block;
-      margin: 0 auto 10px auto;
     }
+
+    .controls .search-line {
+     width: 100%;
+     display: flex;
+     justify-content: center; 
+     margin-bottom: 8px;    
+    }
+
 
     .controls label {
       font-size: 14px;
       color: var(--text-muted);
       margin-left: 4px;
+    }
+
+    .controls .inline-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 8px;
     }
 
     ul {
@@ -122,17 +163,17 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 0; /* arrows handle spacing */
+      gap: 0;
     }
 
     .result-right span.pill {
       background: var(--bg);
       border: 2px solid var(--accent);
       border-radius: 20px;
-      padding: 4px 12px;       
-      font-size: 16px;        
+      padding: 4px 12px;
+      font-size: 16px;
       color: var(--accent);
-      font-weight: normal;    
+      font-weight: normal;
       display: inline-flex;
       align-items: center;
     }
@@ -203,6 +244,10 @@
         border-left: 8px solid var(--accent);
         margin: 0 4px;
       }
+
+      .controls {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -211,96 +256,111 @@
     <img src="/assets/CoverImage.png" alt="Fallout 76 C.A.M.P. Item Lookup" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
     <div class="meta">
       <p style="color: var(--text-muted); font-size: 14px;">Made by MrsBlobby</p>
-      <p style="color: var(--text-muted); font-size: 12px;">
-        Last Updated: October 4, 2025
-      </p>
+      <p style="color: var(--text-muted); font-size: 12px;">Last Updated: October 9, 2025</p>
     </div>
 
     <!-- Version history -->
     <details>
       <summary>Version History</summary>
       <div class="changelog-entry">
+        <h4>v2.2.1</h4>
+        <ul><li>Hid entries that returned null as a name in database</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v2.2</h4>
+        <ul><li>Added sorting options</li></ul>
+      </div>
+      <div class="changelog-entry">
         <h4>v2.1.2</h4>
-        <ul>
-          <li>Fixed issue that caused a lot of Turret entries to be missing</li>
-        </ul>
+        <ul><li>Fixed issue that caused a lot of Turret entries to be missing</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v2.1.1</h4>
-        <ul>
-          <li>Fixed Fauna subcategory not displaying correctly</li>
-        </ul>
+        <ul><li>Fixed Fauna subcategory not displaying correctly</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v2.1</h4>
-        <ul>
-          <li>Added embed when linking tool on Discord</li>
-        </ul>
+        <ul><li>Added embed when linking tool on Discord</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v2.0</h4>
-        <ul>
-          <li>Reworked UI entirely. Added more mobile-friendly UI</li>
-        </ul>
+        <ul><li>Reworked UI entirely. Added more mobile-friendly UI</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v1.2</h4>
-        <ul>
-          <li>Added version history</li>
-        </ul>
+        <ul><li>Added version history</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v1.1.1</h4>
-        <ul>
-          <li>Fixed wallpaper images</li>
-        </ul>
+        <ul><li>Fixed wallpaper images</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v1.1</h4>
-        <ul>
-          <li>Added image support</li>
-        </ul>
+        <ul><li>Added image support</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v1.0</h4>
-        <ul>
-          <li>Initial creation</li>
-        </ul>
+        <ul><li>Initial creation</li></ul>
       </div>
     </details>
   </div>
 
   <div class="controls">
-    <input type="text" id="searchBox" placeholder="Enter item name..." autofocus>
-    <br>
-    <input type="checkbox" id="toggleImages" checked>
-    <label for="toggleImages">Show Images</label>
+    <div class="search-line">
+      <input type="text" id="searchBox" placeholder="Enter item name..." autofocus>
+    </div>
+
+    <div class="inline-group">
+      <input type="checkbox" id="toggleImages" checked>
+      <label for="toggleImages">Show Images</label>
+      <span class="separator"></span>
+      <label for="sortMode" style="color: var(--text-muted); font-size: 14px; margin-left: 16px;">Sort By:</label>
+      <select id="sortMode">
+        <option value="camp-top" selected>Workshop Menu ▼</option>
+        <option value="camp-bottom">Workshop Menu ▲</option>
+        <option value="old-new">New ▼</option>
+        <option value="new-old">New ▲</option>
+        <option value="az">Alphabetical ▼</option>
+        <option value="za">Alphabetical ▲</option>
+      </select>
+    </div>
   </div>
+
+
 
   <ul id="results"></ul>
 
   <script>
-  fetch('final_workshop_db.json')
-    .then(response => response.json())
-    .then(db => {
-      const searchBox = document.getElementById('searchBox');
-      const results = document.getElementById('results');
-      const toggleImages = document.getElementById('toggleImages');
+    fetch('final_workshop_db.json')
+      .then(response => response.json())
+      .then(db => {
+        const searchBox = document.getElementById('searchBox');
+        const results = document.getElementById('results');
+        const toggleImages = document.getElementById('toggleImages');
+        const sortMode = document.getElementById('sortMode');
 
-      function renderResults(query) {
-        results.innerHTML = '';
+        function sortItems(items) {
+          const mode = sortMode.value;
+          if (mode === 'camp-bottom') return [...items].reverse();
+          if (mode === 'new-old') return [...items].sort((a, b) => (b.CNAM_FormID || '').localeCompare(a.CNAM_FormID || ''));
+          if (mode === 'old-new') return [...items].sort((a, b) => (a.CNAM_FormID || '').localeCompare(b.CNAM_FormID || ''));
+          if (mode === 'az') return [...items].sort((a, b) => (a.Name || '').localeCompare(b.Name || ''));
+          if (mode === 'za') return [...items].sort((a, b) => (b.Name || '').localeCompare(a.Name || ''));
+          return items; // default
+        }
 
-        if (query === '') return;
+        function renderResults(query) {
+          results.innerHTML = '';
+          const filtered = db.filter(item => item.Name && item.Name.trim() !== '' && (!query || item.Name.toLowerCase().includes(query)));
+          const sorted = sortItems(filtered);
 
-        const matches = db.filter(item => item.Name && item.Name.toLowerCase().includes(query));
+          if (!sorted.length) {
+            results.innerHTML = '<li>No matches found</li>';
+            return;
+          }
 
-        if (matches.length === 0) {
-          results.innerHTML = '<li>No matches found</li>';
-        } else {
-          matches.forEach(r => {
+          sorted.forEach(r => {
             const li = document.createElement('li');
-
-            // left column: name + image
             const left = document.createElement('div');
             left.className = 'result-left';
 
@@ -317,10 +377,8 @@
               left.appendChild(img);
             }
 
-            // right column: categories as pills with arrows
             const right = document.createElement('div');
             right.className = 'result-right';
-
             const categories = [];
             if (r.Category) categories.push(r.Category);
             if (r.SubCategory && r.Category.toLowerCase() !== 'wallpapers') categories.push(r.SubCategory);
@@ -330,7 +388,6 @@
               catSpan.className = 'pill';
               catSpan.textContent = cat;
               right.appendChild(catSpan);
-
               if (index < categories.length - 1) {
                 const arrow = document.createElement('span');
                 arrow.className = 'arrow';
@@ -343,20 +400,17 @@
             results.appendChild(li);
           });
         }
-      }
 
-      searchBox.addEventListener('input', () => {
-        renderResults(searchBox.value.toLowerCase());
-      });
+        searchBox.addEventListener('input', () => renderResults(searchBox.value.toLowerCase()));
+        toggleImages.addEventListener('change', () => renderResults(searchBox.value.toLowerCase()));
+        sortMode.addEventListener('change', () => renderResults(searchBox.value.toLowerCase()));
 
-      toggleImages.addEventListener('change', () => {
-        renderResults(searchBox.value.toLowerCase());
+        renderResults('');
+      })
+      .catch(err => {
+        console.error("Failed to load database:", err);
+        document.getElementById('results').innerHTML = '<li>Error loading database.</li>';
       });
-    })
-    .catch(err => {
-      console.error("Failed to load database:", err);
-      document.getElementById('results').innerHTML = '<li>Error loading database.</li>';
-    });
   </script>
 </body>
 </html>
