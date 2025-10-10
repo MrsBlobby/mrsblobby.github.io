@@ -2340,6 +2340,33 @@
     "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_Porch_Straight_Open"
   },
   {
+    "Name": "Rustic Helvetian CAMP Porch Corner",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Porches",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ColorHelvetiaCAMPPorch",
+    "COBJ_FormID": "6fbadd",
+    "CNAM_FormID": "006FBAF7",
+    "CNAM_EditorID": "ATX_workshop_ColorHelvetiaCAMPPorch_Corner"
+  },
+  {
+    "Name": "Rustic Helvetian CAMP Porch Corner",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Porches",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ColorHelvetiaCAMPPorch",
+    "COBJ_FormID": "6fbadd",
+    "CNAM_FormID": "006FBAF8",
+    "CNAM_EditorID": "ATX_workshop_ColorHelvetiaCAMPPorch_Corner_Int"
+  },
+  {
+    "Name": "Rustic Helvetian CAMP Porch Foundation",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Porches",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ColorHelvetiaCAMPPorch",
+    "COBJ_FormID": "6fbadd",
+    "CNAM_FormID": "006FBAF9",
+    "CNAM_EditorID": "ATX_workshop_ColorHelvetiaCAMPPorch_Straight"
+  },
+  {
     "Name": "Scrap Metal Porch Corner",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Porches",
@@ -2379,8 +2406,8 @@
     "Name": "Scrap Metal Porch Railing",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Porches",
-    "COBJ_FormEditorID": "SCORE_S23_workshop_co_Structure_ScrapMetalPorch",
-    "COBJ_FormID": "85b6a1",
+    "COBJ_FormEditorID": "SCORE_S23_workshop_co_Structure_ScrapMetalPorch_Railing",
+    "COBJ_FormID": "86f00e",
     "CNAM_FormID": "00869A8D",
     "CNAM_EditorID": "SCORE_S23_workshop_ScrapMetalPorch_Railing"
   },
@@ -2388,37 +2415,10 @@
     "Name": "Scrap Metal Porch Railing",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Porches",
-    "COBJ_FormEditorID": "SCORE_S23_workshop_co_Structure_ScrapMetalPorch",
-    "COBJ_FormID": "85b6a1",
+    "COBJ_FormEditorID": "SCORE_S23_workshop_co_Structure_ScrapMetalPorch_Railing",
+    "COBJ_FormID": "86f00e",
     "CNAM_FormID": "00869A8E",
     "CNAM_EditorID": "SCORE_S23_workshop_ScrapMetalPorch_Railing_2"
-  },
-  {
-    "Name": "Rustic Helvetian CAMP Porch Corner",
-    "Category": "C.A.M.P. Pieces",
-    "SubCategory": "Porches",
-    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ColorHelvetiaCAMPPorch",
-    "COBJ_FormID": "6fbadd",
-    "CNAM_FormID": "006FBAF7",
-    "CNAM_EditorID": "ATX_workshop_ColorHelvetiaCAMPPorch_Corner"
-  },
-  {
-    "Name": "Rustic Helvetian CAMP Porch Corner",
-    "Category": "C.A.M.P. Pieces",
-    "SubCategory": "Porches",
-    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ColorHelvetiaCAMPPorch",
-    "COBJ_FormID": "6fbadd",
-    "CNAM_FormID": "006FBAF8",
-    "CNAM_EditorID": "ATX_workshop_ColorHelvetiaCAMPPorch_Corner_Int"
-  },
-  {
-    "Name": "Rustic Helvetian CAMP Porch Foundation",
-    "Category": "C.A.M.P. Pieces",
-    "SubCategory": "Porches",
-    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ColorHelvetiaCAMPPorch",
-    "COBJ_FormID": "6fbadd",
-    "CNAM_FormID": "006FBAF9",
-    "CNAM_EditorID": "ATX_workshop_ColorHelvetiaCAMPPorch_Straight"
   },
   {
     "Name": "Tiki Porch Corner",
@@ -13383,7 +13383,7 @@
     "CNAM_EditorID": "Fence_BarbedWire_Gate_256_PCKN"
   },
   {
-    "Name": "Bone Fence",
+    "Name": "Bone Fence 1",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Fences",
     "COBJ_FormEditorID": "ATX_workshop_co_Defense_Fence_Bone",
@@ -13392,7 +13392,7 @@
     "CNAM_EditorID": "SCORE_S23_BoneFence_01"
   },
   {
-    "Name": "Bone Fence",
+    "Name": "Bone Fence 2",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Fences",
     "COBJ_FormEditorID": "ATX_workshop_co_Defense_Fence_Bone",
@@ -13401,7 +13401,7 @@
     "CNAM_EditorID": "SCORE_S23_BoneFence_02"
   },
   {
-    "Name": "Bone Fence",
+    "Name": "Bone Fence 3",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Fences",
     "COBJ_FormEditorID": "ATX_workshop_co_Defense_Fence_Bone",
@@ -13527,7 +13527,7 @@
     "CNAM_EditorID": "workshop_PACK_PerimeterWall01"
   },
   {
-    "Name": "SCORE_S23_DinoGolfFence_Corner",
+    "Name": "Dino Golf Fence",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Fences",
     "COBJ_FormEditorID": "SCORE_S23_Workshop_CO_DinoGolfFence",
@@ -13536,7 +13536,7 @@
     "CNAM_EditorID": "SCORE_S23_DinoGolfFence_Corner"
   },
   {
-    "Name": "SCORE_S23_DinoGolfFence_Corner_End",
+    "Name": "Dino Golf Fence",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Fences",
     "COBJ_FormEditorID": "SCORE_S23_Workshop_CO_DinoGolfFence",
@@ -13545,7 +13545,7 @@
     "CNAM_EditorID": "SCORE_S23_DinoGolfFence_Corner_End"
   },
   {
-    "Name": "SCORE_S23_DinoGolfFence_Long_01",
+    "Name": "Dino Golf Fence",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Fences",
     "COBJ_FormEditorID": "SCORE_S23_Workshop_CO_DinoGolfFence",
@@ -13554,7 +13554,7 @@
     "CNAM_EditorID": "SCORE_S23_DinoGolfFence_Long_01"
   },
   {
-    "Name": "SCORE_S23_DinoGolfFence_Long_02",
+    "Name": "Dino Golf Fence",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Fences",
     "COBJ_FormEditorID": "SCORE_S23_Workshop_CO_DinoGolfFence",
@@ -13563,7 +13563,7 @@
     "CNAM_EditorID": "SCORE_S23_DinoGolfFence_Long_02"
   },
   {
-    "Name": "SCORE_S23_DinoGolfFence_Long_03",
+    "Name": "Dino Golf Fence",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Fences",
     "COBJ_FormEditorID": "SCORE_S23_Workshop_CO_DinoGolfFence",
@@ -13572,7 +13572,7 @@
     "CNAM_EditorID": "SCORE_S23_DinoGolfFence_Long_03"
   },
   {
-    "Name": "SCORE_S23_DinoGolfFence_Long_04",
+    "Name": "Dino Golf Fence",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Fences",
     "COBJ_FormEditorID": "SCORE_S23_Workshop_CO_DinoGolfFence",
@@ -13581,7 +13581,7 @@
     "CNAM_EditorID": "SCORE_S23_DinoGolfFence_Long_04"
   },
   {
-    "Name": "SCORE_S23_DinoGolfFence_Short_01",
+    "Name": "Dino Golf Fence",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Fences",
     "COBJ_FormEditorID": "SCORE_S23_Workshop_CO_DinoGolfFence",
@@ -13590,7 +13590,7 @@
     "CNAM_EditorID": "SCORE_S23_DinoGolfFence_Short_01"
   },
   {
-    "Name": "SCORE_S23_DinoGolfFence_Short_02",
+    "Name": "Dino Golf Fence",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Fences",
     "COBJ_FormEditorID": "SCORE_S23_Workshop_CO_DinoGolfFence",
@@ -13599,7 +13599,7 @@
     "CNAM_EditorID": "SCORE_S23_DinoGolfFence_Short_02"
   },
   {
-    "Name": "SCORE_S23_DinoGolfFence_Short_03",
+    "Name": "Dino Golf Fence",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Fences",
     "COBJ_FormEditorID": "SCORE_S23_Workshop_CO_DinoGolfFence",
@@ -13608,7 +13608,7 @@
     "CNAM_EditorID": "SCORE_S23_DinoGolfFence_Short_03"
   },
   {
-    "Name": "SCORE_S23_DinoGolfFence_Short_04",
+    "Name": "Dino Golf Fence",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Fences",
     "COBJ_FormEditorID": "SCORE_S23_Workshop_CO_DinoGolfFence",
@@ -14796,6 +14796,15 @@
     "CNAM_EditorID": "zzzATX_Shelters_Door_ProspectorSaloon_Large"
   },
   {
+    "Name": "The Wrangler Casino",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Shelters",
+    "COBJ_FormEditorID": "workshop_co_Shelters_LargeEntrances",
+    "COBJ_FormID": "5b59f1",
+    "CNAM_FormID": "0085068E",
+    "CNAM_EditorID": "ATX_Shelters_Door_WranglerCasino_Large"
+  },
+  {
     "Name": "Vault Atrium Shelter Entrance",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Shelters",
@@ -14965,6 +14974,15 @@
     "COBJ_FormID": "5adc64",
     "CNAM_FormID": "0084CCC7",
     "CNAM_EditorID": "zzzATX_Shelters_Door_ProspectorSaloon_Small"
+  },
+  {
+    "Name": "The Wrangler Casino",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Shelters",
+    "COBJ_FormEditorID": "workshop_co_Shelters_SmallEntrances",
+    "COBJ_FormID": "5adc64",
+    "CNAM_FormID": "0085068F",
+    "CNAM_EditorID": "ATX_Shelters_Door_WranglerCasino_Small"
   },
   {
     "Name": "Vault Utility Room Shelter Entrance",
@@ -20889,7 +20907,7 @@
     "CNAM_EditorID": "ATX_WorkbenchTinker_MrFuzzy_Red"
   },
   {
-    "Name": "Munitions Tinker's Workbench",
+    "Name": "Reloading Tinker's Workbench",
     "Category": "Resources",
     "SubCategory": "Crafting",
     "COBJ_FormEditorID": "workshop_co_CraftingTinkersA",
@@ -21177,7 +21195,7 @@
     "CNAM_EditorID": "ATX_Collectron_packin_ToxicBob"
   },
   {
-    "Name": "Cornbot Collectron Station",
+    "Name": "Cobby Collectron Station",
     "Category": "Resources",
     "SubCategory": "Collectors",
     "COBJ_FormEditorID": "ATX_workshop_co_CategoryResources_Collectron",
@@ -21193,6 +21211,15 @@
     "COBJ_FormID": "322d3c",
     "CNAM_FormID": "00322D05",
     "CNAM_EditorID": "WorkshopCollectorConcrete"
+  },
+  {
+    "Name": "Crashed Cargo Bot",
+    "Category": "Resources",
+    "SubCategory": "Collectors",
+    "COBJ_FormEditorID": "SCORE_S23_workshop_co_Utility_CrashedCargoBot",
+    "COBJ_FormID": "85d823",
+    "CNAM_FormID": "0085D824",
+    "CNAM_EditorID": "SCORE_S23_CAMP_Collector_CrashedCargoBot"
   },
   {
     "Name": "Enclave Extractor - Acid",
@@ -21600,15 +21627,6 @@
     "CNAM_EditorID": "ATX_RepairBotPod_SantasHelper"
   },
   {
-    "Name": "SoulSoup Server",
-    "Category": "Resources",
-    "SubCategory": "Collectors",
-    "COBJ_FormEditorID": "SCORE_S22_workshop_co_Utility_Collector_SoulSoupServer",
-    "COBJ_FormID": "8308d1",
-    "CNAM_FormID": "008308D2",
-    "CNAM_EditorID": "SCORE_S22_CAMP_Collector_SoulSoupServer"
-  },
-  {
     "Name": "Vault-Tec Acid Extractor",
     "Category": "Resources",
     "SubCategory": "Collectors",
@@ -21841,15 +21859,6 @@
     "COBJ_FormID": "e0b7e",
     "CNAM_FormID": "000E0B7D",
     "CNAM_EditorID": "workshopRecipe_RazorGrain"
-  },
-  {
-    "Name": "SoulSoup Server",
-    "Category": "Resources",
-    "SubCategory": "Food",
-    "COBJ_FormEditorID": "SCORE_S22_workshop_co_Utility_Collector_SoulSoupServer",
-    "COBJ_FormID": "8308d1",
-    "CNAM_FormID": "008308D2",
-    "CNAM_EditorID": "SCORE_S22_CAMP_Collector_SoulSoupServer"
   },
   {
     "Name": "Tato Plant",
@@ -22167,6 +22176,15 @@
     "CNAM_EditorID": "ATX_CAMP_Collector_CounterfeitBottleCapPress"
   },
   {
+    "Name": "Crashed Cargo Bot",
+    "Category": "Resources",
+    "SubCategory": "Producers",
+    "COBJ_FormEditorID": "SCORE_S23_workshop_co_Utility_CrashedCargoBot",
+    "COBJ_FormID": "85d823",
+    "CNAM_FormID": "0085D824",
+    "CNAM_EditorID": "SCORE_S23_CAMP_Collector_CrashedCargoBot"
+  },
+  {
     "Name": "Critter Cooker",
     "Category": "Resources",
     "SubCategory": "Producers",
@@ -22444,6 +22462,15 @@
     "COBJ_FormID": "7813f7",
     "CNAM_FormID": "00781409",
     "CNAM_EditorID": "ATX_Collector_RedRocketDumpster"
+  },
+  {
+    "Name": "Rocker Box",
+    "Category": "Resources",
+    "SubCategory": "Producers",
+    "COBJ_FormEditorID": "ATX_workshop_co_Utility_RockerBox",
+    "COBJ_FormID": "84ccce",
+    "CNAM_FormID": "0084CCD1",
+    "CNAM_EditorID": "ATX_CAMP_Collector_RockerBox"
   },
   {
     "Name": "Slime Cake",
@@ -22795,15 +22822,6 @@
     "COBJ_FormID": "5771b5",
     "CNAM_FormID": "00567446",
     "CNAM_EditorID": "ATX_Sink_Rustic_Outdoor"
-  },
-  {
-    "Name": "SoulSoup Server",
-    "Category": "Resources",
-    "SubCategory": "Water",
-    "COBJ_FormEditorID": "SCORE_S22_workshop_co_Utility_Collector_SoulSoupServer",
-    "COBJ_FormID": "8308d1",
-    "CNAM_FormID": "008308D2",
-    "CNAM_EditorID": "SCORE_S22_CAMP_Collector_SoulSoupServer"
   },
   {
     "Name": "Vintage Water Cooler",
@@ -23724,7 +23742,7 @@
     "CNAM_EditorID": "ATX_Weather_WeatherStation_LightRain"
   },
   {
-    "Name": "Burning Night",
+    "Name": "Weather Station (Burning Night)",
     "Category": "Utility",
     "SubCategory": "Services",
     "COBJ_FormEditorID": "ATX_workshop_co_Utility_WeatherStations",
@@ -26619,7 +26637,7 @@
     "COBJ_FormEditorID": "workshop_co_Furniture_ModularSofas",
     "COBJ_FormID": "830011",
     "CNAM_FormID": "00830004",
-    "CNAM_EditorID": "SCORE_S22_ModularSofaSetEndCap01_VaultTecSofa"
+    "CNAM_EditorID": "SCORE_S23_ModularSofaSetEndCap01_VaultTecSofa"
   },
   {
     "Name": "Vault-Tec Modular Sofa",
@@ -26628,7 +26646,7 @@
     "COBJ_FormEditorID": "workshop_co_Furniture_ModularSofas",
     "COBJ_FormID": "830011",
     "CNAM_FormID": "00830003",
-    "CNAM_EditorID": "SCORE_S22_ModularSofaSetMiddle_VaultTecSofa"
+    "CNAM_EditorID": "SCORE_S23_ModularSofaSetMiddle_VaultTecSofa"
   },
   {
     "Name": "Vault-Tec Modular Sofa",
@@ -26637,7 +26655,7 @@
     "COBJ_FormEditorID": "workshop_co_Furniture_ModularSofas",
     "COBJ_FormID": "830011",
     "CNAM_FormID": "00830002",
-    "CNAM_EditorID": "SCORE_S22_ModularSofaSetCorner_VaultTecSofa"
+    "CNAM_EditorID": "SCORE_S23_ModularSofaSetCorner_VaultTecSofa"
   },
   {
     "Name": "Vault-Tec Modular Sofa",
@@ -26646,7 +26664,7 @@
     "COBJ_FormEditorID": "workshop_co_Furniture_ModularSofas",
     "COBJ_FormID": "830011",
     "CNAM_FormID": "00830005",
-    "CNAM_EditorID": "SCORE_S22_ModularSofaSetEndCap02_VaultTecSofa"
+    "CNAM_EditorID": "SCORE_S23_ModularSofaSetEndCap02_VaultTecSofa"
   },
   {
     "Name": "Cream Modular Sofa",
@@ -27612,6 +27630,15 @@
     "CNAM_EditorID": "Shelf_GroceryStore_OneSided"
   },
   {
+    "Name": "Log Wall Shelf",
+    "Category": "Furniture",
+    "SubCategory": "Shelves",
+    "COBJ_FormEditorID": "ATX_workshop_co_Shelves_LogWallShelf",
+    "COBJ_FormID": "86c993",
+    "CNAM_FormID": "00837E15",
+    "CNAM_EditorID": "ATX_LogWallShelves"
+  },
+  {
     "Name": "Shelf",
     "Category": "Furniture",
     "SubCategory": "Shelves",
@@ -27718,15 +27745,6 @@
     "COBJ_FormID": "5ef0c1",
     "CNAM_FormID": "005EA601",
     "CNAM_EditorID": "ATX_SheltersVaultTecUltilityWallShelving"
-  },
-  {
-    "Name": "Log Wall Shelf",
-    "Category": "Furniture",
-    "SubCategory": "Shelves",
-    "COBJ_FormEditorID": "ATX_workshop_co_Shelves_Metal",
-    "COBJ_FormID": "5ef0c1",
-    "CNAM_FormID": "00837E15",
-    "CNAM_EditorID": "ATX_LogWallShelves"
   },
   {
     "Name": "Alien Dining Table",
@@ -30717,6 +30735,15 @@
     "CNAM_EditorID": "SCORE_MiniSeason_2025_SunsetStranger_FloorDecor_SarsaparillaCaps_Clutter"
   },
   {
+    "Name": "Sunset Sarsaparilla Crate",
+    "Category": "Decorations",
+    "SubCategory": "Clutter",
+    "COBJ_FormEditorID": "SCORE_MiniSeason_2025_SunsetStranger_workshop_co_FloorDecor_SunsetSarsaparillaCrate",
+    "COBJ_FormID": "84a35a",
+    "CNAM_FormID": "0084A368",
+    "CNAM_EditorID": "SCORE_MiniSeason_2025_SunsetStranger_FloorDecor_SunsetSarsaparillaCrate"
+  },
+  {
     "Name": "Swarm of Flies",
     "Category": "Decorations",
     "SubCategory": "Clutter",
@@ -31299,7 +31326,16 @@
     "COBJ_FormEditorID": "SCORE_S21_workshop_co_FloorDecor_BottleClutter",
     "COBJ_FormID": "7dbeb8",
     "CNAM_FormID": "00865B68",
-    "CNAM_EditorID": "SCORE_MiniSeason_2025_SunsetStranger_FloorDecor_SarsaparillaBottle_Clutter_01"
+    "CNAM_EditorID": "SCORE_MiniSeason_2025_SunsetStranger_FloorDecor_SarsaparillaBottle_Clutter_Multiple"
+  },
+  {
+    "Name": "Sunset Sarsaparilla Bottle",
+    "Category": "Decorations",
+    "SubCategory": "Crockery",
+    "COBJ_FormEditorID": "SCORE_S21_workshop_co_FloorDecor_BottleClutter",
+    "COBJ_FormID": "7dbeb8",
+    "CNAM_FormID": "00872E8D",
+    "CNAM_EditorID": "SCORE_MiniSeason_2025_SunsetStranger_FloorDecor_SarsaparillaBottle_Clutter"
   },
   {
     "Name": "Star Size Sunset Sarsaparilla Bottle",
@@ -31308,7 +31344,16 @@
     "COBJ_FormEditorID": "SCORE_S21_workshop_co_FloorDecor_BottleClutter",
     "COBJ_FormID": "7dbeb8",
     "CNAM_FormID": "00865B69",
-    "CNAM_EditorID": "SCORE_MiniSeason_2025_SunsetStranger_FloorDecor_SarsaparillaBottle_Clutter_02"
+    "CNAM_EditorID": "SCORE_MiniSeason_2025_SunsetStranger_FloorDecor_SarsaparillaBottle_Clutter_StarSize"
+  },
+  {
+    "Name": "Star Size Sunset Sarsaparilla Bottle",
+    "Category": "Decorations",
+    "SubCategory": "Crockery",
+    "COBJ_FormEditorID": "SCORE_S21_workshop_co_FloorDecor_BottleClutter",
+    "COBJ_FormID": "7dbeb8",
+    "CNAM_FormID": "00872E8E",
+    "CNAM_EditorID": "SCORE_MiniSeason_2025_SunsetStranger_FloorDecor_SarsaparillaBottle_Clutter_StarSize_Multiple"
   },
   {
     "Name": "Do-Nut Touch",
@@ -33891,7 +33936,7 @@
     "COBJ_FormEditorID": "SCORE_S22_CAMP_co_FloorDecor_LawnMower",
     "COBJ_FormID": "83383f",
     "CNAM_FormID": "00833851",
-    "CNAM_EditorID": "SCORE_S22_FloorDecor_LawnMower"
+    "CNAM_EditorID": "SCORE_S23_FloorDecor_LawnMower"
   },
   {
     "Name": "Lily Pad Platform",
@@ -35199,6 +35244,33 @@
     "CNAM_EditorID": "ATX_DeathclawRadiationDummy"
   },
   {
+    "Name": "Raider Totem 1",
+    "Category": "Decorations",
+    "SubCategory": "Novelties",
+    "COBJ_FormEditorID": "SCORE_S23_workshop_co_Decorations_RaiderBrazier",
+    "COBJ_FormID": "84a4c1",
+    "CNAM_FormID": "0084A4B9",
+    "CNAM_EditorID": "SCORE_S23_RaiderBrazier_1"
+  },
+  {
+    "Name": "Raider Totem 2",
+    "Category": "Decorations",
+    "SubCategory": "Novelties",
+    "COBJ_FormEditorID": "SCORE_S23_workshop_co_Decorations_RaiderBrazier",
+    "COBJ_FormID": "84a4c1",
+    "CNAM_FormID": "0084A4BA",
+    "CNAM_EditorID": "SCORE_S23_RaiderBrazier_2"
+  },
+  {
+    "Name": "Raider Totem 3",
+    "Category": "Decorations",
+    "SubCategory": "Novelties",
+    "COBJ_FormEditorID": "SCORE_S23_workshop_co_Decorations_RaiderBrazier",
+    "COBJ_FormID": "84a4c1",
+    "CNAM_FormID": "0084A4BB",
+    "CNAM_EditorID": "SCORE_S23_RaiderBrazier_3"
+  },
+  {
     "Name": "Ritual Votive Stand",
     "Category": "Decorations",
     "SubCategory": "Novelties",
@@ -35323,6 +35395,15 @@
     "COBJ_FormID": "7ad330",
     "CNAM_FormID": "007AD332",
     "CNAM_EditorID": "SCORE_S20_FloorDecor_UnfortunateEnd"
+  },
+  {
+    "Name": "Unfortunate End: Bathtub Blunder",
+    "Category": "Decorations",
+    "SubCategory": "Novelties",
+    "COBJ_FormEditorID": "SCORE_S23_workshop_co_FloorDecor_BodyinBathtub",
+    "COBJ_FormID": "84b0b5",
+    "CNAM_FormID": "00876407",
+    "CNAM_EditorID": "SCORE_S23_FloorDecor_BodyinBathtub"
   },
   {
     "Name": "Vault-Tec Body Bag",
@@ -35557,6 +35638,24 @@
     "COBJ_FormID": "62f749",
     "CNAM_FormID": "006274CF",
     "CNAM_EditorID": "ATX_CoveredBridge_Deck"
+  },
+  {
+    "Name": "Floating Crate Platform",
+    "Category": "Decorations",
+    "SubCategory": "Outdoor",
+    "COBJ_FormEditorID": "SCORE_S23_workshop_co_FloorDecor_CratePlatform",
+    "COBJ_FormID": "85a8f4",
+    "CNAM_FormID": "0085A8F6",
+    "CNAM_EditorID": "SCORE_S23_FloorDecor_CratePlatform"
+  },
+  {
+    "Name": "Floating Crate Platform",
+    "Category": "Decorations",
+    "SubCategory": "Outdoor",
+    "COBJ_FormEditorID": "SCORE_S23_workshop_co_FloorDecor_CratePlatform",
+    "COBJ_FormID": "85a8f4",
+    "CNAM_FormID": "0086DBEE",
+    "CNAM_EditorID": "SCORE_S23_FloorDecor_CratePlatform02"
   },
   {
     "Name": "Creepy Well",
@@ -36117,15 +36216,6 @@
     "CNAM_EditorID": "SCORE_S19_FloorDecor_EnclaveFlag_White"
   },
   {
-    "Name": "Floating Crate Platform",
-    "Category": "Decorations",
-    "SubCategory": "Outdoor",
-    "COBJ_FormEditorID": "SCORE_S23_workshop_co_FloorDecor_CratePlatform",
-    "COBJ_FormID": "85a8f4",
-    "CNAM_FormID": "0085A8F6",
-    "CNAM_EditorID": "SCORE_S23_FloorDecor_CratePlatform"
-  },
-  {
     "Name": "Flying Saucer Playscape",
     "Category": "Decorations",
     "SubCategory": "Outdoor",
@@ -36450,31 +36540,13 @@
     "CNAM_EditorID": "Burn_Workshop_Activator_StompingDevice"
   },
   {
-    "Name": "ATX_Raider_Metal_Brazier01",
+    "Name": null,
     "Category": "Decorations",
     "SubCategory": "Outdoor",
     "COBJ_FormEditorID": "ATX_workshop_co_Decorations_Raider_Braziers",
     "COBJ_FormID": "5a3ca2",
-    "CNAM_FormID": "005A3CA8",
-    "CNAM_EditorID": "ATX_Raider_Metal_Brazier01"
-  },
-  {
-    "Name": "ATX_Raider_Metal_Brazier02",
-    "Category": "Decorations",
-    "SubCategory": "Outdoor",
-    "COBJ_FormEditorID": "ATX_workshop_co_Decorations_Raider_Braziers",
-    "COBJ_FormID": "5a3ca2",
-    "CNAM_FormID": "005A3CA9",
-    "CNAM_EditorID": "ATX_Raider_Metal_Brazier02"
-  },
-  {
-    "Name": "ATX_Raider_Metal_Brazier03",
-    "Category": "Decorations",
-    "SubCategory": "Outdoor",
-    "COBJ_FormEditorID": "ATX_workshop_co_Decorations_Raider_Braziers",
-    "COBJ_FormID": "5a3ca2",
-    "CNAM_FormID": "005A3CAA",
-    "CNAM_EditorID": "ATX_Raider_Metal_Brazier03"
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "Ring of Fire Pit",
@@ -37710,7 +37782,7 @@
     "CNAM_EditorID": "SCORE_S16_FloorDecor_IceCreamSign_Yellow"
   },
   {
-    "Name": "Burn_Workshop_CO_ScrapyardSign",
+    "Name": "Jackson Junkyard Sign",
     "Category": "Decorations",
     "SubCategory": "Signs",
     "COBJ_FormEditorID": "Burn_Workshop_CO_ScrapyardSign",
@@ -38176,6 +38248,15 @@
     "COBJ_FormID": "5a3508",
     "CNAM_FormID": "0068EC60",
     "CNAM_EditorID": "ATX_NWOT_Photoboard03"
+  },
+  {
+    "Name": "Dino Peak Photoboard",
+    "Category": "Decorations",
+    "SubCategory": "Signs",
+    "COBJ_FormEditorID": "ATX_workshop_co_Photoboards",
+    "COBJ_FormID": "5a3508",
+    "CNAM_FormID": "0085B2E1",
+    "CNAM_EditorID": "SCORE_S23_DinoGolfPhotoBoard"
   },
   {
     "Name": "Red Rocket Gas Sign",
@@ -41463,15 +41544,6 @@
     "CNAM_EditorID": "SCORE_S22_Plushie_MrFuzzy_NukaCola_Cranberry"
   },
   {
-    "Name": "Rust King Plushie",
-    "Category": "Decorations",
-    "SubCategory": "Toys",
-    "COBJ_FormEditorID": "workshop_co_Plushies",
-    "COBJ_FormID": "40fbfa",
-    "CNAM_FormID": "00859B22",
-    "CNAM_EditorID": "SCORE_S23_Plushie_RustPlush"
-  },
-  {
     "Name": "Mr. Sassy Plushie",
     "Category": "Decorations",
     "SubCategory": "Toys",
@@ -43731,6 +43803,15 @@
     "CNAM_EditorID": "SCORE_MiniSeason_2025_AppalachianOutlaws_WallDecor_DetectiveBoard"
   },
   {
+    "Name": "Fishing Lure Rack",
+    "Category": "Wall Decor",
+    "SubCategory": "Mounted",
+    "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_FishingLureRack",
+    "COBJ_FormID": "872e8b",
+    "CNAM_FormID": "00872E8C",
+    "CNAM_EditorID": "ATX_WallDecor_FishingLureRack"
+  },
+  {
     "Name": "Framed Vinyl Cover - Jitter Bells",
     "Category": "Wall Decor",
     "SubCategory": "Mounted",
@@ -44602,6 +44683,15 @@
     "COBJ_FormID": "40df42",
     "CNAM_FormID": "006FAC9D",
     "CNAM_EditorID": "76TaxidermyRadGobbler"
+  },
+  {
+    "Name": "Mounted Deathclaw Matriarch Head",
+    "Category": "Wall Decor",
+    "SubCategory": "Mounted",
+    "COBJ_FormEditorID": "workshop_co_Taxidermy",
+    "COBJ_FormID": "40df42",
+    "CNAM_FormID": "0085541E",
+    "CNAM_EditorID": "Burn_Workshop_MatriarchDeathclawHead"
   },
   {
     "Name": "Wall Mounted Fish",
@@ -48159,13 +48249,13 @@
     "CNAM_EditorID": "ATX_WallDecor_Shark_CorvegaWallPoster"
   },
   {
-    "Name": "Freshen Up! Poster",
+    "Name": "A Fresh Delight! Poster",
     "Category": "Wall Decor",
     "SubCategory": "Wall Art",
     "COBJ_FormEditorID": "workshop_co_WallDecor_Posters_General",
     "COBJ_FormID": "3f065f",
     "CNAM_FormID": "00863268",
-    "CNAM_EditorID": "SCORE_MiniSeason_2025_SunsetStranger_WallDecor_FreshenUpPoster"
+    "CNAM_EditorID": "SCORE_MiniSeason_2025_SunsetStranger_WallDecor_FreshDelightPoster"
   },
   {
     "Name": "Build Mass with Sass Poster",
@@ -49743,7 +49833,7 @@
     "CNAM_EditorID": "SCORE_S22_WallDecor_PoweredPoster_EndOfSeasonArt"
   },
   {
-    "Name": "Framed Blood and Rust Wall Art",
+    "Name": "Framed Blood x Rust Wall Art",
     "Category": "Wall Decor",
     "SubCategory": "Wall Art",
     "COBJ_FormEditorID": "SCORE_workshop_co_WallDecor_EndOfSeasonPaintings",
@@ -55134,7 +55224,7 @@
     "CNAM_EditorID": "SCORE_S22_AmmoStashBox_CircleG"
   },
   {
-    "Name": "My Aid Box",
+    "Name": "My Ammo Box",
     "Category": "Storage",
     "SubCategory": "Additional Storage",
     "COBJ_FormEditorID": "F1_workshop_co_Container_WorkshopAmmoStorageBox",
@@ -55393,15 +55483,6 @@
     "COBJ_FormID": "59c4a6",
     "CNAM_FormID": "0082E194",
     "CNAM_EditorID": "SCORE_S22_DisplayCase_BowlingBallRack"
-  },
-  {
-    "Name": "Fishing Lure Rack",
-    "Category": "Storage",
-    "SubCategory": "Displays",
-    "COBJ_FormEditorID": "ATX_workshop_co_Displays_Thanksgiving",
-    "COBJ_FormID": "59c4a6",
-    "CNAM_FormID": "008584F3",
-    "CNAM_EditorID": "ATX_DisplayCase_FishingLureRack"
   },
   {
     "Name": "Sunset Sarsaparilla Rack",
@@ -56943,6 +57024,15 @@
     "CNAM_EditorID": "ATX_Stashbox_Leadlined"
   },
   {
+    "Name": "My Stash Box",
+    "Category": "Storage",
+    "SubCategory": "Stash Boxes",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
+    "COBJ_FormID": "3779d",
+    "CNAM_FormID": "0083EAE9",
+    "CNAM_EditorID": "SCORE_S23_StashBox_StayAway"
+  },
+  {
     "Name": "News Stand",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
@@ -57436,15 +57526,6 @@
     "COBJ_FormID": "677b61",
     "CNAM_FormID": "00677BE6",
     "CNAM_EditorID": "SCORE_S11_Structure_PrisonCar"
-  },
-  {
-    "Name": "Raiderized Truck",
-    "Category": "Structure",
-    "SubCategory": "Industrial",
-    "COBJ_FormEditorID": "SCORE_S23_workshop_co_Structure_RaiderTruck",
-    "COBJ_FormID": "853918",
-    "CNAM_FormID": "00853921",
-    "CNAM_EditorID": "SCORE_S23_RaiderTruck"
   },
   {
     "Name": "Rustic Watermill",
@@ -58192,15 +58273,6 @@
     "COBJ_FormID": "853918",
     "CNAM_FormID": "00853921",
     "CNAM_EditorID": "SCORE_S23_RaiderTruck"
-  },
-  {
-    "Name": null,
-    "Category": "Structure",
-    "SubCategory": "Scavenger",
-    "COBJ_FormEditorID": "ZZZ_SCORE_S23_workshop_co_Structure_RaiderNukaColaCar",
-    "COBJ_FormID": "85b1d5",
-    "CNAM_FormID": null,
-    "CNAM_EditorID": null
   },
   {
     "Name": "Sippin' Station",
