@@ -489,7 +489,11 @@
 
       searchBox.addEventListener('input', () => renderResults(searchBox.value));
       toggleImages.addEventListener('change', () => renderResults(searchBox.value));
-      sortMode.addEventListener('change', () => { currentPage = 1; renderResults(searchBox.value.toLowerCase());});
+      sortMode.addEventListener('change', () => {
+        currentPage = 1;
+        renderResults(searchBox.value.toLowerCase());
+      });
+
 
       renderResults('');
     })
