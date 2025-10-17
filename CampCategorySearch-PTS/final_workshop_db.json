@@ -11943,15 +11943,6 @@
     "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_PorchStairs_01"
   },
   {
-    "Name": "Car Saloon Doors",
-    "Category": "C.A.M.P. Pieces",
-    "SubCategory": "Doors",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_CarDoors",
-    "COBJ_FormID": "7f4a1b",
-    "CNAM_FormID": "007F4A28",
-    "CNAM_EditorID": "Burn_Workshop_CarSaloonDoors"
-  },
-  {
     "Name": "Curtain Door - Bloody",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Doors",
@@ -12616,6 +12607,15 @@
     "COBJ_FormID": "498af7",
     "CNAM_FormID": "00847817",
     "CNAM_EditorID": "ATX_DinoBiteGiftShop_Door"
+  },
+  {
+    "Name": "Car Saloon Doors",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Doors",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structures_Doors_Metal",
+    "COBJ_FormID": "498af7",
+    "CNAM_FormID": "007F4A28",
+    "CNAM_EditorID": "Burn_Workshop_CarSaloonDoors"
   },
   {
     "Name": "Rolling Metal Door",
@@ -15012,6 +15012,42 @@
     "CNAM_EditorID": "SCORE_S18_Metalsheet_Steel_Barricade"
   },
   {
+    "Name": "Wasteland Compound Partition",
+    "Category": "Defense",
+    "SubCategory": "Barricades",
+    "COBJ_FormEditorID": "ATX_workshop_co_Defense_Barricades",
+    "COBJ_FormID": "5edf2e",
+    "CNAM_FormID": "008469B6",
+    "CNAM_EditorID": "ATX_Workshop_CompoundWalls_Fence01_256"
+  },
+  {
+    "Name": "Wasteland Compound Partition",
+    "Category": "Defense",
+    "SubCategory": "Barricades",
+    "COBJ_FormEditorID": "ATX_workshop_co_Defense_Barricades",
+    "COBJ_FormID": "5edf2e",
+    "CNAM_FormID": "00850373",
+    "CNAM_EditorID": "ATX_Workshop_CompoundWalls_Fence02_256"
+  },
+  {
+    "Name": "Wasteland Compound Partition",
+    "Category": "Defense",
+    "SubCategory": "Barricades",
+    "COBJ_FormEditorID": "ATX_workshop_co_Defense_Barricades",
+    "COBJ_FormID": "5edf2e",
+    "CNAM_FormID": "00850374",
+    "CNAM_EditorID": "ATX_Workshop_CompoundWalls_Fence03_256"
+  },
+  {
+    "Name": "Wasteland Compound Partition",
+    "Category": "Defense",
+    "SubCategory": "Barricades",
+    "COBJ_FormEditorID": "ATX_workshop_co_Defense_Barricades",
+    "COBJ_FormID": "5edf2e",
+    "CNAM_FormID": "00850375",
+    "CNAM_EditorID": "ATX_Workshop_CompoundWalls_Fence04_256"
+  },
+  {
     "Name": "Barricade",
     "Category": "Defense",
     "SubCategory": "Barricades",
@@ -17109,13 +17145,13 @@
     "CNAM_EditorID": "Babylon_CAMP_AntlerChandelier_Survivors2020"
   },
   {
-    "Name": "Car Grill Lights",
+    "Name": null,
     "Category": "Lights",
     "SubCategory": "Ceiling Lights",
     "COBJ_FormEditorID": "Burn_Workshop_CO_CeilingCarLight",
     "COBJ_FormID": "7f2775",
-    "CNAM_FormID": "007F2765",
-    "CNAM_EditorID": "Burn_Workshop_CarLighting03"
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "Lightbulb",
@@ -17521,6 +17557,15 @@
     "COBJ_FormID": "51011a",
     "CNAM_FormID": "0084CCCC",
     "CNAM_EditorID": "ATX_Lights_Ceiling_TunnelLight"
+  },
+  {
+    "Name": "Car Grill Lights",
+    "Category": "Lights",
+    "SubCategory": "Ceiling Lights",
+    "COBJ_FormEditorID": "workshop_co_Lights_CeilingLights",
+    "COBJ_FormID": "51011a",
+    "CNAM_FormID": "007F2765",
+    "CNAM_EditorID": "Burn_Workshop_CarLighting03"
   },
   {
     "Name": "Glass Float Light",
@@ -19674,22 +19719,13 @@
     "CNAM_EditorID": "SCORE_S23_Light_WallGlowingSkull"
   },
   {
-    "Name": "Headlight Sconce - Green",
+    "Name": null,
     "Category": "Lights",
     "SubCategory": "Wall Lights",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_WallCarLamps",
+    "COBJ_FormEditorID": "zzzBurn_Workshop_CO_WallCarLamps",
     "COBJ_FormID": "7f2772",
-    "CNAM_FormID": "007F2763",
-    "CNAM_EditorID": "Burn_Workshop_CarLighting01"
-  },
-  {
-    "Name": "Headlight Sconce - Yellow",
-    "Category": "Lights",
-    "SubCategory": "Wall Lights",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_WallCarLamps",
-    "COBJ_FormID": "7f2772",
-    "CNAM_FormID": "007F2764",
-    "CNAM_EditorID": "Burn_Workshop_CarLighting02"
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "Klaxon Wall Light",
@@ -20320,6 +20356,24 @@
     "COBJ_FormID": "510119",
     "CNAM_FormID": "007A1051",
     "CNAM_EditorID": "DE2024_Halloween_Lights_Wall_MothmanGlowingEyes"
+  },
+  {
+    "Name": "Headlight Sconce - Green",
+    "Category": "Lights",
+    "SubCategory": "Wall Lights",
+    "COBJ_FormEditorID": "workshop_co_Lights_WallLights",
+    "COBJ_FormID": "510119",
+    "CNAM_FormID": "007F2763",
+    "CNAM_EditorID": "Burn_Workshop_CarLighting01"
+  },
+  {
+    "Name": "Headlight Sconce - Yellow",
+    "Category": "Lights",
+    "SubCategory": "Wall Lights",
+    "COBJ_FormEditorID": "workshop_co_Lights_WallLights",
+    "COBJ_FormID": "510119",
+    "CNAM_FormID": "007F2764",
+    "CNAM_EditorID": "Burn_Workshop_CarLighting02"
   },
   {
     "Name": "Armor Workbench",
@@ -21859,6 +21913,15 @@
     "COBJ_FormID": "e0b7e",
     "CNAM_FormID": "000E0B7D",
     "CNAM_EditorID": "workshopRecipe_RazorGrain"
+  },
+  {
+    "Name": "Slipper Cactus",
+    "Category": "Resources",
+    "SubCategory": "Food",
+    "COBJ_FormEditorID": "workshop_co_FoodSlipperCactus",
+    "COBJ_FormID": "88368f",
+    "CNAM_FormID": "00883690",
+    "CNAM_EditorID": "workshopRecipe_SlipperCactus"
   },
   {
     "Name": "Tato Plant",
@@ -24651,6 +24714,24 @@
     "CNAM_EditorID": "SCORE_MiniSeason_2025_NightAtTheMorgue_Bed_AutopsyTable"
   },
   {
+    "Name": "Taligate Bed - Teal",
+    "Category": "Furniture",
+    "SubCategory": "Beds",
+    "COBJ_FormEditorID": "workshop_co_Beds_Metal",
+    "COBJ_FormID": "5059ed",
+    "CNAM_FormID": "007F4A2D",
+    "CNAM_EditorID": "Burn_Workshop_TailgateBed01"
+  },
+  {
+    "Name": "Taligate Bed - Red",
+    "Category": "Furniture",
+    "SubCategory": "Beds",
+    "COBJ_FormEditorID": "workshop_co_Beds_Metal",
+    "COBJ_FormID": "5059ed",
+    "CNAM_FormID": "007F4A2A",
+    "CNAM_EditorID": "Burn_Workshop_TailgateBed02"
+  },
+  {
     "Name": "Four Poster Bed",
     "Category": "Furniture",
     "SubCategory": "Beds",
@@ -25119,22 +25200,13 @@
     "CNAM_EditorID": "ATX_Bed_AlienStasisChamberVariant"
   },
   {
-    "Name": "Taligate Bed - Teal",
+    "Name": null,
     "Category": "Furniture",
     "SubCategory": "Beds",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_TailgateBeds",
+    "COBJ_FormEditorID": "zzzBurn_Workshop_CO_TailgateBeds",
     "COBJ_FormID": "7f4a1d",
-    "CNAM_FormID": "007F4A2D",
-    "CNAM_EditorID": "Burn_Workshop_TailgateBed01"
-  },
-  {
-    "Name": "Taligate Bed - Red",
-    "Category": "Furniture",
-    "SubCategory": "Beds",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_TailgateBeds",
-    "COBJ_FormID": "7f4a1d",
-    "CNAM_FormID": "007F4A2A",
-    "CNAM_EditorID": "Burn_Workshop_TailgateBed02"
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "Hospital Bed",
@@ -25848,6 +25920,33 @@
     "CNAM_EditorID": "SCORE_MiniSeason_2025_SunsetStranger_Furniture_BarStool_OldWestSarsaparilla"
   },
   {
+    "Name": "Highway Town Stool - Wheel",
+    "Category": "Furniture",
+    "SubCategory": "Seating",
+    "COBJ_FormEditorID": "ATX_workshop_co_Decorations_BarChairs",
+    "COBJ_FormID": "4182bb",
+    "CNAM_FormID": "007F4A29",
+    "CNAM_EditorID": "Burn_Workshop_BarStool01"
+  },
+  {
+    "Name": "Highway Town Stool - Sign",
+    "Category": "Furniture",
+    "SubCategory": "Seating",
+    "COBJ_FormEditorID": "ATX_workshop_co_Decorations_BarChairs",
+    "COBJ_FormID": "4182bb",
+    "CNAM_FormID": "007F4A2B",
+    "CNAM_EditorID": "Burn_Workshop_BarStool02"
+  },
+  {
+    "Name": "Riding Shotgun Chair",
+    "Category": "Furniture",
+    "SubCategory": "Seating",
+    "COBJ_FormEditorID": "ATX_workshop_co_Decorations_BarChairs",
+    "COBJ_FormID": "4182bb",
+    "CNAM_FormID": "007F4A2C",
+    "CNAM_EditorID": "Burn_Workshop_BarStool03"
+  },
+  {
     "Name": "Grey Carousel Horse Seat",
     "Category": "Furniture",
     "SubCategory": "Seating",
@@ -26118,6 +26217,24 @@
     "CNAM_EditorID": "ATX_Furniture_Couch_BrownClassyCouch"
   },
   {
+    "Name": "Scrap Car Sofa - Teal",
+    "Category": "Furniture",
+    "SubCategory": "Seating",
+    "COBJ_FormEditorID": "workshop_co_Couches",
+    "COBJ_FormID": "164265",
+    "CNAM_FormID": "007F2358",
+    "CNAM_EditorID": "Burn_Workshop_Chair_CarSofa01"
+  },
+  {
+    "Name": "Scrap Car Sofa - Red",
+    "Category": "Furniture",
+    "SubCategory": "Seating",
+    "COBJ_FormEditorID": "workshop_co_Couches",
+    "COBJ_FormID": "164265",
+    "CNAM_FormID": "007F2359",
+    "CNAM_EditorID": "Burn_Workshop_Chair_CarSofa02"
+  },
+  {
     "Name": "Drowned Chesterfield Chair",
     "Category": "Furniture",
     "SubCategory": "Seating",
@@ -26136,31 +26253,13 @@
     "CNAM_EditorID": "Fishing_workshop_DrownedChesterfieldSofa"
   },
   {
-    "Name": "Highway Town Stool - Wheel",
+    "Name": null,
     "Category": "Furniture",
     "SubCategory": "Seating",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_BarStools",
+    "COBJ_FormEditorID": "zzzBurn_Workshop_CO_BarStools",
     "COBJ_FormID": "7f4a20",
-    "CNAM_FormID": "007F4A29",
-    "CNAM_EditorID": "Burn_Workshop_BarStool01"
-  },
-  {
-    "Name": "Highway Town Stool - Sign",
-    "Category": "Furniture",
-    "SubCategory": "Seating",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_BarStools",
-    "COBJ_FormID": "7f4a20",
-    "CNAM_FormID": "007F4A2B",
-    "CNAM_EditorID": "Burn_Workshop_BarStool02"
-  },
-  {
-    "Name": "Riding Shotgun Chair",
-    "Category": "Furniture",
-    "SubCategory": "Seating",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_BarStools",
-    "COBJ_FormID": "7f4a20",
-    "CNAM_FormID": "007F4A2C",
-    "CNAM_EditorID": "Burn_Workshop_BarStool03"
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "Chair",
@@ -26368,6 +26467,15 @@
     "COBJ_FormID": "470643",
     "CNAM_FormID": "007734F8",
     "CNAM_EditorID": "MILE_Workshop_Item_CryptidThrone"
+  },
+  {
+    "Name": "The Rust King's Throne",
+    "Category": "Furniture",
+    "SubCategory": "Seating",
+    "COBJ_FormEditorID": "workshop_co_Chairs_Large",
+    "COBJ_FormID": "470643",
+    "CNAM_FormID": "007F2078",
+    "CNAM_EditorID": "Burn_Workshop_Chair_RustKingThrone"
   },
   {
     "Name": "Gorilla Chair",
@@ -27207,24 +27315,6 @@
     "CNAM_EditorID": "SCORE_S17_Chair_SlocumJoe_Tube"
   },
   {
-    "Name": "Scrap Car Sofa - Teal",
-    "Category": "Furniture",
-    "SubCategory": "Seating",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_CarSofas",
-    "COBJ_FormID": "7f2357",
-    "CNAM_FormID": "007F2358",
-    "CNAM_EditorID": "Burn_Workshop_Chair_CarSofa01"
-  },
-  {
-    "Name": "Scrap Car Sofa - Red",
-    "Category": "Furniture",
-    "SubCategory": "Seating",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_CarSofas",
-    "COBJ_FormID": "7f2357",
-    "CNAM_FormID": "007F2359",
-    "CNAM_EditorID": "Burn_Workshop_Chair_CarSofa02"
-  },
-  {
     "Name": "Bench",
     "Category": "Furniture",
     "SubCategory": "Seating",
@@ -27243,13 +27333,13 @@
     "CNAM_EditorID": "WhiteSpring_Stone_Bench01"
   },
   {
-    "Name": "The Rust King's Throne",
+    "Name": null,
     "Category": "Furniture",
     "SubCategory": "Seating",
     "COBJ_FormEditorID": "Burn_Workshop_CO_RustKingThrone",
     "COBJ_FormID": "7f2077",
-    "CNAM_FormID": "007F2078",
-    "CNAM_EditorID": "Burn_Workshop_Chair_RustKingThrone"
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "Ultracite Stool",
@@ -27682,6 +27772,24 @@
     "COBJ_FormID": "1a03ab",
     "CNAM_FormID": "0011262D",
     "CNAM_EditorID": "DLC06WorkshopVault_Shelf_04"
+  },
+  {
+    "Name": "Super Duper Mart Cooler",
+    "Category": "Furniture",
+    "SubCategory": "Shelves",
+    "COBJ_FormEditorID": "Burn_Workshop_CO_RetailFridges",
+    "COBJ_FormID": "7f4a1c",
+    "CNAM_FormID": "007F4A31",
+    "CNAM_EditorID": "Burn_Workshop_RetailFridge01"
+  },
+  {
+    "Name": "Super Duper Mart Store Shelf",
+    "Category": "Furniture",
+    "SubCategory": "Shelves",
+    "COBJ_FormEditorID": "Burn_Workshop_CO_RetailFridges",
+    "COBJ_FormID": "7f4a1c",
+    "CNAM_FormID": "007F4A32",
+    "CNAM_EditorID": "Burn_Workshop_RetailFridge02"
   },
   {
     "Name": "Surfboard Shelf",
@@ -28521,6 +28629,15 @@
     "CNAM_EditorID": "MetalTableRound01"
   },
   {
+    "Name": "Rusted Car Table",
+    "Category": "Furniture",
+    "SubCategory": "Surfaces",
+    "COBJ_FormEditorID": "workshop_co_Tables_MetalTables",
+    "COBJ_FormID": "3c7be3",
+    "CNAM_FormID": "007F4A33",
+    "CNAM_EditorID": "Burn_Workshop_JeepTable"
+  },
+  {
     "Name": "Saw Table",
     "Category": "Furniture",
     "SubCategory": "Surfaces",
@@ -28969,15 +29086,6 @@
     "COBJ_FormID": "7ae63f",
     "CNAM_FormID": "007AE641",
     "CNAM_EditorID": "SCORE_S20_Furniture_Table_NuclearBarrelTable"
-  },
-  {
-    "Name": "Rusted Car Table",
-    "Category": "Furniture",
-    "SubCategory": "Surfaces",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_JeepTable",
-    "COBJ_FormID": "7f4a27",
-    "CNAM_FormID": "007F4A33",
-    "CNAM_EditorID": "Burn_Workshop_JeepTable"
   },
   {
     "Name": "Primitive End Table",
@@ -33933,7 +34041,7 @@
     "Name": "Lawn Mower",
     "Category": "Decorations",
     "SubCategory": "Lawn & Garden",
-    "COBJ_FormEditorID": "SCORE_S22_CAMP_co_FloorDecor_LawnMower",
+    "COBJ_FormEditorID": "SCORE_S23_CAMP_co_FloorDecor_LawnMower",
     "COBJ_FormID": "83383f",
     "CNAM_FormID": "00833851",
     "CNAM_EditorID": "SCORE_S23_FloorDecor_LawnMower"
@@ -35055,6 +35163,15 @@
     "CNAM_EditorID": "ATX_Planter_GumballMachine"
   },
   {
+    "Name": "Head Hunt Flare",
+    "Category": "Decorations",
+    "SubCategory": "Novelties",
+    "COBJ_FormEditorID": "Burn_Workshop_CO_BountyHuntingFlareMortar",
+    "COBJ_FormID": "857c6c",
+    "CNAM_FormID": "00857C6F",
+    "CNAM_EditorID": "Burn_Workshop_FlareMortar"
+  },
+  {
     "Name": "Heart-Shaped Geode",
     "Category": "Decorations",
     "SubCategory": "Novelties",
@@ -35343,24 +35460,6 @@
     "CNAM_EditorID": "Primitive_Furniture_Spindle"
   },
   {
-    "Name": "Super Duper Mart Cooler",
-    "Category": "Decorations",
-    "SubCategory": "Novelties",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_RetailFridges",
-    "COBJ_FormID": "7f4a1c",
-    "CNAM_FormID": "007F4A31",
-    "CNAM_EditorID": "Burn_Workshop_RetailFridge01"
-  },
-  {
-    "Name": "Super Duper Mart Store Shelf",
-    "Category": "Decorations",
-    "SubCategory": "Novelties",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_RetailFridges",
-    "COBJ_FormID": "7f4a1c",
-    "CNAM_FormID": "007F4A32",
-    "CNAM_EditorID": "Burn_Workshop_RetailFridge02"
-  },
-  {
     "Name": "Telegraph",
     "Category": "Decorations",
     "SubCategory": "Novelties",
@@ -35444,7 +35543,7 @@
   {
     "Name": "Beer Pump",
     "Category": "Decorations",
-    "SubCategory": "Outdoor",
+    "SubCategory": "Novelties",
     "COBJ_FormEditorID": "Burn_Workshop_CO_GasPumpBeerKeg",
     "COBJ_FormID": "7f276d",
     "CNAM_FormID": "007F277B",
@@ -36315,15 +36414,6 @@
     "CNAM_EditorID": "SCORE_S21_FloorDecor_FishingNet_03"
   },
   {
-    "Name": "Head Hunt Flare",
-    "Category": "Decorations",
-    "SubCategory": "Outdoor",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_BountyHuntingFlareMortar",
-    "COBJ_FormID": "857c6c",
-    "CNAM_FormID": "00857C6F",
-    "CNAM_EditorID": "Burn_Workshop_FlareMortar"
-  },
-  {
     "Name": "Industrial Pipe - Horizontal",
     "Category": "Decorations",
     "SubCategory": "Outdoor",
@@ -36543,7 +36633,7 @@
     "Name": null,
     "Category": "Decorations",
     "SubCategory": "Outdoor",
-    "COBJ_FormEditorID": "ATX_workshop_co_Decorations_Raider_Braziers",
+    "COBJ_FormEditorID": "zzzATX_workshop_co_Decorations_Raider_Braziers",
     "COBJ_FormID": "5a3ca2",
     "CNAM_FormID": null,
     "CNAM_EditorID": null
@@ -37521,6 +37611,24 @@
     "CNAM_EditorID": "Workshop_FloorDecor_AreaRug_Vault76"
   },
   {
+    "Name": null,
+    "Category": "Decorations",
+    "SubCategory": "Signs",
+    "COBJ_FormEditorID": "Burn_Workshop_CO_FortSteubenSign",
+    "COBJ_FormID": "7f5afd",
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
+  },
+  {
+    "Name": null,
+    "Category": "Decorations",
+    "SubCategory": "Signs",
+    "COBJ_FormEditorID": "Burn_Workshop_CO_HeartlandEasternRail_Sign",
+    "COBJ_FormID": "833fb3",
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
+  },
+  {
     "Name": "Billboard Frame",
     "Category": "Decorations",
     "SubCategory": "Signs",
@@ -37674,15 +37782,6 @@
     "CNAM_EditorID": "SCORE_S23_Workshop_DinoEntranceSign"
   },
   {
-    "Name": "Fort Steuben Sign",
-    "Category": "Decorations",
-    "SubCategory": "Signs",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_FortSteubenSign",
-    "COBJ_FormID": "7f5afd",
-    "CNAM_FormID": "007F5B03",
-    "CNAM_EditorID": "Burn_Workshop_FortSteubenSign"
-  },
-  {
     "Name": "Free States - Camp Sign",
     "Category": "Decorations",
     "SubCategory": "Signs",
@@ -37737,15 +37836,6 @@
     "CNAM_EditorID": "ATX_SignFreeStates_Small01"
   },
   {
-    "Name": "Heartland Trainyard Sign",
-    "Category": "Decorations",
-    "SubCategory": "Signs",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_HeartlandEasternRail_Sign",
-    "COBJ_FormID": "833fb3",
-    "CNAM_FormID": "007F7924",
-    "CNAM_EditorID": "Burn_Trainyard_HeartlandEasternRail_Sign"
-  },
-  {
     "Name": "Helvetian Lodge Sign",
     "Category": "Decorations",
     "SubCategory": "Signs",
@@ -37782,13 +37872,13 @@
     "CNAM_EditorID": "SCORE_S16_FloorDecor_IceCreamSign_Yellow"
   },
   {
-    "Name": "Jackson Junkyard Sign",
+    "Name": null,
     "Category": "Decorations",
     "SubCategory": "Signs",
     "COBJ_FormEditorID": "Burn_Workshop_CO_ScrapyardSign",
     "COBJ_FormID": "8409fa",
-    "CNAM_FormID": "008409FC",
-    "CNAM_EditorID": "Burn_Workshop_ScrapyardSign"
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "Atlantic City Sign",
@@ -38403,13 +38493,13 @@
     "CNAM_EditorID": "E09D_Workshop_Cutout_Townsfolk_N5"
   },
   {
-    "Name": "Tycoon Lake Sign",
+    "Name": null,
     "Category": "Decorations",
     "SubCategory": "Signs",
     "COBJ_FormEditorID": "Burn_Workshop_CO_TycoonLakeSign",
     "COBJ_FormID": "8553f7",
-    "CNAM_FormID": "00835E6E",
-    "CNAM_EditorID": "BURN_TycoonLakeSign"
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "Cardboard Display",
@@ -38709,13 +38799,13 @@
     "CNAM_EditorID": "ATX_Map_WavyWillards"
   },
   {
-    "Name": "Welcome to Ohio Sign",
+    "Name": null,
     "Category": "Decorations",
     "SubCategory": "Signs",
     "COBJ_FormEditorID": "Burn_Workshop_CO_OhioWelcomeSign",
     "COBJ_FormID": "844a8a",
-    "CNAM_FormID": "00844A8B",
-    "CNAM_EditorID": "Burn_Workshop_OhioWelcomeSign"
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "Wet Floor Sign",
@@ -38806,24 +38896,6 @@
     "COBJ_FormID": "67aeda",
     "CNAM_FormID": "00683128",
     "CNAM_EditorID": "E09D_Workshop_EntranceSign"
-  },
-  {
-    "Name": "Abraxodyne Sign",
-    "Category": "Decorations",
-    "SubCategory": "Statues",
-    "COBJ_FormEditorID": "Burn_Workshop_co_AbraxodyneSigns",
-    "COBJ_FormID": "85b467",
-    "CNAM_FormID": "007FDCE2",
-    "CNAM_EditorID": "Burn_Workshop_AbraxodyneSign"
-  },
-  {
-    "Name": "Rusted Abraxodyne Sign",
-    "Category": "Decorations",
-    "SubCategory": "Statues",
-    "COBJ_FormEditorID": "Burn_Workshop_co_AbraxodyneSigns",
-    "COBJ_FormID": "85b467",
-    "CNAM_FormID": "0083EB2F",
-    "CNAM_EditorID": "Burn_Workshop_AbraxodyneSign_Damaged"
   },
   {
     "Name": "Atom Statue",
@@ -42107,8 +42179,8 @@
     "SubCategory": "Vehicles",
     "COBJ_FormEditorID": "Burn_Workshop_CO_AbraxoTruck",
     "COBJ_FormID": "85364f",
-    "CNAM_FormID": "008535D9",
-    "CNAM_EditorID": "Burn_Vehicle_DumpTruck_AbraxoTruck"
+    "CNAM_FormID": "00883C4D",
+    "CNAM_EditorID": "Burn_Workshop_Vehicle_AbraxoTruck"
   },
   {
     "Name": "Appalachian Contessa",
@@ -43236,13 +43308,13 @@
     "CNAM_EditorID": "SCORE_S16_CeilingDecor_HangingTireBasket03"
   },
   {
-    "Name": "Highway Town Guns Sign",
+    "Name": null,
     "Category": "Wall Decor",
     "SubCategory": "Ceiling",
     "COBJ_FormEditorID": "Burn_Workshop_CO_HWTGunSign",
     "COBJ_FormID": "8553f6",
-    "CNAM_FormID": "008553F9",
-    "CNAM_EditorID": "Burn_Workshop_HWTGunSign"
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "Hung Candle Rack",
@@ -44046,22 +44118,22 @@
     "CNAM_EditorID": "WallDecor_SteelBust"
   },
   {
-    "Name": "Mounted Armored Deathclaw Head",
+    "Name": null,
     "Category": "Wall Decor",
     "SubCategory": "Mounted",
     "COBJ_FormEditorID": "Burn_Workshop_CO_ArmoredDeathclawHead",
     "COBJ_FormID": "85541a",
-    "CNAM_FormID": "0085541D",
-    "CNAM_EditorID": "Burn_Workshop_ArmoredDeathclawHead"
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
-    "Name": "Mounted Deathclaw Matriarch Head",
+    "Name": null,
     "Category": "Wall Decor",
     "SubCategory": "Mounted",
     "COBJ_FormEditorID": "Burn_Workshop_CO_DeathclawMatriarchHead",
     "COBJ_FormID": "85541b",
-    "CNAM_FormID": "0085541E",
-    "CNAM_EditorID": "Burn_Workshop_MatriarchDeathclawHead"
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "Order of the Crossed Axes Decoration",
@@ -44694,6 +44766,15 @@
     "CNAM_EditorID": "Burn_Workshop_MatriarchDeathclawHead"
   },
   {
+    "Name": "Mounted Armored Deathclaw Head",
+    "Category": "Wall Decor",
+    "SubCategory": "Mounted",
+    "COBJ_FormEditorID": "workshop_co_Taxidermy",
+    "COBJ_FormID": "40df42",
+    "CNAM_FormID": "0085541D",
+    "CNAM_EditorID": "Burn_Workshop_ArmoredDeathclawHead"
+  },
+  {
     "Name": "Wall Mounted Fish",
     "Category": "Wall Decor",
     "SubCategory": "Mounted",
@@ -44964,13 +45045,13 @@
     "CNAM_EditorID": "SCORE_S13_WallDecor_Powered_TheaterMarquee"
   },
   {
-    "Name": "Abraxodyne Office Wall Sign",
+    "Name": null,
     "Category": "Wall Decor",
     "SubCategory": "Signs",
     "COBJ_FormEditorID": "Burn_Workshop_CO_AbraxodyneHQSign",
     "COBJ_FormID": "85782d",
-    "CNAM_FormID": "0085782E",
-    "CNAM_EditorID": "Burn_WallDecor_Workshop_AbraxodyneHQSign"
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "Aquarium Sign - Great Hall",
@@ -45142,6 +45223,96 @@
     "COBJ_FormID": "6fbac9",
     "CNAM_FormID": "006FBAD3",
     "CNAM_EditorID": "ATX_WallDecor_BlacksmithSign"
+  },
+  {
+    "Name": "Abraxodyne Sign",
+    "Category": "Wall Decor",
+    "SubCategory": "Signs",
+    "COBJ_FormEditorID": "Burn_Workshop_co_BurningSpringsSigns",
+    "COBJ_FormID": "85b467",
+    "CNAM_FormID": "007FDCE2",
+    "CNAM_EditorID": "Burn_Workshop_AbraxodyneSign"
+  },
+  {
+    "Name": "Rusted Abraxodyne Sign",
+    "Category": "Wall Decor",
+    "SubCategory": "Signs",
+    "COBJ_FormEditorID": "Burn_Workshop_co_BurningSpringsSigns",
+    "COBJ_FormID": "85b467",
+    "CNAM_FormID": "0083EB2F",
+    "CNAM_EditorID": "Burn_Workshop_AbraxodyneSign_Damaged"
+  },
+  {
+    "Name": "Highway Town Chems Store Sign",
+    "Category": "Wall Decor",
+    "SubCategory": "Signs",
+    "COBJ_FormEditorID": "Burn_Workshop_co_BurningSpringsSigns",
+    "COBJ_FormID": "85b467",
+    "CNAM_FormID": "008554CD",
+    "CNAM_EditorID": "Burn_Workshop_HWTChemsSign"
+  },
+  {
+    "Name": "Welcome to Ohio Sign",
+    "Category": "Wall Decor",
+    "SubCategory": "Signs",
+    "COBJ_FormEditorID": "Burn_Workshop_co_BurningSpringsSigns",
+    "COBJ_FormID": "85b467",
+    "CNAM_FormID": "00844A8B",
+    "CNAM_EditorID": "Burn_Workshop_OhioWelcomeSign"
+  },
+  {
+    "Name": "Abraxodyne Office Wall Sign",
+    "Category": "Wall Decor",
+    "SubCategory": "Signs",
+    "COBJ_FormEditorID": "Burn_Workshop_co_BurningSpringsSigns",
+    "COBJ_FormID": "85b467",
+    "CNAM_FormID": "0085782E",
+    "CNAM_EditorID": "Burn_WallDecor_Workshop_AbraxodyneHQSign"
+  },
+  {
+    "Name": "Fort Steuben Sign",
+    "Category": "Wall Decor",
+    "SubCategory": "Signs",
+    "COBJ_FormEditorID": "Burn_Workshop_co_BurningSpringsSigns",
+    "COBJ_FormID": "85b467",
+    "CNAM_FormID": "007F5B03",
+    "CNAM_EditorID": "Burn_Workshop_FortSteubenSign"
+  },
+  {
+    "Name": "Heartland Trainyard Sign",
+    "Category": "Wall Decor",
+    "SubCategory": "Signs",
+    "COBJ_FormEditorID": "Burn_Workshop_co_BurningSpringsSigns",
+    "COBJ_FormID": "85b467",
+    "CNAM_FormID": "00883C4E",
+    "CNAM_EditorID": "Burn_Workshop_HeartlandEasternRail_Sign"
+  },
+  {
+    "Name": "Highway Town Guns Sign",
+    "Category": "Wall Decor",
+    "SubCategory": "Signs",
+    "COBJ_FormEditorID": "Burn_Workshop_co_BurningSpringsSigns",
+    "COBJ_FormID": "85b467",
+    "CNAM_FormID": "008553F9",
+    "CNAM_EditorID": "Burn_Workshop_HWTGunSign"
+  },
+  {
+    "Name": "Tycoon Lake Sign",
+    "Category": "Wall Decor",
+    "SubCategory": "Signs",
+    "COBJ_FormEditorID": "Burn_Workshop_co_BurningSpringsSigns",
+    "COBJ_FormID": "85b467",
+    "CNAM_FormID": "008553FA",
+    "CNAM_EditorID": "Burn_Workshop_TycoonLakeSign"
+  },
+  {
+    "Name": "Jackson Junkyard Sign",
+    "Category": "Wall Decor",
+    "SubCategory": "Signs",
+    "COBJ_FormEditorID": "Burn_Workshop_co_BurningSpringsSigns",
+    "COBJ_FormID": "85b467",
+    "CNAM_FormID": "008409FC",
+    "CNAM_EditorID": "Burn_Workshop_ScrapyardSign"
   },
   {
     "Name": "Doctor Ken's Chem Den",
@@ -45585,13 +45756,13 @@
     "CNAM_EditorID": "SCORE_S18_WallDecor_GunsmithSign"
   },
   {
-    "Name": "Highway Town Chems Store Sign",
+    "Name": null,
     "Category": "Wall Decor",
     "SubCategory": "Signs",
     "COBJ_FormEditorID": "Burn_Workshop_CO_HWTChemsSign",
     "COBJ_FormID": "8554c3",
-    "CNAM_FormID": "008554CD",
-    "CNAM_EditorID": "Burn_Workshop_HWTChemsSign"
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "Kill Or Be Killed Sign",
@@ -47187,13 +47358,13 @@
     "CNAM_EditorID": "DLC05_PosterAFrame41"
   },
   {
-    "Name": "Bounty Posters",
+    "Name": null,
     "Category": "Wall Decor",
     "SubCategory": "Wall Art",
     "COBJ_FormEditorID": "Burn_Workshop_CO_WantedPoster",
     "COBJ_FormID": "857c6d",
-    "CNAM_FormID": "00857C70",
-    "CNAM_EditorID": "Burn_Workshop_WantedPoster"
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "Cassidy's Favorite Painting",
@@ -48033,7 +48204,7 @@
     "CNAM_EditorID": "ATX_WallDecor_BigBossAdvertisementPoster_v02"
   },
   {
-    "Name": "Morse Code Poster",
+    "Name": " Morse Code Poster",
     "Category": "Wall Decor",
     "SubCategory": "Wall Art",
     "COBJ_FormEditorID": "workshop_co_WallDecor_Posters_General",
@@ -48418,6 +48589,24 @@
     "COBJ_FormID": "6c8d54",
     "CNAM_FormID": "007D2A34",
     "CNAM_EditorID": "SCORE_S20_WallDecor_Poster_Ghoul_03"
+  },
+  {
+    "Name": "Starlight Drive-in Movie Poster",
+    "Category": "Wall Decor",
+    "SubCategory": "Wall Art",
+    "COBJ_FormEditorID": "workshop_co_WallDecor_Posters_MoviePosters",
+    "COBJ_FormID": "6c8d54",
+    "CNAM_FormID": "00833B46",
+    "CNAM_EditorID": "Burn_Workshop_MoviePoster01"
+  },
+  {
+    "Name": "Starlight Drive-in Movie Poster",
+    "Category": "Wall Decor",
+    "SubCategory": "Wall Art",
+    "COBJ_FormEditorID": "workshop_co_WallDecor_Posters_MoviePosters",
+    "COBJ_FormID": "6c8d54",
+    "CNAM_FormID": "00884040",
+    "CNAM_EditorID": "Burn_Workshop_MoviePoster02"
   },
   {
     "Name": "Spin the Wheel Tent Poster",
@@ -49419,13 +49608,13 @@
     "CNAM_EditorID": "Storm_ShenandoahPoster01"
   },
   {
-    "Name": "Starlight Drive-in Movie Poster",
+    "Name": null,
     "Category": "Wall Decor",
     "SubCategory": "Wall Art",
     "COBJ_FormEditorID": "Burn_Workshop_CO_MoviePoster",
     "COBJ_FormID": "833b45",
-    "CNAM_FormID": "00833B46",
-    "CNAM_EditorID": "Burn_Workshop_MoviePoster"
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "V63 Zweihaender Blueprint",
@@ -49858,6 +50047,15 @@
     "COBJ_FormID": "67aed6",
     "CNAM_FormID": "0067E972",
     "CNAM_EditorID": "E09D_WantedPosterCappy_Workshop"
+  },
+  {
+    "Name": "Bounty Posters",
+    "Category": "Wall Decor",
+    "SubCategory": "Wall Art",
+    "COBJ_FormEditorID": "E09D_workshop_co_WallDecor_WantedPoster",
+    "COBJ_FormID": "67aed6",
+    "CNAM_FormID": "00857C70",
+    "CNAM_EditorID": "Burn_Workshop_WantedPoster"
   },
   {
     "Name": "King of Clubs Poster",
@@ -56286,31 +56484,13 @@
     "CNAM_EditorID": "Burn_Workshop_Container_AbraxoCache"
   },
   {
-    "Name": "Car Trunk Stash Box - Blue",
+    "Name": null,
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_CarStashBoxes",
+    "COBJ_FormEditorID": "zzzBurn_Workshop_CO_CarStashBoxes",
     "COBJ_FormID": "7f276e",
-    "CNAM_FormID": "007F2776",
-    "CNAM_EditorID": "Burn_Workshop_CarStashBox01"
-  },
-  {
-    "Name": "Car Trunk Stash Box - Red",
-    "Category": "Storage",
-    "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_CarStashBoxes",
-    "COBJ_FormID": "7f276e",
-    "CNAM_FormID": "007F2777",
-    "CNAM_EditorID": "Burn_Workshop_CarStashBox02"
-  },
-  {
-    "Name": "Car Trunk Stash Box - Green",
-    "Category": "Storage",
-    "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "Burn_Workshop_CO_CarStashBoxes",
-    "COBJ_FormID": "7f276e",
-    "CNAM_FormID": "007F2778",
-    "CNAM_EditorID": "Burn_Workshop_CarStashBox03"
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "Cooler",
@@ -57031,6 +57211,33 @@
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "0083EAE9",
     "CNAM_EditorID": "SCORE_S23_StashBox_StayAway"
+  },
+  {
+    "Name": "Car Trunk Stash Box - Blue",
+    "Category": "Storage",
+    "SubCategory": "Stash Boxes",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
+    "COBJ_FormID": "3779d",
+    "CNAM_FormID": "007F2776",
+    "CNAM_EditorID": "Burn_Workshop_CarStashBox01"
+  },
+  {
+    "Name": "Car Trunk Stash Box - Red",
+    "Category": "Storage",
+    "SubCategory": "Stash Boxes",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
+    "COBJ_FormID": "3779d",
+    "CNAM_FormID": "007F2777",
+    "CNAM_EditorID": "Burn_Workshop_CarStashBox02"
+  },
+  {
+    "Name": "Car Trunk Stash Box - Green",
+    "Category": "Storage",
+    "SubCategory": "Stash Boxes",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
+    "COBJ_FormID": "3779d",
+    "CNAM_FormID": "007F2778",
+    "CNAM_EditorID": "Burn_Workshop_CarStashBox03"
   },
   {
     "Name": "News Stand",
