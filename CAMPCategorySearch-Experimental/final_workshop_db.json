@@ -13077,22 +13077,22 @@
     "CNAM_EditorID": "MN2_Workshop_Item_CrookedMetalRailing04"
   },
   {
-    "Name": null,
+    "Name": "Defensive Wall",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Fences",
     "COBJ_FormEditorID": "babylon_co_PerimeterWall01",
     "COBJ_FormID": "483130",
-    "CNAM_FormID": null,
-    "CNAM_EditorID": null
+    "CNAM_FormID": "0051DE97",
+    "CNAM_EditorID": "babylon_kit_PerimeterWall01"
   },
   {
-    "Name": null,
+    "Name": "Defensive Wall",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Fences",
     "COBJ_FormEditorID": "workshop_co_DefensiveStructure_PerimeterWall01",
     "COBJ_FormID": "2e411b",
-    "CNAM_FormID": null,
-    "CNAM_EditorID": null
+    "CNAM_FormID": "0051DE97",
+    "CNAM_EditorID": "workshop_PACK_PerimeterWall01"
   },
   {
     "Name": "Encampment Fence",
@@ -17595,13 +17595,13 @@
     "CNAM_EditorID": "Workshop_Fasnacht_Bonfire_Effigy"
   },
   {
-    "Name": null,
+    "Name": "Fire Barrel",
     "Category": "Lights",
     "SubCategory": "Fire",
     "COBJ_FormEditorID": "workshop_co_Lights_MetalFireBarrel01",
     "COBJ_FormID": "10fea0",
-    "CNAM_FormID": null,
-    "CNAM_EditorID": null
+    "CNAM_FormID": "0010FE9C",
+    "CNAM_EditorID": "workshopMetalFireBarrel"
   },
   {
     "Name": "Firebrand Small Signal",
@@ -21312,58 +21312,58 @@
     "CNAM_EditorID": "WorkshopCollectorWoodPile"
   },
   {
-    "Name": null,
+    "Name": "Blackberry",
     "Category": "Resources",
     "SubCategory": "Food",
     "COBJ_FormEditorID": "workshop_co_FoodBlackberry",
     "COBJ_FormID": "4edf91",
-    "CNAM_FormID": null,
-    "CNAM_EditorID": null
+    "CNAM_FormID": "003AFCED",
+    "CNAM_EditorID": "workshopRecipe_Blackberry"
   },
   {
-    "Name": null,
+    "Name": "Carrot",
     "Category": "Resources",
     "SubCategory": "Food",
     "COBJ_FormEditorID": "workshop_co_FoodCarrot",
     "COBJ_FormID": "1931f4",
-    "CNAM_FormID": null,
-    "CNAM_EditorID": null
+    "CNAM_FormID": "001A90C7",
+    "CNAM_EditorID": "Workshop_FloraCarrotPlant_packin"
   },
   {
-    "Name": null,
+    "Name": "Corn",
     "Category": "Resources",
     "SubCategory": "Food",
     "COBJ_FormEditorID": "workshop_co_FoodCorn",
     "COBJ_FormID": "119b17",
-    "CNAM_FormID": null,
-    "CNAM_EditorID": null
+    "CNAM_FormID": "00065DDB",
+    "CNAM_EditorID": "workshopRecipe_Corn"
   },
   {
-    "Name": null,
+    "Name": "Gourd",
     "Category": "Resources",
     "SubCategory": "Food",
     "COBJ_FormEditorID": "workshop_co_FoodGourd",
     "COBJ_FormID": "119b18",
-    "CNAM_FormID": null,
-    "CNAM_EditorID": null
+    "CNAM_FormID": "00065DDA",
+    "CNAM_EditorID": "Workshop_FloraGourdVine01_packin"
   },
   {
-    "Name": null,
+    "Name": "Melon",
     "Category": "Resources",
     "SubCategory": "Food",
     "COBJ_FormEditorID": "workshop_co_FoodMelon",
     "COBJ_FormID": "19e179",
-    "CNAM_FormID": null,
-    "CNAM_EditorID": null
+    "CNAM_FormID": "00065DDC",
+    "CNAM_EditorID": "Workshop_FloraMelonVine01_packin"
   },
   {
-    "Name": null,
+    "Name": "Mutfruit Plant",
     "Category": "Resources",
     "SubCategory": "Food",
     "COBJ_FormEditorID": "workshop_co_FoodMutfruitPlant01",
     "COBJ_FormID": "9df9f",
-    "CNAM_FormID": null,
-    "CNAM_EditorID": null
+    "CNAM_FormID": "00065DDD",
+    "CNAM_EditorID": "Workshop_FloraMutfruit01_packin"
   },
   {
     "Name": "Pot o' Carnal Weeper",
@@ -21393,22 +21393,22 @@
     "CNAM_EditorID": "SSE_Flora_PotRadlily"
   },
   {
-    "Name": null,
+    "Name": "Razorgrain",
     "Category": "Resources",
     "SubCategory": "Food",
     "COBJ_FormEditorID": "workshop_co_FoodRazorgrain",
     "COBJ_FormID": "e0b7e",
-    "CNAM_FormID": null,
-    "CNAM_EditorID": null
+    "CNAM_FormID": "00065DDE",
+    "CNAM_EditorID": "workshopRecipe_RazorGrain"
   },
   {
-    "Name": null,
+    "Name": "Tato Plant",
     "Category": "Resources",
     "SubCategory": "Food",
     "COBJ_FormEditorID": "workshop_co_FoodTatoPlant",
     "COBJ_FormID": "5a0c6",
-    "CNAM_FormID": null,
-    "CNAM_EditorID": null
+    "CNAM_FormID": "00065DDF",
+    "CNAM_EditorID": "workshopRecipe_TatoPlant"
   },
   {
     "Name": "ArmCo Ammunition Construction Appliance",
@@ -32661,13 +32661,13 @@
     "CNAM_EditorID": "ATX_ElmBarren"
   },
   {
-    "Name": null,
+    "Name": "Bramble",
     "Category": "Decorations",
     "SubCategory": "Lawn & Garden",
     "COBJ_FormEditorID": "ATX_workshop_co_Decorations_Bramble",
     "COBJ_FormID": "5a4e3b",
-    "CNAM_FormID": null,
-    "CNAM_EditorID": null
+    "CNAM_FormID": "005A61A6",
+    "CNAM_EditorID": "ATX_Bramble_01"
   },
   {
     "Name": "Red Rose Bush",
