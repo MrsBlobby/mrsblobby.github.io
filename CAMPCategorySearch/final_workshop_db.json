@@ -2295,6 +2295,51 @@
     "CNAM_EditorID": "ATX_workshop_Tiki_Porch_Railing"
   },
   {
+    "Name": "Reclaimed Retreat Porch Railing",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Porches",
+    "COBJ_FormEditorID": "workshop_co_Structure_Wood_Railing",
+    "COBJ_FormID": "5a3642",
+    "CNAM_FormID": "008337EB",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_Porch_Railing"
+  },
+  {
+    "Name": "Reclaimed Retreat Porch Corner",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Porches",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreatPorch",
+    "COBJ_FormID": "83927c",
+    "CNAM_FormID": "008337E9",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_Porch_Corner"
+  },
+  {
+    "Name": "Reclaimed Retreat Porch Interior Corner",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Porches",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreatPorch",
+    "COBJ_FormID": "83927c",
+    "CNAM_FormID": "008337EA",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_Porch_Corner_Int"
+  },
+  {
+    "Name": "Reclaimed Retreat Porch",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Porches",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreatPorch",
+    "COBJ_FormID": "83927c",
+    "CNAM_FormID": "008337EC",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_Porch_Straight"
+  },
+  {
+    "Name": "Reclaimed Retreat Porch",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Porches",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreatPorch",
+    "COBJ_FormID": "83927c",
+    "CNAM_FormID": "008337ED",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_Porch_Straight_Open"
+  },
+  {
     "Name": "Rustic Helvetian CAMP Porch Corner",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Porches",
@@ -3627,7 +3672,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WallA01"
   },
   {
-    "Name": "Abandoned Clinic Wall - Window",
+    "Name": "Abandoned Clinic Wall - Window A",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallFull",
@@ -3636,7 +3681,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WindowA01"
   },
   {
-    "Name": "Abandoned Clinic Wall - Doorway",
+    "Name": "Abandoned Clinic Wall - Doorway A",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallFull",
@@ -3654,7 +3699,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WallB01"
   },
   {
-    "Name": "Abandoned Clinic Wall - Window",
+    "Name": "Abandoned Clinic Wall - Window B",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallFull",
@@ -3663,7 +3708,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WindowB01"
   },
   {
-    "Name": "Abandoned Clinic Wall - Doorway",
+    "Name": "Abandoned Clinic Wall - Doorway B",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallFull",
@@ -3672,7 +3717,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_DoorwayA02"
   },
   {
-    "Name": "Abandoned Clinic Wall - Half",
+    "Name": "Abandoned Clinic Wall - Half A",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallHalf",
@@ -3681,7 +3726,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WallTopA01"
   },
   {
-    "Name": "Abandoned Clinic Wall - Half",
+    "Name": "Abandoned Clinic Wall - Half B",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallHalf",
@@ -3690,7 +3735,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WallTopA02"
   },
   {
-    "Name": "Abandoned Clinic Wall - Half",
+    "Name": "Abandoned Clinic Wall - Half A",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallHalf",
@@ -3699,7 +3744,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WallTopB01"
   },
   {
-    "Name": "Abandoned Clinic Wall - Half",
+    "Name": "Abandoned Clinic Wall - Half B",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallHalf",
@@ -3708,7 +3753,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WallTopB02"
   },
   {
-    "Name": "Abandoned Clinic Wall - Full Slant",
+    "Name": "Abandoned Clinic Wall - Full Slant A",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallSlantFull",
@@ -3717,7 +3762,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WallTopSlantLFull01"
   },
   {
-    "Name": "Abandoned Clinic Wall - Full Slant",
+    "Name": "Abandoned Clinic Wall - Full Slant A",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallSlantFull",
@@ -3726,7 +3771,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WallTopSlantRFull01"
   },
   {
-    "Name": "Abandoned Clinic Wall - Full Slant",
+    "Name": "Abandoned Clinic Wall - Full Slant B",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallSlantFull",
@@ -3735,7 +3780,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WallTopSlantLFull02"
   },
   {
-    "Name": "Abandoned Clinic Wall - Full Slant",
+    "Name": "Abandoned Clinic Wall - Full Slant B",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallSlantFull",
@@ -3744,7 +3789,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WallTopSlantRFull02"
   },
   {
-    "Name": "Abandoned Clinic Wall - Slant",
+    "Name": "Abandoned Clinic Wall - Slant A",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallSlant",
@@ -3753,7 +3798,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WallTopSlantL01"
   },
   {
-    "Name": "Abandoned Clinic Wall - Slant",
+    "Name": "Abandoned Clinic Wall - Slant A",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallSlant",
@@ -3762,7 +3807,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WallTopSlantR01"
   },
   {
-    "Name": "Abandoned Clinic Wall - Slant",
+    "Name": "Abandoned Clinic Wall - Slant B",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallSlant",
@@ -3771,7 +3816,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WallTopSlantL02"
   },
   {
-    "Name": "Abandoned Clinic Wall - Slant",
+    "Name": "Abandoned Clinic Wall - Slant B",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallSlant",
@@ -3780,7 +3825,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WallTopSlantR02"
   },
   {
-    "Name": "Abandoned Clinic Wall - Top Arch",
+    "Name": "Abandoned Clinic Wall - Top Arch A",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallTopArch",
@@ -3789,7 +3834,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WallTopArchL01"
   },
   {
-    "Name": "Abandoned Clinic Wall - Top Arch",
+    "Name": "Abandoned Clinic Wall - Top Arch A",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallTopArch",
@@ -3798,7 +3843,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WallTopArchR01"
   },
   {
-    "Name": "Abandoned Clinic Wall - Top Arch",
+    "Name": "Abandoned Clinic Wall - Top Arch B",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallTopArch",
@@ -3807,7 +3852,7 @@
     "CNAM_EditorID": "ATX_workshop_AbandonedClinic_WallTopArchL02"
   },
   {
-    "Name": "Abandoned Clinic Wall - Top Arch",
+    "Name": "Abandoned Clinic Wall - Top Arch B",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_AbandonedClinic_WallTopArch",
@@ -7722,6 +7767,123 @@
     "CNAM_EditorID": "ATX_Upgrade2022_Pitt_workshop_Pitt_WallTopFasciaR01"
   },
   {
+    "Name": "Reclaimed Retreat Wall",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Walls",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_WallFull",
+    "COBJ_FormID": "83e773",
+    "CNAM_FormID": "0082F812",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_WallA01"
+  },
+  {
+    "Name": "Reclaimed Retreat Wall - Window",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Walls",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_WallFull",
+    "COBJ_FormID": "83e773",
+    "CNAM_FormID": "0082F807",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_WindowA01"
+  },
+  {
+    "Name": "Reclaimed Retreat Wall - Doorway",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Walls",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_WallFull",
+    "COBJ_FormID": "83e773",
+    "CNAM_FormID": "0082F813",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_DoorwayA01"
+  },
+  {
+    "Name": "Reclaimed Retreat Wall - Half",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Walls",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_WallHalf",
+    "COBJ_FormID": "83e772",
+    "CNAM_FormID": "0082F810",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_WallTopA01"
+  },
+  {
+    "Name": "Reclaimed Retreat Wall - Half",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Walls",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_WallHalf",
+    "COBJ_FormID": "83e772",
+    "CNAM_FormID": "0082F811",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_WallTopA02"
+  },
+  {
+    "Name": "Reclaimed Retreat Wall - Full Slant",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Walls",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_WallSlantFull",
+    "COBJ_FormID": "83e770",
+    "CNAM_FormID": "0082F80A",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_WallTopSlantLFull01"
+  },
+  {
+    "Name": "Reclaimed Retreat Wall - Full Slant",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Walls",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_WallSlantFull",
+    "COBJ_FormID": "83e770",
+    "CNAM_FormID": "0082F808",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_WallTopSlantRFull01"
+  },
+  {
+    "Name": "Reclaimed Retreat Wall - Slant",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Walls",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_WallSlant",
+    "COBJ_FormID": "83e771",
+    "CNAM_FormID": "0082F80B",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_WallTopSlantL01"
+  },
+  {
+    "Name": "Reclaimed Retreat Wall - Slant",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Walls",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_WallSlant",
+    "COBJ_FormID": "83e771",
+    "CNAM_FormID": "0082F809",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_WallTopSlantR01"
+  },
+  {
+    "Name": "Reclaimed Retreat Wall - Top Arch",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Walls",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_WallTopArch",
+    "COBJ_FormID": "83e76e",
+    "CNAM_FormID": "0082F80F",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_WallTopArchL01"
+  },
+  {
+    "Name": "Reclaimed Retreat Wall - Top Arch",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Walls",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_WallTopArch",
+    "COBJ_FormID": "83e76e",
+    "CNAM_FormID": "0082F80E",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_WallTopArchR01"
+  },
+  {
+    "Name": "Reclaimed Retreat Wall - Fascia",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Walls",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_WallFascia",
+    "COBJ_FormID": "83e76f",
+    "CNAM_FormID": "0082F80D",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_WallTopFasciaL01"
+  },
+  {
+    "Name": "Reclaimed Retreat Wall - Fascia",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Walls",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_WallFascia",
+    "COBJ_FormID": "83e76f",
+    "CNAM_FormID": "0082F80C",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_WallTopFasciaR01"
+  },
+  {
     "Name": "Red Shingle Wall",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Walls",
@@ -10683,6 +10845,51 @@
     "CNAM_EditorID": "ATX_workshop_CleanRanchHousing_CorIn01"
   },
   {
+    "Name": "Reclaimed Retreat Roof",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Roofs",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_RoofsMisc",
+    "COBJ_FormID": "83e76d",
+    "CNAM_FormID": "0082F814",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_RoofA01"
+  },
+  {
+    "Name": "Reclaimed Retreat Roof",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Roofs",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_RoofsMisc",
+    "COBJ_FormID": "83e76d",
+    "CNAM_FormID": "0082F815",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_RoofA02"
+  },
+  {
+    "Name": "Reclaimed Retreat Roof",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Roofs",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_RoofsMisc",
+    "COBJ_FormID": "83e76d",
+    "CNAM_FormID": "0082F816",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_RoofA03"
+  },
+  {
+    "Name": "Reclaimed Retreat Roof",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Roofs",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_RoofsMisc",
+    "COBJ_FormID": "83e76d",
+    "CNAM_FormID": "0082F817",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_RoofCorIn01"
+  },
+  {
+    "Name": "Reclaimed Retreat Roof",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Roofs",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_ReclaimedRetreat_RoofsMisc",
+    "COBJ_FormID": "83e76d",
+    "CNAM_FormID": "0082F818",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_RoofFlatA01"
+  },
+  {
     "Name": "Red Shingle Roof",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Roofs",
@@ -11529,6 +11736,15 @@
     "CNAM_EditorID": "ATX_workshop_Tiki_PorchStairs_01"
   },
   {
+    "Name": "Reclaimed Retreat Porch Stairs",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Stairs",
+    "COBJ_FormEditorID": "workshop_co_Structure_FoundationStairsWood01",
+    "COBJ_FormID": "43a937",
+    "CNAM_FormID": "008337EE",
+    "CNAM_EditorID": "ATX_workshop_ReclaimedRetreat_PorchStairs_01"
+  },
+  {
     "Name": "Curtain Door - Bloody",
     "Category": "C.A.M.P. Pieces",
     "SubCategory": "Doors",
@@ -12211,6 +12427,15 @@
     "COBJ_FormID": "850323",
     "CNAM_FormID": "005ACA60",
     "CNAM_EditorID": "ATX_RedRocketGarageDoor_PA"
+  },
+  {
+    "Name": "Poseidon Energy Gas Station",
+    "Category": "C.A.M.P. Pieces",
+    "SubCategory": "Doors",
+    "COBJ_FormEditorID": "ATX_workshop_co_Prefab_Door_PoseidonEnergyGasStation_PoseidonGasStation",
+    "COBJ_FormID": "83e0fd",
+    "CNAM_FormID": "0083E0FF",
+    "CNAM_EditorID": "ATX_PoseidonEnergyGasStation_Door_PoseidonGasStation"
   },
   {
     "Name": "Powered Door",
@@ -17688,7 +17913,7 @@
     "Name": "Cultist Lamp",
     "Category": "Lights",
     "SubCategory": "Lamps",
-    "COBJ_FormEditorID": "MN2_Workshop_CO_CultistLantern",
+    "COBJ_FormEditorID": "MN2_Workshop_CO_CultistLamp",
     "COBJ_FormID": "78c72e",
     "CNAM_FormID": "0078C72F",
     "CNAM_EditorID": "MN2_Workshop_Item_CultistLamp"
@@ -18645,7 +18870,7 @@
     "COBJ_FormEditorID": "ATX_workshop_co_Lights_NeonSigns",
     "COBJ_FormID": "47af3e",
     "CNAM_FormID": "00477996",
-    "CNAM_EditorID": "ATX_SignPickaxePilsnerACTI"
+    "CNAM_EditorID": "ATX_SignPickAxePilsnerACTI"
   },
   {
     "Name": "Go Away Neon Sign",
@@ -19971,6 +20196,15 @@
     "CNAM_EditorID": "SCORE_S22_WorkbenchCookingStove_MillerStove"
   },
   {
+    "Name": "Radhog Spit",
+    "Category": "Resources",
+    "SubCategory": "Crafting",
+    "COBJ_FormEditorID": "workshop_co_CraftingCooking",
+    "COBJ_FormID": "12e2c9",
+    "CNAM_FormID": "0083927F",
+    "CNAM_EditorID": "ATX_WorkbenchCookingStove_RadhogSpit"
+  },
+  {
     "Name": "Fermenter",
     "Category": "Resources",
     "SubCategory": "Crafting",
@@ -20439,6 +20673,15 @@
     "CNAM_EditorID": "SCORE_S22_Collectron_packin_RoboButler"
   },
   {
+    "Name": "Toxic Bob Collectron Station",
+    "Category": "Resources",
+    "SubCategory": "Collectors",
+    "COBJ_FormEditorID": "ATX_workshop_co_CategoryResources_Collectron",
+    "COBJ_FormID": "6d6bc",
+    "CNAM_FormID": "00841318",
+    "CNAM_EditorID": "ATX_Collectron_packin_ToxicBob"
+  },
+  {
     "Name": "Concrete Extractor",
     "Category": "Resources",
     "SubCategory": "Collectors",
@@ -20844,6 +21087,15 @@
     "CNAM_EditorID": "ATX_RepairBot_Pod_Company"
   },
   {
+    "Name": "SoulSoup Server",
+    "Category": "Resources",
+    "SubCategory": "Collectors",
+    "COBJ_FormEditorID": "SCORE_S22_workshop_co_Utility_Collector_SoulSoupServer",
+    "COBJ_FormID": "8308d1",
+    "CNAM_FormID": "008308D2",
+    "CNAM_EditorID": "SCORE_S22_CAMP_Collector_SoulSoupServer"
+  },
+  {
     "Name": null,
     "Category": "Resources",
     "SubCategory": "Collectors",
@@ -21087,6 +21339,15 @@
     "CNAM_EditorID": "workshopRecipe_RazorGrain"
   },
   {
+    "Name": "SoulSoup Server",
+    "Category": "Resources",
+    "SubCategory": "Food",
+    "COBJ_FormEditorID": "SCORE_S22_workshop_co_Utility_Collector_SoulSoupServer",
+    "COBJ_FormID": "8308d1",
+    "CNAM_FormID": "008308D2",
+    "CNAM_EditorID": "SCORE_S22_CAMP_Collector_SoulSoupServer"
+  },
+  {
     "Name": "Tato Plant",
     "Category": "Resources",
     "SubCategory": "Food",
@@ -21103,6 +21364,15 @@
     "COBJ_FormID": "592f75",
     "CNAM_FormID": "005565AD",
     "CNAM_EditorID": "W05_Workshop_AmmoConstructionMachine"
+  },
+  {
+    "Name": "Barrel of Toxic Goo",
+    "Category": "Resources",
+    "SubCategory": "Producers",
+    "COBJ_FormEditorID": "ATX_workshop_co_Utility_BarrelofToxicGoo",
+    "COBJ_FormID": "841305",
+    "CNAM_FormID": "00841307",
+    "CNAM_EditorID": "ATX_CAMP_Collector_BarrelofToxicGoo"
   },
   {
     "Name": "Beehive",
@@ -21609,6 +21879,15 @@
     "CNAM_EditorID": "ATX_PopcornMachine_PatriotPopper"
   },
   {
+    "Name": "Pumpkin Pie",
+    "Category": "Resources",
+    "SubCategory": "Producers",
+    "COBJ_FormEditorID": "ATX_workshop_co_Utility_PumpkinPie",
+    "COBJ_FormID": "83e774",
+    "CNAM_FormID": "0083E778",
+    "CNAM_EditorID": "ATX_CAMP_Collector_PumpkinPie"
+  },
+  {
     "Name": "Radstag Field Dressing Station",
     "Category": "Resources",
     "SubCategory": "Producers",
@@ -21760,6 +22039,15 @@
     "COBJ_FormID": "592f78",
     "CNAM_FormID": "0058F902",
     "CNAM_EditorID": "W05_WorkshopCollectorTurboFertilizer"
+  },
+  {
+    "Name": "Wall-Mounted Oven",
+    "Category": "Resources",
+    "SubCategory": "Producers",
+    "COBJ_FormEditorID": "ATX_workshop_co_Utility_WallmountedOven",
+    "COBJ_FormID": "83e775",
+    "CNAM_FormID": "0083E779",
+    "CNAM_EditorID": "ATX_CAMP_Collector_WallmountedOven"
   },
   {
     "Name": "Weenie Wagon",
@@ -21958,6 +22246,15 @@
     "COBJ_FormID": "5771b5",
     "CNAM_FormID": "00567446",
     "CNAM_EditorID": "ATX_Sink_Rustic_Outdoor"
+  },
+  {
+    "Name": "SoulSoup Server",
+    "Category": "Resources",
+    "SubCategory": "Water",
+    "COBJ_FormEditorID": "SCORE_S22_workshop_co_Utility_Collector_SoulSoupServer",
+    "COBJ_FormID": "8308d1",
+    "CNAM_FormID": "008308D2",
+    "CNAM_EditorID": "SCORE_S22_CAMP_Collector_SoulSoupServer"
   },
   {
     "Name": "Vintage Water Cooler",
@@ -22683,7 +22980,7 @@
     "Name": "Vault-Tec Decontamination Shower",
     "Category": "Utility",
     "SubCategory": "Services",
-    "COBJ_FormEditorID": "ATX_co_DeconShowers",
+    "COBJ_FormEditorID": "workshop_co_DeconShowers",
     "COBJ_FormID": "7dc643",
     "CNAM_FormID": "007DC642",
     "CNAM_EditorID": "ATX_DeconShower_VaultTec"
@@ -22692,7 +22989,7 @@
     "Name": "Decontamination Shower",
     "Category": "Utility",
     "SubCategory": "Services",
-    "COBJ_FormEditorID": "ATX_co_DeconShowers",
+    "COBJ_FormEditorID": "workshop_co_DeconShowers",
     "COBJ_FormID": "7dc643",
     "CNAM_FormID": "00521F4B",
     "CNAM_EditorID": "WorkshopDeconArch01"
@@ -23247,6 +23544,15 @@
     "CNAM_EditorID": "ATX_WorkshopPlayerVendingMachine_AutoVend"
   },
   {
+    "Name": "Rusted Vendor Bot",
+    "Category": "Utility",
+    "SubCategory": "Vending Machines",
+    "COBJ_FormEditorID": "ATX_workshop_co_PlayerVendingMachines",
+    "COBJ_FormID": "537ecf",
+    "CNAM_FormID": "0083E767",
+    "CNAM_EditorID": "ATX_WorkshopPlayerVendingMachine_RustedVendorBot_Rusted"
+  },
+  {
     "Name": "Ashtray",
     "Category": "Furniture",
     "SubCategory": "Appliances",
@@ -23758,6 +24064,15 @@
     "COBJ_FormID": "5059ed",
     "CNAM_FormID": "00799A97",
     "CNAM_EditorID": "SCORE_S19_Bed_Enclave_Cot"
+  },
+  {
+    "Name": "Autopsy Table",
+    "Category": "Furniture",
+    "SubCategory": "Beds",
+    "COBJ_FormEditorID": "workshop_co_Beds_Metal",
+    "COBJ_FormID": "5059ed",
+    "CNAM_FormID": "0084E959",
+    "CNAM_EditorID": "SCORE_MiniSeason_2025_NightAtTheMorgue_Bed_AutopsyTable"
   },
   {
     "Name": "Four Poster Bed",
@@ -24714,6 +25029,15 @@
     "CNAM_EditorID": "WorkshopHighTechTelevision01"
   },
   {
+    "Name": "Modern Television",
+    "Category": "Furniture",
+    "SubCategory": "Electronics",
+    "COBJ_FormEditorID": "workshop_co_Appliances_Televisions01",
+    "COBJ_FormID": "22c66a",
+    "CNAM_FormID": "008412FF",
+    "CNAM_EditorID": "ATX_FloorDecor_ModernTelevision_HighTechTV"
+  },
+  {
     "Name": "Alien Bench",
     "Category": "Furniture",
     "SubCategory": "Seating",
@@ -25182,6 +25506,15 @@
     "CNAM_EditorID": "ATX_Furniture_Couch_Tiki"
   },
   {
+    "Name": "Brown Classy Couch",
+    "Category": "Furniture",
+    "SubCategory": "Seating",
+    "COBJ_FormEditorID": "workshop_co_Couches",
+    "COBJ_FormID": "164265",
+    "CNAM_FormID": "00841838",
+    "CNAM_EditorID": "ATX_Furniture_Couch_BrownClassyCouch"
+  },
+  {
     "Name": "Drowned Chesterfield Chair",
     "Category": "Furniture",
     "SubCategory": "Seating",
@@ -25257,7 +25590,7 @@
     "Name": "Vault-Tec Overstuffed Chair",
     "Category": "Furniture",
     "SubCategory": "Seating",
-    "COBJ_FormEditorID": "ATX_workshop_co_Chairs_Large",
+    "COBJ_FormEditorID": "workshop_co_Chairs_Large",
     "COBJ_FormID": "470643",
     "CNAM_FormID": "0044CD18",
     "CNAM_EditorID": "ATX_VaultTecChair01"
@@ -25266,7 +25599,7 @@
     "Name": "Gingerbread Chair",
     "Category": "Furniture",
     "SubCategory": "Seating",
-    "COBJ_FormEditorID": "ATX_workshop_co_Chairs_Large",
+    "COBJ_FormEditorID": "workshop_co_Chairs_Large",
     "COBJ_FormID": "470643",
     "CNAM_FormID": "0059D357",
     "CNAM_EditorID": "ATX_GingerbreadChair"
@@ -25275,7 +25608,7 @@
     "Name": "King Grognak Throne",
     "Category": "Furniture",
     "SubCategory": "Seating",
-    "COBJ_FormEditorID": "ATX_workshop_co_Chairs_Large",
+    "COBJ_FormEditorID": "workshop_co_Chairs_Large",
     "COBJ_FormID": "470643",
     "CNAM_FormID": "005A5D54",
     "CNAM_EditorID": "ATX_KingGrognakThrone"
@@ -25284,7 +25617,7 @@
     "Name": "Army Theater Chair",
     "Category": "Furniture",
     "SubCategory": "Seating",
-    "COBJ_FormEditorID": "ATX_workshop_co_Chairs_Large",
+    "COBJ_FormEditorID": "workshop_co_Chairs_Large",
     "COBJ_FormID": "470643",
     "CNAM_FormID": "005B0193",
     "CNAM_EditorID": "SCORE_S1_Army_Theater_Chair"
@@ -25293,7 +25626,7 @@
     "Name": "Grelok Throne",
     "Category": "Furniture",
     "SubCategory": "Seating",
-    "COBJ_FormEditorID": "ATX_workshop_co_Chairs_Large",
+    "COBJ_FormEditorID": "workshop_co_Chairs_Large",
     "COBJ_FormID": "470643",
     "CNAM_FormID": "005C70CA",
     "CNAM_EditorID": "ATX_GrelokThrone"
@@ -25302,7 +25635,7 @@
     "Name": "Green Hounds Reclining Sofa Chair",
     "Category": "Furniture",
     "SubCategory": "Seating",
-    "COBJ_FormEditorID": "ATX_workshop_co_Chairs_Large",
+    "COBJ_FormEditorID": "workshop_co_Chairs_Large",
     "COBJ_FormID": "470643",
     "CNAM_FormID": "005D00AF",
     "CNAM_EditorID": "ATX_Reclining_Sofa_GreenHounds"
@@ -25311,7 +25644,7 @@
     "Name": "Brown Hounds Reclining Sofa Chair",
     "Category": "Furniture",
     "SubCategory": "Seating",
-    "COBJ_FormEditorID": "ATX_workshop_co_Chairs_Large",
+    "COBJ_FormEditorID": "workshop_co_Chairs_Large",
     "COBJ_FormID": "470643",
     "CNAM_FormID": "005D8E26",
     "CNAM_EditorID": "ATX_Reclining_Sofa_BrownHounds"
@@ -25320,7 +25653,7 @@
     "Name": "Majestic Santa Throne",
     "Category": "Furniture",
     "SubCategory": "Seating",
-    "COBJ_FormEditorID": "ATX_workshop_co_Chairs_Large",
+    "COBJ_FormEditorID": "workshop_co_Chairs_Large",
     "COBJ_FormID": "470643",
     "CNAM_FormID": "005EFBE9",
     "CNAM_EditorID": "ATX_MajesticSantaThrone"
@@ -25329,7 +25662,7 @@
     "Name": "Throne Of Bone",
     "Category": "Furniture",
     "SubCategory": "Seating",
-    "COBJ_FormEditorID": "ATX_workshop_co_Chairs_Large",
+    "COBJ_FormEditorID": "workshop_co_Chairs_Large",
     "COBJ_FormID": "470643",
     "CNAM_FormID": "0064D0B8",
     "CNAM_EditorID": "SCORE_S9_ThroneOfBone"
@@ -25338,7 +25671,7 @@
     "Name": "Hunters Throne Chair",
     "Category": "Furniture",
     "SubCategory": "Seating",
-    "COBJ_FormEditorID": "ATX_workshop_co_Chairs_Large",
+    "COBJ_FormEditorID": "workshop_co_Chairs_Large",
     "COBJ_FormID": "470643",
     "CNAM_FormID": "00685149",
     "CNAM_EditorID": "SCORE_S12_Furniture_Chair_HuntersThrone"
@@ -25347,7 +25680,7 @@
     "Name": "Blood Eagle Throne",
     "Category": "Furniture",
     "SubCategory": "Seating",
-    "COBJ_FormEditorID": "ATX_workshop_co_Chairs_Large",
+    "COBJ_FormEditorID": "workshop_co_Chairs_Large",
     "COBJ_FormID": "470643",
     "CNAM_FormID": "007746A6",
     "CNAM_EditorID": "ATX_Furniture_Chair_BloodEagleThrone"
@@ -25356,7 +25689,7 @@
     "Name": "Goliath Braincase Throne",
     "Category": "Furniture",
     "SubCategory": "Seating",
-    "COBJ_FormEditorID": "ATX_workshop_co_Chairs_Large",
+    "COBJ_FormEditorID": "workshop_co_Chairs_Large",
     "COBJ_FormID": "470643",
     "CNAM_FormID": "0075592E",
     "CNAM_EditorID": "Storm_BossArmChair"
@@ -25365,7 +25698,7 @@
     "Name": "Wise Mothman Throne",
     "Category": "Furniture",
     "SubCategory": "Seating",
-    "COBJ_FormEditorID": "ATX_workshop_co_Chairs_Large",
+    "COBJ_FormEditorID": "workshop_co_Chairs_Large",
     "COBJ_FormID": "470643",
     "CNAM_FormID": "0062A88C",
     "CNAM_EditorID": "WiseMothman_Throne"
@@ -25374,28 +25707,28 @@
     "Name": "Hay Bale Throne",
     "Category": "Furniture",
     "SubCategory": "Seating",
-    "COBJ_FormEditorID": "ATX_workshop_co_Chairs_Large",
+    "COBJ_FormEditorID": "workshop_co_Chairs_Large",
     "COBJ_FormID": "470643",
     "CNAM_FormID": "00785069",
     "CNAM_EditorID": "MN2_Workshop_PumpkinThrone_Furn"
   },
   {
-    "Name": "Ogua Shell Throne",
-    "Category": "Furniture",
-    "SubCategory": "Seating",
-    "COBJ_FormEditorID": "ATX_workshop_co_Chairs_Large",
-    "COBJ_FormID": "470643",
-    "CNAM_FormID": "007734F8",
-    "CNAM_EditorID": "MILE_Workshop_Item_CryptidThrone"
-  },
-  {
     "Name": "Shoeshine Machine",
     "Category": "Furniture",
     "SubCategory": "Seating",
-    "COBJ_FormEditorID": "ATX_workshop_co_Chairs_Large",
+    "COBJ_FormEditorID": "workshop_co_Chairs_Large",
     "COBJ_FormID": "470643",
     "CNAM_FormID": "006E739E",
     "CNAM_EditorID": "ATX_Furniture_ShoeshineMachine"
+  },
+  {
+    "Name": "Black Bear Recliner",
+    "Category": "Furniture",
+    "SubCategory": "Seating",
+    "COBJ_FormEditorID": "workshop_co_Chairs_Large",
+    "COBJ_FormID": "470643",
+    "CNAM_FormID": "0083E781",
+    "CNAM_EditorID": "ATX_Reclining_Sofa_BlackBearRecliner"
   },
   {
     "Name": "Gorilla Chair",
@@ -26739,6 +27072,15 @@
     "CNAM_EditorID": "ATX_SheltersVaultTecUltilityWallShelving"
   },
   {
+    "Name": "Log Wall Shelf",
+    "Category": "Furniture",
+    "SubCategory": "Shelves",
+    "COBJ_FormEditorID": "ATX_workshop_co_Shelves_Metal",
+    "COBJ_FormID": "5ef0c1",
+    "CNAM_FormID": "00837E15",
+    "CNAM_EditorID": "ATX_LogWallShelves"
+  },
+  {
     "Name": "Alien Dining Table",
     "Category": "Furniture",
     "SubCategory": "Surfaces",
@@ -26881,6 +27223,24 @@
     "COBJ_FormID": "792e47",
     "CNAM_FormID": "006E58B4",
     "CNAM_EditorID": "XPD_AC_Workshop_RouletteTable"
+  },
+  {
+    "Name": null,
+    "Category": "Furniture",
+    "SubCategory": "Surfaces",
+    "COBJ_FormEditorID": "XPD_AC_workshop_co_CondProxy_Tables_DiceTable",
+    "COBJ_FormID": "6d3a5c",
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
+  },
+  {
+    "Name": null,
+    "Category": "Furniture",
+    "SubCategory": "Surfaces",
+    "COBJ_FormEditorID": "XPD_AC_workshop_co_CondProxy_Tables_RouletteTable",
+    "COBJ_FormID": "6d3a5b",
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "Brotherhood of Steel Roundtable",
@@ -27898,6 +28258,15 @@
     "COBJ_FormID": "84f8f0",
     "CNAM_FormID": "0010907A",
     "CNAM_EditorID": "PoolTable01"
+  },
+  {
+    "Name": "Rustic 9 Ball Table",
+    "Category": "Furniture",
+    "SubCategory": "Surfaces",
+    "COBJ_FormEditorID": "workshop_co_Tables_PoolTables",
+    "COBJ_FormID": "84f8f0",
+    "CNAM_FormID": "00840E70",
+    "CNAM_EditorID": "ATX_9BallTable_Rustic_HandmadePoolTable"
   },
   {
     "Name": "Radioac-table",
@@ -29436,7 +29805,7 @@
     "COBJ_FormEditorID": "Score_S17_workshop_co_FloorDecor_StabbedWeaponry",
     "COBJ_FormID": "7700ef",
     "CNAM_FormID": "0082E615",
-    "CNAM_EditorID": "SCORE_S22_FloorDecor_StabbedWeaponryPickaxes"
+    "CNAM_EditorID": "SCORE_S22_FloorDecor_StabbedWeaponryPickAxes"
   },
   {
     "Name": "Stabbed Weaponry - Cutter Mattock",
@@ -29445,7 +29814,7 @@
     "COBJ_FormEditorID": "Score_S17_workshop_co_FloorDecor_StabbedWeaponry",
     "COBJ_FormID": "7700ef",
     "CNAM_FormID": "008451E9",
-    "CNAM_EditorID": "SCORE_S22_FloorDecor_StabbedWeaponryPickaxe_CutterMattocks"
+    "CNAM_EditorID": "SCORE_S22_FloorDecor_StabbedWeaponryPickAxe_CutterMattocks"
   },
   {
     "Name": "Stack Of Ammo (Ballistic)",
@@ -31500,6 +31869,15 @@
     "CNAM_EditorID": "HalloweenEvent_CraniaCandyBowl"
   },
   {
+    "Name": "Morgue Candy Bowl",
+    "Category": "Decorations",
+    "SubCategory": "Holiday",
+    "COBJ_FormEditorID": "workshop_co_HalloweenEvent_CandyBowl",
+    "COBJ_FormID": "6203ee",
+    "CNAM_FormID": "00853935",
+    "CNAM_EditorID": "SCORE_MiniSeason_2025_NightAtTheMorgue_SkullCandyBowl"
+  },
+  {
     "Name": "Holiday Tree",
     "Category": "Decorations",
     "SubCategory": "Holiday",
@@ -33510,7 +33888,7 @@
     "Name": "Enlightened Lantern",
     "Category": "Decorations",
     "SubCategory": "Novelties",
-    "COBJ_FormEditorID": "workshop_co_CondProxy_Lamp_Mothman_EnlightenedLantern",
+    "COBJ_FormEditorID": "workshop_co_Lamp_Mothman_EnlightenedLantern",
     "COBJ_FormID": "755eaa",
     "CNAM_FormID": "0077154C",
     "CNAM_EditorID": "E07A_Mothman_EnlightenedLantern"
@@ -33595,15 +33973,6 @@
     "COBJ_FormID": "786649",
     "CNAM_FormID": "0078664A",
     "CNAM_EditorID": "MILE_Workshop_Item_WineRack"
-  },
-  {
-    "Name": "Medieval Suit of Armor",
-    "Category": "Decorations",
-    "SubCategory": "Novelties",
-    "COBJ_FormEditorID": "SCORE_S9_workshop_co_FloorDecor_Medieval_Armor",
-    "COBJ_FormID": "64de88",
-    "CNAM_FormID": "00646D81",
-    "CNAM_EditorID": "SCORE_S9_CAMP_Medieval_Suit_Armor"
   },
   {
     "Name": "Nuka-Cola Rocket",
@@ -33759,6 +34128,15 @@
     "CNAM_EditorID": "ATX_FloorDecor_RitualVotiveStand"
   },
   {
+    "Name": "Rusted Coat of Arms",
+    "Category": "Decorations",
+    "SubCategory": "Novelties",
+    "COBJ_FormEditorID": "workshop_co_FloorDecor_RustedCoatOfArms",
+    "COBJ_FormID": "86303f",
+    "CNAM_FormID": "0084131F",
+    "CNAM_EditorID": "ATX_FloorDecor_RustedCoatofArms"
+  },
+  {
     "Name": "Scorchbeast Heart Specimen Capsule",
     "Category": "Decorations",
     "SubCategory": "Novelties",
@@ -33804,6 +34182,15 @@
     "CNAM_EditorID": "Primitive_Furniture_Spindle"
   },
   {
+    "Name": "Medieval Suit of Armor",
+    "Category": "Decorations",
+    "SubCategory": "Novelties",
+    "COBJ_FormEditorID": "workshop_co_FloorDecor_SuitsOfArmor",
+    "COBJ_FormID": "855c41",
+    "CNAM_FormID": "00646D81",
+    "CNAM_EditorID": "SCORE_S9_CAMP_Medieval_Suit_Armor"
+  },
+  {
     "Name": "Telegraph",
     "Category": "Decorations",
     "SubCategory": "Novelties",
@@ -33838,6 +34225,15 @@
     "COBJ_FormID": "7ad330",
     "CNAM_FormID": "007AD332",
     "CNAM_EditorID": "SCORE_S20_FloorDecor_UnfortunateEnd"
+  },
+  {
+    "Name": "Vault-Tec Body Bag",
+    "Category": "Decorations",
+    "SubCategory": "Novelties",
+    "COBJ_FormEditorID": "SCORE_MiniSeason_2025_NightAtTheMorgue_CAMP_co_FloorDecor_VaultTecBodyBag",
+    "COBJ_FormID": "84e954",
+    "CNAM_FormID": "0084E95A",
+    "CNAM_EditorID": "SCORE_MiniSeason_2025_NightAtTheMorgue_FloorDecor_VaultTecBodyBag"
   },
   {
     "Name": "Future-Tec World Globe",
@@ -35217,7 +35613,7 @@
     "CNAM_EditorID": "ATX_OuthouseActivator"
   },
   {
-    "Name": "Curved Train Bridge Set",
+    "Name": "Train Bridge - Curved",
     "Category": "Decorations",
     "SubCategory": "Outdoor",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_TrainBridgeSet",
@@ -35226,7 +35622,7 @@
     "CNAM_EditorID": "ATX_Structure_TrainBridgeSet_Curved"
   },
   {
-    "Name": "End of the line Train Bridge Set",
+    "Name": "Train Bridge - End of the Line",
     "Category": "Decorations",
     "SubCategory": "Outdoor",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_TrainBridgeSet",
@@ -35235,7 +35631,7 @@
     "CNAM_EditorID": "ATX_Structure_TrainBridgeSet_EndRails"
   },
   {
-    "Name": "MIddle Section Train Bridge Set",
+    "Name": "Train Bridge - Mid Section",
     "Category": "Decorations",
     "SubCategory": "Outdoor",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_TrainBridgeSet",
@@ -35244,7 +35640,7 @@
     "CNAM_EditorID": "ATX_Structure_TrainBridgeSet_MidRails"
   },
   {
-    "Name": "Straight Train Bridge Set",
+    "Name": "Train Bridge - Straight",
     "Category": "Decorations",
     "SubCategory": "Outdoor",
     "COBJ_FormEditorID": "ATX_workshop_co_Structure_TrainBridgeSet",
@@ -35377,6 +35773,15 @@
     "COBJ_FormID": "84f1a8",
     "CNAM_FormID": "00691D4F",
     "CNAM_EditorID": "MOON_Herd_Workshop_Item_BrahminSkinRug"
+  },
+  {
+    "Name": "Yao Guai Rug",
+    "Category": "Decorations",
+    "SubCategory": "Rugs",
+    "COBJ_FormEditorID": "workshop_co_FloorDecor_AnimalSkinRugs",
+    "COBJ_FormID": "84f1a8",
+    "CNAM_FormID": "0083E1E0",
+    "CNAM_EditorID": "ATX_FloorDecor_YaoGuaiRug"
   },
   {
     "Name": "Atlantic Emblem",
@@ -36610,6 +37015,15 @@
     "COBJ_FormID": "45c468",
     "CNAM_FormID": "0045C466",
     "CNAM_EditorID": "ATX_WorkshopRedRocketStatue01"
+  },
+  {
+    "Name": "Old Ohio Road Sign",
+    "Category": "Decorations",
+    "SubCategory": "Signs",
+    "COBJ_FormEditorID": "ATX_workshop_co_FloorDecor_Roadsigns",
+    "COBJ_FormID": "840e08",
+    "CNAM_FormID": "00840E13",
+    "CNAM_EditorID": "ATX_FloorDecor_OldRoadSign"
   },
   {
     "Name": "Shenandoah Park Sign",
@@ -38268,6 +38682,15 @@
     "CNAM_EditorID": "76TaxidermyRadGobblerFullBody"
   },
   {
+    "Name": "Taxidermy Glowing Ant",
+    "Category": "Decorations",
+    "SubCategory": "Taxidermy",
+    "COBJ_FormEditorID": "workshop_co_FloorDecor_Taxidermy",
+    "COBJ_FormID": "5b70f4",
+    "CNAM_FormID": "0083E120",
+    "CNAM_EditorID": "ATX_FloorDecor_GlowingAnt"
+  },
+  {
     "Name": "Alien Miniature",
     "Category": "Decorations",
     "SubCategory": "Toys",
@@ -39888,6 +40311,15 @@
     "CNAM_EditorID": "ATX_FloorDecor_AnnabellePorcelainDoll"
   },
   {
+    "Name": "Ceramic Turkey",
+    "Category": "Decorations",
+    "SubCategory": "Toys",
+    "COBJ_FormEditorID": "ATX_workshop_co_FloorDecor_PorcelainDoll",
+    "COBJ_FormID": "675a0e",
+    "CNAM_FormID": "00840E14",
+    "CNAM_EditorID": "ATX_FloorDecor_CeramicTurkey"
+  },
+  {
     "Name": "Ship in a Bottle",
     "Category": "Decorations",
     "SubCategory": "Toys",
@@ -40176,15 +40608,6 @@
     "CNAM_EditorID": "MILE_SnowGlobe_Theodore01"
   },
   {
-    "Name": "Windy's Snow Globe",
-    "Category": "Decorations",
-    "SubCategory": "Toys",
-    "COBJ_FormEditorID": "workshop_co_MILE_Snowglobes",
-    "COBJ_FormID": "785061",
-    "CNAM_FormID": "0079671A",
-    "CNAM_EditorID": "MILE_SnowGlobe_Windy01"
-  },
-  {
     "Name": "Tiki Music Box",
     "Category": "Decorations",
     "SubCategory": "Toys",
@@ -40287,7 +40710,7 @@
     "Name": null,
     "Category": "Decorations",
     "SubCategory": "Vehicles",
-    "COBJ_FormEditorID": "SCORE_S22_workshop_co_FloorDecor_ChryslusSportsCar",
+    "COBJ_FormEditorID": "ZZZ_SCORE_S22_workshop_co_FloorDecor_ChryslusSportsCar",
     "COBJ_FormID": "830173",
     "CNAM_FormID": null,
     "CNAM_EditorID": null
@@ -40401,15 +40824,6 @@
     "CNAM_EditorID": "SCORE_S16_FloorDecor_ConstructionLoader"
   },
   {
-    "Name": "Hot Rod on Blocks",
-    "Category": "Decorations",
-    "SubCategory": "Vehicles",
-    "COBJ_FormEditorID": "ATX_workshop_co_FloorDecor_HotRodonBlocks",
-    "COBJ_FormID": "6873ee",
-    "CNAM_FormID": "006873EB",
-    "CNAM_EditorID": "ATX_FloorDecor_HotRodonBlocks"
-  },
-  {
     "Name": "House Boat (Water)",
     "Category": "Decorations",
     "SubCategory": "Vehicles",
@@ -40471,6 +40885,15 @@
     "COBJ_FormID": "6e5ffd",
     "CNAM_FormID": "0076CCC6",
     "CNAM_EditorID": "XPD_AC_Workshop_OvergrownVehicle"
+  },
+  {
+    "Name": null,
+    "Category": "Decorations",
+    "SubCategory": "Vehicles",
+    "COBJ_FormEditorID": "ATX_workshop_co_FloorDecor_RustedCars",
+    "COBJ_FormID": "0085031d",
+    "CNAM_FormID": null,
+    "CNAM_EditorID": null
   },
   {
     "Name": "Small Flatbed",
@@ -40848,7 +41271,7 @@
     "COBJ_FormEditorID": "Score_S17_workshop_co_WallDecor_StabbedWeaponry",
     "COBJ_FormID": "7700f1",
     "CNAM_FormID": "0082E616",
-    "CNAM_EditorID": "SCORE_S22_WallDecor_StabbedWeaponryPickaxes"
+    "CNAM_EditorID": "SCORE_S22_WallDecor_StabbedWeaponryPickAxes"
   },
   {
     "Name": "Stabbed Weaponry - Cutter Mattock",
@@ -40857,7 +41280,7 @@
     "COBJ_FormEditorID": "Score_S17_workshop_co_WallDecor_StabbedWeaponry",
     "COBJ_FormID": "7700f1",
     "CNAM_FormID": "008451EA",
-    "CNAM_EditorID": "SCORE_S22_WallDecor_StabbedWeaponryPickaxe_CutterMattocks"
+    "CNAM_EditorID": "SCORE_S22_WallDecor_StabbedWeaponryPickAxe_CutterMattocks"
   },
   {
     "Name": "Correct Toilet Paper Holder",
@@ -41641,6 +42064,33 @@
     "COBJ_FormID": "5a0670",
     "CNAM_FormID": "005A186B",
     "CNAM_EditorID": "Babylon_CAMP_ChristmasWreath_Christmas2019"
+  },
+  {
+    "Name": "Closed Morgue Drawer",
+    "Category": "Wall Decor",
+    "SubCategory": "Holiday",
+    "COBJ_FormEditorID": "SCORE_MiniSeason_2025_NightAtTheMorgue_workshop_co_WallDecor_New_MorgueDrawers",
+    "COBJ_FormID": "856ac0",
+    "CNAM_FormID": "00852E9C",
+    "CNAM_EditorID": "SCORE_MiniSeason_2025_NightAtTheMorgue_WallDecor_Closed_MorgueDrawer"
+  },
+  {
+    "Name": "Morgue Drawer",
+    "Category": "Wall Decor",
+    "SubCategory": "Holiday",
+    "COBJ_FormEditorID": "SCORE_MiniSeason_2025_NightAtTheMorgue_workshop_co_WallDecor_New_MorgueDrawers",
+    "COBJ_FormID": "856ac0",
+    "CNAM_FormID": "00852E9D",
+    "CNAM_EditorID": "SCORE_MiniSeason_2025_NightAtTheMorgue_WallDecor_Covered_MorgueDrawer"
+  },
+  {
+    "Name": "Open Morgue Drawer",
+    "Category": "Wall Decor",
+    "SubCategory": "Holiday",
+    "COBJ_FormEditorID": "SCORE_MiniSeason_2025_NightAtTheMorgue_workshop_co_WallDecor_New_MorgueDrawers",
+    "COBJ_FormID": "856ac0",
+    "CNAM_FormID": "00852E9B",
+    "CNAM_EditorID": "SCORE_MiniSeason_2025_NightAtTheMorgue_WallDecor_Open_MorgueDrawer"
   },
   {
     "Name": "New Years Banner",
@@ -43722,6 +44172,15 @@
     "CNAM_EditorID": "ATX_FloorDecor_RadioactiveWarningSignSquare"
   },
   {
+    "Name": "Mortuary Sign",
+    "Category": "Wall Decor",
+    "SubCategory": "Signs",
+    "COBJ_FormEditorID": "ATX_workshop_co_WallSigns_Metal_Signs",
+    "COBJ_FormID": "84e955",
+    "CNAM_FormID": "0084E95B",
+    "CNAM_EditorID": "SCORE_MiniSeason_2025_NightAtTheMorgue_WallDecor_MortuarySign"
+  },
+  {
     "Name": "Mothman Museum Sign",
     "Category": "Wall Decor",
     "SubCategory": "Signs",
@@ -44130,7 +44589,7 @@
     "Name": null,
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
-    "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_RustedGloryFlag_RustedGlory",
+    "COBJ_FormEditorID": "zzzATX_workshop_co_WallDecor_RustedGloryFlag_RustedGlory",
     "COBJ_FormID": "826c9a",
     "CNAM_FormID": null,
     "CNAM_EditorID": null
@@ -44226,7 +44685,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_01"
   },
   {
-    "Name": "Framed P.T.S. Pennant",
+    "Name": "P.T.S. Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44244,7 +44703,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_01_VaultGirl"
   },
   {
-    "Name": "Framed P.T.S. Pennant",
+    "Name": "P.T.S. Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44253,7 +44712,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_02_VaultGirl"
   },
   {
-    "Name": "Framed P.T.S. Pennant",
+    "Name": "P.T.S. Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44271,7 +44730,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_03_NoFrame"
   },
   {
-    "Name": "Framed P.T.S. Pennant",
+    "Name": "P.T.S. Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44289,7 +44748,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_Rahmani_NoFrame"
   },
   {
-    "Name": "Framed P.T.S. Pennant",
+    "Name": "P.T.S. Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44307,7 +44766,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_Shin_NoFrame"
   },
   {
-    "Name": "Fallout Worlds Pennant",
+    "Name": "Fallout Worlds Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44325,7 +44784,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_Worlds_NoFrame"
   },
   {
-    "Name": "Mothman Pennant",
+    "Name": "Mothman Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44343,7 +44802,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_Mothman_NoFrame"
   },
   {
-    "Name": "Invaders Pennant",
+    "Name": "Invaders Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44361,7 +44820,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_Invaders_NoFrame"
   },
   {
-    "Name": "Nuclear Winter Pennant",
+    "Name": "Nuclear Winter Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44379,7 +44838,7 @@
     "CNAM_EditorID": "ATX_Pennant_NW_NoFrame"
   },
   {
-    "Name": "Test Your Metal Pennant",
+    "Name": "Test Your Metal Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44397,7 +44856,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_TestMetal_NoFrame"
   },
   {
-    "Name": "The Pitt Pennant",
+    "Name": "The Pitt Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44415,7 +44874,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_ThePitt_NoFrame"
   },
   {
-    "Name": "Framed The On Tour Pennant",
+    "Name": "The On Tour Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44433,7 +44892,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_NWOT_NoFrame"
   },
   {
-    "Name": "Mutated Events Pennant",
+    "Name": "Mutated Events Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44451,7 +44910,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_P42_NoFrame"
   },
   {
-    "Name": "Framed Blue Moon Pennant",
+    "Name": "Blue Moon Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44469,7 +44928,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_P44_NoFrame"
   },
   {
-    "Name": "Framed Americana Pennant",
+    "Name": "Americana Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44487,7 +44946,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_P46_NoFrame"
   },
   {
-    "Name": "Atlantic City Pennant",
+    "Name": "Atlantic City Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44505,7 +44964,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_P48_NoFrame"
   },
   {
-    "Name": "Atlantic City Pennant",
+    "Name": "Atlantic City Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44523,7 +44982,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_P50_NoFrame"
   },
   {
-    "Name": "Skyline Valley Pennant",
+    "Name": "Skyline Valley Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44541,7 +45000,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_P52_NoFrame"
   },
   {
-    "Name": "Burning Springs Pennant",
+    "Name": "Burning Springs Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44568,7 +45027,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_P56_NoFrame"
   },
   {
-    "Name": "Gleaming Depths Pennant",
+    "Name": "Gleaming Depths Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44577,7 +45036,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_P56_Framed"
   },
   {
-    "Name": "Ghoul Pennant",
+    "Name": "Ghoul Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44595,7 +45054,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_P58_NoFrame_Copy01"
   },
   {
-    "Name": "Fishing Pennant",
+    "Name": "Fishing Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -44613,7 +45072,7 @@
     "CNAM_EditorID": "ATX_PTS_Pennant_P60_NoFrame"
   },
   {
-    "Name": "C.A.M.P. Building Pennant",
+    "Name": "C.A.M.P. Building Pennant (Framed)",
     "Category": "Wall Decor",
     "SubCategory": "Tapestry",
     "COBJ_FormEditorID": "ATX_workshop_co_WallDecor_Pennant",
@@ -47217,7 +47676,7 @@
     "Name": "Rip Daring \"Duel with the Devil\" Poster",
     "Category": "Wall Decor",
     "SubCategory": "Wall Art",
-    "COBJ_FormEditorID": "SCORE_S12_workshop_co_CondProxy_WallDecor_PoweredPoster_RipDaringPoster",
+    "COBJ_FormEditorID": "SCORE_S12_workshop_co_WallDecor_PoweredPoster_RipDaringPoster",
     "COBJ_FormID": "68512d",
     "CNAM_FormID": "00746211",
     "CNAM_EditorID": "SCORE_S16_WallDecor_PoweredPoster_RipDaring01"
@@ -47226,7 +47685,7 @@
     "Name": "Rip Daring \"Surf's Up\" Poster",
     "Category": "Wall Decor",
     "SubCategory": "Wall Art",
-    "COBJ_FormEditorID": "SCORE_S12_workshop_co_CondProxy_WallDecor_PoweredPoster_RipDaringPoster",
+    "COBJ_FormEditorID": "SCORE_S12_workshop_co_WallDecor_PoweredPoster_RipDaringPoster",
     "COBJ_FormID": "68512d",
     "CNAM_FormID": "00746212",
     "CNAM_EditorID": "SCORE_S16_WallDecor_PoweredPoster_RipDaring02"
@@ -47235,7 +47694,7 @@
     "Name": "Rip Daring \"On The Hunt\" Poster",
     "Category": "Wall Decor",
     "SubCategory": "Wall Art",
-    "COBJ_FormEditorID": "SCORE_S12_workshop_co_CondProxy_WallDecor_PoweredPoster_RipDaringPoster",
+    "COBJ_FormEditorID": "SCORE_S12_workshop_co_WallDecor_PoweredPoster_RipDaringPoster",
     "COBJ_FormID": "68512d",
     "CNAM_FormID": "00691A40",
     "CNAM_EditorID": "SCORE_S12_WallDecor_PoweredPoster_RipDaring01"
@@ -47244,7 +47703,7 @@
     "Name": "Rip Daring \"The Chase\" Poster",
     "Category": "Wall Decor",
     "SubCategory": "Wall Art",
-    "COBJ_FormEditorID": "SCORE_S12_workshop_co_CondProxy_WallDecor_PoweredPoster_RipDaringPoster",
+    "COBJ_FormEditorID": "SCORE_S12_workshop_co_WallDecor_PoweredPoster_RipDaringPoster",
     "COBJ_FormID": "68512d",
     "CNAM_FormID": "00691A41",
     "CNAM_EditorID": "SCORE_S12_WallDecor_PoweredPoster_RipDaring02"
@@ -47253,7 +47712,7 @@
     "Name": "Rip Daring \"Takes The Shot\" Poster",
     "Category": "Wall Decor",
     "SubCategory": "Wall Art",
-    "COBJ_FormEditorID": "SCORE_S12_workshop_co_CondProxy_WallDecor_PoweredPoster_RipDaringPoster",
+    "COBJ_FormEditorID": "SCORE_S12_workshop_co_WallDecor_PoweredPoster_RipDaringPoster",
     "COBJ_FormID": "68512d",
     "CNAM_FormID": "00691A42",
     "CNAM_EditorID": "SCORE_S12_WallDecor_PoweredPoster_RipDaring03"
@@ -47262,7 +47721,7 @@
     "Name": "Rip Daring \"Deadliest Predator\" Poster",
     "Category": "Wall Decor",
     "SubCategory": "Wall Art",
-    "COBJ_FormEditorID": "SCORE_S12_workshop_co_CondProxy_WallDecor_PoweredPoster_RipDaringPoster",
+    "COBJ_FormEditorID": "SCORE_S12_workshop_co_WallDecor_PoweredPoster_RipDaringPoster",
     "COBJ_FormID": "68512d",
     "CNAM_FormID": "0068FDA3",
     "CNAM_EditorID": "SCORE_S12_WallDecor_PoweredPoster_RipDaring04"
@@ -47271,7 +47730,7 @@
     "Name": "Rip Daring \"Hunter's Trophy\" Poster",
     "Category": "Wall Decor",
     "SubCategory": "Wall Art",
-    "COBJ_FormEditorID": "SCORE_S12_workshop_co_CondProxy_WallDecor_PoweredPoster_RipDaringPoster",
+    "COBJ_FormEditorID": "SCORE_S12_workshop_co_WallDecor_PoweredPoster_RipDaringPoster",
     "COBJ_FormID": "68512d",
     "CNAM_FormID": "00691A43",
     "CNAM_EditorID": "SCORE_S12_WallDecor_PoweredPoster_RipDaring05"
@@ -53928,6 +54387,15 @@
     "CNAM_EditorID": "SCORE_MiniSeason_2025_MMMFE_Workshop_co_Display_FishDisplay_MarshalMallowFishDisplay_Hanging_Medium"
   },
   {
+    "Name": "Fungal Fishing Rod Display",
+    "Category": "Storage",
+    "SubCategory": "Displays",
+    "COBJ_FormEditorID": "SCORE_MiniSeason_2025_MMMFE_Workshop_co_Displays_FishDisplayMarshalMallowFishDisplays",
+    "COBJ_FormID": "82bb82",
+    "CNAM_FormID": "00840CB4",
+    "CNAM_EditorID": "ATX_WorkshopDisplay_WeaponRack_FishingRod_Fungal"
+  },
+  {
     "Name": "Megalonyx Display Rack",
     "Category": "Storage",
     "SubCategory": "Displays",
@@ -54345,7 +54813,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "0017DBEB",
     "CNAM_EditorID": "WorkshopStashBox"
@@ -54354,7 +54822,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "0050C250",
     "CNAM_EditorID": "ATX_StashBox_NukaCola_01"
@@ -54363,7 +54831,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "0050EB1E",
     "CNAM_EditorID": "ATX_StashBox_Rustic_01"
@@ -54372,7 +54840,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "0050EB1B",
     "CNAM_EditorID": "ATX_StashBox_Tech_01"
@@ -54381,7 +54849,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "004517AE",
     "CNAM_EditorID": "ATX_StashBox_Toys_01"
@@ -54390,7 +54858,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "004517AC",
     "CNAM_EditorID": "ATX_StashBox_VaultTec_01"
@@ -54399,7 +54867,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "00467582",
     "CNAM_EditorID": "ATX_StashBox_Ornate"
@@ -54408,7 +54876,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "00467583",
     "CNAM_EditorID": "ATX_StashBox_PrincessCastle"
@@ -54417,7 +54885,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "00467584",
     "CNAM_EditorID": "ATX_StashBox_Unstoppables"
@@ -54426,7 +54894,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "00538628",
     "CNAM_EditorID": "ATX_MoleMiner_StashBox"
@@ -54435,7 +54903,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "003FA7B2",
     "CNAM_EditorID": "PioneerScout_StashBox"
@@ -54444,7 +54912,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "0056EFD2",
     "CNAM_EditorID": "ATX_StashBox_ArmyTheme_01"
@@ -54453,7 +54921,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "0056744A",
     "CNAM_EditorID": "ATX_StashBox_Communist"
@@ -54462,7 +54930,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "0058645E",
     "CNAM_EditorID": "ATX_WST_DLX_StashBox_Raider"
@@ -54471,7 +54939,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "00593D28",
     "CNAM_EditorID": "ATX_WST_DLX_StashBox_Settler"
@@ -54480,7 +54948,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "005A242F",
     "CNAM_EditorID": "ATX_StashBox_Responder"
@@ -54489,7 +54957,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "005A5AD5",
     "CNAM_EditorID": "ATX_StashBox_RedRocket"
@@ -54498,7 +54966,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "005AD97E",
     "CNAM_EditorID": "SCORE_S1_StashBox_Footlocker_Military"
@@ -54507,7 +54975,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "005C766C",
     "CNAM_EditorID": "ATX_StashBox_FusionFlea"
@@ -54516,7 +54984,7 @@
     "Name": "Communist Military Safe",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "005C8A40",
     "CNAM_EditorID": "ATX_StashBox_CommunistMilitarySafe"
@@ -54525,7 +54993,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "005D0F11",
     "CNAM_EditorID": "StashBox_Trunk_Vault94"
@@ -54534,7 +55002,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "005DC187",
     "CNAM_EditorID": "ATX_StashContainer_Coffin"
@@ -54543,7 +55011,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "005EE3E4",
     "CNAM_EditorID": "ATX_StashBox_BOS_Locker"
@@ -54552,7 +55020,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "005F0032",
     "CNAM_EditorID": "ATX_StashBox_SheltersVaultTecLockerBayDUPLICATE000"
@@ -54561,7 +55029,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "005F0D20",
     "CNAM_EditorID": "ATX_StashBox_SecretStash"
@@ -54570,7 +55038,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "006088D1",
     "CNAM_EditorID": "ATX_StashBox_BoSHighTech"
@@ -54579,7 +55047,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "006342ED",
     "CNAM_EditorID": "Zetan_StashBox"
@@ -54588,7 +55056,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "00665283",
     "CNAM_EditorID": "ATX_StashBox_Hoard"
@@ -54597,7 +55065,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "006904AA",
     "CNAM_EditorID": "SCORE_S12_StashBox_VaultTecTools"
@@ -54606,7 +55074,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "006909C4",
     "CNAM_EditorID": "ATX_StashBox_BlueRidgeCaravan"
@@ -54615,7 +55083,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "006867A1",
     "CNAM_EditorID": "Moon_BlueRidge_StashBox"
@@ -54624,7 +55092,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "006F650A",
     "CNAM_EditorID": "SCORE_S15_Stashbox_PirateChest"
@@ -54633,7 +55101,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "006F0DEB",
     "CNAM_EditorID": "ATX_Stashbox_Armoire"
@@ -54642,7 +55110,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "006F68E7",
     "CNAM_EditorID": "ATX_Stashbox_HelvetiaNightstand"
@@ -54651,7 +55119,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "006FB51E",
     "CNAM_EditorID": "ATX_Stashbox_WickerBasket"
@@ -54660,7 +55128,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "007479E4",
     "CNAM_EditorID": "SCORE_S16_Stashbox_WorldofCryptidsTrunk"
@@ -54669,7 +55137,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "007605DA",
     "CNAM_EditorID": "XPD_AC_Stashbox_SuspiciousTrunk"
@@ -54678,7 +55146,7 @@
     "Name": "R.I.P. Daring Trash Bin",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "007695FE",
     "CNAM_EditorID": "SCORE_S16_Stashbox_SpringCleaningTrashBin"
@@ -54687,7 +55155,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "0076F4A5",
     "CNAM_EditorID": "SCORE_S17_Stashbox_HollowStump_CutLogStump"
@@ -54696,7 +55164,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "0076F4A7",
     "CNAM_EditorID": "SCORE_S17_Stashbox_HollowStump_GenericStump2"
@@ -54705,7 +55173,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "0076F4A6",
     "CNAM_EditorID": "SCORE_S17_Stashbox_HollowStump_GenericStump1"
@@ -54714,7 +55182,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "007700F2",
     "CNAM_EditorID": "SCORE_S17_Stashbox_PicnicBasket"
@@ -54723,7 +55191,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "0079ACF2",
     "CNAM_EditorID": "SCORE_S19_StashBox_OrbitalDropCrate"
@@ -54732,7 +55200,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "00808431",
     "CNAM_EditorID": "SCORE_S21_Fishing_StashBox_Seaweed"
@@ -54741,7 +55209,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "0082E189",
     "CNAM_EditorID": "SCORE_S22_StashBox_H&HTools"
@@ -54750,7 +55218,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "00774574",
     "CNAM_EditorID": "ATX_Stashbox_EquipmentShed"
@@ -54759,7 +55227,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "00787EDD",
     "CNAM_EditorID": "ATX_Stashbox_CowSpotsPorch"
@@ -54768,7 +55236,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "0078DB45",
     "CNAM_EditorID": "ATX_Stashbox_SlocumsJoeTrashBin"
@@ -54777,7 +55245,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "00799F94",
     "CNAM_EditorID": "ATX_Stashbox_TipJar"
@@ -54786,7 +55254,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "0079A0B3",
     "CNAM_EditorID": "ATX_Stashbox_HopeChest"
@@ -54795,7 +55263,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "007B28AC",
     "CNAM_EditorID": "ATX_Stashbox_ToxicTincturesCabinet"
@@ -54804,7 +55272,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "007D70D0",
     "CNAM_EditorID": "ATX_Stashbox_RotanTackle"
@@ -54813,7 +55281,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "00691D26",
     "CNAM_EditorID": "MOON_General_Workshop_Item_BlueRidgeStashBox"
@@ -54822,7 +55290,7 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "0079A0B2",
     "CNAM_EditorID": "ATX_Stashbox_MedicineCabinet"
@@ -54831,10 +55299,19 @@
     "Name": "My Stash Box",
     "Category": "Storage",
     "SubCategory": "Stash Boxes",
-    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
     "COBJ_FormID": "3779d",
     "CNAM_FormID": "007B28AB",
     "CNAM_EditorID": "ATX_Stashbox_WallPainting_WiseCharles"
+  },
+  {
+    "Name": "My Stash Box",
+    "Category": "Storage",
+    "SubCategory": "Stash Boxes",
+    "COBJ_FormEditorID": "workshop_co_Container_WorkshopStashBox_Floor",
+    "COBJ_FormID": "3779d",
+    "CNAM_FormID": "00840CB6",
+    "CNAM_EditorID": "ATX_Stashbox_Leadlined"
   },
   {
     "Name": "News Stand",
@@ -55602,6 +56079,15 @@
     "CNAM_EditorID": "SCORE_S18_Structure_GasAwning"
   },
   {
+    "Name": "Gas Station Canopy",
+    "Category": "Structure",
+    "SubCategory": "Retail",
+    "COBJ_FormEditorID": "SCORE_S18_workshop_co_Structure_GasAwning",
+    "COBJ_FormID": "793087",
+    "CNAM_FormID": "0083E0FA",
+    "CNAM_EditorID": "ATX_Structure_GasStationCanopy"
+  },
+  {
     "Name": "Helvetia Butcher Shop",
     "Category": "Structure",
     "SubCategory": "Retail",
@@ -55746,6 +56232,15 @@
     "CNAM_EditorID": "ATX_PerformanceStage_Metal"
   },
   {
+    "Name": "Poseidon Energy Gas Station",
+    "Category": "Structure",
+    "SubCategory": "Retail",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_PoseidonEnergyGasStation_PoseidonGasStation",
+    "COBJ_FormID": "83e0fe",
+    "CNAM_FormID": "0083E0FB",
+    "CNAM_EditorID": "ATX_Structure_PoseidonEnergyGasStation_PoseidonGasStation"
+  },
+  {
     "Name": "Red Rocket Garage",
     "Category": "Structure",
     "SubCategory": "Retail",
@@ -55843,6 +56338,15 @@
     "COBJ_FormID": "6e1de7",
     "CNAM_FormID": "007263C1",
     "CNAM_EditorID": "ATX_HauntedBellTower"
+  },
+  {
+    "Name": "Haunted Mansion",
+    "Category": "Structure",
+    "SubCategory": "Rustic",
+    "COBJ_FormEditorID": "ATX_workshop_co_Structure_HauntedMansion",
+    "COBJ_FormID": "839289",
+    "CNAM_FormID": "00839287",
+    "CNAM_EditorID": "ATX_Structure_HauntedMansion"
   },
   {
     "Name": "Hunters Lodge",
@@ -56196,7 +56700,7 @@
     "CNAM_EditorID": "ATX_COMP_Packin_CampObject_Mechanic"
   },
   {
-    "Name": "Tarberry's Shrine",
+    "Name": "Scarberry's Shrine",
     "Category": "Dwellers",
     "SubCategory": "Allies",
     "COBJ_FormEditorID": "ATX_co_COMP_Constructible_CampObject_Scarberry",
@@ -56358,6 +56862,15 @@
     "CNAM_EditorID": "SCORE_S22_CAMPPets_SpawnFurniture_Dog_Doghouse_VaultTec_Sable"
   },
   {
+    "Name": "Mongrel House",
+    "Category": "Dwellers",
+    "SubCategory": "Pets",
+    "COBJ_FormEditorID": "ATX_workshop_co_CAMPPets_Dog_Base",
+    "COBJ_FormID": "8538d8",
+    "CNAM_FormID": "0084132B",
+    "CNAM_EditorID": "ATX_CAMPPets_SpawnFurniture_Dog_MongrelDogHouse"
+  },
+  {
     "Name": "Cat Tree Scratching Post",
     "Category": "Dwellers",
     "SubCategory": "Pet Furniture",
@@ -56397,7 +56910,7 @@
     "Name": "Dog Dirt Pile",
     "Category": "Dwellers",
     "SubCategory": "Pet Furniture",
-    "COBJ_FormEditorID": "ATX_workshop_co_CAMPPets_Furniture_Dogs_DirtMounds",
+    "COBJ_FormEditorID": "ATX_workshop_co_CAMPPets_Furniture_Dogs",
     "COBJ_FormID": "78b4f9",
     "CNAM_FormID": "0077D81E",
     "CNAM_EditorID": "CAMPPets_IdleFurniture_Dog_DirtPen01"
@@ -56406,7 +56919,7 @@
     "Name": "Dog Leaf Pile",
     "Category": "Dwellers",
     "SubCategory": "Pet Furniture",
-    "COBJ_FormEditorID": "ATX_workshop_co_CAMPPets_Furniture_Dogs_DirtMounds",
+    "COBJ_FormEditorID": "ATX_workshop_co_CAMPPets_Furniture_Dogs",
     "COBJ_FormID": "78b4f9",
     "CNAM_FormID": "007A27AE",
     "CNAM_EditorID": "SCORE_S19_CAMPPets_IdleFurniture_Dog_LeafPile"
@@ -56415,7 +56928,7 @@
     "Name": "Raider Skull Pile",
     "Category": "Dwellers",
     "SubCategory": "Pet Furniture",
-    "COBJ_FormEditorID": "ATX_workshop_co_CAMPPets_Furniture_Dogs_DirtMounds",
+    "COBJ_FormEditorID": "ATX_workshop_co_CAMPPets_Furniture_Dogs",
     "COBJ_FormID": "78b4f9",
     "CNAM_FormID": "00804F5C",
     "CNAM_EditorID": "CAMPPets_IdleFurniture_Dog_RaiderSkullPile"
@@ -56424,7 +56937,7 @@
     "Name": "Junkyard Food Bowl",
     "Category": "Dwellers",
     "SubCategory": "Pet Furniture",
-    "COBJ_FormEditorID": "ATX_workshop_co_CAMPPets_Furniture_Dogs_DirtMounds",
+    "COBJ_FormEditorID": "ATX_workshop_co_CAMPPets_Furniture_Dogs",
     "COBJ_FormID": "78b4f9",
     "CNAM_FormID": "007B2912",
     "CNAM_EditorID": "ATX_CAMPPets_IdleFurniture_Dog_JunkyardFoodBowl"
@@ -56433,7 +56946,7 @@
     "Name": "Mr. Fuzzy Chew Toy",
     "Category": "Dwellers",
     "SubCategory": "Pet Furniture",
-    "COBJ_FormEditorID": "ATX_workshop_co_CAMPPets_Furniture_Dogs_DirtMounds",
+    "COBJ_FormEditorID": "ATX_workshop_co_CAMPPets_Furniture_Dogs",
     "COBJ_FormID": "78b4f9",
     "CNAM_FormID": "007B2911",
     "CNAM_EditorID": "ATX_CAMPPets_IdleFurniture_Dog_MrFuzzyChewToy"
@@ -57312,6 +57825,15 @@
     "CNAM_EditorID": "DE2024_ScienceOfLoveworkshop_Wallpaper_Dopamine_AO"
   },
   {
+    "Name": "Woodland",
+    "Category": "Wallpapers",
+    "SubCategory": "SubCategory",
+    "COBJ_FormEditorID": "ATX_workshop_co_Wallpapers",
+    "COBJ_FormID": "567364",
+    "CNAM_FormID": "0083E1D2",
+    "CNAM_EditorID": "ATX_workshop_Wallpaper_Woodland_AO"
+  },
+  {
     "Name": null,
     "Category": "Lock",
     "SubCategory": "SubCategory",
@@ -57355,5 +57877,14 @@
     "COBJ_FormID": "407d",
     "CNAM_FormID": null,
     "CNAM_EditorID": null
+  },
+  {
+    "Name": "TEST_ATX_WorkshopArtTesting",
+    "Category": "Testing",
+    "SubCategory": "TestSubCat",
+    "COBJ_FormEditorID": "ATX_workshop_ARTIST_TEST_RECIPE",
+    "COBJ_FormID": "44d311",
+    "CNAM_FormID": "0044D312",
+    "CNAM_EditorID": "TEST_ATX_WorkshopArtTesting"
   }
 ]
