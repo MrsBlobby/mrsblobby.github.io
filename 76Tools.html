@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:title" content="MrsBlobby's Fallout 76 Tools Hub">
-  <meta property="og:description" content="Collection of Fallout 76 modding and utility tools by MrsBlobby.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/main/assets/CAMPIcon2.png">
+  <meta property="og:description" content="Tools related to Fallout 76 I've made">
+  <meta property="og:image" content="https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/main/assets/76Logo.png
   <meta property="og:url" content="https://mrsblobby.github.io/">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/svg" href="/assets/svg/CAMPIcon.svg">
-  <title>MrsBlobby’s Fallout 76 Tools Hub</title>
+  <title>MrsBlobby’s Fallout 76 Tools</title>
   <style>
     :root {
       --bg: #1a1a1a;
@@ -29,8 +29,17 @@
     header {
       text-align: center;
       padding: 40px 16px 10px;
-    }
 
+    }
+    .header-banner {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-top: 2px solid var(--card-bg);
+    border-bottom: 2px solid var(--card-bg);
+    margin-top: 20px;
+    }
+    
     header h1 {
       color: #ffc00f;
       margin-bottom: 10px;
@@ -140,8 +149,8 @@
 </head>
 <body>
   <header>
-    <h1>MrsBlobby’s Fallout 76 Tools</h1>
     <p>Collection of custom-made utilities for modding and exploring Fallout 76</p>
+    <img class="header-banner" src="/assets/HubCover.png" alt="Fallout 76 Tools Banner">
   </header>
 
   <main>
@@ -149,26 +158,17 @@
       <img src="/assets/CoverImage.png" alt="Fallout 76 C.A.M.P. Item Lookup">
       <div class="tool-card-content">
         <h2>C.A.M.P. Item Lookup</h2>
-        <p>Search Fallout 76 C.A.M.P. building items and find their in-game menu location quickly.</p>
+        <p>Search tool for finding Fallout 76 C.A.M.P. items in the build menu.</p>
         <a href="https://mrsblobby.github.io/CAMPCategorySearch/Index.html">Visit Tool</a>
       </div>
     </div>
 
-    <div class="tool-card" style="--accent: #73e8ff;">
+    <div class="tool-card" style="--accent: #497ab4;">
       <img src="/assets/CoverImagePTS.png" alt="Fallout 76 C.A.M.P. Item Lookup (PTS)">
       <div class="tool-card-content">
         <h2>C.A.M.P. Item Lookup (PTS)</h2>
-        <p>Experimental PTS version of the C.A.M.P. Lookup tool with updated data and structures.</p>
+        <p>Search tool for finding Fallout 76 C.A.M.P. items in the build menu (PTS-specific).</p>
         <a href="https://mrsblobby.github.io/CAMPCategorySearchPTS/Index.html">Visit Tool</a>
-      </div>
-    </div>
-
-    <div class="tool-card" style="--accent: #ff7f50;">
-      <img src="/assets/TextureToolCover.png" alt="Texture Recolor Tool">
-      <div class="tool-card-content">
-        <h2>Texture Recolor Tool</h2>
-        <p>Batch-convert, resize, and recolor Fallout 76 texture files with automatic dominant color detection.</p>
-        <a href="https://mrsblobby.github.io/TextureTool/">Visit Tool</a>
       </div>
     </div>
   </main>
