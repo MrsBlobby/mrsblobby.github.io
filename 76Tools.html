@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="MrsBlobby's Fallout 76 Tools Hub">
+  <meta property="og:description" content="Collection of Fallout 76 modding and utility tools by MrsBlobby.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/main/assets/CAMPIcon2.png">
+  <meta property="og:url" content="https://mrsblobby.github.io/">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg" href="/assets/svg/CAMPIcon.svg">
+  <title>MrsBlobby’s Fallout 76 Tools Hub</title>
+  <style>
+    :root {
+      --accent: #ffc00f;
+      --bg: #1a1a1a;
+      --card-bg: #2a2a2a;
+      --text: #e0e0e0;
+      --text-muted: #aaa;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 16px 10px;
+    }
+
+    header h1 {
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-size: 2.4em;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 0;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .tool-card {
+      background-color: var(--card-bg);
+      border: 2px solid var(--accent);
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    }
+
+    .tool-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .tool-card-content {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .tool-card h2 {
+      color: var(--accent);
+      font-size: 20px;
+      margin: 0 0 8px 0;
+      text-align: center;
+    }
+
+    .tool-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-align: center;
+      flex: 1;
+    }
+
+    .tool-card a {
+      display: inline-block;
+      text-align: center;
+      background: var(--accent);
+      color: black;
+      text-decoration: none;
+      padding: 8px 14px;
+      margin-top: 14px;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .tool-card a:hover {
+      background: #ffda59;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--card-bg);
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8em;
+      }
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MrsBlobby’s Fallout 76 Tools</h1>
+    <p>Collection of custom-made utilities for modding and exploring Fallout 76</p>
+  </header>
+
+  <main>
+    <div class="tool-card">
+      <img src="/assets/CoverImage.png" alt="Fallout 76 C.A.M.P. Item Lookup">
+      <div class="tool-card-content">
+        <h2>C.A.M.P. Item Lookup</h2>
+        <p>Search Fallout 76 C.A.M.P. building items and find their in-game menu location quickly.</p>
+        <a href="https://mrsblobby.github.io/CAMPCategorySearch/Index.html">Visit Tool</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <img src="/assets/TextureToolCover.png" alt="Texture Recoloring Tool">
+      <div class="tool-card-content">
+        <h2>Texture Recolor Tool</h2>
+        <p>Batch-convert, resize, and recolor Fallout 76 texture files with automatic dominant color detection.</p>
+        <a href="https://mrsblobby.github.io/TextureTool/">Visit Tool</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <img src="/assets/COBJExtractorCover.png" alt="COBJ Extractor">
+      <div class="tool-card-content">
+        <h2>COBJ Extractor</h2>
+        <p>xEdit script and CSV exporter for COBJ data including BOOK and ENTM links.</p>
+        <a href="https://mrsblobby.github.io/COBJExtractor/">Visit Tool</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <img src="/assets/SoundToolCover.png" alt="Sound Browser">
+      <div class="tool-card-content">
+        <h2>Sound Asset Browser</h2>
+        <p>Browse Fallout 76 BSA/BA2 audio files and extract sound data efficiently.</p>
+        <a href="https://mrsblobby.github.io/SoundBrowser/">Visit Tool</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Made by MrsBlobby | Last Updated: October 2025</p>
+  </footer>
+</body>
+</html>
