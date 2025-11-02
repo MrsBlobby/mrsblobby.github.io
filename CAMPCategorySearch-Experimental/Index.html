@@ -568,14 +568,14 @@ Made by MrsBlobby |
       }
     
       // ENTM pill (formatting for ATX / SCORE)
-      if (hasEntm) {
-    let entmText = r.ENTM_FULL;
+   if (hasEntm) {
+    const entmFull = r.ENTM_FULL;
     const edid = String(r.ENTM_EDID || '');
 
     // --- Manual alias map for tricky Mini Seasons ---
     const miniSeasonAliases = {
         'SCORE_MiniSeason_2025_MMMFE': 'Marshal Mallow'
-        // add more aliases here if needed
+        // add more aliases here as needed
     };
 
     let tag = '';
@@ -589,10 +589,14 @@ Made by MrsBlobby |
         if (aliasKey) {
             tag = `S.C.O.R.E. - Mini Season ${miniSeasonAliases[aliasKey]}`;
         } else {
-            // fallback: attempt to extract name from EDID
-            const match = edid.match(/SCORE[_-]?MiniSeason_\d+_([A-Za-z0-9]+)/);
+            // fallback: parse name from EDID
+            const match = edid.match(/SCORE[_-]?MiniSeason_\d+_([A-Za-z0-9_]+)/);
             if (match) {
-                const namePart = match[1].replace(/_/g, ' ');
+                let namePart = match[1]
+                    // insert spaces between capital letters + lowercase letters
+                    .replace(/([a-z])([A-Z])/g, '$1 $2')
+                    // replace underscores with spaces
+                    .replace(/_/g, ' ');
                 tag = `S.C.O.R.E. - Mini Season ${namePart}`;
             } else {
                 tag = 'S.C.O.R.E. - Mini Season';
@@ -608,12 +612,13 @@ Made by MrsBlobby |
         }
     }
 
-    // create pill with line break and brackets
+    // create pill with line break and brackets, keeping Entitlement: XXX
     const entmPill = document.createElement('span');
     entmPill.className = 'pill';
-    entmPill.innerHTML = `${entmText}<br>[${tag}]`; // line break + brackets
+    entmPill.innerHTML = `Entitlement: ${entmFull}<br>[${tag}]`;
     condWrap.appendChild(entmPill);
 }
+
 
     
       right.appendChild(condWrap);
