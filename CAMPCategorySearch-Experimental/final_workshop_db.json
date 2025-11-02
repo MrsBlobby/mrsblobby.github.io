@@ -17232,7 +17232,7 @@
     "COBJ_FormID": "498af7",
     "CNAM_FormID": "005AD126",
     "CNAM_EditorID": "Circus_Trailer_Door",
-    "BOOK_FULL": null,
+    "BOOK_FULL": "Plan: Circus Cage Trailer î Ž",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
     "ENTM_EDID": null
@@ -22926,7 +22926,7 @@
     "COBJ_FormID": "60d17e",
     "CNAM_FormID": "005D00FC",
     "CNAM_EditorID": "ATX_ACT_Plane_Generator",
-    "BOOK_FULL": "Plan: Windmill",
+    "BOOK_FULL": "Plan: Large Generator; Plan: Windmill",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Downed Plane Generator",
     "ENTM_EDID": "ATX_F1_ENTM_CAMP_Machinery_Generator_Windmill_Plane"
@@ -22939,7 +22939,7 @@
     "COBJ_FormID": "60d17e",
     "CNAM_FormID": "0068DF00",
     "CNAM_EditorID": "ATX_Utility_TallWindmillGenerator",
-    "BOOK_FULL": "Plan: Windmill",
+    "BOOK_FULL": "Plan: Large Generator; Plan: Windmill",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Tall Windmill Generator",
     "ENTM_EDID": "ATX_ENTM_CAMP_Utility_TallWindmillGenerator"
@@ -22952,7 +22952,7 @@
     "COBJ_FormID": "60d17e",
     "CNAM_FormID": "00793A4F",
     "CNAM_EditorID": "SCORE_S18_Utility_StandingWindmillGenerator",
-    "BOOK_FULL": "Plan: Windmill",
+    "BOOK_FULL": "Plan: Large Generator; Plan: Windmill",
     "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Standing Windmill Generator",
     "ENTM_EDID": "SCORE_S18_ENTM_CAMP_Utility_StandingWindmillGenerator"
@@ -43414,7 +43414,7 @@
     "COBJ_FormID": "5b7528",
     "CNAM_FormID": "005A728C",
     "CNAM_EditorID": "FasnachtSouvenirBeerStein",
-    "BOOK_FULL": null,
+    "BOOK_FULL": "Plan: Fasnacht Souvenir Beer Stein",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
     "ENTM_EDID": null
@@ -43453,7 +43453,7 @@
     "COBJ_FormID": "5b7528",
     "CNAM_FormID": "005C75DC",
     "CNAM_EditorID": "ChallyBeerStein",
-    "BOOK_FULL": null,
+    "BOOK_FULL": "Plan: Meat Week Souvenir Beer Stein",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
     "ENTM_EDID": null
@@ -43531,7 +43531,7 @@
     "COBJ_FormID": "5b7528",
     "CNAM_FormID": "0062A3EA",
     "CNAM_EditorID": "Reward_MothmanEquinox_Stein",
-    "BOOK_FULL": null,
+    "BOOK_FULL": "Plan: Mothman Equinox Souvenir Beer Stein",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
     "ENTM_EDID": null
@@ -43557,7 +43557,7 @@
     "COBJ_FormID": "5b7528",
     "CNAM_FormID": "00633840",
     "CNAM_EditorID": "AlienBeerStein",
-    "BOOK_FULL": null,
+    "BOOK_FULL": "Plan: Alien Souvenir Beer Stein",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
     "ENTM_EDID": null
@@ -56869,10 +56869,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0058F347",
     "CNAM_EditorID": "CAMP_Plushie_Brahmin",
-    "BOOK_FULL": "Plan: Brahmin Plushie î Ž; Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Brahmin Plushie î Ž",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": null
   },
   {
     "Name": "Wanamingo Plushie",
@@ -56882,10 +56882,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "005D1F20",
     "CNAM_EditorID": "Plushie_Wanamingo",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž; Plan: Wanamingo Plushie î Ž",
+    "BOOK_FULL": "Plan: Wanamingo Plushie î Ž",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": null
   },
   {
     "Name": "Wendigo Colossus Plushie",
@@ -56895,10 +56895,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "005A6E6A",
     "CNAM_EditorID": "E06_WendigoColossus_Plushie",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž; Plan: Wendigo Colossus Plushie î �",
+    "BOOK_FULL": "Plan: Wendigo Colossus Plushie î �",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "E06_Colossus_Recipe_Workshop_FloorDecor_WendigoColossus_Plushie; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "E06_Colossus_Recipe_Workshop_FloorDecor_WendigoColossus_Plushie"
   },
   {
     "Name": "Sheepsquatch Plushie",
@@ -56908,10 +56908,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "003FA7FC",
     "CNAM_EditorID": "ATX_Plushie_Sheepsquatch",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Sheepsquatch Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Sheepsquatch; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Sheepsquatch"
   },
   {
     "Name": "Willard Plushie",
@@ -56921,10 +56921,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "003FA7FD",
     "CNAM_EditorID": "ATX_Plushie_Willard",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Wavy Willard Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Willard; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Willard"
   },
   {
     "Name": "Rabbit Plushie",
@@ -56934,10 +56934,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "003FA7FA",
     "CNAM_EditorID": "ATX_Plushie_Rabbit",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Rabbit Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Rabbit; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Rabbit"
   },
   {
     "Name": "Mr. Pebbles Plushie",
@@ -56947,10 +56947,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "003FA7F9",
     "CNAM_EditorID": "ATX_Plushie_MrPebbles",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Mr. Pebbles Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_MrPebbles; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_MrPebbles"
   },
   {
     "Name": "Alien Plushie",
@@ -56960,10 +56960,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0055C531",
     "CNAM_EditorID": "ATX_Plushie_Alien",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Alien Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Alien; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Alien"
   },
   {
     "Name": "Vault Boy 2000 Plushie",
@@ -56973,10 +56973,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "005600D7",
     "CNAM_EditorID": "ATX_Plushie_VB2000",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Vault Boy 2000 Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_VaultBoy_2000; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_VaultBoy_2000"
   },
   {
     "Name": "Jackalope Plushie",
@@ -56986,10 +56986,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "00571BB0",
     "CNAM_EditorID": "ATX_Plushie_Jackalope",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Jackalope Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Jackalope; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Jackalope"
   },
   {
     "Name": "Mr. Fuzzy Halloween Plushie",
@@ -56999,10 +56999,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0057A6D7",
     "CNAM_EditorID": "ATX_Plushie_Cat_Halloween",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Mr. Fuzzy Halloween Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Cat_Halloween; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Cat_Halloween"
   },
   {
     "Name": "Silver Shroud Plushie",
@@ -57012,10 +57012,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0059CA76",
     "CNAM_EditorID": "ATX_Plushie_SilverShroud",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Silver Shroud Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_SilverShroud; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_SilverShroud"
   },
   {
     "Name": "Mr. Fuzzy New Year's Plushie",
@@ -57025,10 +57025,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "005A049A",
     "CNAM_EditorID": "ATX_Plushie_Cat_NewYear",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Mr. Fuzzy New Year's Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Cat_NewYear; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Cat_NewYear"
   },
   {
     "Name": "Mr. Fuzzy Cowboy Plushie",
@@ -57038,10 +57038,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "005A1F1D",
     "CNAM_EditorID": "ATX_Plushie_Cat_Cowboy",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Mr. Fuzzy Cowboy Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Cat_Cowboy; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Cat_Cowboy"
   },
   {
     "Name": "Mr. Fuzzy Valentine's Day Plushie",
@@ -57051,10 +57051,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "005A1F1E",
     "CNAM_EditorID": "ATX_Plushie_Cat_ValentinesDay",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Mr. Fuzzy Valentine's Day Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Cat_ValentinesDay; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Cat_ValentinesDay"
   },
   {
     "Name": "Grognak Plushie",
@@ -57064,10 +57064,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "005A4F9F",
     "CNAM_EditorID": "ATX_Plushie_Grognak",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Grognak Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Grognak; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Grognak"
   },
   {
     "Name": "Easter Rabbit Plushie",
@@ -57077,10 +57077,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "005A4E9E",
     "CNAM_EditorID": "ATX_Plushie_Rabbit_Easter",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Easter Rabbit Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Easter_Rabbit; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Easter_Rabbit"
   },
   {
     "Name": "Giant Sheepsquatch Plushie",
@@ -57090,10 +57090,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "005C2D6A",
     "CNAM_EditorID": "ATX_Plushie_Giant_Sheepsquatch",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Giant Sheepsquatch Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S1_ENTM_CAMP_FloorDecor_Plushie_SheepsquatchGiant"
+    "ENTM_EDID": "SCORE_S1_ENTM_CAMP_FloorDecor_Plushie_SheepsquatchGiant"
   },
   {
     "Name": "Grelok Plushie",
@@ -57103,10 +57103,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "005CB9EF",
     "CNAM_EditorID": "ATX_Plushie_Grelok",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Grelok Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Grelok; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Grelok"
   },
   {
     "Name": "Grahm Plushie",
@@ -57116,10 +57116,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "005F5DBA",
     "CNAM_EditorID": "ATX_Plushie_Grahm",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Grahm Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Grahm; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Grahm"
   },
   {
     "Name": "Snallygaster Plushie",
@@ -57129,10 +57129,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "006170EF",
     "CNAM_EditorID": "CAMP_Plushie_Snallygaster",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž; Plan: Snallygaster Plushie î Ž",
+    "BOOK_FULL": "Plan: Snallygaster Plushie î Ž",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": null
   },
   {
     "Name": "Scorchbeast Queen Plushie",
@@ -57142,10 +57142,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "006170F0",
     "CNAM_EditorID": "CAMP_Plushie_ScorchbeastQueen",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž; Plan: Scorchbeast Queen Plushie î Ž",
+    "BOOK_FULL": "Plan: Scorchbeast Queen Plushie î Ž",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": null
   },
   {
     "Name": "Octosaw Plushie",
@@ -57155,10 +57155,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0062FABD",
     "CNAM_EditorID": "ATX_Plushie_Octosaw",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Octosaw Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S7_ENTM_CAMP_FloorDecor_Plushie_Octosaw"
+    "ENTM_EDID": "SCORE_S7_ENTM_CAMP_FloorDecor_Plushie_Octosaw"
   },
   {
     "Name": "Holiday Mr. Fuzzy Plushie",
@@ -57168,10 +57168,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0063168F",
     "CNAM_EditorID": "ATX_Plushie_MrFuzzy_Holiday",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Holiday Mr. Fuzzy Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Holiday_MrFuzzy; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Holiday_MrFuzzy"
   },
   {
     "Name": "Behemoth Boss Plushie",
@@ -57181,10 +57181,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0061DB76",
     "CNAM_EditorID": "CAMP_Plushie_BehemothBoss",
-    "BOOK_FULL": "Plan: Behemoth Boss Plushie î Ž; Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Behemoth Boss Plushie î Ž",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": null
   },
   {
     "Name": "Trog Plushie",
@@ -57194,10 +57194,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0065BE1C",
     "CNAM_EditorID": "ATX_Plushie_Trog",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Trog Plushie",
-    "ENTM_EDID": "ATX_Upgrade2022_Pitt_ENTM_CAMP_FloorDecor_Plushie_Trog; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_Upgrade2022_Pitt_ENTM_CAMP_FloorDecor_Plushie_Trog"
   },
   {
     "Name": "Slocum's Mr. Fuzzy Plushie",
@@ -57207,10 +57207,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0066F238",
     "CNAM_EditorID": "ATX_Plushie_MrFuzzy_Slocums",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Slocum's Mr. Fuzzy Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_SlocumsMrFuzzy; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_SlocumsMrFuzzy"
   },
   {
     "Name": "Ferocious Mr. Fuzzy Plushie",
@@ -57220,10 +57220,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0066F256",
     "CNAM_EditorID": "ATX_Plushie_FerociousMrFuzzy",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Ferocious Mr. Fuzzy Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_FerociousMrFuzzy; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_FerociousMrFuzzy"
   },
   {
     "Name": "Wicker Mr. Fuzzy Plushie",
@@ -57233,10 +57233,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0066F257",
     "CNAM_EditorID": "ATX_Plushie_WickerMrFuzzy",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Wicker Mr. Fuzzy Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_WickerMrFuzzy; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_WickerMrFuzzy"
   },
   {
     "Name": "Patchwork Mr. Fuzzy Plushie",
@@ -57246,10 +57246,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0066F258",
     "CNAM_EditorID": "ATX_Plushie_PatchworkMrFuzzy",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Patchwork Mr. Fuzzy Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_PatchworkMrFuzzy; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_PatchworkMrFuzzy"
   },
   {
     "Name": "Mr. Fuzzy Balloon Animal",
@@ -57259,10 +57259,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0066CD09",
     "CNAM_EditorID": "ATX_BalloonAnimal_MrFuzzy",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Balloon Animal Mr. Fuzzy Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_BalloonAnimalMrFuzzy; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_BalloonAnimalMrFuzzy"
   },
   {
     "Name": "Nuka-Cola Mr. Fuzzy Plushie",
@@ -57272,10 +57272,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "00677BDB",
     "CNAM_EditorID": "SCORE_S11_Plushie_NukaColaMrFuzzy",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Nuka-Cola Mr. Fuzzy Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S11_ENTM_CAMP_FloorDecor_Plushie_NukaColaMrFuzzy"
+    "ENTM_EDID": "SCORE_S11_ENTM_CAMP_FloorDecor_Plushie_NukaColaMrFuzzy"
   },
   {
     "Name": "Nuka-Twist Mr. Fuzzy Plushie",
@@ -57285,10 +57285,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0067A46A",
     "CNAM_EditorID": "SCORE_S11_Plushie_NukaTwistMrFuzzy",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Nuka-Twist Mr. Fuzzy Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S11_ENTM_CAMP_FloorDecor_Plushie_NukaTwistMrFuzzy"
+    "ENTM_EDID": "SCORE_S11_ENTM_CAMP_FloorDecor_Plushie_NukaTwistMrFuzzy"
   },
   {
     "Name": "Nuka-Cola Quantum Mr. Fuzzy Plushie",
@@ -57298,10 +57298,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "00677BDF",
     "CNAM_EditorID": "SCORE_S11_Plushie_NukaQuantumMrFuzzy",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Nuka-Cola Quantum Mr. Fuzzy Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S11_ENTM_CAMP_FloorDecor_Plushie_NukaQuantumMrFuzzy"
+    "ENTM_EDID": "SCORE_S11_ENTM_CAMP_FloorDecor_Plushie_NukaQuantumMrFuzzy"
   },
   {
     "Name": "Blue Devil Plushie",
@@ -57311,10 +57311,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "00685506",
     "CNAM_EditorID": "MOON_Herd_Workshop_Item_BlueDevilPlushie",
-    "BOOK_FULL": "Plan: Blue Devil Plushie î �; Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Blue Devil Plushie î �",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "MOON_Herd_Workshop_Recipe_BlueDevilPlushie; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "MOON_Herd_Workshop_Recipe_BlueDevilPlushie"
   },
   {
     "Name": "Ogua Plushie",
@@ -57324,10 +57324,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0068ADF3",
     "CNAM_EditorID": "MOON_Ambush_Workshop_Item_OguaPlushie",
-    "BOOK_FULL": "Plan: Ogua Plushie î �; Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Ogua Plushie î �",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "MOON_Ambush_Workshop_Recipe_OguaPlushie; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "MOON_Ambush_Workshop_Recipe_OguaPlushie"
   },
   {
     "Name": "Pioneer Mr. Fuzzy Plushie",
@@ -57337,10 +57337,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "006A918A",
     "CNAM_EditorID": "ATX_Plushie_PioneerMrFuzzy",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Pioneer Mr. Fuzzy Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_PioneerMrFuzzy; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_PioneerMrFuzzy"
   },
   {
     "Name": "Cappy Plushie",
@@ -57350,10 +57350,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0067A537",
     "CNAM_EditorID": "E09B_Workshop_Item_CappyPlush",
-    "BOOK_FULL": "Plan: Cappy Plush î �; Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Cappy Plush î �",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "E09B_Workshop_Recipe_CappyPlush; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "E09B_Workshop_Recipe_CappyPlush"
   },
   {
     "Name": "Bottle Plushie",
@@ -57363,10 +57363,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0067A91F",
     "CNAM_EditorID": "E09B_Workshop_Item_BottlePlush",
-    "BOOK_FULL": "Plan: Bottle Plush î �; Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Bottle Plush î �",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "E09B_Workshop_Recipe_BottlePlush; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "E09B_Workshop_Recipe_BottlePlush"
   },
   {
     "Name": "Titan Plushie",
@@ -57376,10 +57376,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0067A90E",
     "CNAM_EditorID": "E09A_CAMP_Plushie_Abomination_Plush",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž; Plan: Titan Plushie î �",
+    "BOOK_FULL": "Plan: Titan Plushie î �",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "E09A_Recipe_Workshop_Abomination_Plushie; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "E09A_Recipe_Workshop_Abomination_Plushie"
   },
   {
     "Name": "Punty Pig Plushie",
@@ -57389,10 +57389,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "006C50FF",
     "CNAM_EditorID": "CAMP_Plushie_Punty",
-    "BOOK_FULL": "Plan: Punty Pig Plushie î Ž; Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Punty Pig Plushie î Ž",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": null
   },
   {
     "Name": "Peppino Pig Plushie",
@@ -57402,10 +57402,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "006C5100",
     "CNAM_EditorID": "camp_Plushie_Peppino",
-    "BOOK_FULL": "Plan: Peppino Pig Plushie î Ž; Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Peppino Pig Plushie î Ž",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": null
   },
   {
     "Name": "Hamilton J. Pigg Plushie",
@@ -57415,10 +57415,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "006C5101",
     "CNAM_EditorID": "ATX_Plushie_Hamilton",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Hamilton J. Pigg Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Hamilton; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Hamilton"
   },
   {
     "Name": "Wilber McPigg Plushie",
@@ -57428,10 +57428,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "006C5102",
     "CNAM_EditorID": "CAMP_Plushie_WilberMcPigg",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž; Plan: Wilber McPigg Plushie î Ž",
+    "BOOK_FULL": "Plan: Wilber McPigg Plushie î Ž",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": null
   },
   {
     "Name": "Flatwoods Monster Plushie",
@@ -57441,10 +57441,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0068515D",
     "CNAM_EditorID": "SCORE_S12_Plushie_FlatwoodsMonster",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Flatwoods Monster Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S12_ENTM_CAMP_FloorDecor_Plushie_FlatwoodsMonster"
+    "ENTM_EDID": "SCORE_S12_ENTM_CAMP_FloorDecor_Plushie_FlatwoodsMonster"
   },
   {
     "Name": "Grafton Monster Plushie",
@@ -57454,10 +57454,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0068515C",
     "CNAM_EditorID": "SCORE_S12_Plushie_GraftonMonster",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Grafton Monster Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S12_ENTM_CAMP_FloorDecor_Plushie_GraftonMonster"
+    "ENTM_EDID": "SCORE_S12_ENTM_CAMP_FloorDecor_Plushie_GraftonMonster"
   },
   {
     "Name": "Mothman Plushie",
@@ -57467,10 +57467,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0068515B",
     "CNAM_EditorID": "SCORE_S12_Plushie_Mothman",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Mothman Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S12_ENTM_CAMP_FloorDecor_Plushie_Mothman"
+    "ENTM_EDID": "SCORE_S12_ENTM_CAMP_FloorDecor_Plushie_Mothman"
   },
   {
     "Name": "Pink Brahmin Plushie",
@@ -57480,10 +57480,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "00692281",
     "CNAM_EditorID": "MOON_Herd_Workshop_Item_BrahminPlushie",
-    "BOOK_FULL": "Plan: Pink Brahmin Plushie î �; Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Pink Brahmin Plushie î �",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "MOON_Herd_Workshop_Recipe_BrahminPlushie; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "MOON_Herd_Workshop_Recipe_BrahminPlushie"
   },
   {
     "Name": "Lesser Devil Plushie 1",
@@ -57493,10 +57493,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "006E6F26",
     "CNAM_EditorID": "XPD_AC_LesserDevilPlushie_var1",
-    "BOOK_FULL": "Plan: Lesser Devil Plushies; Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Lesser Devil Plushies",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": null
   },
   {
     "Name": "Lesser Devil Plushie 2",
@@ -57506,10 +57506,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "006F3122",
     "CNAM_EditorID": "XPD_AC_LesserDevilPlushie_var2",
-    "BOOK_FULL": "Plan: Lesser Devil Plushies; Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Lesser Devil Plushies",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": null
   },
   {
     "Name": "Lesser Devil Plushie 3",
@@ -57519,10 +57519,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "006F3123",
     "CNAM_EditorID": "XPD_AC_LesserDevilPlushie_var3",
-    "BOOK_FULL": "Plan: Lesser Devil Plushies; Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Lesser Devil Plushies",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": null
   },
   {
     "Name": "Dealer Mr. Fuzzy Plushie",
@@ -57532,10 +57532,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "006F8535",
     "CNAM_EditorID": "SCORE_S15_Plushie_MrFuzzyDealer",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Dealer Mr. Fuzzy Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S15_ENTM_CAMP_FloorDecor_Plushie_MrFuzzyDealer"
+    "ENTM_EDID": "SCORE_S15_ENTM_CAMP_FloorDecor_Plushie_MrFuzzyDealer"
   },
   {
     "Name": "Large Overgrown Plushie",
@@ -57545,10 +57545,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "006F0D5B",
     "CNAM_EditorID": "ATX_Plushie_LargeOvergrown",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Large Overgrown Plushie",
-    "ENTM_EDID": "ATX_Upgrade2023_AC_ENTM_CAMP_FloorDecor_Plushie_LargeOvergrown; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_Upgrade2023_AC_ENTM_CAMP_FloorDecor_Plushie_LargeOvergrown"
   },
   {
     "Name": "Overgrown Thorn Plushie",
@@ -57558,10 +57558,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "006F0D5C",
     "CNAM_EditorID": "ATX_Plushie_OvergrownRusher",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Overgrown Thorn Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_OvergrownRusher; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_OvergrownRusher"
   },
   {
     "Name": "Bloated Tick Plushie",
@@ -57571,10 +57571,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "006FBAD5",
     "CNAM_EditorID": "ATX_Plushie_BloatedTic",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Bloated Tick Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_BloatedTic; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_BloatedTic"
   },
   {
     "Name": "Fuzzy Enlightened Plushie",
@@ -57584,10 +57584,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0075595D",
     "CNAM_EditorID": "E07A_Plushie_FuzzyEnlightened",
-    "BOOK_FULL": "Plan: Fuzzy Enlightened Plushie î ‘; Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Fuzzy Enlightened Plushie î ‘",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "E07A_Recipe_Plushie_FuzzyEnlightened; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "E07A_Recipe_Plushie_FuzzyEnlightened"
   },
   {
     "Name": "Fuzzy Mothman Plushie",
@@ -57597,10 +57597,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "00755960",
     "CNAM_EditorID": "E07A_Plushie_FuzzyMothman",
-    "BOOK_FULL": "Plan: Fuzzy Mothman Plushie î ‘; Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Fuzzy Mothman Plushie î ‘",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "E07A_Recipe_Plushie_FuzzyMothman; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "E07A_Recipe_Plushie_FuzzyMothman"
   },
   {
     "Name": "Jersey Devil Plushie",
@@ -57610,10 +57610,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "006E7372",
     "CNAM_EditorID": "XPD_AC_JerseyDevilPlushie",
-    "BOOK_FULL": "Plan: Jersey Devil Plushie; Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Jersey Devil Plushie",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": null
   },
   {
     "Name": "Ground Meat Plushie",
@@ -57623,10 +57623,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0075EABC",
     "CNAM_EditorID": "Meat_Plushie_GroundMeat",
-    "BOOK_FULL": "Plan: Ground Meat Plushie î Ž; Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Ground Meat Plushie î Ž",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_GroundMeat; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "Meat_Recipe_Plushie_GroundMeat"
   },
   {
     "Name": "Rotted Ground Meat Plushie",
@@ -57636,10 +57636,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0075EC30",
     "CNAM_EditorID": "Meat_Plushie_RottedGroundMeat",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Ground Meat Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Rotted Ground Meat Plushie î Ž",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedGroundMeat; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "Meat_Recipe_Plushie_RottedGroundMeat"
   },
   {
     "Name": "Steak Plushie",
@@ -57649,10 +57649,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0075F752",
     "CNAM_EditorID": "Meat_Plushie_Steak",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž; Plan: Steak Plushie î Ž",
+    "BOOK_FULL": "Plan: Steak Plushie î Ž",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; Meat_Recipe_Plushie_Steak"
+    "ENTM_EDID": "Meat_Recipe_Plushie_Steak"
   },
   {
     "Name": "Rotted Rib Plushie",
@@ -57662,10 +57662,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0075FB63",
     "CNAM_EditorID": "Meat_Plushie_RottedRib",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Rotted Rib Plushie î Ž",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "Meat_Recipe_Plushie_RottedRib"
   },
   {
     "Name": "Rotted Steak Plushie",
@@ -57675,10 +57675,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0075FBE7",
     "CNAM_EditorID": "Meat_Plushie_RottedSteak",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž; Plan: Rotted Steak Plushie î Ž",
+    "BOOK_FULL": "Plan: Rotted Steak Plushie î Ž",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; Meat_Recipe_Plushie_RottedSteak"
+    "ENTM_EDID": "Meat_Recipe_Plushie_RottedSteak"
   },
   {
     "Name": "Rib Plushie",
@@ -57688,10 +57688,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0075FBE6",
     "CNAM_EditorID": "Meat_Plushie_Rib",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Rib Plushie î Ž",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "Meat_Recipe_Plushie_Rib"
   },
   {
     "Name": "Sergeant Mr. Fuzzy Plushie",
@@ -57701,10 +57701,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0072B42B",
     "CNAM_EditorID": "ATX_Plushie_SergeantMrFuzzy",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Sergeant Mr. Fuzzy Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_SergeantMrFuzzy; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_SergeantMrFuzzy"
   },
   {
     "Name": "Hazmat Mr. Fuzzy Plushie",
@@ -57714,10 +57714,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0076D88F",
     "CNAM_EditorID": "SCORE_S17_Plushie_MrFuzzyHazmat",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Hazmat Mr. Fuzzy Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S17_ENTM_CAMP_FloorDecor_Plushie_MrFuzzyHazmat"
+    "ENTM_EDID": "SCORE_S17_ENTM_CAMP_FloorDecor_Plushie_MrFuzzyHazmat"
   },
   {
     "Name": "Pioneer Scouts Squirrel Mr. Fuzzy Plushie",
@@ -57727,10 +57727,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0076D890",
     "CNAM_EditorID": "SCORE_S17_Plushie_MrFuzzyPioneerScoutSquirrel",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Pioneer Scouts Squirrel Mr. Fuzzy Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S17_ENTM_CAMP_FloorDecor_Plushie_MrFuzzyPioneerScoutSquirrel"
+    "ENTM_EDID": "SCORE_S17_ENTM_CAMP_FloorDecor_Plushie_MrFuzzyPioneerScoutSquirrel"
   },
   {
     "Name": "Marshal Mallow Plushie",
@@ -57740,10 +57740,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "007738BB",
     "CNAM_EditorID": "SCORE_S17_Plushie_ScoutMarshmallow",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Marshal Mallow Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S17_ENTM_CAMP_FloorDecor_Plushie_ScoutMarshmallow"
+    "ENTM_EDID": "SCORE_S17_ENTM_CAMP_FloorDecor_Plushie_ScoutMarshmallow"
   },
   {
     "Name": "Dizzy Marshal Mallow Plushie",
@@ -57753,10 +57753,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0078183B",
     "CNAM_EditorID": "SCORE_S17_Plushie_ScoutMarshmallowHypno",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Marshal Mallow Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S17_ENTM_CAMP_FloorDecor_Plushie_ScoutMarshmallow"
+    "ENTM_EDID": "SCORE_S17_ENTM_CAMP_FloorDecor_Plushie_ScoutMarshmallow"
   },
   {
     "Name": "Toasty Mallow Plushie",
@@ -57766,10 +57766,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0078183A",
     "CNAM_EditorID": "SCORE_S17_Plushie_ScoutMarshmallow_Toasty",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Toasty Mallow Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S17_ENTM_CAMP_FloorDecor_Plushie_ScoutMarshmallow_Toasty"
+    "ENTM_EDID": "SCORE_S17_ENTM_CAMP_FloorDecor_Plushie_ScoutMarshmallow_Toasty"
   },
   {
     "Name": "Dizzy Toasty Mallow Plushie",
@@ -57779,10 +57779,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "00781839",
     "CNAM_EditorID": "SCORE_S17_Plushie_ScoutMarshmallowHypno_Toasty",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Toasty Mallow Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S17_ENTM_CAMP_FloorDecor_Plushie_ScoutMarshmallow_Toasty"
+    "ENTM_EDID": "SCORE_S17_ENTM_CAMP_FloorDecor_Plushie_ScoutMarshmallow_Toasty"
   },
   {
     "Name": "Moe the Mole Plushie",
@@ -57792,10 +57792,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0074876D",
     "CNAM_EditorID": "ATX_Plushie_MoeTheMole",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Moe the Mole Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_MoeTheMole; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_MoeTheMole"
   },
   {
     "Name": "Pheasant Plushie",
@@ -57805,10 +57805,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "007525E4",
     "CNAM_EditorID": "ATX_Plushie_Pheasant",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Pheasant Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Pheasant; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Pheasant"
   },
   {
     "Name": "Slocum's Joe Plushie",
@@ -57818,10 +57818,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0078DB5D",
     "CNAM_EditorID": "ATX_Plushie_SlocumsJoePlushie",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Slocum's Joe Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_SlocumsJoePlushie; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_SlocumsJoePlushie"
   },
   {
     "Name": "Blue Ridge Mr. Fuzzy Plushie",
@@ -57831,10 +57831,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "00791C58",
     "CNAM_EditorID": "SCORE_S18_Plushie_MrFuzzyBlueRidge",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Blue Ridge Mr. Fuzzy Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S18_ENTM_CAMP_FloorDecor_Plushie_MrFuzzyBlueRidge"
+    "ENTM_EDID": "SCORE_S18_ENTM_CAMP_FloorDecor_Plushie_MrFuzzyBlueRidge"
   },
   {
     "Name": "Mr. Bony Plushie",
@@ -57844,10 +57844,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "00787F84",
     "CNAM_EditorID": "ATX_Plushie_MrBony",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Mr. Bony Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_MrBony; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_MrBony"
   },
   {
     "Name": "Pheasant Plushie",
@@ -57857,10 +57857,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "007525E4",
     "CNAM_EditorID": "ATX_Plushie_Pheasant",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Pheasant Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Pheasant; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Pheasant"
   },
   {
     "Name": "Bat Plushie",
@@ -57870,10 +57870,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "00783BBD",
     "CNAM_EditorID": "MN2_Workshop_Item_BatPlushie",
-    "BOOK_FULL": "Plan: Bat Plushie; Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": "Plan: Bat Plushie",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "MN2_Workshop_Recipe_BatPlushie; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "MN2_Workshop_Recipe_BatPlushie"
   },
   {
     "Name": "Scorpion Plushie",
@@ -57883,10 +57883,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0079671F",
     "CNAM_EditorID": "MN2_Workshop_Item_ScorpionPlushie",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž; Plan: Scorpion Plushie",
+    "BOOK_FULL": "Plan: Scorpion Plushie",
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "MN2_Workshop_Recipe_ScorpionPlushie; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "MN2_Workshop_Recipe_ScorpionPlushie"
   },
   {
     "Name": "Santa Mr. Fuzzy Plushie",
@@ -57896,10 +57896,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0079A0CD",
     "CNAM_EditorID": "ATX_Plushie_SantaMrFuzzy",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Santa Mr. Fuzzy Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_SantaMrFuzzy; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_SantaMrFuzzy"
   },
   {
     "Name": "Scientist Mr. Fuzzy Plushie",
@@ -57909,10 +57909,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "00798141",
     "CNAM_EditorID": "SCORE_S19_Plushie_MrFuzzyScientist",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Scientist Mr. Fuzzy Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S19_ENTM_CAMP_FloorDecor_Plushie_MrFuzzyScientist"
+    "ENTM_EDID": "SCORE_S19_ENTM_CAMP_FloorDecor_Plushie_MrFuzzyScientist"
   },
   {
     "Name": "Action Abe Plushie",
@@ -57922,10 +57922,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "007A7B30",
     "CNAM_EditorID": "ATX_Plushie_ActionAbe",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Action Abe Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_ActionAbe; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_ActionAbe"
   },
   {
     "Name": "Mr. Ghoulie Plushie",
@@ -57935,10 +57935,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "007AE9FB",
     "CNAM_EditorID": "SCORE_S20_Plushie_MrFuzzy_Ghoul",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Mr. Ghoulie Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S20_ENTM_CAMP_FloorDecor_Plushie_Ghoul_MrFuzzy"
+    "ENTM_EDID": "SCORE_S20_ENTM_CAMP_FloorDecor_Plushie_Ghoul_MrFuzzy"
   },
   {
     "Name": "Comrade Fuzzy Plushie",
@@ -57948,10 +57948,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "007DC4EA",
     "CNAM_EditorID": "ATX_Plushie_ComradeFuzzy",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Comrade Fuzzy Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_ComradeFuzzy; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_ComradeFuzzy"
   },
   {
     "Name": "Angler Plushie",
@@ -57961,10 +57961,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "007A835B",
     "CNAM_EditorID": "Fishing_Workshop_Item_AnglerPlushie",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": null
   },
   {
     "Name": "Crab Boat Plushie",
@@ -57974,10 +57974,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "007A8354",
     "CNAM_EditorID": "Fishing_Workshop_Item_CrabBoatPlushie",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": null
   },
   {
     "Name": "Mirelurk Plushie",
@@ -57987,10 +57987,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "007A834D",
     "CNAM_EditorID": "Fishing_Workshop_Item_MirelurkPlushie",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": null,
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": null
   },
   {
     "Name": "Patriotic Bottle Plushie",
@@ -58000,10 +58000,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "007D70EE",
     "CNAM_EditorID": "ATX_Plushie_PatrioticBottle",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Patriotic Bottle Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_PatrioticBottle; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_PatrioticBottle"
   },
   {
     "Name": "Patriotic Cappy Plushie",
@@ -58013,10 +58013,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "007D70ED",
     "CNAM_EditorID": "ATX_Plushie_PatrioticCappy",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Patriotic Cappy Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_PatrioticCappy; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_PatrioticCappy"
   },
   {
     "Name": "Beezlebub Plushie",
@@ -58026,10 +58026,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "00804CF9",
     "CNAM_EditorID": "ATX_Plushie_Beezlebub",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Beezlebub Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Beezlebub; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Beezlebub"
   },
   {
     "Name": "Fishing Marshal Mallow Plushie",
@@ -58039,10 +58039,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "00829435",
     "CNAM_EditorID": "SCORE_MiniSeason_2025_MMMFE_Plushie_FishingMarshmallow",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Fishing Marshal Mallow Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_MiniSeason_2025_MMMFE_ENTM_CAMP_FloorDecor_Plushie_FishingMarshmallow"
+    "ENTM_EDID": "SCORE_MiniSeason_2025_MMMFE_ENTM_CAMP_FloorDecor_Plushie_FishingMarshmallow"
   },
   {
     "Name": "Black Axolotl Plushie",
@@ -58052,10 +58052,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0082BEF2",
     "CNAM_EditorID": "ATX_Plushie_AxolotlSetBlack",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Black Axolotl Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_AxolotlSetBlack; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_AxolotlSetBlack"
   },
   {
     "Name": "Purple Axolotl Plushie",
@@ -58065,10 +58065,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0082BEF3",
     "CNAM_EditorID": "ATX_Plushie_AxolotlSetPurple",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Purple Axolotl Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_AxolotlSetPurple; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_AxolotlSetPurple"
   },
   {
     "Name": "Red Axolotl Plushie",
@@ -58078,10 +58078,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0082BEF4",
     "CNAM_EditorID": "ATX_Plushie_AxolotlSetRed",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Red Axolotl Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_AxolotlSetRed; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_AxolotlSetRed"
   },
   {
     "Name": "Stalker Plushie",
@@ -58091,10 +58091,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0082BF21",
     "CNAM_EditorID": "ATX_Plushie_Stalker",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
+    "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
     "ENTM_FULL": "Stalker Plushie",
-    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Stalker; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib"
+    "ENTM_EDID": "ATX_ENTM_CAMP_FloorDecor_Plushie_Stalker"
   },
   {
     "Name": "Mr.Cran Plushie",
@@ -58104,10 +58104,10 @@
     "COBJ_FormID": "40fbfa",
     "CNAM_FormID": "0082E1A2",
     "CNAM_EditorID": "SCORE_S22_Plushie_MrFuzzy_NukaCola_Cranberry",
-    "BOOK_FULL": "Plan: Rib Plushie î Ž; Plan: Rotted Rib Plushie î Ž",
-    "BOOK_SOURCE": "DIRECT",
+    "BOOK_FULL": null,
+    "BOOK_SOURCE": "CNDF",
     "ENTM_FULL": "Mr.Cran Plushie",
-    "ENTM_EDID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib; SCORE_S22_ENTM_CAMP_FloorDecor_Plushie_MrFuzzy_NukaCola_Cranberry"
+    "ENTM_EDID": "SCORE_S22_ENTM_CAMP_FloorDecor_Plushie_MrFuzzy_NukaCola_Cranberry"
   },
   {
     "Name": "Ace of Clubs",
