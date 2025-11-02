@@ -13,12 +13,13 @@
   <style>
     :root {
       --accent: #ffc00f;
+      --accent-dim: #b38d00;
       --bg: #1a1a1a;
       --card-bg: #2a2a2a;
       --text: #e0e0e0;
       --text-muted: #aaa;
-      --content-width: 700px;
-      --card-width: 600px;
+      --content-width: 800px;
+      --card-width: 720px;
     }
 
     body {
@@ -187,12 +188,12 @@
     }
 
     .result-right .section-header {
-      font-weight: 600;
-      font-size: 13px;
-      color: var(--accent);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--accent-dim);
       width: 100%;
       text-align: center;
-      margin: 0;
+      margin: 4px 0;
     }
 
     .result-right span.pill {
@@ -215,12 +216,43 @@
       flex-wrap: wrap;
     }
 
+    .connector {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 13px;
+      margin: 0 6px;
+      line-height: 1;
+    }
+
     .inline-wrap .connector {
       color: var(--accent);
       font-weight: 600;
       font-size: 13px;
       margin: 0 6px;
       line-height: 1;
+    }
+      
+    .arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 10px solid var(--accent);
+      margin: 0 8px;
+      vertical-align: middle;
+    }
+
+    .arrow::before {
+      content: "";
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 10px solid var(--accent);
     }
 
     .result-right span.arrow {
@@ -238,12 +270,17 @@
       background: var(--bg);
       border: 2px solid var(--accent);
       border-radius: 20px;
-      padding: 4px 12px;
-      font-size: 16px;
-      color: var(--accent); /* ensure accent color for text */
+      padding: 6px 14px;
+      font-size: 15px;
+      color: var(--accent);
       display: inline-flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      text-align: center;
+      line-height: 1.2;
+      max-width: 240px;
+      word-break: break-word;
     }
 
     /* Version history */
@@ -273,25 +310,6 @@
       text-align: left;
     }
 
-    .arrow {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 12px;
-      height: 12px;
-      margin: 0 6px;
-      vertical-align: middle;
-      flex-shrink: 0;
-    }
-    .arrow::before {
-      content: "";
-      display: inline-block;
-      width: 0;
-      height: 0;
-      border-top: 6px solid transparent;
-      border-bottom: 6px solid transparent;
-      border-left: 10px solid var(--accent);
-    }
 
     /* Mobile tweaks */
     @media (max-width: 600px) {
@@ -530,7 +548,7 @@ Made by MrsBlobby |
 
     const right = document.createElement('div');
     right.className = 'result-right';
-            
+
     // --- Build Menu Category header + pills ---
     if ((r.Category && r.Category.trim() !== '') || (r.SubCategory && r.SubCategory.trim() !== '')) {
       const catHeader = document.createElement('div');
@@ -560,7 +578,7 @@ Made by MrsBlobby |
     
       right.appendChild(catWrap);
     }
-    
+
     // --- Placement Conditions header + pills (only if non-empty) ---
     const hasBook = !!(r.BOOK_FULL && String(r.BOOK_FULL).trim());
     const hasEntm = !!(r.ENTM_FULL && String(r.ENTM_FULL).trim());
@@ -618,7 +636,7 @@ Made by MrsBlobby |
     
       right.appendChild(condWrap);
     }
-    
+
     // attach left + right
     li.appendChild(left);
     li.appendChild(right);
