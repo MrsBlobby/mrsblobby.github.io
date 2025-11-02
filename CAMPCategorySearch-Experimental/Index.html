@@ -568,7 +568,7 @@ Made by MrsBlobby |
       }
     
       // ENTM pill (formatting for ATX / SCORE)
-   if (hasEntm) {
+ if (hasEntm) {
     const entmFull = r.ENTM_FULL;
     const edid = String(r.ENTM_EDID || '');
 
@@ -589,14 +589,12 @@ Made by MrsBlobby |
         if (aliasKey) {
             tag = `S.C.O.R.E. - Mini Season ${miniSeasonAliases[aliasKey]}`;
         } else {
-            // fallback: parse name from EDID
-            const match = edid.match(/SCORE[_-]?MiniSeason_\d+_([A-Za-z0-9_]+)/);
+            const match = edid.match(/SCORE[_-]?MiniSeason_\d+_([A-Za-z0-9]+?)(?:_ENTM|$)/i);
             if (match) {
-                let namePart = match[1]
-                    // insert spaces between capital letters + lowercase letters
-                    .replace(/([a-z])([A-Z])/g, '$1 $2')
-                    // replace underscores with spaces
-                    .replace(/_/g, ' ');
+                // convert PascalCase / underscores to normal words
+                const namePart = match[1]
+                    .replace(/([a-z])([A-Z])/g, '$1 $2') // camelCase -> spaced
+                    .replace(/_/g, ' ');                  // underscores -> spaces
                 tag = `S.C.O.R.E. - Mini Season ${namePart}`;
             } else {
                 tag = 'S.C.O.R.E. - Mini Season';
@@ -612,12 +610,13 @@ Made by MrsBlobby |
         }
     }
 
-    // create pill with line break and brackets, keeping Entitlement: XXX
+    // --- create pill with Entitlement: XXX and proper Mini Season tag ---
     const entmPill = document.createElement('span');
     entmPill.className = 'pill';
     entmPill.innerHTML = `Entitlement: ${entmFull}<br>[${tag}]`;
     condWrap.appendChild(entmPill);
 }
+
 
 
     
