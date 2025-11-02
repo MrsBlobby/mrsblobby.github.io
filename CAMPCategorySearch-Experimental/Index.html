@@ -470,27 +470,68 @@ Made by MrsBlobby |
             left.appendChild(img);
           }
 
-          const right = document.createElement('div');
-          right.className = 'result-right';
-          const categories = [];
-          if (r.Category) categories.push(r.Category);
-          if (r.SubCategory && r.Category.toLowerCase() !== 'wallpapers') categories.push(r.SubCategory);
+	  const right = document.createElement('div');
+	  right.className = 'result-right';
 
-          categories.forEach((cat, index) => {
-            const catSpan = document.createElement('span');
-            catSpan.className = 'pill';
-            catSpan.textContent = cat;
-            right.appendChild(catSpan);
-            if (index < categories.length - 1) {
-              const arrow = document.createElement('span');
-              arrow.className = 'arrow';
-              right.appendChild(arrow);
-            }
-          });
+	  // Build category pills
+	  const categories = [];
+	  if (r.Category) categories.push(r.Category);
+	  if (r.SubCategory && r.Category.toLowerCase() !== 'wallpapers') categories.push(r.SubCategory);
 
-          li.appendChild(left);
-          li.appendChild(right);
-          results.appendChild(li);
+	  categories.forEach((cat, index) => {
+	    const catSpan = document.createElement('span');
+	    catSpan.className = 'pill';
+	    catSpan.textContent = cat;
+	    right.appendChild(catSpan);
+	    if (index < categories.length - 1) {
+	      const arrow = document.createElement('span');
+	      arrow.className = 'arrow';
+	      right.appendChild(arrow);
+	    }
+	  });
+
+	  // Add BOOK and ENTM info
+	  if (r.BOOK_FULL || r.ENTM_FULL) {
+	    const info = document.createElement('div');
+	    info.style.width = '100%';
+	    info.style.textAlign = 'center';
+	    info.style.marginTop = '8px';
+	    info.style.fontSize = '14px';
+	    info.style.color = 'var(--text-muted)';
+
+	    const isDirect = (r.BOOK_SOURCE || '').toLowerCase() === 'direct';
+	    const connector = isDirect ? 'and' : 'or';
+
+	    let textParts = [];
+
+ 	   if (r.BOOK_FULL) {
+	      textParts.push(`${r.BOOK_FULL}`);
+	    }
+
+	    if (r.ENTM_FULL) {
+	      let entmText = r.ENTM_FULL;
+	      const edid = (r.ENTM_EDID || '').toUpperCase();
+	      if (edid.includes('ATX')) {
+	        entmText += ' (Atomic Shop)';
+	      } else if (edid.includes('SCORE_S')) {
+	        const match = edid.match(/SCORE_S(\d+)/i);
+	        if (match) {
+	          entmText += ` (S.C.O.R.E. - Season ${match[1]})`;
+	        } else {
+	          entmText += ' (S.C.O.R.E.)';
+	        }
+	      }
+	      textParts.push(`Entitlement: ${entmText}`);
+	    }
+
+	    info.textContent = textParts.join(` ${connector} `);
+	    right.appendChild(info);
+	  }
+
+	  li.appendChild(left);
+	  li.appendChild(right);
+	  results.appendChild(li);
+
         });
 
         renderPagination(sorted.length);
