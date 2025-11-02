@@ -633,7 +633,7 @@ if (tag === 'Atomic Shop') {
     const miniMatch = tag.match(/Mini Season (.+)/);
     if (miniMatch) textSuffix = ` (Mini Season: ${miniMatch[1]})`;
 } else if (tag.startsWith('S.C.O.R.E. - Season')) {
-    icon.src = 'assets/SeasonIcon.png';
+    icon.src = '/assets/SeasonIcon.png';
     const seasonMatch = tag.match(/Season (\d+)/);
     if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
 }
