@@ -29623,8 +29623,8 @@
     "CNAM_EditorID": "ATX_Collectron_packin",
     "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
-    "ENTM_FULL": null,
-    "ENTM_EDID": null
+    "ENTM_FULL": "Scavenger Collectron Station",
+    "ENTM_EDID": "ATX_ENTM_CAMP_Utility_Collectron_Scavenger"
   },
   {
     "Name": "Raider Collectron Station",
@@ -29636,8 +29636,8 @@
     "CNAM_EditorID": "ATX_Collectron_packin_Raider",
     "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
-    "ENTM_FULL": null,
-    "ENTM_EDID": null
+    "ENTM_FULL": "Raider Collectron Station",
+    "ENTM_EDID": "ATX_ENTM_CAMP_Utility_Collectron_Raider"
   },
   {
     "Name": "Communist Collectron Station",
@@ -29649,8 +29649,8 @@
     "CNAM_EditorID": "ATX_Collectron_packin_Communist",
     "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
-    "ENTM_FULL": null,
-    "ENTM_EDID": null
+    "ENTM_FULL": "Communist Collectron Station",
+    "ENTM_EDID": "ATX_ENTM_CAMP_Utility_Collectron_Communist"
   },
   {
     "Name": "Santatron Station",
@@ -29662,8 +29662,8 @@
     "CNAM_EditorID": "ATX_Collectron_packin_Santatron",
     "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
-    "ENTM_FULL": null,
-    "ENTM_EDID": null
+    "ENTM_FULL": "Santatron Collectron Station",
+    "ENTM_EDID": "ATX_ENTM_CAMP_Utility_Collectron_Santa"
   },
   {
     "Name": "Fasnacht Collectron Station",
@@ -29675,8 +29675,8 @@
     "CNAM_EditorID": "ATX_Collectron_packin_Fasnacht",
     "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
-    "ENTM_FULL": null,
-    "ENTM_EDID": null
+    "ENTM_FULL": "Fasnacht Collectron Station",
+    "ENTM_EDID": "ATX_ENTM_CAMP_Utility_Collectron_Fasnacht"
   },
   {
     "Name": "BoS Collectron Station",
@@ -29688,8 +29688,8 @@
     "CNAM_EditorID": "ATX_Collectron_packin_BoS",
     "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
-    "ENTM_FULL": null,
-    "ENTM_EDID": null
+    "ENTM_FULL": "BoS Collectron Station",
+    "ENTM_EDID": "ATX_Community2020_ATLAS_ENTM_CAMP_Utility_Collectron_BoS"
   },
   {
     "Name": "Scavenging Station - Gold Bot",
@@ -29700,9 +29700,9 @@
     "CNAM_FormID": "00536D3C",
     "CNAM_EditorID": "ATX_Collectron_packin_GoldBot",
     "BOOK_FULL": null,
-    "BOOK_SOURCE": "DIRECT",
-    "ENTM_FULL": null,
-    "ENTM_EDID": null
+    "BOOK_SOURCE": "CNDF",
+    "ENTM_FULL": "Scavenging Station with Gold Scavenge Bot",
+    "ENTM_EDID": "SCORE_S3_ENTM_CAMP_Utility_Collectron_GoldBot"
   },
   {
     "Name": "Nuka-Cola Collectron Station",
@@ -29766,8 +29766,8 @@
     "CNAM_EditorID": "ATX_Collectron_packin_FETCH_JunkyardDog",
     "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
-    "ENTM_FULL": null,
-    "ENTM_EDID": null
+    "ENTM_FULL": "Junkyard Dog Collectron Station",
+    "ENTM_EDID": "ATX_ENTM_CAMP_Utility_Collectron_JunkyardDog"
   },
   {
     "Name": "Nuka-Cola Quantum Collectron Station",
@@ -29818,8 +29818,8 @@
     "CNAM_EditorID": "ATX_Collectron_packin_Lumberjack",
     "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
-    "ENTM_FULL": null,
-    "ENTM_EDID": null
+    "ENTM_FULL": "Lumberjack Collectron",
+    "ENTM_EDID": "ATX_ENTM_CAMP_Utility_Collectron_LumberjackCollectron"
   },
   {
     "Name": "Biv Bev Collectron Station",
@@ -29831,8 +29831,8 @@
     "CNAM_EditorID": "ATX_Collectron_packin_BivBev",
     "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
-    "ENTM_FULL": null,
-    "ENTM_EDID": null
+    "ENTM_FULL": "Biv Bev Collectron Station",
+    "ENTM_EDID": "ATX_ENTM_CAMP_Utility_Collectron_BivBev"
   },
   {
     "Name": "Liberated Collectron Station",
@@ -29844,8 +29844,8 @@
     "CNAM_EditorID": "ATX_Collectron_packin_Liberated",
     "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
-    "ENTM_FULL": null,
-    "ENTM_EDID": null
+    "ENTM_FULL": "Liberated Collectron Station",
+    "ENTM_EDID": "ATX_ENTM_CAMP_Utility_Collectron_Liberated"
   },
   {
     "Name": "Whitespring Robo Butler Collectron Station",
@@ -29870,8 +29870,8 @@
     "CNAM_EditorID": "ATX_Collectron_packin_ToxicBob",
     "BOOK_FULL": null,
     "BOOK_SOURCE": "DIRECT",
-    "ENTM_FULL": null,
-    "ENTM_EDID": null
+    "ENTM_FULL": "Toxic Bob",
+    "ENTM_EDID": "ATX_ENTM_CAMP_Utility_Collectron_ToxicBob"
   },
   {
     "Name": "Concrete Extractor",
