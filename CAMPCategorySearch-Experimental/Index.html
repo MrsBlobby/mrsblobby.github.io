@@ -396,288 +396,280 @@ Made by MrsBlobby |
   <div id="pagination" style="text-align:center; margin: 16px 0;"></div>
 
   <script>
-  fetch('final_workshop_db.json')
-    .then(response => response.json())
-    .then(db => {
-      const searchBox = document.getElementById('searchBox');
-      const results = document.getElementById('results');
-      const toggleImages = document.getElementById('toggleImages');
-      const sortMode = document.getElementById('sortMode');
-      const pagination = document.getElementById('pagination');
+fetch('final_workshop_db.json')
+  .then(response => response.json())
+  .then(db => {
+    const searchBox = document.getElementById('searchBox');
+    const results = document.getElementById('results');
+    const toggleImages = document.getElementById('toggleImages');
+    const sortMode = document.getElementById('sortMode');
+    const pagination = document.getElementById('pagination');
 
-      let currentPage = 1;
-      const itemsPerPage = 50;
-      let lastQuery = '';
+    let currentPage = 1;
+    const itemsPerPage = 50;
+    let lastQuery = '';
 
-      function sortItems(items) {
-        const mode = sortMode.value;
-        if (mode === 'camp-bottom') return [...items].reverse();
-        if (mode === 'new-old') return [...items].sort((a, b) => (b.CNAM_FormID || '').localeCompare(a.CNAM_FormID || ''));
-        if (mode === 'old-new') return [...items].sort((a, b) => (a.CNAM_FormID || '').localeCompare(b.CNAM_FormID || ''));
-        if (mode === 'az') return [...items].sort((a, b) => (a.Name || '').localeCompare(b.Name || ''));
-        if (mode === 'za') return [...items].sort((a, b) => (b.Name || '').localeCompare(a.Name || ''));
-        return items;
+    function sortItems(items) {
+      const mode = sortMode.value;
+      if (mode === 'camp-bottom') return [...items].reverse();
+      if (mode === 'new-old') return [...items].sort((a, b) => (b.CNAM_FormID || '').localeCompare(a.CNAM_FormID || ''));
+      if (mode === 'old-new') return [...items].sort((a, b) => (a.CNAM_FormID || '').localeCompare(b.CNAM_FormID || ''));
+      if (mode === 'az') return [...items].sort((a, b) => (a.Name || '').localeCompare(b.Name || ''));
+      if (mode === 'za') return [...items].sort((a, b) => (b.Name || '').localeCompare(a.Name || ''));
+      return items;
+    }
+
+    function paginate(items) {
+      const start = (currentPage - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
+      return items.slice(start, end);
+    }
+
+    function renderPagination(totalItems) {
+      const totalPages = Math.ceil(totalItems / itemsPerPage);
+      pagination.innerHTML = '';
+      if (totalPages <= 1) return;
+
+      const prevBtn = document.createElement('button');
+      prevBtn.textContent = '← Prev';
+      prevBtn.disabled = currentPage === 1;
+      prevBtn.onclick = () => { currentPage--; renderResults(lastQuery); };
+      pagination.appendChild(prevBtn);
+
+      for (let i = 1; i <= totalPages; i++) {
+        if (i === currentPage || i === 1 || i === totalPages || Math.abs(i - currentPage) <= 2) {
+          const btn = document.createElement('button');
+          btn.textContent = i;
+          btn.style.margin = '0 4px';
+          btn.style.background = i === currentPage ? 'var(--accent)' : 'var(--card-bg)';
+          btn.style.color = i === currentPage ? 'black' : 'var(--text)';
+          btn.style.border = '1px solid var(--accent)';
+          btn.style.borderRadius = '4px';
+          btn.onclick = () => { currentPage = i; renderResults(lastQuery); };
+          pagination.appendChild(btn);
+        } else if (Math.abs(i - currentPage) === 3) {
+          const span = document.createElement('span');
+          span.textContent = '...';
+          pagination.appendChild(span);
+        }
       }
 
-      function paginate(items) {
-        const start = (currentPage - 1) * itemsPerPage;
-        const end = start + itemsPerPage;
-        return items.slice(start, end);
-      }
+      const nextBtn = document.createElement('button');
+      nextBtn.textContent = 'Next →';
+      nextBtn.disabled = currentPage === totalPages;
+      nextBtn.onclick = () => { currentPage++; renderResults(lastQuery); };
+      pagination.appendChild(nextBtn);
+    }
 
-      function renderPagination(totalItems) {
-        const totalPages = Math.ceil(totalItems / itemsPerPage);
+    function renderResults(query) {
+      const normalizedQuery = query.toLowerCase();
+      const queryChanged = normalizedQuery !== lastQuery;
+      lastQuery = normalizedQuery;
+
+      const filtered = db.filter(item => item.Name && item.Name.trim() !== '' && (!normalizedQuery || item.Name.toLowerCase().includes(normalizedQuery)));
+      const sorted = sortItems(filtered);
+
+      const totalPages = Math.ceil(sorted.length / itemsPerPage);
+      if (queryChanged || currentPage > totalPages) currentPage = 1;
+
+      const paged = paginate(sorted);
+      results.innerHTML = '';
+
+      if (!paged.length) {
+        results.innerHTML = '<li>No matches found</li>';
         pagination.innerHTML = '';
-
-        if (totalPages <= 1) return;
-
-        const prevBtn = document.createElement('button');
-        prevBtn.textContent = '← Prev';
-        prevBtn.disabled = currentPage === 1;
-        prevBtn.onclick = () => { currentPage--; renderResults(lastQuery); };
-        pagination.appendChild(prevBtn);
-
-        for (let i = 1; i <= totalPages; i++) {
-          if (i === currentPage || i === 1 || i === totalPages || Math.abs(i - currentPage) <= 2) {
-            const btn = document.createElement('button');
-            btn.textContent = i;
-            btn.style.margin = '0 4px';
-            btn.style.background = i === currentPage ? 'var(--accent)' : 'var(--card-bg)';
-            btn.style.color = i === currentPage ? 'black' : 'var(--text)';
-            btn.style.border = '1px solid var(--accent)';
-            btn.style.borderRadius = '4px';
-            btn.style.cursor = 'pointer';
-            btn.onclick = () => { currentPage = i; renderResults(lastQuery); };
-            pagination.appendChild(btn);
-          } else if (Math.abs(i - currentPage) === 3) {
-            const span = document.createElement('span');
-            span.textContent = '...';
-            pagination.appendChild(span);
-          }
-        }
-
-        const nextBtn = document.createElement('button');
-        nextBtn.textContent = 'Next →';
-        nextBtn.disabled = currentPage === totalPages;
-        nextBtn.onclick = () => { currentPage++; renderResults(lastQuery); };
-        pagination.appendChild(nextBtn);
+        return;
       }
 
-      function renderResults(query) {
-        const normalizedQuery = query.toLowerCase();
-        const queryChanged = normalizedQuery !== lastQuery;
-        lastQuery = normalizedQuery;
+      paged.forEach(r => {
+        const li = document.createElement('li');
+        const left = document.createElement('div');
+        left.className = 'result-left';
 
-        const filtered = db.filter(item => item.Name && item.Name.trim() !== '' && (!normalizedQuery || item.Name.toLowerCase().includes(normalizedQuery)));
-        const sorted = sortItems(filtered);
+        const name = document.createElement('div');
+        name.className = 'result-name';
+        name.textContent = r.Name;
+        left.appendChild(name);
 
-        // reset to page 1 if query changed or current page is now out of range
-        const totalPages = Math.ceil(sorted.length / itemsPerPage);
-        if (queryChanged || currentPage > totalPages) currentPage = 1;
-
-        const paged = paginate(sorted);
-        results.innerHTML = '';
-
-        if (!paged.length) {
-          results.innerHTML = '<li>No matches found</li>';
-          pagination.innerHTML = '';
-          return;
+        if (toggleImages.checked && r.CNAM_FormID) {
+          const img = document.createElement('img');
+          img.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
+          img.alt = r.Name;
+          img.loading = "lazy";
+          left.appendChild(img);
         }
 
-        paged.forEach(r => {
-          const li = document.createElement('li');
-          const left = document.createElement('div');
-          left.className = 'result-left';
+        const right = document.createElement('div');
+        right.className = 'result-right';
 
-          const name = document.createElement('div');
-          name.className = 'result-name';
-          name.textContent = r.Name;
-          left.appendChild(name);
+        // --- Build Menu Category section ---
+        if ((r.Category && r.Category.trim() !== '') || (r.SubCategory && r.SubCategory.trim() !== '')) {
+          const catHeader = document.createElement('div');
+          catHeader.className = 'section-header';
+          catHeader.textContent = 'Build Menu Category';
+          right.appendChild(catHeader);
 
-          if (toggleImages.checked && r.CNAM_FormID) {
-            const img = document.createElement('img');
-            img.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
-            img.alt = r.Name;
-            img.loading = "lazy";
-            left.appendChild(img);
-          }
+          const catWrap = document.createElement('div');
+          catWrap.className = 'inline-wrap';
 
-    const right = document.createElement('div');
-    right.className = 'result-right';
+          const categories = [];
+          if (r.Category && r.Category.trim() !== '') categories.push(r.Category);
+          if (r.SubCategory && r.SubCategory.trim() !== '' && (r.Category || '').toLowerCase() !== 'wallpapers') categories.push(r.SubCategory);
 
-    // --- Build Menu Category header + pills ---
-    if ((r.Category && r.Category.trim() !== '') || (r.SubCategory && r.SubCategory.trim() !== '')) {
-      const catHeader = document.createElement('div');
-      catHeader.className = 'section-header';
-      catHeader.textContent = 'Build Menu Category';
-      right.appendChild(catHeader);
-    
-      const catWrap = document.createElement('div');
-      catWrap.className = 'inline-wrap';
-    
-      const categories = [];
-      if (r.Category && r.Category.trim() !== '') categories.push(r.Category);
-      if (r.SubCategory && r.SubCategory.trim() !== '' && (r.Category || '').toLowerCase() !== 'wallpapers') categories.push(r.SubCategory);
-    
-      categories.forEach((cat, i) => {
-        const catSpan = document.createElement('span');
-        catSpan.className = 'pill';
-        catSpan.textContent = cat;
-        catWrap.appendChild(catSpan);
-      
-        if (i < categories.length - 1) {
-          const arrow = document.createElement('span');
-          arrow.className = 'arrow';
-          catWrap.appendChild(arrow);
-        }
-      });
-    
-      right.appendChild(catWrap);
-    }
+          categories.forEach((cat, i) => {
+            const catSpan = document.createElement('span');
+            catSpan.className = 'pill';
+            catSpan.textContent = cat;
+            catWrap.appendChild(catSpan);
 
-    // --- Placement Conditions header + pills (only if non-empty) ---
-    const hasBook = !!(r.BOOK_FULL && String(r.BOOK_FULL).trim());
-    const hasEntm = !!(r.ENTM_FULL && String(r.ENTM_FULL).trim());
-    if (hasBook || hasEntm) {
-      const condHeader = document.createElement('div');
-      condHeader.className = 'section-header';
-      condHeader.textContent = 'Placement Conditions';
-      condHeader.style.marginTop = '8px';
-      right.appendChild(condHeader);
-    
-      const condWrap = document.createElement('div');
-      condWrap.className = 'inline-wrap';
-    
-      const isDirect = (String(r.BOOK_SOURCE || '').toLowerCase() === 'direct');
-      const connectorWord = isDirect ? 'and' : 'or';
-    
-      // BOOK pill
-      if (hasBook) {
-        const bookPill = document.createElement('span');
-        bookPill.className = 'pill';
-        bookPill.textContent = r.BOOK_FULL;
-        condWrap.appendChild(bookPill);
-      }
-    
-      // connector between BOOK and ENTM (only show when both present)
-      if (hasBook && hasEntm) {
-        const conn = document.createElement('span');
-        conn.className = 'connector';
-        conn.textContent = connectorWord;
-        condWrap.appendChild(conn);
-      }
-    
-      // ENTM pill (formatting for ATX / SCORE)
- if (hasEntm) {
-    const entmFull = r.ENTM_FULL;
-    const edid = String(r.ENTM_EDID || '');
-
-    // --- Manual alias map for tricky Mini Seasons ---
-    const miniSeasonAliases = {
-        'SCORE_MiniSeason_2025_MMMFE': 'Marshal Mallow'
-        // add more aliases here as needed
-    };
-
-    let tag = '';
-    const edidUpper = edid.toUpperCase();
-
-    if (edidUpper.includes('ATX')) {
-        tag = 'Atomic Shop';
-    } else if (edidUpper.includes('SCORE_MINISEASON')) {
-        // check manual alias first
-        const aliasKey = Object.keys(miniSeasonAliases).find(key => edid.includes(key));
-        if (aliasKey) {
-            tag = `S.C.O.R.E. - Mini Season ${miniSeasonAliases[aliasKey]}`;
-        } else {
-            const match = edid.match(/SCORE[_-]?MiniSeason_\d+_([A-Za-z0-9]+?)(?:_ENTM|$)/i);
-            if (match) {
-                // convert PascalCase / underscores to normal words
-                const namePart = match[1]
-                    .replace(/([a-z])([A-Z])/g, '$1 $2') // camelCase -> spaced
-                    .replace(/_/g, ' ');                  // underscores -> spaces
-                tag = `S.C.O.R.E. - Mini Season ${namePart}`;
-            } else {
-                tag = 'S.C.O.R.E. - Mini Season';
+            if (i < categories.length - 1) {
+              const arrow = document.createElement('span');
+              arrow.className = 'arrow';
+              catWrap.appendChild(arrow);
             }
+          });
+          right.appendChild(catWrap);
         }
-    } else {
-        // attempt to find SCORE season number
-        const scoreMatch = edid.match(/SCORE[_-]?S?(\d+)/i);
-        if (scoreMatch) {
-            tag = `S.C.O.R.E. - Season ${scoreMatch[1]}`;
-        } else if (edidUpper.includes('SCORE')) {
-            tag = 'S.C.O.R.E.';
+
+        // --- Placement Conditions section ---
+        const hasBook = !!(r.BOOK_FULL && String(r.BOOK_FULL).trim());
+        const hasEntm = !!(r.ENTM_FULL && String(r.ENTM_FULL).trim());
+        if (hasBook || hasEntm) {
+          const condHeader = document.createElement('div');
+          condHeader.className = 'section-header';
+          condHeader.textContent = 'Placement Conditions';
+          condHeader.style.marginTop = '8px';
+          right.appendChild(condHeader);
+
+          const condWrap = document.createElement('div');
+          condWrap.className = 'inline-wrap';
+
+          const isDirect = (String(r.BOOK_SOURCE || '').toLowerCase() === 'direct');
+          const connectorWord = isDirect ? 'and' : 'or';
+
+          // --- BOOK pill with icons ---
+          if (hasBook) {
+            const bookPill = document.createElement('span');
+            bookPill.className = 'pill';
+
+            const bookEdid = String(r.BOOK_EDID || '').toUpperCase();
+
+            // Manual include/exclude map
+            const manualOverrides = {
+              include: {
+                'SPECIAL_BOOK_ID': '/assets/CustomIcon.png' // example placeholder
+              },
+              exclude: ['TEST_EXCLUDE_BOOK']
+            };
+
+            let bookIconSrc = '';
+            if (manualOverrides.include[bookEdid]) {
+              bookIconSrc = manualOverrides.include[bookEdid];
+            } else if (!manualOverrides.exclude.includes(bookEdid)) {
+              if (bookEdid.includes('XPD_')) bookIconSrc = '/assets/StampIcon.png';
+              else if (bookEdid.includes('_GOLDVENDOR')) bookIconSrc = '/assets/BullionIcon.png';
+            }
+
+            if (bookIconSrc) {
+              const icon = document.createElement('img');
+              icon.src = bookIconSrc;
+              icon.style.width = '30px';
+              icon.style.height = '30px';
+              icon.style.verticalAlign = 'middle';
+              icon.style.marginRight = '6px';
+              bookPill.appendChild(icon);
+            }
+
+            bookPill.appendChild(document.createTextNode(r.BOOK_FULL));
+            condWrap.appendChild(bookPill);
+          }
+
+          // connector between BOOK and ENTM
+          if (hasBook && hasEntm) {
+            const conn = document.createElement('span');
+            conn.className = 'connector';
+            conn.textContent = connectorWord;
+            condWrap.appendChild(conn);
+          }
+
+          // --- ENTM pill (unchanged from your latest version) ---
+          if (hasEntm) {
+            const entmFull = r.ENTM_FULL;
+            const edid = String(r.ENTM_EDID || '');
+            const miniSeasonAliases = {
+              'SCORE_MiniSeason_2025_MMMFE': 'Marshal Mallow'
+            };
+
+            let tag = '';
+            const edidUpper = edid.toUpperCase();
+            if (edidUpper.includes('ATX')) tag = 'Atomic Shop';
+            else if (edidUpper.includes('SCORE_MINISEASON')) {
+              const aliasKey = Object.keys(miniSeasonAliases).find(key => edid.includes(key));
+              if (aliasKey) tag = `S.C.O.R.E. - Mini Season ${miniSeasonAliases[aliasKey]}`;
+              else {
+                const match = edid.match(/SCORE[_-]?MiniSeason_\d+_([A-Za-z0-9]+?)(?:_ENTM|$)/i);
+                if (match) {
+                  const namePart = match[1].replace(/([a-z])([A-Z])/g, '$1 $2').replace(/_/g, ' ');
+                  tag = `S.C.O.R.E. - Mini Season ${namePart}`;
+                } else tag = 'S.C.O.R.E. - Mini Season';
+              }
+            } else {
+              const scoreMatch = edid.match(/SCORE[_-]?S?(\d+)/i);
+              if (scoreMatch) tag = `S.C.O.R.E. - Season ${scoreMatch[1]}`;
+              else if (edidUpper.includes('SCORE')) tag = 'S.C.O.R.E.';
+            }
+
+            const entmPill = document.createElement('span');
+            entmPill.className = 'pill';
+            const icon = document.createElement('img');
+            icon.style.width = '30px';
+            icon.style.height = '30px';
+            icon.style.verticalAlign = 'middle';
+            icon.style.marginRight = '6px';
+
+            let textSuffix = '';
+            if (tag === 'Atomic Shop') {
+              icon.src = '/assets/AtomIcon.png';
+            } else if (tag.startsWith('S.C.O.R.E. - Mini Season')) {
+              icon.src = '/assets/SeasonIcon.png';
+              const miniMatch = tag.match(/Mini Season (.+)/);
+              if (miniMatch) textSuffix = ` (Mini Season: ${miniMatch[1]})`;
+            } else if (tag.startsWith('S.C.O.R.E. - Season')) {
+              icon.src = '/assets/SeasonIcon.png';
+              const seasonMatch = tag.match(/Season (\d+)/);
+              if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
+            }
+
+            entmPill.innerHTML = '';
+            entmPill.appendChild(icon);
+            entmPill.appendChild(document.createTextNode(entmFull + textSuffix));
+            condWrap.appendChild(entmPill);
+          }
+
+          right.appendChild(condWrap);
         }
-    }
 
-    // --- create pill with Entitlement: XXX and proper Mini Season tag ---
-const entmPill = document.createElement('span');
-entmPill.className = 'pill';
-
-// --- create icon element ---
-const icon = document.createElement('img');
-icon.style.width = '30px';
-icon.style.height = '30px';
-icon.style.verticalAlign = 'middle';
-icon.style.marginRight = '6px';
-
-let textSuffix = '';
-
-// decide icon and suffix based on tag
-if (tag === 'Atomic Shop') {
-    icon.src = '/assets/AtomIcon.png';
-    textSuffix = ''; // no extra text
-} else if (tag.startsWith('S.C.O.R.E. - Mini Season')) {
-    icon.src = '/assets/SeasonIcon.png';
-    // extract mini season name from tag
-    const miniMatch = tag.match(/Mini Season (.+)/);
-    if (miniMatch) textSuffix = ` (Mini Season: ${miniMatch[1]})`;
-} else if (tag.startsWith('S.C.O.R.E. - Season')) {
-    icon.src = '/assets/SeasonIcon.png';
-    const seasonMatch = tag.match(/Season (\d+)/);
-    if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
-}
-
-// set pill content: icon + entitlement name + optional suffix
-entmPill.innerHTML = '';
-entmPill.appendChild(icon);
-entmPill.appendChild(document.createTextNode(entmFull + textSuffix));
-
-condWrap.appendChild(entmPill);
-
-}
-
-
-
-    
-      right.appendChild(condWrap);
-    }
-
-    // attach left + right
-    li.appendChild(left);
-    li.appendChild(right);
-    results.appendChild(li);
-
-
-        });
-
-        renderPagination(sorted.length);
-      }
-
-      searchBox.addEventListener('input', () => renderResults(searchBox.value));
-      toggleImages.addEventListener('change', () => renderResults(searchBox.value));
-      sortMode.addEventListener('change', () => {
-        currentPage = 1;
-        renderResults(searchBox.value.toLowerCase());
+        li.appendChild(left);
+        li.appendChild(right);
+        results.appendChild(li);
       });
 
+      renderPagination(sorted.length);
+    }
 
-      renderResults('');
-    })
-    .catch(err => {
-      console.error("Failed to load database:", err);
-      document.getElementById('results').innerHTML = '<li>Error loading database.</li>';
+    searchBox.addEventListener('input', () => renderResults(searchBox.value));
+    toggleImages.addEventListener('change', () => renderResults(searchBox.value));
+    sortMode.addEventListener('change', () => {
+      currentPage = 1;
+      renderResults(searchBox.value.toLowerCase());
     });
-  </script>
+
+    renderResults('');
+  })
+  .catch(err => {
+    console.error("Failed to load database:", err);
+    document.getElementById('results').innerHTML = '<li>Error loading database.</li>';
+  });
+</script>
 </body>
 </html>
