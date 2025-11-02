@@ -179,10 +179,20 @@
 
     .result-right {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 0;
+      gap: 6px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .result-right .section-header {
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--accent);
+      width: 100%;
+      text-align: center;
+      margin: 0;
     }
 
     .result-right span.pill {
@@ -197,6 +207,22 @@
       align-items: center;
     }
 
+    .inline-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .inline-wrap .connector {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 13px;
+      margin: 0 6px;
+      line-height: 1;
+    }
+
     .result-right span.arrow {
       display: inline-block;
       width: 0;
@@ -206,6 +232,18 @@
       border-left: 10px solid var(--accent);
       margin: 0 6px;
       vertical-align: middle;
+    }
+
+    .pill {
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 16px;
+      color: var(--accent); /* ensure accent color for text */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* Version history */
@@ -233,6 +271,26 @@
       padding: 6px 12px;
       margin: 6px 0;
       text-align: left;
+    }
+
+    .arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 12px;
+      height: 12px;
+      margin: 0 6px;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+    .arrow::before {
+      content: "";
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 10px solid var(--accent);
     }
 
     /* Mobile tweaks */
@@ -472,7 +530,7 @@ Made by MrsBlobby |
 
 	  const right = document.createElement('div');
     right.className = 'result-right';
-            
+
     // === Build Menu Category ===
     if (r.Category || r.SubCategory) {
       const catHeader = document.createElement('div');
@@ -505,7 +563,7 @@ Made by MrsBlobby |
     
       right.appendChild(catWrap);
     }
-    
+
     // === Placement Conditions ===
     if (r.BOOK_FULL || r.ENTM_FULL) {
       const condHeader = document.createElement('div');
@@ -554,7 +612,7 @@ Made by MrsBlobby |
     
       right.appendChild(condWrap);
     }
-    
+
     li.appendChild(left);
     li.appendChild(right);
     results.appendChild(li);
