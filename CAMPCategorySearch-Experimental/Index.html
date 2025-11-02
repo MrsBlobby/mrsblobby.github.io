@@ -547,41 +547,44 @@ fetch('final_workshop_db.json')
           const isDirect = (String(r.BOOK_SOURCE || '').toLowerCase() === 'direct');
           const connectorWord = isDirect ? 'and' : 'or';
 
-          // --- BOOK pill with icons ---
-          if (hasBook) {
-            const bookPill = document.createElement('span');
-            bookPill.className = 'pill';
+         // --- BOOK pill with icons ---
+if (hasBook) {
+  const bookPill = document.createElement('span');
+  bookPill.className = 'pill';
 
-            const bookEdid = String(r.BOOK_EDID || '').toUpperCase();
+  const bookEdid = String(r.BOOK_EDID || '');
 
-            // Manual include/exclude map
-            const manualOverrides = {
-              include: {
-                'SPECIAL_BOOK_ID': '/assets/CustomIcon.png' // example placeholder
-              },
-              exclude: ['TEST_EXCLUDE_BOOK']
-            };
+  // Manual include/exclude map
+  const manualOverrides = {
+    include: {
+      'SPECIAL_BOOK_ID': '/assets/CustomIcon.png' // example placeholder
+    },
+    exclude: ['TEST_EXCLUDE_BOOK']
+  };
 
-            let bookIconSrc = '';
-            if (manualOverrides.include[bookEdid]) {
-              bookIconSrc = manualOverrides.include[bookEdid];
-            } else if (!manualOverrides.exclude.includes(bookEdid)) {
-              if (bookEdid.includes('XPD_')) bookIconSrc = '/assets/StampIcon.png';
-              else if (bookEdid.includes('_GOLDVENDOR')) bookIconSrc = '/assets/BullionIcon.png';
-            }
+  let bookIconSrc = '';
+  if (manualOverrides.include[bookEdid.toUpperCase()]) {
+    bookIconSrc = manualOverrides.include[bookEdid.toUpperCase()];
+  } else if (!manualOverrides.exclude.map(e => e.toUpperCase()).includes(bookEdid.toUpperCase())) {
+    const bookEdidLower = bookEdid.toLowerCase();
+    if (bookEdidLower.includes('xpd_')) bookIconSrc = '/assets/StampIcon.png';
+    else if (bookEdidLower.includes('_goldvendor')) bookIconSrc = '/assets/BullionIcon.png';
+  }
 
-            if (bookIconSrc) {
-              const icon = document.createElement('img');
-              icon.src = bookIconSrc;
-              icon.style.width = '30px';
-              icon.style.height = '30px';
-              icon.style.verticalAlign = 'middle';
-              icon.style.marginRight = '6px';
-              bookPill.appendChild(icon);
-            }
+  if (bookIconSrc) {
+    const icon = document.createElement('img');
+    icon.src = bookIconSrc;
+    icon.style.width = '30px';
+    icon.style.height = '30px';
+    icon.style.verticalAlign = 'middle';
+    icon.style.marginRight = '6px';
+    bookPill.appendChild(icon);
+  }
 
-            bookPill.appendChild(document.createTextNode(r.BOOK_FULL));
-            condWrap.appendChild(bookPill);
+  bookPill.appendChild(document.createTextNode(r.BOOK_FULL));
+  condWrap.appendChild(bookPill);
+}
+
           }
 
           // connector between BOOK and ENTM
