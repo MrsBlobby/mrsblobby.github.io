@@ -610,30 +610,34 @@ if (hasBook) {
         // add more aliases here as needed
     };
 
+    // --- Manual overrides for specific EDID substrings ---
+    const ManualEntmIcons = {
+        'Babylon_': '/assets/V51Icon.png'
+        // add more mappings here
+    };
+
+    // --- determine tag as before ---
     let tag = '';
     const edidUpper = edid.toUpperCase();
 
     if (edidUpper.includes('ATX')) {
         tag = 'Atomic Shop';
     } else if (edidUpper.includes('SCORE_MINISEASON')) {
-        // check manual alias first
         const aliasKey = Object.keys(miniSeasonAliases).find(key => edid.includes(key));
         if (aliasKey) {
             tag = `S.C.O.R.E. - Mini Season ${miniSeasonAliases[aliasKey]}`;
         } else {
             const match = edid.match(/SCORE[_-]?MiniSeason_\d+_([A-Za-z0-9]+?)(?:_ENTM|$)/i);
             if (match) {
-                // convert PascalCase / underscores to normal words
                 const namePart = match[1]
-                    .replace(/([a-z])([A-Z])/g, '$1 $2') // camelCase -> spaced
-                    .replace(/_/g, ' ');                  // underscores -> spaces
+                    .replace(/([a-z])([A-Z])/g, '$1 $2')
+                    .replace(/_/g, ' ');
                 tag = `S.C.O.R.E. - Mini Season ${namePart}`;
             } else {
                 tag = 'S.C.O.R.E. - Mini Season';
             }
         }
     } else {
-        // attempt to find SCORE season number
         const scoreMatch = edid.match(/SCORE[_-]?S?(\d+)/i);
         if (scoreMatch) {
             tag = `S.C.O.R.E. - Season ${scoreMatch[1]}`;
@@ -642,42 +646,49 @@ if (hasBook) {
         }
     }
 
-    // --- create pill with Entitlement: XXX and proper Mini Season tag ---
-const entmPill = document.createElement('span');
-entmPill.className = 'pill';
+    // --- create pill ---
+    const entmPill = document.createElement('span');
+    entmPill.className = 'pill';
 
-// --- create icon element ---
-const icon = document.createElement('img');
-icon.style.width = '30px';
-icon.style.height = '30px';
-icon.style.verticalAlign = 'middle';
-icon.style.marginRight = '6px';
+    // --- create icon element ---
+    const icon = document.createElement('img');
+    icon.style.width = '30px';
+    icon.style.height = '30px';
+    icon.style.verticalAlign = 'middle';
+    icon.style.marginRight = '6px';
 
-let textSuffix = '';
+    let textSuffix = '';
 
-// decide icon and suffix based on tag
-if (tag === 'Atomic Shop') {
-    icon.src = '/assets/AtomIcon.png';
-    textSuffix = ''; // no extra text
-} else if (tag.startsWith('S.C.O.R.E. - Mini Season')) {
-    icon.src = '/assets/SeasonIcon.png';
-    // extract mini season name from tag
-    const miniMatch = tag.match(/Mini Season (.+)/);
-    if (miniMatch) textSuffix = ` (Mini Season: ${miniMatch[1]})`;
-} else if (tag.startsWith('S.C.O.R.E. - Season')) {
-    icon.src = '/assets/SeasonIcon.png';
-    const seasonMatch = tag.match(/Season (\d+)/);
-    if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
+    // --- default icon based on tag ---
+    if (tag === 'Atomic Shop') {
+        icon.src = '/assets/AtomIcon.png';
+    } else if (tag.startsWith('S.C.O.R.E. - Mini Season')) {
+        icon.src = '/assets/SeasonIcon.png';
+        const miniMatch = tag.match(/Mini Season (.+)/);
+        if (miniMatch) textSuffix = ` (Mini Season: ${miniMatch[1]})`;
+    } else if (tag.startsWith('S.C.O.R.E. - Season')) {
+        icon.src = '/assets/SeasonIcon.png';
+        const seasonMatch = tag.match(/Season (\d+)/);
+        if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
+    }
+
+    // --- check manual overrides ---
+    for (const key in ManualEntmIcons) {
+        if (edid.includes(key)) {
+            icon.src = ManualEntmIcons[key];
+            textSuffix = ''; // optional: remove any suffix
+            break;
+        }
+    }
+
+    // --- set pill content ---
+    entmPill.innerHTML = '';
+    entmPill.appendChild(icon);
+    entmPill.appendChild(document.createTextNode(entmFull + textSuffix));
+
+    condWrap.appendChild(entmPill);
 }
 
-// set pill content: icon + entitlement name + optional suffix
-entmPill.innerHTML = '';
-entmPill.appendChild(icon);
-entmPill.appendChild(document.createTextNode(entmFull + textSuffix));
-
-condWrap.appendChild(entmPill);
-
-}
 
 
 
