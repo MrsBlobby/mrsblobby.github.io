@@ -552,50 +552,42 @@ Made by MrsBlobby |
       const connectorWord = isDirect ? 'and' : 'or';
     
       // BOOK pill
+// --- create BOOK pill ---
 if (hasBook) {
-  const bookFull = r.BOOK_FULL;
-  const bookEdid = String(r.BOOK_EditorID || '');
+    const bookPill = document.createElement('span');
+    bookPill.className = 'pill';
+    bookPill.textContent = r.BOOK_FULL;
 
-  // --- create pill ---
-  const bookPill = document.createElement('span');
-  bookPill.className = 'pill';
+    const bookEdid = String(r.BOOK_EditorID || '');
+    let iconSrc = '';
 
-  // --- create icon element ---
-  const icon = document.createElement('img');
-  icon.style.width = '30px';
-  icon.style.height = '30px';
-  icon.style.verticalAlign = 'middle';
-  icon.style.marginRight = '6px';
+    // manual inclusions / exclusions
+    const ManualIcons = {
+        'XPD_': '/assets/StampIcon.png',
+        '_GoldVendor': '/assets/BullionIcon.png',
+        // add more mappings if needed
+    };
 
-  // --- manual inclusion / exclusion map ---
-  // key: EDID substring, value: icon path
-  const bookManualIcons = {
-    // example manual overrides
-    'XPD_': '/assets/StampIcon.png',
-    '_GoldVendor': '/assets/BullionIcon.png'
-    // add more here as needed
-  };
-
-  let iconSet = false;
-  for (const key in bookManualIcons) {
-    if (bookEdid.includes(key)) {
-      icon.src = bookManualIcons[key];
-      iconSet = true;
-      break;
+    for (const key in ManualIcons) {
+        if (bookEdid.includes(key)) {
+            iconSrc = ManualIcons[key];
+            break;
+        }
     }
-  }
 
-  // default icon if no manual match
- // if (!iconSet) {
- //   icon.src = '/assets/BookIcon.png'; // fallback book icon
- // }
+    if (iconSrc) {
+        const icon = document.createElement('img');
+        icon.src = iconSrc;
+        icon.style.width = '30px';
+        icon.style.height = '30px';
+        icon.style.verticalAlign = 'middle';
+        icon.style.marginRight = '6px';
+        bookPill.innerHTML = '';
+        bookPill.appendChild(icon);
+        bookPill.appendChild(document.createTextNode(r.BOOK_FULL));
+    }
 
-  // set pill content: icon + book name
-  bookPill.innerHTML = '';
-  bookPill.appendChild(icon);
-  bookPill.appendChild(document.createTextNode(bookFull));
-
-  condWrap.appendChild(bookPill);
+    condWrap.appendChild(bookPill);
 }
 
     
