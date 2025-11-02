@@ -528,32 +528,29 @@ Made by MrsBlobby |
             left.appendChild(img);
           }
 
-	  const right = document.createElement('div');
+    const right = document.createElement('div');
     right.className = 'result-right';
-
-    // === Build Menu Category ===
-    if (r.Category || r.SubCategory) {
+            
+    // --- Build Menu Category header + pills ---
+    if ((r.Category && r.Category.trim() !== '') || (r.SubCategory && r.SubCategory.trim() !== '')) {
       const catHeader = document.createElement('div');
+      catHeader.className = 'section-header';
       catHeader.textContent = 'Build Menu Category';
-      catHeader.style.fontWeight = '600';
-      catHeader.style.fontSize = '13px';
-      catHeader.style.marginBottom = '4px';
       right.appendChild(catHeader);
     
       const catWrap = document.createElement('div');
-      catWrap.style.display = 'flex';
-      catWrap.style.flexWrap = 'wrap';
-      catWrap.style.gap = '4px';
+      catWrap.className = 'inline-wrap';
     
       const categories = [];
-      if (r.Category) categories.push(r.Category);
-      if (r.SubCategory && r.Category.toLowerCase() !== 'wallpapers') categories.push(r.SubCategory);
+      if (r.Category && r.Category.trim() !== '') categories.push(r.Category);
+      if (r.SubCategory && r.SubCategory.trim() !== '' && (r.Category || '').toLowerCase() !== 'wallpapers') categories.push(r.SubCategory);
     
       categories.forEach((cat, i) => {
         const catSpan = document.createElement('span');
         catSpan.className = 'pill';
         catSpan.textContent = cat;
         catWrap.appendChild(catSpan);
+      
         if (i < categories.length - 1) {
           const arrow = document.createElement('span');
           arrow.className = 'arrow';
@@ -563,59 +560,70 @@ Made by MrsBlobby |
     
       right.appendChild(catWrap);
     }
-
-    // === Placement Conditions ===
-    if (r.BOOK_FULL || r.ENTM_FULL) {
+    
+    // --- Placement Conditions header + pills (only if non-empty) ---
+    const hasBook = !!(r.BOOK_FULL && String(r.BOOK_FULL).trim());
+    const hasEntm = !!(r.ENTM_FULL && String(r.ENTM_FULL).trim());
+    if (hasBook || hasEntm) {
       const condHeader = document.createElement('div');
+      condHeader.className = 'section-header';
       condHeader.textContent = 'Placement Conditions';
-      condHeader.style.fontWeight = '600';
-      condHeader.style.fontSize = '13px';
-      condHeader.style.margin = '8px 0 4px 0';
+      condHeader.style.marginTop = '8px';
       right.appendChild(condHeader);
     
       const condWrap = document.createElement('div');
-      condWrap.style.display = 'flex';
-      condWrap.style.flexWrap = 'wrap';
-      condWrap.style.alignItems = 'center';
-      condWrap.style.gap = '4px';
+      condWrap.className = 'inline-wrap';
     
-      const isDirect = (r.BOOK_SOURCE || '').toLowerCase() === 'direct';
-      const connector = isDirect ? 'and' : 'or';
+      const isDirect = (String(r.BOOK_SOURCE || '').toLowerCase() === 'direct');
+      const connectorWord = isDirect ? 'and' : 'or';
     
-      if (r.BOOK_FULL) {
+      // BOOK pill
+      if (hasBook) {
         const bookPill = document.createElement('span');
         bookPill.className = 'pill';
         bookPill.textContent = r.BOOK_FULL;
         condWrap.appendChild(bookPill);
       }
     
-      if (r.BOOK_FULL && r.ENTM_FULL) {
+      // connector between BOOK and ENTM (only show when both present)
+      if (hasBook && hasEntm) {
         const conn = document.createElement('span');
-        conn.textContent = connector;
-        conn.style.color = 'var(--text-muted)';
+        conn.className = 'connector';
+        conn.textContent = connectorWord;
         condWrap.appendChild(conn);
       }
     
-      if (r.ENTM_FULL) {
+      // ENTM pill (formatting for ATX / SCORE)
+      if (hasEntm) {
         let entmText = r.ENTM_FULL;
-        const edid = (r.ENTM_EDID || '').toUpperCase();
-        if (edid.includes('ATX')) entmText += ' (Atomic Shop)';
-        else if (edid.includes('SCORE_S')) {
-          const match = edid.match(/SCORE_S(\d+)/i);
-          entmText += match ? ` (S.C.O.R.E. - Season ${match[1]})` : ' (S.C.O.R.E.)';
+        const edid = String(r.ENTM_EDID || '').toUpperCase();
+      
+        if (edid.includes('ATX')) {
+          entmText += ' (Atomic Shop)';
+        } else {
+          // attempt to find SCORE season number
+          const scoreMatch = edid.match(/SCORE[_-]?S?(\d+)/i);
+          if (scoreMatch) {
+            entmText += ` (S.C.O.R.E. - Season ${scoreMatch[1]})`;
+          } else if (edid.includes('SCORE')) {
+            entmText += ' (S.C.O.R.E.)';
+          }
         }
+      
         const entmPill = document.createElement('span');
         entmPill.className = 'pill';
-        entmPill.textContent = entmText;
+        entmPill.textContent = `Entitlement: ${entmText}`;
         condWrap.appendChild(entmPill);
       }
     
       right.appendChild(condWrap);
     }
-
+    
+    // attach left + right
     li.appendChild(left);
     li.appendChild(right);
     results.appendChild(li);
+
 
         });
 
