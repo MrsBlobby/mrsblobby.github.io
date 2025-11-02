@@ -625,7 +625,7 @@ let textSuffix = '';
 
 // decide icon and suffix based on tag
 if (tag === 'Atomic Shop') {
-    icon.src = '/assets/svg/AtomIcon.svg';
+    icon.src = '/assets/AtomIcon.png';
     textSuffix = ''; // no extra text
 } else if (tag.startsWith('S.C.O.R.E. - Mini Season')) {
     icon.src = '/assets/svg/SeasonIcon.svg';
@@ -633,7 +633,7 @@ if (tag === 'Atomic Shop') {
     const miniMatch = tag.match(/Mini Season (.+)/);
     if (miniMatch) textSuffix = ` (Mini Season: ${miniMatch[1]})`;
 } else if (tag.startsWith('S.C.O.R.E. - Season')) {
-    icon.src = 'assets/svg/SeasonIcon.svg';
+    icon.src = 'assets/SeasonIcon.png';
     const seasonMatch = tag.match(/Season (\d+)/);
     if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
 }
