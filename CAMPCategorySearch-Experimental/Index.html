@@ -390,8 +390,6 @@ Made by MrsBlobby |
     </div>
   </div>
 
-
-
   <ul id="results"></ul>
   <div id="pagination" style="text-align:center; margin: 16px 0;"></div>
 
@@ -516,13 +514,12 @@ fetch('final_workshop_db.json')
           if (r.Category && r.Category.trim() !== '') categories.push(r.Category);
           if (r.SubCategory && r.SubCategory.trim() !== '' && (r.Category || '').toLowerCase() !== 'wallpapers') categories.push(r.SubCategory);
 
-          categories.forEach((cat, i) => {
-            const catSpan = document.createElement('span');
-            catSpan.className = 'pill';
-            catSpan.textContent = cat;
-            catWrap.appendChild(catSpan);
-
-            if (i < categories.length - 1) {
+          categories.forEach((c, idx) => {
+            const span = document.createElement('span');
+            span.className = 'pill';
+            span.textContent = c;
+            catWrap.appendChild(span);
+            if (idx < categories.length - 1) {
               const arrow = document.createElement('span');
               arrow.className = 'arrow';
               catWrap.appendChild(arrow);
@@ -531,125 +528,42 @@ fetch('final_workshop_db.json')
           right.appendChild(catWrap);
         }
 
-        // --- Placement Conditions section ---
-        const hasBook = !!(r.BOOK_FULL && String(r.BOOK_FULL).trim());
-        const hasEntm = !!(r.ENTM_FULL && String(r.ENTM_FULL).trim());
-        if (hasBook || hasEntm) {
-          const condHeader = document.createElement('div');
-          condHeader.className = 'section-header';
-          condHeader.textContent = 'Placement Conditions';
-          condHeader.style.marginTop = '8px';
-          right.appendChild(condHeader);
+        // --- BOOK pill with icons ---
+        if (r.BOOK_FULL && r.BOOK_FULL.trim() !== '') {
+          const bookPill = document.createElement('span');
+          bookPill.className = 'pill';
 
-          const condWrap = document.createElement('div');
-          condWrap.className = 'inline-wrap';
+          const bookEdid = String(r.BOOK_EDID || '');
 
-          const isDirect = (String(r.BOOK_SOURCE || '').toLowerCase() === 'direct');
-          const connectorWord = isDirect ? 'and' : 'or';
+          // Manual include/exclude map
+          const manualOverrides = {
+            include: {
+              'SPECIAL_BOOK_ID': '/assets/CustomIcon.png'
+            },
+            exclude: ['TEST_EXCLUDE_BOOK']
+          };
 
-         // --- BOOK pill with icons ---
-if (hasBook) {
-  const bookPill = document.createElement('span');
-  bookPill.className = 'pill';
-
-  const bookEdid = String(r.BOOK_EDID || '');
-
-  // Manual include/exclude map
-  const manualOverrides = {
-    include: {
-      'SPECIAL_BOOK_ID': '/assets/CustomIcon.png' // example placeholder
-    },
-    exclude: ['TEST_EXCLUDE_BOOK']
-  };
-
-  let bookIconSrc = '';
-  if (manualOverrides.include[bookEdid.toUpperCase()]) {
-    bookIconSrc = manualOverrides.include[bookEdid.toUpperCase()];
-  } else if (!manualOverrides.exclude.map(e => e.toUpperCase()).includes(bookEdid.toUpperCase())) {
-    const bookEdidLower = bookEdid.toLowerCase();
-    if (bookEdidLower.includes('xpd_')) bookIconSrc = '/assets/StampIcon.png';
-    else if (bookEdidLower.includes('_goldvendor')) bookIconSrc = '/assets/BullionIcon.png';
-  }
-
-  if (bookIconSrc) {
-    const icon = document.createElement('img');
-    icon.src = bookIconSrc;
-    icon.style.width = '30px';
-    icon.style.height = '30px';
-    icon.style.verticalAlign = 'middle';
-    icon.style.marginRight = '6px';
-    bookPill.appendChild(icon);
-  }
-
-  bookPill.appendChild(document.createTextNode(r.BOOK_FULL));
-  condWrap.appendChild(bookPill);
-}
-
+          let bookIconSrc = '';
+          if (manualOverrides.include[bookEdid.toUpperCase()]) {
+            bookIconSrc = manualOverrides.include[bookEdid.toUpperCase()];
+          } else if (!manualOverrides.exclude.map(e => e.toUpperCase()).includes(bookEdid.toUpperCase())) {
+            const bookEdidLower = bookEdid.toLowerCase();
+            if (bookEdidLower.includes('xpd_')) bookIconSrc = '/assets/StampIcon.png';
+            else if (bookEdidLower.includes('_goldvendor')) bookIconSrc = '/assets/BullionIcon.png';
           }
 
-          // connector between BOOK and ENTM
-          if (hasBook && hasEntm) {
-            const conn = document.createElement('span');
-            conn.className = 'connector';
-            conn.textContent = connectorWord;
-            condWrap.appendChild(conn);
-          }
-
-          // --- ENTM pill (unchanged from your latest version) ---
-          if (hasEntm) {
-            const entmFull = r.ENTM_FULL;
-            const edid = String(r.ENTM_EDID || '');
-            const miniSeasonAliases = {
-              'SCORE_MiniSeason_2025_MMMFE': 'Marshal Mallow'
-            };
-
-            let tag = '';
-            const edidUpper = edid.toUpperCase();
-            if (edidUpper.includes('ATX')) tag = 'Atomic Shop';
-            else if (edidUpper.includes('SCORE_MINISEASON')) {
-              const aliasKey = Object.keys(miniSeasonAliases).find(key => edid.includes(key));
-              if (aliasKey) tag = `S.C.O.R.E. - Mini Season ${miniSeasonAliases[aliasKey]}`;
-              else {
-                const match = edid.match(/SCORE[_-]?MiniSeason_\d+_([A-Za-z0-9]+?)(?:_ENTM|$)/i);
-                if (match) {
-                  const namePart = match[1].replace(/([a-z])([A-Z])/g, '$1 $2').replace(/_/g, ' ');
-                  tag = `S.C.O.R.E. - Mini Season ${namePart}`;
-                } else tag = 'S.C.O.R.E. - Mini Season';
-              }
-            } else {
-              const scoreMatch = edid.match(/SCORE[_-]?S?(\d+)/i);
-              if (scoreMatch) tag = `S.C.O.R.E. - Season ${scoreMatch[1]}`;
-              else if (edidUpper.includes('SCORE')) tag = 'S.C.O.R.E.';
-            }
-
-            const entmPill = document.createElement('span');
-            entmPill.className = 'pill';
+          if (bookIconSrc) {
             const icon = document.createElement('img');
+            icon.src = bookIconSrc;
             icon.style.width = '30px';
             icon.style.height = '30px';
             icon.style.verticalAlign = 'middle';
             icon.style.marginRight = '6px';
-
-            let textSuffix = '';
-            if (tag === 'Atomic Shop') {
-              icon.src = '/assets/AtomIcon.png';
-            } else if (tag.startsWith('S.C.O.R.E. - Mini Season')) {
-              icon.src = '/assets/SeasonIcon.png';
-              const miniMatch = tag.match(/Mini Season (.+)/);
-              if (miniMatch) textSuffix = ` (Mini Season: ${miniMatch[1]})`;
-            } else if (tag.startsWith('S.C.O.R.E. - Season')) {
-              icon.src = '/assets/SeasonIcon.png';
-              const seasonMatch = tag.match(/Season (\d+)/);
-              if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
-            }
-
-            entmPill.innerHTML = '';
-            entmPill.appendChild(icon);
-            entmPill.appendChild(document.createTextNode(entmFull + textSuffix));
-            condWrap.appendChild(entmPill);
+            bookPill.appendChild(icon);
           }
 
-          right.appendChild(condWrap);
+          bookPill.appendChild(document.createTextNode(r.BOOK_FULL));
+          right.appendChild(bookPill);
         }
 
         li.appendChild(left);
@@ -657,22 +571,15 @@ if (hasBook) {
         results.appendChild(li);
       });
 
-      renderPagination(sorted.length);
+      renderPagination(filtered.length);
     }
 
-    searchBox.addEventListener('input', () => renderResults(searchBox.value));
+    searchBox.addEventListener('input', () => { currentPage = 1; renderResults(searchBox.value); });
     toggleImages.addEventListener('change', () => renderResults(searchBox.value));
-    sortMode.addEventListener('change', () => {
-      currentPage = 1;
-      renderResults(searchBox.value.toLowerCase());
-    });
+    sortMode.addEventListener('change', () => renderResults(searchBox.value));
 
     renderResults('');
-  })
-  .catch(err => {
-    console.error("Failed to load database:", err);
-    document.getElementById('results').innerHTML = '<li>Error loading database.</li>';
   });
-</script>
+  </script>
 </body>
 </html>
