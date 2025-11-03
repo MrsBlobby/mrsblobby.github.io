@@ -462,6 +462,97 @@ Made by MrsBlobby |
         nextBtn.onclick = () => { currentPage++; renderResults(lastQuery); };
         pagination.appendChild(nextBtn);
       }
+// === Category + Subcategory icons ===
+const CategoryIcons = {
+  'C.A.M.P. Pieces': '/assets/MainCategory-CAMPPiecesIcon.png',
+  '
+  'Foundations': '/assets/FoundationsIcon.png',
+  'Decorations': '/assets/MainCategory-DecorationsIcon.png',
+  'Defenses': '/assets/MainCategory-DefensesIcon.png',
+  'Dwellers': '/assets/MainCategory-DwellersIcon.png',
+  'Furniture': '/assets/MainCategory-FurnitureIcon.png',
+  'Lights': '/assets/MainCategory-LightsIcon.png',
+  'Power': '/assets/MainCategory-PowerIcon.png',
+  'Resources': '/assets/MainCategory-ResourcesIcon.png',
+  'Storage': '/assets/MainCategory-StorageIcon.png',
+  'Utility': '/assets/MainCategory-UtilityIcon.png',
+  'Wall Decor': '/assets/MainCategory-WallDecorIcon.png',
+  'Structure': '/assets/MainCategory-StructureIcon.png',
+  'Foundations': '/assets/SubCategory-FoundationsIcon.png',
+  'Porches': '/assets/SubCategory-PorchesIcon.png',
+  'Floors':'/assets/SubCategory-FloorsIcon.png',
+  'Walls': '/assets/SubCategory-WallsIcon.png',
+  'Roofs': '/assets/SubCategory-RoofsIcon.png',
+  'Stairs': '/assets/SubCategory-StairsIcon.png',
+  'Doors': '/assets/SubCategory-DoorsIcon.png',
+  'Columns': '/assets/SubCategory-ColumnsIcon.png',
+  'Fences': '/assets/SubCategory-FencesIcon.png',
+  'Barricades': '/assets/SubCategory-BarricadeIcon.png'
+  'Traps': '/assets/SubCategory-TrapsIcon.png',
+  'Turrets': '/assets/SubCategory-TurretsIcon.png',
+  'Generators': '/assets/SubCategory-GeneratorsIcon.png',
+  'Power Connectors': '/assets/SubCategory-PowerConnectorsIcon.png',
+  'Candles': '/assets/SubCategory-CandleIcon.png',
+  'Ceiling Lights': '/assets/SubCategory-CeilingLightsIcon.png',
+  'Fire': '/assets/SubCategory-FireIcon.png',
+  'Lamps': '/assets/SubCategory-LampsIcon.png',
+  'Signs': '/assets/SubCategory-SignsIcon.png',
+  'Wall Lights': '/assets/SubCategory-WallLightsIcon.png',
+  'Crafting': '/assets/SubCategory-CraftingIcon.png',
+  'Collectors': '/assets/SubCategory-CollectorsIcon.png',
+  'Food': '/assets/SubCategory-FoodIcon.png',
+  'Producers': '/assets/SubCategory-ProducersIcon.png',
+  'Water': '/assets/SubCategory-WaterIcon.png',
+  'Instruments': '/assets/SubCategory-InstrumentsIcon.png',
+  'Player Buffs': '/assets/SubCategory-PlayerBuffsIcon.png',
+  'Services': '/assets/SubCategory-ServicesIcon.png',
+  'Vending Machines': '/assets/SubCategory-VendingMachinesIcon.png',
+  'Appliances': '/assets/SubCategory-AppliancesIcon.png',
+  'Beds': '/assets/SubCategory-BedsIcon.png',
+  'Electronics': '/assets/SubCategory-ElectronicsIcon.png',
+  'Seating': '/assets/SubCategory-SeatingIcon.png',
+  'Shelves': '/assets/SubCategory-ShelvesIcon.png',
+  'Surfaces': '/assets/SubCategory-SurfacesIcon.png',
+  'Balloons': '/assets/SubCategory-BalloonsIcon.png',
+  'Clutter': '/assets/SubCategory-ClutterIcon.png',
+  'Crockery': '/assets/SubCategory-CrockeryIcon.png',
+  'Entertainment': '/assets/SubCategory-EntertainmentIcon.png',
+  'Fauna': '/assets/SubCategory-FaunaIcon.png',
+  'Holiday': '/assets/SubCategory-HolidayIcon.png',
+  'Lawn & Garden': '/assets/SubCategory-Lawn&GardenIcon.png',
+  'Novelties': '/assets/SubCategory-NoveltiesIcon.png',
+  'Outdoor': '/assets/SubCategory-OutdoorIcon.png',
+  'Rugs': '/assets/SubCategory-RugsIcon.png',
+  'Signs': '/assets/SubCategory-SignsIcon.png',
+  'Statues': '/assets/SubCategory-StatuesIcon.png',
+  'Taxidermy': '/assets/SubCategory-TaxidermyIcon.png',
+  'Toys': '/assets/SubCategory-ToysIcon.png',
+  'Vehicles': '/assets/SubCategory-VehiclesIcon.png',
+  'Accents': '/assets/SubCategory-AccentsIcon.png',
+  'Ceiling': '/assets/SubCategory-CeilingIcon.png',
+  'Holiday': '/assets/SubCategory-HolidayIcon.png',
+  'Mounted': '/assets/SubCategory-MountedIcon.png',
+  'Tapestry': '/assets/SubCategory-TapestryIcon.png',
+  'Wall Art': '/assets/SubCategory-WallArtIcon.png',
+  'Wall Letters': '/assets/SubCategory-WallLettersIcon.png',
+  'Window': '/assets/SubCategory-WindowIcon.png',
+  'Additional Storage': '/assets/SubCategory-AdditionalStorageIcon.png',
+  'Displays': '/assets/SubCategory-DisplaysIcon.png',
+  'Stash Boxes': '/assets/SubCategory-StashBoxesIcon.png,
+  'Farm': '/assets/SubCategory-FarmIcon.png',
+  'Frontier': '/assets/SubCategory-FrontierIcon.png',
+  'Industrial': '/assets/SubCategory-IndustrialIcon.png',
+  'Military': '/assets/SubCategory-MilitaryIcon.png',
+  'Modern': '/assets/SubCategory-ModernIcon.png',
+  'Retail': '/assets/SubCategory-RetailIcon.png',
+  'Rustic': '/assets/SubCategory-RusticIcon.png',
+  'Scavenger': '/assets/SubCategory-ScavengerIcon.png',
+  'Allies': '/assets/SubCategory-AlliesIcon.png',
+  'Pets': '/assets/SubCategory-PetsIcon.png',
+  'Pet Furniture': '/assets/SubCategory-PetFurnitureIcon.png
+};
+
+
 
       function renderResults(query) {
         const normalizedQuery = query.toLowerCase();
@@ -519,11 +610,32 @@ Made by MrsBlobby |
       if (r.Category && r.Category.trim() !== '') categories.push(r.Category);
       if (r.SubCategory && r.SubCategory.trim() !== '' && (r.Category || '').toLowerCase() !== 'wallpapers') categories.push(r.SubCategory);
     
-      categories.forEach((cat, i) => {
-        const catSpan = document.createElement('span');
-        catSpan.className = 'pill';
-        catSpan.textContent = cat;
-        catWrap.appendChild(catSpan);
+   categories.forEach((cat, i) => {
+  const catSpan = document.createElement('span');
+  catSpan.className = 'pill';
+  catSpan.textContent = '';
+
+  const iconPath = CategoryIcons[cat];
+  if (iconPath) {
+    const icon = document.createElement('img');
+    icon.src = iconPath;
+    icon.style.width = '24px';
+    icon.style.height = '24px';
+    icon.style.verticalAlign = 'middle';
+    icon.style.marginRight = '6px';
+    catSpan.appendChild(icon);
+  }
+
+  catSpan.appendChild(document.createTextNode(cat));
+  catWrap.appendChild(catSpan);
+
+  if (i < categories.length - 1) {
+    const arrow = document.createElement('span');
+    arrow.className = 'arrow';
+    catWrap.appendChild(arrow);
+  }
+});
+
       
         if (i < categories.length - 1) {
           const arrow = document.createElement('span');
