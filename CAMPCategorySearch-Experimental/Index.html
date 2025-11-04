@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Fallout 76 C.A.M.P. Item Lookup">
-  <meta property="og:description" content="Tool for finding the location of Fallout 76 C.A.M.P. items in the building menu">
-  <meta property="og:image" content="https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/assets/CAMPIcon2.png">
-  <meta property="og:url" content="https://yourdomain.com/">
-  <meta property="og:type" content="website">
-  <link rel="icon" type="image/svg" href="/assets/svg/CAMPIcon.svg">
-  <title>Fallout 76 C.A.M.P. Item Lookup</title>
- <style>
-  :root {
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Fallout 76 C.A.M.P. Item Lookup">
+<meta property="og:description" content="Tool for finding the location of Fallout 76 C.A.M.P. items in the building menu">
+<meta property="og:image" content="https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/assets/CAMPIcon2.png">
+<meta property="og:url" content="https://yourdomain.com/">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg" href="/assets/svg/CAMPIcon.svg">
+<title>Fallout 76 C.A.M.P. Item Lookup</title>
+
+<style>
+:root {
     --accent: #ffc00f;
     --accent-dim: #ffb300;
     --bg: #1a1a1a;
@@ -20,33 +21,28 @@
     --text-muted: #aaa;
     --content-width: 800px;
     --card-width: 720px;
-  }
-
-  body {
+}
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     background-color: var(--bg);
     color: var(--text);
-  }
-
-  .container {
+}
+.container {
     max-width: var(--content-width);
     margin: 0 auto;
     padding: 0 16px;
-  }
-
-  h1 {
+}
+h1 {
     color: var(--accent);
     margin-bottom: 5px;
     text-align: center;
-  }
-
-  .meta {
+}
+.meta {
     text-align: center;
     margin-bottom: 12px;
-  }
-
-  #pagination button {
+}
+#pagination button {
     padding: 6px 10px;
     background: var(--card-bg);
     color: var(--text);
@@ -54,17 +50,16 @@
     border-radius: 4px;
     cursor: pointer;
     transition: 0.2s;
-  }
-  #pagination button:hover:not(:disabled) {
+}
+#pagination button:hover:not(:disabled) {
     background: var(--accent);
     color: black;
-  }
-  #pagination button:disabled {
+}
+#pagination button:disabled {
     opacity: 0.4;
     cursor: default;
-  }
-
-  select {
+}
+select {
     appearance: none;
     background-color: var(--card-bg);
     border: 2px solid var(--accent);
@@ -73,27 +68,23 @@
     padding: 8px 12px;
     font-size: 14px;
     cursor: pointer;
-  }
-
-  #searchBy {
+}
+#searchBy {
     position: relative;
     padding-left: 10px;
     color: var(--text);
-  }
-
-  #searchBy[data-label] option {
+}
+#searchBy[data-label] option {
     color: var(--text);
-  }
-
-  #searchBy::before {
+}
+#searchBy::before {
     content: attr(data-label);
     position: absolute;
     left: 10px;
     color: var(--text-muted);
     pointer-events: none;
-  }
-
-  .controls {
+}
+.controls {
     position: sticky;
     top: 0;
     z-index: 100;
@@ -106,9 +97,8 @@
     justify-content: center;
     align-items: center;
     gap: 12px;
-  }
-
-  .controls input[type="text"] {
+}
+.controls input[type="text"] {
     padding: 10px;
     font-size: 16px;
     width: 100%;
@@ -117,37 +107,32 @@
     border-radius: 6px;
     background-color: var(--card-bg);
     color: var(--text);
-  }
-
-  .controls .search-line {
+}
+.controls .search-line {
     width: 100%;
     display: flex;
     justify-content: center;
     margin-bottom: 8px;
-  }
-
-  .controls label {
+}
+.controls label {
     font-size: 14px;
     color: var(--text-muted);
     margin-left: 4px;
-  }
-
-  .controls .inline-group {
+}
+.controls .inline-group {
     display: flex;
     align-items: center;
     gap: 8px;
     justify-content: center;
     margin-top: 8px;
-  }
-
-  ul {
+}
+ul {
     list-style-type: none;
     padding: 16px;
     margin: 0 auto;
     max-width: var(--card-width);
-  }
-
-  li {
+}
+li {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -157,33 +142,29 @@
     border-radius: 6px;
     border: 2px solid var(--accent);
     box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-  }
-
-  .result-left {
+}
+.result-left {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-shrink: 0;
     width: 220px;
-  }
-
-  .result-name {
+}
+.result-name {
     font-weight: bold;
     font-size: 18px;
     color: var(--accent);
     margin-bottom: 6px;
     text-align: center;
-  }
-
-  .result-left img {
+}
+.result-left img {
     border-radius: 6px;
     max-width: 128px;
     height: auto;
     object-fit: contain;
     display: block;
-  }
-
-  .result-right {
+}
+.result-right {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -191,17 +172,15 @@
     text-align: center;
     width: 100%;
     justify-content: center;
-  }
-
-  .result-right .section-header {
+}
+.result-right .section-header {
     font-weight: 700;
     font-size: 14px;
     color: var(--accent);
     text-align: center;
     margin: 4px 0;
-  }
-
-  .result-right span.pill {
+}
+.result-right span.pill {
     background: var(--bg);
     border: 2px solid var(--accent);
     border-radius: 20px;
@@ -213,25 +192,22 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-  }
-
-  .inline-wrap {
+}
+.inline-wrap {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
     flex-wrap: wrap;
-  }
-
-  .connector {
+}
+.connector {
     color: var(--accent);
     font-weight: 600;
     font-size: 13px;
     margin: 0 6px;
     line-height: 1;
-  }
-
-  .arrow {
+}
+.arrow {
     display: inline-block;
     width: 0;
     height: 0;
@@ -240,13 +216,11 @@
     border-left: 10px solid var(--accent);
     margin: 0 8px;
     vertical-align: middle;
-  }
-
-  .inline-wrap .arrow + .arrow {
+}
+.inline-wrap .arrow + .arrow {
     display: none;
-  }
-
-  .pill {
+}
+.pill {
     background: var(--bg);
     border: 2px solid var(--accent);
     border-radius: 20px;
@@ -260,259 +234,145 @@
     line-height: 1.2;
     max-width: 240px;
     word-break: break-word;
-  }
-
-  details {
+}
+details {
     margin: 10px 0 20px 0;
     font-size: 12px;
     color: var(--text-muted);
-  }
-
-  details summary {
+}
+details summary {
     cursor: pointer;
     font-weight: bold;
     color: var(--accent);
     text-align: center;
-  }
-
-  .changelog-entry h4 {
+}
+.changelog-entry h4 {
     margin: 0 0 4px 0;
     font-size: 14px;
     font-weight: bold;
     color: var(--accent);
-  }
-
-  .changelog-entry {
+}
+.changelog-entry {
     background: rgba(255, 192, 15, 0.05);
     border-left: 3px solid var(--accent);
     border-radius: 4px;
     padding: 6px 12px;
     margin: 6px 0;
     text-align: left;
-  }
-
-  @media (max-width: 600px) {
+}
+@media (max-width: 600px) {
     li {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
     .result-left {
-      max-width: none;
+        max-width: none;
     }
     .result-right {
-      justify-content: center;
-      margin-top: 10px;
+        justify-content: center;
+        margin-top: 10px;
     }
     .result-right span.pill {
-      font-size: 12px;
-      padding: 2px 6px;
+        font-size: 12px;
+        padding: 2px 6px;
     }
     .result-right span.arrow {
-      border-top: 4px solid transparent;
-      border-bottom: 4px solid transparent;
-      border-left: 8px solid var(--accent);
-      margin: 0 4px;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        border-left: 8px solid var(--accent);
+        margin: 0 4px;
     }
     .controls {
-      flex-direction: column;
+        flex-direction: column;
     }
-  }
+}
 </style>
 </head>
 <body>
-  <div class="container">
+
+<div class="container">
     <img src="/assets/CoverImage.png" alt="Fallout 76 C.A.M.P. Item Lookup" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
     <div class="meta">
-    <p style="color: var(--text-muted); font-size: 14px;">
-Made by MrsBlobby | 
-     <a href="https://mrsblobby.github.io/76Tools.html" style="color: var(--accent); text-decoration:none;">
-    Other tools
-       </a>
-      </p>
-      <p style="color: var(--text-muted); font-size: 12px;">Last Updated: November 1, 2025</p>
+        <p style="color: var(--text-muted); font-size: 14px;">
+            Made by MrsBlobby | 
+            <a href="https://mrsblobby.github.io/76Tools.html" style="color: var(--accent); text-decoration:none;">Other tools</a>
+        </p>
+        <p style="color: var(--text-muted); font-size: 12px;">Last Updated: November 1, 2025</p>
     </div>
 
-    <!-- Version history -->
     <details>
-      <summary>Version History</summary>
-      <div class="changelog-entry">
-        <h4>v2.3.1</h4>
-        <ul><li>Fixed issue that caused crops to not have preview images</li></ul>
-      </div>
-      <div class="changelog-entry">
-        <h4>v2.3</h4>
-        <ul><li>Results are now displayed in pages of up to 50 entries in an effort to optimize performance</li></ul>
-      </div>
-      <div class="changelog-entry">
-        <h4>v2.2.1</h4>
-        <ul><li>Hid entries that returned null as a name in database</li></ul>
-      </div>
-      <div class="changelog-entry">
-        <h4>v2.2</h4>
-        <ul><li>Added sorting options</li></ul>
-      </div>
-      <div class="changelog-entry">
-        <h4>v2.1.2</h4>
-        <ul><li>Fixed issue that caused a lot of Turret entries to be missing</li></ul>
-      </div>
-      <div class="changelog-entry">
-        <h4>v2.1.1</h4>
-        <ul><li>Fixed Fauna subcategory not displaying correctly</li></ul>
-      </div>
-      <div class="changelog-entry">
-        <h4>v2.1</h4>
-        <ul><li>Added embed when linking tool on Discord</li></ul>
-      </div>
-      <div class="changelog-entry">
-        <h4>v2.0</h4>
-        <ul><li>Reworked UI entirely. Added more mobile-friendly UI</li></ul>
-      </div>
-      <div class="changelog-entry">
-        <h4>v1.2</h4>
-        <ul><li>Added version history</li></ul>
-      </div>
-      <div class="changelog-entry">
-        <h4>v1.1.1</h4>
-        <ul><li>Fixed wallpaper images</li></ul>
-      </div>
-      <div class="changelog-entry">
-        <h4>v1.1</h4>
-        <ul><li>Added image support</li></ul>
-      </div>
-      <div class="changelog-entry">
-        <h4>v1.0</h4>
-        <ul><li>Initial creation</li></ul>
-      </div>
+        <summary>Version History</summary>
+        <div class="changelog-entry">
+            <h4>v2.3.1</h4>
+            <ul><li>Fixed issue that caused crops to not have preview images</li></ul>
+        </div>
+        <div class="changelog-entry">
+            <h4>v2.3</h4>
+            <ul><li>Results are now displayed in pages of up to 50 entries in an effort to optimize performance</li></ul>
+        </div>
+        <!-- More changelog entries... -->
     </details>
-  </div>
-
-<div class="custom-select-wrapper" style="position: relative; display: inline-block; margin-left: 8px;">
-  <div class="custom-select-display" id="searchByDisplay" style="padding: 8px 12px; border-radius: 6px; border: 2px solid var(--accent); background-color: var(--card-bg); color: var(--text); cursor: pointer; min-width: 140px;">
-    Search By: Item Name
-  </div>
-  <ul class="custom-select-options" id="searchByOptions" style="position: absolute; top: 100%; left: 0; background-color: var(--card-bg); border: 2px solid var(--accent); border-radius: 6px; list-style: none; padding: 0; margin: 4px 0 0 0; display: none; z-index: 100;">
-    <li data-value="name" style="padding: 8px 12px; cursor: pointer;">Item Name</li>
-    <li data-value="book" style="padding: 8px 12px; cursor: pointer;">Plan Name</li>
-    <li data-value="entm" style="padding: 8px 12px; cursor: pointer;">Entitlement Name</li>
-  </ul>
 </div>
 
-    <div class="inline-group">
-      <input type="checkbox" id="toggleImages" checked>
-      <label for="toggleImages">Show Images</label>
-      <span class="separator"></span>
-      <label for="sortMode" style="color: var(--text-muted); font-size: 14px; margin-left: 16px;">Sort By:</label>
-      <select id="sortMode">
-        <option value="camp-top" selected>Workshop Menu ▼</option>
-        <option value="camp-bottom">Workshop Menu ▲</option>
-        <option value="az">Alphabetical ▼</option>
-        <option value="za">Alphabetical ▲</option>
-        <option value="old-new">Oldest</option>
-        <option value="new-old">Newest</option>
-      </select>
+<div class="controls">
+    <div class="search-line">
+        <input type="text" id="searchBox" placeholder="Enter item name..." autofocus>
+        <select id="searchBy" style="margin-left: 8px;">
+            <option disabled selected></option>
+            <option value="name" selected>Item Name</option>
+            <option value="book">Plan Name</option>
+            <option value="entm">Entitlement Name</option>
+        </select>
     </div>
-  </div>
+    <div class="inline-group">
+        <input type="checkbox" id="toggleImages" checked>
+        <label for="toggleImages">Show Images</label>
+        <span class="separator"></span>
+        <label for="sortMode" style="color: var(--text-muted); font-size: 14px; margin-left: 16px;">Sort By:</label>
+        <select id="sortMode">
+            <option value="camp-top" selected>Workshop Menu ▼</option>
+            <option value="camp-bottom">Workshop Menu ▲</option>
+            <option value="az">Alphabetical ▼</option>
+            <option value="za">Alphabetical ▲</option>
+            <option value="old-new">Oldest</option>
+            <option value="new-old">Newest</option>
+        </select>
+    </div>
+</div>
 
+<ul id="results"></ul>
+<div id="pagination" style="text-align:center; margin: 16px 0;"></div>
 
-
-  <ul id="results"></ul>
-  <div id="pagination" style="text-align:center; margin: 16px 0;"></div>
-
-  <script>
+<script>
 fetch('final_workshop_db.json')
-  .then(response => response.json())
-  .then(db => {
+.then(response => response.json())
+.then(db => {
     const searchBox = document.getElementById('searchBox');
-    const searchByDisplay = document.getElementById('searchByDisplay');
-    const searchByOptions = document.getElementById('searchByOptions');
-    let searchByValue = 'name';
+    const searchBy = document.getElementById('searchBy');
     const results = document.getElementById('results');
     const toggleImages = document.getElementById('toggleImages');
     const sortMode = document.getElementById('sortMode');
     const pagination = document.getElementById('pagination');
-
-    searchByDisplay.addEventListener('click', () => {
-      searchByOptions.style.display = searchByOptions.style.display === 'block' ? 'none' : 'block';
-    });
-
-    searchByOptions.querySelectorAll('li').forEach(li => {
-      li.addEventListener('click', () => {
-        const selectedText = li.textContent;
-        const selectedValue = li.getAttribute('data-value');
-        searchByValue = selectedValue;
-        searchByDisplay.textContent = 'Search By: ' + selectedText;
-        searchByOptions.style.display = 'none';
-        currentPage = 1;
-        renderResults(searchBox.value.toLowerCase());
-      });
-    });
-
-    document.addEventListener('click', e => {
-      if (!e.target.closest('.custom-select-wrapper')) {
-        searchByOptions.style.display = 'none';
-      }
-    });
-
     let currentPage = 1;
     const itemsPerPage = 50;
     let lastQuery = '';
 
-    function sortItems(items) {
-      const mode = sortMode.value;
-      if (mode === 'camp-bottom') return [...items].reverse();
-      if (mode === 'new-old') return [...items].sort((a, b) => (b.CNAM_FormID || '').localeCompare(a.CNAM_FormID || ''));
-      if (mode === 'old-new') return [...items].sort((a, b) => (a.CNAM_FormID || '').localeCompare(b.CNAM_FormID || ''));
-      if (mode === 'az') return [...items].sort((a, b) => (a.Name || '').localeCompare(b.Name || ''));
-      if (mode === 'za') return [...items].sort((a, b) => (b.Name || '').localeCompare(a.Name || ''));
-      return items;
-    }
-
-    function paginate(items) {
-      const start = (currentPage - 1) * itemsPerPage;
-      const end = start + itemsPerPage;
-      return items.slice(start, end);
-    }
-
-    function renderPagination(totalItems) {
-      const totalPages = Math.ceil(totalItems / itemsPerPage);
-      pagination.innerHTML = '';
-
-      if (totalPages <= 1) return;
-
-      const prevBtn = document.createElement('button');
-      prevBtn.textContent = '← Prev';
-      prevBtn.disabled = currentPage === 1;
-      prevBtn.onclick = () => { currentPage--; renderResults(lastQuery); };
-      pagination.appendChild(prevBtn);
-
-      for (let i = 1; i <= totalPages; i++) {
-        if (i === currentPage || i === 1 || i === totalPages || Math.abs(i - currentPage) <= 2) {
-          const btn = document.createElement('button');
-          btn.textContent = i;
-          btn.style.margin = '0 4px';
-          btn.style.background = i === currentPage ? 'var(--accent)' : 'var(--card-bg)';
-          btn.style.color = i === currentPage ? 'black' : 'var(--text)';
-          btn.style.border = '1px solid var(--accent)';
-          btn.style.borderRadius = '4px';
-          btn.style.cursor = 'pointer';
-          btn.onclick = () => { currentPage = i; renderResults(lastQuery); };
-          pagination.appendChild(btn);
-        } else if (Math.abs(i - currentPage) === 3) {
-          const span = document.createElement('span');
-          span.textContent = '...';
-          pagination.appendChild(span);
+    function updateSearchByLabel() {
+        const selectedIndex = searchBy.selectedIndex;
+        if (selectedIndex > 0) {
+            const selectedText = searchBy.options[selectedIndex].text;
+            searchBy.options[0].text = `Search By: ${selectedText}`;
+            searchBy.selectedIndex = 0;
         }
-      }
-
-      const nextBtn = document.createElement('button');
-      nextBtn.textContent = 'Next →';
-      nextBtn.disabled = currentPage === totalPages;
-      nextBtn.onclick = () => { currentPage++; renderResults(lastQuery); };
-      pagination.appendChild(nextBtn);
     }
+    updateSearchByLabel();
+    searchBy.addEventListener('change', () => {
+        updateSearchByLabel();
+        currentPage = 1;
+        renderResults(searchBox.value.toLowerCase());
+    });
 
-    // === Category + Subcategory icons ===
     const CategoryIcons = {
       'Quest': '/assets/MainCategory-QuestsIcon.svg',
       'Objectives': '/assets/MainCategory-QuestsIcon.svg',
@@ -602,155 +462,131 @@ fetch('final_workshop_db.json')
       'Pet Furniture': '/assets/SubCategory-PetFurnitureIcon.png'
     };
 
-    function renderResults(query) {
-      const normalizedQuery = query.toLowerCase();
-      const queryChanged = normalizedQuery !== lastQuery;
-      lastQuery = normalizedQuery;
-
-      const filtered = db.filter(item => {
-        if (!normalizedQuery) return true;
-
-        const type = searchByValue;
-        if (type === 'name') {
-          return item.Name && item.Name.toLowerCase().includes(normalizedQuery);
-        } else if (type === 'book') {
-          return item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
-        } else if (type === 'entm') {
-          return item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
-        }
-      });
-
-      const sorted = sortItems(filtered);
-      const totalPages = Math.ceil(sorted.length / itemsPerPage);
-      if (queryChanged || currentPage > totalPages) currentPage = 1;
-
-      const paged = paginate(sorted);
-      results.innerHTML = '';
-
-      if (!paged.length) {
-        results.innerHTML = '<li>No matches found</li>';
-        pagination.innerHTML = '';
-        return;
-      }
-
-      paged.forEach(r => {
-        if ((r.SubCategory || '').trim().toLowerCase() === 'testsubcat') return;
-
-        const li = document.createElement('li');
-        const left = document.createElement('div');
-        left.className = 'result-left';
-
-        const name = document.createElement('div');
-        name.className = 'result-name';
-        name.textContent = r.Name;
-        left.appendChild(name);
-
-        if (toggleImages.checked && r.CNAM_FormID) {
-          const img = document.createElement('img');
-          img.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
-          img.alt = r.Name;
-          img.loading = "lazy";
-          left.appendChild(img);
-        }
-
-        const right = document.createElement('div');
-        right.className = 'result-right';
-
-        if ((r.Category && r.Category.trim() !== '') || (r.SubCategory && r.SubCategory.trim() !== '')) {
-          const catHeader = document.createElement('div');
-          catHeader.className = 'section-header';
-          catHeader.textContent = 'Build Menu Category';
-          right.appendChild(catHeader);
-
-          const catWrap = document.createElement('div');
-          catWrap.className = 'inline-wrap';
-
-          const categories = [];
-          if (r.Category && r.Category.trim() !== '') categories.push(r.Category);
-          if (r.SubCategory && r.SubCategory.trim() !== '' && (r.Category || '').toLowerCase() !== 'wallpapers') categories.push(r.SubCategory);
-
-          categories.forEach((cat, i) => {
-            const catSpan = document.createElement('span');
-            catSpan.className = 'pill';
-            catSpan.textContent = '';
-
-            const iconPath = CategoryIcons[cat];
-            if (iconPath) {
-              const icon = document.createElement('img');
-              icon.src = iconPath;
-              const isSVG = iconPath.toLowerCase().endsWith('.svg');
-              icon.style.height = isSVG ? '24px' : '30px';
-              icon.style.width = 'auto';
-              icon.style.verticalAlign = 'middle';
-              icon.style.marginRight = '6px';
-              catSpan.appendChild(icon);
-            }
-
-            catSpan.appendChild(document.createTextNode(cat));
-            catWrap.appendChild(catSpan);
-
-            if (i < categories.length - 1) {
-              const arrow = document.createElement('span');
-              arrow.className = 'arrow';
-              catWrap.appendChild(arrow);
-            }
-          });
-
-          right.appendChild(catWrap);
-        }
-
-        // --- Placement Conditions (BOOK + ENTM pills) ---
-        const hasBook = !!(r.BOOK_FULL && String(r.BOOK_FULL).trim());
-        const hasEntm = !!(r.ENTM_FULL && String(r.ENTM_FULL).trim());
-        if (hasBook || hasEntm) {
-          const condHeader = document.createElement('div');
-          condHeader.className = 'section-header';
-          condHeader.textContent = 'Placement Conditions';
-          condHeader.style.marginTop = '8px';
-          right.appendChild(condHeader);
-
-          const condWrap = document.createElement('div');
-          condWrap.className = 'inline-wrap';
-
-          const isDirect = (String(r.BOOK_SOURCE || '').toLowerCase() === 'direct');
-
-          if (hasBook && !isDirect) {
-            const pill = document.createElement('span');
-            pill.className = 'pill book';
-            pill.textContent = r.BOOK_FULL;
-            condWrap.appendChild(pill);
-          }
-
-          if (hasEntm) {
-            const pill = document.createElement('span');
-            pill.className = 'pill entm';
-            pill.textContent = r.ENTM_FULL;
-            condWrap.appendChild(pill);
-          }
-
-          right.appendChild(condWrap);
-        }
-
-        li.appendChild(left);
-        li.appendChild(right);
-        results.appendChild(li);
-      });
-
-      renderPagination(sorted.length);
+    function sortItems(items) {
+        const mode = sortMode.value;
+        if (mode === 'camp-bottom') return [...items].reverse();
+        if (mode === 'new-old') return [...items].sort((a,b) => (b.CNAM_FormID||'').localeCompare(a.CNAM_FormID||''));
+        if (mode === 'old-new') return [...items].sort((a,b) => (a.CNAM_FormID||'').localeCompare(b.CNAM_FormID||''));
+        if (mode === 'az') return [...items].sort((a,b) => (a.Name||'').localeCompare(b.Name||''));
+        if (mode === 'za') return [...items].sort((a,b) => (b.Name||'').localeCompare(a.Name||''));
+        return items;
     }
 
-    searchBox.addEventListener('input', e => {
-      currentPage = 1;
-      renderResults(e.target.value.toLowerCase());
-    });
+    function paginate(items) {
+        const start = (currentPage-1)*itemsPerPage;
+        return items.slice(start, start+itemsPerPage);
+    }
 
-    sortMode.addEventListener('change', () => renderResults(searchBox.value.toLowerCase()));
+    function renderPagination(totalItems) {
+        const totalPages = Math.ceil(totalItems/itemsPerPage);
+        pagination.innerHTML = '';
+        if (totalPages <= 1) return;
+        const prevBtn = document.createElement('button');
+        prevBtn.textContent = '← Prev';
+        prevBtn.disabled = currentPage === 1;
+        prevBtn.onclick = () => { currentPage--; renderResults(lastQuery); };
+        pagination.appendChild(prevBtn);
+        for (let i=1; i<=totalPages; i++){
+            if (i===1 || i===totalPages || Math.abs(i-currentPage)<=2){
+                const btn = document.createElement('button');
+                btn.textContent = i;
+                btn.style.background = i===currentPage?'var(--accent)':'var(--card-bg)';
+                btn.style.color = i===currentPage?'black':'var(--text)';
+                btn.onclick = ()=>{ currentPage=i; renderResults(lastQuery); };
+                pagination.appendChild(btn);
+            } else if (Math.abs(i-currentPage)===3){
+                const span = document.createElement('span');
+                span.textContent='...';
+                pagination.appendChild(span);
+            }
+        }
+        const nextBtn=document.createElement('button');
+        nextBtn.textContent='Next →';
+        nextBtn.disabled=currentPage===totalPages;
+        nextBtn.onclick=()=>{ currentPage++; renderResults(lastQuery); };
+        pagination.appendChild(nextBtn);
+    }
 
-    toggleImages.addEventListener('change', () => renderResults(searchBox.value.toLowerCase()));
+    function renderResults(query){
+        const normalizedQuery=query.toLowerCase();
+        const queryChanged = normalizedQuery!==lastQuery;
+        lastQuery = normalizedQuery;
+        const filtered = db.filter(item=>{
+            if(!normalizedQuery) return true;
+            const type=searchBy.value;
+            if(type==='name') return item.Name && item.Name.toLowerCase().includes(normalizedQuery);
+            if(type==='book') return item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
+            if(type==='entm') return item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
+        });
+        const sorted=sortItems(filtered);
+        const totalPages=Math.ceil(sorted.length/itemsPerPage);
+        if(queryChanged || currentPage>totalPages) currentPage=1;
+        const paged=paginate(sorted);
+        results.innerHTML='';
+        if(!paged.length){
+            results.innerHTML='<li>No matches found</li>';
+            pagination.innerHTML='';
+            return;
+        }
+        paged.forEach(r=>{
+            if((r.SubCategory||'').trim().toLowerCase()==='testsubcat') return;
+            const li=document.createElement('li');
+            const left=document.createElement('div');
+            left.className='result-left';
+            const name=document.createElement('div');
+            name.className='result-name';
+            name.textContent=r.Name||'';
+            left.appendChild(name);
+            if(toggleImages.checked && r.Image){
+                const img=document.createElement('img');
+                img.src=r.Image;
+                img.alt=r.Name;
+                left.appendChild(img);
+            }
+            const right=document.createElement('div');
+            right.className='result-right';
+            if(r.Category){
+                const catDiv=document.createElement('div');
+                catDiv.className='inline-wrap';
+                if(CategoryIcons[r.Category]){
+                    const img=document.createElement('img');
+                    img.src=CategoryIcons[r.Category];
+                    img.style.width='24px';
+                    img.style.height='24px';
+                    img.style.marginRight='6px';
+                    catDiv.appendChild(img);
+                }
+                const span=document.createElement('span');
+                span.className='pill';
+                span.textContent=r.Category;
+                catDiv.appendChild(span);
+                right.appendChild(catDiv);
+            }
+            if(r.SubCategory){
+                const sub=document.createElement('span');
+                sub.className='pill';
+                sub.textContent=r.SubCategory;
+                right.appendChild(sub);
+            }
+            if(r.CNAM_FormID){
+                const fid=document.createElement('span');
+                fid.className='pill';
+                fid.textContent='FormID: '+r.CNAM_FormID;
+                right.appendChild(fid);
+            }
+            li.appendChild(left);
+            li.appendChild(right);
+            results.appendChild(li);
+        });
+        renderPagination(filtered.length);
+    }
+
+    searchBox.addEventListener('input', ()=>{currentPage=1;renderResults(searchBox.value);});
+    toggleImages.addEventListener('change', ()=>renderResults(searchBox.value));
+    sortMode.addEventListener('change', ()=>renderResults(searchBox.value));
 
     renderResults('');
-  })
-  .catch(err => console.error('Error loading database:', err));
+});
 </script>
 </body>
 </html>
