@@ -121,12 +121,23 @@
     box-sizing: border-box;
   }
 
-  .custom-dropdown {
-    position: relative;
-    height: 40px;
-    display: flex;
-    flex-shrink: 0;
-  }
+.custom-dropdown {
+  position: relative;  
+  z-index: 50;         
+  display: flex;
+  flex-shrink: 0;
+  height: 40px;
+}
+
+.search-line {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 6px;
+  position: relative;  /* required for dropdown absolute positioning */
+}
+
 
   #dropdownSelected, #sortDropdownSelected {
     display: flex;
@@ -140,6 +151,15 @@
     cursor: pointer;
     box-sizing: border-box;
   }
+
+#dropdownOptions {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;  
+}
+
 
   #dropdownOptions, #sortDropdownOptions {
     display: none;
@@ -494,6 +514,16 @@ const dropdownSelected = document.getElementById('dropdownSelected');
 const dropdownOptions = document.getElementById('dropdownOptions');
 let currentSearchBy = 'name'; // default
 
+dropdownOptions.querySelectorAll('.option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    currentSearchBy = opt.dataset.value;       
+    dropdownSelected.textContent = `Search By: ${opt.textContent}`;
+    dropdownOptions.style.display = 'none';
+    currentPage = 1;
+    renderResults(searchBox.value.toLowerCase());
+  });
+});
+
 // initial display
 dropdownSelected.textContent = 'Search By: Item Name';
 
@@ -502,16 +532,6 @@ dropdownSelected.addEventListener('click', () => {
   dropdownOptions.style.display = dropdownOptions.style.display === 'block' ? 'none' : 'block';
 });
 
-// select option
-dropdownOptions.querySelectorAll('.option').forEach(opt => {
-  opt.addEventListener('click', () => {
-    currentSearchBy = opt.dataset.value;
-    dropdownSelected.textContent = `Search By: ${opt.textContent}`; // add prefix only in selected div
-    dropdownOptions.style.display = 'none';
-    currentPage = 1;
-    renderResults(searchBox.value.toLowerCase());
-  });
-});
 
 // close dropdown if click outside
 document.addEventListener('click', (e) => {
