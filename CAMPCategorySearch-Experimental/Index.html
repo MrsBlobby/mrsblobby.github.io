@@ -372,6 +372,11 @@ Made by MrsBlobby |
   <div class="controls">
     <div class="search-line">
       <input type="text" id="searchBox" placeholder="Enter item name..." autofocus>
+      <select id="searchBy" style="margin-left: 8px; padding: 8px; border-radius: 6px; border: 2px solid var(--accent); background-color: var(--card-bg); color: var(--text);">
+        <option value="name" selected>Item Name</option>
+        <option value="book">Plan Name</option>
+        <option value="entm">Entitlement Name</option>
+      </select>
     </div>
 
     <div class="inline-group">
@@ -400,6 +405,7 @@ Made by MrsBlobby |
     .then(response => response.json())
     .then(db => {
       const searchBox = document.getElementById('searchBox');
+      const searchBy = document.getElementById('searchBy');
       const results = document.getElementById('results');
       const toggleImages = document.getElementById('toggleImages');
       const sortMode = document.getElementById('sortMode');
@@ -559,7 +565,18 @@ const CategoryIcons = {
         const queryChanged = normalizedQuery !== lastQuery;
         lastQuery = normalizedQuery;
 
-        const filtered = db.filter(item => item.Name && item.Name.trim() !== '' && (!normalizedQuery || item.Name.toLowerCase().includes(normalizedQuery)));
+const filtered = db.filter(item => {
+  if (!normalizedQuery) return true; // show all if search is empty
+
+  const type = searchBy.value; // "name", "book", or "entm"
+  if (type === 'name') {
+    return item.Name && item.Name.toLowerCase().includes(normalizedQuery);
+  } else if (type === 'book') {
+    return item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
+  } else if (type === 'entm') {
+    return item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
+  }
+});
         const sorted = sortItems(filtered);
 
         // reset to page 1 if query changed or current page is now out of range
@@ -820,12 +837,17 @@ const ManualEntmIcons = {
         renderPagination(sorted.length);
       }
 
-      searchBox.addEventListener('input', () => renderResults(searchBox.value));
-      toggleImages.addEventListener('change', () => renderResults(searchBox.value));
-      sortMode.addEventListener('change', () => {
-        currentPage = 1;
-        renderResults(searchBox.value.toLowerCase());
-      });
+searchBox.addEventListener('input', () => renderResults(searchBox.value));
+toggleImages.addEventListener('change', () => renderResults(searchBox.value));
+sortMode.addEventListener('change', () => {
+  currentPage = 1;
+  renderResults(searchBox.value.toLowerCase());
+});
+searchBy.addEventListener('change', () => {
+  currentPage = 1;
+  renderResults(searchBox.value.toLowerCase());
+});
+
 
 
       renderResults('');
