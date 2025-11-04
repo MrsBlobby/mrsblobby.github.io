@@ -386,8 +386,6 @@ Made by MrsBlobby |
 
 
     <div class="inline-group">
-      <input type="checkbox" id="toggleImages" checked>
-      <label for="toggleImages">Show Images</label>
       <span class="separator"></span>
       <label for="sortMode" style="color: var(--text-muted); font-size: 14px; margin-left: 16px;">Sort By:</label>
       <select id="sortMode">
@@ -412,7 +410,6 @@ Made by MrsBlobby |
     .then(db => {
       const searchBox = document.getElementById('searchBox');
       const results = document.getElementById('results');
-      const toggleImages = document.getElementById('toggleImages');
       const sortMode = document.getElementById('sortMode');
       const pagination = document.getElementById('pagination');
 
@@ -634,14 +631,6 @@ const filtered = db.filter(item => {
           name.className = 'result-name';
           name.textContent = r.Name;
           left.appendChild(name);
-
-          if (toggleImages.checked && r.CNAM_FormID) {
-            const img = document.createElement('img');
-            img.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
-            img.alt = r.Name;
-            img.loading = "lazy";
-            left.appendChild(img);
-          }
 
     const right = document.createElement('div');
     right.className = 'result-right';
@@ -869,7 +858,6 @@ const ManualEntmIcons = {
       }
 
 searchBox.addEventListener('input', () => renderResults(searchBox.value));
-toggleImages.addEventListener('change', () => renderResults(searchBox.value));
 sortMode.addEventListener('change', () => {
   currentPage = 1;
   renderResults(searchBox.value.toLowerCase());
