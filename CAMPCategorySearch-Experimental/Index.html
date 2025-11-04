@@ -133,7 +133,7 @@
     align-items: center;
     padding: 0 12px;
     border: 2px solid var(--accent);
-    border-left: none;
+    border-left: 2px solid var(--accent);
     border-radius: 0 6px 6px 0;
     background-color: var(--card-bg);
     color: var(--text);
@@ -379,6 +379,7 @@
     }
   }
 </style>
+
 </head>
 <body>
   <div class="container">
@@ -461,18 +462,16 @@ Made by MrsBlobby |
     </div>
   </div>
 
-<div class="inline-group">
-  <label for="sortDropdown">Sort By:</label>
-  <div class="custom-dropdown" id="sortDropdown">
-    <div class="custom-dropdown-selected" id="sortDropdownSelected">Workshop Menu ▼</div>
-    <div class="custom-dropdown-options" id="sortDropdownOptions">
-      <div class="option" data-value="camp-top">Workshop Menu ▼</div>
-      <div class="option" data-value="camp-bottom">Workshop Menu ▲</div>
-      <div class="option" data-value="az">Alphabetical ▼</div>
-      <div class="option" data-value="za">Alphabetical ▲</div>
-      <div class="option" data-value="old-new">Oldest</div>
-      <div class="option" data-value="new-old">Newest</div>
-    </div>
+  <div class="inline-group">
+    <label for="sortMode">Sort By:</label>
+    <select id="sortMode">
+      <option value="camp-top" selected>Workshop Menu ▼</option>
+      <option value="camp-bottom">Workshop Menu ▲</option>
+      <option value="az">Alphabetical ▼</option>
+      <option value="za">Alphabetical ▲</option>
+      <option value="old-new">Oldest</option>
+      <option value="new-old">Newest</option>
+    </select>
   </div>
 </div>
 
@@ -488,6 +487,7 @@ Made by MrsBlobby |
     .then(db => {
       const searchBox = document.getElementById('searchBox');
       const results = document.getElementById('results');
+      const sortMode = document.getElementById('sortMode');
       const pagination = document.getElementById('pagination');
 
 const dropdownSelected = document.getElementById('dropdownSelected');
@@ -513,61 +513,6 @@ dropdownOptions.querySelectorAll('.option').forEach(opt => {
   });
 });
 
-let currentSearchBy = 'name';     // for search dropdown
-let currentSort = 'camp-top';     // for sort dropdown
-let currentPage = 1;              // pagination
-const itemsPerPage = 50;
-
-// Initialize a custom dropdown
-function initCustomDropdown(dropdownId, onSelect) {
-  const dropdown = document.getElementById(dropdownId);
-  const selected = dropdown.querySelector('.custom-dropdown-selected');
-  const options = dropdown.querySelector('.custom-dropdown-options');
-
-  // toggle open/close
-  selected.addEventListener('click', () => {
-    options.style.display = options.style.display === 'block' ? 'none' : 'block';
-  });
-
-  // select option
-  options.querySelectorAll('.option').forEach(opt => {
-    opt.addEventListener('click', () => {
-      selected.textContent = opt.textContent;
-      options.style.display = 'none';
-      if (onSelect) onSelect(opt.dataset.value);
-    });
-  });
-
-  // close if clicking outside
-  document.addEventListener('click', (e) => {
-    if (!dropdown.contains(e.target)) options.style.display = 'none';
-  });
-}
-
-// Initialize search dropdown
-initCustomDropdown('searchDropdown', value => {
-  currentSearchBy = value;
-  currentPage = 1;
-  renderResults(searchBox.value.toLowerCase());
-});
-
-// Initialize sort dropdown
-initCustomDropdown('sortDropdown', value => {
-  currentSort = value;
-  currentPage = 1;
-  renderResults(searchBox.value.toLowerCase());
-});
-
-function sortItems(items) {
-  const mode = currentSort;
-  if (mode === 'camp-bottom') return [...items].reverse();
-  if (mode === 'new-old') return [...items].sort((a, b) => (b.CNAM_FormID || '').localeCompare(a.CNAM_FormID || ''));
-  if (mode === 'old-new') return [...items].sort((a, b) => (a.CNAM_FormID || '').localeCompare(b.CNAM_FormID || ''));
-  if (mode === 'az') return [...items].sort((a, b) => (a.Name || '').localeCompare(b.Name || ''));
-  if (mode === 'za') return [...items].sort((a, b) => (b.Name || '').localeCompare(a.Name || ''));
-  return items;
-}
-
 // close dropdown if click outside
 document.addEventListener('click', (e) => {
   if (!dropdownSelected.contains(e.target) && !dropdownOptions.contains(e.target)) {
@@ -579,7 +524,15 @@ document.addEventListener('click', (e) => {
       const itemsPerPage = 50;
       let lastQuery = '';
 
-
+      function sortItems(items) {
+        const mode = sortMode.value;
+        if (mode === 'camp-bottom') return [...items].reverse();
+        if (mode === 'new-old') return [...items].sort((a, b) => (b.CNAM_FormID || '').localeCompare(a.CNAM_FormID || ''));
+        if (mode === 'old-new') return [...items].sort((a, b) => (a.CNAM_FormID || '').localeCompare(b.CNAM_FormID || ''));
+        if (mode === 'az') return [...items].sort((a, b) => (a.Name || '').localeCompare(b.Name || ''));
+        if (mode === 'za') return [...items].sort((a, b) => (b.Name || '').localeCompare(a.Name || ''));
+        return items;
+      }
 
       function paginate(items) {
         const start = (currentPage - 1) * itemsPerPage;
@@ -993,6 +946,8 @@ const ManualEntmIcons = {
       }
 
 searchBox.addEventListener('input', () => renderResults(searchBox.value));
+sortMode.addEventListener('change', () => {
+  currentPage = 1;
   renderResults(searchBox.value.toLowerCase());
 });
 
