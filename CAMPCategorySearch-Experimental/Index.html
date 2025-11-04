@@ -387,16 +387,16 @@ Made by MrsBlobby |
     </details>
   </div>
 
-  <div class="controls">
-    <div class="search-line">
-      <input type="text" id="searchBox" placeholder="Enter item name..." autofocus>
-      <select id="searchBy" style="margin-left: 8px; padding: 8px; border-radius: 6px; border: 2px solid var(--accent); background-color: var(--card-bg); color: var(--text);">
-        <option disabled selected></option>
-        <option value="name" selected>Item Name</option>
-        <option value="book">Plan Name</option>
-        <option value="entm">Entitlement Name</option>
-      </select>
-    </div>
+<div class="custom-select-wrapper" style="position: relative; display: inline-block; margin-left: 8px;">
+  <div class="custom-select-display" id="searchByDisplay" style="padding: 8px 12px; border-radius: 6px; border: 2px solid var(--accent); background-color: var(--card-bg); color: var(--text); cursor: pointer; min-width: 140px;">
+    Search By: Item Name
+  </div>
+  <ul class="custom-select-options" id="searchByOptions" style="position: absolute; top: 100%; left: 0; background-color: var(--card-bg); border: 2px solid var(--accent); border-radius: 6px; list-style: none; padding: 0; margin: 4px 0 0 0; display: none; z-index: 100;">
+    <li data-value="name" style="padding: 8px 12px; cursor: pointer;">Item Name</li>
+    <li data-value="book" style="padding: 8px 12px; cursor: pointer;">Plan Name</li>
+    <li data-value="entm" style="padding: 8px 12px; cursor: pointer;">Entitlement Name</li>
+  </ul>
+</div>
 
     <div class="inline-group">
       <input type="checkbox" id="toggleImages" checked>
@@ -424,31 +424,35 @@ Made by MrsBlobby |
     .then(response => response.json())
     .then(db => {
       const searchBox = document.getElementById('searchBox');
-const searchBy = document.getElementById('searchBy');
-
-function updateSearchByLabel() {
-  const selectedIndex = searchBy.selectedIndex;
-  if (selectedIndex > 0) { // skip dummy
-    const selectedText = searchBy.options[selectedIndex].text;
-    searchBy.options[0].text = `Search By: ${selectedText}`;
-    searchBy.selectedIndex = 0; // always display dummy
-  }
-}
-
-// initialize
-updateSearchByLabel();
-
-// whenever selection changes
-searchBy.addEventListener('change', () => {
-  updateSearchByLabel();
-  currentPage = 1;
-  renderResults(searchBox.value.toLowerCase());
-});
-
+      const searchByDisplay = document.getElementById('searchByDisplay');
+      const searchByOptions = document.getElementById('searchByOptions');
+      let searchByValue = 'name'
       const results = document.getElementById('results');
       const toggleImages = document.getElementById('toggleImages');
       const sortMode = document.getElementById('sortMode');
       const pagination = document.getElementById('pagination');
+
+      searchByDisplay.addEventListener('click', () => {
+      searchByOptions.style.display = searchByOptions.style.display === 'block' ? 'none' : 'block';
+      });
+
+      searchByOptions.querySelectorAll('li').forEach(li => {
+          li.addEventListener('click', () => {
+          const selectedText = li.textContent;
+          const selectedValue = li.getAttribute('data-value');
+          searchByValue = selectedValue;
+          searchByDisplay.textContent = 'Search By: ' + selectedText;
+          searchByOptions.style.display = 'none';
+          currentPage = 1;
+          renderResults(searchBox.value.toLowerCase());
+        });
+      });
+
+	 document.addEventListener('click', e => {
+ 	  if (!e.target.closest('.custom-select-wrapper')) {
+	     searchByOptions.style.display = 'none';
+	   }
+	 })
 
       let currentPage = 1;
       const itemsPerPage = 50;
