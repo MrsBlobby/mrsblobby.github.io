@@ -106,6 +106,18 @@
   max-width: 450px;
 }
 
+.search-line input:focus,
+.search-line select:focus,
+.search-line textarea:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.search-line input {
+  -webkit-appearance: none;
+}
+
+
   .controls label {
     font-size: 14px;
     color: var(--text-muted);
@@ -292,11 +304,6 @@
     margin: 6px 0;
     text-align: left;
   }
-
-      .controls.search-line {
-       display: flex;
-       gap: 8px;
-      } 
 
 #searchBox {
   flex: 1;
@@ -844,7 +851,7 @@ if (hasBook) {
       // ENTM pill (formatting for ATX / SCORE)
  if (hasEntm) {
     let entmFull = r.ENTM_FULL
-    ?.replace(/UTILITY_ENTM_ItemDisableEntitlement \[ENTM:[0-9A-Fa-f]+\];?/gi, '')
+    ?.replace(/[\s;]*UTILITY_ENTM_ItemDisableEntitlement\s*\[ENTM:[0-9A-Fa-f]+\][\s;]*/gi, '')
     .trim();
     const edid = String(r.ENTM_EDID || '');
 
