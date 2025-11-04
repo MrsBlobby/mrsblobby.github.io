@@ -162,8 +162,8 @@
   border: 2px solid var(--accent);
   border-radius: 6px;
   overflow: hidden;
-  z-index: 201;
-  min-width: 120px; /* or same width as dropdownSelected */
+  z-index: 9999; 
+  min-width: 140px;
 }
 
 
@@ -521,35 +521,33 @@ const dropdownSelected = document.getElementById('dropdownSelected');
 const dropdownOptions = document.getElementById('dropdownOptions');
 let currentSearchBy = 'name'; // default
 
+// Toggle dropdown visibility
+dropdownSelected.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isVisible = dropdownOptions.style.display === 'block';
+  dropdownOptions.style.display = isVisible ? 'none' : 'block';
+});
+
+// Build click/touch handlers for options
 dropdownOptions.querySelectorAll('.option').forEach(opt => {
-  opt.addEventListener('click', () => {
-    currentSearchBy = opt.dataset.value;       
+  const selectOption = (e) => {
+    e.stopPropagation();
+    currentSearchBy = opt.dataset.value;
     dropdownSelected.textContent = `Search By: ${opt.textContent}`;
     dropdownOptions.style.display = 'none';
     currentPage = 1;
     renderResults(searchBox.value.toLowerCase());
-  });
+  };
+  opt.addEventListener('click', selectOption);
+  opt.addEventListener('touchend', selectOption); // mobile support
 });
 
-// initial display
-dropdownSelected.textContent = 'Search By: Item Name';
-
-// toggle dropdown
-dropdownSelected.addEventListener('click', (e) => {
-  e.stopPropagation(); // prevent document click from firing
-  dropdownOptions.style.display = dropdownOptions.style.display === 'block' ? 'none' : 'block';
+// Close dropdown if clicking outside
+document.addEventListener('click', () => {
+  dropdownOptions.style.display = 'none';
 });
-
-dropdownOptions.addEventListener('click', (e) => {
-  e.stopPropagation();
-});
-
-
-// close dropdown if click outside
-document.addEventListener('click', (e) => {
-  if (!dropdownSelected.contains(e.target) && !dropdownOptions.contains(e.target)) {
-    dropdownOptions.style.display = 'none';
-  }
+document.addEventListener('touchend', () => {
+  dropdownOptions.style.display = 'none';
 });
 
       let currentPage = 1;
