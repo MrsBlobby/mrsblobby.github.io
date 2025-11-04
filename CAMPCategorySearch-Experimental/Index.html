@@ -75,18 +75,18 @@
     cursor: pointer;
   }
 
-  .controls {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--bg);
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--card-bg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
+.controls {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
 
   .controls input[type="text"] {
     padding: 10px;
@@ -99,94 +99,11 @@
     color: var(--text);
   }
 
-  .controls .search-line {
-    display: flex;
-    gap: 0;
-    width: 100%;
-    max-width: 450px;
-    border-radius: 6px;
-    overflow: hidden;
-  }
-
-  #searchBox {
-    flex: 1;
-    height: 40px;
-    font-size: 16px;
-    padding: 0 12px;
-    border: 2px solid var(--accent);
-    border-right: none;
-    border-radius: 6px 0 0 6px;
-    background-color: var(--card-bg);
-    color: var(--text);
-    box-sizing: border-box;
-  }
-
-.custom-dropdown {
-  position: relative;  
-  z-index: 200;         
+.controls .search-line {
   display: flex;
-  flex-shrink: 0;
-  height: 40px;
-}
-
-.search-line {
-  display: flex;
-  gap: 0;
   width: 100%;
   max-width: 450px;
-  border-radius: 6px;
-  position: relative;  
-  overflow: visible;
 }
-
-
-  #dropdownSelected, #sortDropdownSelected {
-    display: flex;
-    align-items: center;
-    padding: 0 12px;
-    border: 2px solid var(--accent);
-    border-left: 2px solid var(--accent);
-    border-radius: 0 6px 6px 0;
-    background-color: var(--card-bg);
-    color: var(--text);
-    cursor: pointer;
-    box-sizing: border-box;
-  }
-
-#dropdownOptions {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: var(--card-bg);
-  border: 2px solid var(--accent);
-  border-radius: 6px;
-  overflow: hidden;
-  min-width: 140px;
-  z-index: 9999;
-}
-
-
-#dropdownOptions.show {
-  display: block;
-}
-
-  #dropdownOptions, #sortDropdownOptions {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--card-bg);
-    border: 2px solid var(--accent);
-    border-radius: 6px;
-    overflow: hidden;
-    z-index: 200;
-  }
-
-  #dropdownOptions .option, #sortDropdownOptions .option {
-    padding: 8px 12px;
-    cursor: pointer;
-  }
 
   .controls label {
     font-size: 14px;
@@ -202,27 +119,27 @@
     margin-top: 8px;
   }
 
-  .inline-group {
-    width: 100%;
-    justify-content: center;
-    margin-top: 8px;
-  }
+.inline-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-  .inline-group label {
-    font-size: 14px;
-    color: var(--text-muted);
-  }
+.inline-group label {
+  font-size: 14px;
+  color: var(--text-muted);
+}
 
-  .inline-group select {
-    appearance: none;
-    background-color: var(--card-bg);
-    border: 2px solid var(--accent);
-    border-radius: 6px;
-    color: var(--text);
-    padding: 8px 12px;
-    font-size: 14px;
-    cursor: pointer;
-  }
+.inline-group select {
+  appearance: none;
+  background-color: var(--card-bg);
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
 
   ul {
     list-style-type: none;
@@ -375,6 +292,69 @@
     text-align: left;
   }
 
+      .controls.search-line {
+       display: flex;
+       gap: 8px;
+      } 
+
+#searchBox {
+  flex: 1;
+  height: 40px;
+  font-size: 16px;
+  padding: 0 12px;
+  border: 2px solid var(--accent);
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+  background-color: var(--card-bg);
+  color: var(--text);
+  box-sizing: border-box;
+}
+
+  #searchBox, #dropdownSelected {
+    width: 100%;
+    border-radius: 6px;
+    border-right: 2px solid var(--accent); 
+  }
+
+#dropdownOptions {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--card-bg);
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 200;
+}
+
+#dropdownOptions .option {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+#dropdownSelected {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border: 2px solid var(--accent);
+  border-left: none;
+  border-radius: 0 6px 6px 0;
+  background-color: var(--card-bg);
+  color: var(--text);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+
+.custom-dropdown {
+  position: relative;
+  height: 40px;
+  display: flex;
+  flex-shrink: 0;
+}
+
+
   @media (max-width: 600px) {
     li {
       flex-direction: column;
@@ -401,15 +381,8 @@
     .controls {
       flex-direction: column;
     }
-    #searchBox {
-      max-width: 280px; /* smaller width for mobile */
-    }
-    #dropdownSelected, #sortDropdownSelected {
-      max-width: 140px;
-    }
   }
 </style>
-
 </head>
 <body>
   <div class="container">
@@ -522,31 +495,33 @@ Made by MrsBlobby |
 
 const dropdownSelected = document.getElementById('dropdownSelected');
 const dropdownOptions = document.getElementById('dropdownOptions');
-let currentSearchBy = 'name';
+let currentSearchBy = 'name'; // default
 
-// Toggle dropdown
-dropdownSelected.addEventListener('click', (e) => {
-  e.stopPropagation();
-  dropdownOptions.classList.toggle('show');
+// initial display
+dropdownSelected.textContent = 'Search By: Item Name';
+
+// toggle dropdown
+dropdownSelected.addEventListener('click', () => {
+  dropdownOptions.style.display = dropdownOptions.style.display === 'block' ? 'none' : 'block';
 });
 
-// Option selection
+// select option
 dropdownOptions.querySelectorAll('.option').forEach(opt => {
-  const select = (e) => {
-    e.stopPropagation();
+  opt.addEventListener('click', () => {
     currentSearchBy = opt.dataset.value;
-    dropdownSelected.textContent = `Search By: ${opt.textContent}`;
-    dropdownOptions.classList.remove('show');
+    dropdownSelected.textContent = `Search By: ${opt.textContent}`; // add prefix only in selected div
+    dropdownOptions.style.display = 'none';
     currentPage = 1;
     renderResults(searchBox.value.toLowerCase());
-  };
-  opt.addEventListener('click', select);
-  opt.addEventListener('touchend', select);
+  });
 });
 
-// Close when clicking/tapping outside
-document.addEventListener('click', () => dropdownOptions.classList.remove('show'));
-document.addEventListener('touchend', () => dropdownOptions.classList.remove('show'));
+// close dropdown if click outside
+document.addEventListener('click', (e) => {
+  if (!dropdownSelected.contains(e.target) && !dropdownOptions.contains(e.target)) {
+    dropdownOptions.style.display = 'none';
+  }
+});
 
       let currentPage = 1;
       const itemsPerPage = 50;
@@ -703,20 +678,17 @@ const CategoryIcons = {
         lastQuery = normalizedQuery;
 
 const filtered = db.filter(item => {
-  if (!item.Name || item.Name.trim().toLowerCase() === 'null') return false;
-
   if (!normalizedQuery) return true; // show all if search is empty
 
   const type = currentSearchBy; // "name", "book", or "entm"
   if (type === 'name') {
-    return item.Name.toLowerCase().includes(normalizedQuery);
+    return item.Name && item.Name.toLowerCase().includes(normalizedQuery);
   } else if (type === 'book') {
     return item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
   } else if (type === 'entm') {
     return item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
   }
 });
-
         const sorted = sortItems(filtered);
 
         // reset to page 1 if query changed or current page is now out of range
@@ -869,9 +841,7 @@ if (hasBook) {
     
       // ENTM pill (formatting for ATX / SCORE)
  if (hasEntm) {
-    let entmFull = r.ENTM_FULL
-    ?.replace(/UTILITY_ENTM_ItemDisableEntitlement \[ENTM:[0-9A-Fa-f]+\];?/gi, '')
-    .trim();
+    const entmFull = r.ENTM_FULL?.replace(/^UTILITY_ENTM_ItemDisableEntitlement \[ENTM:0047A449\];\s*/i, '');
     const edid = String(r.ENTM_EDID || '');
 
     // --- Manual alias map for tricky Mini Seasons ---
