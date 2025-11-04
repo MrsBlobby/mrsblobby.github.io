@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="Fallout 76 C.A.M.P. Item Lookup">
-<meta property="og:description" content="Tool for finding the location of Fallout 76 C.A.M.P. items in the building menu">
-<meta property="og:image" content="https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/assets/CAMPIcon2.png">
-<meta property="og:url" content="https://yourdomain.com/">
-<meta property="og:type" content="website">
-<link rel="icon" type="image/svg" href="/assets/svg/CAMPIcon.svg">
-<title>Fallout 76 C.A.M.P. Item Lookup</title>
-
-<style>
-:root {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Fallout 76 C.A.M.P. Item Lookup">
+  <meta property="og:description" content="Tool for finding the location of Fallout 76 C.A.M.P. items in the building menu">
+  <meta property="og:image" content="https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/assets/CAMPIcon2.png">
+  <meta property="og:url" content="https://yourdomain.com/">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg" href="/assets/svg/CAMPIcon.svg">
+  <title>Fallout 76 C.A.M.P. Item Lookup</title>
+ <style>
+  :root {
     --accent: #ffc00f;
     --accent-dim: #ffb300;
     --bg: #1a1a1a;
@@ -21,28 +20,33 @@
     --text-muted: #aaa;
     --content-width: 800px;
     --card-width: 720px;
-}
-body {
+  }
+
+  body {
     font-family: Arial, sans-serif;
     margin: 0;
     background-color: var(--bg);
     color: var(--text);
-}
-.container {
+  }
+
+  .container {
     max-width: var(--content-width);
     margin: 0 auto;
     padding: 0 16px;
-}
-h1 {
+  }
+
+  h1 {
     color: var(--accent);
     margin-bottom: 5px;
     text-align: center;
-}
-.meta {
+  }
+
+  .meta {
     text-align: center;
     margin-bottom: 12px;
-}
-#pagination button {
+  }
+
+  #pagination button {
     padding: 6px 10px;
     background: var(--card-bg);
     color: var(--text);
@@ -50,16 +54,17 @@ h1 {
     border-radius: 4px;
     cursor: pointer;
     transition: 0.2s;
-}
-#pagination button:hover:not(:disabled) {
+  }
+  #pagination button:hover:not(:disabled) {
     background: var(--accent);
     color: black;
-}
-#pagination button:disabled {
+  }
+  #pagination button:disabled {
     opacity: 0.4;
     cursor: default;
-}
-select {
+  }
+
+  select {
     appearance: none;
     background-color: var(--card-bg);
     border: 2px solid var(--accent);
@@ -68,23 +73,9 @@ select {
     padding: 8px 12px;
     font-size: 14px;
     cursor: pointer;
-}
-#searchBy {
-    position: relative;
-    padding-left: 10px;
-    color: var(--text);
-}
-#searchBy[data-label] option {
-    color: var(--text);
-}
-#searchBy::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 10px;
-    color: var(--text-muted);
-    pointer-events: none;
-}
-.controls {
+  }
+
+  .controls {
     position: sticky;
     top: 0;
     z-index: 100;
@@ -97,42 +88,48 @@ select {
     justify-content: center;
     align-items: center;
     gap: 12px;
-}
-.controls input[type="text"] {
+  }
+
+  .controls input[type="text"] {
     padding: 10px;
     font-size: 16px;
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
     border: 2px solid var(--accent);
     border-radius: 6px;
     background-color: var(--card-bg);
     color: var(--text);
-}
-.controls .search-line {
+  }
+
+  .controls .search-line {
     width: 100%;
     display: flex;
     justify-content: center;
     margin-bottom: 8px;
-}
-.controls label {
+  }
+
+  .controls label {
     font-size: 14px;
     color: var(--text-muted);
     margin-left: 4px;
-}
-.controls .inline-group {
+  }
+
+  .controls .inline-group {
     display: flex;
     align-items: center;
     gap: 8px;
     justify-content: center;
     margin-top: 8px;
-}
-ul {
+  }
+
+  ul {
     list-style-type: none;
     padding: 16px;
     margin: 0 auto;
     max-width: var(--card-width);
-}
-li {
+  }
+
+  li {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -142,29 +139,33 @@ li {
     border-radius: 6px;
     border: 2px solid var(--accent);
     box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-}
-.result-left {
+  }
+
+  .result-left {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-shrink: 0;
     width: 220px;
-}
-.result-name {
+  }
+
+  .result-name {
     font-weight: bold;
     font-size: 18px;
     color: var(--accent);
     margin-bottom: 6px;
     text-align: center;
-}
-.result-left img {
+  }
+
+  .result-left img {
     border-radius: 6px;
     max-width: 128px;
     height: auto;
     object-fit: contain;
     display: block;
-}
-.result-right {
+  }
+
+  .result-right {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -172,15 +173,17 @@ li {
     text-align: center;
     width: 100%;
     justify-content: center;
-}
-.result-right .section-header {
+  }
+
+  .result-right .section-header {
     font-weight: 700;
     font-size: 14px;
     color: var(--accent);
     text-align: center;
     margin: 4px 0;
-}
-.result-right span.pill {
+  }
+
+  .result-right span.pill {
     background: var(--bg);
     border: 2px solid var(--accent);
     border-radius: 20px;
@@ -192,22 +195,25 @@ li {
     align-items: center;
     justify-content: center;
     text-align: center;
-}
-.inline-wrap {
+  }
+
+  .inline-wrap {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
     flex-wrap: wrap;
-}
-.connector {
+  }
+
+  .connector {
     color: var(--accent);
     font-weight: 600;
     font-size: 13px;
     margin: 0 6px;
     line-height: 1;
-}
-.arrow {
+  }
+
+  .arrow {
     display: inline-block;
     width: 0;
     height: 0;
@@ -216,11 +222,13 @@ li {
     border-left: 10px solid var(--accent);
     margin: 0 8px;
     vertical-align: middle;
-}
-.inline-wrap .arrow + .arrow {
+  }
+
+  .inline-wrap .arrow + .arrow {
     display: none;
-}
-.pill {
+  }
+
+  .pill {
     background: var(--bg);
     border: 2px solid var(--accent);
     border-radius: 20px;
@@ -234,359 +242,642 @@ li {
     line-height: 1.2;
     max-width: 240px;
     word-break: break-word;
-}
-details {
+  }
+
+  details {
     margin: 10px 0 20px 0;
     font-size: 12px;
     color: var(--text-muted);
-}
-details summary {
+  }
+
+  details summary {
     cursor: pointer;
     font-weight: bold;
     color: var(--accent);
     text-align: center;
-}
-.changelog-entry h4 {
+  }
+
+  .changelog-entry h4 {
     margin: 0 0 4px 0;
     font-size: 14px;
     font-weight: bold;
     color: var(--accent);
-}
-.changelog-entry {
+  }
+
+  .changelog-entry {
     background: rgba(255, 192, 15, 0.05);
     border-left: 3px solid var(--accent);
     border-radius: 4px;
     padding: 6px 12px;
     margin: 6px 0;
     text-align: left;
-}
-@media (max-width: 600px) {
+  }
+
+  @media (max-width: 600px) {
     li {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
     .result-left {
-        max-width: none;
+      max-width: none;
     }
     .result-right {
-        justify-content: center;
-        margin-top: 10px;
+      justify-content: center;
+      margin-top: 10px;
     }
     .result-right span.pill {
-        font-size: 12px;
-        padding: 2px 6px;
+      font-size: 12px;
+      padding: 2px 6px;
     }
     .result-right span.arrow {
-        border-top: 4px solid transparent;
-        border-bottom: 4px solid transparent;
-        border-left: 8px solid var(--accent);
-        margin: 0 4px;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 8px solid var(--accent);
+      margin: 0 4px;
     }
     .controls {
-        flex-direction: column;
+      flex-direction: column;
     }
-}
+  }
 </style>
 </head>
 <body>
-
-<div class="container">
+  <div class="container">
     <img src="/assets/CoverImage.png" alt="Fallout 76 C.A.M.P. Item Lookup" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
     <div class="meta">
-        <p style="color: var(--text-muted); font-size: 14px;">
-            Made by MrsBlobby | 
-            <a href="https://mrsblobby.github.io/76Tools.html" style="color: var(--accent); text-decoration:none;">Other tools</a>
-        </p>
-        <p style="color: var(--text-muted); font-size: 12px;">Last Updated: November 1, 2025</p>
+    <p style="color: var(--text-muted); font-size: 14px;">
+Made by MrsBlobby | 
+     <a href="https://mrsblobby.github.io/76Tools.html" style="color: var(--accent); text-decoration:none;">
+    Other tools
+       </a>
+      </p>
+      <p style="color: var(--text-muted); font-size: 12px;">Last Updated: November 1, 2025</p>
     </div>
 
+    <!-- Version history -->
     <details>
-        <summary>Version History</summary>
-        <div class="changelog-entry">
-            <h4>v2.3.1</h4>
-            <ul><li>Fixed issue that caused crops to not have preview images</li></ul>
-        </div>
-        <div class="changelog-entry">
-            <h4>v2.3</h4>
-            <ul><li>Results are now displayed in pages of up to 50 entries in an effort to optimize performance</li></ul>
-        </div>
-        <!-- More changelog entries... -->
+      <summary>Version History</summary>
+      <div class="changelog-entry">
+        <h4>v2.3.1</h4>
+        <ul><li>Fixed issue that caused crops to not have preview images</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v2.3</h4>
+        <ul><li>Results are now displayed in pages of up to 50 entries in an effort to optimize performance</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v2.2.1</h4>
+        <ul><li>Hid entries that returned null as a name in database</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v2.2</h4>
+        <ul><li>Added sorting options</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v2.1.2</h4>
+        <ul><li>Fixed issue that caused a lot of Turret entries to be missing</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v2.1.1</h4>
+        <ul><li>Fixed Fauna subcategory not displaying correctly</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v2.1</h4>
+        <ul><li>Added embed when linking tool on Discord</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v2.0</h4>
+        <ul><li>Reworked UI entirely. Added more mobile-friendly UI</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v1.2</h4>
+        <ul><li>Added version history</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v1.1.1</h4>
+        <ul><li>Fixed wallpaper images</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v1.1</h4>
+        <ul><li>Added image support</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v1.0</h4>
+        <ul><li>Initial creation</li></ul>
+      </div>
     </details>
+  </div>
+
+<div class="custom-dropdown" style="position: relative; display: inline-block;">
+  <div id="dropdownSelected" style="padding: 8px 12px; border-radius: 6px; border: 2px solid var(--accent); background-color: var(--card-bg); color: var(--text); cursor: pointer;">
+    Item Name
+  </div>
+  <div id="dropdownOptions" style="display: none; position: absolute; top: 100%; left: 0; z-index: 100; background-color: var(--card-bg); border: 2px solid var(--accent); border-radius: 6px; overflow: hidden;">
+    <div class="option" data-value="name" style="padding: 8px 12px; cursor: pointer;">Item Name</div>
+    <div class="option" data-value="book" style="padding: 8px 12px; cursor: pointer;">Plan Name</div>
+    <div class="option" data-value="entm" style="padding: 8px 12px; cursor: pointer;">Entitlement Name</div>
+  </div>
 </div>
 
-<div class="controls">
-    <div class="search-line">
-        <input type="text" id="searchBox" placeholder="Enter item name..." autofocus>
-        <select id="searchBy" style="margin-left: 8px;">
-            <option disabled selected></option>
-            <option value="name" selected>Item Name</option>
-            <option value="book">Plan Name</option>
-            <option value="entm">Entitlement Name</option>
-        </select>
-    </div>
+
     <div class="inline-group">
-        <input type="checkbox" id="toggleImages" checked>
-        <label for="toggleImages">Show Images</label>
-        <span class="separator"></span>
-        <label for="sortMode" style="color: var(--text-muted); font-size: 14px; margin-left: 16px;">Sort By:</label>
-        <select id="sortMode">
-            <option value="camp-top" selected>Workshop Menu ▼</option>
-            <option value="camp-bottom">Workshop Menu ▲</option>
-            <option value="az">Alphabetical ▼</option>
-            <option value="za">Alphabetical ▲</option>
-            <option value="old-new">Oldest</option>
-            <option value="new-old">Newest</option>
-        </select>
+      <input type="checkbox" id="toggleImages" checked>
+      <label for="toggleImages">Show Images</label>
+      <span class="separator"></span>
+      <label for="sortMode" style="color: var(--text-muted); font-size: 14px; margin-left: 16px;">Sort By:</label>
+      <select id="sortMode">
+        <option value="camp-top" selected>Workshop Menu ▼</option>
+        <option value="camp-bottom">Workshop Menu ▲</option>
+        <option value="az">Alphabetical ▼</option>
+        <option value="za">Alphabetical ▲</option>
+        <option value="old-new">Oldest</option>
+        <option value="new-old">Newest</option>
+      </select>
     </div>
-</div>
+  </div>
 
-<ul id="results"></ul>
-<div id="pagination" style="text-align:center; margin: 16px 0;"></div>
 
-<script>
-fetch('final_workshop_db.json')
-.then(response => response.json())
-.then(db => {
-    const searchBox = document.getElementById('searchBox');
-    const searchBy = document.getElementById('searchBy');
-    const results = document.getElementById('results');
-    const toggleImages = document.getElementById('toggleImages');
-    const sortMode = document.getElementById('sortMode');
-    const pagination = document.getElementById('pagination');
-    let currentPage = 1;
-    const itemsPerPage = 50;
-    let lastQuery = '';
 
-    function updateSearchByLabel() {
-        const selectedIndex = searchBy.selectedIndex;
-        if (selectedIndex > 0) {
-            const selectedText = searchBy.options[selectedIndex].text;
-            searchBy.options[0].text = `Search By: ${selectedText}`;
-            searchBy.selectedIndex = 0;
-        }
-    }
-    updateSearchByLabel();
-    searchBy.addEventListener('change', () => {
-        updateSearchByLabel();
-        currentPage = 1;
-        renderResults(searchBox.value.toLowerCase());
-    });
+  <ul id="results"></ul>
+  <div id="pagination" style="text-align:center; margin: 16px 0;"></div>
 
-    const CategoryIcons = {
-      'Quest': '/assets/MainCategory-QuestsIcon.svg',
-      'Objectives': '/assets/MainCategory-QuestsIcon.svg',
-      'Wallpapers': '/assets/MainCategory-WallpapersIcon.svg',
-      'C.A.M.P. Pieces': '/assets/MainCategory-CAMPPiecesIcon.svg',
-      'Foundations': '/assets/SubCategory-FoundationsIcon.png',
-      'Decorations': '/assets/MainCategory-DecorationsIcon.svg',
-      'Defense': '/assets/MainCategory-DefensesIcon.svg',
-      'Dwellers': '/assets/MainCategory-DwellersIcon.svg',
-      'Furniture': '/assets/MainCategory-FurnitureIcon.svg',
-      'Lights': '/assets/MainCategory-LightsIcon.svg',
-      'Power': '/assets/MainCategory-PowerIcon.svg',
-      'Resources': '/assets/MainCategory-ResourcesIcon.svg',
-      'Storage': '/assets/MainCategory-StorageIcon.svg',
-      'Utility': '/assets/MainCategory-UtilityIcon.svg',
-      'Wall Decor': '/assets/MainCategory-WallDecorIcon.svg',
-      'Structure': '/assets/MainCategory-StructureIcon.svg',
-      'Porches': '/assets/SubCategory-PorchesIcon.png',
-      'Floors':'/assets/SubCategory-FloorsIcon.png',
-      'Walls': '/assets/SubCategory-WallsIcon.png',
-      'Roofs': '/assets/SubCategory-RoofsIcon.png',
-      'Stairs': '/assets/SubCategory-StairsIcon.png',
-      'Shelters': '/assets/SubCategory-SheltersIcon.png',
-      'Doors': '/assets/SubCategory-DoorsIcon.png',
-      'Columns': '/assets/SubCategory-ColumnsIcon.png',
-      'Fences': '/assets/SubCategory-FencesIcon.png',
-      'Barricades': '/assets/SubCategory-BarricadeIcon.png',
-      'Traps': '/assets/SubCategory-TrapsIcon.png',
-      'Turrets': '/assets/SubCategory-TurretsIcon.png',
-      'Generators': '/assets/SubCategory-GeneratorsIcon.png',
-      'Power Connectors': '/assets/SubCategory-PowerConnectorsIcon.png',
-      'Candles': '/assets/SubCategory-CandleIcon.png',
-      'Ceiling Lights': '/assets/SubCategory-CeilingLightsIcon.png',
-      'Fire': '/assets/SubCategory-FireIcon.png',
-      'Lamps': '/assets/SubCategory-LampsIcon.svg',
-      'Wall Lights': '/assets/SubCategory-WallLightsIcon.png',
-      'Crafting': '/assets/SubCategory-CraftingIcon.png',
-      'Collectors': '/assets/SubCategory-CollectorsIcon.png',
-      'Food': '/assets/SubCategory-FoodIcon.png',
-      'Producers': '/assets/SubCategory-ProducersIcon.png',
-      'Water': '/assets/SubCategory-WaterIcon.png',
-      'Instruments': '/assets/SubCategory-InstrumentsIcon.png',
-      'Player Buffs': '/assets/SubCategory-PlayerBuffsIcon.png',
-      'Services': '/assets/SubCategory-ServicesIcon.png',
-      'Vending Machines': '/assets/SubCategory-VendingMachinesIcon.png',
-      'Appliances': '/assets/SubCategory-AppliancesIcon.png',
-      'Beds': '/assets/SubCategory-BedsIcon.png',
-      'Electronics': '/assets/SubCategory-ElectronicsIcon.png',
-      'Seating': '/assets/SubCategory-SeatingIcon.png',
-      'Shelves': '/assets/SubCategory-ShelvesIcon.png',
-      'Surfaces': '/assets/SubCategory-SurfacesIcon.png',
-      'Balloons': '/assets/SubCategory-BalloonsIcon.png',
-      'Clutter': '/assets/SubCategory-ClutterIcon.png',
-      'Crockery': '/assets/SubCategory-CrockeryIcon.png',
-      'Entertainment': '/assets/SubCategory-EntertainmentIcon.png',
-      'Fauna': '/assets/SubCategory-FaunaIcon.png',
-      'Lawn & Garden': '/assets/SubCategory-Lawn&GardenIcon.png',
-      'Novelties': '/assets/SubCategory-NoveltiesIcon.png',
-      'Outdoor': '/assets/SubCategory-OutdoorIcon.png',
-      'Rugs': '/assets/SubCategory-RugsIcon.png',
-      'Signs': '/assets/SubCategory-SignsIcon.png',
-      'Statues': '/assets/SubCategory-StatuesIcon.png',
-      'Taxidermy': '/assets/SubCategory-TaxidermyIcon.png',
-      'Toys': '/assets/SubCategory-ToysIcon.png',
-      'Vehicles': '/assets/SubCategory-VehiclesIcon.png',
-      'Accents': '/assets/SubCategory-AccentsIcon.png',
-      'Ceiling': '/assets/SubCategory-CeilingIcon.png',
-      'Holiday': '/assets/SubCategory-HolidayIcon.png',
-      'Mounted': '/assets/SubCategory-MountedIcon.png',
-      'Tapestry': '/assets/SubCategory-TapestryIcon.png',
-      'Wall Art': '/assets/SubCategory-WallArtIcon.svg',
-      'Wall Letters': '/assets/SubCategory-WallLettersIcon.png',
-      'Window': '/assets/SubCategory-WindowIcon.png',
-      'Additional Storage': '/assets/SubCategory-AdditionalStorageIcon.svg',
-      'Displays': '/assets/SubCategory-DisplaysIcon.png',
-      'Stash Boxes': '/assets/SubCategory-StashBoxesIcon.png',
-      'Farm': '/assets/SubCategory-FarmIcon.png',
-      'Frontier': '/assets/SubCategory-FrontierIcon.png',
-      'Industrial': '/assets/SubCategory-IndustrialIcon.png',
-      'Military': '/assets/SubCategory-MilitaryIcon.png',
-      'Modern': '/assets/SubCategory-ModernIcon.png',
-      'Retail': '/assets/SubCategory-RetailIcon.png',
-      'Rustic': '/assets/SubCategory-RusticIcon.png',
-      'Scavenger': '/assets/SubCategory-ScavengerIcon.png',
-      'Allies': '/assets/SubCategory-AlliesIcon.svg',
-      'Pets': '/assets/SubCategory-PetsIcon.png',
-      'Pet Furniture': '/assets/SubCategory-PetFurnitureIcon.png'
-    };
+  <script>
+  fetch('final_workshop_db.json')
+    .then(response => response.json())
+    .then(db => {
+      const searchBox = document.getElementById('searchBox');
+      const results = document.getElementById('results');
+      const toggleImages = document.getElementById('toggleImages');
+      const sortMode = document.getElementById('sortMode');
+      const pagination = document.getElementById('pagination');
 
-    function sortItems(items) {
+const dropdownSelected = document.getElementById('dropdownSelected');
+const dropdownOptions = document.getElementById('dropdownOptions');
+let currentSearchBy = 'name'; // default
+
+// toggle dropdown
+dropdownSelected.addEventListener('click', () => {
+  dropdownOptions.style.display = dropdownOptions.style.display === 'block' ? 'none' : 'block';
+});
+
+// select option
+dropdownOptions.querySelectorAll('.option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    currentSearchBy = opt.dataset.value;
+    dropdownSelected.textContent = opt.textContent;
+    dropdownOptions.style.display = 'none';
+    currentPage = 1;
+    renderResults(searchBox.value.toLowerCase());
+  });
+});
+
+// close dropdown if click outside
+document.addEventListener('click', (e) => {
+  if (!dropdownSelected.contains(e.target) && !dropdownOptions.contains(e.target)) {
+    dropdownOptions.style.display = 'none';
+  }
+});
+
+      let currentPage = 1;
+      const itemsPerPage = 50;
+      let lastQuery = '';
+
+      function sortItems(items) {
         const mode = sortMode.value;
         if (mode === 'camp-bottom') return [...items].reverse();
-        if (mode === 'new-old') return [...items].sort((a,b) => (b.CNAM_FormID||'').localeCompare(a.CNAM_FormID||''));
-        if (mode === 'old-new') return [...items].sort((a,b) => (a.CNAM_FormID||'').localeCompare(b.CNAM_FormID||''));
-        if (mode === 'az') return [...items].sort((a,b) => (a.Name||'').localeCompare(b.Name||''));
-        if (mode === 'za') return [...items].sort((a,b) => (b.Name||'').localeCompare(a.Name||''));
+        if (mode === 'new-old') return [...items].sort((a, b) => (b.CNAM_FormID || '').localeCompare(a.CNAM_FormID || ''));
+        if (mode === 'old-new') return [...items].sort((a, b) => (a.CNAM_FormID || '').localeCompare(b.CNAM_FormID || ''));
+        if (mode === 'az') return [...items].sort((a, b) => (a.Name || '').localeCompare(b.Name || ''));
+        if (mode === 'za') return [...items].sort((a, b) => (b.Name || '').localeCompare(a.Name || ''));
         return items;
-    }
+      }
 
-    function paginate(items) {
-        const start = (currentPage-1)*itemsPerPage;
-        return items.slice(start, start+itemsPerPage);
-    }
+      function paginate(items) {
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        return items.slice(start, end);
+      }
 
-    function renderPagination(totalItems) {
-        const totalPages = Math.ceil(totalItems/itemsPerPage);
+      function renderPagination(totalItems) {
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
         pagination.innerHTML = '';
+
         if (totalPages <= 1) return;
+
         const prevBtn = document.createElement('button');
         prevBtn.textContent = '← Prev';
         prevBtn.disabled = currentPage === 1;
         prevBtn.onclick = () => { currentPage--; renderResults(lastQuery); };
         pagination.appendChild(prevBtn);
-        for (let i=1; i<=totalPages; i++){
-            if (i===1 || i===totalPages || Math.abs(i-currentPage)<=2){
-                const btn = document.createElement('button');
-                btn.textContent = i;
-                btn.style.background = i===currentPage?'var(--accent)':'var(--card-bg)';
-                btn.style.color = i===currentPage?'black':'var(--text)';
-                btn.onclick = ()=>{ currentPage=i; renderResults(lastQuery); };
-                pagination.appendChild(btn);
-            } else if (Math.abs(i-currentPage)===3){
-                const span = document.createElement('span');
-                span.textContent='...';
-                pagination.appendChild(span);
-            }
+
+        for (let i = 1; i <= totalPages; i++) {
+          if (i === currentPage || i === 1 || i === totalPages || Math.abs(i - currentPage) <= 2) {
+            const btn = document.createElement('button');
+            btn.textContent = i;
+            btn.style.margin = '0 4px';
+            btn.style.background = i === currentPage ? 'var(--accent)' : 'var(--card-bg)';
+            btn.style.color = i === currentPage ? 'black' : 'var(--text)';
+            btn.style.border = '1px solid var(--accent)';
+            btn.style.borderRadius = '4px';
+            btn.style.cursor = 'pointer';
+            btn.onclick = () => { currentPage = i; renderResults(lastQuery); };
+            pagination.appendChild(btn);
+          } else if (Math.abs(i - currentPage) === 3) {
+            const span = document.createElement('span');
+            span.textContent = '...';
+            pagination.appendChild(span);
+          }
         }
-        const nextBtn=document.createElement('button');
-        nextBtn.textContent='Next →';
-        nextBtn.disabled=currentPage===totalPages;
-        nextBtn.onclick=()=>{ currentPage++; renderResults(lastQuery); };
+
+        const nextBtn = document.createElement('button');
+        nextBtn.textContent = 'Next →';
+        nextBtn.disabled = currentPage === totalPages;
+        nextBtn.onclick = () => { currentPage++; renderResults(lastQuery); };
         pagination.appendChild(nextBtn);
-    }
+      }
+// === Category + Subcategory icons ===
+const CategoryIcons = {
+  'Quest': '/assets/MainCategory-QuestsIcon.svg',
+  'Objectives': '/assets/MainCategory-QuestsIcon.svg',
+  'Wallpapers': '/assets/MainCategory-WallpapersIcon.svg',
+  'C.A.M.P. Pieces': '/assets/MainCategory-CAMPPiecesIcon.svg',
+  'Foundations': '/assets/SubCategory-FoundationsIcon.png',
+  'Decorations': '/assets/MainCategory-DecorationsIcon.svg',
+  'Defense': '/assets/MainCategory-DefensesIcon.svg',
+  'Dwellers': '/assets/MainCategory-DwellersIcon.svg',
+  'Furniture': '/assets/MainCategory-FurnitureIcon.svg',
+  'Lights': '/assets/MainCategory-LightsIcon.svg',
+  'Power': '/assets/MainCategory-PowerIcon.svg',
+  'Resources': '/assets/MainCategory-ResourcesIcon.svg',
+  'Storage': '/assets/MainCategory-StorageIcon.svg',
+  'Utility': '/assets/MainCategory-UtilityIcon.svg',
+  'Wall Decor': '/assets/MainCategory-WallDecorIcon.svg',
+  'Structure': '/assets/MainCategory-StructureIcon.svg',
+  'Porches': '/assets/SubCategory-PorchesIcon.png',
+  'Floors':'/assets/SubCategory-FloorsIcon.png',
+  'Walls': '/assets/SubCategory-WallsIcon.png',
+  'Roofs': '/assets/SubCategory-RoofsIcon.png',
+  'Stairs': '/assets/SubCategory-StairsIcon.png',
+  'Shelters': '/assets/SubCategory-SheltersIcon.png',
+  'Doors': '/assets/SubCategory-DoorsIcon.png',
+  'Columns': '/assets/SubCategory-ColumnsIcon.png',
+  'Fences': '/assets/SubCategory-FencesIcon.png',
+  'Barricades': '/assets/SubCategory-BarricadeIcon.png',
+  'Traps': '/assets/SubCategory-TrapsIcon.png',
+  'Turrets': '/assets/SubCategory-TurretsIcon.png',
+  'Generators': '/assets/SubCategory-GeneratorsIcon.png',
+  'Power Connectors': '/assets/SubCategory-PowerConnectorsIcon.png',
+  'Candles': '/assets/SubCategory-CandleIcon.png',
+  'Ceiling Lights': '/assets/SubCategory-CeilingLightsIcon.png',
+  'Fire': '/assets/SubCategory-FireIcon.png',
+  'Lamps': '/assets/SubCategory-LampsIcon.svg',
+  'Wall Lights': '/assets/SubCategory-WallLightsIcon.png',
+  'Crafting': '/assets/SubCategory-CraftingIcon.png',
+  'Collectors': '/assets/SubCategory-CollectorsIcon.png',
+  'Food': '/assets/SubCategory-FoodIcon.png',
+  'Producers': '/assets/SubCategory-ProducersIcon.png',
+  'Water': '/assets/SubCategory-WaterIcon.png',
+  'Instruments': '/assets/SubCategory-InstrumentsIcon.png',
+  'Player Buffs': '/assets/SubCategory-PlayerBuffsIcon.png',
+  'Services': '/assets/SubCategory-ServicesIcon.png',
+  'Vending Machines': '/assets/SubCategory-VendingMachinesIcon.png',
+  'Appliances': '/assets/SubCategory-AppliancesIcon.png',
+  'Beds': '/assets/SubCategory-BedsIcon.png',
+  'Electronics': '/assets/SubCategory-ElectronicsIcon.png',
+  'Seating': '/assets/SubCategory-SeatingIcon.png',
+  'Shelves': '/assets/SubCategory-ShelvesIcon.png',
+  'Surfaces': '/assets/SubCategory-SurfacesIcon.png',
+  'Balloons': '/assets/SubCategory-BalloonsIcon.png',
+  'Clutter': '/assets/SubCategory-ClutterIcon.png',
+  'Crockery': '/assets/SubCategory-CrockeryIcon.png',
+  'Entertainment': '/assets/SubCategory-EntertainmentIcon.png',
+  'Fauna': '/assets/SubCategory-FaunaIcon.png',
+  'Lawn & Garden': '/assets/SubCategory-Lawn&GardenIcon.png',
+  'Novelties': '/assets/SubCategory-NoveltiesIcon.png',
+  'Outdoor': '/assets/SubCategory-OutdoorIcon.png',
+  'Rugs': '/assets/SubCategory-RugsIcon.png',
+  'Signs': '/assets/SubCategory-SignsIcon.png',
+  'Statues': '/assets/SubCategory-StatuesIcon.png',
+  'Taxidermy': '/assets/SubCategory-TaxidermyIcon.png',
+  'Toys': '/assets/SubCategory-ToysIcon.png',
+  'Vehicles': '/assets/SubCategory-VehiclesIcon.png',
+  'Accents': '/assets/SubCategory-AccentsIcon.png',
+  'Ceiling': '/assets/SubCategory-CeilingIcon.png',
+  'Holiday': '/assets/SubCategory-HolidayIcon.png',
+  'Mounted': '/assets/SubCategory-MountedIcon.png',
+  'Tapestry': '/assets/SubCategory-TapestryIcon.png',
+  'Wall Art': '/assets/SubCategory-WallArtIcon.svg',
+  'Wall Letters': '/assets/SubCategory-WallLettersIcon.png',
+  'Window': '/assets/SubCategory-WindowIcon.png',
+  'Additional Storage': '/assets/SubCategory-AdditionalStorageIcon.svg',
+  'Displays': '/assets/SubCategory-DisplaysIcon.png',
+  'Stash Boxes': '/assets/SubCategory-StashBoxesIcon.png',
+  'Farm': '/assets/SubCategory-FarmIcon.png',
+  'Frontier': '/assets/SubCategory-FrontierIcon.png',
+  'Industrial': '/assets/SubCategory-IndustrialIcon.png',
+  'Military': '/assets/SubCategory-MilitaryIcon.png',
+  'Modern': '/assets/SubCategory-ModernIcon.png',
+  'Retail': '/assets/SubCategory-RetailIcon.png',
+  'Rustic': '/assets/SubCategory-RusticIcon.png',
+  'Scavenger': '/assets/SubCategory-ScavengerIcon.png',
+  'Allies': '/assets/SubCategory-AlliesIcon.svg',
+  'Pets': '/assets/SubCategory-PetsIcon.png',
+  'Pet Furniture': '/assets/SubCategory-PetFurnitureIcon.png'
+};
 
-    function renderResults(query){
-        const normalizedQuery=query.toLowerCase();
-        const queryChanged = normalizedQuery!==lastQuery;
+
+
+      function renderResults(query) {
+        const normalizedQuery = query.toLowerCase();
+        const queryChanged = normalizedQuery !== lastQuery;
         lastQuery = normalizedQuery;
-        const filtered = db.filter(item=>{
-            if(!normalizedQuery) return true;
-            const type=searchBy.value;
-            if(type==='name') return item.Name && item.Name.toLowerCase().includes(normalizedQuery);
-            if(type==='book') return item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
-            if(type==='entm') return item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
-        });
-        const sorted=sortItems(filtered);
-        const totalPages=Math.ceil(sorted.length/itemsPerPage);
-        if(queryChanged || currentPage>totalPages) currentPage=1;
-        const paged=paginate(sorted);
-        results.innerHTML='';
-        if(!paged.length){
-            results.innerHTML='<li>No matches found</li>';
-            pagination.innerHTML='';
-            return;
+
+const filtered = db.filter(item => {
+  if (!normalizedQuery) return true; // show all if search is empty
+
+  const type = currentSearchBy; // "name", "book", or "entm"
+  if (type === 'name') {
+    return item.Name && item.Name.toLowerCase().includes(normalizedQuery);
+  } else if (type === 'book') {
+    return item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
+  } else if (type === 'entm') {
+    return item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
+  }
+});
+        const sorted = sortItems(filtered);
+
+        // reset to page 1 if query changed or current page is now out of range
+        const totalPages = Math.ceil(sorted.length / itemsPerPage);
+        if (queryChanged || currentPage > totalPages) currentPage = 1;
+
+        const paged = paginate(sorted);
+        results.innerHTML = '';
+
+        if (!paged.length) {
+          results.innerHTML = '<li>No matches found</li>';
+          pagination.innerHTML = '';
+          return;
         }
-        paged.forEach(r=>{
-            if((r.SubCategory||'').trim().toLowerCase()==='testsubcat') return;
-            const li=document.createElement('li');
-            const left=document.createElement('div');
-            left.className='result-left';
-            const name=document.createElement('div');
-            name.className='result-name';
-            name.textContent=r.Name||'';
-            left.appendChild(name);
-            if(toggleImages.checked && r.Image){
-                const img=document.createElement('img');
-                img.src=r.Image;
-                img.alt=r.Name;
-                left.appendChild(img);
-            }
-            const right=document.createElement('div');
-            right.className='result-right';
-            if(r.Category){
-                const catDiv=document.createElement('div');
-                catDiv.className='inline-wrap';
-                if(CategoryIcons[r.Category]){
-                    const img=document.createElement('img');
-                    img.src=CategoryIcons[r.Category];
-                    img.style.width='24px';
-                    img.style.height='24px';
-                    img.style.marginRight='6px';
-                    catDiv.appendChild(img);
-                }
-                const span=document.createElement('span');
-                span.className='pill';
-                span.textContent=r.Category;
-                catDiv.appendChild(span);
-                right.appendChild(catDiv);
-            }
-            if(r.SubCategory){
-                const sub=document.createElement('span');
-                sub.className='pill';
-                sub.textContent=r.SubCategory;
-                right.appendChild(sub);
-            }
-            if(r.CNAM_FormID){
-                const fid=document.createElement('span');
-                fid.className='pill';
-                fid.textContent='FormID: '+r.CNAM_FormID;
-                right.appendChild(fid);
-            }
-            li.appendChild(left);
-            li.appendChild(right);
-            results.appendChild(li);
-        });
-        renderPagination(filtered.length);
+
+        paged.forEach(r => {
+          if ((r.SubCategory || '').trim().toLowerCase() === 'testsubcat'.toLowerCase()) return;
+          const li = document.createElement('li');
+          const left = document.createElement('div');
+          left.className = 'result-left';
+
+          const name = document.createElement('div');
+          name.className = 'result-name';
+          name.textContent = r.Name;
+          left.appendChild(name);
+
+          if (toggleImages.checked && r.CNAM_FormID) {
+            const img = document.createElement('img');
+            img.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
+            img.alt = r.Name;
+            img.loading = "lazy";
+            left.appendChild(img);
+          }
+
+    const right = document.createElement('div');
+    right.className = 'result-right';
+
+    // --- Build Menu Category header + pills ---
+    if ((r.Category && r.Category.trim() !== '') || (r.SubCategory && r.SubCategory.trim() !== '')) {
+      const catHeader = document.createElement('div');
+      catHeader.className = 'section-header';
+      catHeader.textContent = 'Build Menu Category';
+      right.appendChild(catHeader);
+    
+      const catWrap = document.createElement('div');
+      catWrap.className = 'inline-wrap';
+    
+      const categories = [];
+      if (r.Category && r.Category.trim() !== '') categories.push(r.Category);
+      if (r.SubCategory && r.SubCategory.trim() !== '' && (r.Category || '').toLowerCase() !== 'wallpapers') categories.push(r.SubCategory);
+    
+   categories.forEach((cat, i) => {
+  const catSpan = document.createElement('span');
+  catSpan.className = 'pill';
+  catSpan.textContent = '';
+
+  const iconPath = CategoryIcons[cat];
+  if (iconPath) {
+    const icon = document.createElement('img');
+    icon.src = iconPath;
+      const isSVG = iconPath.toLowerCase().endsWith('.svg');
+      if (isSVG) {
+        icon.style.height = '24px';
+      } else {
+        icon.style.height = '30px';
+      }
+    icon.style.width = 'auto';
+    icon.style.verticalAlign = 'middle';
+    icon.style.marginRight = '6px';
+    catSpan.appendChild(icon);
+  }
+
+  catSpan.appendChild(document.createTextNode(cat));
+  catWrap.appendChild(catSpan);
+
+  if (i < categories.length - 1) {
+    const arrow = document.createElement('span');
+    arrow.className = 'arrow';
+    catWrap.appendChild(arrow);
+  }
+});
+
+    
+      right.appendChild(catWrap);
     }
 
-    searchBox.addEventListener('input', ()=>{currentPage=1;renderResults(searchBox.value);});
-    toggleImages.addEventListener('change', ()=>renderResults(searchBox.value));
-    sortMode.addEventListener('change', ()=>renderResults(searchBox.value));
+    // --- Placement Conditions header + pills (only if non-empty) ---
+    const hasBook = !!(r.BOOK_FULL && String(r.BOOK_FULL).trim());
+    const hasEntm = !!(r.ENTM_FULL && String(r.ENTM_FULL).trim());
+    if (hasBook || hasEntm) {
+      const condHeader = document.createElement('div');
+      condHeader.className = 'section-header';
+      condHeader.textContent = 'Placement Conditions';
+      condHeader.style.marginTop = '8px';
+      right.appendChild(condHeader);
+    
+      const condWrap = document.createElement('div');
+      condWrap.className = 'inline-wrap';
+    
+      const isDirect = (String(r.BOOK_SOURCE || '').toLowerCase() === 'direct');
+      const connectorWord = isDirect ? 'and' : 'or';
+    
+      // BOOK pill
+// --- create BOOK pill ---
+if (hasBook) {
+    const bookPill = document.createElement('span');
+    bookPill.className = 'pill';
+    bookPill.textContent = r.BOOK_FULL;
 
-    renderResults('');
+    const bookEdid = String(r.BOOK_EditorID || '');
+    let iconSrc = '';
+
+    // manual inclusions / exclusions
+    const ManualIcons = {
+        'XPD_': '/assets/StampIcon.png',
+        '_GoldVendor': '/assets/BullionIcon.png',
+        // add more mappings if needed
+    };
+
+    for (const key in ManualIcons) {
+        if (bookEdid.includes(key)) {
+            iconSrc = ManualIcons[key];
+            break;
+        }
+    }
+
+    if (iconSrc) {
+        const icon = document.createElement('img');
+        icon.src = iconSrc;
+        icon.style.width = '30px';
+        icon.style.height = '30px';
+        icon.style.verticalAlign = 'middle';
+        icon.style.marginRight = '6px';
+        bookPill.innerHTML = '';
+        bookPill.appendChild(icon);
+        bookPill.appendChild(document.createTextNode(r.BOOK_FULL));
+    }
+
+    condWrap.appendChild(bookPill);
+}
+
+    
+      // connector between BOOK and ENTM (only show when both present)
+      if (hasBook && hasEntm) {
+        const conn = document.createElement('span');
+        conn.className = 'connector';
+        conn.textContent = connectorWord;
+        condWrap.appendChild(conn);
+      }
+    
+      // ENTM pill (formatting for ATX / SCORE)
+ if (hasEntm) {
+    const entmFull = r.ENTM_FULL?.replace(/^UTILITY_ENTM_ItemDisableEntitlement \[ENTM:0047A449\];\s*/i, '');
+    const edid = String(r.ENTM_EDID || '');
+
+    // --- Manual alias map for tricky Mini Seasons ---
+    const miniSeasonAliases = {
+        'SCORE_MiniSeason_2025_MMMFE': 'Marshal Mallow'
+        // add more aliases here as needed
+    };
+
+    // --- Manual overrides for specific EDID substrings ---
+const ManualEntmIcons = {
+    'Babylon_': '/assets/V51Icon.png',
+    'Shelters_': '/assets/AtomIcon.png'
+};
+
+
+    // --- determine tag as before ---
+    let tag = '';
+    const edidUpper = edid.toUpperCase();
+
+    if (edidUpper.includes('ATX')) {
+        tag = 'Atomic Shop';
+    } else if (edidUpper.includes('SCORE_MINISEASON')) {
+        const aliasKey = Object.keys(miniSeasonAliases).find(key => edid.includes(key));
+        if (aliasKey) {
+            tag = `S.C.O.R.E. - Mini Season ${miniSeasonAliases[aliasKey]}`;
+        } else {
+            const match = edid.match(/SCORE[_-]?MiniSeason_\d+_([A-Za-z0-9]+?)(?:_ENTM|$)/i);
+            if (match) {
+                const namePart = match[1]
+                    .replace(/([a-z])([A-Z])/g, '$1 $2')
+                    .replace(/_/g, ' ');
+                tag = `S.C.O.R.E. - Mini Season ${namePart}`;
+            } else {
+                tag = 'S.C.O.R.E. - Mini Season';
+            }
+        }
+    } else {
+        const scoreMatch = edid.match(/SCORE[_-]?S?(\d+)/i);
+        if (scoreMatch) {
+            tag = `S.C.O.R.E. - Season ${scoreMatch[1]}`;
+        } else if (edidUpper.includes('SCORE')) {
+            tag = 'S.C.O.R.E.';
+        }
+    }
+
+    // --- create pill ---
+    const entmPill = document.createElement('span');
+    entmPill.className = 'pill';
+
+    // --- create icon element ---
+    const icon = document.createElement('img');
+    icon.style.width = '30px';
+    icon.style.height = '30px';
+    icon.style.verticalAlign = 'middle';
+    icon.style.marginRight = '6px';
+
+    let textSuffix = '';
+
+    // --- default icon based on tag ---
+    if (tag === 'Atomic Shop') {
+        icon.src = '/assets/AtomIcon.png';
+    } else if (tag.startsWith('S.C.O.R.E. - Mini Season')) {
+        icon.src = '/assets/SeasonIcon.png';
+        const miniMatch = tag.match(/Mini Season (.+)/);
+        if (miniMatch) textSuffix = ` (Mini Season: ${miniMatch[1]})`;
+    } else if (tag.startsWith('S.C.O.R.E. - Season')) {
+        icon.src = '/assets/SeasonIcon.png';
+        const seasonMatch = tag.match(/Season (\d+)/);
+        if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
+    }
+
+    // --- check manual overrides ---
+    for (const key in ManualEntmIcons) {
+        if (edid.includes(key)) {
+            icon.src = ManualEntmIcons[key];
+            textSuffix = ''; // optional: remove any suffix
+            break;
+        }
+    }
+
+    // --- set pill content ---
+    entmPill.innerHTML = '';
+    entmPill.appendChild(icon);
+    entmPill.appendChild(document.createTextNode(entmFull + textSuffix));
+
+    condWrap.appendChild(entmPill);
+}
+
+
+
+
+    
+      right.appendChild(condWrap);
+    }
+
+    // attach left + right
+    li.appendChild(left);
+    li.appendChild(right);
+    results.appendChild(li);
+
+
+        });
+
+        renderPagination(sorted.length);
+      }
+
+searchBox.addEventListener('input', () => renderResults(searchBox.value));
+toggleImages.addEventListener('change', () => renderResults(searchBox.value));
+sortMode.addEventListener('change', () => {
+  currentPage = 1;
+  renderResults(searchBox.value.toLowerCase());
 });
-</script>
+
+
+      renderResults('');
+    })
+    .catch(err => {
+      console.error("Failed to load database:", err);
+      document.getElementById('results').innerHTML = '<li>Error loading database.</li>';
+    });
+  </script>
 </body>
 </html>
