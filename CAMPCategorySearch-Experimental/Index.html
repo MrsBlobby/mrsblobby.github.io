@@ -576,6 +576,7 @@ const CategoryIcons = {
         }
 
         paged.forEach(r => {
+          if ((r.SubCategory || '').trim().toLowerCase() === 'testsubcat'.toLowerCase()) return;
           const li = document.createElement('li');
           const left = document.createElement('div');
           left.className = 'result-left';
@@ -711,6 +712,7 @@ if (hasBook) {
     
       // ENTM pill (formatting for ATX / SCORE)
  if (hasEntm) {
+    let entmFull = r.ENTM_FULL?.replace(/^UTILITY_ENTM_ItemDisableEntitlement \[ENTM:0047A449\];\s*/i, '');    
     const entmFull = r.ENTM_FULL;
     const edid = String(r.ENTM_EDID || '');
 
