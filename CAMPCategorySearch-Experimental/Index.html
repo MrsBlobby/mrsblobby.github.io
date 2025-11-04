@@ -273,98 +273,42 @@
     text-align: left;
   }
 
-.controls {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--bg);
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--card-bg);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-}
-
 .controls .search-line {
   display: flex;
-  align-items: stretch; /* ensures children same height */
-  gap: 0; /* no gap between input and dropdown */
+  gap: 0; /* no gap */
   width: 100%;
-  max-width: 450px; /* optional */
+  max-width: 450px;
 }
 
 #searchBox {
   flex: 1;
-  padding: 10px 12px;
+  height: 40px;
   font-size: 16px;
-  border: 2px solid var(--accent);
-  border-right: none; /* remove double border with dropdown */
-  border-radius: 6px 0 0 6px;
-  background-color: var(--card-bg);
-  color: var(--text);
+  padding: 0 12px;
   box-sizing: border-box;
+  border: 2px solid var(--accent);
+  border-right: none;
+  border-radius: 6px 0 0 6px;
 }
 
 .custom-dropdown {
   position: relative;
-  display: inline-flex;
-  align-items: stretch;
+  display: flex;
+  height: 40px;
 }
 
 #dropdownSelected {
-  padding: 0 12px;
-  font-size: 16px;
-  border: 2px solid var(--accent);
-  border-left: none; /* remove double border with input */
-  border-radius: 0 6px 6px 0;
-  background-color: var(--card-bg);
-  color: var(--text);
+  flex-shrink: 0;
   display: flex;
   align-items: center;
+  padding: 0 12px;
+  border: 2px solid var(--accent);
+  border-left: none;
+  border-radius: 0 6px 6px 0;
   cursor: pointer;
+  background-color: var(--card-bg);
+  color: var(--text);
   box-sizing: border-box;
-}
-
-#dropdownOptions {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 100;
-  background-color: var(--card-bg);
-  border: 2px solid var(--accent);
-  border-radius: 6px;
-  overflow: hidden;
-  width: max-content; /* match dropdown content width */
-  min-width: 100%; /* at least as wide as selected */
-}
-
-
-#dropdownOptions {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 100;
-  background-color: var(--card-bg);
-  border: 2px solid var(--accent);
-  border-radius: 6px;
-  overflow: hidden;
-  width: max-content; /* match dropdown content width */
-  min-width: 100%; /* at least as wide as selected */
-}
-
-#dropdownOptions .option {
-  padding: 8px 12px;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-#dropdownOptions .option:hover {
-  background-color: var(--accent-dim);
-  color: black;
 }
 
   @media (max-width: 600px) {
@@ -392,18 +336,7 @@
     }
     .controls {
       flex-direction: column;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--bg);
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--card-bg);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-}
+    }
   }
 </style>
 </head>
