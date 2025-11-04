@@ -695,17 +695,20 @@ const CategoryIcons = {
         lastQuery = normalizedQuery;
 
 const filtered = db.filter(item => {
+  if (!item.Name || item.Name.trim().toLowerCase() === 'null') return false;
+
   if (!normalizedQuery) return true; // show all if search is empty
 
   const type = currentSearchBy; // "name", "book", or "entm"
   if (type === 'name') {
-    return item.Name && item.Name.toLowerCase().includes(normalizedQuery);
+    return item.Name.toLowerCase().includes(normalizedQuery);
   } else if (type === 'book') {
     return item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
   } else if (type === 'entm') {
     return item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
   }
 });
+
         const sorted = sortItems(filtered);
 
         // reset to page 1 if query changed or current page is now out of range
@@ -858,7 +861,7 @@ if (hasBook) {
     
       // ENTM pill (formatting for ATX / SCORE)
  if (hasEntm) {
-    const entmFull = r.ENTM_FULL?.replace(/^UTILITY_ENTM_ItemDisableEntitlement \[ENTM:0047A449\];\s*/i, '');
+    const entmFull = r.ENTM_FULL?.replace(/^UTILITY_ENTM_ItemDisableEntitlement \[ENTM:[0-9A-Fa-f]+\];\s*/i, '');
     const edid = String(r.ENTM_EDID || '');
 
     // --- Manual alias map for tricky Mini Seasons ---
