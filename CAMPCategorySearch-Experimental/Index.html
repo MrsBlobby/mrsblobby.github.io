@@ -275,34 +275,46 @@
 
 .controls.search-line {
   display: flex;
-  align-items: stretch; /* make children same height */
-  gap: 0; /* remove horizontal gap */
+  align-items: stretch;  /* children fill height */
+  gap: 0;                /* remove extra horizontal space */
 }
 
-#searchBox, #dropdownSelected {
+#searchBox {
   height: 40px;
   font-size: 16px;
   padding: 0 12px;
   box-sizing: border-box;
-  border-radius: 6px 0 0 6px; /* search box */
+  border-radius: 6px 0 0 6px; /* left-rounded corners */
+  border: 2px solid var(--accent);
+  background-color: var(--card-bg);
+  color: var(--text);
 }
 
 #dropdownSelected {
-  border-radius: 0 6px 6px 0; /* dropdown */
+  height: 40px;
+  font-size: 16px;        
+  padding: 0 12px;
+  box-sizing: border-box;
+  border-radius: 0 6px 6px 0; /* right-rounded corners */
+  border: 2px solid var(--accent);
+  border-left: none;      /* merge with search box border */
+  background-color: var(--card-bg);
+  color: var(--text);
   display: flex;
-  align-items: center; /* vertical centering */
+  align-items: center;    
+  cursor: pointer;
+}
+
+.custom-dropdown {
+  display: inline-flex;  /* keep dropdown inline with search */
+  vertical-align: middle;
+  position: relative;
 }
 
 
 #dropdownOptions {
   top: 100%; 
 }
-
-.custom-dropdown {
-  display: inline-flex;
-  vertical-align: middle;
-}
-
 
   @media (max-width: 600px) {
     li {
