@@ -391,6 +391,7 @@ Made by MrsBlobby |
     <div class="search-line">
       <input type="text" id="searchBox" placeholder="Enter item name..." autofocus>
       <select id="searchBy" style="margin-left: 8px; padding: 8px; border-radius: 6px; border: 2px solid var(--accent); background-color: var(--card-bg); color: var(--text);">
+        <option disabled selected></option>
         <option value="name" selected>Item Name</option>
         <option value="book">Plan Name</option>
         <option value="entm">Entitlement Name</option>
@@ -423,22 +424,27 @@ Made by MrsBlobby |
     .then(response => response.json())
     .then(db => {
       const searchBox = document.getElementById('searchBox');
-      const searchBy = document.getElementById('searchBy');
-// Function to update the displayed label with "Search By: ..."
+const searchBy = document.getElementById('searchBy');
+
 function updateSearchByLabel() {
-  const selected = searchBy.options[searchBy.selectedIndex].text;
-  searchBy.setAttribute('data-label', `Search By: ${selected}`);
+  const selectedIndex = searchBy.selectedIndex;
+  if (selectedIndex > 0) { // skip dummy
+    const selectedText = searchBy.options[selectedIndex].text;
+    searchBy.options[0].text = `Search By: ${selectedText}`;
+    searchBy.selectedIndex = 0; // always display dummy
+  }
 }
 
-// Initialize label
+// initialize
 updateSearchByLabel();
 
-// Update label whenever selection changes
+// whenever selection changes
 searchBy.addEventListener('change', () => {
   updateSearchByLabel();
   currentPage = 1;
   renderResults(searchBox.value.toLowerCase());
 });
+
       const results = document.getElementById('results');
       const toggleImages = document.getElementById('toggleImages');
       const sortMode = document.getElementById('sortMode');
