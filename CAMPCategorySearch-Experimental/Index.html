@@ -94,7 +94,7 @@
     padding: 10px;
     font-size: 16px;
     width: 100%;
-    max-width: 300px;
+    max-width: 350px;
     border: 2px solid var(--accent);
     border-radius: 6px;
     background-color: var(--card-bg);
@@ -278,17 +278,24 @@
        gap: 8px;
       } 
 
-      #searchBox, #dropdownSelected {
-       height: 40px; /* adjust to match your design */
+      #searchBox{
+       height: 40px;
        box-sizing: border-box;
+       border-radius: 6px 0 0 6px;
       }
 
+#dropdownOptions {
+  top: 100%; 
+}
+
 #dropdownSelected {
-  height: 40px; /* match your search input height */
+  height: 40px; 
+  border-radius: 0 6px 6px 0;
+  font-size: 12px;
   display: flex;
   align-items: center;
   padding: 0 12px;
-  margin-left: 8px; /* small gap from search input */
+  margin-left: 0px; 
   border-radius: 6px;
 }
 
