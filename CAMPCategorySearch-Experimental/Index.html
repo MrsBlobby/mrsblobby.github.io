@@ -678,6 +678,8 @@ const CategoryIcons = {
         lastQuery = normalizedQuery;
 
 const filtered = db.filter(item => {
+  if (!item.Name || item.Name.trim().toLowerCase() === 'null') return false;
+
   if (!normalizedQuery) return true; // show all if search is empty
 
   const type = currentSearchBy; // "name", "book", or "entm"
