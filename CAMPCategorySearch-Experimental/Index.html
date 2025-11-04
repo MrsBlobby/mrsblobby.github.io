@@ -529,8 +529,13 @@ dropdownOptions.querySelectorAll('.option').forEach(opt => {
 dropdownSelected.textContent = 'Search By: Item Name';
 
 // toggle dropdown
-dropdownSelected.addEventListener('click', () => {
+dropdownSelected.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent document click from firing
   dropdownOptions.style.display = dropdownOptions.style.display === 'block' ? 'none' : 'block';
+});
+
+dropdownOptions.addEventListener('click', (e) => {
+  e.stopPropagation();
 });
 
 
