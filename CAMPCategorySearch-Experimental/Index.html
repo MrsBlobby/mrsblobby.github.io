@@ -283,11 +283,19 @@
        box-sizing: border-box;
       }
 
-      #dropdownSelected {
-       display: flex;
-       align-items: center;
-       padding: 0 12px;
-    }
+#dropdownSelected {
+  height: 40px; /* match your search input height */
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  margin-left: 8px; /* small gap from search input */
+  border-radius: 6px;
+}
+
+.custom-dropdown {
+  display: inline-flex;
+  vertical-align: middle;
+}
 
 
   @media (max-width: 600px) {
@@ -434,6 +442,9 @@ const dropdownSelected = document.getElementById('dropdownSelected');
 const dropdownOptions = document.getElementById('dropdownOptions');
 let currentSearchBy = 'name'; // default
 
+// initial display
+dropdownSelected.textContent = 'Search By: Item Name';
+
 // toggle dropdown
 dropdownSelected.addEventListener('click', () => {
   dropdownOptions.style.display = dropdownOptions.style.display === 'block' ? 'none' : 'block';
@@ -443,7 +454,7 @@ dropdownSelected.addEventListener('click', () => {
 dropdownOptions.querySelectorAll('.option').forEach(opt => {
   opt.addEventListener('click', () => {
     currentSearchBy = opt.dataset.value;
-    dropdownSelected.textContent = opt.textContent;
+    dropdownSelected.textContent = `Search By: ${opt.textContent}`; // add prefix only in selected div
     dropdownOptions.style.display = 'none';
     currentPage = 1;
     renderResults(searchBox.value.toLowerCase());
