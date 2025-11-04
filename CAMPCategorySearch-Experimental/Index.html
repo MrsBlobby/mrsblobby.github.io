@@ -162,11 +162,14 @@
   border: 2px solid var(--accent);
   border-radius: 6px;
   overflow: hidden;
-  z-index: 9999; 
   min-width: 140px;
+  z-index: 9999;
 }
 
 
+#dropdownOptions.show {
+  display: block;
+}
 
   #dropdownOptions, #sortDropdownOptions {
     display: none;
@@ -519,36 +522,31 @@ Made by MrsBlobby |
 
 const dropdownSelected = document.getElementById('dropdownSelected');
 const dropdownOptions = document.getElementById('dropdownOptions');
-let currentSearchBy = 'name'; // default
+let currentSearchBy = 'name';
 
-// Toggle dropdown visibility
+// Toggle dropdown
 dropdownSelected.addEventListener('click', (e) => {
   e.stopPropagation();
-  const isVisible = dropdownOptions.style.display === 'block';
-  dropdownOptions.style.display = isVisible ? 'none' : 'block';
+  dropdownOptions.classList.toggle('show');
 });
 
-// Build click/touch handlers for options
+// Option selection
 dropdownOptions.querySelectorAll('.option').forEach(opt => {
-  const selectOption = (e) => {
+  const select = (e) => {
     e.stopPropagation();
     currentSearchBy = opt.dataset.value;
     dropdownSelected.textContent = `Search By: ${opt.textContent}`;
-    dropdownOptions.style.display = 'none';
+    dropdownOptions.classList.remove('show');
     currentPage = 1;
     renderResults(searchBox.value.toLowerCase());
   };
-  opt.addEventListener('click', selectOption);
-  opt.addEventListener('touchend', selectOption); // mobile support
+  opt.addEventListener('click', select);
+  opt.addEventListener('touchend', select);
 });
 
-// Close dropdown if clicking outside
-document.addEventListener('click', () => {
-  dropdownOptions.style.display = 'none';
-});
-document.addEventListener('touchend', () => {
-  dropdownOptions.style.display = 'none';
-});
+// Close when clicking/tapping outside
+document.addEventListener('click', () => dropdownOptions.classList.remove('show'));
+document.addEventListener('touchend', () => dropdownOptions.classList.remove('show'));
 
       let currentPage = 1;
       const itemsPerPage = 50;
