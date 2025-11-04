@@ -420,14 +420,13 @@ Made by MrsBlobby |
   <div id="pagination" style="text-align:center; margin: 16px 0;"></div>
 
   <script>
-<script>
 fetch('final_workshop_db.json')
   .then(response => response.json())
   .then(db => {
     const searchBox = document.getElementById('searchBox');
     const searchByDisplay = document.getElementById('searchByDisplay');
     const searchByOptions = document.getElementById('searchByOptions');
-    let searchByValue = 'name'
+    let searchByValue = 'name';
     const results = document.getElementById('results');
     const toggleImages = document.getElementById('toggleImages');
     const sortMode = document.getElementById('sortMode');
@@ -602,7 +601,7 @@ fetch('final_workshop_db.json')
       'Pets': '/assets/SubCategory-PetsIcon.png',
       'Pet Furniture': '/assets/SubCategory-PetFurnitureIcon.png'
     };
- // --- Main render ---
+
     function renderResults(query) {
       const normalizedQuery = query.toLowerCase();
       const queryChanged = normalizedQuery !== lastQuery;
@@ -610,26 +609,30 @@ fetch('final_workshop_db.json')
 
       const filtered = db.filter(item => {
         if (!normalizedQuery) return true;
-        if (searchByValue === 'name') return item.Name && item.Name.toLowerCase().includes(normalizedQuery);
-        if (searchByValue === 'book') return item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
-        if (searchByValue === 'entm') return item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
+
+        const type = searchByValue;
+        if (type === 'name') {
+          return item.Name && item.Name.toLowerCase().includes(normalizedQuery);
+        } else if (type === 'book') {
+          return item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
+        } else if (type === 'entm') {
+          return item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
+        }
       });
 
       const sorted = sortItems(filtered);
-
-      // reset to page 1 if query changed or current page is now out of range
       const totalPages = Math.ceil(sorted.length / itemsPerPage);
       if (queryChanged || currentPage > totalPages) currentPage = 1;
 
       const paged = paginate(sorted);
       results.innerHTML = '';
+
       if (!paged.length) {
         results.innerHTML = '<li>No matches found</li>';
         pagination.innerHTML = '';
         return;
       }
 
-      // --- Render each result ---
       paged.forEach(r => {
         if ((r.SubCategory || '').trim().toLowerCase() === 'testsubcat') return;
 
@@ -653,8 +656,7 @@ fetch('final_workshop_db.json')
         const right = document.createElement('div');
         right.className = 'result-right';
 
-        // --- Category & Subcategory pills ---
-        if ((r.Category && r.Category.trim()) || (r.SubCategory && r.SubCategory.trim())) {
+        if ((r.Category && r.Category.trim() !== '') || (r.SubCategory && r.SubCategory.trim() !== '')) {
           const catHeader = document.createElement('div');
           catHeader.className = 'section-header';
           catHeader.textContent = 'Build Menu Category';
@@ -662,19 +664,22 @@ fetch('final_workshop_db.json')
 
           const catWrap = document.createElement('div');
           catWrap.className = 'inline-wrap';
+
           const categories = [];
-          if (r.Category && r.Category.trim()) categories.push(r.Category);
-          if (r.SubCategory && r.SubCategory.trim() && (r.Category || '').toLowerCase() !== 'wallpapers') categories.push(r.SubCategory);
+          if (r.Category && r.Category.trim() !== '') categories.push(r.Category);
+          if (r.SubCategory && r.SubCategory.trim() !== '' && (r.Category || '').toLowerCase() !== 'wallpapers') categories.push(r.SubCategory);
 
           categories.forEach((cat, i) => {
             const catSpan = document.createElement('span');
             catSpan.className = 'pill';
+            catSpan.textContent = '';
 
             const iconPath = CategoryIcons[cat];
             if (iconPath) {
               const icon = document.createElement('img');
               icon.src = iconPath;
-              icon.style.height = iconPath.toLowerCase().endsWith('.svg') ? '24px' : '30px';
+              const isSVG = iconPath.toLowerCase().endsWith('.svg');
+              icon.style.height = isSVG ? '24px' : '30px';
               icon.style.width = 'auto';
               icon.style.verticalAlign = 'middle';
               icon.style.marginRight = '6px';
@@ -694,7 +699,7 @@ fetch('final_workshop_db.json')
           right.appendChild(catWrap);
         }
 
-        // --- Placement Conditions (BOOK/ENTM) ---
+        // --- Placement Conditions (BOOK + ENTM pills) ---
         const hasBook = !!(r.BOOK_FULL && String(r.BOOK_FULL).trim());
         const hasEntm = !!(r.ENTM_FULL && String(r.ENTM_FULL).trim());
         if (hasBook || hasEntm) {
@@ -708,27 +713,19 @@ fetch('final_workshop_db.json')
           condWrap.className = 'inline-wrap';
 
           const isDirect = (String(r.BOOK_SOURCE || '').toLowerCase() === 'direct');
-          const connectorWord = isDirect ? 'and' : 'or';
 
-          if (hasBook) {
-            const bookPill = document.createElement('span');
-            bookPill.className = 'pill';
-            bookPill.textContent = r.BOOK_FULL;
-            condWrap.appendChild(bookPill);
-          }
-
-          if (hasBook && hasEntm) {
-            const conn = document.createElement('span');
-            conn.className = 'connector';
-            conn.textContent = connectorWord;
-            condWrap.appendChild(conn);
+          if (hasBook && !isDirect) {
+            const pill = document.createElement('span');
+            pill.className = 'pill book';
+            pill.textContent = r.BOOK_FULL;
+            condWrap.appendChild(pill);
           }
 
           if (hasEntm) {
-            const entmPill = document.createElement('span');
-            entmPill.className = 'pill';
-            entmPill.textContent = r.ENTM_FULL;
-            condWrap.appendChild(entmPill);
+            const pill = document.createElement('span');
+            pill.className = 'pill entm';
+            pill.textContent = r.ENTM_FULL;
+            condWrap.appendChild(pill);
           }
 
           right.appendChild(condWrap);
@@ -742,20 +739,18 @@ fetch('final_workshop_db.json')
       renderPagination(sorted.length);
     }
 
-    // --- Event listeners ---
-    searchBox.addEventListener('input', () => renderResults(searchBox.value));
-    toggleImages.addEventListener('change', () => renderResults(searchBox.value));
-    sortMode.addEventListener('change', () => {
+    searchBox.addEventListener('input', e => {
       currentPage = 1;
-      renderResults(searchBox.value.toLowerCase());
+      renderResults(e.target.value.toLowerCase());
     });
+
+    sortMode.addEventListener('change', () => renderResults(searchBox.value.toLowerCase()));
+
+    toggleImages.addEventListener('change', () => renderResults(searchBox.value.toLowerCase()));
 
     renderResults('');
   })
-  .catch(err => {
-    console.error("Failed to load database:", err);
-    document.getElementById('results').innerHTML = '<li>Error loading database.</li>';
-  });
+  .catch(err => console.error('Error loading database:', err));
 </script>
 </body>
 </html>
