@@ -729,8 +729,7 @@ if (hasBook) {
     
       // ENTM pill (formatting for ATX / SCORE)
  if (hasEntm) {
-    let entmFull = r.ENTM_FULL?.replace(/^UTILITY_ENTM_ItemDisableEntitlement \[ENTM:0047A449\];\s*/i, '');    
-    const entmFull = r.ENTM_FULL;
+    const entmFull = r.ENTM_FULL?.replace(/^UTILITY_ENTM_ItemDisableEntitlement \[ENTM:0047A449\];\s*/i, '');
     const edid = String(r.ENTM_EDID || '');
 
     // --- Manual alias map for tricky Mini Seasons ---
