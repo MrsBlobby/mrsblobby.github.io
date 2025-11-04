@@ -88,11 +88,24 @@
     gap: 12px;
   }
 
+  .controls input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 350px;
+    border: 2px solid var(--accent);
+    border-radius: 6px;
+    background-color: var(--card-bg);
+    color: var(--text);
+  }
+
   .controls .search-line {
     display: flex;
+    gap: 0;
     width: 100%;
     max-width: 450px;
-    gap: 0;
+    border-radius: 6px;
+    overflow: hidden;
   }
 
   #searchBox {
@@ -101,7 +114,7 @@
     font-size: 16px;
     padding: 0 12px;
     border: 2px solid var(--accent);
-    border-right: 2px solid var(--accent);
+    border-right: none;
     border-radius: 6px 0 0 6px;
     background-color: var(--card-bg);
     color: var(--text);
@@ -115,7 +128,7 @@
     flex-shrink: 0;
   }
 
-  #dropdownSelected {
+  #dropdownSelected, #sortDropdownSelected {
     display: flex;
     align-items: center;
     padding: 0 12px;
@@ -128,7 +141,7 @@
     box-sizing: border-box;
   }
 
-  #dropdownOptions {
+  #dropdownOptions, #sortDropdownOptions {
     display: none;
     position: absolute;
     top: 100%;
@@ -140,7 +153,7 @@
     z-index: 200;
   }
 
-  #dropdownOptions .option {
+  #dropdownOptions .option, #sortDropdownOptions .option {
     padding: 8px 12px;
     cursor: pointer;
   }
@@ -151,11 +164,16 @@
     margin-left: 4px;
   }
 
-  .controls .inline-group,
-  .inline-group {
+  .controls .inline-group {
     display: flex;
     align-items: center;
     gap: 8px;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  .inline-group {
+    width: 100%;
     justify-content: center;
     margin-top: 8px;
   }
@@ -327,46 +345,39 @@
     text-align: left;
   }
 
-@media (max-width: 600px) {
-  li {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  @media (max-width: 600px) {
+    li {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .result-left {
+      max-width: none;
+    }
+    .result-right {
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .result-right span.pill {
+      font-size: 12px;
+      padding: 2px 6px;
+    }
+    .result-right span.arrow {
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 8px solid var(--accent);
+      margin: 0 4px;
+    }
+    .controls {
+      flex-direction: column;
+    }
+    #searchBox {
+      max-width: 280px; /* smaller width for mobile */
+    }
+    #dropdownSelected, #sortDropdownSelected {
+      max-width: 140px;
+    }
   }
-  .result-left {
-    max-width: none;
-  }
-  .result-right {
-    justify-content: center;
-    margin-top: 10px;
-  }
-  .result-right span.pill {
-    font-size: 12px;
-    padding: 2px 6px;
-  }
-  .result-right span.arrow {
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-    border-left: 8px solid var(--accent);
-    margin: 0 4px;
-  }
-  .controls {
-    flex-direction: column;
-  }
-  .controls .search-line {
-    flex-direction: row; /* keep inline */
-    gap: 8px;
-    max-width: 100%;
-  }
-  #searchBox {
-    width: 70%; /* slightly narrower */
-    border-radius: 6px 0 0 6px;
-  }
-  #dropdownSelected {
-    width: 30%; /* matches remaining space */
-    border-radius: 0 6px 6px 0;
-  }
-}
 </style>
 </head>
 <body>
@@ -450,16 +461,18 @@ Made by MrsBlobby |
     </div>
   </div>
 
-  <div class="inline-group">
-    <label for="sortMode">Sort By:</label>
-    <select id="sortMode">
-      <option value="camp-top" selected>Workshop Menu ▼</option>
-      <option value="camp-bottom">Workshop Menu ▲</option>
-      <option value="az">Alphabetical ▼</option>
-      <option value="za">Alphabetical ▲</option>
-      <option value="old-new">Oldest</option>
-      <option value="new-old">Newest</option>
-    </select>
+<div class="inline-group">
+  <label for="sortDropdown">Sort By:</label>
+  <div class="custom-dropdown" id="sortDropdown">
+    <div class="custom-dropdown-selected" id="sortDropdownSelected">Workshop Menu ▼</div>
+    <div class="custom-dropdown-options" id="sortDropdownOptions">
+      <div class="option" data-value="camp-top">Workshop Menu ▼</div>
+      <div class="option" data-value="camp-bottom">Workshop Menu ▲</div>
+      <div class="option" data-value="az">Alphabetical ▼</div>
+      <div class="option" data-value="za">Alphabetical ▲</div>
+      <div class="option" data-value="old-new">Oldest</div>
+      <div class="option" data-value="new-old">Newest</div>
+    </div>
   </div>
 </div>
 
@@ -475,7 +488,6 @@ Made by MrsBlobby |
     .then(db => {
       const searchBox = document.getElementById('searchBox');
       const results = document.getElementById('results');
-      const sortMode = document.getElementById('sortMode');
       const pagination = document.getElementById('pagination');
 
 const dropdownSelected = document.getElementById('dropdownSelected');
@@ -501,6 +513,61 @@ dropdownOptions.querySelectorAll('.option').forEach(opt => {
   });
 });
 
+let currentSearchBy = 'name';     // for search dropdown
+let currentSort = 'camp-top';     // for sort dropdown
+let currentPage = 1;              // pagination
+const itemsPerPage = 50;
+
+// Initialize a custom dropdown
+function initCustomDropdown(dropdownId, onSelect) {
+  const dropdown = document.getElementById(dropdownId);
+  const selected = dropdown.querySelector('.custom-dropdown-selected');
+  const options = dropdown.querySelector('.custom-dropdown-options');
+
+  // toggle open/close
+  selected.addEventListener('click', () => {
+    options.style.display = options.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // select option
+  options.querySelectorAll('.option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      selected.textContent = opt.textContent;
+      options.style.display = 'none';
+      if (onSelect) onSelect(opt.dataset.value);
+    });
+  });
+
+  // close if clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target)) options.style.display = 'none';
+  });
+}
+
+// Initialize search dropdown
+initCustomDropdown('searchDropdown', value => {
+  currentSearchBy = value;
+  currentPage = 1;
+  renderResults(searchBox.value.toLowerCase());
+});
+
+// Initialize sort dropdown
+initCustomDropdown('sortDropdown', value => {
+  currentSort = value;
+  currentPage = 1;
+  renderResults(searchBox.value.toLowerCase());
+});
+
+function sortItems(items) {
+  const mode = currentSort;
+  if (mode === 'camp-bottom') return [...items].reverse();
+  if (mode === 'new-old') return [...items].sort((a, b) => (b.CNAM_FormID || '').localeCompare(a.CNAM_FormID || ''));
+  if (mode === 'old-new') return [...items].sort((a, b) => (a.CNAM_FormID || '').localeCompare(b.CNAM_FormID || ''));
+  if (mode === 'az') return [...items].sort((a, b) => (a.Name || '').localeCompare(b.Name || ''));
+  if (mode === 'za') return [...items].sort((a, b) => (b.Name || '').localeCompare(a.Name || ''));
+  return items;
+}
+
 // close dropdown if click outside
 document.addEventListener('click', (e) => {
   if (!dropdownSelected.contains(e.target) && !dropdownOptions.contains(e.target)) {
@@ -512,15 +579,7 @@ document.addEventListener('click', (e) => {
       const itemsPerPage = 50;
       let lastQuery = '';
 
-      function sortItems(items) {
-        const mode = sortMode.value;
-        if (mode === 'camp-bottom') return [...items].reverse();
-        if (mode === 'new-old') return [...items].sort((a, b) => (b.CNAM_FormID || '').localeCompare(a.CNAM_FormID || ''));
-        if (mode === 'old-new') return [...items].sort((a, b) => (a.CNAM_FormID || '').localeCompare(b.CNAM_FormID || ''));
-        if (mode === 'az') return [...items].sort((a, b) => (a.Name || '').localeCompare(b.Name || ''));
-        if (mode === 'za') return [...items].sort((a, b) => (b.Name || '').localeCompare(a.Name || ''));
-        return items;
-      }
+
 
       function paginate(items) {
         const start = (currentPage - 1) * itemsPerPage;
@@ -934,8 +993,6 @@ const ManualEntmIcons = {
       }
 
 searchBox.addEventListener('input', () => renderResults(searchBox.value));
-sortMode.addEventListener('change', () => {
-  currentPage = 1;
   renderResults(searchBox.value.toLowerCase());
 });
 
