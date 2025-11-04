@@ -75,6 +75,24 @@
     cursor: pointer;
   }
 
+  #searchBy {
+    position: relative;
+    padding-left: 10px;
+    color: var(--text);
+  }
+
+  #searchBy[data-label] option {
+    color: var(--text);
+  }
+
+  #searchBy::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    color: var(--text-muted);
+    pointer-events: none;
+  }
+
   .controls {
     position: sticky;
     top: 0;
@@ -372,9 +390,6 @@ Made by MrsBlobby |
   <div class="controls">
     <div class="search-line">
       <input type="text" id="searchBox" placeholder="Enter item name..." autofocus>
-      <label for="searchBy" style="color: var(--text-muted); font-size: 14px; margin-left: 8px; margin-right: 4px;">
-       Search by:
-      </label>
       <select id="searchBy" style="margin-left: 8px; padding: 8px; border-radius: 6px; border: 2px solid var(--accent); background-color: var(--card-bg); color: var(--text);">
         <option value="name" selected>Item Name</option>
         <option value="book">Plan Name</option>
@@ -409,6 +424,21 @@ Made by MrsBlobby |
     .then(db => {
       const searchBox = document.getElementById('searchBox');
       const searchBy = document.getElementById('searchBy');
+// Function to update the displayed label with "Search By: ..."
+function updateSearchByLabel() {
+  const selected = searchBy.options[searchBy.selectedIndex].text;
+  searchBy.setAttribute('data-label', `Search By: ${selected}`);
+}
+
+// Initialize label
+updateSearchByLabel();
+
+// Update label whenever selection changes
+searchBy.addEventListener('change', () => {
+  updateSearchByLabel();
+  currentPage = 1;
+  renderResults(searchBox.value.toLowerCase());
+});
       const results = document.getElementById('results');
       const toggleImages = document.getElementById('toggleImages');
       const sortMode = document.getElementById('sortMode');
