@@ -619,8 +619,13 @@ const CategoryIcons = {
   if (iconPath) {
     const icon = document.createElement('img');
     icon.src = iconPath;
+      const isSVG = iconPath.toLowerCase().endsWith('.svg');
+      if (isSVG) {
+        icon.style.height = '26px';
+      } else {
+        icon.style.height = '30px';
+      }
     icon.style.width = 'auto';
-    icon.style.height = '30px';
     icon.style.verticalAlign = 'middle';
     icon.style.marginRight = '6px';
     catSpan.appendChild(icon);
