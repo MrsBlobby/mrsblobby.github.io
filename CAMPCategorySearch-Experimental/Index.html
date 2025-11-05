@@ -368,10 +368,6 @@
   z-index: 200;
 }
 
-#dropdownOptions.open {
-  border-radius: 0 0 0 6px; /* bottom-right corner sharp when open */
-}
-
 #dropdownOptions .option {
   padding: 8px 12px;
   cursor: pointer;
@@ -391,6 +387,9 @@
   box-sizing: border-box;
 }
 
+#dropdownSelected.open {
+  border-radius: 0 6px 0 0; /* bottom-right sharp when dropdown is open */
+}
 
 .custom-dropdown {
   position: relative;
@@ -553,13 +552,14 @@ dropdownSelected.addEventListener('click', () => {
   const isOpen = dropdownOptions.style.display === 'block';
   dropdownOptions.style.display = isOpen ? 'none' : 'block';
 
-  // toggle the 'open' class
+  // toggle class on the selected box 
   if (!isOpen) {
-    dropdownOptions.classList.add('open');
+    dropdownSelected.classList.add('open');
   } else {
-    dropdownOptions.classList.remove('open');
+    dropdownSelected.classList.remove('open');
   }
 });
+
 
 
 // select option
