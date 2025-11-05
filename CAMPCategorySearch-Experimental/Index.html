@@ -385,7 +385,7 @@
 
 #sortDropdown {
   position: relative;
-  width: 100%; 
+  width: max-content; 
   height: 36px;
   display: flex;
   flex-shrink: 0;
@@ -667,6 +667,36 @@ document.addEventListener('click', (e) => {
         if (mode === 'za') return [...items].sort((a, b) => (b.Name || '').localeCompare(a.Name || ''));
         return items;
       }
+
+function closeAllDropdowns() {
+  dropdownOptions.style.display = 'none';
+  dropdownSelected.classList.remove('open');
+  sortOptions.style.display = 'none';
+  sortSelected.classList.remove('open');
+}
+
+dropdownSelected.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = dropdownOptions.style.display === 'block';
+  closeAllDropdowns();
+  if (!isOpen) {
+    dropdownOptions.style.display = 'block';
+    dropdownSelected.classList.add('open');
+  }
+});
+
+sortSelected.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = sortOptions.style.display === 'block';
+  closeAllDropdowns();
+  if (!isOpen) {
+    sortOptions.style.display = 'block';
+    sortSelected.classList.add('open');
+  }
+});
+
+document.addEventListener('click', closeAllDropdowns);
+
 
       function paginate(items) {
         const start = (currentPage - 1) * itemsPerPage;
