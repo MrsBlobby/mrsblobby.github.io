@@ -483,12 +483,13 @@
 
 .filter-header {
   font-weight: bold;
-  margin: 4px 0 4px 0; 
-  padding: 2px 0;      
-  background-color: rgba(255, 192, 15, 0.1); 
-  color: var(--accent);
   text-align: center;
-  border-radius: 4px;
+  background-color: rgba(255, 192, 15, 0.1);
+  color: var(--accent);
+  border-radius: 4px 4px 0 0;
+  padding: 4px 8px;     
+  margin: 0 0 2px 0;    
+  font-size: 13px;
 }
 
 #filtersOptions button {
@@ -511,7 +512,6 @@
   font-size: 13px;   
   line-height: 1;
   cursor: pointer;
-  transition: background 0.2s;
 }
 
 #filtersOptions button[data-filter].selected {
