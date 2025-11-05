@@ -657,26 +657,6 @@ sortOptions.querySelectorAll('.option').forEach(option => {
   });
 });
 
-const filterSelected = document.getElementById('filterSelected');
-const filterOptions = document.getElementById('filterOptions');
-
-// toggle dropdown
-filterSelected.addEventListener('click', (e) => {
-  e.stopPropagation(); // prevent document click from firing
-  const isOpen = filterOptions.style.display === 'block';
-  closeAllDropdowns(); // make sure other dropdowns close
-  if (!isOpen) {
-    filterOptions.style.display = 'block';
-    filterSelected.classList.add('open');
-  }
-});
-
-// close dropdown when clicking outside
-document.addEventListener('click', () => {
-  filterOptions.style.display = 'none';
-  filterSelected.classList.remove('open');
-});
-
 
       let currentPage = 1;
       const itemsPerPage = 50;
@@ -824,49 +804,6 @@ const CategoryIcons = {
   'Pets': '/assets/SubCategory-PetsIcon.png',
   'Pet Furniture': '/assets/SubCategory-PetFurnitureIcon.png'
 };
-
-// store active filters
-let placementActive = new Set();
-let categoryActive = new Set();
-
-// get buttons
-const placementBtns = document.querySelectorAll('#placementFilters button');
-const categoryBtns = document.querySelectorAll('#categoryFilters button');
-const clearBtn = document.getElementById('clearFilters');
-
-// toggle function
-function toggleFilter(btn, set) {
-  const value = btn.dataset.filter;
-  if (set.has(value)) {
-    set.delete(value);
-    btn.classList.remove('active');
-  } else {
-    set.add(value);
-    btn.classList.add('active');
-  }
-  renderResults(searchBox.value); // rerun filter whenever a toggle changes
-}
-
-// attach click events
-placementBtns.forEach(btn => btn.addEventListener('click', () => toggleFilter(btn, placementActive)));
-categoryBtns.forEach(btn => btn.addEventListener('click', () => toggleFilter(btn, categoryActive)));
-
-// clear all filters
-clearBtn.addEventListener('click', () => {
-  placementActive.clear();
-  categoryActive.clear();
-  placementBtns.forEach(btn => btn.classList.remove('active'));
-  categoryBtns.forEach(btn => btn.classList.remove('active'));
-  renderResults(searchBox.value);
-});
-
-// reset filters on page load
-window.addEventListener('load', () => {
-  placementActive.clear();
-  categoryActive.clear();
-  placementBtns.forEach(btn => btn.classList.remove('active'));
-  categoryBtns.forEach(btn => btn.classList.remove('active'));
-});
 
 
       function renderResults(query) {
