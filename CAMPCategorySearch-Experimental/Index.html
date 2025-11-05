@@ -501,6 +501,75 @@
   color: black;
 }
 
+#filtersOptions {
+  display: none; 
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 300px; /* wider than the button */
+  background-color: var(--card-bg);
+  border: 2px solid var(--accent);
+  border-radius: 0 0 6px 6px;
+  padding: 8px;
+  z-index: 200;
+  box-sizing: border-box;
+}
+
+.filter-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.filter-header {
+  grid-column: span 2;
+  font-weight: bold;
+  color: var(--accent);
+  text-align: center;
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+#filtersOptions button {
+  background: var(--card-bg);
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  padding: 6px;
+  font-size: 14px;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+#filtersOptions button:hover {
+  background: var(--accent-dim);
+  color: black;
+}
+
+#filtersOptions button.active {
+  background: var(--accent);
+  color: black;
+  font-weight: bold;
+}
+
+.clear-filters {
+  grid-column: span 2;
+  margin-top: 10px;
+  padding: 6px;
+  text-align: center;
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  background: var(--accent-dim);
+  color: black;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.clear-filters:hover {
+  background: var(--accent);
+}
+
+
 #sortSelected,
 #sortOptions,
 #filtersButton,
@@ -683,35 +752,62 @@
   </div>
 
 <div class="inline-group">
-  <!-- Filters group -->
-  <div class="group-filters">
-    <div class="custom-dropdown" id="filtersDropdown">
-      <div id="filtersButton">
-        Filters
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="filter-icon" style="width:16px; height:16px;">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
-        </svg>
+  <!-- Filter Dropdown -->
+  <div class="dropdown filterDropdown">
+    <button id="filterSelected">
+      Filters
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2l-7 8v5l-4 2v-7L3 6V4z" />
+      </svg>
+    </button>
+
+    <div id="filterOptions" class="dropdown-options">
+      <div class="filter-columns">
+        <div class="filter-column">
+          <div class="filter-header">Placement Condition</div>
+          <button data-filter="plan">Plan</button>
+          <button data-filter="entm">Entitlement</button>
+        </div>
+
+        <div class="filter-column">
+          <div class="filter-header">Workshop Category</div>
+          <button data-filter="camp">C.A.M.P. Pieces</button>
+          <button data-filter="decor">Decorations</button>
+          <button data-filter="defense">Defense</button>
+          <button data-filter="dwellers">Dwellers</button>
+          <button data-filter="furniture">Furniture</button>
+          <button data-filter="lights">Lights</button>
+          <button data-filter="power">Power</button>
+          <button data-filter="quest">Quest</button>
+          <button data-filter="resource">Resource</button>
+          <button data-filter="storage">Storage</button>
+          <button data-filter="structure">Structure</button>
+          <button data-filter="utility">Utility</button>
+          <button data-filter="wall">Wall Decor</button>
+          <button data-filter="wallpaper">Wallpapers</button>
+        </div>
       </div>
-      <div id="filtersOptions"></div>
+
+      <button id="clearFilters">Clear All</button>
     </div>
   </div>
 
-  <!-- Sort group -->
-  <div class="group-sort">
-    <label for="sortMode">Sort By:</label>
-    <div class="custom-dropdown" id="sortDropdown">
-      <div id="sortSelected">Workshop Menu ▼</div>
-      <div id="sortOptions">
-        <div class="option" data-value="camp-top">Workshop Menu ▼</div>
-        <div class="option" data-value="camp-bottom">Workshop Menu ▲</div>
-        <div class="option" data-value="az">Alphabetical ▼</div>
-        <div class="option" data-value="za">Alphabetical ▲</div>
-        <div class="option" data-value="old-new">Oldest</div>
-        <div class="option" data-value="new-old">Newest</div>
-      </div>
+  <!-- Sort Group -->
+  <label for="sortMode">Sort By:</label>
+  <div class="custom-dropdown" id="sortDropdown">
+    <div id="sortSelected">Workshop Menu ▼</div>
+    <div id="sortOptions">
+      <div class="option" data-value="camp-top">Workshop Menu ▼</div>
+      <div class="option" data-value="camp-bottom">Workshop Menu ▲</div>
+      <div class="option" data-value="az">Alphabetical ▼</div>
+      <div class="option" data-value="za">Alphabetical ▲</div>
+      <div class="option" data-value="old-new">Oldest</div>
+      <div class="option" data-value="new-old">Newest</div>
     </div>
   </div>
 </div>
+
 
 
 
@@ -792,7 +888,59 @@ sortOptions.querySelectorAll('.option').forEach(option => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const filtersButton = document.getElementById("filtersButton");
+  const filtersOptions = document.getElementById("filtersOptions");
+  const filterButtons = filtersOptions.querySelectorAll("button[data-filter]");
+  const clearButton = filtersOptions.querySelector(".clear-filters");
 
+  // --- Toggle dropdown visibility ---
+  filtersButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    filtersOptions.style.display =
+      filtersOptions.style.display === "block" ? "none" : "block";
+  });
+
+  // Close dropdown if clicked outside
+  document.addEventListener("click", (e) => {
+    if (!filtersDropdown.contains(e.target)) {
+      filtersOptions.style.display = "none";
+    }
+  });
+
+  // --- Filter button toggle logic ---
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("active");
+      applyFilters();
+    });
+  });
+
+  // --- Clear all filters ---
+  clearButton.addEventListener("click", () => {
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
+    applyFilters();
+  });
+
+  // --- Apply filters (customize this for your data) ---
+  function applyFilters() {
+    // Collect active filters
+    const activeFilters = Array.from(filterButtons)
+      .filter((btn) => btn.classList.contains("active"))
+      .map((btn) => btn.dataset.filter);
+
+    console.log("Active filters:", activeFilters);
+
+    // Example placeholder:
+    // You can replace this with logic that filters your displayed items
+    // based on their category or placement condition.
+  }
+
+  // --- Reset filters on page refresh ---
+  window.addEventListener("beforeunload", () => {
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
+  });
+});
 
       let currentPage = 1;
       const itemsPerPage = 50;
