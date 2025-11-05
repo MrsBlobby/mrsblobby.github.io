@@ -323,143 +323,6 @@
     text-align: left;
   }
 
-.filter-section {
-  margin: 12px 0;
-  text-align: center;
-}
-
-.filter-header {
-  font-weight: bold;
-  color: var(--accent);
-  margin: 8px 0 4px 0;
-}
-
-.filter-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
-  justify-items: center;
-  margin-bottom: 8px;
-}
-
-.filter-grid button {
-  padding: 6px 12px;
-  border: 2px solid var(--accent);
-  border-radius: 6px;
-  background-color: var(--card-bg);
-  color: var(--text);
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.filter-grid button.active {
-  background-color: var(--accent);
-  color: black;
-}
-
-.clear-filters {
-  margin-top: 6px;
-  padding: 6px 12px;
-  background-color: var(--bg);
-  color: var(--accent);
-  border: 2px solid var(--accent);
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-#filterOptions {
-  display: none;
-  position: absolute;
-  background-color: var(--card-bg);
-  border: 2px solid var(--accent);
-  border-radius: 8px;
-  padding: 8px;
-  z-index: 100;
-  width: 400px; /* adjust as needed */
-}
-
-.filter-columns {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.filter-column {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.filter-column .filter-header {
-  font-weight: bold;
-  margin-bottom: 4px;
-  color: var(--accent);
-}
-
-.filter-column button {
-  padding: 4px 8px;
-  border: 1px solid var(--accent);
-  border-radius: 6px;
-  background-color: var(--card-bg);
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.filter-column button.active {
-  background-color: var(--accent);
-  color: black;
-}
-
-.clear-filters {
-  margin-top: 8px;
-  padding: 4px 8px;
-  border: 1px solid var(--accent);
-  border-radius: 6px;
-  cursor: pointer;
-  background-color: var(--bg);
-  color: var(--accent);
-}
-
-.filterDropdown {
-  position: relative;
-  display: inline-block;
-  margin: 12px auto; /* centers it horizontally */
-}
-
-#filterSelected {
-  padding: 8px 16px;
-  font-size: 14px;
-  background-color: var(--card-bg);
-  border: 2px solid var(--accent);
-  border-radius: 6px;
-  color: var(--text);
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-#filterSelected:hover {
-  background-color: var(--accent);
-  color: black;
-}
-
-.dropdown-selected {
-  height: 36px;              
-  padding: 0 12px;           
-  font-size: 14px;           
-  display: flex;
-  align-items: center;       
-  border: 1px solid #ccc;    
-  border-radius: 6px;        
-  background-color: #fff;
-  cursor: pointer;
-}
-
-
 #searchBox {
   flex: 1;
   height: 40px;
@@ -626,40 +489,6 @@
   </div>
 </div>
 
-<!-- Filter Dropdown -->
-<div class="dropdown filterDropdown">
-  <button id="filterSelected">Filters</button>
-  <div id="filterOptions" class="dropdown-options">
-    <div class="filter-columns">
-      <div class="filter-column">
-        <div class="filter-header">Placement Condition</div>
-        <button data-filter="book">Plan</button>
-        <button data-filter="entm">Entitlement</button>
-      </div>
-      <div class="filter-column">
-        <div class="filter-header">Workshop Category</div>
-        <button data-filter="C.A.M.P. Pieces">C.A.M.P. Pieces</button>
-        <button data-filter="Decorations">Decorations</button>
-        <button data-filter="Defense">Defense</button>
-        <button data-filter="Dwellers">Dwellers</button>
-        <button data-filter="Furniture">Furniture</button>
-        <button data-filter="Lights">Lights</button>
-        <button data-filter="Power">Power</button>
-        <button data-filter="Quest">Quest</button>
-        <button data-filter="Resources">Resources</button>
-        <button data-filter="Storage">Storage</button>
-        <button data-filter="Structure">Structure</button>
-        <button data-filter="Utility">Utility</button>
-        <button data-filter="Wall Decoration">Wall Decoration</button>
-        <button data-filter="Wallpapers">Wallpapers</button>
-      </div>
-    </div>
-    <button id="clearFilters" class="clear-filters">Clear All</button>
-  </div>
-</div>
-
-
-
     <!-- Version history -->
 <div class="container">
     <details>
@@ -728,7 +557,6 @@
 <div class="controls">
   <div class="search-line">
     <input type="text" id="searchBox" placeholder="Search..." />
-
     <div class="custom-dropdown">
       <div id="dropdownSelected">Item Name</div>
       <div id="dropdownOptions">
@@ -983,80 +811,6 @@ const CategoryIcons = {
   'Pet Furniture': '/assets/SubCategory-PetFurnitureIcon.png'
 };
 
-// store active filters
-const placementActive = new Set();
-const categoryActive = new Set();
-
-// get buttons & clear button
-const placementBtns = document.querySelectorAll('#filterOptions .filter-column:first-child button');
-const categoryBtns = document.querySelectorAll('#filterOptions .filter-column:last-child button');
-const clearBtn = document.getElementById('clearFilters');
-
-// toggle function
-function toggleFilter(btn, set) {
-  const value = btn.dataset.filter;
-  if (set.has(value)) {
-    set.delete(value);
-    btn.classList.remove('active');
-  } else {
-    set.add(value);
-    btn.classList.add('active');
-  }
-  renderResults(searchBox.value);
-}
-
-// attach click events safely
-placementBtns.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation(); // prevents document click handlers from closing dropdown
-    toggleFilter(btn, placementActive);
-  });
-});
-
-categoryBtns.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggleFilter(btn, categoryActive);
-  });
-});
-
-// clear all filters
-clearBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  placementActive.clear();
-  categoryActive.clear();
-  placementBtns.forEach(btn => btn.classList.remove('active'));
-  categoryBtns.forEach(btn => btn.classList.remove('active'));
-  renderResults(searchBox.value);
-});
-
-// reset filters on page load
-window.addEventListener('load', () => {
-  placementActive.clear();
-  categoryActive.clear();
-  placementBtns.forEach(btn => btn.classList.remove('active'));
-  categoryBtns.forEach(btn => btn.classList.remove('active'));
-});
-
-const filterToggle = document.getElementById('filterSelected'); // or your button that opens the menu
-
-filterToggle.addEventListener('click', (e) => {
-  e.stopPropagation(); // prevent document click from firing
-  const menu = document.getElementById('filterOptions');
-  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-});
-
-
-// optional: close dropdown if you click outside
-document.addEventListener('click', (e) => {
-  if (!document.getElementById('filterOptions').contains(e.target) &&
-      !document.getElementById('filterSelected').contains(e.target)) {
-    document.getElementById('filterOptions').style.display = 'none';
-  }
-});
-
-
-
       function renderResults(query) {
         const normalizedQuery = query.toLowerCase();
         const queryChanged = normalizedQuery !== lastQuery;
@@ -1077,27 +831,7 @@ const filtered = db.filter(item => {
   }
 });
 
-const filteredWithFilters = filtered.filter(item => {
-  // --- Placement Condition filters ---
-  if (placementActive.size > 0) {
-    const hasBook = !!(item.BOOK_FULL && String(item.BOOK_FULL).trim());
-    const hasEntm = !!(item.ENTM_FULL && String(item.ENTM_FULL).trim());
-    if (
-      (!placementActive.has('book') || !hasBook) &&
-      (!placementActive.has('entm') || !hasEntm)
-    ) return false;
-  }
-
-  // --- Category filters ---
-  if (categoryActive.size > 0) {
-    const cat = item.Category || '';
-    if (!categoryActive.has(cat)) return false;
-  }
-
-  return true;
-});
-
-        const sorted = sortItems(filteredWithFilters);
+        const sorted = sortItems(filtered);
 
         // reset to page 1 if query changed or current page is now out of range
         const totalPages = Math.ceil(sorted.length / itemsPerPage);
