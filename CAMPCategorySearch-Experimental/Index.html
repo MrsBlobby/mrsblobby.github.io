@@ -807,6 +807,7 @@ const itemsPerPage = 50;
 let lastQuery = '';
 let currentSort = 'camp-top';
 let currentSearchBy = 'name';
+let activeFilters = new Set()
 
 // --- Category Icons ---
 const CategoryIcons = {
@@ -1052,26 +1053,54 @@ function renderPagination(totalItems) {
   pagination.appendChild(nextBtn);
 }
 
+
+filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const filter = btn.dataset.filter;
+    if (activeFilters.has(filter)) {
+      activeFilters.delete(filter);
+      btn.classList.remove('selected');
+    } else {
+      activeFilters.add(filter);
+      btn.classList.add('selected');
+    }
+    renderResults(searchBox.value); // re-render on filter change
+  });
+});
+
+clearFiltersBtn.addEventListener('click', () => {
+  activeFilters.clear();
+  filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => btn.classList.remove('selected'));
+  renderResults(searchBox.value);
+});
+
 // --- Render results ---
 function renderResults(query) {
   const normalizedQuery = query.toLowerCase();
   const queryChanged = normalizedQuery !== lastQuery;
   lastQuery = normalizedQuery;
 
-  const filtered = db.filter(item => {
-    if (!item.Name || item.Name.trim().toLowerCase() === 'null') return false;
+ const filtered = db.filter(item => {
+  // basic search filtering
+  let matchesSearch;
+  if (!normalizedQuery) matchesSearch = true;
+  else if (currentSearchBy === 'name') matchesSearch = item.Name && item.Name.toLowerCase().includes(normalizedQuery);
+  else if (currentSearchBy === 'book') matchesSearch = item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
+  else if (currentSearchBy === 'entm') matchesSearch = item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
 
-    if (!normalizedQuery) return true; // show all if search is empty
+  // filter buttons
+  let matchesFilters = true;
+  if (activeFilters.size) {
+    matchesFilters = [...activeFilters].some(filter => {
+      if (filter === 'plan') return item.BOOK_FULL && item.BOOK_FULL.trim() !== '';
+      if (filter === 'entitlement') return item.ENTM_FULL && item.ENTM_FULL.trim() !== '';
+      return (item.Category || '').toLowerCase() === filter || (item.SubCategory || '').toLowerCase() === filter;
+    });
+  }
 
-    const type = currentSearchBy; // "name", "book", or "entm"
-    if (type === 'name') {
-      return item.Name && item.Name.toLowerCase().includes(normalizedQuery);
-    } else if (type === 'book') {
-      return item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
-    } else if (type === 'entm') {
-      return item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
-    }
-  });
+  return matchesSearch && matchesFilters;
+});
+
 
   const sorted = sortItems(filtered);
 
