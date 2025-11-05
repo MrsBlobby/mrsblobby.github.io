@@ -151,7 +151,7 @@
   .controls .inline-group {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 8px;
     justify-content: center;
     margin-top: 8px;
   }
@@ -159,7 +159,7 @@
 .inline-group {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 40px;
   justify-content: center;
   margin-top: 8px;
 }
@@ -167,6 +167,17 @@
 .inline-group label {
   font-size: 14px;
   color: var(--text-muted);
+}
+
+.group-filters {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.group-sort {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
 }
 
   ul {
@@ -626,26 +637,33 @@
   </div>
 
 <div class="inline-group">
-  <!-- Filters Dropdown -->
-  <div class="custom-dropdown" id="filtersDropdown">
-    <div id="filtersButton">Filters ▼</div>
-    <div id="filtersOptions">
-      <!-- Options can go here later -->
+  <!-- Filters group -->
+  <div class="group-filters">
+    <div class="custom-dropdown" id="filtersDropdown">
+      <div id="filtersButton">Filters ▼</div>
+      <div id="filtersOptions">
+        <!-- Options can go here later -->
+      </div>
     </div>
   </div>
-  <label for="sortMode">Sort By:</label>
-  <div class="custom-dropdown" id="sortDropdown">
-    <div id="sortSelected">Workshop Menu ▼</div>
-    <div id="sortOptions">
-      <div class="option" data-value="camp-top">Workshop Menu ▼</div>
-      <div class="option" data-value="camp-bottom">Workshop Menu ▲</div>
-      <div class="option" data-value="az">Alphabetical ▼</div>
-      <div class="option" data-value="za">Alphabetical ▲</div>
-      <div class="option" data-value="old-new">Oldest</div>
-      <div class="option" data-value="new-old">Newest</div>
+
+  <!-- Sort group -->
+  <div class="group-sort">
+    <label for="sortMode">Sort By:</label>
+    <div class="custom-dropdown" id="sortDropdown">
+      <div id="sortSelected">Workshop Menu ▼</div>
+      <div id="sortOptions">
+        <div class="option" data-value="camp-top">Workshop Menu ▼</div>
+        <div class="option" data-value="camp-bottom">Workshop Menu ▲</div>
+        <div class="option" data-value="az">Alphabetical ▼</div>
+        <div class="option" data-value="za">Alphabetical ▲</div>
+        <div class="option" data-value="old-new">Oldest</div>
+        <div class="option" data-value="new-old">Newest</div>
+      </div>
     </div>
   </div>
 </div>
+
 
 
 
