@@ -653,7 +653,6 @@ document.addEventListener('click', (e) => {
 });
 
 
-
       let currentPage = 1;
       const itemsPerPage = 50;
       let lastQuery = '';
@@ -667,6 +666,40 @@ document.addEventListener('click', (e) => {
         if (mode === 'za') return [...items].sort((a, b) => (b.Name || '').localeCompare(a.Name || ''));
         return items;
       }
+
+
+function closeAllDropdowns() {
+  dropdownOptions.style.display = 'none';
+  dropdownSelected.classList.remove('open');
+  sortOptions.style.display = 'none';
+  sortSelected.classList.remove('open');
+}
+
+// --- SEARCH BY ---
+dropdownSelected.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = dropdownOptions.style.display === 'block'; // check first
+  closeAllDropdowns();
+  if (!isOpen) {
+    dropdownOptions.style.display = 'block';
+    dropdownSelected.classList.add('open');
+  }
+});
+
+// --- SORT BY ---
+sortSelected.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = sortOptions.style.display === 'block'; // check first
+  closeAllDropdowns();
+  if (!isOpen) {
+    sortOptions.style.display = 'block';
+    sortSelected.classList.add('open');
+  }
+});
+
+// --- CLOSE WHEN CLICKING OUTSIDE ---
+document.addEventListener('click', closeAllDropdowns);
+
 
       function paginate(items) {
         const start = (currentPage - 1) * itemsPerPage;
