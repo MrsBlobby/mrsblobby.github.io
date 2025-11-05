@@ -316,109 +316,6 @@
     text-align: left;
   }
 
-.filter-section {
-  margin: 12px 0;
-  text-align: center;
-}
-
-.filter-header {
-  font-weight: bold;
-  color: var(--accent);
-  margin: 8px 0 4px 0;
-}
-
-.filter-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
-  justify-items: center;
-  margin-bottom: 8px;
-}
-
-.filter-grid button {
-  padding: 6px 12px;
-  border: 2px solid var(--accent);
-  border-radius: 6px;
-  background-color: var(--card-bg);
-  color: var(--text);
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.filter-grid button.active {
-  background-color: var(--accent);
-  color: black;
-}
-
-.clear-filters {
-  margin-top: 6px;
-  padding: 6px 12px;
-  background-color: var(--bg);
-  color: var(--accent);
-  border: 2px solid var(--accent);
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-#filterOptions {
-  display: none;
-  position: absolute;
-  background-color: var(--card-bg);
-  border: 2px solid var(--accent);
-  border-radius: 8px;
-  padding: 8px;
-  z-index: 100;
-  width: 400px; /* adjust as needed */
-}
-
-.filter-columns {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.filter-column {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.filter-column .filter-header {
-  font-weight: bold;
-  margin-bottom: 4px;
-  color: var(--accent);
-}
-
-.filter-column button {
-  padding: 4px 8px;
-  border: 1px solid var(--accent);
-  border-radius: 6px;
-  background-color: var(--card-bg);
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.filter-column button.active {
-  background-color: var(--accent);
-  color: black;
-}
-
-.clear-filters {
-  margin-top: 8px;
-  padding: 4px 8px;
-  border: 1px solid var(--accent);
-  border-radius: 6px;
-  cursor: pointer;
-  background-color: var(--bg);
-  color: var(--accent);
-}
-
-
 #searchBox {
   flex: 1;
   height: 40px;
@@ -484,46 +381,6 @@
   display: flex;
   flex-shrink: 0;
 }
-
-.filterDropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-options {
-  display: none; /* shown via JS */
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #1a1a1a;
-  border: 1px solid #333;
-  border-radius: 6px;
-  padding: 8px;
-  min-width: 200px;  /* adjust as needed */
-  z-index: 100;
-}
-
-.filter-columns {
-  display: flex;
-  gap: 16px; /* spacing between columns */
-}
-
-.filter-column {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.filter-header {
-  font-weight: bold;
-  margin-bottom: 4px;
-}
-
-.clear-filters {
-  margin-top: 8px;
-  width: 100%;
-}
-
 
 #sortDropdown, #sortSelected, #sortOptions,
 .custom-dropdown, #dropdownSelected, #dropdownOptions {
@@ -624,39 +481,6 @@
     <p class="updated">Last Updated: November 1, 2025</p>
   </div>
 </div>
-
-<!-- Filter Dropdown -->
-<div class="dropdown filterDropdown">
-  <button id="filterSelected">Filters</button>
-  <div id="filterOptions" class="dropdown-options">
-    <div class="filter-columns">
-      <div class="filter-column">
-        <div class="filter-header">Placement Condition</div>
-        <button data-filter="book">Plan</button>
-        <button data-filter="entm">Entitlement</button>
-      </div>
-      <div class="filter-column">
-        <div class="filter-header">Workshop Category</div>
-        <button data-filter="C.A.M.P. Pieces">C.A.M.P. Pieces</button>
-        <button data-filter="Decorations">Decorations</button>
-        <button data-filter="Defense">Defense</button>
-        <button data-filter="Dwellers">Dwellers</button>
-        <button data-filter="Furniture">Furniture</button>
-        <button data-filter="Lights">Lights</button>
-        <button data-filter="Power">Power</button>
-        <button data-filter="Quest">Quest</button>
-        <button data-filter="Resources">Resources</button>
-        <button data-filter="Storage">Storage</button>
-        <button data-filter="Structure">Structure</button>
-        <button data-filter="Utility">Utility</button>
-        <button data-filter="Wall Decoration">Wall Decoration</button>
-        <button data-filter="Wallpapers">Wallpapers</button>
-      </div>
-    </div>
-    <button id="clearFilters" class="clear-filters">Clear All</button>
-  </div>
-</div>
-
 
 
     <!-- Version history -->
