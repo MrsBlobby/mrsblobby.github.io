@@ -1129,16 +1129,13 @@ function renderPagination(totalItems) {
 filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
   btn.addEventListener('click', () => {
     const filter = btn.dataset.filter;
-    if (activeFilters.has(filter)) {
-      activeFilters.delete(filter);
-      btn.classList.remove('selected');
-    } else {
-      activeFilters.add(filter);
-      btn.classList.add('selected');
-    }
-    renderResults(searchBox.value); // re-render on filter change
+    if (activeFilters.has(filter)) activeFilters.delete(filter);
+    else activeFilters.add(filter);
+
+    renderResults(searchBox.value); // visual state updated here
   });
 });
+
 
 clearFiltersBtn.addEventListener('click', () => {
   activeFilters.clear();
@@ -1176,6 +1173,13 @@ function renderResults(query) {
     // AND across different filter types
     return placementMatch && categoryMatch;
   }
+
+// update filter button visuals
+filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
+  if (activeFilters.has(btn.dataset.filter)) btn.classList.add('selected');
+  else btn.classList.remove('selected');
+});
+
 
   // --- Filter the DB ---
   const filtered = db.filter(item => {
