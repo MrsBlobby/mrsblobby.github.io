@@ -495,15 +495,16 @@
 }
 
 #filtersOptions button[data-filter] {
-  background-color: var(--card-bg);      
-  border: 2px solid var(--accent);       
-  border-radius: 6px;
-  padding: 6px 10px;
-  color: var(--accent);                  
+  background-color: var(--card-bg);   
+  color: var(--text);                
+  border: none;                       
+  border-radius: 0;                  
+  padding: 4px 8px;                    
+  text-align: left;                  
+  width: 100%;                       
   cursor: pointer;
-  text-align: center;
+  transition: background 0.2s;
   font-size: 14px;
-  transition: 0.2s;
 }
 
 #filtersOptions button[data-filter].selected {
@@ -515,6 +516,12 @@
 .filter-header {
   font-weight: bold;
   margin-bottom: 4px;
+}
+
+#filtersOptions button[data-filter]:hover,
+#filtersOptions button[data-filter].selected {
+  background-color: var(--accent);     
+  color: black;                        
 }
 
 #filtersButton.open {
@@ -540,11 +547,13 @@
   width: 100%;
   margin-top: -2px;
   background-color: var(--card-bg);
-  border: 2px solid var(--accent);
+  border: 2px solid var(--accent);   /* outer dropdown border */
   border-radius: 0 0 6px 6px;
   font-size: 14px;
   z-index: 200;
   overflow: hidden;
+  padding: 4px 0;                     /* reduce vertical space */
+  box-sizing: border-box;
 }
 
 #filtersOptions .option {
