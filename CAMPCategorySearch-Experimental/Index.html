@@ -577,8 +577,10 @@ dropdownOptions.querySelectorAll('.option').forEach(opt => {
 document.addEventListener('click', (e) => {
   if (!dropdownSelected.contains(e.target) && !dropdownOptions.contains(e.target)) {
     dropdownOptions.style.display = 'none';
+    dropdownSelected.classList.remove('open'); 
   }
 });
+
 
       let currentPage = 1;
       const itemsPerPage = 50;
