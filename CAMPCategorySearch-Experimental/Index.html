@@ -415,6 +415,8 @@
 #filtersButton {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 6px; 
   padding: 0 12px;
   font-size: 14px;
   width: 100%;
@@ -425,6 +427,14 @@
   cursor: pointer;
   box-sizing: border-box;
 }
+
+#filtersButton .filter-icon {
+  width: 16px;  
+  height: 16px;
+  flex-shrink: 0;
+  stroke: var(--accent); 
+}
+
 
 #filtersButton.open {
   border-radius: 6px 6px 0 0;
@@ -640,7 +650,10 @@
   <!-- Filters group -->
   <div class="group-filters">
     <div class="custom-dropdown" id="filtersDropdown">
-      <div id="filtersButton">Filters ▼</div>
+      <div id="filtersButton">Filters</div>
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="filter-icon">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+  </svg>
       <div id="filtersOptions">
         <!-- Options can go here later -->
       </div>
@@ -663,6 +676,7 @@
     </div>
   </div>
 </div>
+
 
 
   <ul id="results"></ul>
