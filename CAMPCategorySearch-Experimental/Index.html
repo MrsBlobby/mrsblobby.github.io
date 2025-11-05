@@ -778,173 +778,27 @@
   <ul id="results"></ul>
   <div id="pagination" style="text-align:center; margin: 16px 0;"></div>
 
-  <script>
-  fetch('final_workshop_db.json')
-    .then(response => response.json())
-    .then(db => {
-      const searchBox = document.getElementById('searchBox');
-      searchBox.value = '';
-      const results = document.getElementById('results');
-      const pagination = document.getElementById('pagination');
+ <script>
+let db = []; // global database
+
+// --- DOM elements ---
+const searchBox = document.getElementById('searchBox');
+const results = document.getElementById('results');
+const pagination = document.getElementById('pagination');
 
 const sortSelected = document.getElementById('sortSelected');
 const sortOptions = document.getElementById('sortOptions');
-let currentSort = 'camp-top'; // default
+let currentSort = 'camp-top';
+
 const dropdownSelected = document.getElementById('dropdownSelected');
 const dropdownOptions = document.getElementById('dropdownOptions');
-let currentSearchBy = 'name'; // default
-
-// initial display
-dropdownSelected.textContent = 'Search By: Item Name';
-
-function closeAllDropdowns() {
-  dropdownOptions.style.display = 'none';
-  dropdownSelected.classList.remove('open');
-  sortOptions.style.display = 'none';
-  sortSelected.classList.remove('open');
-}
-
-// --- SEARCH BY ---
-dropdownSelected.addEventListener('click', (e) => {
-  e.stopPropagation();
-  const isOpen = dropdownOptions.style.display === 'block';
-  closeAllDropdowns();
-  if (!isOpen) {
-    dropdownOptions.style.display = 'block';
-    dropdownSelected.classList.add('open');
-  }
-});
-
-// --- SORT BY ---
-sortSelected.addEventListener('click', (e) => {
-  e.stopPropagation();
-  const isOpen = sortOptions.style.display === 'block';
-  closeAllDropdowns();
-  if (!isOpen) {
-    sortOptions.style.display = 'block';
-    sortSelected.classList.add('open');
-  }
-});
-
-// --- CLOSE WHEN CLICKING OUTSIDE ---
-document.addEventListener('click', closeAllDropdowns);
-
-// SEARCH BY options
-dropdownOptions.querySelectorAll('.option').forEach(option => {
-  option.addEventListener('click', () => {
-    currentSearchBy = option.dataset.value;
-    dropdownSelected.textContent = 'Search By: ' + option.textContent;
-    dropdownOptions.style.display = 'none';
-    dropdownSelected.classList.remove('open');
-    renderResults(searchBox.value);
-  });
-});
-
-// SORT BY options
-sortOptions.querySelectorAll('.option').forEach(option => {
-  option.addEventListener('click', () => {
-    currentSort = option.dataset.value;
-    sortSelected.textContent = option.textContent;
-    sortOptions.style.display = 'none';
-    sortSelected.classList.remove('open');
-    renderResults(searchBox.value);
-  });
-});
+let currentSearchBy = 'name';
 
 const filtersButton = document.getElementById('filtersButton');
 const filtersOptions = document.getElementById('filtersOptions');
 const clearFiltersBtn = document.querySelector('.clear-filters');
 
-// 1. Toggle dropdown on button click
-filtersButton.addEventListener('click', (e) => {
-  e.stopPropagation(); // prevent document click from closing it
-  const isOpen = filtersOptions.style.display === 'block';
-  filtersOptions.style.display = isOpen ? 'none' : 'block';
-});
-
-// 2. Stop clicks inside the dropdown from closing it
-filtersOptions.addEventListener('click', (e) => {
-  e.stopPropagation();
-});
-
-// 3. Close dropdown if clicking outside
-document.addEventListener('click', () => {
-  filtersOptions.style.display = 'none';
-});
-
-// 4. Clear filters button functionality
-clearFiltersBtn.addEventListener('click', () => {
-  const selectedButtons = filtersOptions.querySelectorAll('button.selected');
-  selectedButtons.forEach(btn => btn.classList.remove('selected'));
-});
-
-// 5. Toggle visual feedback on filter buttons
-filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
-  btn.addEventListener('click', () => btn.classList.toggle('selected'));
-});
-
-
-});
-
-
-      let currentPage = 1;
-      const itemsPerPage = 50;
-      let lastQuery = '';
-
-      function sortItems(items) {
-        const mode = currentSort;
-        if (mode === 'camp-bottom') return [...items].reverse();
-        if (mode === 'new-old') return [...items].sort((a, b) => (b.CNAM_FormID || '').localeCompare(a.CNAM_FormID || ''));
-        if (mode === 'old-new') return [...items].sort((a, b) => (a.CNAM_FormID || '').localeCompare(b.CNAM_FormID || ''));
-        if (mode === 'az') return [...items].sort((a, b) => (a.Name || '').localeCompare(b.Name || ''));
-        if (mode === 'za') return [...items].sort((a, b) => (b.Name || '').localeCompare(a.Name || ''));
-        return items;
-      }
-
-      function paginate(items) {
-        const start = (currentPage - 1) * itemsPerPage;
-        const end = start + itemsPerPage;
-        return items.slice(start, end);
-      }
-
-      function renderPagination(totalItems) {
-        const totalPages = Math.ceil(totalItems / itemsPerPage);
-        pagination.innerHTML = '';
-
-        if (totalPages <= 1) return;
-
-        const prevBtn = document.createElement('button');
-        prevBtn.textContent = '← Prev';
-        prevBtn.disabled = currentPage === 1;
-        prevBtn.onclick = () => { currentPage--; renderResults(lastQuery); };
-        pagination.appendChild(prevBtn);
-
-        for (let i = 1; i <= totalPages; i++) {
-          if (i === currentPage || i === 1 || i === totalPages || Math.abs(i - currentPage) <= 2) {
-            const btn = document.createElement('button');
-            btn.textContent = i;
-            btn.style.margin = '0 4px';
-            btn.style.background = i === currentPage ? 'var(--accent)' : 'var(--card-bg)';
-            btn.style.color = i === currentPage ? 'black' : 'var(--text)';
-            btn.style.border = '1px solid var(--accent)';
-            btn.style.borderRadius = '4px';
-            btn.style.cursor = 'pointer';
-            btn.onclick = () => { currentPage = i; renderResults(lastQuery); };
-            pagination.appendChild(btn);
-          } else if (Math.abs(i - currentPage) === 3) {
-            const span = document.createElement('span');
-            span.textContent = '...';
-            pagination.appendChild(span);
-          }
-        }
-
-        const nextBtn = document.createElement('button');
-        nextBtn.textContent = 'Next →';
-        nextBtn.disabled = currentPage === totalPages;
-        nextBtn.onclick = () => { currentPage++; renderResults(lastQuery); };
-        pagination.appendChild(nextBtn);
-      }
-// === Category + Subcategory icons ===
+// --- Category icons ---
 const CategoryIcons = {
   'Quest': '/assets/MainCategory-QuestsIcon.svg',
   'Objectives': '/assets/MainCategory-QuestsIcon.svg',
@@ -1034,296 +888,230 @@ const CategoryIcons = {
   'Pet Furniture': '/assets/SubCategory-PetFurnitureIcon.png'
 };
 
-      function renderResults(query) {
-        const normalizedQuery = query.toLowerCase();
-        const queryChanged = normalizedQuery !== lastQuery;
-        lastQuery = normalizedQuery;
+// --- FETCH DATABASE ---
+fetch('final_workshop_db.json')
+  .then(res => res.json())
+  .then(data => {
+    db = data;
+    renderResults(''); // initial render
+  })
+  .catch(err => {
+    console.error("Failed to load database:", err);
+    results.innerHTML = '<li>Error loading database.</li>';
+  });
 
-const filtered = db.filter(item => {
-  if (!item.Name || item.Name.trim().toLowerCase() === 'null') return false;
+// --- HELPER FUNCTIONS ---
+function sortItems(items) {
+  switch(currentSort) {
+    case 'camp-bottom': return [...items].reverse();
+    case 'new-old': return [...items].sort((a,b)=> (b.CNAM_FormID||'').localeCompare(a.CNAM_FormID||''));
+    case 'old-new': return [...items].sort((a,b)=> (a.CNAM_FormID||'').localeCompare(b.CNAM_FormID||''));
+    case 'az': return [...items].sort((a,b)=> (a.Name||'').localeCompare(b.Name||''));
+    case 'za': return [...items].sort((a,b)=> (b.Name||'').localeCompare(a.Name||''));
+    default: return items;
+  }
+}
 
-  if (!normalizedQuery) return true; // show all if search is empty
+let currentPage = 1;
+const itemsPerPage = 50;
+let lastQuery = '';
 
-  const type = currentSearchBy; // "name", "book", or "entm"
-  if (type === 'name') {
-    return item.Name && item.Name.toLowerCase().includes(normalizedQuery);
-  } else if (type === 'book') {
-    return item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
-  } else if (type === 'entm') {
-    return item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
+function paginate(items) {
+  const start = (currentPage-1)*itemsPerPage;
+  return items.slice(start, start+itemsPerPage);
+}
+
+// --- DROPDOWN & FILTERS ---
+function closeAllDropdowns() {
+  dropdownOptions.style.display = 'none';
+  dropdownSelected.classList.remove('open');
+  sortOptions.style.display = 'none';
+  sortSelected.classList.remove('open');
+  filtersOptions.style.display = 'none';
+}
+
+// Search By dropdown
+dropdownSelected.addEventListener('click', e=>{
+  e.stopPropagation();
+  const isOpen = dropdownOptions.style.display==='block';
+  closeAllDropdowns();
+  if(!isOpen){
+    dropdownOptions.style.display='block';
+    dropdownSelected.classList.add('open');
   }
 });
+dropdownOptions.querySelectorAll('.option').forEach(option=>{
+  option.addEventListener('click', ()=>{
+    currentSearchBy = option.dataset.value;
+    dropdownSelected.textContent = 'Search By: ' + option.textContent;
+    dropdownOptions.style.display='none';
+    dropdownSelected.classList.remove('open');
+    renderResults(searchBox.value);
+  });
+});
 
-        const sorted = sortItems(filtered);
+// Sort By dropdown
+sortSelected.addEventListener('click', e=>{
+  e.stopPropagation();
+  const isOpen = sortOptions.style.display==='block';
+  closeAllDropdowns();
+  if(!isOpen){
+    sortOptions.style.display='block';
+    sortSelected.classList.add('open');
+  }
+});
+sortOptions.querySelectorAll('.option').forEach(option=>{
+  option.addEventListener('click', ()=>{
+    currentSort = option.dataset.value;
+    sortSelected.textContent = option.textContent;
+    sortOptions.style.display='none';
+    sortSelected.classList.remove('open');
+    renderResults(searchBox.value);
+  });
+});
 
-        // reset to page 1 if query changed or current page is now out of range
-        const totalPages = Math.ceil(sorted.length / itemsPerPage);
-        if (queryChanged || currentPage > totalPages) currentPage = 1;
+// Filters dropdown
+filtersButton.addEventListener('click', e=>{
+  e.stopPropagation();
+  const isOpen = filtersOptions.style.display==='block';
+  filtersOptions.style.display = isOpen ? 'none' : 'block';
+});
+filtersOptions.addEventListener('click', e=>e.stopPropagation());
+clearFiltersBtn.addEventListener('click', ()=>{
+  filtersOptions.querySelectorAll('button.selected').forEach(btn=>btn.classList.remove('selected'));
+});
+filtersOptions.querySelectorAll('button[data-filter]').forEach(btn=>{
+  btn.addEventListener('click', ()=>btn.classList.toggle('selected'));
+});
 
-        const paged = paginate(sorted);
-        results.innerHTML = '';
+// Close dropdowns when clicking outside
+document.addEventListener('click', closeAllDropdowns);
 
-        if (!paged.length) {
-          results.innerHTML = '<li>No matches found</li>';
-          pagination.innerHTML = '';
-          return;
-        }
+// --- SEARCH BOX ---
+searchBox.addEventListener('input', ()=>renderResults(searchBox.value));
 
-        paged.forEach(r => {
-          if ((r.SubCategory || '').trim().toLowerCase() === 'testsubcat'.toLowerCase()) return;
-          const li = document.createElement('li');
-          const left = document.createElement('div');
-          left.className = 'result-left';
+// --- PAGINATION RENDER ---
+function renderPagination(totalItems){
+  const totalPages = Math.ceil(totalItems/itemsPerPage);
+  pagination.innerHTML='';
+  if(totalPages<=1) return;
 
-          const name = document.createElement('div');
-          name.className = 'result-name';
-          name.textContent = r.Name;
-          left.appendChild(name);
+  const prevBtn = document.createElement('button');
+  prevBtn.textContent='← Prev';
+  prevBtn.disabled=currentPage===1;
+  prevBtn.onclick=()=>{ currentPage--; renderResults(lastQuery); };
+  pagination.appendChild(prevBtn);
 
-          if (r.CNAM_FormID) {
-            const img = document.createElement('img');
-            img.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
-            img.alt = r.Name;
-            img.loading = "lazy";
-            left.appendChild(img);
-          }
+  for(let i=1;i<=totalPages;i++){
+    if(i===currentPage || i===1 || i===totalPages || Math.abs(i-currentPage)<=2){
+      const btn = document.createElement('button');
+      btn.textContent=i;
+      btn.style.margin='0 4px';
+      btn.style.background=i===currentPage?'var(--accent)':'var(--card-bg)';
+      btn.style.color=i===currentPage?'black':'var(--text)';
+      btn.style.border='1px solid var(--accent)';
+      btn.style.borderRadius='4px';
+      btn.style.cursor='pointer';
+      btn.onclick=(()=>{ currentPage=i; renderResults(lastQuery); });
+      pagination.appendChild(btn);
+    } else if(Math.abs(i-currentPage)===3){
+      const span = document.createElement('span');
+      span.textContent='...';
+      pagination.appendChild(span);
+    }
+  }
 
-    const right = document.createElement('div');
-    right.className = 'result-right';
+  const nextBtn = document.createElement('button');
+  nextBtn.textContent='Next →';
+  nextBtn.disabled=currentPage===totalPages;
+  nextBtn.onclick=()=>{ currentPage++; renderResults(lastQuery); };
+  pagination.appendChild(nextBtn);
+}
 
-    // --- Build Menu Category header + pills ---
-    if ((r.Category && r.Category.trim() !== '') || (r.SubCategory && r.SubCategory.trim() !== '')) {
-      const catHeader = document.createElement('div');
-      catHeader.className = 'section-header';
-      catHeader.textContent = 'Build Menu Category';
+// --- RENDER RESULTS ---
+function renderResults(query){
+  if(!db || !db.length) return;
+
+  const normalizedQuery = query.toLowerCase();
+  const queryChanged = normalizedQuery!==lastQuery;
+  lastQuery = normalizedQuery;
+
+  let filtered = db.filter(item=>{
+    if(!item.Name || item.Name.trim().toLowerCase()==='null') return false;
+    if(!normalizedQuery) return true;
+
+    if(currentSearchBy==='name') return item.Name.toLowerCase().includes(normalizedQuery);
+    if(currentSearchBy==='book') return item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
+    if(currentSearchBy==='entm') return item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
+    return false;
+  });
+
+  filtered = sortItems(filtered);
+
+  // reset page if needed
+  const totalPages = Math.ceil(filtered.length/itemsPerPage);
+  if(queryChanged || currentPage>totalPages) currentPage=1;
+
+  const paged = paginate(filtered);
+  results.innerHTML='';
+
+  if(!paged.length){
+    results.innerHTML='<li>No matches found</li>';
+    pagination.innerHTML='';
+    return;
+  }
+
+  paged.forEach(r=>{
+    if((r.SubCategory||'').trim().toLowerCase()==='testsubcat') return;
+
+    const li = document.createElement('li');
+    const left = document.createElement('div'); left.className='result-left';
+    const name = document.createElement('div'); name.className='result-name'; name.textContent=r.Name;
+    left.appendChild(name);
+
+    if(r.CNAM_FormID){
+      const img = document.createElement('img');
+      img.src=`Images/${r.CNAM_FormID.toLowerCase()}.png`;
+      img.alt=r.Name; img.loading="lazy";
+      left.appendChild(img);
+    }
+
+    const right = document.createElement('div'); right.className='result-right';
+    // --- Build Menu Category pills ---
+    if((r.Category && r.Category.trim()!=='') || (r.SubCategory && r.SubCategory.trim()!=='')){
+      const catHeader = document.createElement('div'); catHeader.className='section-header'; catHeader.textContent='Build Menu Category';
       right.appendChild(catHeader);
-    
-      const catWrap = document.createElement('div');
-      catWrap.className = 'inline-wrap';
-    
-      const categories = [];
-      if (r.Category && r.Category.trim() !== '') categories.push(r.Category);
-      if (r.SubCategory && r.SubCategory.trim() !== '' && (r.Category || '').toLowerCase() !== 'wallpapers') categories.push(r.SubCategory);
-    
-   categories.forEach((cat, i) => {
-  const catSpan = document.createElement('span');
-  catSpan.className = 'pill';
-  catSpan.textContent = '';
+      const catWrap = document.createElement('div'); catWrap.className='inline-wrap';
+      const categories=[];
+      if(r.Category && r.Category.trim()!=='') categories.push(r.Category);
+      if(r.SubCategory && r.SubCategory.trim()!=='' && (r.Category||'').toLowerCase()!=='wallpapers') categories.push(r.SubCategory);
 
-  const iconPath = CategoryIcons[cat];
-  if (iconPath) {
-    const icon = document.createElement('img');
-    icon.src = iconPath;
-      const isSVG = iconPath.toLowerCase().endsWith('.svg');
-      if (isSVG) {
-        icon.style.height = '24px';
-      } else {
-        icon.style.height = '30px';
-      }
-    icon.style.width = 'auto';
-    icon.style.verticalAlign = 'middle';
-    icon.style.marginRight = '6px';
-    catSpan.appendChild(icon);
-  }
+      categories.forEach((cat,i)=>{
+        const catSpan = document.createElement('span'); catSpan.className='pill'; catSpan.textContent='';
+        const iconPath = CategoryIcons[cat];
+        if(iconPath){
+          const icon = document.createElement('img'); icon.src=iconPath;
+          icon.style.width='auto';
+          icon.style.verticalAlign='middle';
+          icon.style.marginRight='6px';
+          icon.style.height = iconPath.toLowerCase().endsWith('.svg')?'24px':'30px';
+          catSpan.appendChild(icon);
+        }
+        catSpan.appendChild(document.createTextNode(cat));
+        catWrap.appendChild(catSpan);
+        if(i<categories.length-1){ const arrow = document.createElement('span'); arrow.className='arrow'; catWrap.appendChild(arrow); }
+      });
 
-  catSpan.appendChild(document.createTextNode(cat));
-  catWrap.appendChild(catSpan);
-
-  if (i < categories.length - 1) {
-    const arrow = document.createElement('span');
-    arrow.className = 'arrow';
-    catWrap.appendChild(arrow);
-  }
-});
-
-    
       right.appendChild(catWrap);
     }
 
-    // --- Placement Conditions header + pills (only if non-empty) ---
-    const hasBook = !!(r.BOOK_FULL && String(r.BOOK_FULL).trim());
-    const hasEntm = !!(r.ENTM_FULL && String(r.ENTM_FULL).trim());
-    if (hasBook || hasEntm) {
-      const condHeader = document.createElement('div');
-      condHeader.className = 'section-header';
-      condHeader.textContent = 'Placement Conditions';
-      condHeader.style.marginTop = '8px';
-      right.appendChild(condHeader);
-    
-      const condWrap = document.createElement('div');
-      condWrap.className = 'inline-wrap';
-    
-      const isDirect = (String(r.BOOK_SOURCE || '').toLowerCase() === 'direct');
-      const connectorWord = isDirect ? 'and' : 'or';
-    
-      // BOOK pill
-// --- create BOOK pill ---
-if (hasBook) {
-    const bookPill = document.createElement('span');
-    bookPill.className = 'pill';
-    bookPill.textContent = r.BOOK_FULL;
-
-    const bookEdid = String(r.BOOK_EditorID || '');
-    let iconSrc = '';
-
-    // manual inclusions / exclusions
-    const ManualIcons = {
-        'XPD_': '/assets/StampIcon.png',
-        '_GoldVendor': '/assets/BullionIcon.png',
-        // add more mappings if needed
-    };
-
-    for (const key in ManualIcons) {
-        if (bookEdid.includes(key)) {
-            iconSrc = ManualIcons[key];
-            break;
-        }
-    }
-
-    if (iconSrc) {
-        const icon = document.createElement('img');
-        icon.src = iconSrc;
-        icon.style.width = '30px';
-        icon.style.height = '30px';
-        icon.style.verticalAlign = 'middle';
-        icon.style.marginRight = '6px';
-        bookPill.innerHTML = '';
-        bookPill.appendChild(icon);
-        bookPill.appendChild(document.createTextNode(r.BOOK_FULL));
-    }
-
-    condWrap.appendChild(bookPill);
-}
-
-    
-      // connector between BOOK and ENTM (only show when both present)
-      if (hasBook && hasEntm) {
-        const conn = document.createElement('span');
-        conn.className = 'connector';
-        conn.textContent = connectorWord;
-        condWrap.appendChild(conn);
-      }
-    
-      // ENTM pill (formatting for ATX / SCORE)
- if (hasEntm) {
-    let entmFull = r.ENTM_FULL
-    ?.replace(/[\s;]*UTILITY_ENTM_ItemDisableEntitlement\s*\[ENTM:[0-9A-Fa-f]+\][\s;]*/gi, '')
-    .trim();
-    const edid = String(r.ENTM_EDID || '');
-
-    // --- Manual alias map for tricky Mini Seasons ---
-    const miniSeasonAliases = {
-        'SCORE_MiniSeason_2025_MMMFE': 'Marshal Mallow'
-        // add more aliases here as needed
-    };
-
-    // --- Manual overrides for specific EDID substrings ---
-const ManualEntmIcons = {
-    'Babylon_': '/assets/V51Icon.png',
-    'Shelters_': '/assets/AtomIcon.png'
-};
-
-
-    // --- determine tag as before ---
-    let tag = '';
-    const edidUpper = edid.toUpperCase();
-
-    if (edidUpper.includes('ATX')) {
-        tag = 'Atomic Shop';
-    } else if (edidUpper.includes('SCORE_MINISEASON')) {
-        const aliasKey = Object.keys(miniSeasonAliases).find(key => edid.includes(key));
-        if (aliasKey) {
-            tag = `S.C.O.R.E. - Mini Season ${miniSeasonAliases[aliasKey]}`;
-        } else {
-            const match = edid.match(/SCORE[_-]?MiniSeason_\d+_([A-Za-z0-9]+?)(?:_ENTM|$)/i);
-            if (match) {
-                const namePart = match[1]
-                    .replace(/([a-z])([A-Z])/g, '$1 $2')
-                    .replace(/_/g, ' ');
-                tag = `S.C.O.R.E. - Mini Season ${namePart}`;
-            } else {
-                tag = 'S.C.O.R.E. - Mini Season';
-            }
-        }
-    } else {
-        const scoreMatch = edid.match(/SCORE[_-]?S?(\d+)/i);
-        if (scoreMatch) {
-            tag = `S.C.O.R.E. - Season ${scoreMatch[1]}`;
-        } else if (edidUpper.includes('SCORE')) {
-            tag = 'S.C.O.R.E.';
-        }
-    }
-
-    // --- create pill ---
-    const entmPill = document.createElement('span');
-    entmPill.className = 'pill';
-
-    // --- create icon element ---
-    const icon = document.createElement('img');
-    icon.style.width = '30px';
-    icon.style.height = '30px';
-    icon.style.verticalAlign = 'middle';
-    icon.style.marginRight = '6px';
-
-    let textSuffix = '';
-
-    // --- default icon based on tag ---
-    if (tag === 'Atomic Shop') {
-        icon.src = '/assets/AtomIcon.png';
-    } else if (tag.startsWith('S.C.O.R.E. - Mini Season')) {
-        icon.src = '/assets/SeasonIcon.png';
-        const miniMatch = tag.match(/Mini Season (.+)/);
-        if (miniMatch) textSuffix = ` (Mini Season: ${miniMatch[1]})`;
-    } else if (tag.startsWith('S.C.O.R.E. - Season')) {
-        icon.src = '/assets/SeasonIcon.png';
-        const seasonMatch = tag.match(/Season (\d+)/);
-        if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
-    }
-
-    // --- check manual overrides ---
-    for (const key in ManualEntmIcons) {
-        if (edid.includes(key)) {
-            icon.src = ManualEntmIcons[key];
-            textSuffix = ''; // optional: remove any suffix
-            break;
-        }
-    }
-
-    // --- set pill content ---
-    entmPill.innerHTML = '';
-    entmPill.appendChild(icon);
-    entmPill.appendChild(document.createTextNode(entmFull + textSuffix));
-
-    condWrap.appendChild(entmPill);
-}
-
-
-
-
-    
-      right.appendChild(condWrap);
-    }
-
-    // attach left + right
     li.appendChild(left);
     li.appendChild(right);
     results.appendChild(li);
+  });
 
-
-        });
-
-        renderPagination(sorted.length);
-      }
-
-searchBox.addEventListener('input', () => renderResults(searchBox.value));
-
-
-      renderResults('');
-    })
-    .catch(err => {
-      console.error("Failed to load database:", err);
-      document.getElementById('results').innerHTML = '<li>Error loading database.</li>';
-    });
-  </script>
+  renderPagination(filtered.length);
+}
+</script>
 </body>
 </html>
