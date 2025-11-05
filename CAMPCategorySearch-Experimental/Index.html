@@ -515,9 +515,8 @@
 }
 
 #filtersOptions button[data-filter].selected {
-  background-color: var(--accent);       
-  color: black;                         
-  border-color: var(--accent);
+  background-color: var(--accent);
+  color: black;
 }
 
 #filtersOptions button[data-filter]:hover {
@@ -527,14 +526,13 @@
 
 .filter-header {
   font-weight: bold;
-  margin: 0;                  
-  padding: 8px 8px;          
-  text-align: center;         
-  background-color: #333;    
-  color: var(--accent);      
-  border-radius: 4px 4px 0 0;
-  margin-bottom: 2px;         
   font-size: 13px;
+  text-align: center;
+  background-color: rgba(255, 192, 15, 0.1); 
+  color: var(--accent);
+  padding: 2px 0;          
+  margin: 4px 0 2px 0;    
+  border-radius: 4px 4px 0 0; 
 }
 
 #filtersOptions button[data-filter]:hover,
@@ -548,32 +546,34 @@
 }
 
 .clear-filters {
-  margin-top: 8px;
-  background-color: #3a1a1a;            
-  border: 1px solid #ff4d4f;             
-  color: #ff4d4f;                         
-  border-radius: 4px;
-  padding: 6px 10px;
+  margin-top: 4px;               /* reduce gap above button */
+  padding: 4px 8px;              /* small button */
+  background-color: #ffeded;
+  border: 1px solid #ff4d4f;
+  color: #ff4d4f;
+  border-radius: 4px 4px 0 0;    /* only bottom corners rounded */
   cursor: pointer;
+  text-align: center;
+  font-size: 13px;
   transition: background 0.2s;
 }
 
 #filtersOptions {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;                 
+  padding: 0;
+  margin-top: -2px;
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
-  margin-top: -2px;
   background-color: var(--card-bg);
-  border: 2px solid var(--accent);   
-  border-radius: 0 0 6px 6px;
-  font-size: 14px;
-  z-index: 200;
-  gap: 0;
-  overflow: hidden;
-  padding: 0px 0;                  
+  border: 2px solid var(--accent);
+  border-radius: 0 0 6px 6px; 
   box-sizing: border-box;
+  z-index: 200;
+  overflow: hidden;
 }
 
 #filtersOptions .option {
