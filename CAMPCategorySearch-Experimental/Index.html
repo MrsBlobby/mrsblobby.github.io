@@ -368,6 +368,10 @@
   z-index: 200;
 }
 
+#dropdownOptions.open {
+  border-radius: 0 0 0 6px; /* bottom-right corner sharp when open */
+}
+
 #dropdownOptions .option {
   padding: 8px 12px;
   line-height: 40px;
@@ -547,8 +551,17 @@ dropdownSelected.textContent = 'Search By: Item Name';
 
 // toggle dropdown
 dropdownSelected.addEventListener('click', () => {
-  dropdownOptions.style.display = dropdownOptions.style.display === 'block' ? 'none' : 'block';
+  const isOpen = dropdownOptions.style.display === 'block';
+  dropdownOptions.style.display = isOpen ? 'none' : 'block';
+
+  // toggle the 'open' class
+  if (!isOpen) {
+    dropdownOptions.classList.add('open');
+  } else {
+    dropdownOptions.classList.remove('open');
+  }
 });
+
 
 // select option
 dropdownOptions.querySelectorAll('.option').forEach(opt => {
