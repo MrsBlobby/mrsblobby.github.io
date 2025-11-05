@@ -92,17 +92,6 @@
     cursor: default;
   }
 
-  select {
-    appearance: none;
-    background-color: var(--card-bg);
-    border: 2px solid var(--accent);
-    border-radius: 6px;
-    color: var(--text);
-    padding: 8px 12px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-
 .controls {
   position: sticky;
   top: 0;
@@ -169,17 +158,6 @@
 .inline-group label {
   font-size: 14px;
   color: var(--text-muted);
-}
-
-.inline-group select {
-  appearance: none;
-  background-color: var(--card-bg);
-  border: 2px solid var(--accent);
-  border-radius: 6px;
-  color: var(--text);
-  padding: 8px 12px;
-  font-size: 14px;
-  cursor: pointer;
 }
 
   ul {
@@ -398,6 +376,56 @@
   flex-shrink: 0;
 }
 
+#sortDropdown {
+  position: relative;
+  width: 180px; /* adjust to match old select width */
+  height: 36px;
+  display: flex;
+  flex-shrink: 0;
+}
+
+#sortSelected {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 14px;
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  background-color: var(--card-bg);
+  color: var(--text);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+#sortSelected.open {
+  border-radius: 6px 6px 0 0;
+}
+
+#sortOptions {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin-top: -2px;
+  background-color: var(--card-bg);
+  border: 2px solid var(--accent);
+  border-radius: 0 0 6px 6px;
+  font-size: 14px;
+  z-index: 200;
+  overflow: hidden;
+}
+
+#sortOptions .option {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+#sortOptions .option:hover {
+  background: var(--accent-dim);
+  color: black;
+}
+
 
   @media (max-width: 600px) {
     li {
@@ -512,18 +540,20 @@
     </div>
   </div>
 
-  <div class="inline-group">
-    <label for="sortMode">Sort By:</label>
-    <select id="sortMode">
-      <option value="camp-top" selected>Workshop Menu ▼</option>
-      <option value="camp-bottom">Workshop Menu ▲</option>
-      <option value="az">Alphabetical ▼</option>
-      <option value="za">Alphabetical ▲</option>
-      <option value="old-new">Oldest</option>
-      <option value="new-old">Newest</option>
-    </select>
+<div class="inline-group">
+  <div class="custom-dropdown" id="sortDropdown">
+    <div id="sortSelected">Workshop Menu ▼</div>
+    <div id="sortOptions">
+      <div class="option" data-value="camp-top">Workshop Menu ▼</div>
+      <div class="option" data-value="camp-bottom">Workshop Menu ▲</div>
+      <div class="option" data-value="az">Alphabetical ▼</div>
+      <div class="option" data-value="za">Alphabetical ▲</div>
+      <div class="option" data-value="old-new">Oldest</div>
+      <div class="option" data-value="new-old">Newest</div>
+    </div>
   </div>
 </div>
+
 
 
 
@@ -537,7 +567,6 @@
     .then(db => {
       const searchBox = document.getElementById('searchBox');
       const results = document.getElementById('results');
-      const sortMode = document.getElementById('sortMode');
       const pagination = document.getElementById('pagination');
 
 const dropdownSelected = document.getElementById('dropdownSelected');
@@ -560,6 +589,33 @@ dropdownSelected.addEventListener('click', () => {
   }
 });
 
+const sortDropdown = document.getElementById('sortDropdown');
+const sortSelected = document.getElementById('sortSelected');
+const sortOptions = document.getElementById('sortOptions');
+
+let currentSort = 'camp-top'; // default
+
+// toggle dropdown
+sortSelected.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = sortOptions.style.display === 'block';
+  sortOptions.style.display = isOpen ? 'none' : 'block';
+  sortSelected.classList.toggle('open', !isOpen);
+});
+
+// select option
+sortOptions.querySelectorAll('.option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    currentSort = opt.dataset.value;
+    sortSelected.textContent = opt.textContent;
+    sortOptions.style.display = 'none';
+    sortSelected.classList.remove('open');
+
+    // trigger the same sorting logic as before
+    currentPage = 1;
+    renderResults(searchBox.value.toLowerCase());
+  });
+});
 
 
 // select option
@@ -573,13 +629,20 @@ dropdownOptions.querySelectorAll('.option').forEach(opt => {
   });
 });
 
-// close dropdown if click outside
 document.addEventListener('click', (e) => {
+  // Close search dropdown if click outside
   if (!dropdownSelected.contains(e.target) && !dropdownOptions.contains(e.target)) {
     dropdownOptions.style.display = 'none';
     dropdownSelected.classList.remove('open'); 
   }
+
+  // Close sort dropdown if click outside
+  if (!sortDropdown.contains(e.target) && !sortOptions.contains(e.target)) {
+    sortOptions.style.display = 'none';
+    sortSelected.classList.remove('open');
+  }
 });
+
 
 
       let currentPage = 1;
@@ -587,7 +650,7 @@ document.addEventListener('click', (e) => {
       let lastQuery = '';
 
       function sortItems(items) {
-        const mode = sortMode.value;
+        const mode = currentSort;
         if (mode === 'camp-bottom') return [...items].reverse();
         if (mode === 'new-old') return [...items].sort((a, b) => (b.CNAM_FormID || '').localeCompare(a.CNAM_FormID || ''));
         if (mode === 'old-new') return [...items].sort((a, b) => (a.CNAM_FormID || '').localeCompare(b.CNAM_FormID || ''));
@@ -1012,10 +1075,6 @@ const ManualEntmIcons = {
       }
 
 searchBox.addEventListener('input', () => renderResults(searchBox.value));
-sortMode.addEventListener('change', () => {
-  currentPage = 1;
-  renderResults(searchBox.value.toLowerCase());
-});
 
 
       renderResults('');
