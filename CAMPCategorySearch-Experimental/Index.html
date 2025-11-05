@@ -888,59 +888,60 @@ sortOptions.querySelectorAll('.option').forEach(option => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const filtersButton = document.getElementById("filtersButton");
-  const filtersOptions = document.getElementById("filtersOptions");
-  const filterButtons = filtersOptions.querySelectorAll("button[data-filter]");
-  const clearButton = filtersOptions.querySelector(".clear-filters");
+const filterBtn = document.getElementById("filterSelected");
+const filterOptions = document.getElementById("filterOptions");
+const filterButtons = filterOptions.querySelectorAll("button[data-filter]");
+const clearFiltersBtn = document.getElementById("clearFilters");
 
-  // --- Toggle dropdown visibility ---
-  filtersButton.addEventListener("click", (e) => {
-    e.stopPropagation();
-    filtersOptions.style.display =
-      filtersOptions.style.display === "block" ? "none" : "block";
-  });
+filterBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  filterOptions.style.display =
+    filterOptions.style.display === "block" ? "none" : "block";
+});
 
-  // Close dropdown if clicked outside
-  document.addEventListener("click", (e) => {
-    if (!filtersDropdown.contains(e.target)) {
-      filtersOptions.style.display = "none";
-    }
-  });
+document.addEventListener("click", (e) => {
+  if (!filterOptions.contains(e.target)) {
+    filterOptions.style.display = "none";
+  }
+});
 
-  // --- Filter button toggle logic ---
-  filterButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      btn.classList.toggle("active");
-      applyFilters();
-    });
-  });
-
-  // --- Clear all filters ---
-  clearButton.addEventListener("click", () => {
-    filterButtons.forEach((btn) => btn.classList.remove("active"));
+filterButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("active");
     applyFilters();
   });
+});
 
-  // --- Apply filters (customize this for your data) ---
-  function applyFilters() {
-    // Collect active filters
-    const activeFilters = Array.from(filterButtons)
-      .filter((btn) => btn.classList.contains("active"))
-      .map((btn) => btn.dataset.filter);
+clearFiltersBtn.addEventListener("click", () => {
+  filterButtons.forEach((b) => b.classList.remove("active"));
+  applyFilters();
+});
 
-    console.log("Active filters:", activeFilters);
+function applyFilters() {
+  const activeFilters = [...filterButtons]
+    .filter((b) => b.classList.contains("active"))
+    .map((b) => b.dataset.filter);
 
-    // Example placeholder:
-    // You can replace this with logic that filters your displayed items
-    // based on their category or placement condition.
+  if (activeFilters.length === 0) {
+    showAllItems();
+    return;
   }
 
-  // --- Reset filters on page refresh ---
-  window.addEventListener("beforeunload", () => {
-    filterButtons.forEach((btn) => btn.classList.remove("active"));
+  // Example filter logic: adjust this to your data
+  document.querySelectorAll(".item").forEach((item) => {
+    const tags = item.dataset.tags?.split(",") || [];
+    item.style.display = activeFilters.some((f) => tags.includes(f))
+      ? "block"
+      : "none";
   });
-});
+}
+
+function showAllItems() {
+  document.querySelectorAll(".item").forEach((item) => {
+    item.style.display = "block";
+  });
+}
+
 
       let currentPage = 1;
       const itemsPerPage = 50;
