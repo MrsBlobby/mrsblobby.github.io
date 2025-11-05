@@ -826,26 +826,6 @@ const filtered = db.filter(item => {
   }
 });
 
-const filteredWithFilters = filtered.filter(item => {
-  // --- Placement Condition filters ---
-  if (placementActive.size > 0) {
-    const hasBook = !!(item.BOOK_FULL && String(item.BOOK_FULL).trim());
-    const hasEntm = !!(item.ENTM_FULL && String(item.ENTM_FULL).trim());
-    if (
-      (!placementActive.has('book') || !hasBook) &&
-      (!placementActive.has('entm') || !hasEntm)
-    ) return false;
-  }
-
-  // --- Category filters ---
-  if (categoryActive.size > 0) {
-    const cat = item.Category || '';
-    if (!categoryActive.has(cat)) return false;
-  }
-
-  return true;
-});
-
         const sorted = sortItems(filteredWithFilters);
 
         // reset to page 1 if query changed or current page is now out of range
