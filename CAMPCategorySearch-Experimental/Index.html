@@ -947,10 +947,9 @@ const placementActive = new Set();
 const categoryActive = new Set();
 
 // get buttons & clear button
-const placementBtns = document.querySelectorAll('#placementFilters button');
-const categoryBtns = document.querySelectorAll('#categoryFilters button');
+const placementBtns = document.querySelectorAll('#filterOptions .filter-column:first-child button');
+const categoryBtns = document.querySelectorAll('#filterOptions .filter-column:last-child button');
 const clearBtn = document.getElementById('clearFilters');
-const searchBox = document.getElementById('searchBox'); // make sure this exists
 
 // toggle function
 function toggleFilter(btn, set) {
@@ -999,11 +998,13 @@ window.addEventListener('load', () => {
 });
 
 // optional: close dropdown if you click outside
-document.addEventListener('click', () => {
-  document.querySelectorAll('.dropdown-options').forEach(drop => {
-    drop.style.display = 'none';
-  });
+document.addEventListener('click', (e) => {
+  if (!document.getElementById('filterOptions').contains(e.target) &&
+      !document.getElementById('filterSelected').contains(e.target)) {
+    document.getElementById('filterOptions').style.display = 'none';
+  }
 });
+
 
 
       function renderResults(query) {
