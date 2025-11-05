@@ -944,6 +944,31 @@ const CategoryIcons = {
   'Pet Furniture': '/assets/SubCategory-PetFurnitureIcon.png'
 };
 
+window.addEventListener('DOMContentLoaded', () => {
+  // Clear search bar
+  const searchBox = document.getElementById('searchBox');
+  searchBox.value = '';
+  lastQuery = '';
+
+  // Hide all dropdowns on load
+  const filtersOptions = document.getElementById('filtersOptions');
+  filtersOptions.style.display = 'none';
+
+  const filtersButton = document.getElementById('filtersButton');
+  filtersButton.classList.remove('open');
+
+  const dropdownOptions = document.getElementById('dropdownOptions');
+  dropdownOptions.style.display = 'none';
+  dropdownSelected.classList.remove('open');
+
+  const sortOptions = document.getElementById('sortOptions');
+  sortOptions.style.display = 'none';
+  sortSelected.classList.remove('open');
+
+  // Optional: render all results initially
+  renderResults('');
+});
+
 // --- Manual icon overrides ---
 const ManualIcons = {
   'XPD_': '/assets/StampIcon.png',
