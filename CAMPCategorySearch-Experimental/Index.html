@@ -316,6 +316,51 @@
     text-align: left;
   }
 
+.filter-section {
+  margin: 12px 0;
+  text-align: center;
+}
+
+.filter-header {
+  font-weight: bold;
+  color: var(--accent);
+  margin: 8px 0 4px 0;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  justify-items: center;
+  margin-bottom: 8px;
+}
+
+.filter-grid button {
+  padding: 6px 12px;
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  background-color: var(--card-bg);
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.filter-grid button.active {
+  background-color: var(--accent);
+  color: black;
+}
+
+.clear-filters {
+  margin-top: 6px;
+  padding: 6px 12px;
+  background-color: var(--bg);
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
 #searchBox {
   flex: 1;
   height: 40px;
@@ -480,6 +525,34 @@
     </p>
     <p class="updated">Last Updated: November 1, 2025</p>
   </div>
+</div>
+
+<div class="filter-section">
+  <div class="filter-header">Placement Condition</div>
+  <div class="filter-grid" id="placementFilters">
+    <button data-filter="book">Plan</button>
+    <button data-filter="entm">Entitlement</button>
+  </div>
+
+  <div class="filter-header">Workshop Category</div>
+  <div class="filter-grid" id="categoryFilters">
+    <button data-filter="C.A.M.P. Pieces">C.A.M.P. Pieces</button>
+    <button data-filter="Decorations">Decorations</button>
+    <button data-filter="Defense">Defense</button>
+    <button data-filter="Dwellers">Dwellers</button>
+    <button data-filter="Furniture">Furniture</button>
+    <button data-filter="Lights">Lights</button>
+    <button data-filter="Power">Power</button>
+    <button data-filter="Quest">Quest</button>
+    <button data-filter="Resources">Resources</button>
+    <button data-filter="Storage">Storage</button>
+    <button data-filter="Structure">Structure</button>
+    <button data-filter="Utility">Utility</button>
+    <button data-filter="Wall Decoration">Wall Decoration</button>
+    <button data-filter="Wallpapers">Wallpapers</button>
+  </div>
+
+  <button id="clearFilters" class="clear-filters">Clear All Filters</button>
 </div>
 
 
@@ -806,6 +879,48 @@ const CategoryIcons = {
   'Pet Furniture': '/assets/SubCategory-PetFurnitureIcon.png'
 };
 
+// store active filters
+let placementActive = new Set();
+let categoryActive = new Set();
+
+// get buttons
+const placementBtns = document.querySelectorAll('#placementFilters button');
+const categoryBtns = document.querySelectorAll('#categoryFilters button');
+const clearBtn = document.getElementById('clearFilters');
+
+// toggle function
+function toggleFilter(btn, set) {
+  const value = btn.dataset.filter;
+  if (set.has(value)) {
+    set.delete(value);
+    btn.classList.remove('active');
+  } else {
+    set.add(value);
+    btn.classList.add('active');
+  }
+  renderResults(searchBox.value); // rerun filter whenever a toggle changes
+}
+
+// attach click events
+placementBtns.forEach(btn => btn.addEventListener('click', () => toggleFilter(btn, placementActive)));
+categoryBtns.forEach(btn => btn.addEventListener('click', () => toggleFilter(btn, categoryActive)));
+
+// clear all filters
+clearBtn.addEventListener('click', () => {
+  placementActive.clear();
+  categoryActive.clear();
+  placementBtns.forEach(btn => btn.classList.remove('active'));
+  categoryBtns.forEach(btn => btn.classList.remove('active'));
+  renderResults(searchBox.value);
+});
+
+// reset filters on page load
+window.addEventListener('load', () => {
+  placementActive.clear();
+  categoryActive.clear();
+  placementBtns.forEach(btn => btn.classList.remove('active'));
+  categoryBtns.forEach(btn => btn.classList.remove('active'));
+});
 
 
       function renderResults(query) {
@@ -827,7 +942,28 @@ const filtered = db.filter(item => {
     return item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
   }
 });
-        const sorted = sortItems(filtered);
+
+const filteredWithFilters = filtered.filter(item => {
+  // --- Placement Condition filters ---
+  if (placementActive.size > 0) {
+    const hasBook = !!(item.BOOK_FULL && String(item.BOOK_FULL).trim());
+    const hasEntm = !!(item.ENTM_FULL && String(item.ENTM_FULL).trim());
+    if (
+      (!placementActive.has('book') || !hasBook) &&
+      (!placementActive.has('entm') || !hasEntm)
+    ) return false;
+  }
+
+  // --- Category filters ---
+  if (categoryActive.size > 0) {
+    const cat = item.Category || '';
+    if (!categoryActive.has(cat)) return false;
+  }
+
+  return true;
+});
+
+        const sorted = sortItems(filteredWithFilters);
 
         // reset to page 1 if query changed or current page is now out of range
         const totalPages = Math.ceil(sorted.length / itemsPerPage);
