@@ -159,7 +159,9 @@
 .inline-group {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 8px;
 }
 
 .inline-group label {
@@ -394,6 +396,19 @@
   box-sizing: border-box;
 }
 
+#filtersDropdown {
+  width: 120px;   
+  position: relative;
+}
+
+#sortSelected,
+#sortOptions,
+#filtersButton,
+#filtersOptions {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 #sortDropdown {
   position: relative;
   width: 150px; 
@@ -582,7 +597,14 @@
   </div>
 </div>
 
-
+  <!-- Filters Dropdown -->
+  <div class="custom-dropdown" id="filtersDropdown">
+    <div id="filtersButton">Filters ▼</div>
+    <div id="filtersOptions">
+      <!-- Options can go here later -->
+    </div>
+  </div>
+</div>
 
 
 
