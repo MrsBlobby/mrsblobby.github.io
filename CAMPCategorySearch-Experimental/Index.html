@@ -609,7 +609,7 @@
         <button data-filter="Storage">Storage</button>
         <button data-filter="Structure">Structure</button>
         <button data-filter="Utility">Utility</button>
-        <button data-filter="Wall Decor">Wall Decor</button>
+        <button data-filter="Wall Decoration">Wall Decoration</button>
         <button data-filter="Wallpapers">Wallpapers</button>
       </div>
     </div>
@@ -943,13 +943,14 @@ const CategoryIcons = {
 };
 
 // store active filters
-let placementActive = new Set();
-let categoryActive = new Set();
+const placementActive = new Set();
+const categoryActive = new Set();
 
-// get buttons
+// get buttons & clear button
 const placementBtns = document.querySelectorAll('#placementFilters button');
 const categoryBtns = document.querySelectorAll('#categoryFilters button');
 const clearBtn = document.getElementById('clearFilters');
+const searchBox = document.getElementById('searchBox'); // make sure this exists
 
 // toggle function
 function toggleFilter(btn, set) {
@@ -961,15 +962,27 @@ function toggleFilter(btn, set) {
     set.add(value);
     btn.classList.add('active');
   }
-  renderResults(searchBox.value); // rerun filter whenever a toggle changes
+  renderResults(searchBox.value);
 }
 
-// attach click events
-placementBtns.forEach(btn => btn.addEventListener('click', () => toggleFilter(btn, placementActive)));
-categoryBtns.forEach(btn => btn.addEventListener('click', () => toggleFilter(btn, categoryActive)));
+// attach click events safely
+placementBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation(); // prevents document click handlers from closing dropdown
+    toggleFilter(btn, placementActive);
+  });
+});
+
+categoryBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleFilter(btn, categoryActive);
+  });
+});
 
 // clear all filters
-clearBtn.addEventListener('click', () => {
+clearBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
   placementActive.clear();
   categoryActive.clear();
   placementBtns.forEach(btn => btn.classList.remove('active'));
@@ -985,56 +998,11 @@ window.addEventListener('load', () => {
   categoryBtns.forEach(btn => btn.classList.remove('active'));
 });
 
-const filterSelected = document.getElementById('filterSelected');
-const filterOptions = document.getElementById('filterOptions');
-const placementBtns = filterOptions.querySelectorAll('[data-filter="book"], [data-filter="entm"]');
-const categoryBtns = filterOptions.querySelectorAll('#filterOptions button[data-filter]:not([data-filter="book"]):not([data-filter="entm"])');
-const clearBtn = document.getElementById('clearFilters');
-
-let placementActive = new Set();
-let categoryActive = new Set();
-
-// Toggle dropdown
-filterSelected.addEventListener('click', e => {
-  e.stopPropagation();
-  filterOptions.style.display = filterOptions.style.display === 'block' ? 'none' : 'block';
-});
-
-// Close on outside click
-document.addEventListener('click', () => filterOptions.style.display = 'none');
-
-// Filter toggle function
-function toggleFilter(btn, set) {
-  const value = btn.dataset.filter;
-  if (set.has(value)) {
-    set.delete(value);
-    btn.classList.remove('active');
-  } else {
-    set.add(value);
-    btn.classList.add('active');
-  }
-  renderResults(searchBox.value);
-}
-
-// Attach click events
-placementBtns.forEach(btn => btn.addEventListener('click', () => toggleFilter(btn, placementActive)));
-categoryBtns.forEach(btn => btn.addEventListener('click', () => toggleFilter(btn, categoryActive)));
-
-// Clear all filters
-clearBtn.addEventListener('click', () => {
-  placementActive.clear();
-  categoryActive.clear();
-  placementBtns.forEach(btn => btn.classList.remove('active'));
-  categoryBtns.forEach(btn => btn.classList.remove('active'));
-  renderResults(searchBox.value);
-});
-
-// Reset filters on page load
-window.addEventListener('load', () => {
-  placementActive.clear();
-  categoryActive.clear();
-  placementBtns.forEach(btn => btn.classList.remove('active'));
-  categoryBtns.forEach(btn => btn.classList.remove('active'));
+// optional: close dropdown if you click outside
+document.addEventListener('click', () => {
+  document.querySelectorAll('.dropdown-options').forEach(drop => {
+    drop.style.display = 'none';
+  });
 });
 
 
