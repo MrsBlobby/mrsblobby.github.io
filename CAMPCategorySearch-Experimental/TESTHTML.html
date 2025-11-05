@@ -134,6 +134,13 @@
   -webkit-appearance: none;
 }
 
+.search-line {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  max-width: 450px;
+  align-items: center; 
+}
 
   .controls label {
     font-size: 14px;
@@ -482,7 +489,6 @@
   </div>
 </div>
 
-
     <!-- Version history -->
 <div class="container">
     <details>
@@ -551,7 +557,6 @@
 <div class="controls">
   <div class="search-line">
     <input type="text" id="searchBox" placeholder="Search..." />
-
     <div class="custom-dropdown">
       <div id="dropdownSelected">Item Name</div>
       <div id="dropdownOptions">
@@ -656,6 +661,7 @@ sortOptions.querySelectorAll('.option').forEach(option => {
     renderResults(searchBox.value);
   });
 });
+
 
 
       let currentPage = 1;
@@ -805,7 +811,6 @@ const CategoryIcons = {
   'Pet Furniture': '/assets/SubCategory-PetFurnitureIcon.png'
 };
 
-
       function renderResults(query) {
         const normalizedQuery = query.toLowerCase();
         const queryChanged = normalizedQuery !== lastQuery;
@@ -826,7 +831,7 @@ const filtered = db.filter(item => {
   }
 });
 
-        const sorted = sortItems(filteredWithFilters);
+        const sorted = sortItems(filtered);
 
         // reset to page 1 if query changed or current page is now out of range
         const totalPages = Math.ceil(sorted.length / itemsPerPage);
