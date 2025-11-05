@@ -1136,32 +1136,18 @@ function renderResults(query) {
   else if (currentSearchBy === 'entm') matchesSearch = item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
 
   // filter buttons
-let matchesFilters = true;
+let placementFilters = new Set(['plan', 'entitlement']);
 
-if (activeFilters.size) {
-    // Define which filters are considered "placement-type" (OR)
-    const placementFilters = new Set(['plan', 'entitlement']);
-
-    // Split active filters into placement-type and category-type
-    const activePlacement = [...activeFilters].filter(f => placementFilters.has(f));
-    const activeCategory = [...activeFilters].filter(f => !placementFilters.has(f));
-
+let matchesFilters = activeFilters.size === 0 || (
     // OR logic for placement filters
-    if (activePlacement.length) {
-        matchesFilters = activePlacement.some(f => {
-            if (f === 'plan') return item.BOOK_FULL && item.BOOK_FULL.trim() !== '';
-            if (f === 'entitlement') return item.ENTM_FULL && item.ENTM_FULL.trim() !== '';
-            return false;
-        });
-    }
-
+    [...activeFilters].some(f => placementFilters.has(f) && (
+        (f === 'plan' && item.BOOK_FULL?.trim()) ||
+        (f === 'entitlement' && item.ENTM_FULL?.trim())
+    )) 
     // AND logic for category/subcategory filters
-    if (activeCategory.length) {
-        matchesFilters = matchesFilters && activeCategory.every(f =>
-            (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f
-        );
-    }
-}
+    && [...activeFilters].filter(f => !placementFilters.has(f))
+       .every(f => (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f)
+);
 
 
   return matchesSearch && matchesFilters;
