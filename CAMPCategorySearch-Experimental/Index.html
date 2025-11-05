@@ -624,6 +624,29 @@ sortSelected.addEventListener('click', (e) => {
 // --- CLOSE WHEN CLICKING OUTSIDE ---
 document.addEventListener('click', closeAllDropdowns);
 
+// SEARCH BY options
+dropdownOptions.querySelectorAll('.option').forEach(option => {
+  option.addEventListener('click', () => {
+    currentSearchBy = option.dataset.value;
+    dropdownSelected.textContent = 'Search By: ' + option.textContent;
+    dropdownOptions.style.display = 'none';
+    dropdownSelected.classList.remove('open');
+    renderResults(searchBox.value);
+  });
+});
+
+// SORT BY options
+sortOptions.querySelectorAll('.option').forEach(option => {
+  option.addEventListener('click', () => {
+    currentSort = option.dataset.value;
+    sortSelected.textContent = option.textContent;
+    sortOptions.style.display = 'none';
+    sortSelected.classList.remove('open');
+    renderResults(searchBox.value);
+  });
+});
+
+
 
       let currentPage = 1;
       const itemsPerPage = 50;
