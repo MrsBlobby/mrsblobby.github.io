@@ -134,6 +134,13 @@
   -webkit-appearance: none;
 }
 
+.search-line {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  max-width: 450px;
+  align-items: center; 
+}
 
   .controls label {
     font-size: 14px;
@@ -1030,6 +1037,15 @@ window.addEventListener('load', () => {
   placementBtns.forEach(btn => btn.classList.remove('active'));
   categoryBtns.forEach(btn => btn.classList.remove('active'));
 });
+
+const filterToggle = document.getElementById('filterSelected'); // or your button that opens the menu
+
+filterToggle.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent document click from firing
+  const menu = document.getElementById('filterOptions');
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+});
+
 
 // optional: close dropdown if you click outside
 document.addEventListener('click', (e) => {
