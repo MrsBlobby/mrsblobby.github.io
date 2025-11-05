@@ -483,7 +483,12 @@
 
 .filter-header {
   font-weight: bold;
-  margin-bottom: 4px;
+  margin: 4px 0 4px 0; 
+  padding: 2px 0;      
+  background-color: rgba(255, 192, 15, 0.1); 
+  color: var(--accent);
+  text-align: center;
+  border-radius: 4px;
 }
 
 #filtersOptions button {
@@ -495,22 +500,29 @@
 }
 
 #filtersOptions button[data-filter] {
-  background-color: var(--card-bg);   
-  color: var(--text);                
-  border: none;                       
-  border-radius: 0;                  
-  padding: 0px 8px;                    
-  text-align: center;                  
-  width: 100%;                       
+  display: block;
+  width: 100%;
+  padding: 2px 6px; 
+  margin: 0;         
+  text-align: center;
+  border: none;
+  background: none;  
+  color: white;     
+  font-size: 13px;   
+  line-height: 1.2;
   cursor: pointer;
   transition: background 0.2s;
-  font-size: 14px;
 }
 
 #filtersOptions button[data-filter].selected {
   background-color: var(--accent);       
   color: black;                         
   border-color: var(--accent);
+}
+
+#filtersOptions button[data-filter]:hover {
+  background: var(--accent-dim);
+  color: black;
 }
 
 .filter-header {
