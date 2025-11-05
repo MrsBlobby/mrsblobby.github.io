@@ -589,6 +589,7 @@
     .then(response => response.json())
     .then(db => {
       const searchBox = document.getElementById('searchBox');
+      searchBox.value = '';
       const results = document.getElementById('results');
       const pagination = document.getElementById('pagination');
 
