@@ -1140,18 +1140,16 @@ let placementFilters = new Set(['plan', 'entitlement']);
 
 let matchesFilters = activeFilters.size === 0 || (
     // OR logic for placement filters
-    [...activeFilters].some(f => placementFilters.has(f) && (
-        (f === 'plan' && item.BOOK_FULL?.trim()) ||
-        (f === 'entitlement' && item.ENTM_FULL?.trim())
-    )) 
+    ( [...activeFilters].filter(f => placementFilters.has(f))
+        .some(f => (f === 'plan' && item.BOOK_FULL?.trim()) ||
+                   (f === 'entitlement' && item.ENTM_FULL?.trim())) 
+    || [...activeFilters].filter(f => !placementFilters.has(f)).length === 0 )  // no category filters selected
+    &&
     // AND logic for category/subcategory filters
-    && [...activeFilters].filter(f => !placementFilters.has(f))
-       .every(f => (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f)
+    [...activeFilters].filter(f => !placementFilters.has(f))
+        .every(f => (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f)
 );
 
-
-  return matchesSearch && matchesFilters;
-});
 
 
   const sorted = sortItems(filtered);
