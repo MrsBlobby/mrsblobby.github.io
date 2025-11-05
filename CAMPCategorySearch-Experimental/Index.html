@@ -585,72 +585,37 @@ let currentSearchBy = 'name'; // default
 // initial display
 dropdownSelected.textContent = 'Search By: Item Name';
 
-// toggle dropdown
-dropdownSelected.addEventListener('click', () => {
-  const isOpen = dropdownOptions.style.display === 'block';
-  dropdownOptions.style.display = isOpen ? 'none' : 'block';
+function closeAllDropdowns() {
+  dropdownOptions.style.display = 'none';
+  dropdownSelected.classList.remove('open');
+  sortOptions.style.display = 'none';
+  sortSelected.classList.remove('open');
+}
 
-  // toggle class on the selected box 
+// --- SEARCH BY ---
+dropdownSelected.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = dropdownOptions.style.display === 'block';
+  closeAllDropdowns();
   if (!isOpen) {
+    dropdownOptions.style.display = 'block';
     dropdownSelected.classList.add('open');
-  } else {
-    dropdownSelected.classList.remove('open');
   }
 });
 
-const sortDropdown = document.getElementById('sortDropdown');
-const sortSelected = document.getElementById('sortSelected');
-const sortOptions = document.getElementById('sortOptions');
-
-let currentSort = 'camp-top'; // default
-
-// toggle dropdown
+// --- SORT BY ---
 sortSelected.addEventListener('click', (e) => {
   e.stopPropagation();
   const isOpen = sortOptions.style.display === 'block';
-  sortOptions.style.display = isOpen ? 'none' : 'block';
-  sortSelected.classList.toggle('open', !isOpen);
-});
-
-// select option
-sortOptions.querySelectorAll('.option').forEach(opt => {
-  opt.addEventListener('click', () => {
-    currentSort = opt.dataset.value;
-    sortSelected.textContent = opt.textContent;
-    sortOptions.style.display = 'none';
-    sortSelected.classList.remove('open');
-
-    // trigger the same sorting logic as before
-    currentPage = 1;
-    renderResults(searchBox.value.toLowerCase());
-  });
-});
-
-
-// select option
-dropdownOptions.querySelectorAll('.option').forEach(opt => {
-  opt.addEventListener('click', () => {
-    currentSearchBy = opt.dataset.value;
-    dropdownSelected.textContent = `Search By: ${opt.textContent}`; // add prefix only in selected div
-    dropdownOptions.style.display = 'none';
-    currentPage = 1;
-    renderResults(searchBox.value.toLowerCase());
-  });
-});
-
-document.addEventListener('click', (e) => {
-  // Close search dropdown if click outside
-  if (!dropdownSelected.contains(e.target) && !dropdownOptions.contains(e.target)) {
-    dropdownOptions.style.display = 'none';
-    dropdownSelected.classList.remove('open'); 
-  }
-
-  // Close sort dropdown if click outside
-  if (!sortDropdown.contains(e.target) && !sortOptions.contains(e.target)) {
-    sortOptions.style.display = 'none';
-    sortSelected.classList.remove('open');
+  closeAllDropdowns();
+  if (!isOpen) {
+    sortOptions.style.display = 'block';
+    sortSelected.classList.add('open');
   }
 });
+
+// --- CLOSE WHEN CLICKING OUTSIDE ---
+document.addEventListener('click', closeAllDropdowns);
 
 
       let currentPage = 1;
@@ -666,40 +631,6 @@ document.addEventListener('click', (e) => {
         if (mode === 'za') return [...items].sort((a, b) => (b.Name || '').localeCompare(a.Name || ''));
         return items;
       }
-
-
-function closeAllDropdowns() {
-  dropdownOptions.style.display = 'none';
-  dropdownSelected.classList.remove('open');
-  sortOptions.style.display = 'none';
-  sortSelected.classList.remove('open');
-}
-
-// --- SEARCH BY ---
-dropdownSelected.addEventListener('click', (e) => {
-  e.stopPropagation();
-  const isOpen = dropdownOptions.style.display === 'block'; // check first
-  closeAllDropdowns();
-  if (!isOpen) {
-    dropdownOptions.style.display = 'block';
-    dropdownSelected.classList.add('open');
-  }
-});
-
-// --- SORT BY ---
-sortSelected.addEventListener('click', (e) => {
-  e.stopPropagation();
-  const isOpen = sortOptions.style.display === 'block'; // check first
-  closeAllDropdowns();
-  if (!isOpen) {
-    sortOptions.style.display = 'block';
-    sortSelected.classList.add('open');
-  }
-});
-
-// --- CLOSE WHEN CLICKING OUTSIDE ---
-document.addEventListener('click', closeAllDropdowns);
-
 
       function paginate(items) {
         const start = (currentPage - 1) * itemsPerPage;
