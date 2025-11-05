@@ -418,6 +418,40 @@
   color: var(--accent);
 }
 
+.filterDropdown {
+  position: relative;
+  display: inline-block;
+  margin: 12px auto; /* centers it horizontally */
+}
+
+#filterSelected {
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: var(--card-bg);
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#filterSelected:hover {
+  background-color: var(--accent);
+  color: black;
+}
+
+.dropdown-selected {
+  height: 36px;              
+  padding: 0 12px;           
+  font-size: 14px;           
+  display: flex;
+  align-items: center;       
+  border: 1px solid #ccc;    
+  border-radius: 6px;        
+  background-color: #fff;
+  cursor: pointer;
+}
+
 
 #searchBox {
   flex: 1;
