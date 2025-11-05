@@ -1143,13 +1143,17 @@ let matchesFilters = activeFilters.size === 0 || (
     ( [...activeFilters].filter(f => placementFilters.has(f))
         .some(f => (f === 'plan' && item.BOOK_FULL?.trim()) ||
                    (f === 'entitlement' && item.ENTM_FULL?.trim())) 
-    || [...activeFilters].filter(f => !placementFilters.has(f)).length === 0 )  // no category filters selected
+    || [...activeFilters].filter(f => !placementFilters.has(f)).length === 0 )  
     &&
     // AND logic for category/subcategory filters
     [...activeFilters].filter(f => !placementFilters.has(f))
         .every(f => (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f)
 );
 
+
+
+  return matchesSearch && matchesFilters;
+});
 
 
   const sorted = sortItems(filtered);
