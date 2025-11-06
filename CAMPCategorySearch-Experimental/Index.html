@@ -1428,7 +1428,7 @@ filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
     // Decide icon: exact full-name override first (guaranteed), else EDID-based rules
     let iconSrc = '';
 
-    // Exact forced names (guaranteed) - ensure these map to the standard EDID when present
+    // Exact forced names to ensure these map to the standard EDID when present
     if (ExactPairs[fullUpper]) {
       // Only give AdditionalStorage when the matchedEDID equals or contains the expected EDID,
       // or if the expected EDID wasn't found but edidUpper starts with F1_
@@ -1500,8 +1500,6 @@ filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
     }
   });
 }
-
-
 
       right.appendChild(condWrap);
     }
