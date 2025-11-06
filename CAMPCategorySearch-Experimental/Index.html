@@ -1338,88 +1338,81 @@ filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
         condWrap.appendChild(conn);
       }
       // --- ENTM pill ---
-      if (hasEntm) {
-        let entmFull = r.ENTM_FULL
-          ?.replace(/[\s;]*UTILITY_ENTM_ItemDisableEntitlement\s*\[ENTM:[0-9A-Fa-f]+\][\s;]*/gi, '')
-          .trim();
-        const edid = String(r.ENTM_EDID || '');
+    // --- ENTM pills (support multiple) ---
+if (hasEntm) {
+  // Split ENTM_FULL by semicolon or comma (adjust if your data uses different separator)
+  const entmItems = String(r.ENTM_FULL || '')
+    .split(/[\s;]+/)
+    .map(e => e.trim())
+    .filter(Boolean)
+    .map(e =>
+      e.replace(/UTILITY_ENTM_ItemDisableEntitlement\s*\[ENTM:[0-9A-Fa-f]+\]/gi, '').trim()
+    );
 
-        // --- Mini Season Aliases ---
-        const miniSeasonAliases = {
-          'SCORE_MiniSeason_2025_MMMFE': 'Marshal Mallow',
-        };
+  const edid = String(r.ENTM_EDID || '');
+  const ManualEntmIcons = {
+    'Babylon_': '/assets/V51Icon.png',
+    'Shelters_': '/assets/AtomIcon.png',
+  };
+  const miniSeasonAliases = {
+    'SCORE_MiniSeason_2025_MMMFE': 'Marshal Mallow',
+  };
 
-        // --- Manual icon overrides ---
-        const ManualEntmIcons = {
-          'Babylon_': '/assets/V51Icon.png',
-          'Shelters_': '/assets/AtomIcon.png',
-        };
+  entmItems.forEach((entmFull) => {
+    const entmPill = document.createElement('span');
+    entmPill.className = 'pill';
 
-        // --- Determine tag based on EDID ---
-        let tag = '';
-        const edidUpper = edid.toUpperCase();
-        if (edidUpper.includes('ATX')) {
-          tag = 'Atomic Shop';
-        } else if (edidUpper.includes('SCORE_MINISEASON')) {
-          const aliasKey = Object.keys(miniSeasonAliases).find(key => edid.includes(key));
-          if (aliasKey) {
-            tag = `S.C.O.R.E. - Mini Season ${miniSeasonAliases[aliasKey]}`;
-          } else {
-            const match = edid.match(/SCORE[_-]?MiniSeason_\d+_([A-Za-z0-9]+?)(?:_ENTM|$)/i);
-            if (match) {
-              const namePart = match[1].replace(/([a-z])([A-Z])/g, '$1 $2').replace(/_/g, ' ');
-              tag = `S.C.O.R.E. - Mini Season ${namePart}`;
-            } else {
-              tag = 'S.C.O.R.E. - Mini Season';
-            }
-          }
-        } else {
-          const scoreMatch = edid.match(/SCORE[_-]?S?(\d+)/i);
-          if (scoreMatch) {
-            tag = `S.C.O.R.E. - Season ${scoreMatch[1]}`;
-          } else if (edidUpper.includes('SCORE')) {
-            tag = 'S.C.O.R.E.';
-          }
-        }
+    const icon = document.createElement('img');
+    icon.style.width = '30px';
+    icon.style.height = '30px';
+    icon.style.verticalAlign = 'middle';
+    icon.style.marginRight = '6px';
 
-        // --- Create ENTM pill ---
-        const entmPill = document.createElement('span');
-        entmPill.className = 'pill';
+    let tag = '';
+    const edidUpper = edid.toUpperCase();
+    if (edidUpper.includes('ATX')) {
+      tag = 'Atomic Shop';
+    } else if (edidUpper.includes('SCORE_MINISEASON')) {
+      const aliasKey = Object.keys(miniSeasonAliases).find(key => edid.includes(key));
+      tag = aliasKey
+        ? `S.C.O.R.E. - Mini Season ${miniSeasonAliases[aliasKey]}`
+        : `S.C.O.R.E. - Mini Season`;
+    } else if (/SCORE[_-]?S?(\d+)/i.test(edid)) {
+      const seasonMatch = edid.match(/SCORE[_-]?S?(\d+)/i);
+      tag = `S.C.O.R.E. - Season ${seasonMatch[1]}`;
+    } else if (edidUpper.includes('SCORE')) {
+      tag = 'S.C.O.R.E.';
+    }
 
-        const icon = document.createElement('img');
-        icon.style.width = '30px';
-        icon.style.height = '30px';
-        icon.style.verticalAlign = 'middle';
-        icon.style.marginRight = '6px';
+    let textSuffix = '';
+    if (tag === 'Atomic Shop') {
+      icon.src = '/assets/AtomIcon.png';
+    } else if (tag.startsWith('S.C.O.R.E. - Mini Season')) {
+      icon.src = '/assets/SeasonIcon.png';
+      const miniMatch = tag.match(/Mini Season (.+)/);
+      if (miniMatch) textSuffix = ` (Mini Season: ${miniMatch[1]})`;
+    } else if (tag.startsWith('S.C.O.R.E. - Season')) {
+      icon.src = '/assets/SeasonIcon.png';
+      const seasonMatch = tag.match(/Season (\d+)/);
+      if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
+    }
 
-        let textSuffix = '';
-        if (tag === 'Atomic Shop') {
-          icon.src = '/assets/AtomIcon.png';
-        } else if (tag.startsWith('S.C.O.R.E. - Mini Season')) {
-          icon.src = '/assets/SeasonIcon.png';
-          const miniMatch = tag.match(/Mini Season (.+)/);
-          if (miniMatch) textSuffix = ` (Mini Season: ${miniMatch[1]})`;
-        } else if (tag.startsWith('S.C.O.R.E. - Season')) {
-          icon.src = '/assets/SeasonIcon.png';
-          const seasonMatch = tag.match(/Season (\d+)/);
-          if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
-        }
-
-        // --- Apply manual icon overrides ---
-        for (const key in ManualEntmIcons) {
-          if (edid.includes(key)) {
-            icon.src = ManualEntmIcons[key];
-            textSuffix = '';
-            break;
-          }
-        }
-
-        entmPill.innerHTML = '';
-        entmPill.appendChild(icon);
-        entmPill.appendChild(document.createTextNode(entmFull + textSuffix));
-
-        condWrap.appendChild(entmPill);
+    // Manual overrides
+    for (const key in ManualEntmIcons) {
+      if (edid.includes(key)) {
+        icon.src = ManualEntmIcons[key];
+        textSuffix = '';
+        break;
       }
+    }
+
+    entmPill.innerHTML = '';
+    entmPill.appendChild(icon);
+    entmPill.appendChild(document.createTextNode(entmFull + textSuffix));
+    condWrap.appendChild(entmPill);
+  });
+}
+
 
       right.appendChild(condWrap);
     }
