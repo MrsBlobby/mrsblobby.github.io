@@ -1358,14 +1358,6 @@ filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
   entmFullList.forEach((fullName, index) => {
     const edid = entmEdidList[index] || '';
 
-    // Determine default tag
-    let tag = '';
-    const edidUpper = edid.toUpperCase();
-    if (edidUpper.includes('ATX')) tag = 'Atomic Shop';
-    else if (edidUpper.includes('SCORE_MINISEASON')) tag = 'Mini Season';
-    else if (/SCORE[_-]?S?(\d+)/i.test(edid)) tag = 'S.C.O.R.E. - Season';
-    else if (edidUpper.includes('SCORE')) tag = 'S.C.O.R.E.';
-
     // Create pill
     const pill = document.createElement('span');
     pill.className = 'pill';
@@ -1384,13 +1376,20 @@ filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
       }
     }
 
-    // Fallback icon if none applied
     if (!icon.src) icon.src = '/assets/SeasonIcon.png';
 
     pill.appendChild(icon);
     pill.appendChild(document.createTextNode(fullName));
 
     condWrap.appendChild(pill);
+
+    // Insert "and" connector if not the last pill
+    if (index < entmFullList.length - 1) {
+      const conn = document.createElement('span');
+      conn.className = 'connector';
+      conn.textContent = 'and';
+      condWrap.appendChild(conn);
+    }
   });
 }
 
