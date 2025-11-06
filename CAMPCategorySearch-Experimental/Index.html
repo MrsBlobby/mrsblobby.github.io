@@ -1184,6 +1184,7 @@ filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
 
   // --- Filter the DB ---
   const filtered = db.filter(item => {
+    if (!item.Name || item.Name === 'null' || item.Name.trim() === '') return false;
     // basic search
     let matchesSearch;
     if (!normalizedQuery) matchesSearch = true;
