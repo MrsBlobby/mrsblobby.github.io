@@ -548,6 +548,12 @@ nt fucked pre button move
   border-bottom-right-radius: 0;
 }
 
+#filtersOptions.open {
+  border-top: none; 
+  border-radius: 0 0 6px 6px;
+  display: block; 
+}
+
 .clear-filters {
   margin-top: 4px;               /* reduce gap above button */
   padding: 4px 8px;              /* small button */
@@ -562,7 +568,8 @@ nt fucked pre button move
 }
 
 #filtersOptions {
-  display: flex;
+  display: none;
+  position: absolute;
   flex-direction: column;
   gap: 0;                 
   padding: 0;
@@ -1039,9 +1046,13 @@ sortSelected.addEventListener('click', e => {
 document.addEventListener('click', closeAllDropdowns);
 
 filtersButton.addEventListener('click', e => {
-  e.stopPropagation();
-  const isOpen = filtersOptions.style.display === 'block';
-  filtersOptions.style.display = isOpen ? 'none' : 'block';
+  e.stopPropagation(); // Prevent immediate outside click close
+  filtersOptions.classList.toggle('open');
+});
+
+// Close dropdown if clicking outside
+document.addEventListener('click', () => {
+  filtersOptions.classList.remove('open');
 });
 
 filtersOptions.addEventListener('click', e => e.stopPropagation());
