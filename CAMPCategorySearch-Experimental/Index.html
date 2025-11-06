@@ -1349,16 +1349,22 @@ filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
     .map(s => s.trim())
     .filter(Boolean);
 
+  // Manual overrides based on ENTM_FULL
+  const FullNameOverrides = {
+    'Scrapbox': '/assets/SubCategory-AdditionalStorageIcon.svg',
+    'Ammo Storage Box': '/assets/SubCategory-AdditionalStorageIcon.svg',
+    'Aid Box': '/assets/SubCategory-AdditionalStorageIcon.svg',
+  };
+
+  // EDID-based icons (fallbacks)
   const ManualEntmIcons = {
     'Babylon_': '/assets/V51Icon.png',
     'Shelters_': '/assets/AtomIcon.png',
-    'F1_': '/assets/SubCategory-AdditionalStorageIcon.svg'
   };
 
   entmFullList.forEach((fullName, index) => {
     const edid = entmEdidList[index] || '';
 
-    // Create pill
     const pill = document.createElement('span');
     pill.className = 'pill';
 
@@ -1368,22 +1374,35 @@ filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
     icon.style.verticalAlign = 'middle';
     icon.style.marginRight = '6px';
 
-    // Apply manual icons
-    for (const key in ManualEntmIcons) {
-      if (edid.includes(key)) {
-        icon.src = ManualEntmIcons[key];
+    // First, check full name overrides
+    let iconSrc = '';
+    for (const key in FullNameOverrides) {
+      if (fullName.includes(key)) {
+        iconSrc = FullNameOverrides[key];
         break;
       }
     }
 
-    if (!icon.src) icon.src = '/assets/SeasonIcon.png';
+    // If not overridden, check EDID mapping
+    if (!iconSrc) {
+      for (const key in ManualEntmIcons) {
+        if (edid.includes(key)) {
+          iconSrc = ManualEntmIcons[key];
+          break;
+        }
+      }
+    }
 
+    // Default icon if still empty
+    if (!iconSrc) iconSrc = '';
+
+    icon.src = iconSrc;
     pill.appendChild(icon);
     pill.appendChild(document.createTextNode(fullName));
 
     condWrap.appendChild(pill);
 
-    // Insert "and" connector if not the last pill
+    // Add connector "and" if multiple ENTM pills
     if (index < entmFullList.length - 1) {
       const conn = document.createElement('span');
       conn.className = 'connector';
