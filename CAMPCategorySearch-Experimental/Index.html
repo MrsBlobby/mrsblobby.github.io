@@ -1337,79 +1337,98 @@ filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
         condWrap.appendChild(conn);
       }
       // --- ENTM pill ---
-    if (hasEntm) {
-  const entmFullList = r.ENTM_FULL
-    ?.split(';')
-    .map(s => s.trim())
-    .filter(Boolean) || [];
+  if (hasEntm) {
+    // --- Split multiple ENTM_FULLs and EDIDs ---
+    const entmFulls = r.ENTM_FULL
+        .split(';')
+        .map(s => s
+            .replace(/[\s;]*UTILITY_ENTM_ItemDisableEntitlement\s*\[ENTM:[0-9A-Fa-f]+\][\s;]*/gi, '')
+            .trim()
+        )
+        .filter(Boolean);
 
-  const entmEdidList = (r.ENTM_EDID || '')
-    .split(';')
-    .map(s => s.trim())
-    .filter(Boolean);
+    const entmEdids = String(r.ENTM_EDID || '').split(';').map(s => s.trim());
 
-  // Manual overrides based on ENTM_FULL
-  const FullNameOverrides = {
-    'Scrapbox': '/assets/SubCategory-AdditionalStorageIcon.svg',
-    'Ammo Storage Box': '/assets/SubCategory-AdditionalStorageIcon.svg',
-    'Aid Box': '/assets/SubCategory-AdditionalStorageIcon.svg',
-  };
+    const entmPills = [];
 
-  // EDID-based icons (fallbacks)
-  const ManualEntmIcons = {
-    'Babylon_': '/assets/V51Icon.png',
-    'Shelters_': '/assets/AtomIcon.png',
-  };
+    entmFulls.forEach((fullName, idx) => {
+        const edid = entmEdids[idx] || '';
 
-  entmFullList.forEach((fullName, index) => {
-    const edid = entmEdidList[index] || '';
+        // --- Determine tag based on EDID ---
+        let tag = '';
+        const edidUpper = edid.toUpperCase();
 
-    const pill = document.createElement('span');
-    pill.className = 'pill';
-
-    const icon = document.createElement('img');
-    icon.style.width = '30px';
-    icon.style.height = '30px';
-    icon.style.verticalAlign = 'middle';
-    icon.style.marginRight = '6px';
-
-    // First, check full name overrides
-    let iconSrc = '';
-    for (const key in FullNameOverrides) {
-      if (fullName.includes(key)) {
-        iconSrc = FullNameOverrides[key];
-        break;
-      }
-    }
-
-    // If not overridden, check EDID mapping
-    if (!iconSrc) {
-      for (const key in ManualEntmIcons) {
-        if (edid.includes(key)) {
-          iconSrc = ManualEntmIcons[key];
-          break;
+        if (edidUpper.includes('ATX')) {
+            tag = 'Atomic Shop';
+        } else if (edidUpper.includes('SCORE_MINISEASON')) {
+            const match = edid.match(/SCORE[_-]?MiniSeason_\d+_([A-Za-z0-9]+?)(?:_ENTM|$)/i);
+            tag = match ? `S.C.O.R.E. - Mini Season ${match[1].replace(/([a-z])([A-Z])/g,'$1 $2').replace(/_/g,' ')}` : 'S.C.O.R.E. - Mini Season';
+        } else if (edidUpper.match(/SCORE[_-]?S?(\d+)/i)) {
+            const seasonMatch = edidUpper.match(/SCORE[_-]?S?(\d+)/i);
+            tag = seasonMatch ? `S.C.O.R.E. - Season ${seasonMatch[1]}` : 'S.C.O.R.E.';
         }
-      }
-    }
 
-    // Default icon if still empty
-    if (!iconSrc) iconSrc = '';
+        // --- Manual FO1st box overrides ---
+        let iconSrc = '';
+        if (edid.startsWith('F1_')) {
+            iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
+        }
 
-    icon.src = iconSrc;
-    pill.appendChild(icon);
-    pill.appendChild(document.createTextNode(fullName));
+        // --- Other manual icons ---
+        const ManualEntmIcons = {
+            'Babylon_': '/assets/V51Icon.png',
+            'Shelters_': '/assets/AtomIcon.png',
+        };
+        for (const key in ManualEntmIcons) {
+            if (edid.includes(key)) {
+                iconSrc = ManualEntmIcons[key];
+                break;
+            }
+        }
 
-    condWrap.appendChild(pill);
+        // --- Season / Mini Season default icon if none manually assigned ---
+        if (!iconSrc) {
+            if (tag === 'Atomic Shop') iconSrc = '/assets/AtomIcon.png';
+            else if (tag.startsWith('S.C.O.R.E.')) iconSrc = '/assets/SeasonIcon.png';
+        }
 
-    // Add connector "and" if multiple ENTM pills
-    if (index < entmFullList.length - 1) {
-      const conn = document.createElement('span');
-      conn.className = 'connector';
-      conn.textContent = 'and';
-      condWrap.appendChild(conn);
-    }
-  });
+        // --- Optional text suffix ---
+        let textSuffix = '';
+        const miniMatch = tag.match(/Mini Season (.+)/);
+        const seasonMatch = tag.match(/Season (\d+)/);
+        if (miniMatch) textSuffix = ` (Mini Season: ${miniMatch[1]})`;
+        else if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
+
+        // --- Build the pill ---
+        const pill = document.createElement('span');
+        pill.className = 'pill';
+
+        if (iconSrc) {
+            const icon = document.createElement('img');
+            icon.src = iconSrc;
+            icon.style.width = '30px';
+            icon.style.height = '30px';
+            icon.style.verticalAlign = 'middle';
+            icon.style.marginRight = '6px';
+            pill.appendChild(icon);
+        }
+
+        pill.appendChild(document.createTextNode(fullName + textSuffix));
+        entmPills.push(pill);
+    });
+
+    // --- Add pills with "and" connectors ---
+    entmPills.forEach((pill, i) => {
+        condWrap.appendChild(pill);
+        if (i < entmPills.length - 1) {
+            const conn = document.createElement('span');
+            conn.className = 'connector';
+            conn.textContent = 'and';
+            condWrap.appendChild(conn);
+        }
+    });
 }
+
 
 
       right.appendChild(condWrap);
