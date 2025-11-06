@@ -1337,112 +1337,168 @@ filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
         condWrap.appendChild(conn);
       }
       // --- ENTM pill ---
-  if (hasEntm) {
-    // --- Split multiple ENTM_FULLs and EDIDs ---
-    const entmFulls = r.ENTM_FULL
-        .split(';')
-        .map(s => s
-            .replace(/[\s;]*UTILITY_ENTM_ItemDisableEntitlement\s*\[ENTM:[0-9A-Fa-f]+\][\s;]*/gi, '')
-            .trim()
-        )
-        .filter(Boolean);
+ if (hasEntm) {
+  // --- prepare lists ---
+  const entmFulls = String(r.ENTM_FULL || '')
+    .split(';')
+    .map(s => s
+      .replace(/[\s;]*UTILITY_ENTM_ItemDisableEntitlement\s*\[ENTM:[0-9A-Fa-f]+\][\s;]*/gi, '')
+      .trim()
+    )
+    .filter(Boolean);
 
-    const entmEdids = String(r.ENTM_EDID || '').split(';').map(s => s.trim());
+  let entmEdids = String(r.ENTM_EDID || '')
+    .split(';')
+    .map(s => s.trim())
+    .filter(Boolean);
 
-    const entmPills = [];
+  // --- guaranteed exact pairs: fullName -> expected EDID (use these EDIDs first if present) ---
+  const ExactPairs = {
+    'SCRAPBOX': 'F1_ENTM_CAMP_ScrapBox_Standard',
+    'AMMO STORAGE BOX': 'F1_ENTM_CAMP_AmmoStorageBox_Standard',
+    'AID BOX': 'F1_ENTM_CAMP_AidBox_Standard'
+  };
 
-    entmFulls.forEach((fullName, idx) => {
-        const edid = entmEdids[idx] || '';
+  // EDID-based manual icons
+  const ManualEntmIcons = {
+    'BABYLON_': '/assets/V51Icon.png',
+    'SHELTERS_': '/assets/AtomIcon.png',
+  };
 
-        // --- Determine tag based on EDID ---
-        let tag = '';
-        const edidUpper = edid.toUpperCase();
+  // normaliser
+  const norm = txt => String(txt || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
 
-        if (edidUpper.includes('ATX')) {
-            tag = 'Atomic Shop';
-        } else if (edidUpper.includes('SCORE_MINISEASON')) {
-            const match = edid.match(/SCORE[_-]?MiniSeason_\d+_([A-Za-z0-9]+?)(?:_ENTM|$)/i);
-            tag = match ? `S.C.O.R.E. - Mini Season ${match[1].replace(/([a-z])([A-Z])/g,'$1 $2').replace(/_/g,' ')}` : 'S.C.O.R.E. - Mini Season';
-        } else if (edidUpper.match(/SCORE[_-]?S?(\d+)/i)) {
-            const seasonMatch = edidUpper.match(/SCORE[_-]?S?(\d+)/i);
-            tag = seasonMatch ? `S.C.O.R.E. - Season ${seasonMatch[1]}` : 'S.C.O.R.E.';
-        }
-
-// --- Manual scrapbox overrides (exact name–EDID pairs) ---
-let iconSrc = '';
-const pairs = {
-  'SCRAPBOX': 'F1_ENTM_CAMP_ScrapBox_Standard',
-  'AMMO STORAGE BOX': 'F1_ENTM_CAMP_AmmoStorageBox_Standard',
-  'AID BOX': 'F1_ENTM_CAMP_AidBox_Standard'
-};
-
-for (const [full, expectedEdid] of Object.entries(pairs)) {
-  if (fullName.trim().toUpperCase() === full && edid === expectedEdid) {
-    iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
-    break;
+  // helper: find and remove an edid from entmEdids by predicate
+  function findAndRemoveEdid(pred) {
+    const idx = entmEdids.findIndex(pred);
+    return idx >= 0 ? entmEdids.splice(idx, 1)[0] : '';
   }
-}
 
-if (!iconSrc && edid.startsWith('F1_')) {
-  iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
-}
+  // first pass: if fullName matches an ExactPair key, try to locate its expected EDID anywhere
+  // and reserve it (remove from list). If found, attach that EDID to this fullName via mapping.
+  const reservedEdidMap = {}; // fullName -> matchedEdid
+  entmFulls.forEach(full => {
+    const key = full.trim().toUpperCase();
+    if (ExactPairs[key]) {
+      const expected = ExactPairs[key];
+      // prefer exact match, then contains, then contains ignoring underscores/case
+      let matched = findAndRemoveEdid(e => e.toUpperCase() === expected.toUpperCase())
+        || findAndRemoveEdid(e => e.toUpperCase().includes(expected.toUpperCase()))
+        || findAndRemoveEdid(e => expected.toUpperCase().includes(e.toUpperCase()));
+      if (matched) reservedEdidMap[full] = matched;
+    }
+  });
 
+  // helper: best-effort pick for remaining full names
+  function pickBestEdidForFull(fullName) {
+    if (!entmEdids.length) return '';
+    const fullNorm = norm(fullName);
 
+    // 1) exact normalized match
+    let idx = entmEdids.findIndex(e => norm(e) === fullNorm);
+    if (idx >= 0) return entmEdids.splice(idx, 1)[0];
 
+    // 2) substring / contains
+    idx = entmEdids.findIndex(e => fullName.includes(e) || e.includes(fullName));
+    if (idx >= 0) return entmEdids.splice(idx, 1)[0];
 
-        // --- Other manual icons ---
-        const ManualEntmIcons = {
-            'Babylon_': '/assets/V51Icon.png',
-            'Shelters_': '/assets/AtomIcon.png',
-        };
-        for (const key in ManualEntmIcons) {
-            if (edid.includes(key)) {
-                iconSrc = ManualEntmIcons[key];
-                break;
-            }
-        }
-
-        // --- Season / Mini Season default icon if none manually assigned ---
-        if (!iconSrc) {
-            if (tag === 'Atomic Shop') iconSrc = '/assets/AtomIcon.png';
-            else if (tag.startsWith('S.C.O.R.E.')) iconSrc = '/assets/SeasonIcon.png';
-        }
-
-        // --- Optional text suffix ---
-        let textSuffix = '';
-        const miniMatch = tag.match(/Mini Season (.+)/);
-        const seasonMatch = tag.match(/Season (\d+)/);
-        if (miniMatch) textSuffix = ` (Mini Season: ${miniMatch[1]})`;
-        else if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
-
-        // --- Build the pill ---
-        const pill = document.createElement('span');
-        pill.className = 'pill';
-
-        if (iconSrc) {
-            const icon = document.createElement('img');
-            icon.src = iconSrc;
-            icon.style.width = '30px';
-            icon.style.height = '30px';
-            icon.style.verticalAlign = 'middle';
-            icon.style.marginRight = '6px';
-            pill.appendChild(icon);
-        }
-
-        pill.appendChild(document.createTextNode(fullName + textSuffix));
-        entmPills.push(pill);
+    // 3) token overlap scoring
+    const fullTokens = fullName.toUpperCase().split(/[^A-Z0-9]+/).filter(Boolean);
+    let bestIdx = -1, bestScore = 0;
+    entmEdids.forEach((e, i) => {
+      const eTokens = e.toUpperCase().split(/[^A-Z0-9]+/).filter(Boolean);
+      const score = fullTokens.reduce((s, t) => s + (eTokens.includes(t) ? 1 : 0), 0);
+      if (score > bestScore) { bestScore = score; bestIdx = i; }
     });
+    if (bestIdx >= 0 && bestScore > 0) return entmEdids.splice(bestIdx, 1)[0];
 
-    // --- Add pills with "and" connectors ---
-    entmPills.forEach((pill, i) => {
-        condWrap.appendChild(pill);
-        if (i < entmPills.length - 1) {
-            const conn = document.createElement('span');
-            conn.className = 'connector';
-            conn.textContent = 'and';
-            condWrap.appendChild(conn);
+    // 4) fallback: take first remaining
+    return entmEdids.length ? entmEdids.splice(0,1)[0] : '';
+  }
+
+  // build pills
+  const entmPills = [];
+
+  entmFulls.forEach(fullName => {
+    // get matched edid: reserved first, else best-effort
+    let matchedEdid = reservedEdidMap[fullName] || pickBestEdidForFull(fullName);
+    const edidUpper = String(matchedEdid || '').toUpperCase();
+    const fullUpper = fullName.trim().toUpperCase();
+
+    // Decide icon: exact full-name override first (guaranteed), else EDID-based rules
+    let iconSrc = '';
+
+    // Exact forced names (guaranteed) - ensure these map to the standard EDID when present
+    if (ExactPairs[fullUpper]) {
+      // Only give AdditionalStorage when the matchedEDID equals or contains the expected EDID,
+      // or if the expected EDID wasn't found but edidUpper starts with F1_
+      const expected = ExactPairs[fullUpper].toUpperCase();
+      if (edidUpper === expected || edidUpper.includes(expected) || edidUpper.startsWith('F1_')) {
+        iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
+      } else {
+        // If the exact pair expected EDID is not matched, still prefer AdditionalStorage only
+        // if an F1_ EDID was matched; otherwise fall through to EDID logic.
+        if (edidUpper.startsWith('F1_')) iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
+      }
+    }
+
+    // EDID-based manual icons
+    if (!iconSrc) {
+      for (const key in ManualEntmIcons) {
+        if (edidUpper.includes(key)) {
+          iconSrc = ManualEntmIcons[key];
+          break;
         }
-    });
+      }
+    }
+
+    // F1_ generic rule (only if matchedEdid indicates F1_)
+    if (!iconSrc && edidUpper.startsWith('F1_')) {
+      iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
+    }
+
+    // ATX / SCORE fallbacks
+    if (!iconSrc) {
+      if (edidUpper.includes('ATX')) iconSrc = '/assets/AtomIcon.png';
+      else if (edidUpper.includes('SCORE_MINISEASON') || /SCORE[_-]?MINISEASON/i.test(matchedEdid)) iconSrc = '/assets/SeasonIcon.png';
+      else if (/SCORE[_-]?S?\d+/i.test(matchedEdid) || edidUpper.includes('SCORE')) iconSrc = '/assets/SeasonIcon.png';
+    }
+
+    // Build pill DOM
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+
+    if (iconSrc) {
+      const icon = document.createElement('img');
+      icon.src = iconSrc;
+      icon.style.width = '30px';
+      icon.style.height = '30px';
+      icon.style.verticalAlign = 'middle';
+      icon.style.marginRight = '6px';
+      pill.appendChild(icon);
+    }
+
+    // optional season suffix
+    let textSuffix = '';
+    const miniMatch = matchedEdid && matchedEdid.match(/MiniSeason_\d+_([A-Za-z0-9]+)/i);
+    const seasonMatch = matchedEdid && matchedEdid.match(/SCORE[_-]?S?(\d+)/i);
+    if (miniMatch) textSuffix = ` (Mini Season: ${miniMatch[1].replace(/_/g,' ')})`;
+    else if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
+
+    pill.appendChild(document.createTextNode(fullName + textSuffix));
+    entmPills.push(pill);
+  });
+
+  // append pills with "and" connectors
+  entmPills.forEach((pill, i) => {
+    condWrap.appendChild(pill);
+    if (i < entmPills.length - 1) {
+      const conn = document.createElement('span');
+      conn.className = 'connector';
+      conn.textContent = 'and';
+      condWrap.appendChild(conn);
+    }
+  });
 }
 
 
