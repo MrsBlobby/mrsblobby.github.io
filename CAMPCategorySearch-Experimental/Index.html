@@ -1368,18 +1368,26 @@ filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
             tag = seasonMatch ? `S.C.O.R.E. - Season ${seasonMatch[1]}` : 'S.C.O.R.E.';
         }
 
-// --- Manual FO1st box overrides (force exact by ENTM_FULL) ---
+// --- Manual scrapbox overrides (exact name–EDID pairs) ---
 let iconSrc = '';
-const nameUpper = fullName.toUpperCase();
-if (
-  nameUpper === 'SCRAPBOX' ||
-  nameUpper === 'AMMO STORAGE BOX' ||
-  nameUpper === 'AID BOX'
-) {
-  iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
-} else if (edid.startsWith('F1_')) {
+const pairs = {
+  'SCRAPBOX': 'F1_ENTM_CAMP_ScrapBox_Standard',
+  'AMMO STORAGE BOX': 'F1_ENTM_CAMP_AmmoStorageBox_Standard',
+  'AID BOX': 'F1_ENTM_CAMP_AidBox_Standard'
+};
+
+for (const [full, expectedEdid] of Object.entries(pairs)) {
+  if (fullName.trim().toUpperCase() === full && edid === expectedEdid) {
+    iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
+    break;
+  }
+}
+
+if (!iconSrc && edid.startsWith('F1_')) {
   iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
 }
+
+
 
 
         // --- Other manual icons ---
