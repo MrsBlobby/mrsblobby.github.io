@@ -1355,33 +1355,7 @@ filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
           'Shelters_': '/assets/AtomIcon.png',
         };
 
-        // --- Determine tag based on EDID ---
-        let tag = '';
-        const edidUpper = edid.toUpperCase();
-        if (edidUpper.includes('ATX')) {
-          tag = 'Atomic Shop';
-        } else if (edidUpper.includes('SCORE_MINISEASON')) {
-          const aliasKey = Object.keys(miniSeasonAliases).find(key => edid.includes(key));
-          if (aliasKey) {
-            tag = `S.C.O.R.E. - Mini Season ${miniSeasonAliases[aliasKey]}`;
-          } else {
-            const match = edid.match(/SCORE[_-]?MiniSeason_\d+_([A-Za-z0-9]+?)(?:_ENTM|$)/i);
-            if (match) {
-              const namePart = match[1].replace(/([a-z])([A-Z])/g, '$1 $2').replace(/_/g, ' ');
-              tag = `S.C.O.R.E. - Mini Season ${namePart}`;
-            } else {
-              tag = 'S.C.O.R.E. - Mini Season';
-            }
-          }
-        } else {
-          const scoreMatch = edid.match(/SCORE[_-]?S?(\d+)/i);
-          if (scoreMatch) {
-            tag = `S.C.O.R.E. - Season ${scoreMatch[1]}`;
-          } else if (edidUpper.includes('SCORE')) {
-            tag = 'S.C.O.R.E.';
-          }
-        }
-
+       
        // --- Split ENTM_FULL into multiple parts if needed ---
 let entmParts = [];
 if (r.ENTM_FULL) {
