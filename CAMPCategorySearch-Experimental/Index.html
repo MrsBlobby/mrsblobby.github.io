@@ -1077,24 +1077,27 @@ filtersButton.addEventListener('click', e => {
 // Prevent clicks inside filters dropdown from closing it
 filtersOptions.addEventListener('click', e => e.stopPropagation());
 
-// --- Clear filters button ---
+// Clear button handler
 clearFiltersBtn.addEventListener('click', e => {
   e.stopPropagation();
 
-  // Always close the other two dropdowns
+  // Close the other two dropdowns (always)
   dropdownOptions.style.display = 'none';
   dropdownSelected.classList.remove('open');
   sortOptions.style.display = 'none';
   sortSelected.classList.remove('open');
 
-  // If filters are open, clear selections and keep open
-  if (filtersOptions.style.display === 'block') {
-    filtersOptions.querySelectorAll('button.selected')
-      .forEach(btn => btn.classList.remove('selected'));
-    return; // Do not close or toggle filters
-  }
+  // Clear activeFilters data and UI
+  activeFilters.clear();
+  filtersOptions.querySelectorAll('button[data-filter].selected')
+    .forEach(btn => btn.classList.remove('selected'));
 
-  // If filters are closed, do nothing else (never open them)
+  // Refresh results using current searchbox value (safe lookup)
+  const sb = document.getElementById('searchBox');
+  renderResults(sb ? sb.value : '');
+
+  // IMPORTANT: do NOT set filtersOptions.style.display or filtersButton.classList here.
+  // That prevents Clear from ever opening the filters panel.
 });
 
 // --- Global click closes everything ---
@@ -1105,16 +1108,6 @@ filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
   btn.addEventListener('click', () => btn.classList.toggle('selected'));
 });
 
-
-// --- Filters logic ---
-clearFiltersBtn.addEventListener('click', e => {
-  e.stopPropagation(); 
-  // Clear selected buttons
-  filtersOptions.querySelectorAll('button.selected').forEach(btn => btn.classList.remove('selected'));
-  // Keep dropdown open
-  filtersOptions.style.display = 'block';
-  filtersButton.classList.add('open');
-});
 
 
 filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
