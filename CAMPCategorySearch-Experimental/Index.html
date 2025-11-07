@@ -540,7 +540,7 @@
   border: none;
   color: var(--text);
   font-size: 13px;
-  line-height: 1.8;
+  line-height: 1;
   cursor: pointer;
   border-radius: 0;
 }
@@ -553,6 +553,22 @@
 #filtersOptions button[data-filter]:hover {
   background-color: var(--accent-dim);
   color: var(--bg); 
+}
+
+#filtersOptions button[data-filter]::before {
+  content: '';
+  position: absolute;
+  top: -2px; bottom: -2px;  
+  left: 0; right: 0;
+  background: transparent;
+  z-index: -1;
+  border-radius: 0;  
+  transition: background 0.15s;
+}
+
+#filtersOptions button[data-filter]:hover::before,
+#filtersOptions button[data-filter].selected::before {
+  background: var(--accent);
 }
 
 .filter-header {
