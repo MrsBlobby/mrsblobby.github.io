@@ -1004,99 +1004,80 @@ fetch('final_workshop_db.json')
     document.getElementById('results').innerHTML = '<li>Error loading database.</li>';
   });
 
-// --- Dropdowns ---
+// --- Dropdown Elements ---
 const dropdownSelected = document.getElementById('dropdownSelected');
-dropdownSelected.textContent = 'Search By: Item Name';
 const dropdownOptions = document.getElementById('dropdownOptions');
 const sortSelected = document.getElementById('sortSelected');
 const sortOptions = document.getElementById('sortOptions');
 const filtersButton = document.getElementById('filtersButton');
 const filtersOptions = document.getElementById('filtersOptions');
-const clearFiltersBtn = document.querySelector('.clear-filters');
+const clearFiltersBtn = document.getElementById('clearFiltersExternal');
 
-// --- Close helpers ---
-function closeAllDropdowns() {
-  dropdownOptions.style.display = 'none';
-  dropdownSelected.classList.remove('open');
-
-  sortOptions.style.display = 'none';
-  sortSelected.classList.remove('open');
-
-  filtersOptions.style.display = 'none';
-  filtersButton.classList.remove('open');
+// --- Dropdown Handling ---
+function closeAllDropdowns(except = null) {
+  if (except !== 'search') {
+    dropdownOptions.style.display = 'none';
+    dropdownSelected.classList.remove('open');
+  }
+  if (except !== 'sort') {
+    sortOptions.style.display = 'none';
+    sortSelected.classList.remove('open');
+  }
+  if (except !== 'filters') {
+    filtersOptions.style.display = 'none';
+    filtersButton.classList.remove('open');
+  }
 }
 
-function closeRegularDropdowns() {
-  dropdownOptions.style.display = 'none';
-  dropdownSelected.classList.remove('open');
-
-  sortOptions.style.display = 'none';
-  sortSelected.classList.remove('open');
-}
-
-// --- Regular dropdowns ---
 dropdownSelected.addEventListener('click', e => {
   e.stopPropagation();
   const isOpen = dropdownOptions.style.display === 'block';
   closeAllDropdowns();
-  if (!isOpen) {
-    dropdownOptions.style.display = 'block';
-    dropdownSelected.classList.add('open');
-  }
+  dropdownOptions.style.display = isOpen ? 'none' : 'block';
+  dropdownSelected.classList.toggle('open', !isOpen);
 });
 
 sortSelected.addEventListener('click', e => {
   e.stopPropagation();
   const isOpen = sortOptions.style.display === 'block';
   closeAllDropdowns();
-  if (!isOpen) {
-    sortOptions.style.display = 'block';
-    sortSelected.classList.add('open');
-  }
+  sortOptions.style.display = isOpen ? 'none' : 'block';
+  sortSelected.classList.toggle('open', !isOpen);
 });
 
-// --- Filters dropdown ---
 filtersButton.addEventListener('click', e => {
   e.stopPropagation();
   const isOpen = filtersOptions.style.display === 'block';
-  // close everything first so toggling is consistent
   closeAllDropdowns();
-  if (!isOpen) {
-    filtersOptions.style.display = 'block';
-    filtersButton.classList.add('open');
-  }
+  filtersOptions.style.display = isOpen ? 'none' : 'block';
+  filtersButton.classList.toggle('open', !isOpen);
 });
 
-filtersOptions.addEventListener('click', e => e.stopPropagation());
-
-// --- Clear filters button ---
-// Always close the other two dropdowns.
-// Only clear selections if filters are currently open.
-// Never toggle or open the filters panel.
+// --- Clear Filters ---
 clearFiltersBtn.addEventListener('click', e => {
   e.stopPropagation();
-
-  // Always close other dropdowns
-  closeRegularDropdowns();
-
-  // If filters are open, clear selected buttons but keep filters open
+  // Reset filter buttons
+  filtersOptions.querySelectorAll('button.selected').forEach(btn => btn.classList.remove('selected'));
+  activeFilters.clear();
+  // Only close dropdowns if filters menu is open
   if (filtersOptions.style.display === 'block') {
-    filtersOptions.querySelectorAll('button.selected')
-      .forEach(btn => btn.classList.remove('selected'));
-    // Keep filtersOptions visible and filtersButton open
-    // (do not change filtersOptions.style.display here)
+    closeAllDropdowns(true);
   }
-  // If filters are closed, do nothing else. Crucially we do NOT open them.
 });
 
-// --- Global click closes everything ---
-document.addEventListener('click', () => closeAllDropdowns());
-
-// --- Toggle filter button states ---
-filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
-  btn.addEventListener('click', () => btn.classList.toggle('selected'));
+// --- Global Click to Close ---
+document.addEventListener('click', e => {
+  if (
+    !dropdownSelected.contains(e.target) &&
+    !dropdownOptions.contains(e.target) &&
+    !sortSelected.contains(e.target) &&
+    !sortOptions.contains(e.target) &&
+    !filtersButton.contains(e.target) &&
+    !filtersOptions.contains(e.target)
+  ) {
+    closeAllDropdowns();
+  }
 });
-
 
 // --- Filters logic ---
 clearFiltersBtn.addEventListener('click', e => {
