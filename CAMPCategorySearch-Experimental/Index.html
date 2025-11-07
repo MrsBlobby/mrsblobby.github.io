@@ -1014,14 +1014,24 @@ const filtersButton = document.getElementById('filtersButton');
 const filtersOptions = document.getElementById('filtersOptions');
 const clearFiltersBtn = document.querySelector('.clear-filters');
 
-// --- Close all dropdowns ---
+// --- Close helpers ---
 function closeAllDropdowns() {
   dropdownOptions.style.display = 'none';
   dropdownSelected.classList.remove('open');
+
   sortOptions.style.display = 'none';
   sortSelected.classList.remove('open');
+
   filtersOptions.style.display = 'none';
   filtersButton.classList.remove('open');
+}
+
+function closeRegularDropdowns() {
+  dropdownOptions.style.display = 'none';
+  dropdownSelected.classList.remove('open');
+
+  sortOptions.style.display = 'none';
+  sortSelected.classList.remove('open');
 }
 
 // --- Regular dropdowns ---
@@ -1049,7 +1059,8 @@ sortSelected.addEventListener('click', e => {
 filtersButton.addEventListener('click', e => {
   e.stopPropagation();
   const isOpen = filtersOptions.style.display === 'block';
-  closeAllDropdowns(); // Close others as well
+  // close everything first so toggling is consistent
+  closeAllDropdowns();
   if (!isOpen) {
     filtersOptions.style.display = 'block';
     filtersButton.classList.add('open');
@@ -1059,18 +1070,26 @@ filtersButton.addEventListener('click', e => {
 filtersOptions.addEventListener('click', e => e.stopPropagation());
 
 // --- Clear filters button ---
+// Always close the other two dropdowns.
+// Only clear selections if filters are currently open.
+// Never toggle or open the filters panel.
 clearFiltersBtn.addEventListener('click', e => {
   e.stopPropagation();
 
-  // Only clear if filters are already open
-  if (filtersOptions.style.display !== 'block') return;
+  // Always close other dropdowns
+  closeRegularDropdowns();
 
-  // Clear selection
-  filtersOptions.querySelectorAll('button.selected')
-    .forEach(btn => btn.classList.remove('selected'));
+  // If filters are open, clear selected buttons but keep filters open
+  if (filtersOptions.style.display === 'block') {
+    filtersOptions.querySelectorAll('button.selected')
+      .forEach(btn => btn.classList.remove('selected'));
+    // Keep filtersOptions visible and filtersButton open
+    // (do not change filtersOptions.style.display here)
+  }
+  // If filters are closed, do nothing else. Crucially we do NOT open them.
 });
 
-// --- Close all when clicking elsewhere ---
+// --- Global click closes everything ---
 document.addEventListener('click', () => closeAllDropdowns());
 
 // --- Toggle filter button states ---
