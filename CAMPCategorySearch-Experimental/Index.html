@@ -1052,13 +1052,15 @@ setupDropdown(filtersButton, filtersOptions);
 document.addEventListener('click', closeAllDropdowns);
 
 // --- Filters logic ---
-clearFiltersBtn.addEventListener('click', (e) => {
+clearFiltersBtn.addEventListener('click', e => {
   e.stopPropagation(); 
+  // Clear selected buttons
   filtersOptions.querySelectorAll('button.selected').forEach(btn => btn.classList.remove('selected'));
-  // optional: keep dropdown visibly open
+  // Keep dropdown open
   filtersOptions.style.display = 'block';
   filtersButton.classList.add('open');
 });
+
 
 
 filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
