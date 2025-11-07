@@ -1052,6 +1052,7 @@ document.addEventListener('click', closeAllDropdowns);
 
 // --- Filters logic ---
 clearFiltersBtn.addEventListener('click', () => {
+  e.stopPropagation()
   filtersOptions.querySelectorAll('button.selected').forEach(btn => btn.classList.remove('selected'));
 });
 
@@ -1146,7 +1147,6 @@ filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
 
 
 clearFiltersBtn.addEventListener('click', () => {
-  e.stopPropagation()
   activeFilters.clear();
   filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => btn.classList.remove('selected'));
   renderResults(searchBox.value);
