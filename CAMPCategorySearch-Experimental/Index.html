@@ -578,16 +578,26 @@
 }
 
 .clear-filters {
-  margin-top: 4px;               /* reduce gap above button */
-  padding: 4px 8px;              /* small button */
+  margin-top: 4px;              
+  padding: 4px 8px;             
   background-color: #ffeded;
   border: 1px solid #ff4d4f;
   color: #ff4d4f;
-  border-radius: 4px 4px 0 0;    /* only bottom corners rounded */
+  border-radius: 4px 4px 0 0;    
   cursor: pointer;
   text-align: center;
   font-size: 13px;
-  transition: background 0.2s;
+  transition: background 0.15s, transform 0.1s, color 0.15s;
+}
+
+.clear-filters:hover {
+  background-color: #ff4c4c;
+  color: var(--bg);          
+}
+
+.clear-filters:active {
+  background-color: #e04343; 
+  color: var(--bg);
 }
 
 #filtersOptions {
