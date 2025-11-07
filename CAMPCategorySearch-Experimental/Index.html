@@ -1052,7 +1052,7 @@ document.addEventListener('click', closeAllDropdowns);
 
 // --- Filters logic ---
 clearFiltersBtn.addEventListener('click', () => {
-  e.stopPropagation()
+  e.stopPropagation();
   filtersOptions.querySelectorAll('button.selected').forEach(btn => btn.classList.remove('selected'));
 });
 
