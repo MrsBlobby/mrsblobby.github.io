@@ -579,27 +579,29 @@
 }
 
 .clear-filters {
-  margin-top: 4px;              
-  padding: 4px 8px;             
+  margin-top: 4px;
+  padding: 4px 8px;
   background-color: #ffeded;
   border: 1px solid #ff4d4f;
   color: #ff4d4f;
-  border-radius: 4px 4px 0 0;    
+  border-radius: 4px 4px 0 0;
   cursor: pointer;
   text-align: center;
   font-size: 13px;
+  font-weight: bold;
   transition: background 0.15s, transform 0.1s, color 0.15s;
 }
 
 .clear-filters:hover {
   background-color: #ff4c4c;
-  color: var(--bg);          
+  color: #1a1a1a;  /* force dark text for contrast */
 }
 
 .clear-filters:active {
-  background-color: #e04343; 
-  color: var(--bg);
+  background-color: #e04343;
+  color: #1a1a1a;
 }
+
 
 #filtersOptions {
   display: flex;
