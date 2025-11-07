@@ -503,7 +503,8 @@
 .filter-columns {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 8px; 
+  padding: 4px 0;
 }
 
 .filter-columns > div {
@@ -512,13 +513,13 @@
 
 .filter-header {
   font-weight: bold;
+  font-size: 14px;
   text-align: center;
   background-color: rgba(255, 192, 15, 0.1);
   color: var(--accent);
+  padding: 4px 0;
+  margin: 0;
   border-radius: 4px 4px 0 0;
-  padding: 4px 8px;     
-  margin: 0 0 2px 0;    
-  font-size: 13px;
 }
 
 #filtersOptions button {
@@ -532,25 +533,26 @@
 #filtersOptions button[data-filter] {
   display: block;
   width: 100%;
-  padding: 2px 6px; 
-  margin: 0;         
-  text-align: center;
+  padding: 8px 12px;  
+  margin: 0;
+  text-align: left;   
+  background: var(--card-bg);
   border: none;
-  background: none;  
-  color: white;     
-  font-size: 13px;   
-  line-height: 1;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.2;
   cursor: pointer;
+  transition: background 0.15s, color 0.15s;
 }
 
 #filtersOptions button[data-filter].selected {
   background-color: var(--accent);
-  color: black;
+  color: var(--bg); 
 }
 
 #filtersOptions button[data-filter]:hover {
-  background: var(--accent-dim);
-  color: black;
+  background-color: var(--accent-dim);
+  color: var(--bg); 
 }
 
 .filter-header {
