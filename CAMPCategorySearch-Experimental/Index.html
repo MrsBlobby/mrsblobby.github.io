@@ -165,13 +165,15 @@
 }
 
 #clearFiltersExternal {
-  padding: 6px 10px;
-  background-color: #ffeded;
-  border: 1px solid #ff4d4f;
-  color: #ff4d4f;
-  border-radius: 4px;
-  cursor: pointer;
+  background-color: var(--dropdown-bg, #1e1e1e);
+  color: var(--dropdown-text, #fff);
+  border: 1px solid var(--accent-color, #555);
+  border-left: none;
+  border-radius: 0 6px 6px 0;
   height: 36px;
+  padding: 0 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .inline-group label {
@@ -454,6 +456,7 @@
 #filtersDropdown {
   width: 150px;   
   position: relative;
+  border-radius: 6px 0 0 6px;
 }
 
 #filtersButton {
@@ -789,7 +792,7 @@
 
 <div class="inline-group">
   <!-- Filters group -->
-  <div class="group-filters">
+  <div class="group-filters" style="display: flex; align-items: center;">
     <div class="custom-dropdown" id="filtersDropdown">
       <div id="filtersButton">
         Filters
@@ -824,10 +827,10 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- External Clear All button -->
-  <button class="clear-filters" id="clearFiltersExternal">Clear All</button>
+    <!-- Attached Clear All button -->
+    <button class="clear-filters" id="clearFiltersExternal">Clear</button>
+  </div>
 
   <!-- Sort group -->
   <div class="group-sort">
@@ -845,10 +848,6 @@
     </div>
   </div>
 </div>
-
-
-
-
 
   <ul id="results"></ul>
   <div id="pagination" style="text-align:center; margin: 16px 0;"></div>
