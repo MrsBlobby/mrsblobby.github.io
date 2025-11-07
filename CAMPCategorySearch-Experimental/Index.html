@@ -1079,18 +1079,18 @@ sortSelected.addEventListener('click', e => {
 function updateFiltersButton() {
   const count = activeFilters.size;
 
-  // Remove any text nodes, but leave the SVG intact
+  // Remove any existing text nodes (keep SVG intact)
   filtersButton.childNodes.forEach(node => {
     if (node.nodeType === Node.TEXT_NODE) node.remove();
   });
 
-  // Insert new text node before SVG
+  // Insert new text node before the SVG
   const textNode = document.createTextNode(count ? `Filters: ${count} ` : 'Filters ');
-  filtersButton.insertBefore(textNode, filtersButton.querySelector('svg'));
+  const svg = filtersButton.querySelector('svg');
+  if (svg) filtersButton.insertBefore(textNode, svg);
 
-  // Accent toggle: swap bg + text colors
-  if (count) filtersButton.classList.add('active');
-  else filtersButton.classList.remove('active');
+  // Toggle accent class
+  filtersButton.classList.toggle('active', count > 0);
 }
 
 // --- Filters dropdown ---
