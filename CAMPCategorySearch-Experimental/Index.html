@@ -480,15 +480,15 @@
 
 #filtersButton.active {
   background-color: var(--accent-color);
-  color: var(--bg-color); 
+  color: var(--bg-color);
   border-color: var(--accent-color);
 }
 
-
 #filtersButton.active .filters-label {
-  color: var(--accent-color);
+  color: var(--bg-color); 
   font-weight: bold;
 }
+
 
 #filtersButton .filter-icon {
   width: 20px;  
@@ -1079,19 +1079,30 @@ sortSelected.addEventListener('click', e => {
 function updateFiltersButton() {
   const count = activeFilters.size;
 
-  // Remove any existing text nodes (keep SVG intact)
-  filtersButton.childNodes.forEach(node => {
-    if (node.nodeType === Node.TEXT_NODE) node.remove();
-  });
+  // Find or create label span
+  let label = filtersButton.querySelector('.filters-label');
+  if (!label) {
+    // Remove any existing text nodes (except the SVG)
+    Array.from(filtersButton.childNodes).forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE) node.remove();
+    });
 
-  // Insert new text node before the SVG
-  const textNode = document.createTextNode(count ? `Filters: ${count} ` : 'Filters ');
-  const svg = filtersButton.querySelector('svg');
-  if (svg) filtersButton.insertBefore(textNode, svg);
+    label = document.createElement('span');
+    label.className = 'filters-label';
+    filtersButton.prepend(label); // add before the SVG
+  }
 
-  // Toggle accent class
-  filtersButton.classList.toggle('active', count > 0);
+  // Update text
+  label.textContent = count ? `Filters: ${count}` : 'Filters';
+
+  // Highlight if active
+  if (count) {
+    filtersButton.classList.add('active');
+  } else {
+    filtersButton.classList.remove('active');
+  }
 }
+
 
 // --- Filters dropdown ---
 filtersButton.addEventListener('click', e => {
