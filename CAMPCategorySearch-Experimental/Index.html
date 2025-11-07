@@ -479,7 +479,8 @@
 }
 
 #filtersButton.active {
-  color: var(--accent-color);
+  background-color: var(--accent-color);
+  color: var(--bg-color); 
   border-color: var(--accent-color);
 }
 
@@ -1078,17 +1079,17 @@ sortSelected.addEventListener('click', e => {
 function updateFiltersButton() {
   const count = activeFilters.size;
 
-  // Remove all text nodes first
+  // Remove any text nodes, but leave the SVG intact
   filtersButton.childNodes.forEach(node => {
     if (node.nodeType === Node.TEXT_NODE) node.remove();
   });
 
-  // Add a single text node with the correct text
+  // Insert new text node before SVG
   const textNode = document.createTextNode(count ? `Filters: ${count} ` : 'Filters ');
-  filtersButton.insertBefore(textNode, filtersButton.firstChild);
+  filtersButton.insertBefore(textNode, filtersButton.querySelector('svg'));
 
-  // Highlight button if any filters active
-  if (count) filtersButton.classList.add('active'); // make sure your CSS targets .active
+  // Accent toggle: swap bg + text colors
+  if (count) filtersButton.classList.add('active');
   else filtersButton.classList.remove('active');
 }
 
