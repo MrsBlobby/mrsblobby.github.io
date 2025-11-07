@@ -1071,13 +1071,21 @@ sortSelected.addEventListener('click', e => {
 
 function updateFiltersButton() {
   const count = activeFilters.size;
-  if (count > 0) {
-    filtersButton.textContent = `Filters: ${count}`;
-    filtersButton.classList.add('active'); // use this class to apply accent color
-  } else {
-    filtersButton.textContent = 'Filters';
-    filtersButton.classList.remove('active');
+
+  // Find existing text node (or create one)
+  let textNode = Array.from(filtersButton.childNodes)
+    .find(n => n.nodeType === Node.TEXT_NODE);
+
+  if (!textNode) {
+    textNode = document.createTextNode('');
+    filtersButton.insertBefore(textNode, filtersButton.firstChild);
   }
+
+  textNode.nodeValue = count ? `Filters: ${count} ` : 'Filters ';
+
+  // Highlight button if any filters active
+  if (count) filtersButton.classList.add('accent');
+  else filtersButton.classList.remove('accent');
 }
 
 // --- Filters dropdown ---
