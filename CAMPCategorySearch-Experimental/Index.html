@@ -1146,6 +1146,7 @@ filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
 
 
 clearFiltersBtn.addEventListener('click', () => {
+  e.stopPropagation()
   activeFilters.clear();
   filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => btn.classList.remove('selected'));
   renderResults(searchBox.value);
