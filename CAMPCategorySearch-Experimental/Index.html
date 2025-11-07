@@ -167,8 +167,10 @@
 #clearFiltersExternal {
   background-color: var(--dropdown-bg, #1e1e1e);
   color: var(--dropdown-text, #fff);
-  border: 1px solid var(--accent-color, #555);
+  border: 2px solid var(--accent);
   border-left: none;
+  position: relative;
+  top: -4px;
   border-radius: 0 6px 6px 0;
   height: 36px;
   padding: 0 12px;
@@ -468,7 +470,7 @@
   font-size: 14px;
   width: 100%;
   border: 2px solid var(--accent);
-  border-radius: 6px;
+  border-radius: 6px 0 0 6px;
   background-color: var(--card-bg);
   color: var(--text);
   cursor: pointer;
