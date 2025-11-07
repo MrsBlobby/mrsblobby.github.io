@@ -478,6 +478,12 @@
   height: 36px;
 }
 
+#filtersButton.active {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+
 #filtersButton.active .filters-label {
   color: var(--accent-color);
   font-weight: bold;
@@ -1072,20 +1078,18 @@ sortSelected.addEventListener('click', e => {
 function updateFiltersButton() {
   const count = activeFilters.size;
 
-  // Find existing text node (or create one)
-  let textNode = Array.from(filtersButton.childNodes)
-    .find(n => n.nodeType === Node.TEXT_NODE);
+  // Remove all text nodes first
+  filtersButton.childNodes.forEach(node => {
+    if (node.nodeType === Node.TEXT_NODE) node.remove();
+  });
 
-  if (!textNode) {
-    textNode = document.createTextNode('');
-    filtersButton.insertBefore(textNode, filtersButton.firstChild);
-  }
-
-  textNode.nodeValue = count ? `Filters: ${count} ` : 'Filters ';
+  // Add a single text node with the correct text
+  const textNode = document.createTextNode(count ? `Filters: ${count} ` : 'Filters ');
+  filtersButton.insertBefore(textNode, filtersButton.firstChild);
 
   // Highlight button if any filters active
-  if (count) filtersButton.classList.add('accent');
-  else filtersButton.classList.remove('accent');
+  if (count) filtersButton.classList.add('active'); // make sure your CSS targets .active
+  else filtersButton.classList.remove('active');
 }
 
 // --- Filters dropdown ---
