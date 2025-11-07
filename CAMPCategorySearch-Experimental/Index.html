@@ -1014,18 +1014,21 @@ const filtersButton = document.getElementById('filtersButton');
 const filtersOptions = document.getElementById('filtersOptions');
 const clearFiltersBtn = document.querySelector('.clear-filters');
 
-// --- Regular dropdowns only ---
-function closeRegularDropdowns() {
+// --- Close all dropdowns ---
+function closeAllDropdowns() {
   dropdownOptions.style.display = 'none';
   dropdownSelected.classList.remove('open');
   sortOptions.style.display = 'none';
   sortSelected.classList.remove('open');
+  filtersOptions.style.display = 'none';
+  filtersButton.classList.remove('open');
 }
 
+// --- Regular dropdowns ---
 dropdownSelected.addEventListener('click', e => {
   e.stopPropagation();
   const isOpen = dropdownOptions.style.display === 'block';
-  closeRegularDropdowns();
+  closeAllDropdowns();
   if (!isOpen) {
     dropdownOptions.style.display = 'block';
     dropdownSelected.classList.add('open');
@@ -1035,7 +1038,7 @@ dropdownSelected.addEventListener('click', e => {
 sortSelected.addEventListener('click', e => {
   e.stopPropagation();
   const isOpen = sortOptions.style.display === 'block';
-  closeRegularDropdowns();
+  closeAllDropdowns();
   if (!isOpen) {
     sortOptions.style.display = 'block';
     sortSelected.classList.add('open');
@@ -1046,9 +1049,11 @@ sortSelected.addEventListener('click', e => {
 filtersButton.addEventListener('click', e => {
   e.stopPropagation();
   const isOpen = filtersOptions.style.display === 'block';
-  closeRegularDropdowns(); // Close others
-  filtersOptions.style.display = isOpen ? 'none' : 'block';
-  filtersButton.classList.toggle('open', !isOpen);
+  closeAllDropdowns(); // Close others as well
+  if (!isOpen) {
+    filtersOptions.style.display = 'block';
+    filtersButton.classList.add('open');
+  }
 });
 
 filtersOptions.addEventListener('click', e => e.stopPropagation());
@@ -1057,26 +1062,18 @@ filtersOptions.addEventListener('click', e => e.stopPropagation());
 clearFiltersBtn.addEventListener('click', e => {
   e.stopPropagation();
 
-  // Clear selected filters only if the panel is open
+  // Only clear if filters are already open
   if (filtersOptions.style.display !== 'block') return;
 
-  filtersOptions.querySelectorAll('button.selected').forEach(btn =>
-    btn.classList.remove('selected')
-  );
-
-  // Do NOT close or toggle filters; just clear
-  // Close other dropdowns for consistency
-  closeRegularDropdowns();
+  // Clear selection
+  filtersOptions.querySelectorAll('button.selected')
+    .forEach(btn => btn.classList.remove('selected'));
 });
 
-// --- Global click closes everything ---
-document.addEventListener('click', () => {
-  closeRegularDropdowns();
-  filtersOptions.style.display = 'none';
-  filtersButton.classList.remove('open');
-});
+// --- Close all when clicking elsewhere ---
+document.addEventListener('click', () => closeAllDropdowns());
 
-// --- Filter button toggles ---
+// --- Toggle filter button states ---
 filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
   btn.addEventListener('click', () => btn.classList.toggle('selected'));
 });
