@@ -1004,7 +1004,7 @@ fetch('final_workshop_db.json')
     document.getElementById('results').innerHTML = '<li>Error loading database.</li>';
   });
 
-// --- Dropdown Elements ---
+// --- Elements ---
 const dropdownSelected = document.getElementById('dropdownSelected');
 const dropdownOptions = document.getElementById('dropdownOptions');
 const sortSelected = document.getElementById('sortSelected');
@@ -1013,43 +1013,67 @@ const filtersButton = document.getElementById('filtersButton');
 const filtersOptions = document.getElementById('filtersOptions');
 const clearFiltersBtn = document.querySelector('.clear-filters');
 
-// Set initial text for search dropdown
-dropdownSelected.textContent = 'Search By: Item Name';
-
-// --- Helper to close everything ---
-function closeAllDropdowns() {
-  dropdownOptions.style.display = 'none';
-  dropdownSelected.classList.remove('open');
-  
-  sortOptions.style.display = 'none';
-  sortSelected.classList.remove('open');
-  
-  filtersOptions.style.display = 'none';
-  filtersButton.classList.remove('open');
+// --- Utility ---
+function closeAllDropdowns(except = null) {
+  if (except !== dropdownSelected) {
+    dropdownOptions.style.display = 'none';
+    dropdownSelected.classList.remove('open');
+  }
+  if (except !== sortSelected) {
+    sortOptions.style.display = 'none';
+    sortSelected.classList.remove('open');
+  }
+  if (except !== filtersButton) {
+    filtersOptions.style.display = 'none';
+    filtersButton.classList.remove('open');
+  }
 }
 
-// --- Event listeners for toggling dropdowns ---
-function setupDropdown(button, options) {
-  button.addEventListener('click', e => {
-    e.stopPropagation();
-    const isOpen = options.style.display === 'block';
-    closeAllDropdowns();
-    if (!isOpen) {
-      options.style.display = 'block';
-      button.classList.add('open');
-    }
-  });
+// --- Dropdown clicks ---
+dropdownSelected.addEventListener('click', e => {
+  e.stopPropagation();
+  const isOpen = dropdownOptions.style.display === 'block';
+  closeAllDropdowns(dropdownSelected);
+  dropdownOptions.style.display = isOpen ? 'none' : 'block';
+  dropdownSelected.classList.toggle('open', !isOpen);
+});
 
-  options.addEventListener('click', e => e.stopPropagation());
-}
+sortSelected.addEventListener('click', e => {
+  e.stopPropagation();
+  const isOpen = sortOptions.style.display === 'block';
+  closeAllDropdowns(sortSelected);
+  sortOptions.style.display = isOpen ? 'none' : 'block';
+  sortSelected.classList.toggle('open', !isOpen);
+});
 
-// Apply same logic to all three dropdowns
-setupDropdown(dropdownSelected, dropdownOptions);
-setupDropdown(sortSelected, sortOptions);
-setupDropdown(filtersButton, filtersOptions);
+filtersButton.addEventListener('click', e => {
+  e.stopPropagation();
+  const isOpen = filtersOptions.style.display === 'block';
+  closeAllDropdowns(filtersButton);
+  filtersOptions.style.display = isOpen ? 'none' : 'block';
+  filtersButton.classList.toggle('open', !isOpen);
+});
 
-// Close all dropdowns if clicking outside
-document.addEventListener('click', closeAllDropdowns);
+// Prevent clicks inside filters from closing
+filtersOptions.addEventListener('click', e => e.stopPropagation());
+
+// --- Clear filters ---
+clearFiltersBtn.addEventListener('click', e => {
+  e.stopPropagation(); // don't close dropdowns
+  filtersOptions.querySelectorAll('button.selected').forEach(btn => btn.classList.remove('selected'));
+  // ensure filters dropdown stays open
+  filtersOptions.style.display = 'block';
+  filtersButton.classList.add('open');
+});
+
+// --- Individual filter buttons ---
+filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
+  btn.addEventListener('click', () => btn.classList.toggle('selected'));
+});
+
+// --- Close all dropdowns if clicked outside ---
+document.addEventListener('click', () => closeAllDropdowns());
+
 
 // --- Filters logic ---
 clearFiltersBtn.addEventListener('click', e => {
