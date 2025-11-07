@@ -1196,17 +1196,6 @@ function renderPagination(totalItems) {
   pagination.appendChild(nextBtn);
 }
 
-const updateFiltersButton = () => {
-  const count = activeFilters.size;
-  filtersButton.textContent = count ? `Filters: ${count}` : 'Filters';
-  // Re-add SVG after changing text
-  const svg = filtersButton.querySelector('svg');
-  if (svg) filtersButton.appendChild(svg);
-  // Highlight if any active
-  if (count) filtersButton.classList.add('accent');
-  else filtersButton.classList.remove('accent');
-};
-
 filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
   btn.addEventListener('click', () => {
     const filter = btn.dataset.filter;
