@@ -1006,6 +1006,7 @@ fetch('final_workshop_db.json')
 
 // --- Elements ---
 const dropdownSelected = document.getElementById('dropdownSelected');
+dropdownSelected.textContent = 'Search By: Item Name'; // restore initial label
 const dropdownOptions = document.getElementById('dropdownOptions');
 const sortSelected = document.getElementById('sortSelected');
 const sortOptions = document.getElementById('sortOptions');
@@ -1057,14 +1058,15 @@ filtersButton.addEventListener('click', e => {
 // Prevent clicks inside filters from closing
 filtersOptions.addEventListener('click', e => e.stopPropagation());
 
-// --- Clear filters ---
+// --- Clear filters (does open/close anything) ---
 clearFiltersBtn.addEventListener('click', e => {
-  e.stopPropagation(); // don't close dropdowns
+  e.stopPropagation(); // prevent bubbling
+  // Clear selected filter buttons
   filtersOptions.querySelectorAll('button.selected').forEach(btn => btn.classList.remove('selected'));
-  // ensure filters dropdown stays open
-  filtersOptions.style.display = 'block';
-  filtersButton.classList.add('open');
+  // Close all other dropdowns (but not filters)
+  closeAllDropdowns(filtersButton);
 });
+
 
 // --- Individual filter buttons ---
 filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
@@ -1084,7 +1086,6 @@ clearFiltersBtn.addEventListener('click', e => {
   filtersOptions.style.display = 'block';
   filtersButton.classList.add('open');
 });
-
 
 
 filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
