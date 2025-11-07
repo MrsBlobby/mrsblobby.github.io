@@ -1068,9 +1068,13 @@ clearFiltersBtn.addEventListener('click', e => {
   e.stopPropagation();
   // Remove selected states
   filtersOptions.querySelectorAll('button.selected').forEach(btn => btn.classList.remove('selected'));
-  // Close other dropdowns
-  closeAllDropdowns(true);
+  // Close only non-filter dropdowns
+  dropdownOptions.style.display = 'none';
+  dropdownSelected.classList.remove('open');
+  sortOptions.style.display = 'none';
+  sortSelected.classList.remove('open');
 });
+
 
 // Toggle filter buttons
 filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
