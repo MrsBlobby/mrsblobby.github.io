@@ -1015,37 +1015,34 @@ const clearFiltersBtn = document.querySelector('.clear-filters');
 
 // --- Utility to close dropdowns ---
 function closeAllDropdowns(excludeFilters = false) {
+  // Close Search By
   dropdownOptions.style.display = 'none';
   dropdownSelected.classList.remove('open');
+
+  // Close Sort By
   sortOptions.style.display = 'none';
   sortSelected.classList.remove('open');
+
+  // Close Filters only if not excluded
   if (!excludeFilters) {
     filtersOptions.style.display = 'none';
     filtersButton.classList.remove('open');
   }
 }
 
-// --- Dropdown toggle handlers ---
-dropdownSelected.addEventListener('click', e => {
-  e.stopPropagation();
-  const isOpen = dropdownOptions.style.display === 'block';
-  closeAllDropdowns(true);
+// --- Toggle handler helper ---
+function toggleDropdown(button, options) {
+  const isOpen = options.style.display === 'block';
+  closeAllDropdowns(true); // Always leave filters alone when opening another
   if (!isOpen) {
-    dropdownOptions.style.display = 'block';
-    dropdownSelected.classList.add('open');
+    options.style.display = 'block';
+    button.classList.add('open');
   }
-});
+}
 
-sortSelected.addEventListener('click', e => {
-  e.stopPropagation();
-  const isOpen = sortOptions.style.display === 'block';
-  closeAllDropdowns(true);
-  if (!isOpen) {
-    sortOptions.style.display = 'block';
-    sortSelected.classList.add('open');
-  }
-});
-
+// --- Dropdown click handlers ---
+dropdownSelected.addEventListener('click', e => { e.stopPropagation(); toggleDropdown(dropdownSelected, dropdownOptions); });
+sortSelected.addEventListener('click', e => { e.stopPropagation(); toggleDropdown(sortSelected, sortOptions); });
 filtersButton.addEventListener('click', e => {
   e.stopPropagation();
   const isOpen = filtersOptions.style.display === 'block';
@@ -1053,25 +1050,21 @@ filtersButton.addEventListener('click', e => {
   filtersButton.classList.toggle('open', !isOpen);
 });
 
-// --- Stop clicks inside filters dropdown from bubbling ---
+// --- Stop clicks inside filters from bubbling ---
 filtersOptions.addEventListener('click', e => e.stopPropagation());
-
-// --- Clear filters button ---
-clearFiltersBtn.addEventListener('click', e => {
-  e.stopPropagation();
-  // Remove selected states
-  filtersOptions.querySelectorAll('button.selected').forEach(btn => btn.classList.remove('selected'));
-  // Close other dropdowns (Search By / Sort By)
-  dropdownOptions.style.display = 'none';
-  dropdownSelected.classList.remove('open');
-  sortOptions.style.display = 'none';
-  sortSelected.classList.remove('open');
-  // DO NOT touch filters dropdown here
-});
 
 // --- Filter buttons toggle ---
 filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
   btn.addEventListener('click', () => btn.classList.toggle('selected'));
+});
+
+// --- Clear filters button ---
+clearFiltersBtn.addEventListener('click', e => {
+  e.stopPropagation(); // Prevent document click
+  // Remove selected states
+  filtersOptions.querySelectorAll('button.selected').forEach(btn => btn.classList.remove('selected'));
+  // Close only other dropdowns, leave filters as-is
+  closeAllDropdowns(true);
 });
 
 // --- Close all dropdowns on document click ---
