@@ -555,20 +555,12 @@
   color: var(--bg); 
 }
 
-#filtersOptions button[data-filter]::before {
-  content: '';
-  position: absolute;
-  top: -2px; bottom: -2px;  
-  left: 0; right: 0;
-  background: transparent;
-  z-index: -1;
-  border-radius: 0;  
-  transition: background 0.15s;
-}
-
-#filtersOptions button[data-filter]:hover::before,
-#filtersOptions button[data-filter].selected::before {
+#filtersOptions button[data-filter]:hover,
+#filtersOptions button[data-filter].selected {
   background: var(--accent);
+  color: black;
+  padding-top: 6px;      
+  padding-bottom: 6px;
 }
 
 .filter-header {
