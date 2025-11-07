@@ -164,6 +164,15 @@
   margin-top: 8px;
 }
 
+#clearFiltersExternal {
+  padding: 6px 10px;
+  background-color: #ffeded;
+  border: 1px solid #ff4d4f;
+  color: #ff4d4f;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 36px;
+}
 
 .inline-group label {
   font-size: 14px;
@@ -781,46 +790,44 @@
 <div class="inline-group">
   <!-- Filters group -->
   <div class="group-filters">
-  <div class="custom-dropdown" id="filtersDropdown">
-  <div id="filtersButton">
-    Filters
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="filter-icon" style="width:16px; height:16px;">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
-    </svg>
+    <div class="custom-dropdown" id="filtersDropdown">
+      <div id="filtersButton">
+        Filters
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="filter-icon" style="width:16px; height:16px;">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+        </svg>
+      </div>
+
+      <div id="filtersOptions">
+        <div class="filter-columns">
+          <div class="filter-header">Placement Condition</div>
+          <button data-filter="plan">Plan</button>
+          <button data-filter="entitlement">Entitlement</button>
+        </div>
+
+        <div class="filter-columns">
+          <div class="filter-header">Workshop Category</div>
+          <button data-filter="c.a.m.p. pieces">C.A.M.P. Pieces</button>
+          <button data-filter="decorations">Decorations</button>
+          <button data-filter="defense">Defense</button>
+          <button data-filter="dwellers">Dwellers</button>
+          <button data-filter="furniture">Furniture</button>
+          <button data-filter="lights">Lights</button>
+          <button data-filter="power">Power</button>
+          <button data-filter="quest">Quest</button>
+          <button data-filter="resources">Resource</button>
+          <button data-filter="storage">Storage</button>
+          <button data-filter="structure">Structure</button>
+          <button data-filter="utility">Utility</button>
+          <button data-filter="wall decor">Wall Decor</button>
+          <button data-filter="wallpapers">Wallpapers</button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div id="filtersOptions">
-    <div class="filter-columns">
-      <div class="filter-header">Placement Condition</div>
-      <button data-filter="plan">Plan</button>
-      <button data-filter="entitlement">Entitlement</button>
-    </div>
-
-    <div class="filter-columns">
-      <div class="filter-header">Workshop Category</div>
-      <button data-filter="c.a.m.p. pieces">C.A.M.P. Pieces</button>
-      <button data-filter="decorations">Decorations</button>
-      <button data-filter="defense">Defense</button>
-      <button data-filter="dwellers">Dwellers</button>
-      <button data-filter="furniture">Furniture</button>
-      <button data-filter="lights">Lights</button>
-      <button data-filter="power">Power</button>
-      <button data-filter="quest">Quest</button>
-      <button data-filter="resources">Resource</button>
-      <button data-filter="storage">Storage</button>
-      <button data-filter="structure">Structure</button>
-      <button data-filter="utility">Utility</button>
-      <button data-filter="wall decor">Wall Decor</button>
-      <button data-filter="wallpapers">Wallpapers</button>
-    </div>
-    
-    <!-- Clear All button spanning both columns -->
-    <div style="flex-basis: 100%; text-align: center; margin-top: 8px;">
-      <button class="clear-filters">Clear All</button>
-    </div>
-  </div>
-</div>
-  </div> 
+  <!-- External Clear All button -->
+  <button class="clear-filters" id="clearFiltersExternal">Clear All</button>
 
   <!-- Sort group -->
   <div class="group-sort">
@@ -838,6 +845,7 @@
     </div>
   </div>
 </div>
+
 
 
 
