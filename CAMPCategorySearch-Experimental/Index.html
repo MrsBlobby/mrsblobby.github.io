@@ -896,7 +896,7 @@
   <!-- Sort group -->
   <div class="group-sort">
     <div class="custom-dropdown" id="sortDropdown">
-      <div id="sortSelected">Workshop Menu ▼</div>
+     <div id="sortSelected">Sort By: Workshop Menu ▼</div>
       <div id="sortOptions">
         <div class="option" data-value="camp-top">Workshop Menu ▼</div>
         <div class="option" data-value="camp-bottom">Workshop Menu ▲</div>
@@ -1067,6 +1067,7 @@ dropdownSelected.textContent = 'Search By: Item Name';
 const dropdownOptions = document.getElementById('dropdownOptions');
 const sortSelected = document.getElementById('sortSelected');
 const sortOptions = document.getElementById('sortOptions');
+const sortLabel = document.getElementById('sortLabel');
 const filtersButton = document.getElementById('filtersButton');
 const filtersOptions = document.getElementById('filtersOptions');
 const clearFiltersBtn = document.querySelector('.clear-filters');
@@ -1122,19 +1123,14 @@ sortSelected.addEventListener('click', e => {
   }
 });
 
-// --- Update button text ---
-function updateSortButtonText(optionText) {
-  sortSelected.textContent = `Sort By: ${optionText.trim()} ▼`;
-}
-
 // --- Option click handler ---
 sortOptions.querySelectorAll('.option').forEach(option => {
   option.addEventListener('click', e => {
     e.stopPropagation();
-    const selectedValue = option.dataset.value;
-    currentSort = selectedValue;
+    currentSort = option.dataset.value;
 
-    updateSortButtonText(option.textContent); // Keep prefix
+    // Update the whole button text, preserving prefix
+    sortSelected.textContent = 'Sort By: ' + option.textContent.trim();
 
     // Close dropdown
     sortOptions.classList.remove('open');
@@ -1145,6 +1141,8 @@ sortOptions.querySelectorAll('.option').forEach(option => {
     renderResults(searchBox ? searchBox.value : '');
   });
 });
+
+
 
 // --- Close dropdown if clicking elsewhere ---
 document.addEventListener('click', () => {
@@ -1229,16 +1227,6 @@ dropdownOptions.querySelectorAll('.option').forEach(option => {
     dropdownSelected.textContent = 'Search By: ' + option.textContent;
     dropdownOptions.classList.remove('open');
     dropdownSelected.classList.remove('open');
-    renderResults(document.getElementById('searchBox').value);
-  });
-});
-
-sortOptions.querySelectorAll('.option').forEach(option => {
-  option.addEventListener('click', () => {
-    currentSort = option.dataset.value;
-    sortSelected.textContent = option.textContent;
-    sortOptions.classList.remove('open');
-    sortSelected.classList.remove('open');
     renderResults(document.getElementById('searchBox').value);
   });
 });
