@@ -1628,7 +1628,7 @@ function renderResults(query) {
       pill.appendChild(icon);
     }
 
-// optional season suffix
+ // optional season suffix
 let textSuffix = '';
 const miniMatch = matchedEdid && matchedEdid.match(/MiniSeason_\d+_([A-Za-z0-9_]+)/i);
 const seasonMatch = matchedEdid && matchedEdid.match(/SCORE[_-]?S?(\d+)/i);
@@ -1642,6 +1642,10 @@ if (miniMatch) {
   textSuffix = ` (Season ${seasonMatch[1]})`;
 }
 
+
+    pill.appendChild(document.createTextNode(fullName + textSuffix));
+    entmPills.push(pill);
+  });
 
 
   // append pills with "and" connectors
