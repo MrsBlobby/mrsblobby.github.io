@@ -1628,20 +1628,12 @@ function renderResults(query) {
       pill.appendChild(icon);
     }
 
- // optional season suffix
-let textSuffix = '';
-const miniMatch = matchedEdid && matchedEdid.match(/MiniSeason_\d+_([A-Za-z0-9_]+)/i);
-const seasonMatch = matchedEdid && matchedEdid.match(/SCORE[_-]?S?(\d+)/i);
-if (miniMatch) {
-  // replace underscores with spaces, capitalize each word
-  const prettyName = miniMatch[1]
-    .replace(/_/g, ' ')
-    .replace(/\b\w/g, c => c.toUpperCase());
-  textSuffix = ` (Mini Season: ${prettyName})`;
-} else if (seasonMatch) {
-  textSuffix = ` (Season ${seasonMatch[1]})`;
-}
-
+    // optional season suffix
+    let textSuffix = '';
+    const miniMatch = matchedEdid && matchedEdid.match(/MiniSeason_\d+_([A-Za-z0-9]+)/i);
+    const seasonMatch = matchedEdid && matchedEdid.match(/SCORE[_-]?S?(\d+)/i);
+    if (miniMatch) textSuffix = ` (Mini Season: ${miniMatch[1].replace(/_/g,' ')})`;
+    else if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
 
     pill.appendChild(document.createTextNode(fullName + textSuffix));
     entmPills.push(pill);
