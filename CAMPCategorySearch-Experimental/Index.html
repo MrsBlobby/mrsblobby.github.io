@@ -1628,22 +1628,18 @@ function renderResults(query) {
       pill.appendChild(icon);
     }
 
- // optional season suffix
+// optional season suffix
 let textSuffix = '';
 if (matchedEdid) {
-  // Match MiniSeason and capture all the human-readable name part
-  const miniMatch = matchedEdid.match(/MiniSeason_\d+_([A-Za-z0-9_]+)(?:_|$)/i);
+  // Capture only the "name" part immediately after the year
+  const miniMatch = matchedEdid.match(/MiniSeason_\d+_([A-Za-z0-9]+)/i);
 
   if (miniMatch) {
-    // replace underscores with spaces, capitalize words, preserve acronyms
-    const parts = miniMatch[1].split('_').map(word =>
-      word.toUpperCase() === word ? word : word[0].toUpperCase() + word.slice(1).toLowerCase()
-    );
-    const prettyName = parts.join(' ');
+    // Insert spaces before capital letters (except all-caps acronyms)
+    const prettyName = miniMatch[1].replace(/([a-z])([A-Z])/g, '$1 $2');
     textSuffix = ` (Mini Season: ${prettyName})`;
   }
 }
-
 
     pill.appendChild(document.createTextNode(fullName + textSuffix));
     entmPills.push(pill);
