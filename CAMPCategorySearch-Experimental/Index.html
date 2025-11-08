@@ -1112,31 +1112,39 @@ dropdownSelected.addEventListener('click', e => {
 sortSelected.textContent = 'Sort By: Workshop Menu ▼';
 
 // --- Sort By dropdown ---
+// Button click toggles dropdown
 sortSelected.addEventListener('click', e => {
   e.stopPropagation();
   const isOpen = sortOptions.classList.contains('open');
-  closeAllDropdowns();
+  closeAllDropdowns(); // Close other dropdowns first
   if (!isOpen) {
     sortOptions.classList.add('open');
     sortSelected.classList.add('open');
   }
 });
 
+function updateSortButtonText(optionText) {
+  sortButton.textContent = `Sort By: ${optionText.trim()}`;
+}
+
 // Option click handler
 sortOptions.querySelectorAll('.option').forEach(option => {
   option.addEventListener('click', () => {
     currentSort = option.dataset.value;
 
-    // Update button text dynamically to show the selected option
-    sortSelected.textContent = `Sort By: ${option.textContent}`;
+    // Update button text safely
+    updateSortButtonText(option.textContent);
 
     // Close dropdown
     sortOptions.classList.remove('open');
-    sortSelected.classList.remove('open');
+    sortButton.classList.remove('open');
 
-    renderResults(document.getElementById('searchBox').value);
+    // Refresh results
+    const searchBox = document.getElementById('searchBox');
+    renderResults(searchBox ? searchBox.value : '');
   });
 });
+
 
 
 function updateFiltersButton() {
