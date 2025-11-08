@@ -1566,24 +1566,16 @@ function renderResults(query) {
     return entmEdids.length ? entmEdids.splice(0,1)[0] : '';
   }
 
- // --- Helper function ---
-function prettifyMiniSeasonName(raw) {
-  if (!raw) return '';
-  return raw
-    .replace(/([a-z0-9])([A-Z])/g, '$1 $2') // camelCase / PascalCase → space
-    .replace(/_/g, ' ')                     // underscores → spaces
-    .trim();
-}
-
 // --- Build pills ---
 const entmPills = [];
 
 entmFulls.forEach(fullName => {
+  // get matched edid: reserved first, else best-effort
   let matchedEdid = reservedEdidMap[fullName] || pickBestEdidForFull(fullName);
   const edidUpper = String(matchedEdid || '').toUpperCase();
   const fullUpper = fullName.trim().toUpperCase();
 
-  // Decide icon (your existing logic) ...
+  // Decide icon: exact full-name override first (guaranteed), else EDID-based rules
   let iconSrc = '';
 
   if (ExactPairs[fullUpper]) {
@@ -1604,60 +1596,53 @@ entmFulls.forEach(fullName => {
     }
   }
 
-  if (!iconSrc && edidUpper.startsWith('F1_')) iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
+  if (!iconSrc && edidUpper.startsWith('F1_')) {
+    iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
+  }
+
   if (!iconSrc) {
     if (edidUpper.includes('ATX')) iconSrc = '/assets/AtomIcon.png';
-    else if (edidUpper.includes('SCORE_MINISEASON') || /SCORE[_-]?MINISEASON/i.test(matchedEdid)) iconSrc = '/assets/SeasonIcon.png';
-    else if (/SCORE[_-]?S?\d+/i.test(matchedEdid) || edidUpper.includes('SCORE')) iconSrc = '/assets/SeasonIcon.png';
-  }
-
-  // Build pill DOM
-const pill = document.createElement('span');
-pill.className = 'pill';
-
-// --- Icon logic ---
-let iconSrc = ''; 
-const miniMatch = matchedEdid && matchedEdid.match(/MiniSeason_\d+_([A-Za-z0-9_]+)/i);
-const seasonMatch = matchedEdid && matchedEdid.match(/SCORE[_-]?S?(\d+)/i);
-
-if (miniMatch || seasonMatch) {
-  iconSrc = '/assets/SeasonIcon.png'; // always season icon for these
-} else if (edidUpper.startsWith('F1_')) {
-  iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
-} else {
-  for (const key in ManualEntmIcons) {
-    if (edidUpper.includes(key)) {
-      iconSrc = ManualEntmIcons[key];
-      break;
+    else if (edidUpper.includes('SCORE_MINISEASON') || /SCORE[_-]?MINISEASON/i.test(matchedEdid)) {
+      iconSrc = '/assets/SeasonIcon.png';
+    } else if (/SCORE[_-]?S?\d+/i.test(matchedEdid) || edidUpper.includes('SCORE')) {
+      iconSrc = '/assets/SeasonIcon.png';
     }
   }
-}
 
-// Append icon if any
-if (iconSrc) {
-  const icon = document.createElement('img');
-  icon.src = iconSrc;
-  icon.style.width = '30px';
-  icon.style.height = '30px';
-  icon.style.verticalAlign = 'middle';
-  icon.style.marginRight = '6px';
-  pill.appendChild(icon);
-}
+  // --- Build pill ---
+  const pill = document.createElement('span');
+  pill.className = 'pill';
 
-// --- Text logic ---
-let pillText = '';
-if (miniMatch) {
-  pillText = `Mini Season: ${prettifyMiniSeasonName(miniMatch[1])}`;
-} else if (seasonMatch) {
-  pillText = `${fullName} (Season ${seasonMatch[1]})`;
-} else {
-  pillText = fullName;
-}
+  if (iconSrc) {
+    const icon = document.createElement('img');
+    icon.src = iconSrc;
+    icon.style.width = '30px';
+    icon.style.height = '30px';
+    icon.style.verticalAlign = 'middle';
+    icon.style.marginRight = '6px';
+    pill.appendChild(icon);
+  }
 
-// Add text without removing icon
-pill.appendChild(document.createTextNode(pillText));
+  // --- Mini-season / season / normal text ---
+  const miniMatch = matchedEdid && matchedEdid.match(/MiniSeason_\d+_([A-Za-z0-9_]+)/i);
+  const seasonMatch = matchedEdid && matchedEdid.match(/SCORE[_-]?S?(\d+)/i);
 
-entmPills.push(pill);
+  let pillText = '';
+
+  if (miniMatch) {
+    // replace underscores with spaces and capitalize first letter of each word inline
+    const prettyName = miniMatch[1]
+      .replace(/_/g, ' ')
+      .replace(/\b\w/g, c => c.toUpperCase());
+    pillText = `Mini Season: ${prettyName}`;
+  } else if (seasonMatch) {
+    pillText = `${fullName} (Season ${seasonMatch[1]})`;
+  } else {
+    pillText = fullName;
+  }
+
+  pill.appendChild(document.createTextNode(pillText));
+  entmPills.push(pill);
 });
 
 
