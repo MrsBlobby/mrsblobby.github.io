@@ -1628,19 +1628,20 @@ function renderResults(query) {
       pill.appendChild(icon);
     }
 
-  // optional season suffix
+ // optional season suffix
 let textSuffix = '';
-const miniMatch = matchedEdid && matchedEdid.match(/MiniSeason_\d+_([A-Za-z0-9_]+)/i);
-const seasonMatch = matchedEdid && matchedEdid.match(/SCORE[_-]?S?(\d+)/i);
+if (matchedEdid) {
+  // Match MiniSeason and capture all the human-readable name part
+  const miniMatch = matchedEdid.match(/MiniSeason_\d+_([A-Za-z0-9_]+)(?:_|$)/i);
 
-if (miniMatch) {
-  // take the captured part, replace underscores with spaces, capitalize words
-  const prettyName = miniMatch[1]
-    .replace(/_/g, ' ')
-    .replace(/\b\w/g, c => c.toUpperCase());
-  textSuffix = ` (Mini Season: ${prettyName})`;
-} else if (seasonMatch) {
-  textSuffix = ` (Season ${seasonMatch[1]})`;
+  if (miniMatch) {
+    // replace underscores with spaces, capitalize words, preserve acronyms
+    const parts = miniMatch[1].split('_').map(word =>
+      word.toUpperCase() === word ? word : word[0].toUpperCase() + word.slice(1).toLowerCase()
+    );
+    const prettyName = parts.join(' ');
+    textSuffix = ` (Mini Season: ${prettyName})`;
+  }
 }
 
 
