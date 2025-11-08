@@ -159,7 +159,7 @@
 .inline-group {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0px;
   justify-content: center;
   margin-top: 8px;
   width: 100%;
@@ -1566,78 +1566,77 @@ function renderResults(query) {
     return entmEdids.length ? entmEdids.splice(0,1)[0] : '';
   }
 
-  // build pills
-  const entmPills = [];
+ // --- Helper function ---
+function prettifyMiniSeasonName(raw) {
+  if (!raw) return '';
+  return raw
+    .replace(/([a-z0-9])([A-Z])/g, '$1 $2') // camelCase / PascalCase → space
+    .replace(/_/g, ' ')                     // underscores → spaces
+    .trim();
+}
 
-  entmFulls.forEach(fullName => {
-    // get matched edid: reserved first, else best-effort
-    let matchedEdid = reservedEdidMap[fullName] || pickBestEdidForFull(fullName);
-    const edidUpper = String(matchedEdid || '').toUpperCase();
-    const fullUpper = fullName.trim().toUpperCase();
+// --- Build pills ---
+const entmPills = [];
 
-    // Decide icon: exact full-name override first (guaranteed), else EDID-based rules
-    let iconSrc = '';
+entmFulls.forEach(fullName => {
+  let matchedEdid = reservedEdidMap[fullName] || pickBestEdidForFull(fullName);
+  const edidUpper = String(matchedEdid || '').toUpperCase();
+  const fullUpper = fullName.trim().toUpperCase();
 
-    // Exact forced names to ensure these map to the standard EDID when present
-    if (ExactPairs[fullUpper]) {
-      // Only give AdditionalStorage when the matchedEDID equals or contains the expected EDID,
-      // or if the expected EDID wasn't found but edidUpper starts with F1_
-      const expected = ExactPairs[fullUpper].toUpperCase();
-      if (edidUpper === expected || edidUpper.includes(expected) || edidUpper.startsWith('F1_')) {
-        iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
-      } else {
-        // If the exact pair expected EDID is not matched, still prefer AdditionalStorage only
-        // if an F1_ EDID was matched; otherwise fall through to EDID logic.
-        if (edidUpper.startsWith('F1_')) iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
-      }
-    }
+  // Decide icon (your existing logic) ...
+  let iconSrc = '';
 
-    // EDID-based manual icons
-    if (!iconSrc) {
-      for (const key in ManualEntmIcons) {
-        if (edidUpper.includes(key)) {
-          iconSrc = ManualEntmIcons[key];
-          break;
-        }
-      }
-    }
-
-    // F1_ generic rule (only if matchedEdid indicates F1_)
-    if (!iconSrc && edidUpper.startsWith('F1_')) {
+  if (ExactPairs[fullUpper]) {
+    const expected = ExactPairs[fullUpper].toUpperCase();
+    if (edidUpper === expected || edidUpper.includes(expected) || edidUpper.startsWith('F1_')) {
+      iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
+    } else if (edidUpper.startsWith('F1_')) {
       iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
     }
+  }
 
-    // ATX / SCORE fallbacks
-    if (!iconSrc) {
-      if (edidUpper.includes('ATX')) iconSrc = '/assets/AtomIcon.png';
-      else if (edidUpper.includes('SCORE_MINISEASON') || /SCORE[_-]?MINISEASON/i.test(matchedEdid)) iconSrc = '/assets/SeasonIcon.png';
-      else if (/SCORE[_-]?S?\d+/i.test(matchedEdid) || edidUpper.includes('SCORE')) iconSrc = '/assets/SeasonIcon.png';
+  if (!iconSrc) {
+    for (const key in ManualEntmIcons) {
+      if (edidUpper.includes(key)) {
+        iconSrc = ManualEntmIcons[key];
+        break;
+      }
     }
+  }
 
-    // Build pill DOM
-    const pill = document.createElement('span');
-    pill.className = 'pill';
+  if (!iconSrc && edidUpper.startsWith('F1_')) iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
+  if (!iconSrc) {
+    if (edidUpper.includes('ATX')) iconSrc = '/assets/AtomIcon.png';
+    else if (edidUpper.includes('SCORE_MINISEASON') || /SCORE[_-]?MINISEASON/i.test(matchedEdid)) iconSrc = '/assets/SeasonIcon.png';
+    else if (/SCORE[_-]?S?\d+/i.test(matchedEdid) || edidUpper.includes('SCORE')) iconSrc = '/assets/SeasonIcon.png';
+  }
 
-    if (iconSrc) {
-      const icon = document.createElement('img');
-      icon.src = iconSrc;
-      icon.style.width = '30px';
-      icon.style.height = '30px';
-      icon.style.verticalAlign = 'middle';
-      icon.style.marginRight = '6px';
-      pill.appendChild(icon);
-    }
+  // Build pill DOM
+  const pill = document.createElement('span');
+  pill.className = 'pill';
 
-    // optional season suffix
-    let textSuffix = '';
-    const miniMatch = matchedEdid && matchedEdid.match(/MiniSeason_\d+_([A-Za-z0-9]+)/i);
-    const seasonMatch = matchedEdid && matchedEdid.match(/SCORE[_-]?S?(\d+)/i);
-    if (miniMatch) textSuffix = ` (Mini Season: ${miniMatch[1].replace(/_/g,' ')})`;
-    else if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
+  if (iconSrc) {
+    const icon = document.createElement('img');
+    icon.src = iconSrc;
+    icon.style.width = '30px';
+    icon.style.height = '30px';
+    icon.style.verticalAlign = 'middle';
+    icon.style.marginRight = '6px';
+    pill.appendChild(icon);
+  }
 
-    pill.appendChild(document.createTextNode(fullName + textSuffix));
-    entmPills.push(pill);
-  });
+  // --- Mini-season / season suffix ---
+  let textSuffix = '';
+  const miniMatch = matchedEdid && matchedEdid.match(/MiniSeason_\d+_([A-Za-z0-9_]+)/i);
+  const seasonMatch = matchedEdid && matchedEdid.match(/SCORE[_-]?S?(\d+)/i);
+
+  if (miniMatch) textSuffix = ` (Mini Season: ${prettifyMiniSeasonName(miniMatch[1])})`;
+  else if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
+
+  pill.appendChild(document.createTextNode(fullName + textSuffix));
+  entmPills.push(pill);
+});
+
 
   // append pills with "and" connectors
   entmPills.forEach((pill, i) => {
