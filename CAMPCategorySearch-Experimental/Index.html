@@ -395,6 +395,36 @@
   color: black;
 }
 
+#dropdownOptions,
+#filtersOptions,
+#sortOptions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin-top: -2px;
+  background-color: var(--card-bg);
+  border: 2px solid var(--accent);
+  border-radius: 0 0 6px 6px;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 200;
+
+  opacity: 0;
+  transform: scaleY(0.95);
+  transform-origin: top;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+#dropdownOptions.open,
+#filtersOptions.open,
+#sortOptions.open {
+  opacity: 1;
+  transform: scaleY(1);
+  pointer-events: auto;
+}
+
 
 #dropdownSelected {
   display: flex;
@@ -997,17 +1027,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Hide all dropdowns on load
   const filtersOptions = document.getElementById('filtersOptions');
-  filtersOptions.style.display = 'none';
+  filtersOptions.classList.remove('open');
 
   const filtersButton = document.getElementById('filtersButton');
   filtersButton.classList.remove('open');
 
   const dropdownOptions = document.getElementById('dropdownOptions');
-  dropdownOptions.style.display = 'none';
+  dropdownOptions.classList.remove('open');
   dropdownSelected.classList.remove('open');
 
   const sortOptions = document.getElementById('sortOptions');
-  sortOptions.style.display = 'none';
+  sortOptions.classList.remove('open');
   sortSelected.classList.remove('open');
 
   // Optional: render all results initially
@@ -1051,27 +1081,27 @@ const clearFiltersBtn = document.querySelector('.clear-filters');
 
 // --- Close logic ---
 function closeAllDropdowns() {
-  dropdownOptions.style.display = 'none';
+  dropdownOptions.classList.remove('open');
   dropdownSelected.classList.remove('open');
 
-  sortOptions.style.display = 'none';
+  sortOptions.classList.remove('open');
   sortSelected.classList.remove('open');
 
-  filtersOptions.style.display = 'none';
+  filtersOptions.classList.remove('open');
   filtersButton.classList.remove('open');
 }
 
 function closeOtherDropdowns(except) {
   if (except !== 'search') {
-    dropdownOptions.style.display = 'none';
+    dropdownOptions.classList.remove('open');
     dropdownSelected.classList.remove('open');
   }
   if (except !== 'sort') {
-    sortOptions.style.display = 'none';
+    sortOptions.classList.remove('open');
     sortSelected.classList.remove('open');
   }
   if (except !== 'filters') {
-    filtersOptions.style.display = 'none';
+    filtersOptions.classList.remove('open');
     filtersButton.classList.remove('open');
   }
 }
@@ -1082,7 +1112,7 @@ dropdownSelected.addEventListener('click', e => {
   const isOpen = dropdownOptions.style.display === 'block';
   closeAllDropdowns();
   if (!isOpen) {
-    dropdownOptions.style.display = 'block';
+    dropdownOptions.classList.add('open');
     dropdownSelected.classList.add('open');
   }
 });
@@ -1093,7 +1123,7 @@ sortSelected.addEventListener('click', e => {
   const isOpen = sortOptions.style.display === 'block';
   closeAllDropdowns();
   if (!isOpen) {
-    sortOptions.style.display = 'block';
+    sortOptions.classList.add('open');
     sortSelected.classList.add('open');
   }
 });
@@ -1132,7 +1162,7 @@ filtersButton.addEventListener('click', e => {
   const isOpen = filtersOptions.style.display === 'block';
   closeAllDropdowns(); // Close everything before toggling filters
   if (!isOpen) {
-    filtersOptions.style.display = 'block';
+    filtersOptions.classList.add('open');
     filtersButton.classList.add('open');
   }
 });
@@ -1145,9 +1175,9 @@ clearFiltersBtn.addEventListener('click', e => {
   e.stopPropagation();
 
   // Close the other two dropdowns (always)
-  dropdownOptions.style.display = 'none';
+  dropdownOptions.classList.remove('open');
   dropdownSelected.classList.remove('open');
-  sortOptions.style.display = 'none';
+  sortOptions.classList.remove('open');
   sortSelected.classList.remove('open');
 
   // Clear activeFilters data and UI
@@ -1173,7 +1203,7 @@ dropdownOptions.querySelectorAll('.option').forEach(option => {
   option.addEventListener('click', () => {
     currentSearchBy = option.dataset.value;
     dropdownSelected.textContent = 'Search By: ' + option.textContent;
-    dropdownOptions.style.display = 'none';
+    dropdownOptions.classList.remove('open');
     dropdownSelected.classList.remove('open');
     renderResults(document.getElementById('searchBox').value);
   });
@@ -1183,7 +1213,7 @@ sortOptions.querySelectorAll('.option').forEach(option => {
   option.addEventListener('click', () => {
     currentSort = option.dataset.value;
     sortSelected.textContent = option.textContent;
-    sortOptions.style.display = 'none';
+    sortOptions.classList.remove('open');
     sortSelected.classList.remove('open');
     renderResults(document.getElementById('searchBox').value);
   });
