@@ -1615,6 +1615,7 @@ entmFulls.forEach(fullName => {
 const pill = document.createElement('span');
 pill.className = 'pill';
 
+// --- Icon logic (unchanged) ---
 if (iconSrc) {
   const icon = document.createElement('img');
   icon.src = iconSrc;
@@ -1625,19 +1626,22 @@ if (iconSrc) {
   pill.appendChild(icon);
 }
 
-// --- Mini-season / season logic ---
+// --- Mini-season / season / normal text ---
 const miniMatch = matchedEdid && matchedEdid.match(/MiniSeason_\d+_([A-Za-z0-9_]+)/i);
 const seasonMatch = matchedEdid && matchedEdid.match(/SCORE[_-]?S?(\d+)/i);
 
+let pillText = ''; 
+
 if (miniMatch) {
-  // Only the pretty mini-season name
-  const prettyName = prettifyMiniSeasonName(miniMatch[1]);
-  pill.textContent = `Mini Season: ${prettyName}`;
+  pillText = `Mini Season: ${prettifyMiniSeasonName(miniMatch[1])}`;
 } else if (seasonMatch) {
-  pill.textContent = `${fullName} (Season ${seasonMatch[1]})`;
+  pillText = `${fullName} (Season ${seasonMatch[1]})`;
 } else {
-  pill.textContent = fullName;
+  pillText = fullName;
 }
+
+// Append the text **without removing the icon**
+pill.appendChild(document.createTextNode(pillText));
 
 entmPills.push(pill);
 });
