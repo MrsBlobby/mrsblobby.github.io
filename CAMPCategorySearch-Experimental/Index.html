@@ -1109,7 +1109,7 @@ function closeOtherDropdowns(except) {
 // --- Search By dropdown ---
 dropdownSelected.addEventListener('click', e => {
   e.stopPropagation();
-  const isOpen = dropdownOptions.style.display === 'block';
+  const isOpen = dropdownOptions.classList.contains('open');
   closeAllDropdowns();
   if (!isOpen) {
     dropdownOptions.classList.add('open');
@@ -1120,7 +1120,7 @@ dropdownSelected.addEventListener('click', e => {
 // --- Sort By dropdown ---
 sortSelected.addEventListener('click', e => {
   e.stopPropagation();
-  const isOpen = sortOptions.style.display === 'block';
+  const isOpen = sortOptions.classList.contains('open');
   closeAllDropdowns();
   if (!isOpen) {
     sortOptions.classList.add('open');
