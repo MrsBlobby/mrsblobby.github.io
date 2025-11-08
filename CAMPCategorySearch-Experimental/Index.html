@@ -1631,13 +1631,15 @@ function renderResults(query) {
 // optional season suffix
 let textSuffix = '';
 if (matchedEdid) {
-  // Capture only the "name" part immediately after the year
-  const miniMatch = matchedEdid.match(/MiniSeason_\d+_([A-Za-z0-9]+)/i);
-
-  if (miniMatch) {
-    // Insert spaces before capital letters (except all-caps acronyms)
-    const prettyName = miniMatch[1].replace(/([a-z])([A-Z])/g, '$1 $2');
-    textSuffix = ` (Mini Season: ${prettyName})`;
+  if (miniSeasonAliases[matchedEdid]) {
+    textSuffix = ` (Mini Season: ${miniSeasonAliases[matchedEdid]})`;
+  } else {
+    // Capture only the "name" part immediately after the year
+    const miniMatch = matchedEdid.match(/MiniSeason_\d+_([A-Za-z0-9]+)/i);
+    if (miniMatch) {
+      const prettyName = miniMatch[1].replace(/([a-z])([A-Z])/g, '$1 $2');
+      textSuffix = ` (Mini Season: ${prettyName})`;
+    }
   }
 }
 
