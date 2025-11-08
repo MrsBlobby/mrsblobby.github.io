@@ -1108,11 +1108,10 @@ dropdownSelected.addEventListener('click', e => {
   }
 });
 
-// Set initial text
+// --- Initial button text ---
 sortSelected.textContent = 'Sort By: Workshop Menu ▼';
 
-// --- Sort By dropdown ---
-// Button click toggles dropdown
+// --- Toggle dropdown on button click ---
 sortSelected.addEventListener('click', e => {
   e.stopPropagation();
   const isOpen = sortOptions.classList.contains('open');
@@ -1123,21 +1122,23 @@ sortSelected.addEventListener('click', e => {
   }
 });
 
+// --- Update button text ---
 function updateSortButtonText(optionText) {
-  sortButton.textContent = `Sort By: ${optionText.trim()}`;
+  sortSelected.textContent = `Sort By: ${optionText.trim()} ▼`;
 }
 
-// Option click handler
+// --- Option click handler ---
 sortOptions.querySelectorAll('.option').forEach(option => {
-  option.addEventListener('click', () => {
-    currentSort = option.dataset.value;
+  option.addEventListener('click', e => {
+    e.stopPropagation();
+    const selectedValue = option.dataset.value;
+    currentSort = selectedValue;
 
-    // Update button text safely
-    updateSortButtonText(option.textContent);
+    updateSortButtonText(option.textContent); // Keep prefix
 
     // Close dropdown
     sortOptions.classList.remove('open');
-    sortButton.classList.remove('open');
+    sortSelected.classList.remove('open');
 
     // Refresh results
     const searchBox = document.getElementById('searchBox');
@@ -1145,7 +1146,11 @@ sortOptions.querySelectorAll('.option').forEach(option => {
   });
 });
 
-
+// --- Close dropdown if clicking elsewhere ---
+document.addEventListener('click', () => {
+  sortOptions.classList.remove('open');
+  sortSelected.classList.remove('open');
+});
 
 function updateFiltersButton() {
   const count = activeFilters.size;
