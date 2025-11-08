@@ -1641,7 +1641,7 @@ if (matchedEdid) {
       textSuffix = ` (Mini Season: ${prettyName})`;
     } else {
       // Fallback for regular SCORE seasons
-      const seasonMatch = matchedEdid.match(/SCORE[_-]?S?(\d+)/i);
+      const seasonMatch = matchedEdid.match(/SCORE[_]?S?(\d+)/i);
       if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
     }
   }
