@@ -1445,39 +1445,67 @@ function renderResults(query) {
       const isDirect = (String(r.BOOK_SOURCE || '').toLowerCase() === 'direct');
       const connectorWord = isDirect ? 'and' : 'or';
 
-      // --- BOOK pill ---
-      if (hasBook) {
-        const bookPill = document.createElement('span');
-        bookPill.className = 'pill';
-        bookPill.textContent = r.BOOK_FULL;
+      // --- BOOK pills ---
+if (hasBook) {
+  const ManualIcons = {
+    'XPD_': '/assets/StampIcon.png',
+    '_GoldVendor': '/assets/BullionIcon.png',
+  };
 
-        const bookEdid = String(r.BOOK_EditorID || '');
-        let iconSrc = '';
-        const ManualIcons = {
-          'XPD_': '/assets/StampIcon.png',
-          '_GoldVendor': '/assets/BullionIcon.png',
-        };
-        for (const key in ManualIcons) {
-          if (bookEdid.includes(key)) {
-            iconSrc = ManualIcons[key];
-            break;
-          }
-        }
+  // Split BOOK_FULLs and EDIDs by semicolon
+  const bookFulls = String(r.BOOK_FULL || '')
+    .split(';')
+    .map(s => s.trim())
+    .filter(Boolean);
+  const bookEdids = String(r.BOOK_EditorID || '')
+    .split(';')
+    .map(s => s.trim())
+    .filter(Boolean);
 
-        if (iconSrc) {
-          const icon = document.createElement('img');
-          icon.src = iconSrc;
-          icon.style.width = '30px';
-          icon.style.height = '30px';
-          icon.style.verticalAlign = 'middle';
-          icon.style.marginRight = '6px';
-          bookPill.innerHTML = '';
-          bookPill.appendChild(icon);
-          bookPill.appendChild(document.createTextNode(r.BOOK_FULL));
-        }
+  const bookPills = [];
 
-        condWrap.appendChild(bookPill);
+  bookFulls.forEach((fullName, i) => {
+    const bookPill = document.createElement('span');
+    bookPill.className = 'pill';
+
+    const matchedEdid = bookEdids[i] || '';
+    const bookEdidUpper = matchedEdid.toUpperCase();
+
+    // Decide icon
+    let iconSrc = '';
+    for (const key in ManualIcons) {
+      if (bookEdidUpper.includes(key)) {
+        iconSrc = ManualIcons[key];
+        break;
       }
+    }
+
+    if (iconSrc) {
+      const icon = document.createElement('img');
+      icon.src = iconSrc;
+      icon.style.width = '30px';
+      icon.style.height = '30px';
+      icon.style.verticalAlign = 'middle';
+      icon.style.marginRight = '6px';
+      bookPill.appendChild(icon);
+    }
+
+    bookPill.appendChild(document.createTextNode(fullName));
+    bookPills.push(bookPill);
+  });
+
+  // append multiple BOOK pills with "and" connectors
+  bookPills.forEach((pill, i) => {
+    condWrap.appendChild(pill);
+    if (i < bookPills.length - 1) {
+      const conn = document.createElement('span');
+      conn.className = 'connector';
+      conn.textContent = 'and';
+      condWrap.appendChild(conn);
+    }
+  });
+}
+
 
       // --- connector ---
       if (hasBook && hasEntm) {
@@ -1486,6 +1514,8 @@ function renderResults(query) {
         conn.textContent = connectorWord;
         condWrap.appendChild(conn);
       }
+
+
       // --- ENTM pill ---
  if (hasEntm) {
   // --- prepare lists ---
