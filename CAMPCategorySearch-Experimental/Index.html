@@ -755,6 +755,61 @@
     .controls {
       flex-direction: column;
     }
+
+.info-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+#infoButton {
+  background: #2b2b2b;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+#infoContent {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 110%;
+  background: #1f1f1f;
+  border: 1px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  padding: 12px;
+  width: 300px;
+  z-index: 50;
+}
+
+#infoContent.open {
+  display: block;
+}
+
+.info-section {
+  margin-bottom: 10px;
+}
+
+.info-section h3 {
+  margin: 4px 0;
+  font-size: 1em;
+  color: #ffcc00;
+}
+
+.legend-entry {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.legend-icon {
+  width: 30px;
+  height: 30px;
+}
+
+
   }
 </style>
 </head>
@@ -908,6 +963,25 @@
     </div>
   </div>
 </div>
+
+
+<div class="info-dropdown">
+  <button id="infoButton">General Info / Disclaimers / FAQ / Legend</button>
+ <div id="infoContent" class="info-dropdown-content">
+  <div class="legend-entry">
+    <img src="/assets/AtomIcon.png" alt="Atom" class="legend-icon">
+    <span>Atomic Shop content</span>
+  </div>
+  <div class="legend-entry">
+    <img src="/assets/SeasonIcon.png" alt="Season" class="legend-icon">
+    <span>Season reward</span>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
 
   <ul id="results"></ul>
   <div id="pagination" style="text-align:center; margin: 16px 0;"></div>
@@ -1231,6 +1305,16 @@ dropdownOptions.querySelectorAll('.option').forEach(option => {
 });
 
 document.getElementById('searchBox').addEventListener('input', e => renderResults(e.target.value));
+
+// --- Info / FAQ button ---
+const infoButton = document.getElementById('infoButton');
+const infoContent = document.getElementById('infoContent');
+
+infoButton.addEventListener('click', () => {
+  infoContent.classList.toggle('open');
+});
+
+
 
 // --- Sorting / Pagination ---
 function sortItems(items) {
