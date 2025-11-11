@@ -755,57 +755,6 @@
     .controls {
       flex-direction: column;
     }
-
-.info-block {
-  background: rgba(255, 192, 15, 0.05); /* same as changelog */
-  border-left: 3px solid var(--accent);
-  border-radius: 6px;
-  padding: 10px 14px;
-  margin-top: 6px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-/* Heading inside the block */
-.info-block h4 {
-  font-weight: bold;
-  margin: 0 0 8px 0;
-  font-size: 14px;
-}
-
-.legend-entry {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(255, 192, 15, 0.12);
-  border-left: 3px solid var(--accent);
-  border-radius: 4px;
-  padding: 6px 10px;
-  transition: background 0.2s;
-}
-
-.legend-entry:hover {
-  background: rgba(255, 192, 15, 0.2); 
-}
-
-.legend-entry img {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-}
-
-
-details summary {
-  cursor: pointer;
-  font-weight: bold;
-  margin-bottom: 6px;
-}
-
-details[open] summary {
-  color: var(--accent);
-}
-
   }
 </style>
 </head>
@@ -887,28 +836,6 @@ details[open] summary {
       </div>
     </details>
   </div>
-
-<!-- Info dropdown -->
-<div class="container">
-  <details>
-    <summary>Info</summary>
-    <div class="info-block">
-      <h4>Legend:</h4>
-      <div class="legend-entry">
-        <img src="/assets/AtomIcon.png" alt="Atomic Shop" />
-        <span>Atomic Shop Content</span>
-      </div>
-      <div class="legend-entry">
-        <img src="/assets/SeasonIcon.png" alt="Season Reward" />
-        <span>(Mini) Season Reward</span>
-      </div>
-      <div class="legend-entry">
-        <img src="/assets/OtherIcon.png" alt="Other" />
-        <span>Other Content</span>
-      </div>
-    </div>
-  </details>
-</div>
 
 <div class="controls">
   <div class="search-line">
