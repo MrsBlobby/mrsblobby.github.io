@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Fallout 76 C.A.M.P. Item Lookup">
+  <meta property="og:description" content="Tool for finding the location of Fallout 76 C.A.M.P. items in the building menu">
+  <meta property="og:image" content="https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/assets/CAMPIcon2.png">
+  <meta property="og:url" content="https://yourdomain.com/">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg" href="/assets/svg/CAMPIcon.svg">
+  <title>Fallout 76 C.A.M.P. Item Lookup</title>
+  <style>
+    :root {
+      --accent: #ffc00f;
+      --bg: #1a1a1a;
+      --card-bg: #2a2a2a;
+      --text: #e0e0e0;
+      --text-muted: #aaa;
+      --content-width: 700px;
+      --card-width: 600px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    .container {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    h1 {
+      color: var(--accent);
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+    .meta {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    #pagination button {
+      padding: 6px 10px;
+      background: var(--card-bg);
+      color: var(--text);
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    #pagination button:hover:not(:disabled) {
+      background: var(--accent);
+      color: black;
+    }
+    #pagination button:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-color: var(--card-bg);
+      border: 2px solid var(--accent);
+      border-radius: 6px;
+      color: var(--text);
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      background-image: none;
+    }
+
+    .controls {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--card-bg);
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .inline-group .separator {
+      color: var(--text-muted);
+      margin: 0 8px;
+      display: flex;
+      align-items: center;
+      user-select: none; 
+    }
+
+    .controls input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      max-width: 400px;
+      border: 2px solid var(--accent);
+      border-radius: 6px;
+      background-color: var(--card-bg);
+      color: var(--text);
+    }
+
+    .controls .search-line {
+     width: 100%;
+     display: flex;
+     justify-content: center; 
+     margin-bottom: 8px;    
+    }
+
+
+    .controls label {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-left: 4px;
+    }
+
+    .controls .inline-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 16px;
+      margin: 0 auto;
+      max-width: var(--card-width);
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px;
+      background-color: var(--card-bg);
+      margin-bottom: 14px;
+      border-radius: 6px;
+      border: 2px solid var(--accent);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    .result-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 220px;
+    }
+
+    .result-name {
+      font-weight: bold;
+      font-size: 18px;
+      color: var(--accent);
+      margin-bottom: 6px;
+      text-align: center;
+    }
+
+    .result-left img {
+      border-radius: 6px;
+      max-width: 128px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .result-right {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .result-right span.pill {
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 16px;
+      color: var(--accent);
+      font-weight: normal;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .result-right span.arrow {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 10px solid var(--accent);
+      margin: 0 6px;
+      vertical-align: middle;
+    }
+
+    /* Version history */
+    details {
+      margin: 10px 0 20px 0;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    details summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--accent);
+      text-align: center;
+    }
+    .changelog-entry h4 {
+      margin: 0 0 4px 0;
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    .changelog-entry {
+      background: rgba(255, 192, 15, 0.05);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 6px 12px;
+      margin: 6px 0;
+      text-align: left;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 600px) {
+      li {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .result-left {
+        max-width: none;
+      }
+
+      .result-right {
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      .result-right span.pill {
+        font-size: 12px;
+        padding: 2px 6px;
+      }
+
+      .result-right span.arrow {
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        border-left: 8px solid var(--accent);
+        margin: 0 4px;
+      }
+
+      .controls {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="/assets/CoverImage.png" alt="Fallout 76 C.A.M.P. Item Lookup" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+    <div class="meta">
+     <p style="color: var(--text-muted); font-size: 14px;">
+	Made by MrsBlobby | 
+     <a href="https://mrsblobby.github.io/76Tools.html" style="color: var(--accent); text-decoration:none;">
+  	  Other tools
+       </a>
+      </p>
+      <p style="color: var(--text-muted); font-size: 12px;">Last Updated: October 21, 2025</p>
+    </div>
+
+    <!-- Version history -->
+    <details>
+      <summary>Version History</summary>
+      <div class="changelog-entry">
+        <h4>v2.3.1</h4>
+        <ul><li>Fixed issue that caused crops and certain defensive structures to not have preview images</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v2.3</h4>
+        <ul><li>Results are now displayed in pages of up to 50 entries in an effort to optimize performance</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v2.2.1</h4>
+        <ul><li>Hid entries that returned null as a name in database</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v2.2</h4>
+        <ul><li>Added sorting options</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v2.1.2</h4>
+        <ul><li>Fixed issue that caused a lot of Turret entries to be missing</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v2.1.1</h4>
+        <ul><li>Fixed Fauna subcategory not displaying correctly</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v2.1</h4>
+        <ul><li>Added embed when linking tool on Discord</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v2.0</h4>
+        <ul><li>Reworked UI entirely. Added more mobile-friendly UI</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v1.2</h4>
+        <ul><li>Added version history</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v1.1.1</h4>
+        <ul><li>Fixed wallpaper images</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v1.1</h4>
+        <ul><li>Added image support</li></ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v1.0</h4>
+        <ul><li>Initial creation</li></ul>
+      </div>
+    </details>
+  </div>
+
+  <div class="controls">
+    <div class="search-line">
+      <input type="text" id="searchBox" placeholder="Enter item name..." autofocus>
+    </div>
+
+    <div class="inline-group">
+      <input type="checkbox" id="toggleImages" checked>
+      <label for="toggleImages">Show Images</label>
+      <span class="separator"></span>
+      <label for="sortMode" style="color: var(--text-muted); font-size: 14px; margin-left: 16px;">Sort By:</label>
+      <select id="sortMode">
+        <option value="camp-top" selected>Workshop Menu ▼</option>
+        <option value="camp-bottom">Workshop Menu ▲</option>
+        <option value="old-new">New ▼</option>
+        <option value="new-old">New ▲</option>
+        <option value="az">Alphabetical ▼</option>
+        <option value="za">Alphabetical ▲</option>
+      </select>
+    </div>
+  </div>
+
+
+
+  <ul id="results"></ul>
+  <div id="pagination" style="text-align:center; margin: 16px 0;"></div>
+
+  <script>
+  fetch('final_workshop_db.json')
+    .then(response => response.json())
+    .then(db => {
+      const searchBox = document.getElementById('searchBox');
+      const results = document.getElementById('results');
+      const toggleImages = document.getElementById('toggleImages');
+      const sortMode = document.getElementById('sortMode');
+      const pagination = document.getElementById('pagination');
+
+      let currentPage = 1;
+      const itemsPerPage = 50;
+      let lastQuery = '';
+
+      function sortItems(items) {
+        const mode = sortMode.value;
+        if (mode === 'camp-bottom') return [...items].reverse();
+        if (mode === 'new-old') return [...items].sort((a, b) => (b.CNAM_FormID || '').localeCompare(a.CNAM_FormID || ''));
+        if (mode === 'old-new') return [...items].sort((a, b) => (a.CNAM_FormID || '').localeCompare(b.CNAM_FormID || ''));
+        if (mode === 'az') return [...items].sort((a, b) => (a.Name || '').localeCompare(b.Name || ''));
+        if (mode === 'za') return [...items].sort((a, b) => (b.Name || '').localeCompare(a.Name || ''));
+        return items;
+      }
+
+      function paginate(items) {
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        return items.slice(start, end);
+      }
+
+      function renderPagination(totalItems) {
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        pagination.innerHTML = '';
+
+        if (totalPages <= 1) return;
+
+        const prevBtn = document.createElement('button');
+        prevBtn.textContent = '← Prev';
+        prevBtn.disabled = currentPage === 1;
+        prevBtn.onclick = () => { currentPage--; renderResults(lastQuery); };
+        pagination.appendChild(prevBtn);
+
+        for (let i = 1; i <= totalPages; i++) {
+          if (i === currentPage || i === 1 || i === totalPages || Math.abs(i - currentPage) <= 2) {
+            const btn = document.createElement('button');
+            btn.textContent = i;
+            btn.style.margin = '0 4px';
+            btn.style.background = i === currentPage ? 'var(--accent)' : 'var(--card-bg)';
+            btn.style.color = i === currentPage ? 'black' : 'var(--text)';
+            btn.style.border = '1px solid var(--accent)';
+            btn.style.borderRadius = '4px';
+            btn.style.cursor = 'pointer';
+            btn.onclick = () => { currentPage = i; renderResults(lastQuery); };
+            pagination.appendChild(btn);
+          } else if (Math.abs(i - currentPage) === 3) {
+            const span = document.createElement('span');
+            span.textContent = '...';
+            pagination.appendChild(span);
+          }
+        }
+
+        const nextBtn = document.createElement('button');
+        nextBtn.textContent = 'Next →';
+        nextBtn.disabled = currentPage === totalPages;
+        nextBtn.onclick = () => { currentPage++; renderResults(lastQuery); };
+        pagination.appendChild(nextBtn);
+      }
+
+      function renderResults(query) {
+        const normalizedQuery = query.toLowerCase();
+        const queryChanged = normalizedQuery !== lastQuery;
+        lastQuery = normalizedQuery;
+
+        const filtered = db.filter(item => item.Name && item.Name.trim() !== '' && (!normalizedQuery || item.Name.toLowerCase().includes(normalizedQuery)));
+        const sorted = sortItems(filtered);
+
+        // reset to page 1 if query changed or current page is now out of range
+        const totalPages = Math.ceil(sorted.length / itemsPerPage);
+        if (queryChanged || currentPage > totalPages) currentPage = 1;
+
+        const paged = paginate(sorted);
+        results.innerHTML = '';
+
+        if (!paged.length) {
+          results.innerHTML = '<li>No matches found</li>';
+          pagination.innerHTML = '';
+          return;
+        }
+
+        paged.forEach(r => {
+          const li = document.createElement('li');
+          const left = document.createElement('div');
+          left.className = 'result-left';
+
+          const name = document.createElement('div');
+          name.className = 'result-name';
+          name.textContent = r.Name;
+          left.appendChild(name);
+
+          if (toggleImages.checked && r.CNAM_FormID) {
+            const img = document.createElement('img');
+            img.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
+            img.alt = r.Name;
+            img.loading = "lazy";
+            left.appendChild(img);
+          }
+
+          const right = document.createElement('div');
+          right.className = 'result-right';
+          const categories = [];
+          if (r.Category) categories.push(r.Category);
+          if (r.SubCategory && r.Category.toLowerCase() !== 'wallpapers') categories.push(r.SubCategory);
+
+          categories.forEach((cat, index) => {
+            const catSpan = document.createElement('span');
+            catSpan.className = 'pill';
+            catSpan.textContent = cat;
+            right.appendChild(catSpan);
+            if (index < categories.length - 1) {
+              const arrow = document.createElement('span');
+              arrow.className = 'arrow';
+              right.appendChild(arrow);
+            }
+          });
+
+          li.appendChild(left);
+          li.appendChild(right);
+          results.appendChild(li);
+        });
+
+        renderPagination(sorted.length);
+      }
+
+      searchBox.addEventListener('input', () => renderResults(searchBox.value));
+      toggleImages.addEventListener('change', () => renderResults(searchBox.value));
+      sortMode.addEventListener('change', () => {
+        currentPage = 1;
+        renderResults(searchBox.value.toLowerCase());
+      });
+
+
+      renderResults('');
+    })
+    .catch(err => {
+      console.error("Failed to load database:", err);
+      document.getElementById('results').innerHTML = '<li>Error loading database.</li>';
+    });
+  </script>
+</body>
+</html>
