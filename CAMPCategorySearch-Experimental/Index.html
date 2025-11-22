@@ -92,6 +92,15 @@
     cursor: default;
   }
 
+.no-results {
+  text-align: center;
+  width: 100%;
+  padding: 20px 0;
+  color: #ccc;
+  font-size: 1.1em;
+  list-style: none;
+}
+
 .controls {
   position: sticky;
   top: 0;
@@ -1356,7 +1365,7 @@ function renderResults(query) {
   results.innerHTML = '';
 
   if (!paged.length) {
-    results.innerHTML = '<li>No matches found</li>';
+    results.innerHTML = '<li class="no-results">No matches found</li>';
     pagination.innerHTML = '';
     return;
   }
