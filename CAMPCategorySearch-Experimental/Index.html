@@ -1468,18 +1468,18 @@ function renderResults(query) {
 
 if (hasBook) {
   const BookTagIcons = {
-  'BullionVendor': '/assets/BullionIcon.png',
-  'StampsVendor': '/assets/StampIcon.png',
-  'DailyOps': '/assets/DOpsIcon.png',
-  'CommonWorkshop': '/assets/WorkshopIcon.png',
-  'RaidsReward': '/assets/RaidIcon.svg',
-  'TreasureHunters': '/assets/TreasureHuntersIcon.png',
-  'MeatWeekRewards': '/assets/MeatWeekIcon.svg',
-  'FasnachtRewards': '/assets/FasnachtIcon.svg',
-  'MischiefNightRewards': '/assets/MischiefNightIcon.svg',
-  'SpookyScorched': '/assets/SpookyScorchedIcon.svg',
-  'PublicEventRewards': '/assets/PublicEventIcon.svg',
-};
+    'BullionVendor': '/assets/BullionIcon.png',
+    'StampsVendor': '/assets/StampIcon.png',
+    'DailyOps': '/assets/DOpsIcon.png',
+    'CommonWorkshop': '/assets/WorkshopIcon.png',
+    'RaidsReward': '/assets/RaidIcon.svg',
+    'TreasureHunters': '/assets/TreasureHuntersIcon.png',
+    'MeatWeekRewards': '/assets/MeatWeekIcon.svg',
+    'FasnachtRewards': '/assets/FasnachtIcon.svg',
+    'MischiefNightRewards': '/assets/MischiefNightIcon.svg',
+    'SpookyScorched': '/assets/SpookyScorchedIcon.svg',
+    'PublicEventRewards': '/assets/PublicEventIcon.svg',
+  };
 
   const bookFulls = String(r.BOOK_FULL || '')
     .split(';')
@@ -1488,24 +1488,18 @@ if (hasBook) {
 
   const rawTags = String(r.BOOK_SOURCE_TAG || '').trim();
 
-  // Split top-level on ';'
   const tagEntries = rawTags
     .split(';')
     .map(s => s.trim())
     .filter(Boolean);
 
   const getTagsForBook = (index) => {
-    // CASE 1: one book → all tags belong to it
     if (bookFulls.length === 1) {
       return rawTags.split(/[;|]/).map(t => t.trim()).filter(Boolean);
     }
-
-    // CASE 2: matching counts → index-aligned
     if (tagEntries.length === bookFulls.length) {
       return tagEntries[index].split(/[;|]/).map(t => t.trim()).filter(Boolean);
     }
-
-    // CASE 3: fallback: same tags for all books
     return rawTags.split(/[;|]/).map(t => t.trim()).filter(Boolean);
   };
 
@@ -1516,8 +1510,7 @@ if (hasBook) {
     const tags = getTagsForBook(i);
 
     tags.forEach(tag => {
-      const key = tag.toLowerCase();
-      const iconSrc = BookTagIcons[key];
+      const iconSrc = BookTagIcons[tag]; // ← fix
       if (iconSrc) {
         const icon = document.createElement('img');
         icon.src = iconSrc;
@@ -1540,6 +1533,7 @@ if (hasBook) {
     }
   });
 }
+
 
 
       // --- connector ---
