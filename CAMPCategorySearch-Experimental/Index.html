@@ -1046,11 +1046,14 @@ window.addEventListener('DOMContentLoaded', () => {
   renderResults('');
 });
 
-// --- Manual icon overrides ---
-const ManualIcons = {
-  'XPD_': '/assets/StampIcon.png',
-  '_GOLDVENDOR': '/assets/BullionIcon.png'
+// Icons driven by BOOK_SOURCE_TAG values
+const BookTagIcons = {
+  'RaidsReward': '/assets/RaidsRewardIcon.png',
+  'XPD': '/assets/StampIcon.png',
+  'VendorGold': '/assets/BullionIcon.png'
 };
+
+// --- Manual icon overrides ---
 const ManualEntmIcons = {
   'Babylon_': '/assets/V51Icon.png',
   'Shelters_': '/assets/AtomIcon.png',
@@ -1457,17 +1460,22 @@ function renderResults(query) {
 
       // --- BOOK pills ---
 if (hasBook) {
-  const ManualIcons = {
-    'XPD_': '/assets/StampIcon.png',
-    '_GOLDVENDOR': '/assets/BullionIcon.png',
+  // Map tag to icon
+  const BookTagIcons = {
+    'DailyOps': '/assets/DOpsIcon.png',
+    'StampsVendor': '/assets/StampIcon.png',
+    'BullionVendor': '/assets/BullionIcon.png'
+    // add more here as needed
   };
 
-  // Split BOOK_FULLs and EDIDs by semicolon
+  // BOOK names
   const bookFulls = String(r.BOOK_FULL || '')
     .split(';')
     .map(s => s.trim())
     .filter(Boolean);
-  const bookEdids = String(r.BOOK_EditorID || '')
+
+  // Tags for each book (aligned by index)
+  const bookTagsList = String(r.BOOK_SOURCE_TAG || '')
     .split(';')
     .map(s => s.trim())
     .filter(Boolean);
@@ -1478,33 +1486,35 @@ if (hasBook) {
     const bookPill = document.createElement('span');
     bookPill.className = 'pill';
 
-    const matchedEdid = bookEdids[i] || '';
-    const bookEdidUpper = matchedEdid.toUpperCase();
+    // Tags for this specific BOOK
+    const tagEntry = bookTagsList[i] || '';
 
-    // Decide icon
-    let iconSrc = '';
-    for (const key in ManualIcons) {
-      if (bookEdidUpper.includes(key.toUpperCase())) {
-        iconSrc = ManualIcons[key];
-        break;
+    // Multi-tag support (RaidsReward|XPD|VendorGold)
+    const tags = tagEntry
+      .split('|')
+      .map(t => t.trim())
+      .filter(Boolean);
+
+    // Add icons for each tag
+    tags.forEach(tag => {
+      const iconSrc = BookTagIcons[tag];
+      if (iconSrc) {
+        const icon = document.createElement('img');
+        icon.src = iconSrc;
+        icon.style.width = '30px';
+        icon.style.height = '30px';
+        icon.style.verticalAlign = 'middle';
+        icon.style.marginRight = '6px';
+        bookPill.appendChild(icon);
       }
-    }
+    });
 
-    if (iconSrc) {
-      const icon = document.createElement('img');
-      icon.src = iconSrc;
-      icon.style.width = '30px';
-      icon.style.height = '30px';
-      icon.style.verticalAlign = 'middle';
-      icon.style.marginRight = '6px';
-      bookPill.appendChild(icon);
-    }
-
+    // Append text label
     bookPill.appendChild(document.createTextNode(fullName));
     bookPills.push(bookPill);
   });
 
-  // append multiple BOOK pills with "and" connectors
+  // Multiple pills joined with "and"
   bookPills.forEach((pill, i) => {
     condWrap.appendChild(pill);
     if (i < bookPills.length - 1) {
