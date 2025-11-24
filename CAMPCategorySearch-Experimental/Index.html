@@ -1491,7 +1491,7 @@ if (hasBook) {
 
     // Multi-tag support (RaidsReward|XPD|VendorGold)
     const tags = tagEntry
-      .split(';')
+      .split(/[;|]/)
       .map(t => t.trim())
       .filter(Boolean);
 
