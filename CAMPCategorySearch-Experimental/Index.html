@@ -1458,14 +1458,13 @@ function renderResults(query) {
       const isDirect = (String(r.BOOK_SOURCE || '').toLowerCase() === 'direct');
       const connectorWord = isDirect ? 'and' : 'or';
 
-      // --- BOOK pills ---
 if (hasBook) {
-  // Map tag to icon
+  // Map tag → icon (keys are case-insensitive)
   const BookTagIcons = {
-    'DailyOps': '/assets/DOpsIcon.png',
-    'StampsVendor': '/assets/StampIcon.png',
-    'BullionVendor': '/assets/BullionIcon.png',
-    // add more here as needed
+    'dailyops': '/assets/DOpsIcon.png',
+    'stampsvendor': '/assets/StampIcon.png',
+    'bullionvendor': '/assets/BullionIcon.png',
+    // add more lowercased keys as needed
   };
 
   // BOOK names
@@ -1474,30 +1473,38 @@ if (hasBook) {
     .map(s => s.trim())
     .filter(Boolean);
 
-  // Tags for each book (aligned by index)
-  const bookTagsList = String(r.BOOK_SOURCE_TAG || '')
+  // Raw tags string and per-book-split list
+  const rawTagString = String(r.BOOK_SOURCE_TAG || '').trim();
+  const bookTagsList = rawTagString
     .split(';')
     .map(s => s.trim())
     .filter(Boolean);
 
   const bookPills = [];
 
+  // helper: get tags for a given index (array of tag strings)
+  const getTagsForIndex = (idx) => {
+    // If counts match, use the per-index entry
+    if (bookTagsList.length === bookFulls.length) {
+      return (bookTagsList[idx] || '').split(/[;|]/).map(t => t.trim()).filter(Boolean);
+    }
+    // otherwise treat the entire rawTagString as the tag set for every book
+    if (rawTagString) {
+      return rawTagString.split(/[;|]/).map(t => t.trim()).filter(Boolean);
+    }
+    return [];
+  };
+
   bookFulls.forEach((fullName, i) => {
     const bookPill = document.createElement('span');
     bookPill.className = 'pill';
 
-    // Tags for this specific BOOK
-    const tagEntry = bookTagsList[i] || '';
+    const tags = getTagsForIndex(i);
 
-    // Multi-tag support (RaidsReward|XPD|VendorGold)
-    const tags = tagEntry
-      .split(/[;|]/)
-      .map(t => t.trim())
-      .filter(Boolean);
-
-    // Add icons for each tag
+    // Add icons for each tag (case-insensitive lookup)
     tags.forEach(tag => {
-      const iconSrc = BookTagIcons[tag];
+      const key = String(tag).trim().toLowerCase();
+      const iconSrc = BookTagIcons[key];
       if (iconSrc) {
         const icon = document.createElement('img');
         icon.src = iconSrc;
@@ -1525,7 +1532,6 @@ if (hasBook) {
     }
   });
 }
-
 
       // --- connector ---
       if (hasBook && hasEntm) {
