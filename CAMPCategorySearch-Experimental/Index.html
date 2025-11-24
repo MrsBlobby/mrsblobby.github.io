@@ -1459,51 +1459,48 @@ function renderResults(query) {
       const connectorWord = isDirect ? 'and' : 'or';
 
 if (hasBook) {
-  // Map tag → icon (keys are case-insensitive)
   const BookTagIcons = {
     'dailyops': '/assets/DOpsIcon.png',
     'stampsvendor': '/assets/StampIcon.png',
     'bullionvendor': '/assets/BullionIcon.png',
-    // add more lowercased keys as needed
   };
 
-  // BOOK names
   const bookFulls = String(r.BOOK_FULL || '')
     .split(';')
     .map(s => s.trim())
     .filter(Boolean);
 
-  // Raw tags string and per-book-split list
-  const rawTagString = String(r.BOOK_SOURCE_TAG || '').trim();
-  const bookTagsList = rawTagString
+  const rawTags = String(r.BOOK_SOURCE_TAG || '').trim();
+
+  // Split top-level on ';'
+  const tagEntries = rawTags
     .split(';')
     .map(s => s.trim())
     .filter(Boolean);
 
-  const bookPills = [];
+  const getTagsForBook = (index) => {
+    // CASE 1: one book → all tags belong to it
+    if (bookFulls.length === 1) {
+      return rawTags.split(/[;|]/).map(t => t.trim()).filter(Boolean);
+    }
 
-  // helper: get tags for a given index (array of tag strings)
-  const getTagsForIndex = (idx) => {
-    // If counts match, use the per-index entry
-    if (bookTagsList.length === bookFulls.length) {
-      return (bookTagsList[idx] || '').split(/[;|]/).map(t => t.trim()).filter(Boolean);
+    // CASE 2: matching counts → index-aligned
+    if (tagEntries.length === bookFulls.length) {
+      return tagEntries[index].split(/[;|]/).map(t => t.trim()).filter(Boolean);
     }
-    // otherwise treat the entire rawTagString as the tag set for every book
-    if (rawTagString) {
-      return rawTagString.split(/[;|]/).map(t => t.trim()).filter(Boolean);
-    }
-    return [];
+
+    // CASE 3: fallback: same tags for all books
+    return rawTags.split(/[;|]/).map(t => t.trim()).filter(Boolean);
   };
 
   bookFulls.forEach((fullName, i) => {
-    const bookPill = document.createElement('span');
-    bookPill.className = 'pill';
+    const pill = document.createElement('span');
+    pill.className = 'pill';
 
-    const tags = getTagsForIndex(i);
+    const tags = getTagsForBook(i);
 
-    // Add icons for each tag (case-insensitive lookup)
     tags.forEach(tag => {
-      const key = String(tag).trim().toLowerCase();
+      const key = tag.toLowerCase();
       const iconSrc = BookTagIcons[key];
       if (iconSrc) {
         const icon = document.createElement('img');
@@ -1512,19 +1509,14 @@ if (hasBook) {
         icon.style.height = '30px';
         icon.style.verticalAlign = 'middle';
         icon.style.marginRight = '6px';
-        bookPill.appendChild(icon);
+        pill.appendChild(icon);
       }
     });
 
-    // Append text label
-    bookPill.appendChild(document.createTextNode(fullName));
-    bookPills.push(bookPill);
-  });
-
-  // Multiple pills joined with "and"
-  bookPills.forEach((pill, i) => {
+    pill.appendChild(document.createTextNode(fullName));
     condWrap.appendChild(pill);
-    if (i < bookPills.length - 1) {
+
+    if (i < bookFulls.length - 1) {
       const conn = document.createElement('span');
       conn.className = 'connector';
       conn.textContent = 'and';
@@ -1532,6 +1524,7 @@ if (hasBook) {
     }
   });
 }
+
 
       // --- connector ---
       if (hasBook && hasEntm) {
