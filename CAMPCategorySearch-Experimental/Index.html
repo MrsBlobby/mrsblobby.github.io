@@ -1876,7 +1876,7 @@ if (hasEntm) {
       // Tooltip text comes from mapping, fallback to fullName
     let tooltipText = fullName; // fallback
     const edidUpper = String(matchedEdid || '').toUpperCase();
-        
+
     for (const key in IconAltText_ENTM) {
       if (edidUpper === key.toUpperCase()) {
         tooltipText = IconAltText_ENTM[key];
@@ -1886,7 +1886,7 @@ if (hasEntm) {
         break;
       }
     }
-
+  }
 
 
     // Optional season suffix
