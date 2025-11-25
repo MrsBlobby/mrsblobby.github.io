@@ -1108,52 +1108,57 @@ function showMobileTooltip(text) {
 }
 
 function attachTooltipToIcon(icon, text) {
-  // Desktop tooltip
-  const desktopTooltip = createTooltipElement(text);
+  // detect touch device
+  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-  function showDesktop() {
-    const rect = icon.getBoundingClientRect();
-    const w = desktopTooltip.offsetWidth;
-    const h = desktopTooltip.offsetHeight;
-    desktopTooltip.style.left = `${rect.left + rect.width/2 - w/2}px`;
-    desktopTooltip.style.top  = `${rect.top - h - 6}px`;
-    desktopTooltip.classList.add('show');
+  if (!isTouch) {
+    // desktop tooltip
+    const desktopTooltip = createTooltipElement(text);
+
+    function showDesktop() {
+      const rect = icon.getBoundingClientRect();
+      const w = desktopTooltip.offsetWidth;
+      const h = desktopTooltip.offsetHeight;
+      desktopTooltip.style.left = `${rect.left + rect.width/2 - w/2}px`;
+      desktopTooltip.style.top  = `${rect.top - h - 6}px`;
+      desktopTooltip.classList.add('show');
+    }
+
+    function hideDesktop() {
+      desktopTooltip.classList.remove('show');
+    }
+
+    icon.addEventListener('mouseenter', showDesktop);
+    icon.addEventListener('mouseleave', hideDesktop);
+  } else {
+    // mobile tooltip
+    icon.addEventListener('click', (e) => {
+      e.stopPropagation();
+
+      const mobileTooltip = document.createElement('div');
+      mobileTooltip.className = 'mobile-tooltip';
+      mobileTooltip.textContent = text;
+      mobileTooltip.style.position = 'fixed';
+      mobileTooltip.style.bottom = '20px';
+      mobileTooltip.style.left = '50%';
+      mobileTooltip.style.transform = 'translateX(-50%)';
+      mobileTooltip.style.backgroundColor = 'rgba(0,0,0,0.8)';
+      mobileTooltip.style.color = 'white';
+      mobileTooltip.style.padding = '8px 12px';
+      mobileTooltip.style.borderRadius = '6px';
+      mobileTooltip.style.zIndex = 9999;
+      mobileTooltip.style.fontSize = '14px';
+      mobileTooltip.style.textAlign = 'center';
+      mobileTooltip.style.maxWidth = '80%';
+      document.body.appendChild(mobileTooltip);
+
+      setTimeout(() => {
+        mobileTooltip.remove();
+      }, 5000); // auto hide after 5 seconds
+    });
   }
-
-  function hideDesktop() {
-    desktopTooltip.classList.remove('show');
-  }
-
-  // Desktop hover
-  icon.addEventListener('mouseenter', showDesktop);
-  icon.addEventListener('mouseleave', hideDesktop);
-
-  // Mobile tooltip (bottom of screen)
-  icon.addEventListener('click', (e) => {
-    e.stopPropagation();
-
-    const mobileTooltip = document.createElement('div');
-    mobileTooltip.className = 'mobile-tooltip';
-    mobileTooltip.textContent = text;
-    mobileTooltip.style.position = 'fixed';
-    mobileTooltip.style.bottom = '20px';
-    mobileTooltip.style.left = '50%';
-    mobileTooltip.style.transform = 'translateX(-50%)';
-    mobileTooltip.style.backgroundColor = 'rgba(0,0,0,0.8)';
-    mobileTooltip.style.color = 'white';
-    mobileTooltip.style.padding = '8px 12px';
-    mobileTooltip.style.borderRadius = '6px';
-    mobileTooltip.style.zIndex = 9999;
-    mobileTooltip.style.fontSize = '14px';
-    mobileTooltip.style.textAlign = 'center';
-    mobileTooltip.style.maxWidth = '80%';
-    document.body.appendChild(mobileTooltip);
-
-    setTimeout(() => {
-      mobileTooltip.remove();
-    }, 5000); // auto hide after 5 seconds
-  });
 }
+
 
 
 // Icons driven by BOOK_SOURCE_TAG values
