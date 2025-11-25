@@ -1874,8 +1874,12 @@ if (hasEntm) {
       pill.appendChild(icon);
 
       // Tooltip text comes from mapping, fallback to fullName
-      const tooltipText = IconAltText_ENTM[matchedEdid] || IconAltText_ENTM[fullName] || fullName;
-      attachTooltipToIcon(icon, tooltipText);
+    let tooltipText = fullName; // default fallback
+    if (matchedEdid) {
+      const matchKey = Object.keys(IconAltText_ENTM).find(k => matchedEdid.includes(k));
+      if (matchKey) tooltipText = IconAltText_ENTM[matchKey];
+    }
+    attachTooltipToIcon(icon, tooltipText);
     }
 
 
