@@ -223,8 +223,19 @@
     border-radius: 6px;
     border: 2px solid var(--accent);
     box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-    width: 100%;
+    width: auto;
+    justify-content: center;
   }
+
+ul.results-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 14px;
+  padding: 0;
+  margin: 0 auto;      
+  max-width: 600px;    
+}
 
   .result-left {
     display: flex;
