@@ -732,12 +732,12 @@
 
 .tooltip {
   position: fixed;
-  background: #222;
+  background: var(--accent-dim);
   color: #fff;
   padding: 6px 10px;
   border-radius: 4px;
   font-size: 13px;
-  border: 1px solid var(--accent);
+  border: 2px solid var(--accent);
   opacity: 0;
   pointer-events: none;
   transform: translateY(-4px);
@@ -765,7 +765,6 @@
   opacity: 0;
   transition: all 0.3s ease;
   pointer-events: none;
-
   border: 2px solid var(--accent);
 }
 #mobileTooltip.show {
@@ -1873,12 +1872,12 @@ if (hasEntm) {
       icon.style.verticalAlign = 'middle';
       icon.style.marginRight = '6px';
       pill.appendChild(icon);
-        
+
       // Tooltip text comes from mapping, fallback to fullName
       const tooltipText = IconAltText_ENTM[matchedEdid] || IconAltText_ENTM[fullName] || fullName;
       attachTooltipToIcon(icon, tooltipText);
     }
-    
+
     // Append the pill text (unchanged)
     pill.appendChild(document.createTextNode(fullName + textSuffix));
 
