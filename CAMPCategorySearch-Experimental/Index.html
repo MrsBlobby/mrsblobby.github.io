@@ -730,6 +730,26 @@
   color: black;
 }
 
+.tooltip {
+  position: fixed;
+  background: #222;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 9999;
+}
+
+.tooltip.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 
   @media (max-width: 600px) {
     li {
@@ -1042,6 +1062,44 @@ window.addEventListener('DOMContentLoaded', () => {
   renderResults('');
 });
 
+function createTooltipElement(text) {
+  const t = document.createElement('div');
+  t.className = 'tooltip';
+  t.textContent = text;
+  document.body.appendChild(t);
+  return t;
+}
+
+function attachTooltipToIcon(icon, tooltip) {
+  function show() {
+    const rect = icon.getBoundingClientRect();
+    const w = tooltip.offsetWidth;
+    const h = tooltip.offsetHeight;
+    tooltip.style.left = `${rect.left + rect.width/2 - w/2}px`;
+    tooltip.style.top  = `${rect.top - h - 6}px`;
+    tooltip.classList.add('show');
+  }
+
+  function hide() {
+    tooltip.classList.remove('show');
+  }
+
+  // desktop
+  icon.addEventListener('mouseenter', show);
+  icon.addEventListener('mouseleave', hide);
+
+  // mobile tap
+  icon.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (tooltip.classList.contains('show')) hide();
+    else show();
+  });
+
+  // close when clicking elsewhere
+  document.addEventListener('click', hide);
+}
+
+
 // Icons driven by BOOK_SOURCE_TAG values
 const BookTagIcons = {
   'BullionVendor': '/assets/BullionIcon.png',
@@ -1057,6 +1115,36 @@ const BookTagIcons = {
   'PublicEventRewards': '/assets/PublicEventIcon.svg',
   'EquinoxRewards': '/assets/EquinoxIcon.svg',
 };
+
+const IconAltText_BOOK = {
+  BullionVendor: "Sold by a Gold Bullion vendor",
+  StampsVendor: "Sold by Giuseppe in The Whitespring",
+  DailyOps: "Daily Ops Reward",
+  CommonWorkshop: "Reward from claiming or defending workshops",
+  RaidsReward: "Gleaming Depths raid reward",
+  TreasureHunters: "Reward from Mole Miner Pails from Treasure Hunters event",
+  MeatWeekRewards: "Reward from Meat Week seasonal event",
+  FasnachtRewards: "Reward from Fasnacht seasonal event",
+  MischiefNightRewards: "Reward from Mischief Night seasonal event",
+  SpookyScorched: "Reward from Spooky Scorched seasonal event",
+  PublicEventRewards: "Reward from a Public event",
+  EquinoxRewards: "Reward from Mothman Equinox seasonal event"
+};
+
+const IconAltText_ENTM = {
+  "F1_ENTM_CAMP_SCRAPBOX_STANDARD": "Requires Fallout 1st subscription",
+  "F1_ENTM_CAMP_AMMOSTORAGEBOX_STANDARD": "Requires Fallout 1st subscription",
+  "F1_ENTM_CAMP_AIDBOX_STANDARD": "Requires Fallout 1st subscription",
+
+  // manual EDID prefix mappings
+  BABYLON_: "Nuclear Winter reward",
+  SHELTERS_: "Atomic Shop item",
+
+  // fallbacks
+  ATX: "Atomic Shop Item",
+  SCORE: "Seasons Reward"
+};
+
 
 // --- Manual icon overrides ---
 const ManualEntmIcons = {
@@ -1508,18 +1596,22 @@ if (hasBook) {
     const tags = getTagsForBook(i);
 
     tags.forEach(tag => {
-      const iconSrc = BookTagIcons[tag]; // ← fix
-      if (iconSrc) {
-        const icon = document.createElement('img');
-        icon.src = iconSrc;
-        icon.style.width = 'auto';
-        icon.style.height = '30px';
-        icon.style.verticalAlign = 'middle';
-        icon.style.marginRight = '6px';
-        pill.appendChild(icon);
-      }
+      const iconSrc = BookTagIcons[tag]; 
+      if (!iconSrc) return;
+
+      const icon = document.createElement('img');
+      icon.src = iconSrc;
+      icon.style.width = 'auto';
+      icon.style.height = '30px';
+      icon.style.verticalAlign = 'middle';
+      icon.style.marginRight = '6px';
+      pill.appendChild(icon);
+
+      const tooltip = createTooltipElement(IconAltText[tag] || tag);
+      attachTooltipToIcon(icon, tooltip);
     });
 
+      
     pill.appendChild(document.createTextNode(fullName));
     condWrap.appendChild(pill);
 
@@ -1683,8 +1775,16 @@ if (hasBook) {
       icon.style.verticalAlign = 'middle';
       icon.style.marginRight = '6px';
       pill.appendChild(icon);
-    }
 
+      const tooltipText =
+        IconAltText[matchedEdid] ||
+        IconAltText[fullName] ||
+        fullName;
+
+      const tooltip = createTooltipElement(tooltipText);
+      attachTooltipToIcon(icon, tooltip);
+    }
+    
 // optional season suffix
 let textSuffix = '';
 if (matchedEdid) {
