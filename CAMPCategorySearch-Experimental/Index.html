@@ -1235,7 +1235,7 @@ const IconAltText_ENTM = {
 
   // fallbacks
   ATX: "Atomic Shop Item",
-  SCORE: "Seasons Reward",
+  SCORE: "S.C.O.R.E. Reward",
 };
 
 
@@ -1874,13 +1874,19 @@ if (hasEntm) {
       pill.appendChild(icon);
 
       // Tooltip text comes from mapping, fallback to fullName
-    let tooltipText = fullName; // default fallback
-    if (matchedEdid) {
-      const matchKey = Object.keys(IconAltText_ENTM).find(k => matchedEdid.includes(k));
-      if (matchKey) tooltipText = IconAltText_ENTM[matchKey];
+    let tooltipText = fullName; // fallback
+    const edidUpper = String(matchedEdid || '').toUpperCase();
+        
+    for (const key in IconAltText_ENTM) {
+      if (edidUpper === key.toUpperCase()) {
+        tooltipText = IconAltText_ENTM[key];
+        break;
+      } else if (edidUpper.startsWith(key.toUpperCase())) {
+        tooltipText = IconAltText_ENTM[key];
+        break;
+      }
     }
-    attachTooltipToIcon(icon, tooltipText);
-    }
+
 
 
     // Optional season suffix
