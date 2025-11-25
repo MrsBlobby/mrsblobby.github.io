@@ -1718,7 +1718,7 @@ if (hasBook) {
     tags.forEach(tag => {
       const iconSrc = BookTagIcons[tag]; 
       if (!iconSrc) return;
-
+    
       const icon = document.createElement('img');
       icon.src = iconSrc;
       icon.style.width = 'auto';
@@ -1726,10 +1726,14 @@ if (hasBook) {
       icon.style.verticalAlign = 'middle';
       icon.style.marginRight = '6px';
       pill.appendChild(icon);
-
-      const tooltip = createTooltipElement(getTooltipText_BOOK(tag));
-      attachTooltipToIcon(icon, tooltip);
+    
+      // ---- Tooltip ----
+      const displayText = fullName; // text shown in pill
+      const tooltipText = IconAltText_BOOK[tag] || tag; // text for tooltip
+      pill.appendChild(document.createTextNode(displayText));
+      attachTooltipToIcon(icon, tooltipText);
     });
+
 
       
     pill.appendChild(document.createTextNode(fullName));
@@ -1887,6 +1891,7 @@ if (hasBook) {
     const pill = document.createElement('span');
     pill.className = 'pill';
 
+    // decide iconSrc first as before
     if (iconSrc) {
       const icon = document.createElement('img');
       icon.src = iconSrc;
@@ -1895,12 +1900,14 @@ if (hasBook) {
       icon.style.verticalAlign = 'middle';
       icon.style.marginRight = '6px';
       pill.appendChild(icon);
-
-      const tooltip = createTooltipElement(
-  getTooltipText_ENTM(matchedEdid, fullName)
-);
-      attachTooltipToIcon(icon, tooltip);
+    
+      const displayText = fullName + textSuffix; // what shows in pill
+      const tooltipText = IconAltText_ENTM[matchedEdid] || IconAltText_ENTM[fullName] || fullName;
+    
+      pill.appendChild(document.createTextNode(displayText));
+      attachTooltipToIcon(icon, tooltipText);
     }
+
     
 // optional season suffix
 let textSuffix = '';
