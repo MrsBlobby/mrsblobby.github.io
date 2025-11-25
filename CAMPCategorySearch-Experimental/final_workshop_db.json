@@ -50095,7 +50095,7 @@
     "BOOK_FULL": "Plan: Fasnacht Souvenir Beer Stein",
     "BOOK_EditorID": "Recipe_Tinkers_Souvenir_Stein_Fasnacht",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "PublicEventRewards",
+    "BOOK_SOURCE_TAG": "FasnachtRewards",
     "ENTM_FULL": null,
     "ENTM_EDID": null
   },
@@ -50140,7 +50140,7 @@
     "BOOK_FULL": "Plan: Meat Week Souvenir Beer Stein",
     "BOOK_EditorID": "Recipe_Tinkers_Souvenir_Stein_Chally",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "PublicEventRewards",
+    "BOOK_SOURCE_TAG": "MeatWeekRewards",
     "ENTM_FULL": null,
     "ENTM_EDID": null
   },
@@ -50260,7 +50260,7 @@
     "BOOK_FULL": "Plan: Alien Souvenir Beer Stein",
     "BOOK_EditorID": "Recipe_Tinkers_Souvenir_Stein_AlienCollectable",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "PublicEventRewards",
+    "BOOK_SOURCE_TAG": "InvadersRewards",
     "ENTM_FULL": null,
     "ENTM_EDID": null
   },
@@ -89425,7 +89425,7 @@
     "BOOK_FULL": "Plan: Beer Steins Display Case",
     "BOOK_EditorID": "Recipe_Workshop_Displays_BeerSteins",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "PublicEventRewards",
+    "BOOK_SOURCE_TAG": "FasnachtRewards",
     "ENTM_FULL": null,
     "ENTM_EDID": null
   },
@@ -90220,7 +90220,7 @@
     "BOOK_FULL": "Plan: Herdsman's Bell Display Rack - Basic",
     "BOOK_EditorID": "Recipe_Workshop_DisplayCase_HerdsmansBellRack_Basic",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "PublicEventRewards",
+    "BOOK_SOURCE_TAG": "FasnachtRewards",
     "ENTM_FULL": null,
     "ENTM_EDID": null
   },
