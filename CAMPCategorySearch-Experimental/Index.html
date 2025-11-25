@@ -279,36 +279,19 @@ ul.results-list {
     margin: 4px 0;
   }
 
-.result-right .inline-wrap {
-  display: flex;
-  flex-wrap: wrap;           /* allow wrapping onto multiple lines */
-  justify-content: center;    /* center the pills + connectors horizontally */
-  gap: 6px;                  /* spacing between pills and connectors */
-}
-
-.result-right span.pill {
-  background: var(--bg);
-  border: 2px solid var(--accent);
-  border-radius: 20px;
-  padding: 3px 10px;
-  font-size: 14px;
-  color: var(--accent);
-  font-weight: normal;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.result-right .connector {
-  flex: 0 0 auto;             /* don't shrink or grow */
-  align-self: center;          /* vertically center relative to pills */
-  width: 40px;                /* optional fixed width */
-  text-align: center;
-  font-weight: 600;
-  color: var(--accent);
-}
-
+  .result-right span.pill {
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: normal;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 
   .inline-wrap {
     display: inline-flex;
@@ -947,21 +930,6 @@ ul.results-list {
     </div>
   </div>
 </div>
-
-<div class="result-right">
-  <div class="inline-wrap">
-    <span class="pill">Condition 1</span>
-    <span class="connector">AND</span>
-    <span class="pill">Condition 2</span>
-    <span class="connector">OR</span>
-    <span class="pill">Condition 3</span>
-    <span class="connector">AND</span>
-    <span class="pill">Condition 4</span>
-    <span class="connector">OR</span>
-    <span class="pill">Condition 5</span>
-  </div>
-</div>
-
 
   <ul id="results"></ul>
   <div id="pagination" style="text-align:center; margin: 16px 0;"></div>
