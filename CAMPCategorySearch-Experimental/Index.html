@@ -1656,7 +1656,7 @@ if (hasBook) {
       // Only give AdditionalStorage when the matchedEDID equals or contains the expected EDID,
       // or if the expected EDID wasn't found but edidUpper starts with F1_
       const expected = ExactPairs[fullUpper].toUpperCase();
-      if (edidUpper === expected || edidUpper.includes(expected) || edidUpper.startsWith('F1_')) {
+      if (edidUpper === expected || edidUpper.includes(expected) || edidUpper.startsWith('F1_ENTM')) {
         iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
       } else {
         // If the exact pair expected EDID is not matched, still prefer AdditionalStorage only
