@@ -1863,7 +1863,7 @@ if (hasEntm) {
     // Build pill
     const pill = document.createElement('span');
     pill.className = 'pill';
-
+      
     if (iconSrc) {
       const icon = document.createElement('img');
       icon.src = iconSrc;
@@ -1872,23 +1872,26 @@ if (hasEntm) {
       icon.style.verticalAlign = 'middle';
       icon.style.marginRight = '6px';
       pill.appendChild(icon);
-
+    
       // Tooltip text comes from mapping, fallback to fullName
-    let tooltipText = fullName; // fallback
-    const edidUpper = String(matchedEdid || '').toUpperCase();
-
-    for (const key in IconAltText_ENTM) {
-      if (edidUpper === key.toUpperCase()) {
-        tooltipText = IconAltText_ENTM[key];
-        break;
-      } else if (edidUpper.startsWith(key.toUpperCase())) {
-        tooltipText = IconAltText_ENTM[key];
-        break;
+      let tooltipText = fullName; // fallback
+      const edidUpper = String(matchedEdid || '').toUpperCase();
+    
+      for (const key in IconAltText_ENTM) {
+        if (edidUpper === key.toUpperCase()) {
+          tooltipText = IconAltText_ENTM[key];
+          break;
+        } else if (edidUpper.startsWith(key.toUpperCase())) {
+          tooltipText = IconAltText_ENTM[key];
+          break;
+        }
       }
+    
+      attachTooltipToIcon(icon, tooltipText); 
     }
-  }
-
-
+    
+    
+    
     // Optional season suffix
     let textSuffix = '';
     if (matchedEdid) {
