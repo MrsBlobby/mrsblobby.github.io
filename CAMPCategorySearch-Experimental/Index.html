@@ -206,8 +206,8 @@
   li {
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 12px;
+    gap: 0px;
+    padding: 0px;
     background-color: var(--card-bg);
     margin-bottom: 14px;
     border-radius: 6px;
@@ -1383,7 +1383,7 @@ function renderResults(query) {
       const img = document.createElement('img');
       img.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
       img.alt = r.Name;
-      img.loading = "lazy";
+      img.loading = "eager";
       left.appendChild(img);
     }
 
