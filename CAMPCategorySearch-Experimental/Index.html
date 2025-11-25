@@ -1873,14 +1873,15 @@ if (hasEntm) {
       icon.style.verticalAlign = 'middle';
       icon.style.marginRight = '6px';
       pill.appendChild(icon);
-
-      // Tooltip text comes from mapping first, fallback to fullName
-      const tooltipText =
-        IconAltText_ENTM[matchedEdid] ||
-        IconAltText_ENTM[fullName] ||
-        fullName;
+        
+      // Tooltip text comes from mapping, fallback to fullName
+      const tooltipText = IconAltText_ENTM[matchedEdid] || IconAltText_ENTM[fullName] || fullName;
       attachTooltipToIcon(icon, tooltipText);
     }
+    
+    // Append the pill text (unchanged)
+    pill.appendChild(document.createTextNode(fullName + textSuffix));
+
 
     // Optional season suffix
     let textSuffix = '';
