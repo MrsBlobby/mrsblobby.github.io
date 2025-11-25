@@ -1847,7 +1847,7 @@ if (hasEntm) {
     }
     if (!iconSrc) {
       for (const key in ManualEntmIcons) {
-        if (edidUpper.startsWith(key.toUpperCase()))
+        if (edidUpper.startsWith(key.toUpperCase())) {
           iconSrc = ManualEntmIcons[key];
           break;
         }
