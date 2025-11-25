@@ -293,6 +293,41 @@ ul.results-list {
     text-align: center;
   }
 
+.result-right .inline-wrap {
+  display: flex;
+  flex-wrap: wrap;         /* allow wrapping to new lines */
+  justify-content: center;  /* center each line */
+  gap: 6px;                /* space between groups */
+}
+
+.pill-group {
+  display: inline-flex;     /* keep pill + connector together */
+  align-items: center;
+  gap: 4px;                 /* space between pill and connector */
+}
+
+
+.result-right .pill {
+  display: inline-flex;     /* your existing pill styling */
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 2px solid var(--accent);
+  background: var(--bg);
+  font-size: 14px;
+  color: var(--accent);
+}
+
+.result-right .connector {
+  flex: 0 0 auto;
+  align-self: center;
+  text-align: center;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
   .inline-wrap {
     display: inline-flex;
     align-items: center;
@@ -1518,35 +1553,44 @@ if (hasBook) {
   };
 
   bookFulls.forEach((fullName, i) => {
-    const pill = document.createElement('span');
-    pill.className = 'pill';
+  const group = document.createElement('div');
+  group.className = 'pill-group';
+  group.style.display = 'inline-flex'; // flex within the group
+  group.style.alignItems = 'center';
+  group.style.gap = '4px';
 
-    const tags = getTagsForBook(i);
+  const pill = document.createElement('span');
+  pill.className = 'pill';
 
-    tags.forEach(tag => {
-      const iconSrc = BookTagIcons[tag]; // ← fix
-      if (iconSrc) {
-        const icon = document.createElement('img');
-        icon.src = iconSrc;
-        icon.style.width = 'auto';
-        icon.style.height = '30px';
-        icon.style.verticalAlign = 'middle';
-        icon.style.marginRight = '6px';
-        pill.appendChild(icon);
-      }
-    });
+  const tags = getTagsForBook(i);
 
-    pill.appendChild(document.createTextNode(fullName));
-    condWrap.appendChild(pill);
-
-    if (i < bookFulls.length - 1) {
-      const conn = document.createElement('span');
-      conn.className = 'connector';
-      conn.textContent = 'and';
-      condWrap.appendChild(conn);
+  tags.forEach(tag => {
+    const iconSrc = BookTagIcons[tag];
+    if (iconSrc) {
+      const icon = document.createElement('img');
+      icon.src = iconSrc;
+      icon.style.width = 'auto';
+      icon.style.height = '30px';
+      icon.style.verticalAlign = 'middle';
+      icon.style.marginRight = '6px';
+      pill.appendChild(icon);
     }
   });
-}
+
+  pill.appendChild(document.createTextNode(fullName));
+  group.appendChild(pill);
+
+  // Only add connector if not last
+  if (i < bookFulls.length - 1) {
+    const conn = document.createElement('span');
+    conn.className = 'connector';
+    conn.textContent = 'and';
+    group.appendChild(conn);
+  }
+
+  condWrap.appendChild(group);
+});
+
 
 
 
