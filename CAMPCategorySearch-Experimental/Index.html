@@ -1042,11 +1042,23 @@ window.addEventListener('DOMContentLoaded', () => {
   renderResults('');
 });
 
-// --- Manual icon overrides ---
-const ManualIcons = {
-  'XPD_': '/assets/StampIcon.png',
-  '_GOLDVENDOR': '/assets/BullionIcon.png',
+// Icons driven by BOOK_SOURCE_TAG values
+const BookTagIcons = {
+  'BullionVendor': '/assets/BullionIcon.png',
+  'StampsVendor': '/assets/StampIcon.png',
+  'DailyOps': '/assets/DOpsIcon.png',
+  'CommonWorkshop': '/assets/WorkshopIcon.svg',
+  'RaidsReward': '/assets/RaidIcon.svg',
+  'TreasureHunters': '/assets/TreasureHuntersIcon.png',
+  'MeatWeekRewards': '/assets/MeatWeekIcon.svg',
+  'FasnachtRewards': '/assets/FasnachtIcon.svg',
+  'MischiefNightRewards': '/assets/MischiefNightIcon.svg',
+  'SpookyScorched': '/assets/SpookyScorchedIcon.svg',
+  'PublicEventRewards': '/assets/PublicEventIcon.svg',
+  'EquinoxRewards': '/assets/EquinoxIcon.svg',
 };
+
+// --- Manual icon overrides ---
 const ManualEntmIcons = {
   'Babylon_': '/assets/V51Icon.png',
   'Shelters_': '/assets/AtomIcon.png',
@@ -1362,7 +1374,7 @@ function renderResults(query) {
   results.innerHTML = '';
 
   if (!paged.length) {
-    results.innerHTML = '<li>No matches found</li>';
+    results.innerHTML = '<li class="no-results">No matches found</li>';
     pagination.innerHTML = '';
     return;
   }
@@ -1451,59 +1463,67 @@ function renderResults(query) {
       const isDirect = (String(r.BOOK_SOURCE || '').toLowerCase() === 'direct');
       const connectorWord = isDirect ? 'and' : 'or';
 
-      // --- BOOK pills ---
 if (hasBook) {
-  const ManualIcons = {
-    'XPD_': '/assets/StampIcon.png',
-    '_GOLDVENDOR': '/assets/BullionIcon.png',
+  const BookTagIcons = {
+    'BullionVendor': '/assets/BullionIcon.png',
+    'StampsVendor': '/assets/StampIcon.png',
+    'DailyOps': '/assets/DOpsIcon.png',
+    'CommonWorkshop': '/assets/WorkshopIcon.svg',
+    'RaidsReward': '/assets/RaidIcon.svg',
+    'TreasureHunters': '/assets/TreasureHuntersIcon.png',
+    'MeatWeekRewards': '/assets/MeatWeekIcon.svg',
+    'FasnachtRewards': '/assets/FasnachtIcon.svg',
+    'MischiefNightRewards': '/assets/MischiefNightIcon.svg',
+    'SpookyScorched': '/assets/SpookyScorchedIcon.svg',
+    'PublicEventRewards': '/assets/PublicEventIcon.svg',
+    'EquinoxRewards': '/assets/EquinoxIcon.svg',
   };
 
-  // Split BOOK_FULLs and EDIDs by semicolon
   const bookFulls = String(r.BOOK_FULL || '')
     .split(';')
     .map(s => s.trim())
     .filter(Boolean);
-  const bookEdids = String(r.BOOK_EditorID || '')
+
+  const rawTags = String(r.BOOK_SOURCE_TAG || '').trim();
+
+  const tagEntries = rawTags
     .split(';')
     .map(s => s.trim())
     .filter(Boolean);
 
-  const bookPills = [];
+  const getTagsForBook = (index) => {
+    if (bookFulls.length === 1) {
+      return rawTags.split(/[;|]/).map(t => t.trim()).filter(Boolean);
+    }
+    if (tagEntries.length === bookFulls.length) {
+      return tagEntries[index].split(/[;|]/).map(t => t.trim()).filter(Boolean);
+    }
+    return rawTags.split(/[;|]/).map(t => t.trim()).filter(Boolean);
+  };
 
   bookFulls.forEach((fullName, i) => {
-    const bookPill = document.createElement('span');
-    bookPill.className = 'pill';
+    const pill = document.createElement('span');
+    pill.className = 'pill';
 
-    const matchedEdid = bookEdids[i] || '';
-    const bookEdidUpper = matchedEdid.toUpperCase();
+    const tags = getTagsForBook(i);
 
-    // Decide icon
-    let iconSrc = '';
-    for (const key in ManualIcons) {
-      if (bookEdidUpper.includes(key.toUpperCase())) {
-        iconSrc = ManualIcons[key];
-        break;
+    tags.forEach(tag => {
+      const iconSrc = BookTagIcons[tag]; // ← fix
+      if (iconSrc) {
+        const icon = document.createElement('img');
+        icon.src = iconSrc;
+        icon.style.width = 'auto';
+        icon.style.height = '30px';
+        icon.style.verticalAlign = 'middle';
+        icon.style.marginRight = '6px';
+        pill.appendChild(icon);
       }
-    }
+    });
 
-    if (iconSrc) {
-      const icon = document.createElement('img');
-      icon.src = iconSrc;
-      icon.style.width = '30px';
-      icon.style.height = '30px';
-      icon.style.verticalAlign = 'middle';
-      icon.style.marginRight = '6px';
-      bookPill.appendChild(icon);
-    }
-
-    bookPill.appendChild(document.createTextNode(fullName));
-    bookPills.push(bookPill);
-  });
-
-  // append multiple BOOK pills with "and" connectors
-  bookPills.forEach((pill, i) => {
+    pill.appendChild(document.createTextNode(fullName));
     condWrap.appendChild(pill);
-    if (i < bookPills.length - 1) {
+
+    if (i < bookFulls.length - 1) {
       const conn = document.createElement('span');
       conn.className = 'connector';
       conn.textContent = 'and';
@@ -1511,6 +1531,7 @@ if (hasBook) {
     }
   });
 }
+
 
 
       // --- connector ---
