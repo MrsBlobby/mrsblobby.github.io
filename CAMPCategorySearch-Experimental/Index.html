@@ -750,9 +750,9 @@
   transform: translateY(0);
 }
 
-.mobile-tooltip {
+#mobile-tooltip-box {
   position: fixed;
-  bottom: -80px;         
+  bottom: -80px;
   left: 50%;
   transform: translateX(-50%);
   max-width: 90%;
@@ -764,13 +764,16 @@
   z-index: 99999;
   opacity: 0;
   transition: all 0.3s ease;
+  text-align: center;
   pointer-events: none;
   border: 2px solid var(--accent);
 }
-.mobile-tooltip.show {
-  bottom: 20px; 
+
+#mobile-tooltip-box.show {
+  bottom: 20px;
   opacity: 1;
 }
+
 
 
   @media (max-width: 600px) {
@@ -1126,19 +1129,22 @@ function attachTooltipToIcon(icon, text) {
       if (!box) {
         box = document.createElement('div');
         box.id = 'mobile-tooltip-box';
-        box.className = 'mobileTooltip'; // apply CSS class
         document.body.appendChild(box);
       }
-
+    
       box.textContent = text;
+    
+      // reset animation
+      box.classList.remove('show');
+      void box.offsetWidth; // force reflow
       box.classList.add('show');
-
-      // reset hide timer if already running
-      if (mobileTooltipTimeout) clearTimeout(mobileTooltipTimeout);
+    
+      clearTimeout(mobileTooltipTimeout);
       mobileTooltipTimeout = setTimeout(() => {
         box.classList.remove('show');
-      }, 5000);
+      }, 2000);
     });
+
   }
 }
 
