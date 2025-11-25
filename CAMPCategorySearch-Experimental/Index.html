@@ -1112,15 +1112,15 @@ function attachTooltipToIcon(icon, text) {
   const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
   if (!isTouch) {
-    // desktop tooltip
+    // --- Desktop Tooltip ---
     const desktopTooltip = createTooltipElement(text);
 
     function showDesktop() {
       const rect = icon.getBoundingClientRect();
       const w = desktopTooltip.offsetWidth;
       const h = desktopTooltip.offsetHeight;
-      desktopTooltip.style.left = `${rect.left + rect.width/2 - w/2}px`;
-      desktopTooltip.style.top  = `${rect.top - h - 6}px`;
+      desktopTooltip.style.left = `${rect.left + rect.width / 2 - w / 2}px`;
+      desktopTooltip.style.top = `${rect.top - h - 6}px`;
       desktopTooltip.classList.add('show');
     }
 
@@ -1130,31 +1130,41 @@ function attachTooltipToIcon(icon, text) {
 
     icon.addEventListener('mouseenter', showDesktop);
     icon.addEventListener('mouseleave', hideDesktop);
+
   } else {
-    // mobile tooltip
+    // --- Mobile Tooltip ---
     icon.addEventListener('click', (e) => {
       e.stopPropagation();
 
-      const mobileTooltip = document.createElement('div');
-      mobileTooltip.className = 'mobile-tooltip';
-      mobileTooltip.textContent = text;
-      mobileTooltip.style.position = 'fixed';
-      mobileTooltip.style.bottom = '20px';
-      mobileTooltip.style.left = '50%';
-      mobileTooltip.style.transform = 'translateX(-50%)';
-      mobileTooltip.style.backgroundColor = 'rgba(0,0,0,0.8)';
-      mobileTooltip.style.color = 'white';
-      mobileTooltip.style.padding = '8px 12px';
-      mobileTooltip.style.borderRadius = '6px';
-      mobileTooltip.style.zIndex = 9999;
-      mobileTooltip.style.fontSize = '14px';
-      mobileTooltip.style.textAlign = 'center';
-      mobileTooltip.style.maxWidth = '80%';
-      document.body.appendChild(mobileTooltip);
+      let box = document.getElementById('mobile-tooltip-box');
+      if (!box) {
+        box = document.createElement('div');
+        box.id = 'mobile-tooltip-box';
+        box.style.position = 'fixed';
+        box.style.bottom = '20px';
+        box.style.left = '50%';
+        box.style.transform = 'translateX(-50%)';
+        box.style.maxWidth = '90%';
+        box.style.padding = '12px 16px';
+        box.style.background = 'rgba(0,0,0,0.85)';
+        box.style.color = 'white';
+        box.style.fontSize = '14px';
+        box.style.borderRadius = '10px';
+        box.style.zIndex = '9999';
+        box.style.textAlign = 'center';
+        box.style.pointerEvents = 'none';
+        box.style.opacity = '0';
+        box.style.transition = 'opacity 0.25s';
+        document.body.appendChild(box);
+      }
 
+      box.textContent = text;
+      box.style.opacity = '1';
+
+      // hide after 2 seconds
       setTimeout(() => {
-        mobileTooltip.remove();
-      }, 5000); // auto hide after 5 seconds
+        box.style.opacity = '0';
+      }, 2000);
     });
   }
 }
