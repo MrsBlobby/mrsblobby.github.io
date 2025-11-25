@@ -1710,42 +1710,39 @@ if (hasBook) {
   };
 
   bookFulls.forEach((fullName, i) => {
-    const pill = document.createElement('span');
-    pill.className = 'pill';
+  const pill = document.createElement('span');
+  pill.className = 'pill';
 
-    const tags = getTagsForBook(i);
+  const tags = getTagsForBook(i);
 
-    tags.forEach(tag => {
-      const iconSrc = BookTagIcons[tag]; 
-      if (!iconSrc) return;
-    
-      const icon = document.createElement('img');
-      icon.src = iconSrc;
-      icon.style.width = 'auto';
-      icon.style.height = '30px';
-      icon.style.verticalAlign = 'middle';
-      icon.style.marginRight = '6px';
-      pill.appendChild(icon);
-    
-      // ---- Tooltip ----
-      const displayText = fullName; // text shown in pill
-      const tooltipText = IconAltText_BOOK[tag] || tag; // text for tooltip
-      pill.appendChild(document.createTextNode(displayText));
-      attachTooltipToIcon(icon, tooltipText);
-    });
+  tags.forEach(tag => {
+    const iconSrc = BookTagIcons[tag]; 
+    if (!iconSrc) return;
 
+    const icon = document.createElement('img');
+    icon.src = iconSrc;
+    icon.style.width = 'auto';
+    icon.style.height = '30px';
+    icon.style.verticalAlign = 'middle';
+    icon.style.marginRight = '6px';
+    pill.appendChild(icon);
 
-      
-    pill.appendChild(document.createTextNode(fullName));
-    condWrap.appendChild(pill);
-
-    if (i < bookFulls.length - 1) {
-      const conn = document.createElement('span');
-      conn.className = 'connector';
-      conn.textContent = 'and';
-      condWrap.appendChild(conn);
-    }
+    // ---- Tooltip ----
+    const tooltipText = IconAltText_BOOK[tag] || tag;
+    attachTooltipToIcon(icon, tooltipText);
   });
+
+  // append the text after adding all icons
+  pill.appendChild(document.createTextNode(fullName));
+  condWrap.appendChild(pill);
+
+  if (i < bookFulls.length - 1) {
+    const conn = document.createElement('span');
+    conn.className = 'connector';
+    conn.textContent = 'and';
+    condWrap.appendChild(conn);
+  }
+});
 }
 
 
