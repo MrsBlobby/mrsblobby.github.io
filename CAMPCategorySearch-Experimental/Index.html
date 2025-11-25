@@ -1116,10 +1116,6 @@ const BookTagIcons = {
   'EquinoxRewards': '/assets/EquinoxIcon.svg',
 };
 
-const tooltipText =
-  IconAltText_BOOK[tag] ||
-  tag;
-
 const IconAltText_BOOK = {
   BullionVendor: "Sold by a Gold Bullion vendor",
   StampsVendor: "Sold by Giuseppe in The Whitespring",
@@ -1134,6 +1130,19 @@ const IconAltText_BOOK = {
   PublicEventRewards: "Reward from a Public event",
   EquinoxRewards: "Reward from Mothman Equinox seasonal event",
 };
+
+function getTooltipText_BOOK(tag) {
+  return IconAltText_BOOK[tag] || tag;
+}
+
+function getTooltipText_ENTM(edid, fullName) {
+  return (
+    IconAltText_ENTM[edid] ||
+    IconAltText_ENTM[fullName] ||
+    fullName
+  );
+}
+
 
 const IconAltText_ENTM = {
   "F1_ENTM_CAMP_SCRAPBOX_STANDARD": "Requires Fallout 1st subscription",
@@ -1611,7 +1620,7 @@ if (hasBook) {
       icon.style.marginRight = '6px';
       pill.appendChild(icon);
 
-      const tooltip = createTooltipElement(IconAltText[tag] || tag);
+      const tooltip = createTooltipElement(getTooltipText_BOOK(tag));
       attachTooltipToIcon(icon, tooltip);
     });
 
@@ -1780,12 +1789,9 @@ if (hasBook) {
       icon.style.marginRight = '6px';
       pill.appendChild(icon);
 
-      const tooltipText =
-        IconAltText[matchedEdid] ||
-        IconAltText[fullName] ||
-        fullName;
-
-      const tooltip = createTooltipElement(tooltipText);
+      const tooltip = createTooltipElement(
+  getTooltipText_ENTM(matchedEdid, fullName)
+);
       attachTooltipToIcon(icon, tooltip);
     }
     
