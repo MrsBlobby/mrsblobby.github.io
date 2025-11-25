@@ -1,6 +1,5 @@
-<svg xmlns:ffdec="https://www.free-decompiler.com/flash" xmlns:xlink="http://www.w3.org/1999/xlink" ffdec:objectType="frame" xmlns="http://www.w3.org/2000/svg" viewBox="-0.02 -0.02 128.03 128.03">
+<svg xmlns:ffdec="https://www.free-decompiler.com/flash" xmlns:xlink="http://www.w3.org/1999/xlink" ffdec:objectType="frame" xmlns="http://www.w3.org/2000/svg" viewBox="4.62 26.63 113.75 90.25">
   <g transform="matrix(1.0, 0.0, 0.0, 1.0, 64.0, 64.5)">
-    <use ffdec:characterId="2" height="128.0" id="Sizer_mc" transform="matrix(1.0, 0.0, 0.0, 1.0, -64.0, -64.5)" width="128.0" xlink:href="#sprite0"/>
     <use ffdec:characterId="79" height="104.5" transform="matrix(1.0, 0.0, 0.0, 1.0, -52.25, -52.75)" width="104.5" xlink:href="#shape1"/>
     <use ffdec:characterId="2720" height="92.65" transform="matrix(0.8544, 0.0, 0.0, 0.8544, -32.5108, -26.789)" width="79.8" xlink:href="#sprite1"/>
     <use ffdec:characterId="2722" height="49.75" transform="matrix(-0.285, -0.5673, 0.5673, -0.285, 6.3267, 33.7574)" width="15.65" xlink:href="#sprite2"/>
