@@ -752,20 +752,20 @@
 
 #mobile-tooltip-box {
   position: fixed;
-  bottom: -80px;
+  bottom: 20px;            
   left: 50%;
   transform: translateX(-50%);
   max-width: 90%;
-  background: var(--card-bg);
+  background: var(--bg);
   color: white;
   padding: 12px 16px;
   border-radius: 6px;
   font-size: 14px;
   z-index: 99999;
-  opacity: 0;
-  transition: all 0.3s ease;
   text-align: center;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease; 
   border: 2px solid var(--accent);
 }
 
@@ -1165,18 +1165,18 @@ const BookTagIcons = {
 };
 
 const IconAltText_BOOK = {
-  BullionVendor: "Sold by a Gold Bullion vendor",
-  StampsVendor: "Sold by Giuseppe in The Whitespring",
+  BullionVendor: "Sold by Gold Bullion Vendor",
+  StampsVendor: "Sold by Giuseppe Della Ripa in The Whitespring",
   DailyOps: "Daily Ops Reward",
-  CommonWorkshop: "Reward from claiming or defending workshops",
-  RaidsReward: "Gleaming Depths raid reward",
-  TreasureHunters: "Reward from Mole Miner Pails from Treasure Hunters event",
-  MeatWeekRewards: "Reward from Meat Week seasonal event",
-  FasnachtRewards: "Reward from Fasnacht seasonal event",
-  MischiefNightRewards: "Reward from Mischief Night seasonal event",
-  SpookyScorched: "Reward from Spooky Scorched seasonal event",
-  PublicEventRewards: "Reward from a Public event",
-  EquinoxRewards: "Reward from Mothman Equinox seasonal event",
+  CommonWorkshop: "Common Workshop Claim/Defense Reward",
+  RaidsReward: "Gleaming Depths Raid Reward",
+  TreasureHunters: "Treasure Hunters Event Reward",
+  MeatWeekRewards: "Meat Week Seasonal Event Reward",
+  FasnachtRewards: "Fasnacht Seasonal Event Reward",
+  MischiefNightRewards: "RMischief Night Seasonal Event Reward",
+  SpookyScorched: "Spooky Scorched Seasonal Event Reward",
+  PublicEventRewards: "Public Event Reward",
+  EquinoxRewards: "Mothman Equinox Seasonal Event Reward",
 };
 
 function getTooltipText_BOOK(tag) {
