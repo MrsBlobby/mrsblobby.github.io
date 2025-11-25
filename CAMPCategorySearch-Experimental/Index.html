@@ -1477,6 +1477,45 @@ function renderResults(query) {
     }
 
     // --- Placement Conditions header + pills ---
+// --- Helper to create icon + tooltip ---
+function createIconWithTooltip(iconSrc, altText) {
+  const icon = document.createElement('img');
+  icon.src = iconSrc;
+  icon.style.width = '30px';
+  icon.style.height = '30px';
+  icon.style.verticalAlign = 'middle';
+  icon.style.marginRight = '6px';
+
+  // Tooltip
+  const tooltip = document.createElement('div');
+  tooltip.className = 'tooltip';
+  tooltip.textContent = altText;
+  document.body.appendChild(tooltip);
+
+  const showTooltip = () => {
+    const rect = icon.getBoundingClientRect();
+    tooltip.style.left = `${rect.left + rect.width / 2 - tooltip.offsetWidth / 2}px`;
+    tooltip.style.top = `${rect.top - tooltip.offsetHeight - 6}px`;
+    tooltip.classList.add('show');
+  };
+
+  const hideTooltip = () => {
+    tooltip.classList.remove('show');
+  };
+
+  // Desktop hover
+  icon.addEventListener('mouseenter', showTooltip);
+  icon.addEventListener('mouseleave', hideTooltip);
+
+  // Mobile tap
+  icon.addEventListener('click', e => {
+    e.stopPropagation();
+    tooltip.classList.toggle('show');
+  });
+
+  return icon;
+}
+
     const hasBook = !!(r.BOOK_FULL && String(r.BOOK_FULL).trim());
     const hasEntm = !!(r.ENTM_FULL && String(r.ENTM_FULL).trim());
     if (hasBook || hasEntm) {
@@ -1539,19 +1578,9 @@ if (hasBook) {
     tags.forEach(tag => {
       const iconSrc = BookTagIcons[tag]; 
 if (iconSrc) {
-  const icon = document.createElement('img');
-  icon.src = iconSrc;
-  icon.style.width = 'auto';
-  icon.style.height = '30px';
-  icon.style.verticalAlign = 'middle';
-  icon.style.marginRight = '6px';
+  const icon = createIconWithTooltip(iconSrc, IconAltText[tag] || tag);
   pill.appendChild(icon);
-
-  // --- TOOLTIP ---
-  const tooltip = document.createElement('div');
-  tooltip.className = 'tooltip';
-  tooltip.textContent = IconAltText[tag] || tag; // replace IconAltText with your mapping object
-  document.body.appendChild(tooltip);
+}
 
   const showTooltip = () => {
     const rect = icon.getBoundingClientRect();
@@ -1594,8 +1623,6 @@ if (iconSrc) {
     }
   });
 }
-
-
 
       // --- connector ---
       if (hasBook && hasEntm) {
@@ -1739,14 +1766,10 @@ if (iconSrc) {
     pill.className = 'pill';
 
     if (iconSrc) {
-      const icon = document.createElement('img');
-      icon.src = iconSrc;
-      icon.style.width = '30px';
-      icon.style.height = '30px';
-      icon.style.verticalAlign = 'middle';
-      icon.style.marginRight = '6px';
-      pill.appendChild(icon);
-    }
+  const altText = matchedEdid || fullName; // tooltip text
+  const icon = createIconWithTooltip(iconSrc, altText);
+  pill.appendChild(icon);
+}
 
 // optional season suffix
 let textSuffix = '';
