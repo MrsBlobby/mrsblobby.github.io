@@ -1136,11 +1136,21 @@ function getTooltipText_BOOK(tag) {
 }
 
 function getTooltipText_ENTM(edid, fullName) {
-  return (
-    IconAltText_ENTM[edid] ||
-    IconAltText_ENTM[fullName] ||
-    fullName
-  );
+  const edidUpper = String(edid || "").toUpperCase();
+  const fullUpper = String(fullName || "").toUpperCase();
+
+  // direct exact match
+  if (IconAltText_ENTM[edidUpper]) return IconAltText_ENTM[edidUpper];
+  if (IconAltText_ENTM[fullUpper]) return IconAltText_ENTM[fullUpper];
+
+  // prefix matches (Babylon_, Shelters_, ATX, SCORE)
+  for (const key in IconAltText_ENTM) {
+    if (edidUpper.includes(key)) return IconAltText_ENTM[key];
+    if (fullUpper.includes(key)) return IconAltText_ENTM[key];
+  }
+
+  // fallback
+  return fullName;
 }
 
 
