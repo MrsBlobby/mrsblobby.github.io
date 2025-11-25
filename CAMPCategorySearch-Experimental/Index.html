@@ -93,13 +93,14 @@
   }
 
 .no-results {
-  text-align: center;
-  width: 100%;
-  padding: 10px 0px 10px 10px;
+  display: inline-block;  
+  text-align: center;      
+  padding: 10px 10px;      
   color: #ccc;
-  font-size: 1em;
+  font-size: 1em;        
   list-style: none;
 }
+
 
 .controls {
   position: sticky;
@@ -1399,7 +1400,6 @@ function renderResults(query) {
       const img = document.createElement('img');
       img.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
       img.alt = r.Name;
-      img.loading = "lazy";
       left.appendChild(img);
     }
 
