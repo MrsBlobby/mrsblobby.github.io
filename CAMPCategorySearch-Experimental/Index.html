@@ -1107,40 +1107,52 @@ function showMobileTooltip(text) {
   }, 5000); // auto-hide after 5 seconds
 }
 
-function attachTooltipToIcon(icon, tooltip) {
-  function show() {
+function attachTooltipToIcon(icon, text) {
+  // Desktop tooltip
+  const desktopTooltip = createTooltipElement(text);
+
+  function showDesktop() {
     const rect = icon.getBoundingClientRect();
-    const w = tooltip.offsetWidth;
-    const h = tooltip.offsetHeight;
-    tooltip.style.left = `${rect.left + rect.width/2 - w/2}px`;
-    tooltip.style.top  = `${rect.top - h - 6}px`;
-    tooltip.classList.add('show');
+    const w = desktopTooltip.offsetWidth;
+    const h = desktopTooltip.offsetHeight;
+    desktopTooltip.style.left = `${rect.left + rect.width/2 - w/2}px`;
+    desktopTooltip.style.top  = `${rect.top - h - 6}px`;
+    desktopTooltip.classList.add('show');
   }
 
-  function hide() {
-    tooltip.classList.remove('show');
+  function hideDesktop() {
+    desktopTooltip.classList.remove('show');
   }
 
-  // desktop
-  icon.addEventListener('mouseenter', show);
-  icon.addEventListener('mouseleave', hide);
+  // Desktop hover
+  icon.addEventListener('mouseenter', showDesktop);
+  icon.addEventListener('mouseleave', hideDesktop);
 
-  // mobile
- icon.addEventListener('click', (e) => {
-  e.stopPropagation();
+  // Mobile tooltip (bottom of screen)
+  icon.addEventListener('click', (e) => {
+    e.stopPropagation();
 
-  // If viewport width is small → treat as mobile
-  if (window.innerWidth < 768) {
-    const text = tooltip.textContent;
-    showMobileTooltip(text);
-    return;
-  }
+    const mobileTooltip = document.createElement('div');
+    mobileTooltip.className = 'mobile-tooltip';
+    mobileTooltip.textContent = text;
+    mobileTooltip.style.position = 'fixed';
+    mobileTooltip.style.bottom = '20px';
+    mobileTooltip.style.left = '50%';
+    mobileTooltip.style.transform = 'translateX(-50%)';
+    mobileTooltip.style.backgroundColor = 'rgba(0,0,0,0.8)';
+    mobileTooltip.style.color = 'white';
+    mobileTooltip.style.padding = '8px 12px';
+    mobileTooltip.style.borderRadius = '6px';
+    mobileTooltip.style.zIndex = 9999;
+    mobileTooltip.style.fontSize = '14px';
+    mobileTooltip.style.textAlign = 'center';
+    mobileTooltip.style.maxWidth = '80%';
+    document.body.appendChild(mobileTooltip);
 
-  // Desktop fallback (normal tooltip)
-  if (tooltip.classList.contains('show')) hide();
-  else show();
-});
-
+    setTimeout(() => {
+      mobileTooltip.remove();
+    }, 5000); // auto hide after 5 seconds
+  });
 }
 
 
