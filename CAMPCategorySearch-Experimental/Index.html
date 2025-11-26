@@ -1868,6 +1868,29 @@ if (hasEntm) {
       right.appendChild(condWrap);
     }
 
+// --- Budget Cost header + pill ---
+if (r.BudgetCost !== undefined && r.BudgetCost !== null) {
+  const budgetHeader = document.createElement('div');
+  budgetHeader.className = 'section-header';
+  budgetHeader.textContent = 'Budget Cost';
+  budgetHeader.style.marginTop = '8px';
+  right.appendChild(budgetHeader);
+
+  const budgetWrap = document.createElement('div');
+  budgetWrap.className = 'inline-wrap';
+
+  const budgetPill = document.createElement('span');
+  budgetPill.className = 'pill';
+
+  // Optionally round to 1 decimal
+  const roundedBudget = Math.round(r.BudgetCost * 10) / 10;
+
+  budgetPill.textContent = `${roundedBudget} Flamingo Units`;
+  budgetWrap.appendChild(budgetPill);
+
+  right.appendChild(budgetWrap);
+}
+
     // --- attach left + right divs to li ---
     li.appendChild(left);
     li.appendChild(right);
