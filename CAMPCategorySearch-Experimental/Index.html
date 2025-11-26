@@ -1796,7 +1796,7 @@ if (hasEntm) {
         }
       }
     }
-    if (!iconSrc && edidUpper.startsWith('F1_')) iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
+    if (!iconSrc && edidUpper.startsWith('F1_ENTM')) iconSrc = '/assets/SubCategory-AdditionalStorageIcon.svg';
     if (!iconSrc) {
       if (edidUpper.includes('ATX')) iconSrc = '/assets/AtomIcon.png';
       else if (edidUpper.includes('SCORE_MINISEASON') || /SCORE[_-]?MINISEASON/i.test(matchedEdid)) iconSrc = '/assets/SeasonIcon.png';
