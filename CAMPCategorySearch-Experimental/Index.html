@@ -1816,20 +1816,27 @@ if (hasEntm) {
       icon.style.marginRight = '6px';
       pill.appendChild(icon);
     
-      // Tooltip text comes from mapping, fallback to fullName
       let tooltipText = fullName; // fallback
-      const edidUpper = String(matchedEdid || '').toUpperCase();
-    
-      for (const key in IconAltText_ENTM) {
-        if (edidUpper === key.toUpperCase()) {
-          tooltipText = IconAltText_ENTM[key];
-          break;
-        } else if (edidUpper.startsWith(key.toUpperCase())) {
-          tooltipText = IconAltText_ENTM[key];
-          break;
+        const edidUpper = String(matchedEdid || '').toUpperCase();
+
+        // 1️startsWith priority
+        for (const key in IconAltText_ENTM) {
+          if (edidUpper.startsWith(key.toUpperCase())) {
+            tooltipText = IconAltText_ENTM[key];
+            break;
+          }
         }
-      }
-    
+
+        // 2️fallback includes (only if not already matched)
+        if (tooltipText === fullName) {
+          for (const key in IconAltText_ENTM) {
+            if (edidUpper.includes(key.toUpperCase())) {
+              tooltipText = IconAltText_ENTM[key];
+              break;
+            }
+          }
+        }
+
       attachTooltipToIcon(icon, tooltipText); 
     }
     
