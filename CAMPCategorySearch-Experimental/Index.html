@@ -1892,7 +1892,10 @@ if (r.BudgetCost !== undefined && r.BudgetCost !== null) {
   // Optionally round to 1 decimal
   const roundedBudget = Math.round(r.BudgetCost * 10) / 10;
 
-  budgetPill.textContent = `${roundedBudget} Flamingo Units`;
+  // Singular/plural logic
+  const unitText = (roundedBudget === 1) ? 'Flamingo Unit' : 'Flamingo Units';
+
+  budgetPill.textContent = `${roundedBudget} ${unitText}`;
   budgetWrap.appendChild(budgetPill);
 
   right.appendChild(budgetWrap);
