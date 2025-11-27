@@ -1889,17 +1889,47 @@ if (r.BudgetCost !== undefined && r.BudgetCost !== null) {
   const budgetPill = document.createElement('span');
   budgetPill.className = 'pill';
 
-  // Optionally round to 1 decimal
+  // Round to 1 decimal
   const roundedBudget = Math.round(r.BudgetCost * 10) / 10;
 
-  // Singular/plural logic
+  // ---- Budget Tiers ----
+  let budgetIcon = '';
+  if (roundedBudget <= 2) {
+    budgetIcon = '/assets/BudgetBar-Tier1.png';
+  } else if (roundedBudget <= 4) {
+    budgetIcon = '/assets/BudgetBar-Tier2.png';
+  } else if (roundedBudget <= 8) {
+    budgetIcon = '/assets/BudgetBar-Tier3.png';
+  } else if (roundedBudget <= 16) {
+    budgetIcon = '/assets/BudgetBar-Tier4.png';
+  } else if (roundedBudget <= 32) {
+    budgetIcon = '/assets/BudgetBar-Tier5.png';
+  } else {
+    budgetIcon = '/assets/BudgetBar-Tier5.png'; // fallback/same tier for >32
+  }
+
+  // Add icon
+  if (budgetIcon) {
+    const icon = document.createElement('img');
+    icon.src = budgetIcon;
+    icon.style.width = '28px';
+    icon.style.height = '28px';
+    icon.style.verticalAlign = 'middle';
+    icon.style.marginRight = '6px';
+    budgetPill.appendChild(icon);
+  }
+
+  // Singular/plural
   const unitText = (roundedBudget === 1) ? 'Flamingo Unit' : 'Flamingo Units';
 
-  budgetPill.textContent = `${roundedBudget} ${unitText}`;
-  budgetWrap.appendChild(budgetPill);
+  budgetPill.appendChild(
+    document.createTextNode(`${roundedBudget} ${unitText}`)
+  );
 
+  budgetWrap.appendChild(budgetPill);
   right.appendChild(budgetWrap);
 }
+
 
     // --- attach left + right divs to li ---
     li.appendChild(left);
