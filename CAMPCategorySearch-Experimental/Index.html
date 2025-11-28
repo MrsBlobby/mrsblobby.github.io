@@ -976,6 +976,7 @@ let activeFilters = new Set()
 const CategoryIcons = {
   'Quest': '/assets/MainCategory-QuestsIcon.svg',
   'Objectives': '/assets/MainCategory-QuestsIcon.svg',
+  'Modify': 'MainCategory-ModifyIcon.svg',
   'Wallpapers': '/assets/MainCategory-WallpapersIcon.svg',
   'C.A.M.P. Pieces': '/assets/MainCategory-CAMPPiecesIcon.svg',
   'Foundations': '/assets/SubCategory-FoundationsIcon.png',
@@ -1590,8 +1591,23 @@ function renderResults(query) {
       catWrap.className = 'inline-wrap';
 
       const categories = [];
-      if (r.Category && r.Category.trim() !== '') categories.push(r.Category);
-      if (r.SubCategory && r.SubCategory.trim() !== '' && (r.Category || '').toLowerCase() !== 'wallpapers') categories.push(r.SubCategory);
+
+      if (r.Category && r.Category.trim() !== '') {
+        if (r.Category.toLowerCase() === 'wallpapers') {
+          categories.push('Modify');          
+          categories.push(r.Category);        // keep "Wallpapers" as subcategory
+        } else {
+          categories.push(r.Category);
+          if (
+            r.SubCategory &&
+            r.SubCategory.trim() !== '' &&
+            r.Category.toLowerCase() !== 'wallpapers'
+          ) {
+            categories.push(r.SubCategory);
+          }
+        }
+      }
+
 
       categories.forEach((cat, i) => {
         const catSpan = document.createElement('span');
