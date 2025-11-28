@@ -1892,7 +1892,7 @@ if (hasEntm) {
     }
 
 // --- Budget Cost header + pill ---
-if (r.BudgetCost !== undefined && r.BudgetCost !== null) {
+if (r.BudgetCost !== undefined && r.BudgetCost !== null && (r.Category || '').toLowerCase() !== 'wallpapers') {
   const budgetHeader = document.createElement('div');
   budgetHeader.className = 'section-header';
   budgetHeader.textContent = 'Budget Cost';
