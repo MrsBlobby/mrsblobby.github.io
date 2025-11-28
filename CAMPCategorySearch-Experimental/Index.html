@@ -1551,13 +1551,29 @@ function renderResults(query) {
     name.textContent = r.Name;
     left.appendChild(name);
 
-    if (r.CNAM_FormID) {
-      const img = document.createElement('img');
-      img.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
-      img.alt = r.Name;
-      img.loading = "eager";
-      left.appendChild(img);
+    // Entry images
+    let imgSrc = `Images/${(r.ARTO_FormID || '').toLowerCase()}.png`;
+
+    // Fallback to CNAM if ARTO image fails to load
+    if (!r.ARTO_FormID) {
+      imgSrc = `Images/${(r.CNAM_FormID || '').toLowerCase()}.png`;
     }
+
+    const img = document.createElement('img');
+    img.src = imgSrc;
+    img.alt = r.Name;
+    img.loading = "eager";
+
+    // If ARTO was tried first, fallback on error to CNAM
+    if (r.ARTO_FormID && r.CNAM_FormID) {
+      img.onerror = function() {
+        this.onerror = null; // prevent infinite loop if CNAM also fails
+        this.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
+      };
+    }
+
+    left.appendChild(img);
+
 
     const right = document.createElement('div');
     right.className = 'result-right';
