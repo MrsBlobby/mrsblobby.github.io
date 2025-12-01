@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:title" content="Fallout 76 C.A.M.P. Item Database">
-  <meta property="og:description" content="Database Tool for Fallout 76 C.A.M.P. Items. Lists Workshop Menu categories, Plan/Entitlement requirements, and allows searches.">
+  <meta property="og:description" content="Database Tool for Fallout 76 C.A.M.P. Items. Lists Workshop Menu categories, Plan/Entitlement requirements, C.A.M.P. budget costs, and allows searches.">
   <meta property="og:image" content="https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/assets/CAMPIcon2.png">
   <meta property="og:url" content="https://yourdomain.com/">
   <meta property="og:type" content="website">
@@ -1926,18 +1926,18 @@ if (r.BudgetCost !== undefined && r.BudgetCost !== null && (r.Category || '').to
 
   // ---- Budget Tiers ----
   let budgetIcon = '';
-  if (roundedBudget <= 2) {
+  if (roundedBudget <= 1) {
     budgetIcon = '/assets/BudgetBar-Tier1.png';
-  } else if (roundedBudget <= 4) {
+  } else if (roundedBudget <= 2) {
     budgetIcon = '/assets/BudgetBar-Tier2.png';
-  } else if (roundedBudget <= 8) {
+  } else if (roundedBudget <= 4) {
     budgetIcon = '/assets/BudgetBar-Tier3.png';
-  } else if (roundedBudget <= 16) {
+  } else if (roundedBudget <= 8) {
     budgetIcon = '/assets/BudgetBar-Tier4.png';
-  } else if (roundedBudget <= 32) {
+  } else if (roundedBudget <= 16) {
     budgetIcon = '/assets/BudgetBar-Tier5.png';
   } else {
-    budgetIcon = '/assets/BudgetBar-Tier5.png'; // fallback/same tier for >32
+    budgetIcon = '/assets/BudgetBar-Tier5.png'; // fallback/same tier for >16
   }
 
   // Add icon
