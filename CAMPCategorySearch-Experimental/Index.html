@@ -955,6 +955,8 @@
         <div class="option" data-value="camp-bottom">Workshop Menu ▲</div>
         <div class="option" data-value="az">Alphabetical ▼</div>
         <div class="option" data-value="za">Alphabetical ▲</div>
+	<div class="option" data-value="budget-high-low">Budget Cost ▼</div>
+	<div class="option" data-value="budget-low-high">Budget Cost ▲</div>
         <div class="option" data-value="old-new">Oldest</div>
         <div class="option" data-value="new-old">Newest</div>
       </div>
@@ -1420,6 +1422,8 @@ function sortItems(items) {
     case 'old-new': return [...items].sort((a,b) => (a.CNAM_FormID || '').localeCompare(b.CNAM_FormID || ''));
     case 'az': return [...items].sort((a,b) => (a.Name || '').localeCompare(b.Name || ''));
     case 'za': return [...items].sort((a,b) => (b.Name || '').localeCompare(a.Name || ''));
+    case 'budget-high-low': return [...items].sort((a, b) => (b.BudgetCost || 0) - (a.BudgetCost || 0));
+    case 'budget-low-high': return [...items].sort((a, b) => (a.BudgetCost || 0) - (b.BudgetCost || 0));
     default: return items;
   }
 }
