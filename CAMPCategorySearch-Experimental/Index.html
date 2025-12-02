@@ -75,10 +75,10 @@
 
 
   #pagination button {
-    padding: 6px 10px;
+    padding: 10px 10px;
     background: var(--card-bg);
     color: var(--text);
-    border: 1px solid var(--accent);
+    border: 2px solid var(--accent);
     border-radius: 4px;
     cursor: pointer;
     transition: 0.2s;
@@ -1449,7 +1449,7 @@ function renderPagination(totalItems) {
       pagination.appendChild(btn);
     } else if (Math.abs(i-currentPage) === 3) {
       const span = document.createElement('span');
-      span.textContent = '...';
+      span.textContent = ' ... ';
       pagination.appendChild(span);
     }
   }
