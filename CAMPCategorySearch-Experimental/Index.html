@@ -1731,7 +1731,7 @@ const globValue = r.GLOB_Value;
 
 // If it's a Challenge, modify the pill text
 if (/Challenge_/.test(bookEditorId)) {
-  pillText = `Complete Challenge: "${fullName}"`;
+  pillText = `Challenge: "${fullName}"`;
   if (globValue != null) {
     pillText += ` (X/${globValue})`; // replace first number with current progress if available
   }
