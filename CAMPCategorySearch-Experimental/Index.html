@@ -1722,16 +1722,33 @@ if (hasBook) {
     attachTooltipToIcon(icon, tooltipText);
   });
 
-  // append the text after adding all icons
-  pill.appendChild(document.createTextNode(fullName));
-  condWrap.appendChild(pill);
+// --- Build pill text ---
+let pillText = fullName;
 
-  if (i < bookFulls.length - 1) {
-    const conn = document.createElement('span');
-    conn.className = 'connector';
-    conn.textContent = 'and';
-    condWrap.appendChild(conn);
+// Get the corresponding BOOK_EditorID for this index (if multiple)
+const bookEditorId = (r.BOOK_EditorID || '').split(';')[i]?.trim() || '';
+const globValue = r.GLOB_Value;
+
+// If it's a Challenge, modify the pill text
+if (/Challenge_/.test(bookEditorId)) {
+  pillText = `Complete Challenge: ${fullName}`;
+  if (globValue != null) {
+    pillText += ` (${globValue}/${globValue})`; // replace first number with current progress if available
   }
+}
+
+// Append the text to the pill
+pill.appendChild(document.createTextNode(pillText));
+condWrap.appendChild(pill);
+
+// Add connector if needed
+if (i < bookFulls.length - 1) {
+  const conn = document.createElement('span');
+  conn.className = 'connector';
+  conn.textContent = 'and';
+  condWrap.appendChild(conn);
+}
+
 });
 }
 
