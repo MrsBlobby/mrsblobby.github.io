@@ -1945,7 +1945,7 @@ if (r.BudgetCost !== undefined && r.BudgetCost !== null && (r.Category || '').to
   budgetPill.className = 'pill';
 
   // Round to 1 decimal
-  const roundedBudget = Math.round(r.BudgetCost * 10) / 10;
+  const roundedBudget = Math.round(r.BudgetCost * 100) / 100;
 
   // ---- Budget Tiers ----
   let budgetIcon = '';
