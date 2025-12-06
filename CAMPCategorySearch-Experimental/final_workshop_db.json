@@ -38427,12 +38427,13 @@
     "CNAM_FormID": "00111E57",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC05MarqueeArrowRightStraight01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Marquee Arrows",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Marquee Arrow",
@@ -38444,12 +38445,13 @@
     "CNAM_FormID": "00111E5B",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC05MarqueeArrowTurnRightDown01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Marquee Arrows",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Marquee Arrow",
@@ -38461,12 +38463,13 @@
     "CNAM_FormID": "00111E5C",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC05MarqueeArrowTurnRightUp01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Marquee Arrows",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Marquee Arrow",
@@ -38478,12 +38481,13 @@
     "CNAM_FormID": "00111E53",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC05MarqueeArrowDownStraight01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Marquee Arrows",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Marquee Arrow",
@@ -38495,12 +38499,13 @@
     "CNAM_FormID": "00111E55",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC05MarqueeArrowDownTurnRight01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Marquee Arrows",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Marquee Arrow",
@@ -38512,12 +38517,13 @@
     "CNAM_FormID": "00111E54",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC05MarqueeArrowDownTurnLeft01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Marquee Arrows",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Marquee Arrow",
@@ -38529,12 +38535,13 @@
     "CNAM_FormID": "00111E56",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC05MarqueeArrowLeftStraight01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Marquee Arrows",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Marquee Arrow",
@@ -38546,12 +38553,13 @@
     "CNAM_FormID": "00111E59",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC05MarqueeArrowTurnLeftDown01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Marquee Arrows",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Marquee Arrow",
@@ -38563,12 +38571,13 @@
     "CNAM_FormID": "00111E5A",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC05MarqueeArrowTurnLeftUp01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Marquee Arrows",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Marquee Arrow",
@@ -38580,12 +38589,13 @@
     "CNAM_FormID": "00111E5D",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC05MarqueeArrowUpStraight01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Marquee Arrows",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Marquee Arrow",
@@ -38597,12 +38607,13 @@
     "CNAM_FormID": "00111E5F",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC05MarqueeArrowUpTurnRight01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Marquee Arrows",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Marquee Arrow",
@@ -38614,12 +38625,13 @@
     "CNAM_FormID": "00111E5E",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC05MarqueeArrowUpTurnLeft01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Marquee Arrows",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Hello Neon Sign",
@@ -44366,12 +44378,13 @@
     "CNAM_FormID": "0008EE02",
     "ARTO_FormID": null,
     "CNAM_EditorID": "workshopCollectorFertilizer_packin",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Brahmin Pen",
+    "BOOK_EditorID": "Recipe_Workshop_Resources_Collector_Fertilizer",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": "CommonWorkshop",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Brewing Vat",
@@ -107639,12 +107652,13 @@
     "CNAM_FormID": "0010FFB8",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-A",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - B",
@@ -107656,12 +107670,13 @@
     "CNAM_FormID": "0010FFB9",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-B",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - C",
@@ -107673,12 +107688,13 @@
     "CNAM_FormID": "0010FFBA",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-C",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - D",
@@ -107690,12 +107706,13 @@
     "CNAM_FormID": "0010FFEE",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-D",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - E",
@@ -107707,12 +107724,13 @@
     "CNAM_FormID": "0010FFBD",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-E",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - F",
@@ -107724,12 +107742,13 @@
     "CNAM_FormID": "0010FFF0",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-F",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - G",
@@ -107741,12 +107760,13 @@
     "CNAM_FormID": "00110008",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-G",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - H",
@@ -107758,12 +107778,13 @@
     "CNAM_FormID": "0010FFBE",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-H",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - I",
@@ -107775,12 +107796,13 @@
     "CNAM_FormID": "0010FFC3",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-I",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - J",
@@ -107792,12 +107814,13 @@
     "CNAM_FormID": "0011000A",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-J",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - K",
@@ -107809,12 +107832,13 @@
     "CNAM_FormID": "00110024",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-K",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - L",
@@ -107826,12 +107850,13 @@
     "CNAM_FormID": "0010FFBF",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-L",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - M",
@@ -107843,12 +107868,13 @@
     "CNAM_FormID": "0010FFC0",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-M",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - N",
@@ -107860,12 +107886,13 @@
     "CNAM_FormID": "00110025",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-N",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - O",
@@ -107877,12 +107904,13 @@
     "CNAM_FormID": "0010FFC1",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-O",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - P",
@@ -107894,12 +107922,13 @@
     "CNAM_FormID": "00110027",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-P",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - Q",
@@ -107911,12 +107940,13 @@
     "CNAM_FormID": "0011002C",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-Q",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - R",
@@ -107928,12 +107958,13 @@
     "CNAM_FormID": "00110040",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-R",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - S",
@@ -107945,12 +107976,13 @@
     "CNAM_FormID": "00110048",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-S",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - T",
@@ -107962,12 +107994,13 @@
     "CNAM_FormID": "00110049",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-T",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - U",
@@ -107979,12 +108012,13 @@
     "CNAM_FormID": "0010FFC4",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-U",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - V",
@@ -107996,12 +108030,13 @@
     "CNAM_FormID": "0011004A",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-V",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - W",
@@ -108013,12 +108048,13 @@
     "CNAM_FormID": "0010FFC2",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-W",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - X",
@@ -108030,12 +108066,13 @@
     "CNAM_FormID": "0011004B",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-X",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - Y",
@@ -108047,12 +108084,13 @@
     "CNAM_FormID": "0011004C",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-Y",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Letter - Z",
@@ -108064,12 +108102,13 @@
     "CNAM_FormID": "0011004D",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-Z",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Punctuation - Apostrophe",
@@ -108081,12 +108120,13 @@
     "CNAM_FormID": "00110037",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-Apostrophe",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Punctuation - Quotation Marks",
@@ -108098,12 +108138,13 @@
     "CNAM_FormID": "00110036",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-QuotationMarks",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Punctuation - Hyphen",
@@ -108115,12 +108156,13 @@
     "CNAM_FormID": "00110009",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-Hyphen",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Punctuation - Exclamation Mark",
@@ -108132,12 +108174,13 @@
     "CNAM_FormID": "0010FFEF",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-ExclamationMark",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Punctuation - Question Mark",
@@ -108149,12 +108192,13 @@
     "CNAM_FormID": "0011002E",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightLetter01-Blue-QuestionMark",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Number - 0",
@@ -108166,12 +108210,13 @@
     "CNAM_FormID": "00110057",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightNumber01-Blue-0",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Number - 1",
@@ -108183,12 +108228,13 @@
     "CNAM_FormID": "0011004E",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightNumber01-Blue-1",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Number - 2",
@@ -108200,12 +108246,13 @@
     "CNAM_FormID": "0011004F",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightNumber01-Blue-2",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Number - 3",
@@ -108217,12 +108264,13 @@
     "CNAM_FormID": "00110050",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightNumber01-Blue-3",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Number - 4",
@@ -108234,12 +108282,13 @@
     "CNAM_FormID": "00110051",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightNumber01-Blue-4",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Number - 5",
@@ -108251,12 +108300,13 @@
     "CNAM_FormID": "00110052",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightNumber01-Blue-5",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Number - 6",
@@ -108268,12 +108318,13 @@
     "CNAM_FormID": "00110053",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightNumber01-Blue-6",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Number - 7",
@@ -108285,12 +108336,13 @@
     "CNAM_FormID": "00110054",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightNumber01-Blue-7",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Number - 8",
@@ -108302,12 +108354,13 @@
     "CNAM_FormID": "00110055",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightNumber01-Blue-8",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Neon Number - 9",
@@ -108319,12 +108372,13 @@
     "CNAM_FormID": "00110056",
     "ARTO_FormID": null,
     "CNAM_EditorID": "DLC02WorkshopNeonLightNumber01-Blue-9",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Plan: Signs and Letters",
+    "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": null
   },
   {
     "Name": "Small Letter - A",
