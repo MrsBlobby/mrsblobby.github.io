@@ -1715,35 +1715,48 @@ if (hasBook) {
     return rawTags.split(/[;|]/).map(t => t.trim()).filter(Boolean);
   };
 
-  bookFulls.forEach((fullName, i) => {
-  const pill = document.createElement('span');
-  pill.className = 'pill';
-
-  const tags = getTagsForBook(i);
-
-  // Normalize tags and remove duplicates
-  const uniqueNormalizedTags = [...new Set(
-    tags.map(tag => tag.startsWith('BullionVendor') ? 'BullionVendor' : tag)
-  )];
-
-  uniqueNormalizedTags.forEach(normalizedTag => {
-    const iconSrc = BookTagIcons[normalizedTag];
-    if (!iconSrc) return;
-
-    const icon = document.createElement('img');
-    icon.src = iconSrc;
-    icon.style.width = 'auto';
-    icon.style.height = '30px';
-    icon.style.verticalAlign = 'middle';
-    icon.style.marginRight = '6px';
-    pill.appendChild(icon);
-
-    // Tooltip
-    const tooltipText = getTooltipText_BOOK(normalizedTag);
-    attachTooltipToIcon(icon, tooltipText);
-  });
-
-
+    bookFulls.forEach((fullName, i) => {
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    
+    const tags = getTagsForBook(i);
+    
+    // Group original tags by normalized category
+    const normalizedTagMap = {};
+    tags.forEach(tag => {
+      const normalized = tag.startsWith('BullionVendor') ? 'BullionVendor' : tag;
+      if (!normalizedTagMap[normalized]) normalizedTagMap[normalized] = [];
+      normalizedTagMap[normalized].push(tag);
+    });
+  
+    // Loop over each normalized category
+    Object.entries(normalizedTagMap).forEach(([normalizedTag, originalTags]) => {
+      const iconSrc = BookTagIcons[normalizedTag];
+        if (!iconSrc) return;
+    
+      const icon = document.createElement('img');
+      icon.src = iconSrc;
+        icon.style.width = 'auto';
+        icon.style.height = '30px';
+        icon.style.verticalAlign = 'middle';
+        icon.style.marginRight = '6px';
+        pill.appendChild(icon);
+    
+      // ---- Tooltip ----
+      let tooltipText;
+    
+      if (normalizedTag === 'BullionVendor') {
+        // Only include vendors actually present for this book
+          const presentVendors = originalTags.map(t => t.replace('BullionVendor', ''));
+          tooltipText = `Sold by Gold Bullion Vendor (${presentVendors.join(', ')})`;
+        } else {
+          tooltipText = getTooltipText_BOOK(normalizedTag);
+        }
+    
+      attachTooltipToIcon(icon, tooltipText);
+    });
+  
+  
 
 // --- Build pill text ---
 let pillText = fullName;
