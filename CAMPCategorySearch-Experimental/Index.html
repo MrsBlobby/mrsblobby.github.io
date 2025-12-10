@@ -1181,12 +1181,10 @@ function getTooltipText_BOOK(tag) {
   const entry = IconAltText_BOOK[tag];
   if (!entry) return tag;
 
-  // If entry has a vendors array, use its dynamic alt property
-  if (entry.vendors) return entry.alt;
-
-  // Otherwise just return static alt
+  // Return alt property if exists, otherwise fallback to tag
   return entry.alt || tag;
 }
+
 
 function getTooltipText_ENTM(edid, fullName) {
   const edidUpper = String(edid || "").toUpperCase();
