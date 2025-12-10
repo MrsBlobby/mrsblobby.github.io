@@ -1721,13 +1721,15 @@ if (hasBook) {
 
   const tags = getTagsForBook(i);
 
-  tags.forEach(tag => {
-    // Normalize BullionVendor variants
-    let normalizedTag = tag.startsWith('BullionVendor') ? 'BullionVendor' : tag;
-    
-    const iconSrc = BookTagIcons[normalizedTag]; 
+  // Normalize tags and remove duplicates
+  const uniqueNormalizedTags = [...new Set(
+    tags.map(tag => tag.startsWith('BullionVendor') ? 'BullionVendor' : tag)
+  )];
+
+  uniqueNormalizedTags.forEach(normalizedTag => {
+    const iconSrc = BookTagIcons[normalizedTag];
     if (!iconSrc) return;
-    
+
     const icon = document.createElement('img');
     icon.src = iconSrc;
     icon.style.width = 'auto';
@@ -1735,12 +1737,14 @@ if (hasBook) {
     icon.style.verticalAlign = 'middle';
     icon.style.marginRight = '6px';
     pill.appendChild(icon);
-    
-    // ---- Tooltip ----
-    const tooltipText = getTooltipText_BOOK(normalizedTag); // use your existing function
+
+    // Tooltip
+    const tooltipText = getTooltipText_BOOK(normalizedTag);
     attachTooltipToIcon(icon, tooltipText);
   });
-  
+});
+
+
 
 // --- Build pill text ---
 let pillText = fullName;
