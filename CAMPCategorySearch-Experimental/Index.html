@@ -1156,22 +1156,36 @@ function attachTooltipToIcon(icon, text) {
 }
 
 const IconAltText_BOOK = {
-  BullionVendor: "Sold by Gold Bullion Vendor",
-  StampsVendor: "Sold by Giuseppe Della Ripa in The Whitespring",
-  DailyOps: "Daily Ops Reward",
-  CommonWorkshop: "Common Workshop Claim/Defense Reward",
-  RaidsReward: "Gleaming Depths Raid Reward",
-  TreasureHunters: "Treasure Hunters Event Reward",
-  MeatWeekRewards: "Meat Week Seasonal Event Reward",
-  FasnachtRewards: "Fasnacht Seasonal Event Reward",
-  MischiefNightRewards: "Mischief Night Seasonal Event Reward",
-  SpookyScorched: "Spooky Scorched Seasonal Event Reward",
-  PublicEventRewards: "Public Event Reward",
-  EquinoxRewards: "Mothman Equinox Seasonal Event Reward",
-};
+    BullionVendor: {
+      vendors: ['Minerva', 'Mortimer', 'Samuel', 'Regs', 'Windy'],
+      get alt() { return `Sold by Gold Bullion Vendor (${this.vendors.join(', ')})`; }
+    },
+    StampsVendor: { alt: "Sold by Giuseppe Della Ripa in The Whitespring" },
+    DailyOps: { alt: "Daily Ops Reward" },
+    CommonWorkshop: { alt: "Common Workshop Claim/Defense Reward" },
+    RaidsReward: { alt: "Gleaming Depths Raid Reward" },
+    TreasureHunters: { alt: "Treasure Hunters Event Reward" },
+    MeatWeekRewards: { alt: "Meat Week Seasonal Event Reward" },
+    FasnachtRewards: { alt: "Fasnacht Seasonal Event Reward" },
+    MischiefNightRewards: { alt: "Mischief Night Seasonal Event Reward" },
+    SpookyScorched: { alt: "Spooky Scorched Seasonal Event Reward" },
+    PublicEventRewards: { alt: "Public Event Reward" },
+    EquinoxRewards: { alt: "Mothman Equinox Seasonal Event Reward" },
+    GrahmVendor: { alt: "Sold by Grahm" },
+  };
 
 function getTooltipText_BOOK(tag) {
-  return IconAltText_BOOK[tag] || tag;
+  // Normalize all BullionVendor variants to the single key
+  if (tag.startsWith('BullionVendor')) tag = 'BullionVendor';
+
+  const entry = IconAltText_BOOK[tag];
+  if (!entry) return tag;
+
+  // If entry has a vendors array, use its dynamic alt property
+  if (entry.vendors) return entry.alt;
+
+  // Otherwise just return static alt
+  return entry.alt || tag;
 }
 
 function getTooltipText_ENTM(edid, fullName) {
@@ -1662,11 +1676,7 @@ if (hasBook) {
     'PublicEventRewards': '/assets/PublicEventIcon.svg',
     'EquinoxRewards': '/assets/EquinoxIcon.svg',
     'GrahmVendor': '/assets/GrahmIcon.webp',
-    'BullionVendorMinerva': '/assets/BullionIcon.webp',
-    'BullionVendorMortimer': '/assets/BullionIcon.webp',
-    'BullionVendorSamuel': '/assets/BullionIcon.webp',
-    'BullionVendorRegs': '/assets/BullionIcon.webp',
-    'BullionVendorWindy': '/assets/BullionIcon.webp',
+    'BullionVendor': '/assets/BullionIcon.webp',
     'ColossalProblemRewards': '/assets/PublicEventIcon.svg',
     'BeastsOfBurdenRewards': '/assets/PublicEventIcon.svg',
     'CampfireTalesRewards': '/assets/PublicEventIcon.svg',
