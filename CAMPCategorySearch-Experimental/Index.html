@@ -1779,9 +1779,10 @@ function getTooltipTextForTag(tag, originalTags) {
         if (t === normalized) return normalized.replace('Vendor', ''); // "Gold Bullion" for BullionVendor
         const match = category.prefixes.find(p => t.startsWith(p));
         if (!match) return t;
-        let name = match.replace('Vendor', '');
-        name = name.replace(/([a-z])([A-Z])/g, '$1 $2');
-        return name;
+        let name = match.replace(normalized, ''); // REMOVE the normalized prefix
+        name = name.replace('Vendor', '');       // Remove any trailing "Vendor"
+        name = name.replace(/([a-z])([A-Z])/g, '$1 $2'); // Add spaces before capitals
+        return name.trim();
       });
 
     return `Sold by ${normalized.replace('Vendor', '')} Vendor (${presentVendors.join(', ')})`;
@@ -1790,6 +1791,7 @@ function getTooltipTextForTag(tag, originalTags) {
   const entry = IconAltText_BOOK[normalized];
   return entry?.alt || normalized;
 }
+
 
   const bookFulls = String(r.BOOK_FULL || '')
     .split(';')
