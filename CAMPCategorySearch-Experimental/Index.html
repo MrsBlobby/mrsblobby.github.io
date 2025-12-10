@@ -1674,7 +1674,6 @@ if (hasBook) {
     'PublicEventRewards': '/assets/PublicEventIcon.svg',
     'EquinoxRewards': '/assets/EquinoxIcon.svg',
     'GrahmVendor': '/assets/GrahmIcon.webp',
-    'BullionVendor': '/assets/BullionIcon.webp',
     'ColossalProblemRewards': '/assets/PublicEventIcon.svg',
     'BeastsOfBurdenRewards': '/assets/PublicEventIcon.svg',
     'CampfireTalesRewards': '/assets/PublicEventIcon.svg',
@@ -1692,6 +1691,50 @@ if (hasBook) {
     'GearinUpRewards': '/assets/PublicEventIcon.svg',
     'SinkholeSolutionsRewards': '/assets/PublicEventIcon.svg'
   };
+
+const multiVendorCategories = {
+  BullionVendor: {
+    icon: '/assets/BullionIcon.webp'
+  },
+  RobotVendor: {
+    icon: '/assets/RobotVendorIcon.webp',
+    prefixes: ['FreeStatesVendor', 'BrotherhoodVendor', 'RespondersVendor', 'RaiderVendor', 'WhitespringStationVendor']
+  }
+};
+
+function normalizeTag(tag) {
+  // Check multi-vendor categories first
+  for (const [key, data] of Object.entries(multiVendorCategories)) {
+    if (key === tag || (data.prefixes && data.prefixes.some(p => tag.startsWith(p)))) {
+      return key;
+    }
+  }
+  // fallback: single tags
+  return tag;
+}
+
+function getTooltipTextForTag(tag, originalTags) {
+  const normalized = normalizeTag(tag);
+
+  if (normalized in multiVendorCategories) {
+    // Only include vendors actually present
+    const category = multiVendorCategories[normalized];
+    const presentVendors = originalTags
+      .filter(t => t === normalized || (category.prefixes && category.prefixes.some(p => t.startsWith(p))))
+      .map(t => {
+        if (t === normalized) return normalized;
+        return category.prefixes.find(p => t.startsWith(p)) || t;
+      });
+
+    return `${normalized.replace('Vendor', '')} (${presentVendors.join(', ')})`;
+  }
+
+  // fallback to existing alt text
+  const entry = IconAltText_BOOK[normalized];
+  return entry?.alt || normalized;
+}
+
+
 
   const bookFulls = String(r.BOOK_FULL || '')
     .split(';')
@@ -1715,48 +1758,37 @@ if (hasBook) {
     return rawTags.split(/[;|]/).map(t => t.trim()).filter(Boolean);
   };
 
-    bookFulls.forEach((fullName, i) => {
-    const pill = document.createElement('span');
-    pill.className = 'pill';
-    
-    const tags = getTagsForBook(i);
-    
-    // Group original tags by normalized category
-    const normalizedTagMap = {};
-    tags.forEach(tag => {
-      const normalized = tag.startsWith('BullionVendor') ? 'BullionVendor' : tag;
-      if (!normalizedTagMap[normalized]) normalizedTagMap[normalized] = [];
-      normalizedTagMap[normalized].push(tag);
-    });
-  
-    // Loop over each normalized category
-    Object.entries(normalizedTagMap).forEach(([normalizedTag, originalTags]) => {
-      const iconSrc = BookTagIcons[normalizedTag];
-        if (!iconSrc) return;
-    
-      const icon = document.createElement('img');
-      icon.src = iconSrc;
-        icon.style.width = 'auto';
-        icon.style.height = '30px';
-        icon.style.verticalAlign = 'middle';
-        icon.style.marginRight = '6px';
-        pill.appendChild(icon);
-    
-      // ---- Tooltip ----
-      let tooltipText;
-    
-      if (normalizedTag === 'BullionVendor') {
-        // Only include vendors actually present for this book
-          const presentVendors = originalTags.map(t => t.replace('BullionVendor', ''));
-          tooltipText = `Sold by Gold Bullion Vendor (${presentVendors.join(', ')})`;
-        } else {
-          tooltipText = getTooltipText_BOOK(normalizedTag);
-        }
-    
-      attachTooltipToIcon(icon, tooltipText);
-    });
-  
-  
+  bookFulls.forEach((fullName, i) => {
+  const pill = document.createElement('span');
+  pill.className = 'pill';
+
+  const tags = getTagsForBook(i);
+
+  // Normalize and deduplicate
+  const uniqueNormalizedTags = [...new Set(tags.map(normalizeTag))];
+
+  uniqueNormalizedTags.forEach(normalizedTag => {
+    let iconSrc = BookTagIcons[normalizedTag];
+
+    // Use multi-vendor icon if defined
+    if (multiVendorCategories[normalizedTag]?.icon) {
+      iconSrc = multiVendorCategories[normalizedTag].icon;
+    }
+
+    if (!iconSrc) return;
+
+    const icon = document.createElement('img');
+    icon.src = iconSrc;
+    icon.style.width = 'auto';
+    icon.style.height = '30px';
+    icon.style.verticalAlign = 'middle';
+    icon.style.marginRight = '6px';
+    pill.appendChild(icon);
+
+    const tooltipText = getTooltipTextForTag(normalizedTag, tags);
+    attachTooltipToIcon(icon, tooltipText);
+  });
+
 
 // --- Build pill text ---
 let pillText = fullName;
