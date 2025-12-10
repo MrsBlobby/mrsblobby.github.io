@@ -1155,22 +1155,6 @@ function attachTooltipToIcon(icon, text) {
   }
 }
 
-// Icons driven by BOOK_SOURCE_TAG values
-const BookTagIcons = {
-  'BullionVendor': '/assets/BullionIcon.webp',
-  'StampsVendor': '/assets/StampIcon.webp',
-  'DailyOps': '/assets/DOpsIcon.webp',
-  'CommonWorkshop': '/assets/WorkshopIcon.svg',
-  'RaidsReward': '/assets/RaidIcon.svg',
-  'TreasureHunters': '/assets/TreasureHuntersIcon.webp',
-  'MeatWeekRewards': '/assets/MeatWeekIcon.svg',
-  'FasnachtRewards': '/assets/FasnachtIcon.svg',
-  'MischiefNightRewards': '/assets/MischiefNightIcon.svg',
-  'SpookyScorched': '/assets/SpookyScorchedIcon.svg',
-  'PublicEventRewards': '/assets/PublicEventIcon.svg',
-  'EquinoxRewards': '/assets/EquinoxIcon.svg',
-};
-
 const IconAltText_BOOK = {
   BullionVendor: "Sold by Gold Bullion Vendor",
   StampsVendor: "Sold by Giuseppe Della Ripa in The Whitespring",
@@ -1665,7 +1649,7 @@ function renderResults(query) {
 
 if (hasBook) {
   const BookTagIcons = {
-    'BullionVendor': '/assets/BullionIcon.webp',
+    'UnusedContent': '/assets/UnusedContentIcon.svg',
     'StampsVendor': '/assets/StampIcon.webp',
     'DailyOps': '/assets/DOpsIcon.webp',
     'CommonWorkshop': '/assets/WorkshopIcon.svg',
@@ -1677,6 +1661,28 @@ if (hasBook) {
     'SpookyScorched': '/assets/SpookyScorchedIcon.svg',
     'PublicEventRewards': '/assets/PublicEventIcon.svg',
     'EquinoxRewards': '/assets/EquinoxIcon.svg',
+    'GrahmVendor': '/assets/GrahmIcon.webp',
+    'BullionVendorMinerva': '/assets/BullionIcon.webp',
+    'BullionVendorMortimer': '/assets/BullionIcon.webp',
+    'BullionVendorSamuel': '/assets/BullionIcon.webp',
+    'BullionVendorRegs': '/assets/BullionIcon.webp',
+    'BullionVendorWindy': '/assets/BullionIcon.webp',
+    'ColossalProblemRewards': '/assets/PublicEventIcon.svg',
+    'BeastsOfBurdenRewards': '/assets/PublicEventIcon.svg',
+    'CampfireTalesRewards': '/assets/PublicEventIcon.svg',
+    'DangerousPastimesRewards': '/assets/PublicEventIcon.svg',
+    'MoonshineJamboreeRewards': '/assets/PublicEventIcon.svg',
+    'MostWantedRewards': '/assets/PublicEventIcon.svg',
+    'NWOTGenericRewards': '/assets/PublicEventIcon.svg',
+    'NeurologicalWarfareRewards': '/assets/PublicEventIcon.svg',
+    'RadiationRumbleRewards': '/assets/PublicEventIcon.svg',
+    'SafeAndSoundRewards': '/assets/PublicEventIcon.svg',
+    'SeismicActivityRewards': '/assets/PublicEventIcon.svg',
+    'SpinTheWheelRewards': '/assets/PublicEventIcon.svg',
+    'TestYourMetalRewards': '/assets/PublicEventIcon.svg',
+    'TunnelOfLoveRewards': '/assets/PublicEventIcon.svg',
+    'GearinUpRewards': '/assets/PublicEventIcon.svg',
+    'SinkholeSolutionsRewards': '/assets/PublicEventIcon.svg'
   };
 
   const bookFulls = String(r.BOOK_FULL || '')
@@ -1754,15 +1760,13 @@ if (i < bookFulls.length - 1) {
 });
 }
 
-
-
-      // --- connector ---
-      if (hasBook && hasEntm) {
-        const conn = document.createElement('span');
-        conn.className = 'connector';
-        conn.textContent = connectorWord;
-        condWrap.appendChild(conn);
-      }
+ // --- connector ---
+ if (hasBook && hasEntm) {
+   const conn = document.createElement('span');
+   conn.className = 'connector';
+   conn.textContent = connectorWord;
+   condWrap.appendChild(conn);
+ }
 
 
  // --- ENTM pills ---
