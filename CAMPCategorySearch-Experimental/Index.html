@@ -1718,22 +1718,33 @@ function getTooltipTextForTag(tag, originalTags) {
   const normalized = normalizeTag(tag);
 
   if (normalized in multiVendorCategories) {
-    // Only include vendors actually present
     const category = multiVendorCategories[normalized];
+
+    // Map original tags to readable vendor names
     const presentVendors = originalTags
       .filter(t => t === normalized || (category.prefixes && category.prefixes.some(p => t.startsWith(p))))
       .map(t => {
-        if (t === normalized) return normalized;
-        return category.prefixes.find(p => t.startsWith(p)) || t;
+        if (t === normalized) {
+          // Default name for main category
+          return normalized.replace('Vendor', '');
+        }
+        // Find matching prefix
+        const match = category.prefixes.find(p => t.startsWith(p));
+        if (!match) return t;
+        // Clean up the vendor name for readability
+        let name = match.replace('Vendor', '');
+        // Insert spaces before capital letters for multi-word names
+        name = name.replace(/([a-z])([A-Z])/g, '$1 $2');
+        return name;
       });
 
-    return `${normalized.replace('Vendor', '')} (${presentVendors.join(', ')})`;
+    return `Sold by ${normalized.replace('Vendor', '')} Vendor (${presentVendors.join(', ')})`;
   }
 
-  // fallback to existing alt text
   const entry = IconAltText_BOOK[normalized];
   return entry?.alt || normalized;
 }
+
 
 
 
