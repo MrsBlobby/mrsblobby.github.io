@@ -25162,12 +25162,13 @@
     "CNAM_FormID": "007F4A28",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_CarSaloonDoors",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Start Head Hunts",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_StartedHead_07",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 7
   },
   {
     "Name": "Rolling Metal Door",
@@ -31815,12 +31816,13 @@
     "CNAM_FormID": "00825AAB",
     "ARTO_FormID": null,
     "CNAM_EditorID": "BURN_HWT_WorkshopGenerator_Turbine_01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Complete Grunt Hunts",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_CompletedGrunt_05",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 250
   },
   {
     "Name": "Generator - Fusion",
@@ -35007,12 +35009,13 @@
     "CNAM_FormID": "007F2765",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_CarLighting03",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Kill Bounties from Group 6",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_CompleteHeadGroups_Group06_META",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 4
   },
   {
     "Name": "Glass Float Light",
@@ -35834,12 +35837,13 @@
     "CNAM_FormID": "007B6D8A",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Fishing_Workshop_Item_ReclaimedShipChandelier",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Catch Any Glowing Fish",
+    "BOOK_EditorID": "Challenge_Lifetime_Fishing_AnyGlowing_01",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 1
   },
   {
     "Name": "Star Light",
@@ -40778,12 +40782,13 @@
     "CNAM_FormID": "007F2763",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_CarLighting01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Start Head Hunts",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_StartedHead_15",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 15
   },
   {
     "Name": "Headlight Sconce - Yellow",
@@ -40795,12 +40800,13 @@
     "CNAM_FormID": "007F2764",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_CarLighting02",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Complete Head Hunts",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_CompletedHead_02",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 50
   },
   {
     "Name": "Armor Workbench",
@@ -41493,12 +41499,13 @@
     "CNAM_FormID": "007C7005",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Fishing_WorkbenchCookingStove_Fishermans",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Catch Any Fish",
+    "BOOK_EditorID": "Challenge_Lifetime_Fishing_Any_02",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 76
   },
   {
     "Name": "Pink Modern Home Stove Cooking Station",
@@ -49634,12 +49641,13 @@
     "CNAM_FormID": "007F4A2D",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_TailgateBed01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Complete Head Hunts",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_CompletedHead_03",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 76
   },
   {
     "Name": "Taligate Bed - Red",
@@ -49651,12 +49659,13 @@
     "CNAM_FormID": "007F4A2A",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_TailgateBed02",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Kill Bounties from Group 5",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_CompleteHeadGroups_Group05_META",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 4
   },
   {
     "Name": "Four Poster Bed",
@@ -52071,12 +52080,13 @@
     "CNAM_FormID": "007F4A29",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_BarStool01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Kill Bounties from Group 4",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_CompleteHeadGroups_Group04_META",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 4
   },
   {
     "Name": "Highway Town Stool - Sign",
@@ -52088,12 +52098,13 @@
     "CNAM_FormID": "007F4A2B",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_BarStool02",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Complete Head Hunts",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_CompletedHead_04",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 100
   },
   {
     "Name": "Riding Shotgun Chair",
@@ -52105,12 +52116,13 @@
     "CNAM_FormID": "007F4A2C",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_BarStool03",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Start Head Hunts",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_StartedHead_01",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 1
   },
   {
     "Name": "Grey Carousel Horse Seat",
@@ -52662,12 +52674,13 @@
     "CNAM_FormID": "007F2358",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_Chair_CarSofa01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Kill Bounties from Group 7",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_CompleteHeadGroups_Group07_META",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 4
   },
   {
     "Name": "Scrap Car Sofa - Red",
@@ -52679,12 +52692,13 @@
     "CNAM_FormID": "007F2359",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_Chair_CarSofa02",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Complete Head Hunts",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_CompletedHead_01",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 10
   },
   {
     "Name": "Drowned Chesterfield Chair",
@@ -55759,12 +55773,13 @@
     "CNAM_FormID": "007F4A31",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_RetailFridge01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Find more Abraxodyne Intel",
+    "BOOK_EditorID": "Burn_Challenge_Lifetime_Collect_AbraxodyneChemicalBriefcase_03; Burn_Challenge_Lifetime_Collect_AbraxodyneChemicalBriefcase_06",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 25
   },
   {
     "Name": "Super Duper Mart Store Shelf",
@@ -55776,12 +55791,13 @@
     "CNAM_FormID": "007F4A32",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_RetailFridge02",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Find more Abraxodyne Intel",
+    "BOOK_EditorID": "Burn_Challenge_Lifetime_Collect_AbraxodyneChemicalBriefcase_06",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 90
   },
   {
     "Name": "Surfboard Shelf",
@@ -58366,12 +58382,13 @@
     "CNAM_FormID": "007F4A33",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_JeepTable",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Complete Grunt Hunts",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_CompletedGrunt_03",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 76
   },
   {
     "Name": "Primitive End Table",
@@ -69764,12 +69781,13 @@
     "CNAM_FormID": "0085556C",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_AbraxoBriefcase",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Find your first piece of Abraxodyne Intel",
+    "BOOK_EditorID": "Burn_Challenge_Lifetime_Collect_AbraxodyneChemicalBriefcase_01",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 1
   },
   {
     "Name": "Alphorn with Mannequin",
@@ -69817,12 +69835,13 @@
     "CNAM_FormID": "007F277B",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_GasPumpBeerKeg",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Kill Bounties from Group 2",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_CompleteHeadGroups_Group02_META",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 5
   },
   {
     "Name": "Blood Transfusion Pump",
@@ -69852,12 +69871,13 @@
     "CNAM_FormID": "00857C71",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_BountyBoard",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Kill Bounties from Group 1",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_CompleteHeadGroups_Group01_META",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 4
   },
   {
     "Name": "Broken G.E.C.K. Machine",
@@ -70589,12 +70609,13 @@
     "CNAM_FormID": "00857C6F",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_FlareMortar",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Start Head Hunts",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_StartedHead_05",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 5
   },
   {
     "Name": "Heart-Shaped Geode",
@@ -75568,12 +75589,13 @@
     "CNAM_FormID": "007FDCE2",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_AbraxodyneSign",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Find more Abraxodyne Intel",
+    "BOOK_EditorID": "Burn_Challenge_Lifetime_Collect_AbraxodyneChemicalBriefcase_05",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 76
   },
   {
     "Name": "Rusted Abraxodyne Sign",
@@ -75585,12 +75607,13 @@
     "CNAM_FormID": "0083EB2F",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_AbraxodyneSign_Damaged",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Find more Abraxodyne Intel",
+    "BOOK_EditorID": "Burn_Challenge_Lifetime_Collect_AbraxodyneChemicalBriefcase_08",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 130
   },
   {
     "Name": "Welcome to Ohio Sign",
@@ -78448,12 +78471,13 @@
     "CNAM_FormID": "00840359",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_HighwayTownStatue",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Complete Bounty Hunts at these Locations",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_CompletedHuntLocation_META",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 8
   },
   {
     "Name": "Wicker Skull Statue",
@@ -83271,13 +83295,13 @@
     "CNAM_FormID": "007A835B",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Fishing_Workshop_Item_AnglerPlushie",
-    "BOOK_FULL": "Plan: Rib Plushie; Plan: Rotted Rib Plushie",
-    "BOOK_EditorID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib",
+    "BOOK_FULL": "Complete Daily Fishing Quests; Plan: Rib Plushie; Plan: Rotted Rib Plushie",
+    "BOOK_EditorID": "Challenge_Lifetime_Fishing_CompleteDailies_02; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib",
     "BOOK_SOURCE": "DIRECT",
     "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "GLOB_Value": null
+    "GLOB_Value": 14
   },
   {
     "Name": "Crab Boat Plushie",
@@ -83289,13 +83313,13 @@
     "CNAM_FormID": "007A8354",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Fishing_Workshop_Item_CrabBoatPlushie",
-    "BOOK_FULL": "Plan: Rib Plushie; Plan: Rotted Rib Plushie",
-    "BOOK_EditorID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib",
+    "BOOK_FULL": "Complete Daily Fishing Quests; Plan: Rib Plushie; Plan: Rotted Rib Plushie",
+    "BOOK_EditorID": "Challenge_Lifetime_Fishing_CompleteDailies_03; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib",
     "BOOK_SOURCE": "DIRECT",
     "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "GLOB_Value": null
+    "GLOB_Value": 28
   },
   {
     "Name": "Mirelurk Plushie",
@@ -83307,13 +83331,13 @@
     "CNAM_FormID": "007A834D",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Fishing_Workshop_Item_MirelurkPlushie",
-    "BOOK_FULL": "Plan: Rib Plushie; Plan: Rotted Rib Plushie",
-    "BOOK_EditorID": "Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib",
+    "BOOK_FULL": "Complete Daily Fishing Quests; Plan: Rib Plushie; Plan: Rotted Rib Plushie",
+    "BOOK_EditorID": "Challenge_Lifetime_Fishing_CompleteDailies_01; Meat_Recipe_Plushie_Rib; Meat_Recipe_Plushie_RottedRib",
     "BOOK_SOURCE": "DIRECT",
     "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "GLOB_Value": null
+    "GLOB_Value": 7
   },
   {
     "Name": "Patriotic Bottle Plushie",
@@ -90661,12 +90685,13 @@
     "CNAM_FormID": "0085782E",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_WallDecor_Workshop_AbraxodyneHQSign",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Find more Abraxodyne Intel",
+    "BOOK_EditorID": "Burn_Challenge_Lifetime_Collect_AbraxodyneChemicalBriefcase_07",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 110
   },
   {
     "Name": "Highway Town Guns Sign",
@@ -94767,12 +94792,13 @@
     "CNAM_FormID": "00857C70",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_WantedPoster",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Kill Bounties from Group 3",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_CompleteHeadGroups_Group03_META",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 5
   },
   {
     "Name": "Cassidy's Favorite Painting",
@@ -97232,12 +97258,13 @@
     "CNAM_FormID": "00833B46",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_MoviePoster01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Claim the Starlight Drive-In Workshop",
+    "BOOK_EditorID": "Burn_Challenge_Lifetime_Workshop_Claim_StarlightDriveIn",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 1
   },
   {
     "Name": "Starlight Drive-in Movie Poster",
@@ -97249,12 +97276,13 @@
     "CNAM_FormID": "00884040",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_MoviePoster02",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Claim the Starlight Drive-In Workshop",
+    "BOOK_EditorID": "Burn_Challenge_Lifetime_Workshop_Claim_StarlightDriveIn",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 1
   },
   {
     "Name": "Spin the Wheel Tent Poster",
@@ -111113,12 +111141,13 @@
     "CNAM_FormID": "007B957A",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Fishing_Workshop_Item_WallDecor_KelpCurtain_Static",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Catch Any Fish",
+    "BOOK_EditorID": "Challenge_Lifetime_Fishing_Any_01",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 15
   },
   {
     "Name": "Red Long Curtains",
@@ -112674,12 +112703,13 @@
     "CNAM_FormID": "007B7570",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Fishing_workshop_FishDisplay_Plaque",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Catch Any Local Legend",
+    "BOOK_EditorID": "Challenge_Lifetime_Fishing_Any_LocalLegend",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 1
   },
   {
     "Name": "Short Fish Display Hook",
@@ -115325,12 +115355,13 @@
     "CNAM_FormID": "007F2776",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_CarStashBox01",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Complete Grunt Hunts",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_CompletedGrunt_04",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 100
   },
   {
     "Name": "My Stash Box",
@@ -115342,12 +115373,13 @@
     "CNAM_FormID": "007F2777",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_CarStashBox02",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Complete Head Hunts",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_CompletedHead_05",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 250
   },
   {
     "Name": "My Stash Box",
@@ -115359,12 +115391,13 @@
     "CNAM_FormID": "007F2778",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_CarStashBox03",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Start Head Hunts",
+    "BOOK_EditorID": "Challenge_Lifetime_BurnBounty_StartedHead_76",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 76
   },
   {
     "Name": "My Stash Box",
@@ -115376,12 +115409,13 @@
     "CNAM_FormID": "008409FB",
     "ARTO_FormID": null,
     "CNAM_EditorID": "Burn_Workshop_Container_AbraxoCache",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
+    "BOOK_FULL": "Find more Abraxodyne Intel",
+    "BOOK_EditorID": "Burn_Challenge_Lifetime_Collect_AbraxodyneChemicalBriefcase_02",
     "BOOK_SOURCE": "DIRECT",
+    "BOOK_SOURCE_TAG": null,
     "ENTM_FULL": null,
     "ENTM_EDID": null,
-    "BOOK_Source_Tag": null
+    "GLOB_Value": 3
   },
   {
     "Name": "News Stand",
