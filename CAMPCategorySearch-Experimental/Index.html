@@ -978,15 +978,10 @@ let currentSort = 'camp-top';
 let currentSearchBy = 'name';
 let activeFilters = new Set()
 
-function initLazyImages(options = {}) {
-  const selector = options.selector || 'img.lazy[data-src]';
-  const preloadDelay = options.preloadDelay || 2000;
-  const batchSize = options.batchSize || 5;
-  const batchInterval = options.batchInterval || 100;
+(function() {
+  const lazyImages = new Set(document.querySelectorAll('img.lazy[data-src]'));
 
-  const lazyImages = new Set(document.querySelectorAll(selector));
-
-  // Lazy-load images when they enter the viewport
+  // Lazy-load on viewport entry
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -998,30 +993,23 @@ function initLazyImages(options = {}) {
       }
     });
   }, {
-    rootMargin: '200px 0px',
+    rootMargin: '200px 0px', // start loading slightly before entering view
     threshold: 0.1
   });
 
   lazyImages.forEach(img => observer.observe(img));
 
-  // Slowly preload remaining images in batches
+  // Slowly preload remaining images
   function preloadRemaining() {
-    const imgs = Array.from(lazyImages);
-    let i = 0;
-
-    function batch() {
-      for (let j = 0; j < batchSize && i < imgs.length; j++, i++) {
-        if (!imgs[i].src) imgs[i].src = imgs[i].dataset.src;
-        lazyImages.delete(imgs[i]);
-      }
-      if (i < imgs.length) setTimeout(batch, batchInterval);
-    }
-
-    batch();
+    lazyImages.forEach(img => {
+      if (!img.src) img.src = img.dataset.src;
+      lazyImages.delete(img);
+    });
   }
 
-  setTimeout(preloadRemaining, preloadDelay);
-}
+  // Trigger preload after a short delay
+  setTimeout(preloadRemaining, 2000); // adjust delay as needed
+})();
 
 
 // --- Category Icons ---
