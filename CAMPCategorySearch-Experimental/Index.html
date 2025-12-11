@@ -1219,7 +1219,23 @@ const IconAltText_BOOK = {
     PublicEventRewards: { alt: "Public Event Reward" },
     EquinoxRewards: { alt: "Mothman Equinox Seasonal Event Reward" },
     GrahmVendor: { alt: "Sold by Grahm" },
-    UnusedContent: { alt: "Unused Content"}
+    UnusedContent: { alt: "Unused Content"},
+    ColossalProblemRewards: { alt: "Reward from Event: A Colossal Problem",
+    BeastsOfBurdenRewards: { alt: "Reward from Event: Beasts of Burden",
+    CampfireTalesRewards: { alt: "Reward from Event: Campfire Tales",
+    DangerousPastimesRewards: { alt: "Reward from Event: Dangerous Pastimes",
+    MoonshineJamboreeRewards: { alt: "Reward from Event: Moonshine Jamboree",
+    MostWantedRewards: { alt: "Reward from Event: Most Wanted",
+    NWOTGenericRewards: { alt: "Reward from Event: Most Wanted, Spin the Wheel, Tunnel of Love",
+    NeurologicalWarfareRewards: { alt: "Reward from Event: Neurological Warfare",
+    RadiationRumbleRewards: { alt: "Reward from Event: Radiation Rumble",
+    SafeAndSoundRewards: { alt: "Reward from Event: Safe and Sound",
+    SeismicActivityRewards: { alt: "Reward from Event: Seismic Activity",
+    SpinTheWheelRewards: { alt: "Reward from Event: Spin the Wheel",
+    TestYourMetalRewards: { alt: "Reward from Event: Test Your Metal",
+    TunnelOfLoveRewards: { alt: "Reward from Event: Tunnel of Love",
+    GearinUpRewards: { alt: "Reward from Event: Gearin' Up",
+    SinkholeSolutionsRewards: { alt: "Reward from Event: Sinkhole Solutions"
   };
 
 function getTooltipText_BOOK(tag) {
@@ -1800,9 +1816,9 @@ function getTooltipTextForTag(tag, originalTags) {
       : normalized.replace('Vendor', '');
 
    return `Sold by ${vendorLabel} Vendor (${presentVendors.join(', ')})`;
-   
+
    }
-  
+
   const entry = IconAltText_BOOK[normalized];
   return entry?.alt || normalized;
 }
