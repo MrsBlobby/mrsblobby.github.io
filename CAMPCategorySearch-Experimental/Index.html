@@ -9,8 +9,8 @@
   <meta property="og:image" content="https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/assets/CAMPIcon2.webp">
   <meta property="og:url" content="https://yourdomain.com/">
   <meta property="og:type" content="website">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/CAMPIcon2.webp">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/CAMPIcon2.webp">
+  <link rel="icon" type="image/webp" sizes="32x32" href="/assets/CAMPIcon2.webp">
+  <link rel="icon" type="image/webp" sizes="16x16" href="/assets/CAMPIcon2.webp">
   <title>Fallout 76 C.A.M.P. Item Database</title>
  <style>
   :root {
@@ -1605,11 +1605,11 @@ function renderResults(query) {
     left.appendChild(name);
 
     // Entry images
-    let imgSrc = `Images/${(r.ARTO_FormID || '').toLowerCase()}.png`;
+    let imgSrc = `Images/${(r.ARTO_FormID || '').toLowerCase()}.webp`;
 
     // Fallback to CNAM if ARTO image fails to load
     if (!r.ARTO_FormID) {
-      imgSrc = `Images/${(r.CNAM_FormID || '').toLowerCase()}.png`;
+      imgSrc = `Images/${(r.CNAM_FormID || '').toLowerCase()}.webp`;
     }
 
     const img = document.createElement('img');
@@ -1620,7 +1620,7 @@ function renderResults(query) {
     if (r.ARTO_FormID && r.CNAM_FormID) {
       img.onerror = function() {
         this.onerror = null; // prevent infinite loop if CNAM also fails
-        this.src = `Images/${r.CNAM_FormID.toLowerCase()}.png`;
+        this.src = `Images/${r.CNAM_FormID.toLowerCase()}.webp`;
       };
     }
 
