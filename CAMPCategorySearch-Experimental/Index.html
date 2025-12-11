@@ -1794,9 +1794,15 @@ function getTooltipTextForTag(tag, originalTags) {
   });
   
 
-    return `Sold by ${normalized.replace('Vendor', '')} Vendor (${presentVendors.join(', ')})`;
-  }
+    const vendorLabel =
+    normalized === 'BullionVendor'
+      ? 'Gold Bullion'
+      : normalized.replace('Vendor', '');
 
+   return `Sold by ${vendorLabel} Vendor (${presentVendors.join(', ')})`;
+   
+   }
+  
   const entry = IconAltText_BOOK[normalized];
   return entry?.alt || normalized;
 }
