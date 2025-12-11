@@ -1097,7 +1097,7 @@ const CategoryIcons = {
   'Holiday': '/assets/SubCategory-HolidayIcon.webp',
   'Mounted': '/assets/SubCategory-MountedIcon.webp',
   'Tapestry': '/assets/SubCategory-TapestryIcon.webp',
-  'Wall Art': '/assets/SubCategory-WallArtIcon.svg',
+  'Wall Art': '/assets/SubCategory-WallArtIcon.webp',
   'Wall Letters': '/assets/SubCategory-WallLettersIcon.webp',
   'Window': '/assets/SubCategory-WindowIcon.webp',
   'Additional Storage': '/assets/SubCategory-AdditionalStorageIcon.svg',
@@ -1777,14 +1777,22 @@ function getTooltipTextForTag(tag, originalTags) {
     const presentVendors = originalTags
       .filter(t => t === normalized || (category.prefixes && category.prefixes.some(p => t.startsWith(p))))
       .map(t => {
-        if (t === normalized) return normalized.replace('Vendor', ''); // "Gold Bullion" for BullionVendor
-        const match = category.prefixes.find(p => t.startsWith(p));
-        if (!match) return t;
-        let name = match.replace(normalized, ''); // REMOVE the normalized prefix
-        name = name.replace('Vendor', '');       // Remove any trailing "Vendor"
-        name = name.replace(/([a-z])([A-Z])/g, '$1 $2'); // Add spaces before capitals
-        return name.trim();
-      });
+      if (t === normalized) {
+          // Special case for BullionVendor
+          if (normalized === 'BullionVendor') return 'Gold Bullion';
+      
+          return normalized.replace('Vendor', '');
+      }
+    
+      const match = category.prefixes.find(p => t.startsWith(p));
+      if (!match) return t;
+    
+      let name = match.replace(normalized, ''); // REMOVE the normalized prefix
+      name = name.replace('Vendor', '');        // Remove trailing Vendor
+      name = name.replace(/([a-z])([A-Z])/g, '$1 $2'); // Add spacing
+      return name.trim();
+  });
+  
 
     return `Sold by ${normalized.replace('Vendor', '')} Vendor (${presentVendors.join(', ')})`;
   }
