@@ -342,14 +342,14 @@
 
   .changelog-entry {
     background: rgba(255, 192, 15, 0.05);
-    border: 1px solid #ffc00f; /* keep the yellow border */
+    border: 1px solid #ffc00f;
     border-radius: 4px;
     padding: 12px;
     margin: 6px 0;
     text-align: left;
     font-size: 13px;
     line-height: 1.5;
-    color: #eee; /* adjust text color to match your dark theme */
+    color: #eee;
   }
 
   .changelog-entry h4 {
@@ -360,23 +360,17 @@
   }
 
   .changelog-entry ul {
-    list-style-type: disc;    /* actual bullet points */
-    margin: 0 0 0 20px;       /* indent for bullets */
-    padding: 0;
-  }
-
-  .changelog-entry ul ul {
-    list-style-type: circle;  /* sub-bullets */
-    margin-left: 20px;        /* extra indent for nested bullets */
+    list-style-type: disc; /* real bullets */
+    padding-left: 20px;    /* indentation for bullets */
+    margin: 0;
   }
 
   .changelog-entry li {
-    margin-bottom: 4px;       /* spacing between bullets */
-    border: none;             /* remove any borders */
-    background: none;         /* remove any backgrounds */
-    padding: 0;
+    margin: 4px 0;         /* spacing between bullets */
+    padding: 0;            /* remove any internal padding */
+    border: none;          /* remove any box borders */
+    background: none;      /* remove any li backgrounds */
   }
-
 
   #searchBox {
     flex: 1;
