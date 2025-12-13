@@ -1558,44 +1558,57 @@ function renderResults(query) {
   function matchesItem(item) {
   if (activeFilters.size === 0) return true;
 
+  // Separate filters
   const placementActive = [...activeFilters].filter(f => placementFilters.has(f));
   const categoryActive  = [...activeFilters].filter(f => !placementFilters.has(f));
 
+  // Flags for this item
   const id = String(item.BOOK_EditorID || '').toLowerCase();
   const source = String(item.BOOK_SOURCE || '').toLowerCase();
 
   const hasChallenge = id.includes('challenge_');
-  const hasLearn    = source === 'learnonpickup';
-  const hasPlan     = !!item.BOOK_FULL?.trim() && !hasChallenge;
-  const hasEnt      = !!item.ENTM_FULL?.trim();
+  const hasLearn     = source === 'learnonpickup'; // exact flag
+  const hasPlan      = !!item.BOOK_FULL?.trim() && !hasChallenge; // exclude challenges
+  const hasEnt       = !!item.ENTM_FULL?.trim();
 
   let placementMatch = true;
 
-if (placementActive.length > 0) {
-  // Learn-only selection
-  if (placementActive.includes('learn') && placementActive.length === 1) {
-    placementMatch = hasLearn;
-  }
-  // Challenge-only selection
-  else if (placementActive.includes('challenge') && placementActive.length === 1) {
-    placementMatch = hasChallenge;
-  }
-  // Plan / Entitlement logic
-  else {
-    if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
-      placementMatch = hasPlan && hasEnt;
-    } else if (placementActive.includes('plan')) {
-      placementMatch = hasPlan && !hasEnt;
-    } else if (placementActive.includes('entitlement')) {
-      placementMatch = hasEnt && !hasPlan;
+  if (placementActive.length > 0) {
+    // --- Single-selection shortcuts ---
+    if (placementActive.length === 1) {
+      const only = placementActive[0];
+      if (only === 'learn') {
+        placementMatch = hasLearn;
+      } else if (only === 'challenge') {
+        placementMatch = hasChallenge;
+      } else if (only === 'plan') {
+        placementMatch = hasPlan && !hasEnt;
+      } else if (only === 'entitlement') {
+        placementMatch = hasEnt && !hasPlan;
+      }
+    } 
+    // --- Multiple-selection → must satisfy all selected attributes ---
+    else {
+      placementMatch = placementActive.every(f => {
+        switch (f) {
+          case 'plan':       return hasPlan;
+          case 'entitlement':return hasEnt;
+          case 'challenge':  return hasChallenge;
+          case 'learn':      return hasLearn;
+          default:           return true;
+        }
+      });
     }
-
-    // If challenge or learn is also selected in combination, AND them in
-    if (placementActive.includes('challenge')) placementMatch = placementMatch && hasChallenge;
-    if (placementActive.includes('learn'))      placementMatch = placementMatch && hasLearn;
   }
+
+  // --- Category/subcategory OR filter ---
+  const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
+    (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f
+  );
+
+  return placementMatch && categoryMatch;
 }
-}
+
 
 
   
