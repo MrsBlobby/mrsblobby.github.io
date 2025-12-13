@@ -900,6 +900,7 @@
         <div class="option" data-value="name">Item Name</div>
         <div class="option" data-value="book">Plan Name</div>
         <div class="option" data-value="entm">Entitlement Name</div>
+        <div class="option" data-value="tooltip">Tooltip Text</div>
       </div>
     </div>
   </div>
@@ -1582,11 +1583,11 @@ function renderResults(query) {
   } else if (placementActive.includes('entitlement')) {
       placementMatch = hasEnt && !hasPlan;
   }
-  
+
   // Challenge and Learn are independent
   if (placementActive.includes('challenge')) placementMatch = placementMatch && hasChallenge;
   if (placementActive.includes('learn'))      placementMatch = placementMatch && hasLearn;
-  
+
 
   // --- Category/subcategory filters (OR) ---
   const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
@@ -1597,23 +1598,25 @@ function renderResults(query) {
 }
 
 
-
-
-  
-    
-
-  
-
+  item.TooltipText = tooltipText;
+  attachTooltipToIcon(icon, tooltipText);
 
   // --- Filter the DB ---
   const filtered = db.filter(item => {
   if (!item.Name || item.Name === 'null' || item.Name.trim() === '') return false;
     // basic search
     let matchesSearch;
-    if (!normalizedQuery) matchesSearch = true;
-    else if (currentSearchBy === 'name') matchesSearch = item.Name && item.Name.toLowerCase().includes(normalizedQuery);
-    else if (currentSearchBy === 'book') matchesSearch = item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
-    else if (currentSearchBy === 'entm') matchesSearch = item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
+    if (!normalizedQuery) {
+        matchesSearch = true;
+    } else if (currentSearchBy === 'name') {
+        matchesSearch = item.Name && item.Name.toLowerCase().includes(normalizedQuery);
+    } else if (currentSearchBy === 'book') {
+        matchesSearch = item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
+    } else if (currentSearchBy === 'entm') {
+        matchesSearch = item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
+    } else if (currentSearchBy === 'tooltip') {
+        matchesSearch = item.TooltipText && item.TooltipText.toLowerCase().includes(normalizedQuery);
+    }
 
     const matchesFilters = matchesItem(item); // call the new function
 
@@ -1768,6 +1771,7 @@ if (hasBook) {
     'EquinoxRewards': '/assets/EquinoxIcon.svg',
     'GrahmVendor': '/assets/GrahmIcon.webp',
     'ColossalProblemRewards': '/assets/PublicEventIcon.svg',
+    'ScorchedEarthRewards': '/assets/PublicEventIcon.svg'
     'BeastsOfBurdenRewards': '/assets/PublicEventIcon.svg',
     'CampfireTalesRewards': '/assets/PublicEventIcon.svg',
     'DangerousPastimesRewards': '/assets/PublicEventIcon.svg',
@@ -1795,7 +1799,7 @@ const multiVendorCategories = {
   },
   RobotVendor: {
     icon: '/assets/RobotVendorIcon.webp',
-    prefixes: ['FreeStatesVendor', 'BrotherhoodVendor', 'RespondersVendor', 'RaiderVendor', 'WhitespringStationVendor']
+    prefixes: ['FreeStatesVendor', 'BrotherhoodVendor', 'RespondersVendor', 'RaiderVendor', 'WhitespringStationVendor', 'PendletonVendor']
   }
 };
 
