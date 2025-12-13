@@ -1642,6 +1642,13 @@ function renderResults(query) {
     const img = document.createElement('img');
     img.src = imgSrc;
     img.alt = r.Name;
+    if (budgetTier && BudgetTierLabels[budgetTier]) { // Budget icon tooltip text
+      attachTooltipToIcon(
+        img,
+        `Budget Cost: ${BudgetTierLabels[budgetTier]}`
+      );
+    }
+
 
     // If ARTO was tried first, fallback on error to CNAM
     if (r.ARTO_FormID && r.CNAM_FormID) {
@@ -2112,21 +2119,37 @@ if (r.BudgetCost !== undefined && r.BudgetCost !== null && (r.Category || '').to
   // Round to 1 decimal
   const roundedBudget = Math.round(r.BudgetCost * 100) / 100;
 
+  // Budget cost labels for purposes of icon tooltips
+  const BudgetTierLabels = {
+  1: 'Very Low',
+  2: 'Low',
+  3: 'Medium',
+  4: 'High',
+  5: 'Very High'
+  };
+
+
   // ---- Budget Tiers ----
   let budgetIcon = '';
+  let budgetTier = 5; // default
+
   if (roundedBudget <= 1) {
     budgetIcon = '/assets/BudgetBar-Tier1.webp';
+    budgetTier = 1;
   } else if (roundedBudget <= 2) {
     budgetIcon = '/assets/BudgetBar-Tier2.webp';
+    budgetTier = 2;
   } else if (roundedBudget <= 4) {
     budgetIcon = '/assets/BudgetBar-Tier3.webp';
+    budgetTier = 3;
   } else if (roundedBudget <= 8) {
     budgetIcon = '/assets/BudgetBar-Tier4.webp';
-  } else if (roundedBudget <= 16) {
-    budgetIcon = '/assets/BudgetBar-Tier5.webp';
+    budgetTier = 4;
   } else {
-    budgetIcon = '/assets/BudgetBar-Tier5.webp'; // fallback/same tier for >16
+    budgetIcon = '/assets/BudgetBar-Tier5.webp';
+    budgetTier = 5;
   }
+
 
   // Add icon
   if (budgetIcon) {
