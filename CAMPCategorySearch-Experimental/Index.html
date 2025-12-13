@@ -1143,20 +1143,11 @@ window.addEventListener('DOMContentLoaded', () => {
   renderResults('');
 });
 
-// Map to store tooltip text per item (safe, doesn't modify DB)
-const tooltipMap = new Map();
-
-function createTooltipElement(itemID, text) {
+function createTooltipElement(text) {
   const t = document.createElement('div');
   t.className = 'tooltip';
   t.textContent = text;
-
-  // Optional: store tooltip text in dataset for reference
   t.dataset.tooltipText = text;
-
-  // Store in Map keyed by item ID
-  tooltipMap.set(itemID, text);
-
   document.body.appendChild(t);
   return t;
 }
@@ -1625,8 +1616,9 @@ function renderResults(query) {
     } else if (currentSearchBy === 'entm') {
         matchesSearch = item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
     } else if (currentSearchBy === 'tooltip') {
-      const tooltipText = tooltipMap.get(item.ID);
-      matchesSearch = tooltipText && tooltipText.toLowerCase().includes(normalizedQuery);
+      const tooltipEl = icon.querySelector('.tooltip') || icon.dataset.tooltipText;
+      const tooltipText = tooltipEl ? tooltipEl.dataset?.tooltipText || tooltipEl.textContent : '';
+      matchesSearch = tooltipText.toLowerCase().includes(normalizedQuery);
     }
 
     const matchesFilters = matchesItem(item); // call the new function
@@ -1935,8 +1927,7 @@ bookFulls.forEach((fullName, i) => {
     } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
       tooltipText = `Loot to Unlock`;
     }
-    const tooltipEl = createTooltipElement(r.ID, tooltipText);
-    attachTooltipToIcon(icon, tooltipEl);
+    attachTooltipToIcon(icon, tooltipText);
 
     appendedIcon = true;
   });
@@ -1961,8 +1952,7 @@ bookFulls.forEach((fullName, i) => {
       icon.style.verticalAlign = 'middle';
       icon.style.marginRight = '6px';
       pill.appendChild(icon);
-      const tooltipEl = createTooltipElement(r.ID, tooltipText);
-      attachTooltipToIcon(icon, tooltipEl);
+      attachTooltipToIcon(icon, tooltipText);
     }
   }
 
@@ -2122,8 +2112,8 @@ if (hasEntm) {
             }
           }
         }
-      const tooltipEl = createTooltipElement(r.ID, tooltipText);
-      attachTooltipToIcon(icon, tooltipEl);
+
+      attachTooltipToIcon(icon, tooltipText); 
     }
     
     
