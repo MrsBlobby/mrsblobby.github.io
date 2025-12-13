@@ -1556,51 +1556,58 @@ function renderResults(query) {
   let placementFilters = new Set(['plan', 'entitlement', 'challenge', 'learn']);
 
   function matchesItem(item) {
-    if (activeFilters.size === 0) return true;
-    
-    const placementActive = [...activeFilters].filter(f => placementFilters.has(f));
-    const categoryActive  = [...activeFilters].filter(f => !placementFilters.has(f));
-    
-    const id = String(item.BOOK_EditorID || '').toLowerCase();
-    const source = String(item.BOOK_SOURCE || '').toLowerCase();
-    
-    const hasChallenge = id.includes('challenge_');
-    const hasLearn    = source === 'learnbypickup';
-    const hasPlan     = !!item.BOOK_FULL?.trim() && !hasChallenge; // exclude challenges from plan
-    const hasEnt      = !!item.ENTM_FULL?.trim();
-    
-    let placementMatch = true;
-    
-    if (placementActive.length > 0) {
-      const flags = {
-        plan: hasPlan,
-        entitlement: hasEnt,
-        challenge: hasChallenge,
-        learn: hasLearn,
-      };
-    
-      if (placementActive.length === 1) {
-        // Single selection → match ONLY that attribute
-        const only = placementActive[0];
-        placementMatch = flags[only] && Object.entries(flags).every(([k, v]) => {
-          return k === only || !v; // other flags must be false
-        });
+  if (activeFilters.size === 0) return true;
+
+  const placementActive = [...activeFilters].filter(f => placementFilters.has(f));
+  const categoryActive  = [...activeFilters].filter(f => !placementFilters.has(f));
+
+  const id = String(item.BOOK_EditorID || '').toLowerCase();
+  const source = String(item.BOOK_SOURCE || '').toLowerCase();
+
+  // Placement flags
+  const hasChallenge = id.includes('challenge_');
+  const hasLearn    = source === 'learnonpickup'; // exact flag
+  const hasPlan     = !!item.BOOK_FULL?.trim() && !hasChallenge; // exclude challenges from plan
+  const hasEnt      = !!item.ENTM_FULL?.trim();
+
+  let placementMatch = true;
+
+  if (placementActive.length > 0) {
+    const flags = {
+      plan: hasPlan,
+      entitlement: hasEnt,
+      challenge: hasChallenge,
+      learn: hasLearn,
+    };
+
+    if (placementActive.length === 1) {
+      const only = placementActive[0];
+
+      if (only === 'learn' || only === 'challenge') {
+        // Only require this attribute, ignore plan/ent flags
+        placementMatch = flags[only];
       } else {
-        // Multiple selection → must satisfy all selected attributes
-        placementMatch = placementActive.every(f => flags[f]);
+        // Plan/entitlement strict single-selection
+        placementMatch = flags[only] && Object.entries(flags).every(([k, v]) => {
+          return k === only || !v;
+        });
       }
+    } else {
+      // Multiple selection → must satisfy all selected attributes simultaneously
+      placementMatch = placementActive.every(f => flags[f]);
     }
-  
-    // Category/subcategory OR filter
-    const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
-      (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f
-    );
-  
-    return placementMatch && categoryMatch;
   }
+
+  // Category/subcategory OR filter
+  const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
+    (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f
+  );
+
+  return placementMatch && categoryMatch;
+}
+
+
   
-  
-    
     
 
   
