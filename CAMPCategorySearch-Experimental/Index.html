@@ -170,7 +170,7 @@
 }
 
 #clearFiltersExternal {
-  background-color: var(--card-bg);
+  background-color: var(--card-bg)
   color: var(--dropdown-text, #fff);
   border: 2px solid var(--accent);
   border-left: none;
@@ -1642,13 +1642,7 @@ function renderResults(query) {
     const img = document.createElement('img');
     img.src = imgSrc;
     img.alt = r.Name;
-    if (budgetTier && BudgetTierLabels[budgetTier]) { // Budget icon tooltip text
-      attachTooltipToIcon(
-        img,
-        `Budget Cost: ${BudgetTierLabels[budgetTier]}`
-      );
-    }
-
+    
 
     // If ARTO was tried first, fallback on error to CNAM
     if (r.ARTO_FormID && r.CNAM_FormID) {
