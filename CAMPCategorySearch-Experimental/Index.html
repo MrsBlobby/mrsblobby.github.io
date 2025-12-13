@@ -1567,9 +1567,9 @@ function renderResults(query) {
   const hasChallenge = item.BOOK_EDITORID?.includes('Challenge_');
   const hasLearn = String(item.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup';
 
-  let placementMatch = true;
+  let placementMatch = false;
 
-  // XOR logic for plan/entitlement only
+  // Plan/Entitlement XOR
   if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
     placementMatch = hasPlan || hasEnt;
   } else if (placementActive.includes('plan')) {
@@ -1577,10 +1577,11 @@ function renderResults(query) {
   } else if (placementActive.includes('entitlement')) {
     placementMatch = hasEnt;
   }
-
-  // Challenge and Learn act independently
-  if (placementActive.includes('challenge')) placementMatch = placementMatch && hasChallenge;
-  if (placementActive.includes('learn')) placementMatch = placementMatch && hasLearn;
+  
+  // Challenge and Learn filters act independently
+  if (placementActive.includes('challenge')) placementMatch = placementMatch || hasChallenge;
+  if (placementActive.includes('learn')) placementMatch = placementMatch || hasLearn;
+  
 
   // Category/subcategory filters (OR)
   const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
