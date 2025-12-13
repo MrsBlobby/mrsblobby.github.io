@@ -1143,13 +1143,24 @@ window.addEventListener('DOMContentLoaded', () => {
   renderResults('');
 });
 
-function createTooltipElement(text) {
+// Map to store tooltip text per item (safe, doesn't modify DB)
+const tooltipMap = new Map();
+
+function createTooltipElement(itemID, text) {
   const t = document.createElement('div');
   t.className = 'tooltip';
   t.textContent = text;
+
+  // Optional: store tooltip text in dataset for reference
+  t.dataset.tooltipText = text;
+
+  // Store in Map keyed by item ID
+  tooltipMap.set(itemID, text);
+
   document.body.appendChild(t);
   return t;
 }
+
 
 let mobileTooltipTimeout = null; // for resetting hide timer
 
@@ -1614,7 +1625,10 @@ function renderResults(query) {
     } else if (currentSearchBy === 'entm') {
         matchesSearch = item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
     } else if (currentSearchBy === 'tooltip') {
-        matchesSearch = item.TooltipText && item.TooltipText.toLowerCase().includes(normalizedQuery);
+      const tooltipText = tooltipMap.get(item.ID);
+      matchesSearch = tooltipText && tooltipText.toLowerCase().includes(normalizedQuery);
+    }
+    
     }
 
     const matchesFilters = matchesItem(item); // call the new function
@@ -1923,8 +1937,7 @@ bookFulls.forEach((fullName, i) => {
     } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
       tooltipText = `Loot to Unlock`;
     }
-    item.TooltipText = tooltipText;
-    attachTooltipToIcon(icon, tooltipText);
+    attachTooltipToIcon(icon, tooltipEl);
 
     appendedIcon = true;
   });
@@ -1949,8 +1962,7 @@ bookFulls.forEach((fullName, i) => {
       icon.style.verticalAlign = 'middle';
       icon.style.marginRight = '6px';
       pill.appendChild(icon);
-      item.TooltipText = tooltipText;
-      attachTooltipToIcon(icon, tooltipText);
+      attachTooltipToIcon(icon, tooltipEl);
     }
   }
 
@@ -2111,8 +2123,7 @@ if (hasEntm) {
           }
         }
 
-      item.TooltipText = tooltipText;
-      attachTooltipToIcon(icon, tooltipText); 
+      attachTooltipToIcon(icon, tooltipEl);
     }
     
     
