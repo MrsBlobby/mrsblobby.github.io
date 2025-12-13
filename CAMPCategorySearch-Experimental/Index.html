@@ -1916,7 +1916,7 @@ bookFulls.forEach((fullName, i) => {
       tooltipText = `Challenge: "${fullName}"`;
       if (globValue != null) tooltipText += ` (X/${globValue})`;
     } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
-      tooltipText = `Loot: ${fullName}`;
+      tooltipText = `Loot to Unlock`;
     }
     attachTooltipToIcon(icon, tooltipText);
 
@@ -1930,7 +1930,6 @@ bookFulls.forEach((fullName, i) => {
     if (/Challenge_/.test(bookEditorId)) {
       iconSrc = '/assets/ChallengeIcon.svg';
       tooltipText = `Complete a Challenge to Unlock`;
-      if (globValue != null) tooltipText += ` (X/${globValue})`;
     } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
       iconSrc = '/assets/LearnOnPickupIcon.webp';
       tooltipText = `Loot to Unlock`;
@@ -1954,7 +1953,7 @@ bookFulls.forEach((fullName, i) => {
     pillText = `Challenge: "${fullName}"`;
     if (globValue != null) pillText += ` (X/${globValue})`;
   } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
-    pillText = `Learn on Pickup: "${fullName}"`;
+    pillText = `Loot: ${fullName}`;
   }
 
   pill.appendChild(document.createTextNode(pillText));
