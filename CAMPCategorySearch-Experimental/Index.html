@@ -1935,6 +1935,7 @@ bookFulls.forEach((fullName, i) => {
     } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
       tooltipText = `Loot to Unlock`;
     }
+    const tooltipEl = createTooltipElement(item.ID, tooltipText);
     attachTooltipToIcon(icon, tooltipEl);
 
     appendedIcon = true;
@@ -1960,6 +1961,7 @@ bookFulls.forEach((fullName, i) => {
       icon.style.verticalAlign = 'middle';
       icon.style.marginRight = '6px';
       pill.appendChild(icon);
+      const tooltipEl = createTooltipElement(item.ID, tooltipText);
       attachTooltipToIcon(icon, tooltipEl);
     }
   }
@@ -2120,7 +2122,7 @@ if (hasEntm) {
             }
           }
         }
-
+      const tooltipEl = createTooltipElement(item.ID, tooltipText);
       attachTooltipToIcon(icon, tooltipEl);
     }
     
