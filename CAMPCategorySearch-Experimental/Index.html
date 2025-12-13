@@ -900,7 +900,6 @@
         <div class="option" data-value="name">Item Name</div>
         <div class="option" data-value="book">Plan Name</div>
         <div class="option" data-value="entm">Entitlement Name</div>
-        <div class="option" data-value="tooltip">Tooltip Text</div>
       </div>
     </div>
   </div>
@@ -1599,50 +1598,27 @@ function renderResults(query) {
 
 
 
+
+  
+    
+
+  
+
+
   // --- Filter the DB ---
-  const filtered = db.filter(r => {
-  const matchesFilters = matchesItem(r); // your existing placement/category filter logic
+  const filtered = db.filter(item => {
+  if (!item.Name || item.Name === 'null' || item.Name.trim() === '') return false;
+    // basic search
+    let matchesSearch;
+    if (!normalizedQuery) matchesSearch = true;
+    else if (currentSearchBy === 'name') matchesSearch = item.Name && item.Name.toLowerCase().includes(normalizedQuery);
+    else if (currentSearchBy === 'book') matchesSearch = item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
+    else if (currentSearchBy === 'entm') matchesSearch = item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
 
-  let matchesSearch = true;
-  if (normalizedQuery) {
-    if (currentSearchBy === 'name') {
-      matchesSearch = r.Name && r.Name.toLowerCase().includes(normalizedQuery);
-    } else if (currentSearchBy === 'book') {
-      matchesSearch = r.BOOK_FULL && r.BOOK_FULL.toLowerCase().includes(normalizedQuery);
-    } else if (currentSearchBy === 'entm') {
-      matchesSearch = r.ENTM_FULL && r.ENTM_FULL.toLowerCase().includes(normalizedQuery);
-    } else if (currentSearchBy === 'tooltip') {
-      console.log('Tooltip branch hit for:', r.Name, r.BOOK_FULL, r.BOOK_SOURCE, r.ENTM_FULL);
-      let tooltipTextParts = [];
+    const matchesFilters = matchesItem(item); // call the new function
 
-      const bookFulls = (r.BOOK_FULL || '').split(';').map(s => s.trim()).filter(Boolean);
-      const bookEditorIds = (r.BOOK_EditorID || '').split(';').map(s => s.trim());
-      const globValue = r.GLOB_Value;
-
-      bookFulls.forEach((fullName, i) => {
-        const bookEditorId = bookEditorIds[i] || '';
-        if (/Challenge_/.test(bookEditorId)) {
-          let txt = `Challenge: "${fullName}"`;
-          if (globValue != null) txt += ` (X/${globValue})`;
-          tooltipTextParts.push(txt);
-        } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
-          tooltipTextParts.push(`Loot to Unlock`);
-        } else {
-          tooltipTextParts.push(fullName);
-        }
-      });
-
-      const entmFulls = (r.ENTM_FULL || '').split(';').map(s => s.trim()).filter(Boolean);
-      tooltipTextParts.push(...entmFulls);
-
-      const tooltipText = tooltipTextParts.join(' ').toLowerCase();
-      matchesSearch = tooltipText.includes(normalizedQuery);
-    }
-  }
-
-  return matchesFilters && matchesSearch;
-});
-
+    return matchesSearch && matchesFilters;
+  });
 
   const sorted = sortItems(filtered);
 
