@@ -1557,48 +1557,23 @@ function renderResults(query) {
   let placementFilters = new Set(['plan', 'entitlement', 'challenge', 'learn']);
 
   function matchesItem(item) {
-  if (activeFilters.size === 0) return true; // no filters → always match
+  if (activeFilters.size === 0) return true;
 
-  // Separate active filters into types
   const placementActive = [...activeFilters].filter(f => placementFilters.has(f));
-  const categoryActive  = [...activeFilters].filter(f => !placementFilters.has(f));
-
-  // Identify special types
+  
   const isChallenge = /Challenge_/.test(item.BOOK_EDITORID);
-  const isLearn = String(item.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup';
-  const hasPlan = !!item.BOOK_FULL?.trim() && !isChallenge; // exclude challenges from plan
-  const hasEnt  = !!item.ENTM_FULL?.trim();
 
-  // --- Placement filters hybrid XOR logic ---
-  let placementMatch = true;
-
-  if (placementActive.length > 0) {
-    if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
-      // both plan & entitlement selected → OR
-      placementMatch = hasPlan || hasEnt;
-    } else if (placementActive.includes('plan')) {
-      // only plan selected → match ONLY plan
-      placementMatch = hasPlan && !hasEnt;
-    } else if (placementActive.includes('entitlement')) {
-      // only entitlement selected → match ONLY entitlement
-      placementMatch = hasEnt && !hasPlan;
-    }
-
-    // Challenges and Learn-on-Pickup filters act independently
-    if (placementActive.includes('challenge')) placementMatch = placementMatch && isChallenge;
-    if (placementActive.includes('learn')) placementMatch = placementMatch && isLearn;
+  // If the challenge filter is active, only return true for challenges
+  if (placementActive.includes('challenge')) {
+    return isChallenge;
   }
 
-  // --- Category/subcategory filters OR logic ---
-  const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
-    (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f
-  );
-
-  return placementMatch && categoryMatch;
+  // fallback: match everything else
+  return true;
 }
 
-
-
+  
+    
 
   
 
