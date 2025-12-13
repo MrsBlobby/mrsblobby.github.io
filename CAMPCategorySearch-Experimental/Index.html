@@ -922,7 +922,10 @@
           <div class="filter-header">Placement Condition</div>
           <button data-filter="plan">Plan</button>
           <button data-filter="entitlement">Entitlement</button>
+          <button data-filter="challenge">Challenge</button>
+          <button data-filter="learn">Learn on Pickup</button>
         </div>
+      </div>
 
         <div class="filter-columns">
           <div class="filter-header">Workshop Category</div>
@@ -1552,43 +1555,39 @@ function renderResults(query) {
   lastQuery = normalizedQuery;
 
   // --- filters setup ---
-  let placementFilters = new Set(['plan', 'entitlement']);
+  let placementFilters = new Set(['plan', 'entitlement', 'challenge', 'learn']);
 
   function matchesItem(item) {
-    if (activeFilters.size === 0) return true; // no filters → always match
-
-    // Separate active filters into types
-    const placementActive = [...activeFilters].filter(f => placementFilters.has(f));
-    const categoryActive  = [...activeFilters].filter(f => !placementFilters.has(f));
-
-    // --- Placement filters logic ---
-    let placementMatch = true;
+    if (activeFilters.size === 0) return true;
     
-    if (placementActive.length > 0) {
-      const hasPlan = !!item.BOOK_FULL?.trim();
-      const hasEnt  = !!item.ENTM_FULL?.trim();
-    
-      if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
-        // both selected → item can match either (OR)
-        placementMatch = hasPlan || hasEnt;
-      } else if (placementActive.includes('plan')) {
-        // only plan selected → match ONLY plan
-        placementMatch = hasPlan && !hasEnt;
-      } else if (placementActive.includes('entitlement')) {
-        // only entitlement selected → match ONLY entitlement
-        placementMatch = hasEnt && !hasPlan;
-      }
+    // Separate active filters
+    const hasPlan = !!item.BOOK_FULL?.trim();
+    const hasEnt  = !!item.ENTM_FULL?.trim();
+    const hasChallenge = item.BOOK_EDITORID?.includes('Challenge_');
+    const hasLearn = String(item.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup';
+      
+    // XOR logic only for plan/entitlement
+    if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
+      placementMatch = hasPlan || hasEnt;
+    } else if (placementActive.includes('plan')) {
+      placementMatch = hasPlan;
+    } else if (placementActive.includes('entitlement')) {
+      placementMatch = hasEnt;
     }
-
-
+    
+    // Challenge and Learn filters act independently
+    if (placementActive.includes('challenge')) placementMatch = placementMatch && hasChallenge;
+    if (placementActive.includes('learn')) placementMatch = placementMatch && hasLearn;
+    
+  
     // --- Category/subcategory filters OR logic ---
-    const categoryMatch = categoryActive.length === 0 || categoryActive.some(f => 
+    const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
       (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f
     );
-
-    // AND across different filter types
-    return placementMatch && categoryMatch;
+  
+    return placementMatch && specialMatch && categoryMatch;
   }
+  
 
 
   // --- Filter the DB ---
