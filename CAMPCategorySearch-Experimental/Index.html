@@ -1571,27 +1571,29 @@ function renderResults(query) {
 
   let placementMatch = true;
 
-  if (placementActive.length > 0) {
-    // --- Plan / Entitlement hybrid AND ---
+if (placementActive.length > 0) {
+  // Learn-only selection
+  if (placementActive.includes('learn') && placementActive.length === 1) {
+    placementMatch = hasLearn;
+  }
+  // Challenge-only selection
+  else if (placementActive.includes('challenge') && placementActive.length === 1) {
+    placementMatch = hasChallenge;
+  }
+  // Plan / Entitlement logic
+  else {
     if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
-      placementMatch = hasPlan && hasEnt; // must have both
+      placementMatch = hasPlan && hasEnt;
     } else if (placementActive.includes('plan')) {
       placementMatch = hasPlan && !hasEnt;
     } else if (placementActive.includes('entitlement')) {
       placementMatch = hasEnt && !hasPlan;
     }
 
-    // --- Challenge / Learn independent ---
+    // If challenge or learn is also selected in combination, AND them in
     if (placementActive.includes('challenge')) placementMatch = placementMatch && hasChallenge;
     if (placementActive.includes('learn'))      placementMatch = placementMatch && hasLearn;
   }
-
-  // Category/subcategory filters (OR)
-  const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
-    (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f
-  );
-
-  return placementMatch && categoryMatch;
 }
 
 
