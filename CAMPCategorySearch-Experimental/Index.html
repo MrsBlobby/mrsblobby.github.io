@@ -1152,14 +1152,6 @@ function createTooltipElement(text) {
   return t;
 }
 
-const tooltipMap = new Map();
-
-// When creating tooltips
-const tooltipEl = createTooltipElement(text);
-tooltipMap.set(item.ID, text);  
-attachTooltipToIcon(icon, tooltipEl);
-
-
 let mobileTooltipTimeout = null; // for resetting hide timer
 
 function attachTooltipToIcon(icon, text) {
