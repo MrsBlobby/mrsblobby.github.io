@@ -1560,15 +1560,13 @@ function renderResults(query) {
   if (activeFilters.size === 0) return true;
 
   const placementActive = [...activeFilters].filter(f => placementFilters.has(f));
-  
-  const isChallenge = /Challenge_/.test(item.BOOK_EDITORID);
 
-  // If the challenge filter is active, only return true for challenges
-  if (placementActive.includes('challenge')) {
-    return isChallenge;
-  }
+  const isChallenge = String(item.BOOK_EDITORID || '').toLowerCase().includes('challenge_');
 
-  // fallback: match everything else
+  // Test Challenge filter alone
+  if (placementActive.includes('challenge')) return isChallenge;
+
+  // Otherwise, don't filter anything (for now)
   return true;
 }
 
