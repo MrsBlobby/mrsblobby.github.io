@@ -1561,18 +1561,19 @@ function renderResults(query) {
   const placementActive = [...activeFilters].filter(f => placementFilters.has(f));
   const categoryActive  = [...activeFilters].filter(f => !placementFilters.has(f));
 
+  // Normalize fields
   const id = String(item.BOOK_EditorID || '').toLowerCase();
-  const source = String(item.BOOK_SOURCE || '').toLowerCase();
+  const source = String(item.BOOK_SOURCE || '').trim().toLowerCase();
 
   // Flags
-  const isChallenge     = id.includes('challenge_');
-  const isLearn         = source === 'learnonpickup';
-  const isPlanRaw       = !!item.BOOK_FULL?.trim() && !isChallenge; // includes LearnOnPickup internally
-  const hasEnt          = !!item.ENTM_FULL?.trim();
+  const isChallenge = id.includes('challenge_');
+  const isLearn     = source.includes('learnonpickup'); // robust check
+  const isPlanRaw   = !!item.BOOK_FULL?.trim() && !isChallenge; // includes LearnOnPickup internally
+  const hasEnt      = !!item.ENTM_FULL?.trim();
 
   // Single-selection flags
-  const hasPlanSingle   = isPlanRaw && !isLearn; // exclude LearnOnPickup for plan-only selection
-  const hasLearnSingle  = isLearn;
+  const hasPlanSingle  = isPlanRaw && !isLearn; // exclude LearnOnPickup from plan-only selection
+  const hasLearnSingle = isLearn;
 
   let placementMatch = true;
 
@@ -1591,7 +1592,7 @@ function renderResults(query) {
           placementMatch = isChallenge;
           break;
         case 'learn':
-          placementMatch = hasLearnSingle;
+          placementMatch = hasLearnSingle; // LearnOnPickup items
           break;
       }
     } else {
