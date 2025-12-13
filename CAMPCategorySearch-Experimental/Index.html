@@ -1557,44 +1557,47 @@ function renderResults(query) {
   let placementFilters = new Set(['plan', 'entitlement', 'challenge', 'learn']);
 
   function matchesItem(item) {
-    if (activeFilters.size === 0) return true; // no filters → match all
+    if (activeFilters.size === 0) return true;
     
-    // Separate active filters into placement vs category types
     const placementActive = [...activeFilters].filter(f => placementFilters.has(f));
     const categoryActive  = [...activeFilters].filter(f => !placementFilters.has(f));
     
     // --- Determine placement properties ---
-    const hasPlan      = Boolean(item.BOOK_FULL?.trim());
-    const hasEnt       = Boolean(item.ENTM_FULL?.trim());
-    const hasChallenge = Boolean(item.BOOK_EDITORID?.includes('Challenge_'));
-    const hasLearn     = String(item.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup';
+    const isChallenge   = Boolean(item.BOOK_EDITORID?.includes('Challenge_'));
+    const hasPlan       = !!item.BOOK_FULL?.trim() && !isChallenge; // exclude challenges from plan filter
+    const hasEnt        = !!item.ENTM_FULL?.trim();
+    const hasChallenge  = isChallenge;
+    const hasLearn      = String(item.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup';
     
-    // --- Placement filter logic ---
-    let placementMatch = false;
+    // --- Hybrid placement filter logic ---
+    let placementMatch = true;
     
-    // XOR logic for plan vs entitlement
-    if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
-      placementMatch = hasPlan || hasEnt;
-    } else if (placementActive.includes('plan')) {
-      placementMatch = hasPlan;
-    } else if (placementActive.includes('entitlement')) {
-      placementMatch = hasEnt;
+    if (placementActive.length > 0) {
+      placementMatch = false; // default to false when filters are active
+    
+      // XOR logic for plan vs entitlement
+      if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
+        placementMatch = hasPlan || hasEnt;
+      } else if (placementActive.includes('plan')) {
+        placementMatch = hasPlan && !hasEnt;
+      } else if (placementActive.includes('entitlement')) {
+        placementMatch = hasEnt && !hasPlan;
+      }
+    
+      // Challenge and Learn act independently (OR logic)
+      if (placementActive.includes('challenge')) placementMatch = placementMatch || hasChallenge;
+      if (placementActive.includes('learn'))      placementMatch = placementMatch || hasLearn;
     }
   
-    // Challenge and Learn act independently (OR logic)
-    if (placementActive.includes('challenge')) placementMatch = placementMatch || hasChallenge;
-    if (placementActive.includes('learn'))      placementMatch = placementMatch || hasLearn;
-  
-    // --- Category/subcategory filters (OR logic) ---
+    // --- Category/subcategory filters ---
     const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
       (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f
     );
   
-    // AND across different filter types
     return placementMatch && categoryMatch;
   }
   
-  
+
   
 
 
