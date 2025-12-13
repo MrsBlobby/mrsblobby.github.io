@@ -925,7 +925,6 @@
           <button data-filter="challenge">Challenge</button>
           <button data-filter="learn">Learn on Pickup</button>
         </div>
-      </div>
 
         <div class="filter-columns">
           <div class="filter-header">Workshop Category</div>
@@ -1579,6 +1578,13 @@ function renderResults(query) {
     if (placementActive.includes('challenge')) placementMatch = placementMatch && hasChallenge;
     if (placementActive.includes('learn')) placementMatch = placementMatch && hasLearn;
     
+  
+    // --- Special filters (Learn on Pickup / Challenge) ---
+    let specialMatch = true;
+    if (specialActive.length > 0) {
+      const type = getSpecialFilterType(item);
+      specialMatch = type && specialActive.includes(type);
+    }
   
     // --- Category/subcategory filters OR logic ---
     const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
