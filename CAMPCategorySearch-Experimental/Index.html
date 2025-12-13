@@ -1873,18 +1873,18 @@ function getTooltipTextForTag(tag, originalTags) {
     return rawTags.split(/[;|]/).map(t => t.trim()).filter(Boolean);
   };
 
-  bookFulls.forEach((fullName, i) => {
+bookFulls.forEach((fullName, i) => {
   const pill = document.createElement('span');
   pill.className = 'pill';
 
   const tags = getTagsForBook(i);
-
-  // Normalize and deduplicate
   const uniqueNormalizedTags = [...new Set(tags.map(normalizeTag))];
 
-  // Get corresponding BOOK_EditorID for this index
   const bookEditorId = (r.BOOK_EditorID || '').split(';')[i]?.trim() || '';
   const globValue = r.GLOB_Value;
+
+  // Track if we appended an icon
+  let appendedIcon = false;
 
   uniqueNormalizedTags.forEach(normalizedTag => {
     let iconSrc = BookTagIcons[normalizedTag];
@@ -1894,7 +1894,7 @@ function getTooltipTextForTag(tag, originalTags) {
       iconSrc = multiVendorCategories[normalizedTag].icon;
     }
 
-    // --- Custom BOOK icons ---
+    // Challenge / Learn-on-Pickup icons
     if (/Challenge_/.test(bookEditorId)) {
       iconSrc = '/assets/ChallengeIcon.svg';
     } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
@@ -1911,30 +1911,56 @@ function getTooltipTextForTag(tag, originalTags) {
     icon.style.marginRight = '6px';
     pill.appendChild(icon);
 
-    // Tooltip text
     let tooltipText = getTooltipTextForTag(normalizedTag, tags);
     if (/Challenge_/.test(bookEditorId)) {
+      tooltipText = `Challenge: "${fullName}"`;
+      if (globValue != null) tooltipText += ` (X/${globValue})`;
+    } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
+      tooltipText = `Loot: ${fullName}`;
+    }
+    attachTooltipToIcon(icon, tooltipText);
+
+    appendedIcon = true;
+  });
+
+  // If no tags produced an icon, still add Challenge/Learn icon
+  if (!appendedIcon) {
+    let iconSrc = '';
+    let tooltipText = '';
+    if (/Challenge_/.test(bookEditorId)) {
+      iconSrc = '/assets/ChallengeIcon.svg';
       tooltipText = `Complete a Challenge to Unlock`;
       if (globValue != null) tooltipText += ` (X/${globValue})`;
     } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
-      tooltipText = `Loot Item to Unlock`;
+      iconSrc = '/assets/LearnOnPickupIcon.webp';
+      tooltipText = `Loot to Unlock`;
     }
-    attachTooltipToIcon(icon, tooltipText);
-  });
 
-  // --- Build pill text ---
+    if (iconSrc) {
+      const icon = document.createElement('img');
+      icon.src = iconSrc;
+      icon.style.width = 'auto';
+      icon.style.height = '30px';
+      icon.style.verticalAlign = 'middle';
+      icon.style.marginRight = '6px';
+      pill.appendChild(icon);
+      attachTooltipToIcon(icon, tooltipText);
+    }
+  }
+
+  // Pill text
   let pillText = fullName;
   if (/Challenge_/.test(bookEditorId)) {
     pillText = `Challenge: "${fullName}"`;
     if (globValue != null) pillText += ` (X/${globValue})`;
   } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
-    pillText = `Loot: ${fullName}`;
+    pillText = `Learn on Pickup: "${fullName}"`;
   }
 
   pill.appendChild(document.createTextNode(pillText));
   condWrap.appendChild(pill);
 
-  // Add connector if needed
+  // Connector
   if (i < bookFulls.length - 1) {
     const conn = document.createElement('span');
     conn.className = 'connector';
@@ -1942,6 +1968,7 @@ function getTooltipTextForTag(tag, originalTags) {
     condWrap.appendChild(conn);
   }
 });
+
 
 }
 
