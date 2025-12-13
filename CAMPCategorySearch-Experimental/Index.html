@@ -1558,58 +1558,37 @@ function renderResults(query) {
  function matchesItem(item) {
   if (activeFilters.size === 0) return true;
 
+  // Separate placement vs category filters
   const placementActive = [...activeFilters].filter(f => placementFilters.has(f));
   const categoryActive  = [...activeFilters].filter(f => !placementFilters.has(f));
 
-  // Normalize fields
+  // Determine flags
   const id = String(item.BOOK_EditorID || '').toLowerCase();
-  const source = String(item.BOOK_SOURCE || '').trim().toLowerCase();
+  const source = String(item.BOOK_SOURCE || '').toLowerCase();
 
-  // Flags
-  const isChallenge = id.includes('challenge_');
-  const isLearn     = source.includes('learnonpickup'); // robust check
-  const isPlanRaw   = !!item.BOOK_FULL?.trim() && !isChallenge; // includes LearnOnPickup internally
-  const hasEnt      = !!item.ENTM_FULL?.trim();
-
-  // Single-selection flags
-  const hasPlanSingle  = isPlanRaw && !isLearn; // exclude LearnOnPickup from plan-only selection
-  const hasLearnSingle = isLearn;
+  const hasChallenge = id.includes('challenge_');
+  const hasLearn     = source === 'learnbypickup'; // exact flag
+  const hasPlan      = !!item.BOOK_FULL?.trim() && !hasChallenge; // exclude challenges
+  const hasEnt       = !!item.ENTM_FULL?.trim();
 
   let placementMatch = true;
 
-  if (placementActive.length > 0) {
-    if (placementActive.length === 1) {
-      // Single-selection: strict
-      const only = placementActive[0];
-      switch (only) {
-        case 'plan':
-          placementMatch = hasPlanSingle && !hasEnt; // plan-only
-          break;
-        case 'entitlement':
-          placementMatch = hasEnt && !hasPlanSingle;
-          break;
-        case 'challenge':
-          placementMatch = isChallenge;
-          break;
-        case 'learn':
-          placementMatch = hasLearnSingle; // LearnOnPickup items
-          break;
-      }
-    } else {
-      // Multi-selection: all selected attributes must be true (AND)
-      placementMatch = placementActive.every(f => {
-        switch (f) {
-          case 'plan':        return isPlanRaw;   // includes LearnOnPickup internally
-          case 'entitlement': return hasEnt;
-          case 'challenge':   return isChallenge;
-          case 'learn':       return isLearn;
-          default:            return true;
-        }
-      });
-    }
+  if (placementActive.includes('plan') && placementActive.includes('learn')) {
+      placementMatch = false;
+  } else if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
+      placementMatch = hasPlan && hasEnt; // must have both
+  } else if (placementActive.includes('plan')) {
+      placementMatch = hasPlan && !hasEnt;
+  } else if (placementActive.includes('entitlement')) {
+      placementMatch = hasEnt && !hasPlan;
   }
+  
+  // Challenge and Learn are independent
+  if (placementActive.includes('challenge')) placementMatch = placementMatch && hasChallenge;
+  if (placementActive.includes('learn'))      placementMatch = placementMatch && hasLearn;
+  
 
-  // Category/subcategory filters (OR)
+  // --- Category/subcategory filters (OR) ---
   const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
     (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f
   );
