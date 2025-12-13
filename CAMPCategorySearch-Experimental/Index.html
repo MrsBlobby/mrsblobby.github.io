@@ -340,37 +340,21 @@
     padding: 2px 6px;
   }
 
-  .changelog-entry {
-    background: rgba(255, 192, 15, 0.05);
-    border: 1px solid #ffc00f;
-    border-radius: 4px;
-    padding: 12px;
-    margin: 6px 0;
-    text-align: left;
-    font-size: 13px;
-    line-height: 1.5;
-    color: #eee;
-  }
-
   .changelog-entry h4 {
-    margin: 0 0 8px 0;
-    font-size: 14px;
-    font-weight: bold;
-    color: var(--accent);
-  }
-
-  .changelog-entry ul {
-    list-style-type: disc; /* real bullets */
-    padding-left: 20px;    /* indentation for bullets */
-    margin: 0;
-  }
-
-  .changelog-entry li {
-    margin: 4px 0;         /* spacing between bullets */
-    padding: 0;            /* remove any internal padding */
-    border: none;          /* remove any box borders */
-    background: none;      /* remove any li backgrounds */
-  }
+      margin: 0 0 4px 0;
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--accent);
+    }
+  
+    .changelog-entry {
+      background: rgba(255, 192, 15, 0.05);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 6px 12px;
+      margin: 6px 0;
+      text-align: left;
+    }
 
   #searchBox {
     flex: 1;
