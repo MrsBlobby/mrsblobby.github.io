@@ -1878,16 +1878,22 @@ function getTooltipTextForTag(tag, originalTags) {
   pill.className = 'pill';
 
   const tags = getTagsForBook(i);
-
-  // Normalize and deduplicate
   const uniqueNormalizedTags = [...new Set(tags.map(normalizeTag))];
 
   uniqueNormalizedTags.forEach(normalizedTag => {
     let iconSrc = BookTagIcons[normalizedTag];
 
-    // Use multi-vendor icon if defined
+    // Multi-vendor icon
     if (multiVendorCategories[normalizedTag]?.icon) {
       iconSrc = multiVendorCategories[normalizedTag].icon;
+    }
+
+    // --- Custom BOOK icons ---
+    const bookEditorId = (r.BOOK_EditorID || '').split(';')[i]?.trim() || '';
+    if (/Challenge_/.test(bookEditorId)) {
+      iconSrc = '/assets/ChallengeIcon.svg'; 
+    } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
+      iconSrc = '/assets/LearnOnPickupIcon.webp'; 
     }
 
     if (!iconSrc) return;
@@ -1900,37 +1906,36 @@ function getTooltipTextForTag(tag, originalTags) {
     icon.style.marginRight = '6px';
     pill.appendChild(icon);
 
-    const tooltipText = getTooltipTextForTag(normalizedTag, tags);
+    // Tooltip text
+    let tooltipText = getTooltipTextForTag(normalizedTag, tags);
+    if (/Challenge_/.test(bookEditorId)) {
+      tooltipText = `Challenge: "${fullName}"`;
+      if (r.GLOB_Value != null) tooltipText += ` (X/${r.GLOB_Value})`;
+    } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
+      tooltipText = `Loot: "${fullName}"`;
+    }
     attachTooltipToIcon(icon, tooltipText);
   });
 
-
-// --- Build pill text ---
-let pillText = fullName;
-
-// Get the corresponding BOOK_EditorID for this index (if multiple)
-const bookEditorId = (r.BOOK_EditorID || '').split(';')[i]?.trim() || '';
-const globValue = r.GLOB_Value;
-
-// If it's a Challenge, modify the pill text
-if (/Challenge_/.test(bookEditorId)) {
-  pillText = `Challenge: "${fullName}"`;
-  if (globValue != null) {
-    pillText += ` (X/${globValue})`; 
+  // Pill text
+  let pillText = fullName;
+  if (/Challenge_/.test(bookEditorId)) {
+    pillText = `Challenge: "${fullName}"`;
+    if (r.GLOB_Value != null) pillText += ` (X/${r.GLOB_Value})`;
   }
-}
 
-// Append the text to the pill
-pill.appendChild(document.createTextNode(pillText));
-condWrap.appendChild(pill);
+  pill.appendChild(document.createTextNode(pillText));
+  condWrap.appendChild(pill);
 
-// Add connector if needed
-if (i < bookFulls.length - 1) {
-  const conn = document.createElement('span');
-  conn.className = 'connector';
-  conn.textContent = 'and';
-  condWrap.appendChild(conn);
-}
+  // Connector
+  if (i < bookFulls.length - 1) {
+    const conn = document.createElement('span');
+    conn.className = 'connector';
+    conn.textContent = 'and';
+    condWrap.appendChild(conn);
+  }
+});
+
 
 });
 }
@@ -1964,11 +1969,6 @@ if (hasEntm) {
     'SCRAPBOX': 'F1_ENTM_CAMP_ScrapBox_Standard',
     'AMMO STORAGE BOX': 'F1_ENTM_CAMP_AmmoStorageBox_Standard',
     'AID BOX': 'F1_ENTM_CAMP_AidBox_Standard'
-  };
-
-  const ManualEntmIcons = {
-    'BABYLON_': '/assets/V51Icon.webp',
-    'SHELTERS_': '/assets/AtomIcon.webp',
   };
 
   const norm = txt => String(txt || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
