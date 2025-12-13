@@ -2153,8 +2153,15 @@ if (r.BudgetCost !== undefined && r.BudgetCost !== null && (r.Category || '').to
     icon.style.height = '30px';
     icon.style.verticalAlign = 'middle';
     icon.style.marginRight = '6px';
+    
+    // Attach tooltip using BudgetTierLabels
+    if (budgetTier && BudgetTierLabels[budgetTier]) {
+      attachTooltipToIcon(icon, `Budget Cost: ${BudgetTierLabels[budgetTier]}`);
+    }
+  
     budgetPill.appendChild(icon);
   }
+  
 
   // Singular/plural
   const unitText = (roundedBudget === 1) ? 'Flamingo Unit' : 'Flamingo Units';
