@@ -342,32 +342,41 @@
 
   .changelog-entry {
     background: rgba(255, 192, 15, 0.05);
-    border-left: 3px solid var(--accent);
+    border: 1px solid #ffc00f; /* keep the yellow border */
     border-radius: 4px;
-    padding: 6px 12px;
+    padding: 12px;
     margin: 6px 0;
     text-align: left;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #eee; /* adjust text color to match your dark theme */
   }
-  
+
   .changelog-entry h4 {
-    margin: 0 0 4px 0;
+    margin: 0 0 8px 0;
     font-size: 14px;
     font-weight: bold;
     color: var(--accent);
   }
-  
+
   .changelog-entry ul {
-    list-style-type: disc;      /* normal bullets */
-    margin: 4px 0 0 20px;       /* indent inside box */
-    padding: 0;                 /* remove default padding */
+    list-style-type: disc;    /* actual bullet points */
+    margin: 0 0 0 20px;       /* indent for bullets */
+    padding: 0;
   }
-  
+
+  .changelog-entry ul ul {
+    list-style-type: circle;  /* sub-bullets */
+    margin-left: 20px;        /* extra indent for nested bullets */
+  }
+
   .changelog-entry li {
-    margin-bottom: 4px;         /* spacing between bullets */
-    border: none;               /* ensure no borders appear */
-    background: none;           /* no extra backgrounds */
+    margin-bottom: 4px;       /* spacing between bullets */
+    border: none;             /* remove any borders */
+    background: none;         /* remove any backgrounds */
+    padding: 0;
   }
-  
+
 
   #searchBox {
     flex: 1;
@@ -843,10 +852,10 @@
       <div class="changelog-entry">
         <h4>v3.0 Beta</h4>
         <ul>
-          <li>Expansion towards a more generalized database tool</li>
+          <li>Expansion towards a more generalized database tool:</li>
           <li>Added category icons</li>
           <li>
-            Added placement conditions (plan, entitlement) for objects, and added respective source icons (SCORE, Gold Bullion, Stamps, Atomic Shop).
+            Added placement conditions (plan, entitlement) for objects, and added respective source icons (SCORE, Gold Bullion, Stamps, Atomic Shop icons)
             <ul>
               <li>Known issue: certain plans will not show yet (e.g., Nuclear Winter stash boxes)</li>
               <li>Challenge requirements may also not appear (e.g., Kelp Curtain)</li>
@@ -856,7 +865,7 @@
           <li>Added search filters</li>
           <li>Added different search options</li>
           <li>General UI cleanup</li>
-          <li>Full v3.0 release will include CAMP budget costs, more source icons, and minor polishing</li>
+          <li>Full v3.0 release will also list CAMP budget costs, have more source icons, and include further polishing of minor issues</li>
         </ul>
       </div>
       <div class="changelog-entry">
