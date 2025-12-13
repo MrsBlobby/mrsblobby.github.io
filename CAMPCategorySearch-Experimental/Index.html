@@ -1572,19 +1572,8 @@ function renderResults(query) {
   let placementMatch = true;
 
   if (placementActive.length > 0) {
-    // If multiple filters selected → all must be true
-    if (placementActive.length > 1) {
-      placementMatch = placementActive.every(f => {
-        switch (f) {
-          case 'plan':       return hasPlan;
-          case 'entitlement':return hasEnt;
-          case 'challenge':  return hasChallenge;
-          case 'learn':      return hasLearn;
-          default:           return true;
-        }
-      });
-    } else {
-      // Single-selection → strict rules
+    // Single-selection
+    if (placementActive.length === 1) {
       const only = placementActive[0];
       switch (only) {
         case 'plan':        placementMatch = hasPlan && !hasEnt; break;
@@ -1592,8 +1581,20 @@ function renderResults(query) {
         case 'challenge':   placementMatch = hasChallenge; break;
         case 'learn':       placementMatch = hasLearn; break;
       }
+    } else {
+      // Multiple-selection → all must be true
+      placementMatch = placementActive.every(f => {
+        switch (f) {
+          case 'plan':        return hasPlan;
+          case 'entitlement': return hasEnt;
+          case 'challenge':   return hasChallenge;
+          case 'learn':       return hasLearn;
+          default:            return true;
+        }
+      });
     }
   }
+  
 
   const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
     (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f
