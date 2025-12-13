@@ -1599,13 +1599,6 @@ function renderResults(query) {
 
 
 
-
-  
-    
-
-  
-
-
   // --- Filter the DB ---
   const filtered = db.filter(r => {
   const matchesFilters = matchesItem(r); // your existing placement/category filter logic
@@ -1619,7 +1612,7 @@ function renderResults(query) {
     } else if (currentSearchBy === 'entm') {
       matchesSearch = r.ENTM_FULL && r.ENTM_FULL.toLowerCase().includes(normalizedQuery);
     } else if (currentSearchBy === 'tooltip') {
-      // generate tooltip text on the fly
+      console.log('Tooltip branch hit for:', r.Name, r.BOOK_FULL, r.BOOK_SOURCE, r.ENTM_FULL);
       let tooltipTextParts = [];
 
       const bookFulls = (r.BOOK_FULL || '').split(';').map(s => s.trim()).filter(Boolean);
