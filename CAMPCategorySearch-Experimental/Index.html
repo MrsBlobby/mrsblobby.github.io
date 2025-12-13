@@ -1562,21 +1562,24 @@ function renderResults(query) {
     const categoryActive  = [...activeFilters].filter(f => !placementFilters.has(f));
 
     // --- Placement filters logic ---
-  let placementMatch = true;
-
-  if (placementActive.length > 0) {
-    const hasPlan = !!item.BOOK_FULL?.trim();
-    const hasEnt  = !!item.ENTM_FULL?.trim();
-
-    if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
-      // both enabled → OR
-      placementMatch = hasPlan || hasEnt;
-    } else if (placementActive.includes('plan')) {
-      placementMatch = hasPlan;
-    } else if (placementActive.includes('entitlement')) {
-      placementMatch = hasEnt;
+    let placementMatch = true;
+    
+    if (placementActive.length > 0) {
+      const hasPlan = !!item.BOOK_FULL?.trim();
+      const hasEnt  = !!item.ENTM_FULL?.trim();
+    
+      if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
+        // both selected → item can match either (OR)
+        placementMatch = hasPlan || hasEnt;
+      } else if (placementActive.includes('plan')) {
+        // only plan selected → match ONLY plan
+        placementMatch = hasPlan && !hasEnt;
+      } else if (placementActive.includes('entitlement')) {
+        // only entitlement selected → match ONLY entitlement
+        placementMatch = hasEnt && !hasPlan;
+      }
     }
-  }
+
 
     // --- Category/subcategory filters OR logic ---
     const categoryMatch = categoryActive.length === 0 || categoryActive.some(f => 
@@ -2153,15 +2156,15 @@ if (r.BudgetCost !== undefined && r.BudgetCost !== null && (r.Category || '').to
     icon.style.height = '30px';
     icon.style.verticalAlign = 'middle';
     icon.style.marginRight = '6px';
-    
+
     // Attach tooltip using BudgetTierLabels
     if (budgetTier && BudgetTierLabels[budgetTier]) {
       attachTooltipToIcon(icon, `Budget Cost: ${BudgetTierLabels[budgetTier]}`);
     }
-  
+
     budgetPill.appendChild(icon);
   }
-  
+
 
   // Singular/plural
   const unitText = (roundedBudget === 1) ? 'Flamingo Unit' : 'Flamingo Units';
