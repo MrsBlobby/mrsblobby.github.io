@@ -1878,7 +1878,13 @@ function getTooltipTextForTag(tag, originalTags) {
   pill.className = 'pill';
 
   const tags = getTagsForBook(i);
+
+  // Normalize and deduplicate
   const uniqueNormalizedTags = [...new Set(tags.map(normalizeTag))];
+
+  // Get corresponding BOOK_EditorID for this index
+  const bookEditorId = (r.BOOK_EditorID || '').split(';')[i]?.trim() || '';
+  const globValue = r.GLOB_Value;
 
   uniqueNormalizedTags.forEach(normalizedTag => {
     let iconSrc = BookTagIcons[normalizedTag];
@@ -1889,11 +1895,10 @@ function getTooltipTextForTag(tag, originalTags) {
     }
 
     // --- Custom BOOK icons ---
-    const bookEditorId = (r.BOOK_EditorID || '').split(';')[i]?.trim() || '';
     if (/Challenge_/.test(bookEditorId)) {
-      iconSrc = '/assets/ChallengeIcon.svg'; 
+      iconSrc = '/assets/ChallengeIcon.svg';
     } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
-      iconSrc = '/assets/LearnOnPickupIcon.webp'; 
+      iconSrc = '/assets/LearnOnPickupIcon.webp';
     }
 
     if (!iconSrc) return;
@@ -1909,25 +1914,27 @@ function getTooltipTextForTag(tag, originalTags) {
     // Tooltip text
     let tooltipText = getTooltipTextForTag(normalizedTag, tags);
     if (/Challenge_/.test(bookEditorId)) {
-      tooltipText = `Challenge: "${fullName}"`;
-      if (r.GLOB_Value != null) tooltipText += ` (X/${r.GLOB_Value})`;
+      tooltipText = `Complete a Challenge to Unlock`;
+      if (globValue != null) tooltipText += ` (X/${globValue})`;
     } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
-      tooltipText = `Loot: "${fullName}"`;
+      tooltipText = `Loot Item to Unlock`;
     }
     attachTooltipToIcon(icon, tooltipText);
   });
 
-  // Pill text
+  // --- Build pill text ---
   let pillText = fullName;
   if (/Challenge_/.test(bookEditorId)) {
     pillText = `Challenge: "${fullName}"`;
-    if (r.GLOB_Value != null) pillText += ` (X/${r.GLOB_Value})`;
+    if (globValue != null) pillText += ` (X/${globValue})`;
+  } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
+    pillText = `Loot: "${fullName}"`;
   }
 
   pill.appendChild(document.createTextNode(pillText));
   condWrap.appendChild(pill);
 
-  // Connector
+  // Add connector if needed
   if (i < bookFulls.length - 1) {
     const conn = document.createElement('span');
     conn.className = 'connector';
@@ -1935,7 +1942,6 @@ function getTooltipTextForTag(tag, originalTags) {
     condWrap.appendChild(conn);
   }
 });
-
 
 }
 
