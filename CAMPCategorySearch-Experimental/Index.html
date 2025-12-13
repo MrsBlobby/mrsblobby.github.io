@@ -1557,40 +1557,44 @@ function renderResults(query) {
   let placementFilters = new Set(['plan', 'entitlement', 'challenge', 'learn']);
 
   function matchesItem(item) {
-  if (activeFilters.size === 0) return true;
-
-  const placementActive = [...activeFilters].filter(f => placementFilters.has(f));
-  const categoryActive  = [...activeFilters].filter(f => !placementFilters.has(f));
-
-  const hasPlan = !!item.BOOK_FULL?.trim();
-  const hasEnt  = !!item.ENTM_FULL?.trim();
-  const hasChallenge = item.BOOK_EDITORID?.includes('Challenge_');
-  const hasLearn = String(item.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup';
-
-  let placementMatch = false;
-
-  // Plan/Entitlement XOR
-  if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
-    placementMatch = hasPlan || hasEnt;
-  } else if (placementActive.includes('plan')) {
-    placementMatch = hasPlan;
-  } else if (placementActive.includes('entitlement')) {
-    placementMatch = hasEnt;
+    if (activeFilters.size === 0) return true; // no filters → match all
+    
+    // Separate active filters into placement vs category types
+    const placementActive = [...activeFilters].filter(f => placementFilters.has(f));
+    const categoryActive  = [...activeFilters].filter(f => !placementFilters.has(f));
+    
+    // --- Determine placement properties ---
+    const hasPlan      = Boolean(item.BOOK_FULL?.trim());
+    const hasEnt       = Boolean(item.ENTM_FULL?.trim());
+    const hasChallenge = Boolean(item.BOOK_EDITORID?.includes('Challenge_'));
+    const hasLearn     = String(item.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup';
+    
+    // --- Placement filter logic ---
+    let placementMatch = false;
+    
+    // XOR logic for plan vs entitlement
+    if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
+      placementMatch = hasPlan || hasEnt;
+    } else if (placementActive.includes('plan')) {
+      placementMatch = hasPlan;
+    } else if (placementActive.includes('entitlement')) {
+      placementMatch = hasEnt;
+    }
+  
+    // Challenge and Learn act independently (OR logic)
+    if (placementActive.includes('challenge')) placementMatch = placementMatch || hasChallenge;
+    if (placementActive.includes('learn'))      placementMatch = placementMatch || hasLearn;
+  
+    // --- Category/subcategory filters (OR logic) ---
+    const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
+      (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f
+    );
+  
+    // AND across different filter types
+    return placementMatch && categoryMatch;
   }
   
-  // Challenge and Learn filters act independently
-  if (placementActive.includes('challenge')) placementMatch = placementMatch || hasChallenge;
-  if (placementActive.includes('learn')) placementMatch = placementMatch || hasLearn;
   
-
-  // Category/subcategory filters (OR)
-  const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
-    (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f
-  );
-
-  return placementMatch && categoryMatch;
-}
-
   
 
 
