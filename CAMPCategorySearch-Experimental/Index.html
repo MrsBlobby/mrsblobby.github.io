@@ -1558,37 +1558,43 @@ function renderResults(query) {
   function matchesItem(item) {
   if (activeFilters.size === 0) return true;
 
-  // Separate placement vs category filters
   const placementActive = [...activeFilters].filter(f => placementFilters.has(f));
   const categoryActive  = [...activeFilters].filter(f => !placementFilters.has(f));
 
-  // Determine flags
   const id = String(item.BOOK_EditorID || '').toLowerCase();
   const source = String(item.BOOK_SOURCE || '').toLowerCase();
 
   const hasChallenge = id.includes('challenge_');
-  const hasLearn     = source === 'learnbypickup'; // exact flag
-  const hasPlan      = !!item.BOOK_FULL?.trim() && !hasChallenge; // exclude challenges
+  const hasLearn     = source === 'learnbypickup';
+  const hasPlan      = !!item.BOOK_FULL?.trim() && !hasChallenge;
   const hasEnt       = !!item.ENTM_FULL?.trim();
 
   let placementMatch = true;
 
   if (placementActive.length > 0) {
-    // --- Plan/Entitlement strict hybrid AND/XOR ---
-    if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
-      placementMatch = hasPlan && hasEnt; // must have both
-    } else if (placementActive.includes('plan')) {
-      placementMatch = hasPlan && !hasEnt;
-    } else if (placementActive.includes('entitlement')) {
-      placementMatch = hasEnt && !hasPlan;
+    // If multiple filters selected → all must be true
+    if (placementActive.length > 1) {
+      placementMatch = placementActive.every(f => {
+        switch (f) {
+          case 'plan':       return hasPlan;
+          case 'entitlement':return hasEnt;
+          case 'challenge':  return hasChallenge;
+          case 'learn':      return hasLearn;
+          default:           return true;
+        }
+      });
+    } else {
+      // Single-selection → strict rules
+      const only = placementActive[0];
+      switch (only) {
+        case 'plan':        placementMatch = hasPlan && !hasEnt; break;
+        case 'entitlement': placementMatch = hasEnt && !hasPlan; break;
+        case 'challenge':   placementMatch = hasChallenge; break;
+        case 'learn':       placementMatch = hasLearn; break;
+      }
     }
-
-    // --- Challenge and Learn are independent ---
-    if (placementActive.includes('challenge')) placementMatch = placementMatch && hasChallenge;
-    if (placementActive.includes('learn'))      placementMatch = placementMatch && hasLearn;
   }
 
-  // --- Category/subcategory filters (OR) ---
   const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
     (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f
   );
