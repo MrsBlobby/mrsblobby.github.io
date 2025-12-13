@@ -1558,22 +1558,19 @@ function renderResults(query) {
  function matchesItem(item) {
   if (activeFilters.size === 0) return true;
 
-  // Separate filters
   const placementActive = [...activeFilters].filter(f => placementFilters.has(f));
   const categoryActive  = [...activeFilters].filter(f => !placementFilters.has(f));
 
-  // Determine item flags
   const id = String(item.BOOK_EditorID || '').toLowerCase();
   const source = String(item.BOOK_SOURCE || '').toLowerCase();
 
   const isChallenge = id.includes('challenge_');
   const isLearn    = source === 'learnonpickup';
-  const isPlanRaw  = !!item.BOOK_FULL?.trim();
+  const isPlanRaw  = !!item.BOOK_FULL?.trim() && !isChallenge; // includes LearnOnPickup internally
   const hasEnt     = !!item.ENTM_FULL?.trim();
 
-  // Plan includes all non-challenge items with BOOK_FULL (including LearnOnPickup)
-  const hasPlan    = isPlanRaw && !isChallenge;
-
+  // Flags
+  const hasPlan    = isPlanRaw && !isLearn; // exclude LearnOnPickup from plan in single-selection
   const hasLearn   = isLearn;
 
   let placementMatch = true;
@@ -1583,16 +1580,24 @@ function renderResults(query) {
       // Single-selection: strict
       const only = placementActive[0];
       switch (only) {
-        case 'plan':        placementMatch = hasPlan && !hasLearn && !isChallenge; break; // plan-only
-        case 'entitlement': placementMatch = hasEnt && !hasPlan; break;
-        case 'challenge':   placementMatch = isChallenge; break;
-        case 'learn':       placementMatch = hasLearn; break;
+        case 'plan':
+          placementMatch = hasPlan && !hasEnt; // only plans, exclude LearnOnPickup
+          break;
+        case 'entitlement':
+          placementMatch = hasEnt && !hasPlan;
+          break;
+        case 'challenge':
+          placementMatch = isChallenge;
+          break;
+        case 'learn':
+          placementMatch = hasLearn; // only LearnOnPickup
+          break;
       }
     } else {
       // Multi-selection: all selected attributes must be true
       placementMatch = placementActive.every(f => {
         switch (f) {
-          case 'plan':        return hasPlan;
+          case 'plan':        return isPlanRaw;   // include LearnOnPickup internally
           case 'entitlement': return hasEnt;
           case 'challenge':   return isChallenge;
           case 'learn':       return hasLearn;
