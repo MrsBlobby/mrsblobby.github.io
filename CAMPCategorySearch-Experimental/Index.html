@@ -1118,12 +1118,7 @@ const CategoryIcons = {
   'Pet Furniture': '/assets/SubCategory-PetFurnitureIcon.webp'
 };
 
-const tooltipMap = new Map(); // global or outer scope
-
-// For each item when creating the tooltip:
-const tooltipEl = createTooltipElement(tooltipText);
-tooltipMap.set(item.ID, tooltipText); // store tooltip text for search
-attachTooltipToIcon(icon, tooltipEl);
+const tooltipMap = new Map();
 
 window.addEventListener('DOMContentLoaded', () => {
   // Clear search bar
