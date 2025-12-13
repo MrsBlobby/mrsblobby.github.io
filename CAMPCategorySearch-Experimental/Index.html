@@ -1564,14 +1564,15 @@ function renderResults(query) {
   const id = String(item.BOOK_EditorID || '').toLowerCase();
   const source = String(item.BOOK_SOURCE || '').toLowerCase();
 
-  const isChallenge = id.includes('challenge_');
-  const isLearn    = source === 'learnonpickup';
-  const isPlanRaw  = !!item.BOOK_FULL?.trim() && !isChallenge; // includes LearnOnPickup internally
-  const hasEnt     = !!item.ENTM_FULL?.trim();
-
   // Flags
-  const hasPlan    = isPlanRaw && !isLearn; // exclude LearnOnPickup from plan in single-selection
-  const hasLearn   = isLearn;
+  const isChallenge     = id.includes('challenge_');
+  const isLearn         = source === 'learnonpickup';
+  const isPlanRaw       = !!item.BOOK_FULL?.trim() && !isChallenge; // includes LearnOnPickup internally
+  const hasEnt          = !!item.ENTM_FULL?.trim();
+
+  // Single-selection flags
+  const hasPlanSingle   = isPlanRaw && !isLearn; // exclude LearnOnPickup for plan-only selection
+  const hasLearnSingle  = isLearn;
 
   let placementMatch = true;
 
@@ -1581,26 +1582,26 @@ function renderResults(query) {
       const only = placementActive[0];
       switch (only) {
         case 'plan':
-          placementMatch = hasPlan && !hasEnt; // only plans, exclude LearnOnPickup
+          placementMatch = hasPlanSingle && !hasEnt; // plan-only
           break;
         case 'entitlement':
-          placementMatch = hasEnt && !hasPlan;
+          placementMatch = hasEnt && !hasPlanSingle;
           break;
         case 'challenge':
           placementMatch = isChallenge;
           break;
         case 'learn':
-          placementMatch = hasLearn; // only LearnOnPickup
+          placementMatch = hasLearnSingle;
           break;
       }
     } else {
-      // Multi-selection: all selected attributes must be true
+      // Multi-selection: all selected attributes must be true (AND)
       placementMatch = placementActive.every(f => {
         switch (f) {
-          case 'plan':        return isPlanRaw;   // include LearnOnPickup internally
+          case 'plan':        return isPlanRaw;   // includes LearnOnPickup internally
           case 'entitlement': return hasEnt;
           case 'challenge':   return isChallenge;
-          case 'learn':       return hasLearn;
+          case 'learn':       return isLearn;
           default:            return true;
         }
       });
