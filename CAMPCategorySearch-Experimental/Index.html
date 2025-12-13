@@ -37,6 +37,18 @@
     padding: 0 16px;
   }
 
+  .page {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+  }
+
+  .content {
+      flex: 1;
+      overflow-y: auto;
+  }
+  
+
   h1 {
     color: var(--accent);
     margin-bottom: 5px;
@@ -576,6 +588,7 @@
     padding: 2px;
     margin: 0;
     margin-top: -4px;
+    margin-bottom: -2px;
     text-align: center;   
     background: var(--card-bg);
     border: none;
