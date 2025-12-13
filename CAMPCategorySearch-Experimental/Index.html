@@ -1558,45 +1558,45 @@ function renderResults(query) {
 
   function matchesItem(item) {
     if (activeFilters.size === 0) return true;
-    
+
     const placementActive = [...activeFilters].filter(f => placementFilters.has(f));
     const categoryActive  = [...activeFilters].filter(f => !placementFilters.has(f));
-    
+
     // --- Placement properties ---
     const isChallenge   = /Challenge_/.test(item.BOOK_EDITORID);
     const hasPlan       = !!item.BOOK_FULL?.trim() && !isChallenge;
     const hasEnt        = !!item.ENTM_FULL?.trim();
     const hasChallenge  = isChallenge;
     const hasLearn      = String(item.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup';
-    
+
     // --- Hybrid placement filter logic ---
-    let placementMatch = false; // default to false if any filter is active
-    
-    if (placementActive.length > 0) {
-      // XOR for plan vs entitlement
-      if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
-        placementMatch = hasPlan || hasEnt;
-      } else if (placementActive.includes('plan')) {
-        placementMatch = hasPlan && !hasEnt;
-      } else if (placementActive.includes('entitlement')) {
-        placementMatch = hasEnt && !hasPlan;
-      }
-    
-      // OR in challenge/learn filters independently
-      if (placementActive.includes('challenge') && hasChallenge) placementMatch = true;
-      if (placementActive.includes('learn') && hasLearn)         placementMatch = true;
-    } else {
-      placementMatch = true; // no placement filters → allow all
-    }
-  
+    let planEntMatch = false;
+if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
+  planEntMatch = hasPlan || hasEnt;
+} else if (placementActive.includes('plan')) {
+  planEntMatch = hasPlan && !hasEnt;
+} else if (placementActive.includes('entitlement')) {
+  planEntMatch = hasEnt && !hasPlan;
+} else if (!placementActive.includes('plan') && !placementActive.includes('entitlement')) {
+  planEntMatch = false; // no plan/entitlement selected
+}
+
+// Separate booleans for challenge/learn
+let challengeMatch = placementActive.includes('challenge') && hasChallenge;
+let learnMatch     = placementActive.includes('learn') && hasLearn;
+
+// Final placement match = any of these
+placementMatch = planEntMatch || challengeMatch || learnMatch;
+
+
     // --- Category/subcategory filters ---
     const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
       (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f
     );
-  
+
     return placementMatch && categoryMatch;
   }
-  
+
 
   
 
