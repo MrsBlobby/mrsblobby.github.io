@@ -1561,11 +1561,22 @@ function renderResults(query) {
     const placementActive = [...activeFilters].filter(f => placementFilters.has(f));
     const categoryActive  = [...activeFilters].filter(f => !placementFilters.has(f));
 
-    // --- Placement filters (plan, entitlement) OR logic ---
-    const placementMatch = placementActive.length === 0 || placementActive.some(f => 
-      (f === 'plan' && item.BOOK_FULL?.trim()) ||
-      (f === 'entitlement' && item.ENTM_FULL?.trim())
-    );
+    // --- Placement filters logic ---
+  let placementMatch = true;
+
+  if (placementActive.length > 0) {
+    const hasPlan = !!item.BOOK_FULL?.trim();
+    const hasEnt  = !!item.ENTM_FULL?.trim();
+
+    if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
+      // both enabled → OR
+      placementMatch = hasPlan || hasEnt;
+    } else if (placementActive.includes('plan')) {
+      placementMatch = hasPlan;
+    } else if (placementActive.includes('entitlement')) {
+      placementMatch = hasEnt;
+    }
+  }
 
     // --- Category/subcategory filters OR logic ---
     const categoryMatch = categoryActive.length === 0 || categoryActive.some(f => 
