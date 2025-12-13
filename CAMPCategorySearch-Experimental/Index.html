@@ -1564,41 +1564,29 @@ function renderResults(query) {
   const id = String(item.BOOK_EditorID || '').toLowerCase();
   const source = String(item.BOOK_SOURCE || '').toLowerCase();
 
-  // Placement flags
   const hasChallenge = id.includes('challenge_');
-  const hasLearn    = source === 'learnonpickup'; // exact flag
-  const hasPlan     = !!item.BOOK_FULL?.trim() && !hasChallenge; // exclude challenges from plan
+  const hasLearn    = source === 'learnonpickup';
+  const hasPlan     = !!item.BOOK_FULL?.trim() && !hasChallenge;
   const hasEnt      = !!item.ENTM_FULL?.trim();
 
   let placementMatch = true;
 
   if (placementActive.length > 0) {
-    const flags = {
-      plan: hasPlan,
-      entitlement: hasEnt,
-      challenge: hasChallenge,
-      learn: hasLearn,
-    };
-
-    if (placementActive.length === 1) {
-      const only = placementActive[0];
-
-      if (only === 'learn' || only === 'challenge') {
-        // Only require this attribute, ignore plan/ent flags
-        placementMatch = flags[only];
-      } else {
-        // Plan/entitlement strict single-selection
-        placementMatch = flags[only] && Object.entries(flags).every(([k, v]) => {
-          return k === only || !v;
-        });
-      }
-    } else {
-      // Multiple selection → must satisfy all selected attributes simultaneously
-      placementMatch = placementActive.every(f => flags[f]);
+    // --- Plan / Entitlement hybrid AND ---
+    if (placementActive.includes('plan') && placementActive.includes('entitlement')) {
+      placementMatch = hasPlan && hasEnt; // must have both
+    } else if (placementActive.includes('plan')) {
+      placementMatch = hasPlan && !hasEnt;
+    } else if (placementActive.includes('entitlement')) {
+      placementMatch = hasEnt && !hasPlan;
     }
+
+    // --- Challenge / Learn independent ---
+    if (placementActive.includes('challenge')) placementMatch = placementMatch && hasChallenge;
+    if (placementActive.includes('learn'))      placementMatch = placementMatch && hasLearn;
   }
 
-  // Category/subcategory OR filter
+  // Category/subcategory filters (OR)
   const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
     (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f
   );
