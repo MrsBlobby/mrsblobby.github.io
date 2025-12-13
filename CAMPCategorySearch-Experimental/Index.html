@@ -1152,6 +1152,14 @@ function createTooltipElement(text) {
   return t;
 }
 
+const tooltipMap = new Map(); // global or outer scope
+
+// For each item when creating the tooltip:
+const tooltipEl = createTooltipElement(tooltipText);
+tooltipMap.set(item.ID, tooltipText); // store tooltip text for search
+attachTooltipToIcon(icon, tooltipEl);
+
+
 let mobileTooltipTimeout = null; // for resetting hide timer
 
 function attachTooltipToIcon(icon, text) {
@@ -1926,7 +1934,10 @@ bookFulls.forEach((fullName, i) => {
     } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
       tooltipText = `Loot to Unlock`;
     }
-    attachTooltipToIcon(icon, tooltipText);
+    const tooltipEl = createTooltipElement(tooltipText);
+    attachTooltipToIcon(icon, tooltipEl);
+    tooltipMap.set(item.ID, tooltipText); // store text for search
+
 
     appendedIcon = true;
   });
@@ -1951,7 +1962,10 @@ bookFulls.forEach((fullName, i) => {
       icon.style.verticalAlign = 'middle';
       icon.style.marginRight = '6px';
       pill.appendChild(icon);
-      attachTooltipToIcon(icon, tooltipText);
+      const tooltipEl = createTooltipElement(tooltipText);
+      attachTooltipToIcon(icon, tooltipEl);
+      tooltipMap.set(item.ID, tooltipText); // store text for search
+
     }
   }
 
@@ -2112,7 +2126,10 @@ if (hasEntm) {
           }
         }
 
-      attachTooltipToIcon(icon, tooltipText); 
+      const tooltipEl = createTooltipElement(tooltipText);
+      attachTooltipToIcon(icon, tooltipEl);
+      tooltipMap.set(item.ID, tooltipText); // store text for search
+            
     }
     
     
