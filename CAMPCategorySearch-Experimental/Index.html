@@ -1118,8 +1118,6 @@ const CategoryIcons = {
   'Pet Furniture': '/assets/SubCategory-PetFurnitureIcon.webp'
 };
 
-const tooltipMap = new Map();
-
 window.addEventListener('DOMContentLoaded', () => {
   // Clear search bar
   const searchBox = document.getElementById('searchBox');
@@ -1149,11 +1147,9 @@ function createTooltipElement(text) {
   const t = document.createElement('div');
   t.className = 'tooltip';
   t.textContent = text;
-  t.dataset.tooltipText = text;
   document.body.appendChild(t);
   return t;
 }
-
 
 let mobileTooltipTimeout = null; // for resetting hide timer
 
@@ -1602,31 +1598,58 @@ function renderResults(query) {
 }
 
 
+
+
+  
+    
+
   
 
+
   // --- Filter the DB ---
-  const filtered = db.filter(item => {
-  if (!item.Name || item.Name === 'null' || item.Name.trim() === '') return false;
-    // basic search
-    let matchesSearch;
-    if (!normalizedQuery) {
-        matchesSearch = true;
-    } else if (currentSearchBy === 'name') {
-        matchesSearch = item.Name && item.Name.toLowerCase().includes(normalizedQuery);
+  const filtered = db.filter(r => {
+  const matchesFilters = matchesItem(r); // your existing placement/category filter logic
+
+  let matchesSearch = true;
+  if (normalizedQuery) {
+    if (currentSearchBy === 'name') {
+      matchesSearch = r.Name && r.Name.toLowerCase().includes(normalizedQuery);
     } else if (currentSearchBy === 'book') {
-        matchesSearch = item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
+      matchesSearch = r.BOOK_FULL && r.BOOK_FULL.toLowerCase().includes(normalizedQuery);
     } else if (currentSearchBy === 'entm') {
-        matchesSearch = item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
+      matchesSearch = r.ENTM_FULL && r.ENTM_FULL.toLowerCase().includes(normalizedQuery);
     } else if (currentSearchBy === 'tooltip') {
-      const tooltipEl = icon.querySelector('.tooltip') || icon.dataset.tooltipText;
-      const tooltipText = tooltipMap.get(item.ID) || '';
-      matchesSearch = tooltipText.toLowerCase().includes(normalizedQuery);
+      // generate tooltip text on the fly
+      let tooltipTextParts = [];
+
+      const bookFulls = (r.BOOK_FULL || '').split(';').map(s => s.trim()).filter(Boolean);
+      const bookEditorIds = (r.BOOK_EditorID || '').split(';').map(s => s.trim());
+      const globValue = r.GLOB_Value;
+
+      bookFulls.forEach((fullName, i) => {
+        const bookEditorId = bookEditorIds[i] || '';
+        if (/Challenge_/.test(bookEditorId)) {
+          let txt = `Challenge: "${fullName}"`;
+          if (globValue != null) txt += ` (X/${globValue})`;
+          tooltipTextParts.push(txt);
+        } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
+          tooltipTextParts.push(`Loot to Unlock`);
+        } else {
+          tooltipTextParts.push(fullName);
+        }
+      });
+
+      const entmFulls = (r.ENTM_FULL || '').split(';').map(s => s.trim()).filter(Boolean);
+      tooltipTextParts.push(...entmFulls);
+
+      const tooltipText = tooltipTextParts.join(' ').toLowerCase();
+      matchesSearch = tooltipText.includes(normalizedQuery);
     }
+  }
 
-    const matchesFilters = matchesItem(item); // call the new function
+  return matchesFilters && matchesSearch;
+});
 
-    return matchesSearch && matchesFilters;
-  });
 
   const sorted = sortItems(filtered);
 
@@ -1776,7 +1799,7 @@ if (hasBook) {
     'EquinoxRewards': '/assets/EquinoxIcon.svg',
     'GrahmVendor': '/assets/GrahmIcon.webp',
     'ColossalProblemRewards': '/assets/PublicEventIcon.svg',
-    'ScorchedEarthRewards': '/assets/PublicEventIcon.svg',
+    'ScorchedEarthRewards': '/assets/PublicEventIcon.svg'
     'BeastsOfBurdenRewards': '/assets/PublicEventIcon.svg',
     'CampfireTalesRewards': '/assets/PublicEventIcon.svg',
     'DangerousPastimesRewards': '/assets/PublicEventIcon.svg',
@@ -1929,10 +1952,7 @@ bookFulls.forEach((fullName, i) => {
     } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
       tooltipText = `Loot to Unlock`;
     }
-    const tooltipEl = createTooltipElement(tooltipText);
-    attachTooltipToIcon(icon, tooltipEl);
-    tooltipMap.set(item.ID, tooltipText); // store text for search
-
+    attachTooltipToIcon(icon, tooltipText);
 
     appendedIcon = true;
   });
@@ -1957,10 +1977,7 @@ bookFulls.forEach((fullName, i) => {
       icon.style.verticalAlign = 'middle';
       icon.style.marginRight = '6px';
       pill.appendChild(icon);
-      const tooltipEl = createTooltipElement(tooltipText);
-      attachTooltipToIcon(icon, tooltipEl);
-      tooltipMap.set(item.ID, tooltipText); // store text for search
-
+      attachTooltipToIcon(icon, tooltipText);
     }
   }
 
@@ -2121,10 +2138,7 @@ if (hasEntm) {
           }
         }
 
-      const tooltipEl = createTooltipElement(tooltipText);
-      attachTooltipToIcon(icon, tooltipEl);
-      tooltipMap.set(item.ID, tooltipText); // store text for search
-
+      attachTooltipToIcon(icon, tooltipText); 
     }
     
     
