@@ -1928,7 +1928,7 @@ function getTooltipTextForTag(tag, originalTags) {
     pillText = `Challenge: "${fullName}"`;
     if (globValue != null) pillText += ` (X/${globValue})`;
   } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
-    pillText = `Loot: "${fullName}"`;
+    pillText = `Loot: ${fullName}`;
   }
 
   pill.appendChild(document.createTextNode(pillText));
