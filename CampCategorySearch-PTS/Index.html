@@ -1665,7 +1665,7 @@ if (matchedEdid) {
   if (miniSeasonAliases[matchedEdid]) {
     textSuffix = ` (Mini Season: ${miniSeasonAliases[matchedEdid]})`;
   } else {
-    const miniMatch = matchedEdid.match(/MiniSeason_\d+_([A-Za-z0-9]+)/i);
+    const miniMatch = matchedEdid.match(/MiniSeason_([A-Za-z0-9]+)/i);
     if (miniMatch) {
       const prettyName = miniMatch[1].replace(/([a-z])([A-Z])/g, '$1 $2');
       textSuffix = ` (Mini Season: ${prettyName})`;
