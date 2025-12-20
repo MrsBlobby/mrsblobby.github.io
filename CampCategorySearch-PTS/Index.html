@@ -1661,21 +1661,25 @@ if (hasBook) {
 // optional season suffix
 let textSuffix = '';
 if (matchedEdid) {
-  // Check manual mini season aliases first
-  if (miniSeasonAliases[matchedEdid]) {
-    textSuffix = ` (Mini Season: ${miniSeasonAliases[matchedEdid]})`;
+  // Check alias keys as prefix
+  const aliasKey = Object.keys(miniSeasonAliases).find(key => matchedEdid.startsWith(key));
+  if (aliasKey) {
+    textSuffix = ` (Mini Season: ${miniSeasonAliases[aliasKey]})`;
   } else {
-    const miniMatch = matchedEdid.match(/MiniSeason_([A-Za-z0-9]+)/i);
+    // Try to extract MiniSeason name after "MiniSeason_"
+    const miniMatch = matchedEdid.match(/MiniSeason_(?:\d+_)?([A-Za-z0-9]+)/i);
     if (miniMatch) {
-      const prettyName = miniMatch[1].replace(/([a-z])([A-Z])/g, '$1 $2');
-      textSuffix = ` (Mini Season: ${prettyName})`;
+      // Split camel case for readability
+      const cleanedName = miniMatch[1].replace(/([a-z])([A-Z])/g, '$1 $2');
+      textSuffix = ` (Mini Season: ${cleanedName})`;
     } else {
-      // Fallback for regular SCORE seasons
+      // Fallback to generic SCORE season number
       const seasonMatch = matchedEdid.match(/SCORE[_]?S?(\d+)/i);
       if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
     }
   }
 }
+
 
 
     pill.appendChild(document.createTextNode(fullName + textSuffix));
