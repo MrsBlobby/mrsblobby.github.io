@@ -1750,8 +1750,33 @@ function renderResults(query) {
       const condWrap = document.createElement('div');
       condWrap.className = 'inline-wrap';
 
-      const isDirect = (String(r.BOOK_SOURCE || '').toLowerCase() === 'direct');
-      const connectorWord = isDirect ? 'and' : 'or';
+      const bookSource = String(r.BOOK_SOURCE || '').trim();
+
+      let bookBookConnector = 'and';
+      let bookEntmConnector = 'and';
+      const entmEntmConnector = 'and';
+
+      switch (bookSource) {
+        case 'direct':
+          // all AND → defaults already correct
+          break;
+      
+        case 'CNDF':
+          bookBookConnector = 'or';
+          bookEntmConnector = 'or';
+          break;
+      
+        case 'CNDFException':
+          bookBookConnector = 'or';
+          bookEntmConnector = 'and';
+          break;
+      
+        default:
+          // unknown source → safest fallback
+          bookBookConnector = 'and';
+          bookEntmConnector = 'and';
+      }
+
 
 if (hasBook) {
   const BookTagIcons = {
@@ -1968,21 +1993,20 @@ bookFulls.forEach((fullName, i) => {
   if (i < bookFulls.length - 1) {
     const conn = document.createElement('span');
     conn.className = 'connector';
-    conn.textContent = 'and';
+    conn.textContent = bookBookConnector;
     condWrap.appendChild(conn);
   }
 });
 
-
 }
+   // --- connector ---
+   if (hasBook && hasEntm) {
+    const conn = document.createElement('span');
+    conn.className = 'connector';
+    conn.textContent = bookEntmConnector;
+    condWrap.appendChild(conn);
+  }
 
- // --- connector ---
- if (hasBook && hasEntm) {
-   const conn = document.createElement('span');
-   conn.className = 'connector';
-   conn.textContent = connectorWord;
-   condWrap.appendChild(conn);
- }
 
 
  // --- ENTM pills ---
@@ -2146,7 +2170,7 @@ if (hasEntm) {
     if (i < entmPills.length - 1) {
       const conn = document.createElement('span');
       conn.className = 'connector';
-      conn.textContent = 'and';
+      conn.textContent = entmEntmConnector;
       condWrap.appendChild(conn);
     }
   });
