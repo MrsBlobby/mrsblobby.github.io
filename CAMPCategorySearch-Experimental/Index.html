@@ -1842,7 +1842,7 @@ const multiVendorCategories = {
   },
   NPCVendor: {
     icon: '/assets/NPCVendorIcon.svg',
-    prefixes: ['MacVendor', 'LumbermillVendor']
+    prefixes: ['MacVendor', 'JuneSeaverVendor']
   }
 };
 
@@ -1890,14 +1890,14 @@ function getTooltipTextForTag(tag, originalTags) {
     if (normalized === 'NPCVendor') {
       return `Sold by NPC Vendor (${presentVendors.join(', ')})`;
     }
-    
+
     const vendorLabel =
       normalized === 'BullionVendor'
         ? 'Gold Bullion'
         : normalized.replace('Vendor', '');
-    
+
     return `Sold by ${vendorLabel} Vendor (${presentVendors.join(', ')})`;
-    
+
 
    }
 
