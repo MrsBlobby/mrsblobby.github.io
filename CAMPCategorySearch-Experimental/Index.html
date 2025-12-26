@@ -1839,6 +1839,10 @@ const multiVendorCategories = {
   RobotVendor: {
     icon: '/assets/RobotVendorIcon.webp',
     prefixes: ['FreeStatesVendor', 'BrotherhoodVendor', 'RespondersVendor', 'RaiderVendor', 'WhitespringStationVendor', 'PendletonVendor']
+  },
+  NPCVendor: {
+    icon: '/assets/NPCVendorIcon.svg',
+    prefixes: ['MacVendor', 'LumbermillVendor']
   }
 };
 
@@ -1855,6 +1859,19 @@ function normalizeTag(tag) {
   return tag;
 }
 
+function formatVendorName(tag, category) {
+  // Find the matching prefix
+  const matchedPrefix = category.prefixes.find(p => tag.startsWith(p)) || '';
+  let name = tag;
+  if (matchedPrefix) {
+    name = tag.replace(matchedPrefix, '');
+  }
+  // Remove 'Vendor' and fix camelCase spacing
+  name = name.replace('Vendor', '');
+  name = name.replace(/([a-z])([A-Z])/g, '$1 $2');
+  return name.trim();
+}
+
 function getTooltipTextForTag(tag, originalTags) {
   const normalized = normalizeTag(tag);
 
@@ -1865,35 +1882,27 @@ function getTooltipTextForTag(tag, originalTags) {
     const presentVendors = originalTags
       .filter(t => t === normalized || (category.prefixes && category.prefixes.some(p => t.startsWith(p))))
       .map(t => {
-      if (t === normalized) {
-          // Special case for BullionVendor
-          if (normalized === 'BullionVendor') return 'Gold Bullion';
-      
-          return normalized.replace('Vendor', '');
-      }
-    
-      const match = category.prefixes.find(p => t.startsWith(p));
-      if (!match) return t;
-    
-      let name = match.replace(normalized, ''); // REMOVE the normalized prefix
-      name = name.replace('Vendor', '');        // Remove trailing Vendor
-      name = name.replace(/([a-z])([A-Z])/g, '$1 $2'); // Add spacing
-      return name.trim();
-  });
-  
+        if (t === normalized) return category.displayName || normalized.replace('Vendor', '');
+        return formatVendorName(t, category);
+      });
 
-    const vendorLabel =
-    normalized === 'BullionVendor'
-      ? 'Gold Bullion'
-      : normalized.replace('Vendor', '');
+    // Special case for NPCVendor
+    if (normalized === 'NPCVendor') {
+      return `Sold by NPC Vendor (${presentVendors.join(', ')})`;
+    }
 
-   return `Sold by ${vendorLabel} Vendor (${presentVendors.join(', ')})`;
-
-   }
+    const vendorLabel = category.displayName || normalized.replace('Vendor', '');
+    if (presentVendors.length === 1) {
+      return `Sold by ${vendorLabel} Vendor (${presentVendors[0]})`;
+    } else {
+      return `Sold by ${vendorLabel} (${presentVendors.join(', ')})`;
+    }
+  }
 
   const entry = IconAltText_BOOK[normalized];
   return entry?.alt || normalized;
 }
+
 
 
   const bookFulls = String(r.BOOK_FULL || '')
