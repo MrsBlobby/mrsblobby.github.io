@@ -30919,7 +30919,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -30937,7 +30937,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32146,7 +32146,7 @@
     "BOOK_FULL": "Plan: Fusion Generator",
     "BOOK_EditorID": "Recipe_Workshop_Power_Generator_Fusion",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32164,7 +32164,7 @@
     "BOOK_FULL": "Plan: Fusion Generator",
     "BOOK_EditorID": "Recipe_Workshop_Power_Generator_Fusion",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; RespondersVendor",
     "ENTM_FULL": "Communist Fusion Generator",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Generator_Fusion_Communist",
     "GLOB_Value": null
@@ -32182,7 +32182,7 @@
     "BOOK_FULL": "Plan: Fusion Generator",
     "BOOK_EditorID": "Recipe_Workshop_Power_Generator_Fusion",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; RespondersVendor",
     "ENTM_FULL": "Alien Power Generator",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Generator_Fusion_Alien",
     "GLOB_Value": null
@@ -32200,7 +32200,7 @@
     "BOOK_FULL": "Plan: Fusion Generator",
     "BOOK_EditorID": "Recipe_Workshop_Power_Generator_Fusion",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; RespondersVendor",
     "ENTM_FULL": "Mole Rat Fusion Generator",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Generator_Fusion_Molerat",
     "GLOB_Value": null
@@ -32218,7 +32218,7 @@
     "BOOK_FULL": "Plan: Fusion Generator",
     "BOOK_EditorID": "Recipe_Workshop_Power_Generator_Fusion",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; RespondersVendor",
     "ENTM_FULL": "Utility Box Fusion Generator",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Generator_Fusion_UtilityBox",
     "GLOB_Value": null
@@ -32236,7 +32236,7 @@
     "BOOK_FULL": "Plan: Fusion Generator",
     "BOOK_EditorID": "Recipe_Workshop_Power_Generator_Fusion",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; RespondersVendor",
     "ENTM_FULL": "Fusion Emitter Generator - Fusion",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Generator_Fusion_FusionEmitter",
     "GLOB_Value": null
@@ -32254,7 +32254,7 @@
     "BOOK_FULL": "Plan: Fusion Generator",
     "BOOK_EditorID": "Recipe_Workshop_Power_Generator_Fusion",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; RespondersVendor",
     "ENTM_FULL": "Nuke Fusion Generator",
     "ENTM_EDID": "SCORE_S20_ENTM_CAMP_Utility_NukeGenerator",
     "GLOB_Value": null
@@ -32272,7 +32272,7 @@
     "BOOK_FULL": "Plan: Fusion Generator",
     "BOOK_EditorID": "Recipe_Workshop_Power_Generator_Fusion",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; RespondersVendor",
     "ENTM_FULL": "Astro Harvest Generator - Fusion",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Generator_Fusion_AstroHarvest",
     "GLOB_Value": null
@@ -32290,7 +32290,7 @@
     "BOOK_FULL": "Plan: Fusion Generator",
     "BOOK_EditorID": "Recipe_Workshop_Power_Generator_Fusion",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; RespondersVendor",
     "ENTM_FULL": "Dust Devil Fusion Generator",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Generator_Fusion_DustDevil",
     "GLOB_Value": null
@@ -32308,7 +32308,7 @@
     "BOOK_FULL": "Plan: Large Generator",
     "BOOK_EditorID": "Recipe_Workshop_Power_Generator_Large",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32326,7 +32326,7 @@
     "BOOK_FULL": "Plan: Large Generator",
     "BOOK_EditorID": "Recipe_Workshop_Power_Generator_Large",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; RespondersVendor",
     "ENTM_FULL": "Mole Rat Large Generator",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Generator_Large_Molerat",
     "GLOB_Value": null
@@ -32344,7 +32344,7 @@
     "BOOK_FULL": "Plan: Large Generator",
     "BOOK_EditorID": "Recipe_Workshop_Power_Generator_Large",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; RespondersVendor",
     "ENTM_FULL": "Utility Box Large Generator",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Generator_Large_UtilityBox",
     "GLOB_Value": null
@@ -32828,7 +32828,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32846,7 +32846,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32864,7 +32864,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32882,7 +32882,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32900,7 +32900,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32918,7 +32918,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32936,7 +32936,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32954,7 +32954,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32972,7 +32972,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32990,7 +32990,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33008,7 +33008,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33026,7 +33026,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33044,7 +33044,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33062,7 +33062,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33080,7 +33080,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33098,7 +33098,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33116,7 +33116,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33134,7 +33134,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33152,7 +33152,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33170,7 +33170,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33188,7 +33188,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33206,7 +33206,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33224,7 +33224,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33242,7 +33242,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33260,7 +33260,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33278,7 +33278,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33296,7 +33296,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33472,7 +33472,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33490,7 +33490,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33597,7 +33597,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33615,7 +33615,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33633,7 +33633,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33651,7 +33651,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33669,7 +33669,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33687,7 +33687,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33705,7 +33705,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33723,7 +33723,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33741,7 +33741,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33777,7 +33777,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33795,7 +33795,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33813,7 +33813,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33831,7 +33831,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33849,7 +33849,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; LumbermillVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; JuneSeaverVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -41022,7 +41022,7 @@
     "BOOK_FULL": "Plan: Lightning Battery Lamp",
     "BOOK_EditorID": "MILE_Recipe_Workshop_Lights_Wall_LightningPodLamp",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
+    "BOOK_SOURCE_TAG": "MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -47765,7 +47765,7 @@
     "BOOK_FULL": "Plan: Stargazer's Telescope",
     "BOOK_EditorID": "MILE_Recipe_Workshop_Telescope",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
+    "BOOK_SOURCE_TAG": "MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -71102,7 +71102,7 @@
     "BOOK_FULL": "Plan: Makeshift Wine Rack",
     "BOOK_EditorID": "MILE_Workshop_Recipe_WineRack",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
+    "BOOK_SOURCE_TAG": "MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -74984,7 +74984,7 @@
     "BOOK_FULL": "Plan: Rolled Persian Rugs",
     "BOOK_EditorID": "MILE_Workshop_Recipe_PersianRug_Rolled01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
+    "BOOK_SOURCE_TAG": "MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -75002,7 +75002,7 @@
     "BOOK_FULL": "Plan: Persian Rug",
     "BOOK_EditorID": "MILE_Workshop_Recipe_PersianRug_Floor01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
+    "BOOK_SOURCE_TAG": "MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -75020,7 +75020,7 @@
     "BOOK_FULL": "Plan: Persian Rug",
     "BOOK_EditorID": "MILE_Workshop_Recipe_PersianRug_Floor01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
+    "BOOK_SOURCE_TAG": "MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -75056,7 +75056,7 @@
     "BOOK_FULL": "Plan: Persian Rug",
     "BOOK_EditorID": "MILE_Workshop_Recipe_PersianRug_Floor01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
+    "BOOK_SOURCE_TAG": "MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -84679,7 +84679,7 @@
     "BOOK_FULL": "Plan: Dark Hollow Manor Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_Darkwood",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "HolidayScorched; BullionVendorWindy",
+    "BOOK_SOURCE_TAG": "HolidayScorched",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -84697,7 +84697,7 @@
     "BOOK_FULL": "Plan: High Knob Lookout Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_HighKnob",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "HolidayScorched; BullionVendorWindy",
+    "BOOK_SOURCE_TAG": "HolidayScorched",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -84715,7 +84715,7 @@
     "BOOK_FULL": "Plan: Big Meadows Gas Well Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_NaturalGas",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "HolidayScorched; BullionVendorWindy",
+    "BOOK_SOURCE_TAG": "HolidayScorched",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -84733,7 +84733,7 @@
     "BOOK_FULL": "Plan: Shenandoah Vistor Center Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_Shenandoah",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "HolidayScorched; BullionVendorWindy",
+    "BOOK_SOURCE_TAG": "HolidayScorched",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -84751,7 +84751,7 @@
     "BOOK_FULL": "Plan: Slumber Mill Motel Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_SlumberMill",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "HolidayScorched; BullionVendorWindy",
+    "BOOK_SOURCE_TAG": "HolidayScorched",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -84769,7 +84769,7 @@
     "BOOK_FULL": "Plan: Camp Liberty Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_SummerCamp",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "HolidayScorched; BullionVendorWindy",
+    "BOOK_SOURCE_TAG": "HolidayScorched",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -94367,7 +94367,7 @@
     "BOOK_FULL": "Plan: Persian Wall Rug",
     "BOOK_EditorID": "MILE_Workshop_Recipe_PersianRug_Wall01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
+    "BOOK_SOURCE_TAG": "MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -94385,7 +94385,7 @@
     "BOOK_FULL": "Plan: Persian Wall Rug",
     "BOOK_EditorID": "MILE_Workshop_Recipe_PersianRug_Wall01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
+    "BOOK_SOURCE_TAG": "MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -94403,7 +94403,7 @@
     "BOOK_FULL": "Plan: Persian Wall Rug",
     "BOOK_EditorID": "MILE_Workshop_Recipe_PersianRug_Wall01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
+    "BOOK_SOURCE_TAG": "MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -111883,7 +111883,7 @@
     "BOOK_FULL": "Plan: Noren Awning",
     "BOOK_EditorID": "MILE_Workshop_Recipe_NorenAwning",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
+    "BOOK_SOURCE_TAG": "MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -111901,7 +111901,7 @@
     "BOOK_FULL": "Plan: Noren Curtains",
     "BOOK_EditorID": "MILE_Workshop_Recipe_NorenCurtains",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
+    "BOOK_SOURCE_TAG": "MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -116049,7 +116049,7 @@
     "BOOK_FULL": "Plan: Park Ranger Supply Box",
     "BOOK_EditorID": "MILE_Workshop_Recipe_RangerStashBox",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
+    "BOOK_SOURCE_TAG": "MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
