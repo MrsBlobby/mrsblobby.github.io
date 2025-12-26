@@ -1754,7 +1754,7 @@ function renderResults(query) {
 
       let bookBookConnector = 'and';
       let bookEntmConnector = 'and';
-      const entmEntmConnector = 'and';
+      let entmEntmConnector = 'and';
 
       switch (bookSource) {
         case 'direct':
@@ -1769,6 +1769,7 @@ function renderResults(query) {
         case 'CNDFException':
           bookBookConnector = 'or';
           bookEntmConnector = 'and';
+          entmEntmConnector = 'or';
           break;
       
         default:
