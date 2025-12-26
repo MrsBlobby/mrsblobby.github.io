@@ -82,7 +82,7 @@
     "BOOK_FULL": "Plan: Farmable Dirt Tiles",
     "BOOK_EditorID": "W05_Recipe_workshop_CAMP_Floor_DirtTile_GoldVendor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorMinerva",
+    "BOOK_SOURCE_TAG": "BullionVendorMinerva; BullionVendorSamuel",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 500
@@ -2043,7 +2043,7 @@
     "BOOK_FULL": "Plan: Farmable Dirt Tiles",
     "BOOK_EditorID": "W05_Recipe_workshop_CAMP_Floor_DirtTile_GoldVendor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorMinerva",
+    "BOOK_SOURCE_TAG": "BullionVendorMinerva; BullionVendorSamuel",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 500
@@ -5421,7 +5421,7 @@
     "BOOK_FULL": "Plan: Farmable Dirt Tiles",
     "BOOK_EditorID": "W05_Recipe_workshop_CAMP_Floor_DirtTile_GoldVendor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorMinerva",
+    "BOOK_SOURCE_TAG": "BullionVendorMinerva; BullionVendorSamuel",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 500
@@ -7270,7 +7270,7 @@
     "BOOK_FULL": "Plan: Farmable Dirt Tiles",
     "BOOK_EditorID": "W05_Recipe_workshop_CAMP_Floor_DirtTile_GoldVendor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorMinerva",
+    "BOOK_SOURCE_TAG": "BullionVendorMinerva; BullionVendorSamuel",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 500
@@ -7322,7 +7322,7 @@
     "BOOK_FULL": "Plan: Farmable Dirt Tiles",
     "BOOK_EditorID": "W05_Recipe_workshop_CAMP_Floor_DirtTile_GoldVendor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorMinerva",
+    "BOOK_SOURCE_TAG": "BullionVendorMinerva; BullionVendorSamuel",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 500
@@ -8276,7 +8276,7 @@
     "BOOK_FULL": "Plan: Barn Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Barn_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8294,7 +8294,7 @@
     "BOOK_FULL": "Plan: Barn Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Barn_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8312,7 +8312,7 @@
     "BOOK_FULL": "Plan: Barn Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Barn_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8330,7 +8330,7 @@
     "BOOK_FULL": "Plan: Barn Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Barn_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8348,7 +8348,7 @@
     "BOOK_FULL": "Plan: Barn Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Barn_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8366,7 +8366,7 @@
     "BOOK_FULL": "Plan: Barn Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Barn_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8384,7 +8384,7 @@
     "BOOK_FULL": "Plan: Barn Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Barn_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8402,7 +8402,7 @@
     "BOOK_FULL": "Plan: Barn Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Barn_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8420,7 +8420,7 @@
     "BOOK_FULL": "Plan: Barn Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Barn_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8438,7 +8438,7 @@
     "BOOK_FULL": "Plan: Barn Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Barn_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8456,7 +8456,7 @@
     "BOOK_FULL": "Plan: Barn Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Barn_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8474,7 +8474,7 @@
     "BOOK_FULL": "Plan: Barn Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Barn_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8492,7 +8492,7 @@
     "BOOK_FULL": "Plan: Barn Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Barn_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8510,7 +8510,7 @@
     "BOOK_FULL": "Plan: Barn Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Barn_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8870,7 +8870,7 @@
     "BOOK_FULL": "Plan: Brick Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Brick_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8888,7 +8888,7 @@
     "BOOK_FULL": "Plan: Brick Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Brick_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8906,7 +8906,7 @@
     "BOOK_FULL": "Plan: Brick Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Brick_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8924,7 +8924,7 @@
     "BOOK_FULL": "Plan: Brick Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Brick_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8942,7 +8942,7 @@
     "BOOK_FULL": "Plan: Brick Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Brick_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8960,7 +8960,7 @@
     "BOOK_FULL": "Plan: Brick Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Brick_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8978,7 +8978,7 @@
     "BOOK_FULL": "Plan: Brick Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Brick_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -8996,7 +8996,7 @@
     "BOOK_FULL": "Plan: Brick Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Brick_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -9014,7 +9014,7 @@
     "BOOK_FULL": "Plan: Brick Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Brick_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -9032,7 +9032,7 @@
     "BOOK_FULL": "Plan: Brick Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Brick_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -9050,7 +9050,7 @@
     "BOOK_FULL": "Plan: Brick Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Brick_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -9068,7 +9068,7 @@
     "BOOK_FULL": "Plan: Brick Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Brick_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -9086,7 +9086,7 @@
     "BOOK_FULL": "Plan: Brick Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Brick_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -9104,7 +9104,7 @@
     "BOOK_FULL": "Plan: Brick Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Brick_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -17870,7 +17870,7 @@
     "BOOK_FULL": "Plan: Metal Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Metal_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -17888,7 +17888,7 @@
     "BOOK_FULL": "Plan: Metal Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Metal_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -17906,7 +17906,7 @@
     "BOOK_FULL": "Plan: Metal Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Metal_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -17924,7 +17924,7 @@
     "BOOK_FULL": "Plan: Metal Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Metal_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -17942,7 +17942,7 @@
     "BOOK_FULL": "Plan: Metal Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Metal_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -17960,7 +17960,7 @@
     "BOOK_FULL": "Plan: Metal Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Metal_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -17978,7 +17978,7 @@
     "BOOK_FULL": "Plan: Metal Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Metal_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -17996,7 +17996,7 @@
     "BOOK_FULL": "Plan: Metal Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Metal_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -18014,7 +18014,7 @@
     "BOOK_FULL": "Plan: Metal Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Metal_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -18032,7 +18032,7 @@
     "BOOK_FULL": "Plan: Metal Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Metal_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -18050,7 +18050,7 @@
     "BOOK_FULL": "Plan: Metal Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Metal_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -18068,7 +18068,7 @@
     "BOOK_FULL": "Plan: Metal Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Metal_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -18086,7 +18086,7 @@
     "BOOK_FULL": "Plan: Metal Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Metal_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -19148,7 +19148,7 @@
     "BOOK_FULL": "Plan: Warehouse Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Warehouse_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -19166,7 +19166,7 @@
     "BOOK_FULL": "Plan: Warehouse Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Warehouse_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -19184,7 +19184,7 @@
     "BOOK_FULL": "Plan: Warehouse Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Warehouse_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -19202,7 +19202,7 @@
     "BOOK_FULL": "Plan: Warehouse Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Warehouse_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -19220,7 +19220,7 @@
     "BOOK_FULL": "Plan: Warehouse Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Warehouse_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -19238,7 +19238,7 @@
     "BOOK_FULL": "Plan: Warehouse Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Warehouse_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -19256,7 +19256,7 @@
     "BOOK_FULL": "Plan: Warehouse Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Warehouse_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -19274,7 +19274,7 @@
     "BOOK_FULL": "Plan: Warehouse Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Warehouse_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -19292,7 +19292,7 @@
     "BOOK_FULL": "Plan: Warehouse Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Warehouse_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -19310,7 +19310,7 @@
     "BOOK_FULL": "Plan: Warehouse Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Warehouse_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -19328,7 +19328,7 @@
     "BOOK_FULL": "Plan: Warehouse Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Warehouse_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -19346,7 +19346,7 @@
     "BOOK_FULL": "Plan: Warehouse Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Warehouse_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -19364,7 +19364,7 @@
     "BOOK_FULL": "Plan: Warehouse Building Set",
     "BOOK_EditorID": "Recipe_Workshop_Walls_Warehouse_Set",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; BrotherhoodVendor; RespondersVendor; RaiderVendor; WhitespringStationVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -30919,7 +30919,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -30937,7 +30937,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -31024,7 +31024,7 @@
     "BOOK_FULL": "Plan: Siren",
     "BOOK_EditorID": "Recipe_Workshop_DefensiveStructures_Siren",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -31162,7 +31162,7 @@
     "BOOK_FULL": "Plan: Artillery",
     "BOOK_EditorID": "Recipe_Workshop_DefensiveStructures_Artillery",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32828,7 +32828,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32846,7 +32846,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32864,7 +32864,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32882,7 +32882,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32900,7 +32900,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32918,7 +32918,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32936,7 +32936,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32954,7 +32954,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32972,7 +32972,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -32990,7 +32990,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33008,7 +33008,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33026,7 +33026,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33044,7 +33044,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33062,7 +33062,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33080,7 +33080,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33098,7 +33098,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33116,7 +33116,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33134,7 +33134,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33152,7 +33152,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33170,7 +33170,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33188,7 +33188,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33206,7 +33206,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33224,7 +33224,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33242,7 +33242,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33260,7 +33260,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33278,7 +33278,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33296,7 +33296,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33472,7 +33472,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33490,7 +33490,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33597,7 +33597,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33615,7 +33615,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33633,7 +33633,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33651,7 +33651,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33669,7 +33669,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33687,7 +33687,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33705,7 +33705,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33723,7 +33723,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33741,7 +33741,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33777,7 +33777,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33795,7 +33795,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33813,7 +33813,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33831,7 +33831,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33849,7 +33849,7 @@
     "BOOK_FULL": "Plan: Advanced Power Connectors",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_AdvancedItems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33867,7 +33867,7 @@
     "BOOK_FULL": "Plan: Terminal",
     "BOOK_EditorID": "Recipe_Workshop_PowerConnectors_Terminal",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33885,7 +33885,7 @@
     "BOOK_FULL": "Plan: Antique Lights",
     "BOOK_EditorID": "Recipe_Workshop_Lights_AntiqueLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33903,7 +33903,7 @@
     "BOOK_FULL": "Plan: Antique Lights",
     "BOOK_EditorID": "Recipe_Workshop_Lights_AntiqueLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -33921,7 +33921,7 @@
     "BOOK_FULL": "Plan: Antique Lights",
     "BOOK_EditorID": "Recipe_Workshop_Lights_AntiqueLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -34547,7 +34547,7 @@
     "BOOK_FULL": "Plan: High-Tech Light Set",
     "BOOK_EditorID": "Recipe_Workshop_Lights_HighTechLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -34619,7 +34619,7 @@
     "BOOK_FULL": "Plan: Assorted Lights",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MiscLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -34637,7 +34637,7 @@
     "BOOK_FULL": "Plan: High-Tech Light Set",
     "BOOK_EditorID": "Recipe_Workshop_Lights_HighTechLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -34655,7 +34655,7 @@
     "BOOK_FULL": "Plan: High-Tech Light Set",
     "BOOK_EditorID": "Recipe_Workshop_Lights_HighTechLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -34673,7 +34673,7 @@
     "BOOK_FULL": "Plan: High-Tech Light Set",
     "BOOK_EditorID": "Recipe_Workshop_Lights_HighTechLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -34691,7 +34691,7 @@
     "BOOK_FULL": "Plan: High-Tech Light Set",
     "BOOK_EditorID": "Recipe_Workshop_Lights_HighTechLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -34709,7 +34709,7 @@
     "BOOK_FULL": "Plan: Assorted Lights",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MiscLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -34727,7 +34727,7 @@
     "BOOK_FULL": "Plan: Assorted Lights",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MiscLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -36436,7 +36436,7 @@
     "BOOK_FULL": "Plan: Assorted Lights",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MiscLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -36922,7 +36922,7 @@
     "BOOK_FULL": "Plan: Assorted Lights",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MiscLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -37047,7 +37047,7 @@
     "BOOK_FULL": "Plan: High-Tech Light Set",
     "BOOK_EditorID": "Recipe_Workshop_Lights_HighTechLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -37065,7 +37065,7 @@
     "BOOK_FULL": "Plan: High-Tech Light Set",
     "BOOK_EditorID": "Recipe_Workshop_Lights_HighTechLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -37083,7 +37083,7 @@
     "BOOK_FULL": "Plan: High-Tech Light Set",
     "BOOK_EditorID": "Recipe_Workshop_Lights_HighTechLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -37101,7 +37101,7 @@
     "BOOK_FULL": "Plan: High-Tech Light Set",
     "BOOK_EditorID": "Recipe_Workshop_Lights_HighTechLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -37119,7 +37119,7 @@
     "BOOK_FULL": "Plan: High-Tech Light Set",
     "BOOK_EditorID": "Recipe_Workshop_Lights_HighTechLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -37137,7 +37137,7 @@
     "BOOK_FULL": "Plan: High-Tech Light Set",
     "BOOK_EditorID": "Recipe_Workshop_Lights_HighTechLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -37155,7 +37155,7 @@
     "BOOK_FULL": "Plan: High-Tech Light Set",
     "BOOK_EditorID": "Recipe_Workshop_Lights_HighTechLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -37173,7 +37173,7 @@
     "BOOK_FULL": "Plan: High-Tech Light Set",
     "BOOK_EditorID": "Recipe_Workshop_Lights_HighTechLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -37515,7 +37515,7 @@
     "BOOK_FULL": "Plan: Assorted Lights",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MiscLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -37857,7 +37857,7 @@
     "BOOK_FULL": "Plan: Street Lights",
     "BOOK_EditorID": "Recipe_Workshop_Lights_StreetLamps",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -37875,7 +37875,7 @@
     "BOOK_FULL": "Plan: Street Lights",
     "BOOK_EditorID": "Recipe_Workshop_Lights_StreetLamps",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -37893,7 +37893,7 @@
     "BOOK_FULL": "Plan: Street Lights",
     "BOOK_EditorID": "Recipe_Workshop_Lights_StreetLamps",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -38073,7 +38073,7 @@
     "BOOK_FULL": "Plan: Resort Lamps",
     "BOOK_EditorID": "Recipe_Workshop_Lights_Whitespring_Lamps",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "SpookyScorched",
+    "BOOK_SOURCE_TAG": "SpookyScorched; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -38091,7 +38091,7 @@
     "BOOK_FULL": "Plan: Resort Lamps",
     "BOOK_EditorID": "Recipe_Workshop_Lights_Whitespring_Lamps",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "SpookyScorched",
+    "BOOK_SOURCE_TAG": "SpookyScorched; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -38109,7 +38109,7 @@
     "BOOK_FULL": "Plan: Resort Lamps",
     "BOOK_EditorID": "Recipe_Workshop_Lights_Whitespring_Lamps",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "SpookyScorched",
+    "BOOK_SOURCE_TAG": "SpookyScorched; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -38127,7 +38127,7 @@
     "BOOK_FULL": "Plan: Nixie Lamp",
     "BOOK_EditorID": "Recipe_Workshop_Lights_TableLamps_NixieTubeLight",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -38739,7 +38739,7 @@
     "BOOK_FULL": "Plan: Marquee Arrows",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -38757,7 +38757,7 @@
     "BOOK_FULL": "Plan: Marquee Arrows",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -38775,7 +38775,7 @@
     "BOOK_FULL": "Plan: Marquee Arrows",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -38793,7 +38793,7 @@
     "BOOK_FULL": "Plan: Marquee Arrows",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -38811,7 +38811,7 @@
     "BOOK_FULL": "Plan: Marquee Arrows",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -38829,7 +38829,7 @@
     "BOOK_FULL": "Plan: Marquee Arrows",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -38847,7 +38847,7 @@
     "BOOK_FULL": "Plan: Marquee Arrows",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -38865,7 +38865,7 @@
     "BOOK_FULL": "Plan: Marquee Arrows",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -38883,7 +38883,7 @@
     "BOOK_FULL": "Plan: Marquee Arrows",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -38901,7 +38901,7 @@
     "BOOK_FULL": "Plan: Marquee Arrows",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -38919,7 +38919,7 @@
     "BOOK_FULL": "Plan: Marquee Arrows",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -38937,7 +38937,7 @@
     "BOOK_FULL": "Plan: Marquee Arrows",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MarqueeArrows",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -39513,7 +39513,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -40590,7 +40590,7 @@
     "BOOK_FULL": "Plan: Assorted Lights",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MiscLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -40608,7 +40608,7 @@
     "BOOK_FULL": "Plan: High-Tech Light Set",
     "BOOK_EditorID": "Recipe_Workshop_Lights_HighTechLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -40626,7 +40626,7 @@
     "BOOK_FULL": "Plan: High-Tech Light Set",
     "BOOK_EditorID": "Recipe_Workshop_Lights_HighTechLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -40644,7 +40644,7 @@
     "BOOK_FULL": "Plan: Assorted Lights",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MiscLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -40662,7 +40662,7 @@
     "BOOK_FULL": "Plan: Assorted Lights",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MiscLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -40680,7 +40680,7 @@
     "BOOK_FULL": "Plan: Assorted Lights",
     "BOOK_EditorID": "Recipe_Workshop_Lights_MiscLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -40698,7 +40698,7 @@
     "BOOK_FULL": "Plan: Elegant Light Set",
     "BOOK_EditorID": "Recipe_Workshop_Lights_FancyLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -40716,7 +40716,7 @@
     "BOOK_FULL": "Plan: Elegant Light Set",
     "BOOK_EditorID": "Recipe_Workshop_Lights_FancyLights",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -41022,7 +41022,7 @@
     "BOOK_FULL": "Plan: Lightning Battery Lamp",
     "BOOK_EditorID": "MILE_Recipe_Workshop_Lights_Wall_LightningPodLamp",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -41345,7 +41345,7 @@
     "BOOK_FULL": "Plan: Cannery",
     "BOOK_EditorID": "SCORE_S21_Recipe_Cannery_StampVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Cannery",
     "ENTM_EDID": "SCORE_S21_ENTM_CAMP_Machinery_Workbench_Cannery",
     "GLOB_Value": null
@@ -41363,7 +41363,7 @@
     "BOOK_FULL": "Plan: Chemistry Workbench",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingChems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -41381,7 +41381,7 @@
     "BOOK_FULL": "Plan: Chemistry Workbench",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingChems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -41399,7 +41399,7 @@
     "BOOK_FULL": "Plan: Chemistry Workbench",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingChems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": "Harmaceutical Chemistry Workstation",
     "ENTM_EDID": "SCORE_S8_CAMP_Machinery_Workbench_Chemistry_Harmaceutical",
     "GLOB_Value": null
@@ -41417,7 +41417,7 @@
     "BOOK_FULL": "Plan: Chemistry Workbench",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingChems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": "Autopsy Table Chemistry Workstation",
     "ENTM_EDID": "SCORE_S16_CAMP_Workbench_Chemistry_Autopsy",
     "GLOB_Value": null
@@ -41435,7 +41435,7 @@
     "BOOK_FULL": "Plan: Chemistry Workbench",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingChems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": "Toxic Tinctures Chemistry Workstation",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Workbench_Chemistry_ToxicTinctures",
     "GLOB_Value": null
@@ -41453,7 +41453,7 @@
     "BOOK_FULL": "Plan: Chemistry Workbench",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingChems",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": "Raider Chemistry Workstation",
     "ENTM_EDID": "SCORE_S23_ENTM_CAMP_Workbench_Chemistry_Raiderized",
     "GLOB_Value": null
@@ -41523,7 +41523,7 @@
     "BOOK_FULL": "Plan: Cooking Stove",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingCooking_Stove",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -41541,7 +41541,7 @@
     "BOOK_FULL": "Plan: Cooking Stove",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingCooking_Stove",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": "Red Enamel Cooking Stove",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Workbench_Cooking_Stove_RedEnamel",
     "GLOB_Value": null
@@ -41685,7 +41685,7 @@
     "BOOK_FULL": "Plan: Cooking Stove",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingCooking_Stove",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": "Camden Park Cooking Stove",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Workbench_Cooking_Stove_CamdenPark",
     "GLOB_Value": null
@@ -41703,7 +41703,7 @@
     "BOOK_FULL": "Plan: Chuckwagon Cooking Station",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_WorkbenchCookingStove_Chuckwagon_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorMortimer",
     "ENTM_FULL": "Chuckwagon Cooking Station",
     "ENTM_EDID": "SCORE_S9_ENTM_CAMP_Machinery_Workbench_Cooking_Grill_Chuckwagon",
     "GLOB_Value": null
@@ -41955,7 +41955,7 @@
     "BOOK_FULL": "Plan: Power Armor Stations",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingPowerArmor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -41973,7 +41973,7 @@
     "BOOK_FULL": "Plan: Power Armor Stations",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingPowerArmor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -41991,7 +41991,7 @@
     "BOOK_FULL": "Plan: Power Armor Stations",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingPowerArmor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": "Hot Rod Power Armor Station",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Workbench_PowerArmor_HotRod",
     "GLOB_Value": null
@@ -42009,7 +42009,7 @@
     "BOOK_FULL": "Plan: Power Armor Stations",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingPowerArmor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": "Responders Power Armor Station",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Workbench_PowerArmor_Responders",
     "GLOB_Value": null
@@ -42027,7 +42027,7 @@
     "BOOK_FULL": "Plan: Power Armor Stations",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingPowerArmor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": "Red Rocket Power Armor Station",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Workbench_PowerArmor_RedRocket",
     "GLOB_Value": null
@@ -42045,7 +42045,7 @@
     "BOOK_FULL": "Plan: Power Armor Stations",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingPowerArmor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": "Armor Ace Power Armor Station",
     "ENTM_EDID": "SCORE_S4_ENTM_CAMP_Machinery_Workbench_PowerArmor_ArmorAce",
     "GLOB_Value": null
@@ -42063,7 +42063,7 @@
     "BOOK_FULL": "Plan: Power Armor Stations",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingPowerArmor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": "Enclave Power Armor Station",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Workbench_PowerArmor_Enclave",
     "GLOB_Value": null
@@ -42081,7 +42081,7 @@
     "BOOK_FULL": "Plan: Power Armor Stations",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingPowerArmor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": "The Rack Power Armor Station",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Workbench_PowerArmor_TheRack",
     "GLOB_Value": null
@@ -42099,7 +42099,7 @@
     "BOOK_FULL": "Plan: Power Armor Stations",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingPowerArmor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": "Light 'Em Up Power Armor Station",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Workbench_PowerArmor_LightEmUp",
     "GLOB_Value": null
@@ -42117,7 +42117,7 @@
     "BOOK_FULL": "Plan: Power Armor Stations",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingPowerArmor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": "Tow Truck Power Armor Station",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Workbench_PowerArmor_TowTruck",
     "GLOB_Value": null
@@ -42135,7 +42135,7 @@
     "BOOK_FULL": "Plan: Power Armor Stations",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingPowerArmor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": "Full Service Power Armor Station",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Workbench_PowerArmor_FullService",
     "GLOB_Value": null
@@ -42153,7 +42153,7 @@
     "BOOK_FULL": "Plan: Power Armor Stations",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingPowerArmor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": "Steel Forge Power Armor Station",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Workbench_PowerArmor_SteelForge",
     "GLOB_Value": null
@@ -42206,7 +42206,7 @@
     "BOOK_FULL": "Plan: Tinker's Workbench",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingTinkers",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -42224,7 +42224,7 @@
     "BOOK_FULL": "Plan: Tinker's Workbench",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingTinkers",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": "Mr. Fuzzy Tinker's Workbench",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Workbench_Tinkers_MrFuzzy",
     "GLOB_Value": null
@@ -42242,7 +42242,7 @@
     "BOOK_FULL": "Plan: Tinker's Workbench",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingTinkers",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": "Taxidermy Tinker's Workbench",
     "ENTM_EDID": "SCORE_S12_ENTM_CAMP_Machinery_Workbench_Tinker_Taxidermy",
     "GLOB_Value": null
@@ -42260,7 +42260,7 @@
     "BOOK_FULL": "Plan: Tinker's Workbench",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingTinkers",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": "Torture Rack Tinker's Workbench",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Workbench_Tinkers_TortureRack",
     "GLOB_Value": null
@@ -42278,7 +42278,7 @@
     "BOOK_FULL": "Plan: Tinker's Workbench",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingTinkers",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": "Red Mr. Fuzzy Tinker's Workbench",
     "ENTM_EDID": "ATX_ENTM_CAMP_Machinery_Workbench_Tinkers_MrFuzzy_Red",
     "GLOB_Value": null
@@ -42296,7 +42296,7 @@
     "BOOK_FULL": "Plan: Tinker's Workbench",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingTinkers",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": "Cherry Bomb Tinker's Workbench",
     "ENTM_EDID": "SCORE_S22_ENTM_CAMP_Machinery_Workbench_Tinker_HotRodBench",
     "GLOB_Value": null
@@ -42314,7 +42314,7 @@
     "BOOK_FULL": "Plan: Tinker's Workbench",
     "BOOK_EditorID": "Recipe_Workshop_Crafting_CraftingTinkers",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": "Reloading Tinker's Workbench",
     "ENTM_EDID": "SCORE_S23_ENTM_CAMP_Machinery_Workbench_Tinker_MunitionsBench",
     "GLOB_Value": null
@@ -42652,7 +42652,7 @@
     "BOOK_FULL": "Plan: Nuka-Cola Collectron",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_Collectron_NukaCola_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Nuka-Cola Collectron Station",
     "ENTM_EDID": "SCORE_S4_ENTM_CAMP_Utility_Collectron_NukaCola",
     "GLOB_Value": null
@@ -42670,7 +42670,7 @@
     "BOOK_FULL": "Plan: Red Rocket Collectron",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_Collectron_RedRocket_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Red Rocket Collectron Station",
     "ENTM_EDID": "SCORE_S5_ENTM_CAMP_Utility_Collectron_RedRocket",
     "GLOB_Value": null
@@ -42688,7 +42688,7 @@
     "BOOK_FULL": "Plan: F.E.T.C.H. Collectron",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_Collectron_FETCH_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "F.E.T.C.H. Collectron Station",
     "ENTM_EDID": "SCORE_S6_ENTM_CAMP_Utility_Collectron_FETCH",
     "GLOB_Value": null
@@ -42706,7 +42706,7 @@
     "BOOK_FULL": "Plan: Silver Collectron",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_Collectron_Silver_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Silver Collectron Station",
     "ENTM_EDID": "SCORE_S8_ENTM_CAMP_Utility_Collectron_Silver",
     "GLOB_Value": null
@@ -42742,7 +42742,7 @@
     "BOOK_FULL": "Plan: Nuka-Cola Quantum Collectron",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_Collectron_NukaQuantum_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Nuka-Cola Quantum Collectron Station",
     "ENTM_EDID": "SCORE_S11_ENTM_CAMP_Utility_Collectron_NukaQuantum",
     "GLOB_Value": null
@@ -42760,7 +42760,7 @@
     "BOOK_FULL": "Plan: Auto-Miner Collectron",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_Collectron_Autominer_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Auto-Miner Collectron Station",
     "ENTM_EDID": "SCORE_S14_ENTM_CAMP_Utility_Collectron_AutoMiner",
     "GLOB_Value": null
@@ -42778,7 +42778,7 @@
     "BOOK_FULL": "Plan: Scoutmaster Collectron",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_Collectron_Scoutmaster_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Scoutmaster Collectron Station",
     "ENTM_EDID": "SCORE_S17_ENTM_CAMP_Utility_Collectron_Scoutmaster",
     "GLOB_Value": null
@@ -42850,7 +42850,7 @@
     "BOOK_FULL": "Plan: Whitespring Robo Butler Collectron",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_Collectron_RoboButler_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Whitespring Robo Butler Collectron Station",
     "ENTM_EDID": "SCORE_S22_ENTM_CAMP_Utility_Collectron_RoboButler",
     "GLOB_Value": null
@@ -44453,7 +44453,7 @@
     "BOOK_FULL": "Plan: ArmCo Ammunition Construction Appliance",
     "BOOK_EditorID": "W05_Recipe_workshop_AmmoConstructionMachine_GoldVendor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorMortimer",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 750
@@ -44489,7 +44489,7 @@
     "BOOK_FULL": "Plan: Beehive",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_Beehive_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Beehive",
     "ENTM_EDID": "SCORE_S4_ENTM_CAMP_Collector_Beehive",
     "GLOB_Value": null
@@ -44507,7 +44507,7 @@
     "BOOK_FULL": "Plan: Beehive (Black & Yellow)",
     "BOOK_EditorID": "SCORE_S18_Recipe_workshop_CAMP_Utility_Beehive_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Beehive (Black & Yellow)",
     "ENTM_EDID": "SCORE_S18_ENTM_CAMP_Collector_Beehive",
     "GLOB_Value": null
@@ -44738,7 +44738,7 @@
     "BOOK_FULL": "Plan: Brahmin Pen",
     "BOOK_EditorID": "Recipe_Workshop_Resources_Collector_Fertilizer",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -44756,7 +44756,7 @@
     "BOOK_FULL": "Plan: Brewing Vat",
     "BOOK_EditorID": "SCORE_S18_Recipe_workshop_CAMP_Collector_BrewingVat_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Brewing Vat",
     "ENTM_EDID": "SCORE_S18_ENTM_CAMP_Collector_BrewingVat",
     "GLOB_Value": null
@@ -44900,7 +44900,7 @@
     "BOOK_FULL": "Plan: Chicken Coop",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_ChickenCoop_GoldVendor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorMinerva",
+    "BOOK_SOURCE_TAG": "BullionVendorMinerva; BullionVendorSamuel",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 750
@@ -44972,7 +44972,7 @@
     "BOOK_FULL": "Plan: Company Tea Machine",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_CompanyTeaMachine_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorMortimer",
     "ENTM_FULL": "Company Tea Machine",
     "ENTM_EDID": "SCORE_S15_ENTM_CAMP_Collector_CompanyTeaKettle",
     "GLOB_Value": null
@@ -45062,7 +45062,7 @@
     "BOOK_FULL": "Plan: Critter Cooker",
     "BOOK_EditorID": "SCORE_S20_Recipe_workshop_CAMP_Collector_CritterCooker_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Critter Cooker",
     "ENTM_EDID": "SCORE_S20_ENTM_CAMP_Collector_MeatCooker",
     "GLOB_Value": null
@@ -45116,7 +45116,7 @@
     "BOOK_FULL": "Plan: Firewood Pile",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_Firewood_pile_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorMortimer",
     "ENTM_FULL": "Firewood Pile",
     "ENTM_EDID": "SCORE_S12_ENTM_CAMP_Utility_FirewoodPile",
     "GLOB_Value": null
@@ -45350,7 +45350,7 @@
     "BOOK_FULL": "Plan: Nuka-Cola Mystery Machine",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_NukaCola_MysteryMachine_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorMortimer",
     "ENTM_FULL": "Nuka-Cola Mystery Machine",
     "ENTM_EDID": "SCORE_S11_ENTM_Utility_NukaColaMysteryMachine",
     "GLOB_Value": null
@@ -45440,7 +45440,7 @@
     "BOOK_FULL": "Plan: Pemmican Collector",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_PemmicanCollector_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorMortimer",
     "ENTM_FULL": "Pemmican Collector",
     "ENTM_EDID": "SCORE_S17_ENTM_CAMP_Collector_Pemmican",
     "GLOB_Value": null
@@ -45476,7 +45476,7 @@
     "BOOK_FULL": "Plan: Popcorn Machine",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_PopcornMachine_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorMortimer",
     "ENTM_FULL": "Popcorn Machine",
     "ENTM_EDID": "ATX_ENTM_CAMP_Utility_PopcornMachine",
     "GLOB_Value": null
@@ -45566,7 +45566,7 @@
     "BOOK_FULL": "Plan: Radstag Field Dressing Station",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_Ragstag_FieldDressingStation_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorMortimer",
     "ENTM_FULL": "Radstag Field Dressing Station",
     "ENTM_EDID": "SCORE_S12_ENTM_CAMP_Utility_RadstagFieldDressingStation",
     "GLOB_Value": null
@@ -45668,7 +45668,7 @@
     "BOOK_FULL": "Plan: Slime Cake",
     "BOOK_EditorID": "SCORE_S20_Recipe_workshop_CAMP_Collector_SlimeCake_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Slime Cake",
     "ENTM_EDID": "SCORE_S20_ENTM_CAMP_Utility_SlimeCake",
     "GLOB_Value": null
@@ -45740,7 +45740,7 @@
     "BOOK_FULL": "Plan: Espresso Machine",
     "BOOK_EditorID": "SCORE_S18_Recipe_workshop_CAMP_Collector_EspressoMachine_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "The Sicilian Espresso Machine",
     "ENTM_EDID": "SCORE_S18_ENTM_CAMP_Utility_EspressoMachine",
     "GLOB_Value": null
@@ -45758,7 +45758,7 @@
     "BOOK_FULL": "Plan: SoulSoup Server",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Resources_SoulSoupServer_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorMortimer",
     "ENTM_FULL": "SoulSoup Server",
     "ENTM_EDID": "SCORE_S22_ENTM_CAMP_Collector_SoulSoupServer",
     "GLOB_Value": null
@@ -45920,7 +45920,7 @@
     "BOOK_FULL": "Plan: Turbo-Fert Fertilizer",
     "BOOK_EditorID": "W05_Recipe_Workshop_Chem_TurboFertFertilizer_GoldVendor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorMinerva",
+    "BOOK_SOURCE_TAG": "BullionVendorMinerva; BullionVendorSamuel",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 750
@@ -46046,7 +46046,7 @@
     "BOOK_FULL": "Plan: Dirty Pond",
     "BOOK_EditorID": "SCORE_S21_Recipe_DirtyPond_StampVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Dirty Pond",
     "ENTM_EDID": "SCORE_S21_ENTM_CAMP_Collector_DirtyPond",
     "GLOB_Value": null
@@ -46387,7 +46387,7 @@
     "BOOK_FULL": "Plan: Water Boiler",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_WaterBoiler_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorMortimer",
     "ENTM_FULL": "Water Boiler",
     "ENTM_EDID": "SCORE_S16_ENTM_CAMP_Collector_WaterBoiler",
     "GLOB_Value": null
@@ -46603,7 +46603,7 @@
     "BOOK_FULL": "Plan: Water Well",
     "BOOK_EditorID": "W05_Recipe_workshop_CAMP_Utility_WaterWell_GoldVendor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "BullionVendorMinerva",
+    "BOOK_SOURCE_TAG": "BullionVendorMinerva; BullionVendorSamuel",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 750
@@ -46639,7 +46639,7 @@
     "BOOK_FULL": "Plan: Acoustic Instruments",
     "BOOK_EditorID": "Recipe_Workshop_Instruments_Wood",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -46657,7 +46657,7 @@
     "BOOK_FULL": "Plan: Acoustic Instruments",
     "BOOK_EditorID": "Recipe_Workshop_Instruments_Wood",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -46675,7 +46675,7 @@
     "BOOK_FULL": "Plan: Acoustic Instruments",
     "BOOK_EditorID": "Recipe_Workshop_Instruments_Wood",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -46693,7 +46693,7 @@
     "BOOK_FULL": "Plan: Acoustic Instruments",
     "BOOK_EditorID": "Recipe_Workshop_Instruments_Wood",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -46711,7 +46711,7 @@
     "BOOK_FULL": "Plan: Acoustic Instruments",
     "BOOK_EditorID": "Recipe_Workshop_Instruments_Wood",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -47069,7 +47069,7 @@
     "BOOK_FULL": "Plan: Wind Instruments",
     "BOOK_EditorID": "Recipe_Workshop_Instruments_Wind",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -47267,7 +47267,7 @@
     "BOOK_FULL": "Plan: Speed Bag",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_SpeedBag_GoldVendor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorMortimer",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 1250
@@ -47285,7 +47285,7 @@
     "BOOK_FULL": "Plan: Weight Bench",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_WeightBench_GoldVendor",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorMortimer",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 1250
@@ -47303,7 +47303,7 @@
     "BOOK_FULL": "Plan: Exercise Bike",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_ExerciseBike_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorMortimer",
     "ENTM_FULL": "Exercise Bike",
     "ENTM_EDID": "SCORE_S8_ENTM_CAMP_Utility_ExerciseBike",
     "GLOB_Value": null
@@ -47357,7 +47357,7 @@
     "BOOK_FULL": "Plan: Fortune Teller Machine",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_FortuneTeller_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Fortune Teller Machine",
     "ENTM_EDID": "SCORE_S5_ENTM_CAMP_FloorDecor_FortuneTellerMachine",
     "GLOB_Value": null
@@ -47375,7 +47375,7 @@
     "BOOK_FULL": "Plan: Arm Wrestle Machine",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_ArmWrestleMachine_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorMortimer",
     "ENTM_FULL": "Arm Wrestle Machine",
     "ENTM_EDID": "SCORE_S9_ENTM_CAMP_Utility_ArmWrestleMachine",
     "GLOB_Value": null
@@ -47393,7 +47393,7 @@
     "BOOK_FULL": "Plan: Mechanical Derby Game",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_HorseRacingGame_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorMortimer",
     "ENTM_FULL": "Mechanical Derby Game",
     "ENTM_EDID": "SCORE_S9_ENTM_CAMP_Furniture_HorseRacingGame",
     "GLOB_Value": null
@@ -47696,7 +47696,7 @@
     "BOOK_FULL": "Plan: Radiation Glove Box",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_Glovebox_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorMortimer",
     "ENTM_FULL": "Radiation Glove Box",
     "ENTM_EDID": "SCORE_S10_ENTM_CAMP_Utility_Radiation_Glove_Box",
     "GLOB_Value": null
@@ -47765,7 +47765,7 @@
     "BOOK_FULL": "Plan: Stargazer's Telescope",
     "BOOK_EditorID": "MILE_Recipe_Workshop_Telescope",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -48032,7 +48032,7 @@
     "BOOK_FULL": "Plan: Weather Control Station (Atlantic City Fog)",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_WeatherMachine_ACBoardwalk_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Weather Control Station (Atlantic City Fog)",
     "ENTM_EDID": "SCORE_S15_ENTM_CAMP_Utility_WeatherStation_XPDACBoardwalk",
     "GLOB_Value": null
@@ -49019,7 +49019,7 @@
     "BOOK_FULL": "Plan: Ashtray",
     "BOOK_EditorID": "Recipe_Workshop_Appliances_HighTechAshtray_Dirty",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -49055,7 +49055,7 @@
     "BOOK_FULL": "Plan: Cigarette Machine",
     "BOOK_EditorID": "Recipe_Workshop_Appliances_CigaretteMachine",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -49145,7 +49145,7 @@
     "BOOK_FULL": "Plan: Eat-o-Tronic",
     "BOOK_EditorID": "Recipe_Workshop_Appliances_Eatotronic",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -49198,7 +49198,7 @@
     "BOOK_FULL": "Plan: Park Grill",
     "BOOK_EditorID": "Recipe_Workshop_Appliances_Grill01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -49216,7 +49216,7 @@
     "BOOK_FULL": "Plan: Backyard Grill",
     "BOOK_EditorID": "Recipe_Workshop_Appliances_PicnicGrill",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -49234,7 +49234,7 @@
     "BOOK_FULL": "Plan: Ice Machine",
     "BOOK_EditorID": "Recipe_Workshop_Appliances_IceMachine",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -49270,7 +49270,7 @@
     "BOOK_FULL": "Plan: Military Cryo-Freezer",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_MilitaryCryofreezer_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorMortimer",
     "ENTM_FULL": "Military Cryo-Freezer",
     "ENTM_EDID": "SCORE_S14_CAMP_Utility_Military_Cryo_Freezer",
     "GLOB_Value": null
@@ -49288,7 +49288,7 @@
     "BOOK_FULL": "Plan: Milk Vending Machine",
     "BOOK_EditorID": "Recipe_Workshop_Appliances_MilkMachine",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -49378,7 +49378,7 @@
     "BOOK_FULL": "Plan: Nuka-Cola Machine",
     "BOOK_EditorID": "Recipe_Workshop_Appliances_NukaColaMachine",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -49756,7 +49756,7 @@
     "BOOK_FULL": "Plan: Wood Stove",
     "BOOK_EditorID": "Recipe_Workshop_Appliances_WoodStove",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -49774,7 +49774,7 @@
     "BOOK_FULL": "Plan: Kitchen Stove",
     "BOOK_EditorID": "Recipe_Workshop_Appliances_Stove",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -49954,7 +49954,7 @@
     "BOOK_FULL": "Plan: Bunk Bed",
     "BOOK_EditorID": "Recipe_Workshop_Bed_NpcBunkBedLay01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -49972,7 +49972,7 @@
     "BOOK_FULL": "Plan: Simple Modern Bed",
     "BOOK_EditorID": "Recipe_Workshop_Bed_CharGen_Bed01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -49990,7 +49990,7 @@
     "BOOK_FULL": "Plan: Fancy Bed",
     "BOOK_EditorID": "Recipe_Workshop_Bed_NpcFancyBed_Full",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -51047,7 +51047,7 @@
     "BOOK_FULL": "Plan: Hospital Bed",
     "BOOK_EditorID": "Recipe_Workshop_Bed_BedHospital",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -51082,7 +51082,7 @@
     "BOOK_FULL": "Plan: Military Cot",
     "BOOK_EditorID": "Recipe_Workshop_Bed_BedMilitaryCot",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -51100,7 +51100,7 @@
     "BOOK_FULL": "Plan: Vault-Tec Bed",
     "BOOK_EditorID": "Recipe_Workshop_Bed_BedVault",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -51118,7 +51118,7 @@
     "BOOK_FULL": "Plan: Vault-Tec Bed 2",
     "BOOK_EditorID": "Recipe_Workshop_Bed_BedVault02",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -51154,7 +51154,7 @@
     "BOOK_FULL": "Plan: Kids Truck Bed",
     "BOOK_EditorID": "MOON_DO_Workshop_Recipe_KidsTruckBed",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "DailyOps; BullionVendorMinerva",
+    "BOOK_SOURCE_TAG": "DailyOps; BullionVendorMinerva; BullionVendorSamuel",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 500
@@ -51388,7 +51388,7 @@
     "BOOK_FULL": "Plan: Jukebox",
     "BOOK_EditorID": "Recipe_Workshop_Appliances_Jukebox",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -51997,7 +51997,7 @@
     "BOOK_FULL": "Plan: Television",
     "BOOK_EditorID": "Recipe_Workshop_Appliances_Television",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -52015,7 +52015,7 @@
     "BOOK_FULL": "Plan: Table Television",
     "BOOK_EditorID": "Recipe_Workshop_Appliances_TelevisionTable",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -52033,7 +52033,7 @@
     "BOOK_FULL": "Plan: Modern TV",
     "BOOK_EditorID": "Recipe_Workshop_Appliances_HighTechTV_Dirty",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -52699,7 +52699,7 @@
     "BOOK_FULL": "Plan: Modern Couches",
     "BOOK_EditorID": "Recipe_Workshop_Couches_Modern",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -52771,7 +52771,7 @@
     "BOOK_FULL": "Plan: Modern Couches",
     "BOOK_EditorID": "Recipe_Workshop_Couches_Modern",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -52789,7 +52789,7 @@
     "BOOK_FULL": "Plan: Modern Couches",
     "BOOK_EditorID": "Recipe_Workshop_Couches_Modern",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -52807,7 +52807,7 @@
     "BOOK_FULL": "Plan: Modern Couches",
     "BOOK_EditorID": "Recipe_Workshop_Couches_Modern",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -52825,7 +52825,7 @@
     "BOOK_FULL": "Plan: Resort Couches",
     "BOOK_EditorID": "Recipe_Workshop_Couches_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -52843,7 +52843,7 @@
     "BOOK_FULL": "Plan: Resort Couches",
     "BOOK_EditorID": "Recipe_Workshop_Couches_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -53578,7 +53578,7 @@
     "BOOK_FULL": "Plan: Ogua Shell Throne",
     "BOOK_EditorID": "MILE_Workshop_Recipe_CryptidThrone",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 500
@@ -53614,7 +53614,7 @@
     "BOOK_FULL": "Plan: Gorilla Chair",
     "BOOK_EditorID": "MOON_DO_Workshop_Recipe_GorillaChair",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "DailyOps; BullionVendorMinerva",
+    "BOOK_SOURCE_TAG": "DailyOps; BullionVendorMinerva; BullionVendorMortimer",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 500
@@ -53632,7 +53632,7 @@
     "BOOK_FULL": "Plan: Ghoul Chair",
     "BOOK_EditorID": "MOON_DO_Workshop_Recipe_FeralGhoulChair",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "DailyOps; BullionVendorMinerva",
+    "BOOK_SOURCE_TAG": "DailyOps; BullionVendorMinerva; BullionVendorMortimer",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 500
@@ -53650,7 +53650,7 @@
     "BOOK_FULL": "Plan: Brahmin Couch",
     "BOOK_EditorID": "MOON_DO_Workshop_Recipe_BrahminSofa",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "DailyOps",
+    "BOOK_SOURCE_TAG": "DailyOps; BullionVendorMortimer",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 500
@@ -53668,7 +53668,7 @@
     "BOOK_FULL": "Plan: High-Tech Bench",
     "BOOK_EditorID": "Recipe_Workshop_Benches_Metal_HighTechMetal",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -53686,7 +53686,7 @@
     "BOOK_FULL": "Plan: Metal Bench",
     "BOOK_EditorID": "Recipe_Workshop_Benches_Metal_VaultMetal",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -53704,7 +53704,7 @@
     "BOOK_FULL": "Plan: Garden Bench",
     "BOOK_EditorID": "Recipe_Workshop_Benches_Metal_Asylum",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -53773,7 +53773,7 @@
     "BOOK_FULL": "Plan: Office Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Metal_Office",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -53791,7 +53791,7 @@
     "BOOK_FULL": "Plan: Lounge Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Metal_Lounge",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -53809,7 +53809,7 @@
     "BOOK_FULL": "Plan: Lounge Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Metal_Lounge",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -53827,7 +53827,7 @@
     "BOOK_FULL": "Plan: Office Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Metal_Office",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -53845,7 +53845,7 @@
     "BOOK_FULL": "Plan: Office Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Metal_Office",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -53863,7 +53863,7 @@
     "BOOK_FULL": "Plan: Office Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Metal_Office",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -53898,7 +53898,7 @@
     "BOOK_FULL": "Plan: Resort Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Metal_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -53916,7 +53916,7 @@
     "BOOK_FULL": "Plan: Office Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Metal_Office",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -53934,7 +53934,7 @@
     "BOOK_FULL": "Plan: Resort Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Metal_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54455,7 +54455,7 @@
     "BOOK_FULL": "Plan: Modern Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Modern",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54473,7 +54473,7 @@
     "BOOK_FULL": "Plan: Modern Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Modern",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54491,7 +54491,7 @@
     "BOOK_FULL": "Plan: Modern Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Modern",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54509,7 +54509,7 @@
     "BOOK_FULL": "Plan: Modern Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Modern",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54544,7 +54544,7 @@
     "BOOK_FULL": "Plan: Elegant Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Fancy",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54562,7 +54562,7 @@
     "BOOK_FULL": "Plan: Modern Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Modern",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54580,7 +54580,7 @@
     "BOOK_FULL": "Plan: Modern Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Modern",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54598,7 +54598,7 @@
     "BOOK_FULL": "Plan: Modern Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Modern",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54616,7 +54616,7 @@
     "BOOK_FULL": "Plan: Elegant Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Fancy",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54634,7 +54634,7 @@
     "BOOK_FULL": "Plan: Elegant Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Fancy",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54652,7 +54652,7 @@
     "BOOK_FULL": "Plan: Elegant Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Fancy",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54670,7 +54670,7 @@
     "BOOK_FULL": "Plan: Electric Chair",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_ElectricChair",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54688,7 +54688,7 @@
     "BOOK_FULL": "Plan: Resort Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54706,7 +54706,7 @@
     "BOOK_FULL": "Plan: Resort Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54724,7 +54724,7 @@
     "BOOK_FULL": "Plan: Resort Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54742,7 +54742,7 @@
     "BOOK_FULL": "Plan: Resort Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54760,7 +54760,7 @@
     "BOOK_FULL": "Plan: Resort Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54778,7 +54778,7 @@
     "BOOK_FULL": "Plan: Resort Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54796,7 +54796,7 @@
     "BOOK_FULL": "Plan: Resort Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54814,7 +54814,7 @@
     "BOOK_FULL": "Plan: Resort Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54832,7 +54832,7 @@
     "BOOK_FULL": "Plan: Resort Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54850,7 +54850,7 @@
     "BOOK_FULL": "Plan: Resort Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54868,7 +54868,7 @@
     "BOOK_FULL": "Plan: Resort Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54886,7 +54886,7 @@
     "BOOK_FULL": "Plan: Resort Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54904,7 +54904,7 @@
     "BOOK_FULL": "Plan: Resort Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54922,7 +54922,7 @@
     "BOOK_FULL": "Plan: Resort Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54940,7 +54940,7 @@
     "BOOK_FULL": "Plan: Resort Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54958,7 +54958,7 @@
     "BOOK_FULL": "Plan: Resort Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -54976,7 +54976,7 @@
     "BOOK_FULL": "Plan: Resort Cloth Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Padded_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -55369,7 +55369,7 @@
     "BOOK_FULL": "Plan: Long Pew",
     "BOOK_EditorID": "Recipe_Workshop_Benches_Wood_ChurchPew_Long",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -55387,7 +55387,7 @@
     "BOOK_FULL": "Plan: Short Pew",
     "BOOK_EditorID": "Recipe_Workshop_Benches_Wood_ChurchPew_Short",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -55405,7 +55405,7 @@
     "BOOK_FULL": "Plan: Simple Long Bench",
     "BOOK_EditorID": "Recipe_Workshop_Benches_Wood_Simple_Long",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -55423,7 +55423,7 @@
     "BOOK_FULL": "Plan: Simple Short Bench",
     "BOOK_EditorID": "Recipe_Workshop_Benches_Wood_Simple_Short",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -55459,7 +55459,7 @@
     "BOOK_FULL": "Plan: Long Rustic Bench",
     "BOOK_EditorID": "Recipe_Workshop_Benches_Wood_Primitive_Long",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -55477,7 +55477,7 @@
     "BOOK_FULL": "Plan: Short Rustic Bench",
     "BOOK_EditorID": "Recipe_Workshop_Benches_Wood_Primitive_Short",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -55495,7 +55495,7 @@
     "BOOK_FULL": "Plan: Resort Bench",
     "BOOK_EditorID": "Recipe_Workshop_Benches_Wood_Whitesprings",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -55603,7 +55603,7 @@
     "BOOK_FULL": "Plan: Antique Wooden Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Wood_Antique",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -55621,7 +55621,7 @@
     "BOOK_FULL": "Plan: Antique Wooden Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Wood_Antique",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -55639,7 +55639,7 @@
     "BOOK_FULL": "Plan: Wooden Rocking Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Wood_Rockers",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -55674,7 +55674,7 @@
     "BOOK_FULL": "Plan: Wooden Stool",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Wood_Stool",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -55692,7 +55692,7 @@
     "BOOK_FULL": "Plan: Wooden Rocking Chairs",
     "BOOK_EditorID": "Recipe_Workshop_Chairs_Chairs_Wood_Rockers",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56050,7 +56050,7 @@
     "BOOK_FULL": "Plan: Double Display Shelf",
     "BOOK_EditorID": "Recipe_Workshop_Shelves_GroceryStore_TwoSided",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56068,7 +56068,7 @@
     "BOOK_FULL": "Plan: Single Display Shelf",
     "BOOK_EditorID": "Recipe_Workshop_Shelves_GroceryStore_OneSided",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56410,7 +56410,7 @@
     "BOOK_FULL": "Plan: Antique Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Federalist01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56428,7 +56428,7 @@
     "BOOK_FULL": "Plan: Antique Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Federalist01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56446,7 +56446,7 @@
     "BOOK_FULL": "Plan: Antique Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Federalist01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56464,7 +56464,7 @@
     "BOOK_FULL": "Plan: Antique Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Federalist01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56482,7 +56482,7 @@
     "BOOK_FULL": "Plan: Antique Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Federalist01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56500,7 +56500,7 @@
     "BOOK_FULL": "Plan: End Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_AsylumEndTables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56518,7 +56518,7 @@
     "BOOK_FULL": "Plan: End Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_AsylumEndTables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56536,7 +56536,7 @@
     "BOOK_FULL": "Plan: End Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_AsylumEndTables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56554,7 +56554,7 @@
     "BOOK_FULL": "Plan: End Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_AsylumEndTables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56752,7 +56752,7 @@
     "BOOK_FULL": "Plan: Cafe Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_CafeTables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56770,7 +56770,7 @@
     "BOOK_FULL": "Plan: Cafe Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_CafeTables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56877,7 +56877,7 @@
     "BOOK_FULL": "Plan: Elegant Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Fancy01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56895,7 +56895,7 @@
     "BOOK_FULL": "Plan: Elegant Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Fancy01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56913,7 +56913,7 @@
     "BOOK_FULL": "Plan: Elegant Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Fancy01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56931,7 +56931,7 @@
     "BOOK_FULL": "Plan: Elegant Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Fancy01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56949,7 +56949,7 @@
     "BOOK_FULL": "Plan: Elegant Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Fancy01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56967,7 +56967,7 @@
     "BOOK_FULL": "Plan: Elegant Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Fancy01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -56985,7 +56985,7 @@
     "BOOK_FULL": "Plan: Elegant Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Fancy01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -57003,7 +57003,7 @@
     "BOOK_FULL": "Plan: Elegant Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Fancy01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -57021,7 +57021,7 @@
     "BOOK_FULL": "Plan: Elegant Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Fancy01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -57507,7 +57507,7 @@
     "BOOK_FULL": "Plan: High-Tech Table",
     "BOOK_EditorID": "Recipe_Workshop_Tables_HighTechRoundTable01_Dirty",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -57849,7 +57849,7 @@
     "BOOK_FULL": "Plan: Metal Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_MetalTables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -57867,7 +57867,7 @@
     "BOOK_FULL": "Plan: Metal Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_MetalTables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -57885,7 +57885,7 @@
     "BOOK_FULL": "Plan: Metal Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_MetalTables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -58461,7 +58461,7 @@
     "BOOK_FULL": "Plan: Modern Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_PlayerHouse_Ruin_LivingRoom",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -58479,7 +58479,7 @@
     "BOOK_FULL": "Plan: Modern Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_PlayerHouse_Ruin_LivingRoom",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -58497,7 +58497,7 @@
     "BOOK_FULL": "Plan: Modern Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_PlayerHouse_Ruin_LivingRoom",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -58749,7 +58749,7 @@
     "BOOK_FULL": "Plan: Pool Table",
     "BOOK_EditorID": "Recipe_Workshop_Tables_PoolTable01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor; RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -58821,7 +58821,7 @@
     "BOOK_FULL": "Plan: Rustic Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Primitive_LivingRoom",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -58839,7 +58839,7 @@
     "BOOK_FULL": "Plan: Rustic Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Primitive_LivingRoom",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -58857,7 +58857,7 @@
     "BOOK_FULL": "Plan: Rustic Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Primitive_LivingRoom",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -58875,7 +58875,7 @@
     "BOOK_FULL": "Plan: Rustic Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Primitive_LivingRoom",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -59325,7 +59325,7 @@
     "BOOK_FULL": "Plan: Resort Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Whitespring_Tables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -59343,7 +59343,7 @@
     "BOOK_FULL": "Plan: Resort Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Whitespring_Tables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -59361,7 +59361,7 @@
     "BOOK_FULL": "Plan: Resort Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Whitespring_Tables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -59623,7 +59623,7 @@
     "BOOK_FULL": "Plan: Resort Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Whitespring_Tables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -59728,7 +59728,7 @@
     "BOOK_FULL": "Plan: Wooden Picnic Table",
     "BOOK_EditorID": "Recipe_Workshop_Tables_NpcTablePicnicSit01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -59746,7 +59746,7 @@
     "BOOK_FULL": "Plan: Resort Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Whitespring_Tables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -59764,7 +59764,7 @@
     "BOOK_FULL": "Plan: Resort Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Whitespring_Tables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -59782,7 +59782,7 @@
     "BOOK_FULL": "Plan: Resort Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Whitespring_Tables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -59800,7 +59800,7 @@
     "BOOK_FULL": "Plan: Resort Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Whitespring_Tables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -59818,7 +59818,7 @@
     "BOOK_FULL": "Plan: Resort Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Whitespring_Tables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -59836,7 +59836,7 @@
     "BOOK_FULL": "Plan: Resort Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Whitespring_Tables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -59854,7 +59854,7 @@
     "BOOK_FULL": "Plan: Resort Tables",
     "BOOK_EditorID": "Recipe_Workshop_Tables_Whitespring_Tables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -63706,7 +63706,7 @@
     "BOOK_FULL": "Plan: Resort Vases",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Vases",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -63724,7 +63724,7 @@
     "BOOK_FULL": "Plan: Resort Vases",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Vases",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -63742,7 +63742,7 @@
     "BOOK_FULL": "Plan: Resort Vases",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Vases",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -65469,7 +65469,7 @@
     "BOOK_FULL": "Plan: West Virginia Slot Machine",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Utility_SlotMachine_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "West Virginia Slot Machine",
     "ENTM_EDID": "SCORE_S7_ENTM_Utility_SlotMachine_WV",
     "GLOB_Value": null
@@ -69105,7 +69105,7 @@
     "BOOK_FULL": "Plan: Potted Plants",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Misc_PottedPlants",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -69123,7 +69123,7 @@
     "BOOK_FULL": "Plan: Potted Plants",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Misc_PottedPlants",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -69141,7 +69141,7 @@
     "BOOK_FULL": "Plan: Potted Plants",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Misc_PottedPlants",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -69159,7 +69159,7 @@
     "BOOK_FULL": "Plan: Potted Plants",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Misc_PottedPlants",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -69177,7 +69177,7 @@
     "BOOK_FULL": "Plan: Potted Plants",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Misc_PottedPlants",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -69195,7 +69195,7 @@
     "BOOK_FULL": "Plan: Potted Plants",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Misc_PottedPlants",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -69213,7 +69213,7 @@
     "BOOK_FULL": "Plan: Potted Plants",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Misc_PottedPlants",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -69231,7 +69231,7 @@
     "BOOK_FULL": "Plan: Potted Plants",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Misc_PottedPlants",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -69303,7 +69303,7 @@
     "BOOK_FULL": "Plan: Resort Planters",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Planters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -69321,7 +69321,7 @@
     "BOOK_FULL": "Plan: Resort Planters",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Planters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -69339,7 +69339,7 @@
     "BOOK_FULL": "Plan: Resort Planters",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Planters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -69357,7 +69357,7 @@
     "BOOK_FULL": "Plan: Resort Planters",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Planters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -69375,7 +69375,7 @@
     "BOOK_FULL": "Plan: Resort Planters",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Planters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -69393,7 +69393,7 @@
     "BOOK_FULL": "Plan: Scarecrows",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Statues_Scarecrows",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; SpookyScorched",
+    "BOOK_SOURCE_TAG": "GrahmVendor; SpookyScorched; RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -69411,7 +69411,7 @@
     "BOOK_FULL": "Plan: Scarecrows",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Statues_Scarecrows",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; SpookyScorched",
+    "BOOK_SOURCE_TAG": "GrahmVendor; SpookyScorched; RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -69429,7 +69429,7 @@
     "BOOK_FULL": "Plan: Scarecrows",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Statues_Scarecrows",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor; SpookyScorched",
+    "BOOK_SOURCE_TAG": "GrahmVendor; SpookyScorched; RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -71102,7 +71102,7 @@
     "BOOK_FULL": "Plan: Makeshift Wine Rack",
     "BOOK_EditorID": "MILE_Workshop_Recipe_WineRack",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -71588,7 +71588,7 @@
     "BOOK_FULL": "Plan: Wooden Spinning Wheel",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Misc_Primitive_Furniture_Spindle",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -73854,7 +73854,7 @@
     "BOOK_FULL": "Plan: Portable Toilet",
     "BOOK_EditorID": "Recipe_Workshop_MiscStructures_PortaPotty",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -74373,7 +74373,7 @@
     "BOOK_FULL": "Plan: Tent",
     "BOOK_EditorID": "Recipe_Workshop_MiscStructures_Tent_Medium",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -74409,7 +74409,7 @@
     "BOOK_FULL": "Plan: Large Tent",
     "BOOK_EditorID": "Recipe_Workshop_MiscStructures_Tent_Large",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -74913,7 +74913,7 @@
     "BOOK_FULL": "Plan: Daisy Rug",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Rugs_DaisyRug",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -74984,7 +74984,7 @@
     "BOOK_FULL": "Plan: Rolled Persian Rugs",
     "BOOK_EditorID": "MILE_Workshop_Recipe_PersianRug_Rolled01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -75002,7 +75002,7 @@
     "BOOK_FULL": "Plan: Persian Rug",
     "BOOK_EditorID": "MILE_Workshop_Recipe_PersianRug_Floor01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -75020,7 +75020,7 @@
     "BOOK_FULL": "Plan: Persian Rug",
     "BOOK_EditorID": "MILE_Workshop_Recipe_PersianRug_Floor01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -75056,7 +75056,7 @@
     "BOOK_FULL": "Plan: Persian Rug",
     "BOOK_EditorID": "MILE_Workshop_Recipe_PersianRug_Floor01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -75614,7 +75614,7 @@
     "BOOK_FULL": "Plan: Rug",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Rugs_Rug01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -75632,7 +75632,7 @@
     "BOOK_FULL": "Plan: Rug Set 2",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Rugs_Rugs02",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -75650,7 +75650,7 @@
     "BOOK_FULL": "Plan: Rug Set 2",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Rugs_Rugs02",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -75668,7 +75668,7 @@
     "BOOK_FULL": "Plan: Rug Set 2",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Rugs_Rugs02",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -75776,7 +75776,7 @@
     "BOOK_FULL": "Plan: Welcome Mats",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Rugs_WelcomeMats",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -75794,7 +75794,7 @@
     "BOOK_FULL": "Plan: Welcome Mats",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Rugs_WelcomeMats",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -75812,7 +75812,7 @@
     "BOOK_FULL": "Plan: Welcome Mats",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Rugs_WelcomeMats",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -75830,7 +75830,7 @@
     "BOOK_FULL": "Plan: Welcome Mats",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Rugs_WelcomeMats",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -75848,7 +75848,7 @@
     "BOOK_FULL": "Plan: Welcome Mats",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Rugs_WelcomeMats",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -75866,7 +75866,7 @@
     "BOOK_FULL": "Plan: Welcome Mats",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Rugs_WelcomeMats",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -78586,7 +78586,7 @@
     "BOOK_FULL": "Plan: Baseball Player Statue",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Statues_Baseball01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -78874,7 +78874,7 @@
     "BOOK_FULL": "Plan: Lion Statues",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Statues_Lions",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -78892,7 +78892,7 @@
     "BOOK_FULL": "Plan: Lion Statues",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Statues_Lions",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -80062,7 +80062,7 @@
     "BOOK_FULL": "Plan: Whitespring Busts",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Busts",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -80080,7 +80080,7 @@
     "BOOK_FULL": "Plan: Whitespring Busts",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Busts",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -80098,7 +80098,7 @@
     "BOOK_FULL": "Plan: Whitespring Busts",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Busts",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -80116,7 +80116,7 @@
     "BOOK_FULL": "Plan: Whitespring Busts",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Busts",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -80134,7 +80134,7 @@
     "BOOK_FULL": "Plan: Whitespring Busts",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Busts",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -80152,7 +80152,7 @@
     "BOOK_FULL": "Plan: Whitespring Busts",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Busts",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -80170,7 +80170,7 @@
     "BOOK_FULL": "Plan: Whitespring Busts",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Busts",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -80188,7 +80188,7 @@
     "BOOK_FULL": "Plan: Whitespring Busts",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Busts",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -80206,7 +80206,7 @@
     "BOOK_FULL": "Plan: Whitespring Busts",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Busts",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -80224,7 +80224,7 @@
     "BOOK_FULL": "Plan: Whitespring Busts",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Busts",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -80242,7 +80242,7 @@
     "BOOK_FULL": "Plan: Dome Sculpture",
     "BOOK_EditorID": "Recipe_Workshop_FloorDecor_Whitespring_Dome_Sculpture",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -84001,7 +84001,7 @@
     "BOOK_FULL": "Plan: Gulper Plushie",
     "BOOK_EditorID": "MILE_Workshop_Recipe_GulperPlushie",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 100
@@ -84679,7 +84679,7 @@
     "BOOK_FULL": "Plan: Dark Hollow Manor Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_Darkwood",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "HolidayScorched",
+    "BOOK_SOURCE_TAG": "HolidayScorched; BullionVendorWindy",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -84697,7 +84697,7 @@
     "BOOK_FULL": "Plan: High Knob Lookout Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_HighKnob",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "HolidayScorched",
+    "BOOK_SOURCE_TAG": "HolidayScorched; BullionVendorWindy",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -84715,7 +84715,7 @@
     "BOOK_FULL": "Plan: Big Meadows Gas Well Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_NaturalGas",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "HolidayScorched",
+    "BOOK_SOURCE_TAG": "HolidayScorched; BullionVendorWindy",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -84733,7 +84733,7 @@
     "BOOK_FULL": "Plan: Shenandoah Vistor Center Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_Shenandoah",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "HolidayScorched",
+    "BOOK_SOURCE_TAG": "HolidayScorched; BullionVendorWindy",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -84751,7 +84751,7 @@
     "BOOK_FULL": "Plan: Slumber Mill Motel Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_SlumberMill",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "HolidayScorched",
+    "BOOK_SOURCE_TAG": "HolidayScorched; BullionVendorWindy",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -84769,7 +84769,7 @@
     "BOOK_FULL": "Plan: Camp Liberty Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_SummerCamp",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "HolidayScorched",
+    "BOOK_SOURCE_TAG": "HolidayScorched; BullionVendorWindy",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -84787,7 +84787,7 @@
     "BOOK_FULL": "Plan: Axel's Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_Axel",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 50
@@ -84805,7 +84805,7 @@
     "BOOK_FULL": "Plan: Ineke's Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_Ineke",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 50
@@ -84823,7 +84823,7 @@
     "BOOK_FULL": "Plan: Josie's Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_Josie",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 50
@@ -84841,7 +84841,7 @@
     "BOOK_FULL": "Plan: Marley's Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_Marley",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 50
@@ -84859,7 +84859,7 @@
     "BOOK_FULL": "Plan: Theodore's Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_Theodore",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 50
@@ -84877,7 +84877,7 @@
     "BOOK_FULL": "Plan: Windy's Snow Globe",
     "BOOK_EditorID": "MILE_Recipe_Workshop_FloorDecor_Snowglobe_Windy",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": 50
@@ -86631,7 +86631,7 @@
     "BOOK_FULL": "Plan: Gilded Wall Clock",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_WallClocks_Whitesprings",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "SpookyScorched",
+    "BOOK_SOURCE_TAG": "SpookyScorched; PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -86649,7 +86649,7 @@
     "BOOK_FULL": "Plan: Elegant Wall Clock",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_WallClocks_Whitesprings_02",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -90650,7 +90650,7 @@
     "BOOK_FULL": "Plan: Resort Mirror",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_Whitespring_Mirror",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -93341,7 +93341,7 @@
     "BOOK_FULL": "Plan: U.S. Flag",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_FlagWallUSA",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -94367,7 +94367,7 @@
     "BOOK_FULL": "Plan: Persian Wall Rug",
     "BOOK_EditorID": "MILE_Workshop_Recipe_PersianRug_Wall01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -94385,7 +94385,7 @@
     "BOOK_FULL": "Plan: Persian Wall Rug",
     "BOOK_EditorID": "MILE_Workshop_Recipe_PersianRug_Wall01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -94403,7 +94403,7 @@
     "BOOK_FULL": "Plan: Persian Wall Rug",
     "BOOK_EditorID": "MILE_Workshop_Recipe_PersianRug_Wall01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -94720,7 +94720,7 @@
     "BOOK_FULL": "Plan: Unstoppables! Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Unstoppables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -94952,7 +94952,7 @@
     "BOOK_FULL": "Plan: Unstoppables! Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Unstoppables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -94970,7 +94970,7 @@
     "BOOK_FULL": "Plan: Unstoppables! Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Unstoppables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -94988,7 +94988,7 @@
     "BOOK_FULL": "Plan: Unstoppables! Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Unstoppables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -95006,7 +95006,7 @@
     "BOOK_FULL": "Plan: Unstoppables! Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Unstoppables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -95024,7 +95024,7 @@
     "BOOK_FULL": "Plan: Unstoppables! Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Unstoppables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -95042,7 +95042,7 @@
     "BOOK_FULL": "Plan: Unstoppables! Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Unstoppables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -95060,7 +95060,7 @@
     "BOOK_FULL": "Plan: Communism Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Communism",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -95078,7 +95078,7 @@
     "BOOK_FULL": "Plan: Communism Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Communism",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -95096,7 +95096,7 @@
     "BOOK_FULL": "Plan: Communism Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Communism",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -95114,7 +95114,7 @@
     "BOOK_FULL": "Plan: Communism Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Communism",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -95132,7 +95132,7 @@
     "BOOK_FULL": "Plan: Communism Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Communism",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -95150,7 +95150,7 @@
     "BOOK_FULL": "Plan: Communism Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Communism",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -95168,7 +95168,7 @@
     "BOOK_FULL": "Plan: Communism Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Communism",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -98298,7 +98298,7 @@
     "BOOK_FULL": "Plan: Resort Paintings",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_WallPaintings_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -98316,7 +98316,7 @@
     "BOOK_FULL": "Plan: Resort Paintings",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_WallPaintings_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -98334,7 +98334,7 @@
     "BOOK_FULL": "Plan: Resort Paintings",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_WallPaintings_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -98352,7 +98352,7 @@
     "BOOK_FULL": "Plan: Resort Paintings",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_WallPaintings_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -98370,7 +98370,7 @@
     "BOOK_FULL": "Plan: Resort Paintings",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_WallPaintings_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -98388,7 +98388,7 @@
     "BOOK_FULL": "Plan: Resort Paintings",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_WallPaintings_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -98406,7 +98406,7 @@
     "BOOK_FULL": "Plan: Resort Paintings",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_WallPaintings_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -98424,7 +98424,7 @@
     "BOOK_FULL": "Plan: Resort Paintings",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_WallPaintings_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -98442,7 +98442,7 @@
     "BOOK_FULL": "Plan: Resort Paintings",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_WallPaintings_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -98460,7 +98460,7 @@
     "BOOK_FULL": "Plan: Resort Paintings",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_WallPaintings_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -98478,7 +98478,7 @@
     "BOOK_FULL": "Plan: Resort Paintings",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_WallPaintings_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -98496,7 +98496,7 @@
     "BOOK_FULL": "Plan: Resort Paintings",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_WallPaintings_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -98514,7 +98514,7 @@
     "BOOK_FULL": "Plan: Resort Paintings",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_WallPaintings_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -98532,7 +98532,7 @@
     "BOOK_FULL": "Plan: Resort Paintings",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_WallPaintings_Whitespring",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -98972,7 +98972,7 @@
     "BOOK_FULL": "Plan: Unstoppables! Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Unstoppables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -99204,7 +99204,7 @@
     "BOOK_FULL": "Plan: Unstoppables! Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Unstoppables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -99222,7 +99222,7 @@
     "BOOK_FULL": "Plan: Unstoppables! Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Unstoppables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -99240,7 +99240,7 @@
     "BOOK_FULL": "Plan: Unstoppables! Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Unstoppables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -99258,7 +99258,7 @@
     "BOOK_FULL": "Plan: Unstoppables! Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Unstoppables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -99276,7 +99276,7 @@
     "BOOK_FULL": "Plan: Unstoppables! Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Unstoppables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -99294,7 +99294,7 @@
     "BOOK_FULL": "Plan: Unstoppables! Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Unstoppables",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -99312,7 +99312,7 @@
     "BOOK_FULL": "Plan: Communism Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Communism",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -99330,7 +99330,7 @@
     "BOOK_FULL": "Plan: Communism Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Communism",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -99348,7 +99348,7 @@
     "BOOK_FULL": "Plan: Communism Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Communism",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -99366,7 +99366,7 @@
     "BOOK_FULL": "Plan: Communism Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Communism",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -99384,7 +99384,7 @@
     "BOOK_FULL": "Plan: Communism Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Communism",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -99402,7 +99402,7 @@
     "BOOK_FULL": "Plan: Communism Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Communism",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -99420,7 +99420,7 @@
     "BOOK_FULL": "Plan: Communism Posters",
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_PoweredPoster_Communism",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108196,7 +108196,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108214,7 +108214,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108232,7 +108232,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108250,7 +108250,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108268,7 +108268,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108286,7 +108286,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108304,7 +108304,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108322,7 +108322,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108340,7 +108340,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108358,7 +108358,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108376,7 +108376,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108394,7 +108394,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108412,7 +108412,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108430,7 +108430,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108448,7 +108448,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108466,7 +108466,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108484,7 +108484,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108502,7 +108502,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108520,7 +108520,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108538,7 +108538,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108556,7 +108556,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108574,7 +108574,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108592,7 +108592,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108610,7 +108610,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108628,7 +108628,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108646,7 +108646,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108664,7 +108664,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108682,7 +108682,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108700,7 +108700,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108718,7 +108718,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108736,7 +108736,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108754,7 +108754,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108772,7 +108772,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108790,7 +108790,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108808,7 +108808,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108826,7 +108826,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108844,7 +108844,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108862,7 +108862,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108880,7 +108880,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108898,7 +108898,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -108916,7 +108916,7 @@
     "BOOK_FULL": "Plan: Signs and Letters",
     "BOOK_EditorID": "Recipe_Workshop_Lights_SignsAndLetters",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -111883,7 +111883,7 @@
     "BOOK_FULL": "Plan: Noren Awning",
     "BOOK_EditorID": "MILE_Workshop_Recipe_NorenAwning",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -111901,7 +111901,7 @@
     "BOOK_FULL": "Plan: Noren Curtains",
     "BOOK_EditorID": "MILE_Workshop_Recipe_NorenCurtains",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -113118,7 +113118,7 @@
     "BOOK_FULL": "Plan: Cryptid Cards Wall Display",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Display_Cryptid_card_Display_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Cryptid Cards Wall Display",
     "ENTM_EDID": "SCORE_S13_Moon_ENTM_CAMP_WallDisplaycase_CardDisplay",
     "GLOB_Value": null
@@ -113418,7 +113418,7 @@
     "BOOK_FULL": "Plan: Jewelry Stand Flair Display",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Display_Flair_Display_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Jewelry Stand Flair Display",
     "ENTM_EDID": "SCORE_S13_ENTM_Display_FlairDisplay",
     "GLOB_Value": null
@@ -113649,7 +113649,7 @@
     "BOOK_FULL": "Plan: Magazine Rack",
     "BOOK_EditorID": "Recipe_Workshop_Shelves_MagazineRackContainer02",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -114348,7 +114348,7 @@
     "BOOK_FULL": "Plan: Skyline Valley Snow Globe Display Case",
     "BOOK_EditorID": "SCORE_S18_Recipe_workshop_CAMP_Display_SkylineValleySnowglobeDisplaycase_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Skyline Valley Snow Globe Display Case",
     "ENTM_EDID": "SCORE_S18_ENTM_CAMP_Displaycase_SkylineSnowGlobes",
     "GLOB_Value": null
@@ -114520,7 +114520,7 @@
     "BOOK_FULL": "Plan: Cooler",
     "BOOK_EditorID": "Recipe_Workshop_Container_Cooler",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -114538,7 +114538,7 @@
     "BOOK_FULL": "Plan: Dumpster",
     "BOOK_EditorID": "Recipe_Workshop_Container_Dumpster01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -114556,7 +114556,7 @@
     "BOOK_FULL": "Plan: Elegant Tables",
     "BOOK_EditorID": "Recipe_Workshop_Container_Fancy01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -114574,7 +114574,7 @@
     "BOOK_FULL": "Plan: Elegant Tables",
     "BOOK_EditorID": "Recipe_Workshop_Container_Fancy01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -114592,7 +114592,7 @@
     "BOOK_FULL": "Plan: Elegant Tables",
     "BOOK_EditorID": "Recipe_Workshop_Container_Fancy01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -114610,7 +114610,7 @@
     "BOOK_FULL": "Plan: Elegant Tables",
     "BOOK_EditorID": "Recipe_Workshop_Container_Fancy01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -114628,7 +114628,7 @@
     "BOOK_FULL": "Plan: Elegant Bureau",
     "BOOK_EditorID": "Recipe_Workshop_Container_Prewar_Fancy_Bureau01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -114754,7 +114754,7 @@
     "BOOK_FULL": "Plan: Footlocker",
     "BOOK_EditorID": "Recipe_Workshop_Container_FootLocker",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RespondersVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -114772,7 +114772,7 @@
     "BOOK_FULL": "Plan: Garage Cabinets",
     "BOOK_EditorID": "Recipe_Workshop_Container_Prewar_Cabinet_Garage",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -114790,7 +114790,7 @@
     "BOOK_FULL": "Plan: Garage Cabinets",
     "BOOK_EditorID": "Recipe_Workshop_Container_Prewar_Cabinet_Garage",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -114808,7 +114808,7 @@
     "BOOK_FULL": "Plan: Garage Cabinets",
     "BOOK_EditorID": "Recipe_Workshop_Container_Prewar_Cabinet_Garage",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -114826,7 +114826,7 @@
     "BOOK_FULL": "Plan: Garage Cabinets",
     "BOOK_EditorID": "Recipe_Workshop_Container_Prewar_Cabinet_Garage",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -114844,7 +114844,7 @@
     "BOOK_FULL": "Plan: Garage Cabinets",
     "BOOK_EditorID": "Recipe_Workshop_Container_Prewar_Cabinet_Garage",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -114862,7 +114862,7 @@
     "BOOK_FULL": "Plan: Vault Locker",
     "BOOK_EditorID": "Recipe_Workshop_Container_Vault_Locker_01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -114880,7 +114880,7 @@
     "BOOK_FULL": "Plan: Pre-War Locker",
     "BOOK_EditorID": "Recipe_Workshop_Container_Prewar_Locker_01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -114916,7 +114916,7 @@
     "BOOK_FULL": "Plan: Metal Box",
     "BOOK_EditorID": "Recipe_Workshop_Container_MetalBox",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -116031,7 +116031,7 @@
     "BOOK_FULL": "Plan: News Stand",
     "BOOK_EditorID": "Recipe_Workshop_Container_Prewar_NewsStand",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -116049,7 +116049,7 @@
     "BOOK_FULL": "Plan: Park Ranger Supply Box",
     "BOOK_EditorID": "MILE_Workshop_Recipe_RangerStashBox",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorWindy; MacVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -116067,7 +116067,7 @@
     "BOOK_FULL": "Plan: Pre-War Dressers",
     "BOOK_EditorID": "Recipe_Workshop_Container_PlayerHouse_Dressers",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -116085,7 +116085,7 @@
     "BOOK_FULL": "Plan: Pre-War Dressers",
     "BOOK_EditorID": "Recipe_Workshop_Container_PlayerHouse_Dressers",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -116103,7 +116103,7 @@
     "BOOK_FULL": "Plan: Pre-War Floor Safe",
     "BOOK_EditorID": "Recipe_Workshop_Container_WorkshopSafeFloor01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -116121,7 +116121,7 @@
     "BOOK_FULL": "Plan: Pre-War Safe",
     "BOOK_EditorID": "Recipe_Workshop_Container_Prewar_Safe",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -116193,7 +116193,7 @@
     "BOOK_FULL": "Plan: Suitcase",
     "BOOK_EditorID": "Recipe_Workshop_Container_Prewar_Suitcase_Clothes_Clean",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -116409,7 +116409,7 @@
     "BOOK_FULL": "Plan: Toolbox",
     "BOOK_EditorID": "Recipe_Workshop_Container_Toolbox",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -116427,7 +116427,7 @@
     "BOOK_FULL": "Plan: Large Toolbox",
     "BOOK_EditorID": "Recipe_Workshop_Container_ToolboxLarge",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "FreeStatesVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -116445,7 +116445,7 @@
     "BOOK_FULL": "Plan: Tool Chest",
     "BOOK_EditorID": "Recipe_Workshop_Container_ToolChest",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -116463,7 +116463,7 @@
     "BOOK_FULL": "Plan: Bear-Proof Trashcan",
     "BOOK_EditorID": "Recipe_Workshop_Container_BearProof_Trashcan",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -116481,7 +116481,7 @@
     "BOOK_FULL": "Plan: Resort Trashcan",
     "BOOK_EditorID": "Recipe_Workshop_Container_Whitespring_Trashcan",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "PendletonVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -116499,7 +116499,7 @@
     "BOOK_FULL": "Plan: Trash Can",
     "BOOK_EditorID": "Recipe_Workshop_Container_Prewar_TrashCan",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -116535,7 +116535,7 @@
     "BOOK_FULL": "Plan: Vault Desk",
     "BOOK_EditorID": "Recipe_Workshop_Container_Vault_Desk_01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -116553,7 +116553,7 @@
     "BOOK_FULL": "Plan: Vault Dresser",
     "BOOK_EditorID": "Recipe_Workshop_Container_Vault_Dresser_01",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": "GrahmVendor",
+    "BOOK_SOURCE_TAG": "GrahmVendor; BrotherhoodVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -116571,7 +116571,7 @@
     "BOOK_FULL": "Plan: Wooden Crate",
     "BOOK_EditorID": "Recipe_Workshop_Container_Prewar_WoodCrate",
     "BOOK_SOURCE": "DIRECT",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "RaiderVendor",
     "ENTM_FULL": null,
     "ENTM_EDID": null,
     "GLOB_Value": null
@@ -118695,7 +118695,7 @@
     "BOOK_FULL": "Plan: Adelaide",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Ally_Adelaide_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Lite Ally: Adelaide",
     "ENTM_EDID": "SCORE_S16_ENTM_CAMP_Ally_Adelaide",
     "GLOB_Value": null
@@ -118747,7 +118747,7 @@
     "BOOK_FULL": "Plan: Daphne",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Ally_Daphne_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Lite Ally: Daphne",
     "ENTM_EDID": "SCORE_S6_ENTM_CAMP_Ally_Inspector_Daphne",
     "GLOB_Value": null
@@ -118801,7 +118801,7 @@
     "BOOK_FULL": "Plan: Dottie",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Ally_Dottie_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Lite Ally: Dottie",
     "ENTM_EDID": "SCORE_S21_ENTM_CAMP_Ally_Dottie",
     "GLOB_Value": null
@@ -118836,7 +118836,7 @@
     "BOOK_FULL": "Plan: Grandma Junko",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Ally_GrandmaJunko_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Lite Ally: Grandma Junko",
     "ENTM_EDID": "SCORE_S14_ENTM_CAMP_Ally_GrandmaJunko",
     "GLOB_Value": null
@@ -118871,7 +118871,7 @@
     "BOOK_FULL": "Plan: Joey Bello",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Ally_Joey_Bello_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Lite Ally: Joey Bello",
     "ENTM_EDID": "SCORE_S13_ENTM_CAMP_Ally_JoeyBello",
     "GLOB_Value": null
@@ -118889,7 +118889,7 @@
     "BOOK_FULL": "Plan: Katherine Swan",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Ally_Katherine_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Lite Ally: Katherine Swan",
     "ENTM_EDID": "SCORE_S7_ENTM_CAMP_Ally_KatherineSwan",
     "GLOB_Value": null
@@ -118924,7 +118924,7 @@
     "BOOK_FULL": "Plan: Maul",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Ally_Maul_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Lite Ally: Maul",
     "ENTM_EDID": "SCORE_S6_ENTM_CAMP_Ally_SuperMutant_Maul",
     "GLOB_Value": null
@@ -118959,7 +118959,7 @@
     "BOOK_FULL": "Plan: Sam Nguyen",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Ally_Sam_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Lite Ally: Sam Nguyen",
     "ENTM_EDID": "SCORE_S8_ENTM_CAMP_Ally_Mechanic_SamNguyen",
     "GLOB_Value": null
@@ -118977,7 +118977,7 @@
     "BOOK_FULL": "Plan: Steven Scarberry",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Ally_Steven_Scarberry_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Lite Ally: Steven Scarberry",
     "ENTM_EDID": "SCORE_S12_ENTM_CAMP_Ally_Scarberry",
     "GLOB_Value": null
@@ -118995,7 +118995,7 @@
     "BOOK_FULL": "Plan: Solomon Hardy",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Ally_SolomonHardy_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Lite Ally: Solomon Hardy",
     "ENTM_EDID": "SCORE_S3_ENTM_CAMP_Ally_Medic_SolomonHardy",
     "GLOB_Value": null
@@ -119047,7 +119047,7 @@
     "BOOK_FULL": "Plan: Xerxo",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Ally_Xerxo_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Lite Ally: Xerxo",
     "ENTM_EDID": "SCORE_S7_ENTM_CAMP_Ally_Xerxo",
     "GLOB_Value": null
@@ -119065,7 +119065,7 @@
     "BOOK_FULL": "Plan: Yasmin Chowdhury",
     "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Ally_YasminChowdhury_GoldVendor",
     "BOOK_SOURCE": "CNDF",
-    "BOOK_SOURCE_TAG": null,
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
     "ENTM_FULL": "Lite Ally: Yasmin Chowdhury",
     "ENTM_EDID": "SCORE_S3_ENTM_CAMP_Ally_Chef_YasminChowdhury",
     "GLOB_Value": null
