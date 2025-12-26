@@ -1855,6 +1855,7 @@ function normalizeTag(tag) {
       return key;
     }
   }
+  // fallback: single tags
   return tag;
 }
 
@@ -1864,42 +1865,45 @@ function getTooltipTextForTag(tag, originalTags) {
   if (normalized in multiVendorCategories) {
     const category = multiVendorCategories[normalized];
 
+    // Map original tags to readable vendor names
     const presentVendors = originalTags
       .filter(t => t === normalized || (category.prefixes && category.prefixes.some(p => t.startsWith(p))))
       .map(t => {
-        if (t === normalized) {
-          // Preserve original special cases
+      if (t === normalized) {
+          // Special case for BullionVendor
           if (normalized === 'BullionVendor') return 'Gold Bullion';
+      
           return normalized.replace('Vendor', '');
-        }
+      }
+    
+      const match = category.prefixes.find(p => t.startsWith(p));
+      if (!match) return t;
+    
+      let name = match.replace(normalized, ''); // REMOVE the normalized prefix
+      name = name.replace('Vendor', '');        // Remove trailing Vendor
+      name = name.replace(/([a-z])([A-Z])/g, '$1 $2'); // Add spacing
+      return name.trim();
+  });
+  
 
-        const match = category.prefixes.find(p => t.startsWith(p));
-        if (!match) return t;
-
-        let name = t.replace(match, '');
-        name = name.replace('Vendor', '');
-        name = name.replace(/([a-z])([A-Z])/g, '$1 $2');
-        return name.trim();
-      });
-
-    // 🔹 ONLY new behavior: NPCVendor
+    // NPC vendors have different wording
     if (normalized === 'NPCVendor') {
       return `Sold by NPC Vendor (${presentVendors.join(', ')})`;
     }
-
-    // Original behavior unchanged
+    
     const vendorLabel =
       normalized === 'BullionVendor'
         ? 'Gold Bullion'
         : normalized.replace('Vendor', '');
-
+    
     return `Sold by ${vendorLabel} Vendor (${presentVendors.join(', ')})`;
-  }
+    
+
+   }
 
   const entry = IconAltText_BOOK[normalized];
   return entry?.alt || normalized;
 }
-
 
 
   const bookFulls = String(r.BOOK_FULL || '')
