@@ -288,6 +288,7 @@
 
   .connector {
     color: var(--accent);
+    width: 100%;
     font-weight: 600;
     font-size: 13px;
     margin: 0 6px;
@@ -2016,7 +2017,7 @@ bookFulls.forEach((fullName, i) => {
 
   // Connector
   if (i < bookFulls.length - 1) {
-    const conn = document.createElement('div');
+    const conn = document.createElement('span');
     conn.className = 'connector';
     conn.textContent = bookBookConnector;
     condWrap.appendChild(conn);
@@ -2026,7 +2027,7 @@ bookFulls.forEach((fullName, i) => {
 }
    // --- connector ---
    if (hasBook && hasEntm) {
-    const conn = document.createElement('div');
+    const conn = document.createElement('span');
     conn.className = 'connector';
     conn.textContent = bookEntmConnector;
     condWrap.appendChild(conn);
@@ -2193,7 +2194,7 @@ if (hasEntm) {
   entmPills.forEach((pill, i) => {
     condWrap.appendChild(pill);
     if (i < entmPills.length - 1) {
-      const conn = document.createElement('div');
+      const conn = document.createElement('span');
       conn.className = 'connector';
       conn.textContent = entmEntmConnector;
       condWrap.appendChild(conn);
