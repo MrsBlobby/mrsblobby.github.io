@@ -477,18 +477,20 @@
     background-color: rgba(26,26,26, 0.5); 
   }
 
-  /* Modal content box */
   .modal-content {
+    position: relative;       /* add this */
     background-color: var(--card-bg);
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 12px;
-    width: 400px;
-    position: relative;
     color: var(--text);
+    width: 50%;              
+    max-height: 70vh;        
+    margin: 50px auto;       
+    padding: 20px;
+    border-radius: 8px;
+    overflow-y: auto;        
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    font-family: sans-serif;
   }
+
+
 
   /* Close button */
   .close {
@@ -520,6 +522,33 @@
     text-align: center;
     transition: background-color 0.2s, color 0.2s;
   }
+
+  .modal-content h2 {
+    color: var(--accent);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  #infoBody {
+    color: var(--text);
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+
+  #infoBody p.question {
+    color: var(--accent);
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+
+  #infoBody p.answer {
+    color: var(--text);
+    margin-left: 10px;
+    margin-bottom: 10px;
+    line-height: 1.5em;
+  }
+
 
   #filtersButton,
   #sortSelected {
@@ -957,9 +986,17 @@
 <div id="infoModal" class="modal">
   <div class="modal-content">
     <span id="closeModal" class="close">&times;</span>
-    <!-- Content will go here later -->
+
+    <!-- Modal header -->
+    <h2 style="margin-top:0;">Info & FAQ</h2>
+
+    <!-- Modal body -->
+    <div id="infoBody">
+      <!-- Content will go here -->
+    </div>
   </div>
 </div>
+
 
 <div class="controls">
   <div class="search-line">
@@ -1406,6 +1443,55 @@ window.addEventListener('click', (event) => {
     infoModal.style.display = 'none';
   }
 });
+
+const infoBody = document.getElementById('infoBody');
+
+const faqItems = [
+  { 
+    q: "What is this?", 
+    a: "This is a database tool for Fallout 76 C.A.M.P. items. You can search for items, and sort/filter based on different variables. Currently, this tool lists the build menu category, the placement conditions, and the budget cost of a particular C.A.M.P. item." 
+  },
+  { 
+    q: "What do the different search options mean?",
+    a: [
+      "Search by Item Name: Quite self-explanatory. Search results are based on the name of the item that is built.",
+      "Search by Plan Name: Search results are based on the plan name listed under Placement Conditions. This can come in handy if you want to see what a particular, more vague-sounding plan unlocks, i.e. Plan: Metal Signs.",
+      "Search by Entitlement: Similarly to the Plan Name option, this does essentially the same, but for Atomic Shop/S.C.O.R.E items. Entitlements act like account-wide plans used by these items."
+    ]
+  },
+   { 
+    q: "How do the filters work?", 
+    a: [
+      "The Placement Condition filters operate on a logic that is sort of a mix of XOR and AND logic. If you select just 1 placement condition filter, you will only get results with that particular type of placement condition, i.e. selecting Plan will only yield items that are plan-only. Selecting 2 or more placement condition filters at once will result in results that meet both of those requirements at once, i.e. selecting Plan and Entitlement will only yield items that have both in their placement conditions.",
+      "The Workshop Category Filters operate purely on OR logic. You will get results that are under any of the selected categories." 
+   ]
+  }
+];
+
+
+faqItems.forEach(item => {
+  const qEl = document.createElement('p');
+  qEl.className = 'question';
+  qEl.textContent = item.q;
+  infoBody.appendChild(qEl);
+
+  // If a is an array, render multiple paragraphs
+  if (Array.isArray(item.a)) {
+    item.a.forEach(paragraph => {
+      const aEl = document.createElement('p');
+      aEl.className = 'answer';
+      aEl.textContent = paragraph;
+      infoBody.appendChild(aEl);
+    });
+  } else {
+    const aEl = document.createElement('p');
+    aEl.className = 'answer';
+    aEl.textContent = item.a;
+    infoBody.appendChild(aEl);
+  }
+});
+
+
 
 // --- Dropdown elements ---
 const dropdownSelected = document.getElementById('dropdownSelected');
