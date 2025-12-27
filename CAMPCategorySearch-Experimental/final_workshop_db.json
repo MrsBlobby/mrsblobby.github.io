@@ -44553,8 +44553,8 @@
     "BOOK_EditorID": null,
     "BOOK_SOURCE": "CNDF",
     "BOOK_SOURCE_TAG": null,
-    "ENTM_FULL": "Mystery Item 03; Mystery Item 04; Nukashine Player Icon",
-    "ENTM_EDID": "ATX_ENTM_CAMP_Decoration_Mystery03; ATX_ENTM_CAMP_Decoration_Mystery04; ATX_ENTM_CAMP_Decoration_Mystery05",
+    "ENTM_FULL": "Mystery Item 01; Mystery Item 02; Mystery Item 03; Mystery Item 04; Nukashine Player Icon",
+    "ENTM_EDID": "ATX_ENTM_CAMP_Decoration_Mystery01; ATX_ENTM_CAMP_Decoration_Mystery02; ATX_ENTM_CAMP_Decoration_Mystery03; ATX_ENTM_CAMP_Decoration_Mystery04; ATX_ENTM_CAMP_Decoration_Mystery05",
     "GLOB_Value": null
   },
   {
@@ -44571,8 +44571,8 @@
     "BOOK_EditorID": null,
     "BOOK_SOURCE": "CNDF",
     "BOOK_SOURCE_TAG": null,
-    "ENTM_FULL": "Mystery Item 02; Mystery Item 03; Mystery Item 04; Nukashine Player Icon",
-    "ENTM_EDID": "ATX_ENTM_CAMP_Decoration_Mystery02; ATX_ENTM_CAMP_Decoration_Mystery03; ATX_ENTM_CAMP_Decoration_Mystery04; ATX_ENTM_CAMP_Decoration_Mystery05",
+    "ENTM_FULL": "Mystery Item 01; Mystery Item 02; Mystery Item 03; Mystery Item 04; Nukashine Player Icon",
+    "ENTM_EDID": "ATX_ENTM_CAMP_Decoration_Mystery01; ATX_ENTM_CAMP_Decoration_Mystery02; ATX_ENTM_CAMP_Decoration_Mystery03; ATX_ENTM_CAMP_Decoration_Mystery04; ATX_ENTM_CAMP_Decoration_Mystery05",
     "GLOB_Value": null
   },
   {
@@ -44589,8 +44589,8 @@
     "BOOK_EditorID": null,
     "BOOK_SOURCE": "CNDF",
     "BOOK_SOURCE_TAG": null,
-    "ENTM_FULL": "Mystery Item 04; Nukashine Player Icon",
-    "ENTM_EDID": "ATX_ENTM_CAMP_Decoration_Mystery04; ATX_ENTM_CAMP_Decoration_Mystery05",
+    "ENTM_FULL": "Mystery Item 01; Mystery Item 02; Mystery Item 03; Mystery Item 04; Nukashine Player Icon",
+    "ENTM_EDID": "ATX_ENTM_CAMP_Decoration_Mystery01; ATX_ENTM_CAMP_Decoration_Mystery02; ATX_ENTM_CAMP_Decoration_Mystery03; ATX_ENTM_CAMP_Decoration_Mystery04; ATX_ENTM_CAMP_Decoration_Mystery05",
     "GLOB_Value": null
   },
   {
@@ -44605,10 +44605,11 @@
     "CNAM_EditorID": "ATX_Workshop_BeerKeg_Nukashine_04",
     "BOOK_FULL": null,
     "BOOK_EditorID": null,
-    "BOOK_SOURCE": "DIRECT",
-    "ENTM_FULL": null,
-    "ENTM_EDID": null,
-    "BOOK_Source_Tag": "null"
+    "BOOK_SOURCE": "CNDF",
+    "BOOK_SOURCE_TAG": null,
+    "ENTM_FULL": "Mystery Item 01; Mystery Item 02; Mystery Item 03; Mystery Item 04; Nukashine Player Icon",
+    "ENTM_EDID": "ATX_ENTM_CAMP_Decoration_Mystery01; ATX_ENTM_CAMP_Decoration_Mystery02; ATX_ENTM_CAMP_Decoration_Mystery03; ATX_ENTM_CAMP_Decoration_Mystery04; ATX_ENTM_CAMP_Decoration_Mystery05",
+    "GLOB_Value": null
   },
   {
     "Name": "Tall Pony Blue Ridge Beer Keg",
