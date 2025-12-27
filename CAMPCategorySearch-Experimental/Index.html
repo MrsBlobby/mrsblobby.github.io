@@ -68,6 +68,13 @@
     background: #555;
   }
 
+  .placement-note {
+    margin: 4px 0 6px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+
   .updated {
     color: var(--text-muted);
     font-size: 12px;
@@ -2079,6 +2086,12 @@ function renderResults(query) {
     }
 
     // --- Placement Conditions header + pills ---
+    const cnamUnlockText = {
+      '00424740': 'Unlock 2 or more',
+      '0042716B': 'Unlock 3 or more',
+      '0042716C': 'Unlock 4 or more'
+    };
+
     const hasBook = !!(r.BOOK_FULL && String(r.BOOK_FULL).trim());
     const hasEntm = !!(r.ENTM_FULL && String(r.ENTM_FULL).trim());
     if (hasBook || hasEntm) {
@@ -2087,6 +2100,16 @@ function renderResults(query) {
       condHeader.textContent = 'Placement Conditions';
       condHeader.style.marginTop = '8px';
       right.appendChild(condHeader);
+
+      // Optional CNAM-based unlock note
+      const unlockText = cnamUnlockText[String(r.CNAM_FormID || '').trim()];
+      if (unlockText) {
+        const unlockNote = document.createElement('div');
+        unlockNote.className = 'placement-note';
+        unlockNote.textContent = unlockText;
+        right.appendChild(unlockNote);
+      }
+      
 
       const condWrap = document.createElement('div');
       condWrap.className = 'inline-wrap';
