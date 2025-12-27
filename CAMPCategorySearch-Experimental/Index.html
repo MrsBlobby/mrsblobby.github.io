@@ -893,6 +893,10 @@
     .controls {
       flex-direction: column;
     }
+      .modal-content {
+            width: 80%;              
+    }
+
   }
 </style>
 </head>
@@ -1554,29 +1558,29 @@ faqItems.forEach(item => {
     iconContainer.style.color = 'var(--text)';
     iconContainer.style.width = '200px';   // fixed width for all icon+label pairs
     iconContainer.style.gap = '8px';
-      
+
     const imgWrapper = document.createElement('div');
     imgWrapper.style.width = '45px';       // fixed width for icon
     imgWrapper.style.height = '45px';
     imgWrapper.style.display = 'flex';
     imgWrapper.style.justifyContent = 'center';
     imgWrapper.style.alignItems = 'center';
-      
+
     const img = document.createElement('img');
     img.src = iconData.src;
     img.style.maxWidth = '100%';
     img.style.maxHeight = '100%';
     img.style.objectFit = 'contain';
-      
+
     imgWrapper.appendChild(img);
     iconContainer.appendChild(imgWrapper);
-      
+
     const label = document.createElement('span');
     label.textContent = iconData.text;
-      
+
     iconContainer.appendChild(label);
     iconWrapper.appendChild(iconContainer);
-      
+
   });
 
   infoBody.appendChild(iconWrapper);
