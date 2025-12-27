@@ -44551,10 +44551,11 @@
     "CNAM_EditorID": "ATX_Workshop_BeerKeg_Nukashine_01",
     "BOOK_FULL": null,
     "BOOK_EditorID": null,
-    "BOOK_SOURCE": "DIRECT",
-    "ENTM_FULL": null,
-    "ENTM_EDID": null,
-    "BOOK_Source_Tag": "null"
+    "BOOK_SOURCE": "CNDF",
+    "BOOK_SOURCE_TAG": null,
+    "ENTM_FULL": "Mystery Item 03; Mystery Item 04; Nukashine Player Icon",
+    "ENTM_EDID": "ATX_ENTM_CAMP_Decoration_Mystery03; ATX_ENTM_CAMP_Decoration_Mystery04; ATX_ENTM_CAMP_Decoration_Mystery05",
+    "GLOB_Value": null
   },
   {
     "Name": "Cask Nukashine Keg",
@@ -44570,8 +44571,8 @@
     "BOOK_EditorID": null,
     "BOOK_SOURCE": "CNDF",
     "BOOK_SOURCE_TAG": null,
-    "ENTM_FULL": "Mystery Item 01; Mystery Item 02; Mystery Item 03",
-    "ENTM_EDID": "ATX_ENTM_CAMP_Decoration_Mystery01; ATX_ENTM_CAMP_Decoration_Mystery02; ATX_ENTM_CAMP_Decoration_Mystery03",
+    "ENTM_FULL": "Mystery Item 02; Mystery Item 03; Mystery Item 04; Nukashine Player Icon",
+    "ENTM_EDID": "ATX_ENTM_CAMP_Decoration_Mystery02; ATX_ENTM_CAMP_Decoration_Mystery03; ATX_ENTM_CAMP_Decoration_Mystery04; ATX_ENTM_CAMP_Decoration_Mystery05",
     "GLOB_Value": null
   },
   {
@@ -44586,10 +44587,11 @@
     "CNAM_EditorID": "ATX_Workshop_BeerKeg_Nukashine_03",
     "BOOK_FULL": null,
     "BOOK_EditorID": null,
-    "BOOK_SOURCE": "DIRECT",
-    "ENTM_FULL": null,
-    "ENTM_EDID": null,
-    "BOOK_Source_Tag": "null"
+    "BOOK_SOURCE": "CNDF",
+    "BOOK_SOURCE_TAG": null,
+    "ENTM_FULL": "Mystery Item 04; Nukashine Player Icon",
+    "ENTM_EDID": "ATX_ENTM_CAMP_Decoration_Mystery04; ATX_ENTM_CAMP_Decoration_Mystery05",
+    "GLOB_Value": null
   },
   {
     "Name": "Short Pony Nukashine Keg",
@@ -118913,12 +118915,13 @@
     "CNAM_FormID": "0067E70B",
     "ARTO_FormID": null,
     "CNAM_EditorID": "SCORE_S11_CAMP_LeoPetrov_Nukaagent_FURN",
-    "BOOK_FULL": null,
-    "BOOK_EditorID": null,
-    "BOOK_SOURCE": "DIRECT",
-    "ENTM_FULL": null,
-    "ENTM_EDID": null,
-    "BOOK_Source_Tag": "null"
+    "BOOK_FULL": "Plan: Leo Petrov",
+    "BOOK_EditorID": "SCORE_Recipe_workshop_CAMP_Ally_Leo_Petrov_GoldVendor",
+    "BOOK_SOURCE": "CNDF",
+    "BOOK_SOURCE_TAG": "BullionVendorSamuel",
+    "ENTM_FULL": "Lite Ally: Leo Petrov",
+    "ENTM_EDID": "SCORE_S11_ENTM_CAMP_Ally_NukaAgent_leo",
+    "GLOB_Value": null
   },
   {
     "Name": "Maul's Cauldron",
