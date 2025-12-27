@@ -1509,36 +1509,35 @@ faqItems.forEach(item => {
 
   // Icons, if any
   if (item.icons && item.icons.length) {
-    const iconWrapper = document.createElement('div');
-    iconWrapper.style.display = 'flex';
-    iconWrapper.style.flexWrap = 'wrap';
-    iconWrapper.style.gap = '10px';
-    iconWrapper.style.marginTop = '10px';
+  const iconWrapper = document.createElement('div');
+  iconWrapper.style.display = 'flex';
+  iconWrapper.style.flexDirection = 'column';  // stack vertically
+  iconWrapper.style.gap = '10px';
+  iconWrapper.style.marginTop = '10px';
+  
+  item.icons.forEach(iconData => {
+    const iconContainer = document.createElement('div');
+    iconContainer.style.display = 'flex';
+    iconContainer.style.alignItems = 'center';
+    iconContainer.style.fontSize = '0.9em';
+    iconContainer.style.color = 'var(--text)';
+  
+    const img = document.createElement('img');
+    img.src = iconData.src;
+    img.style.width = '30px';
+    img.style.height = '30px';
+    img.style.marginRight = '8px';  // space between icon and text
+  
+    const label = document.createElement('span');
+    label.textContent = iconData.text;
+  
+    iconContainer.appendChild(img);
+    iconContainer.appendChild(label);
+    iconWrapper.appendChild(iconContainer);
+  });
 
-    item.icons.forEach(iconData => {
-      const iconContainer = document.createElement('div');
-      iconContainer.style.display = 'flex';
-      iconContainer.style.flexDirection = 'column';
-      iconContainer.style.alignItems = 'center';
-      iconContainer.style.fontSize = '0.9em';
-      iconContainer.style.color = 'var(--text)';
-
-      const img = document.createElement('img');
-      img.src = iconData.src;
-      img.style.width = '30px';
-      img.style.height = '30px';
-      img.style.marginBottom = '4px';
-
-      const label = document.createElement('span');
-      label.textContent = iconData.text;
-
-      iconContainer.appendChild(img);
-      iconContainer.appendChild(label);
-      iconWrapper.appendChild(iconContainer);
-    });
-
-    infoBody.appendChild(iconWrapper);
-  }
+  infoBody.appendChild(iconWrapper);
+}
 });
 
 
