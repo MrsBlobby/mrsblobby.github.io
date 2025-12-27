@@ -1490,6 +1490,7 @@ infoBtn.addEventListener('click', () => {
     requestAnimationFrame(() => {
     infoModal.classList.add('is-open');
   });
+  history.pushState({ modal: 'info' }, '');
   // Reset scroll to top
   const content = infoModal.querySelector('.modal-content');
   if (content) content.scrollTop = 0;
@@ -1498,7 +1499,8 @@ infoBtn.addEventListener('click', () => {
 
 function closeInfoModal() {
   infoModal.classList.remove('is-open');
-
+  if (!fromPopState && history.state?.modal === 'info') {
+  history.back();
   // wait for fade-out to finish
   setTimeout(() => {
     infoModal.style.display = 'none';
