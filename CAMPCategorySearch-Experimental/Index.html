@@ -1952,12 +1952,17 @@ bookFulls.forEach((fullName, i) => {
   pill.className = 'pill';
 
   const tags = getTagsForBook(i);
-  const uniqueNormalizedTags = [...new Set(tags.map(normalizeTag))];
+
+  // Make tags null-safe and deduplicate
+  const uniqueNormalizedTags = [
+    ...new Set(
+      tags.map(t => (t === null ? "None" : normalizeTag(t)))
+    )
+  ];
 
   const bookEditorId = (r.BOOK_EditorID || '').split(';')[i]?.trim() || '';
   const globValue = r.GLOB_Value;
 
-  // Track if we appended an icon
   let appendedIcon = false;
 
   uniqueNormalizedTags.forEach(normalizedTag => {
@@ -2020,6 +2025,7 @@ bookFulls.forEach((fullName, i) => {
       attachTooltipToIcon(icon, tooltipText);
     }
   }
+
 
   // Pill text
   let pillText = fullName;
