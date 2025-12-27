@@ -1907,27 +1907,45 @@ function getTooltipTextForTag(tag, originalTags) {
 }
 
 
-  const bookFulls = String(r.BOOK_FULL || '')
-    .split(';')
-    .map(s => s.trim())
-    .filter(Boolean);
+ const bookFulls = String(r.BOOK_FULL || '')
+  .split(';')
+  .map(s => s.trim())
+  .filter(Boolean);
 
-  const rawTags = String(r.BOOK_SOURCE_TAG || '').trim();
-
-  const tagEntries = rawTags
-    .split(';')
-    .map(s => s.trim())
-    .filter(Boolean);
-
+  let tagEntries;
+  
+  if (r.BOOK_SOURCE_TAG === null) {
+    tagEntries = [null];
+  } else if (Array.isArray(r.BOOK_SOURCE_TAG)) {
+    tagEntries = r.BOOK_SOURCE_TAG;
+  } else {
+    // string
+    tagEntries = String(r.BOOK_SOURCE_TAG)
+      .split(/[,;]/)
+      .map(s => s.trim())
+      .filter(Boolean);
+  }
+  
   const getTagsForBook = (index) => {
     if (bookFulls.length === 1) {
-      return rawTags.split(/[;|]/).map(t => t.trim()).filter(Boolean);
+      // For a single book, return all tags
+      return tagEntries.map(t => t);
     }
-    if (tagEntries.length === bookFulls.length) {
-      return tagEntries[index].split(/[;|]/).map(t => t.trim()).filter(Boolean);
+  
+    if (Array.isArray(tagEntries) && tagEntries.length === bookFulls.length) {
+      // One-to-one mapping between BOOK and tag array
+      const entry = tagEntries[index];
+      if (entry === null) return [null];
+      return String(entry)
+        .split(/[,;]/)
+        .map(t => t.trim())
+        .filter(Boolean);
     }
-    return rawTags.split(/[;|]/).map(t => t.trim()).filter(Boolean);
+  
+    // Fallback: return all tags for every book
+    return tagEntries.map(t => t);
   };
+  
 
 bookFulls.forEach((fullName, i) => {
   const pill = document.createElement('span');
