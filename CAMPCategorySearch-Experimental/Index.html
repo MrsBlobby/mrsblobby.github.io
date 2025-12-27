@@ -464,6 +464,38 @@
     box-sizing: border-box;
   }
 
+  /* Modal background */
+  .modal {
+    display: none; /* hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  /* Modal content box */
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* center vertically */
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    position: relative;
+  }
+  
+  /* Close button */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
   #filtersButton,
   #sortSelected {
     height: 36px;
@@ -894,6 +926,16 @@
     </details>
   </div>
 
+
+<button id="infoBtn">Info & FAQ</button>
+<!-- Modal Window -->
+<div id="infoModal" class="modal">
+  <div class="modal-content">
+    <span id="closeModal" class="close">&times;</span>
+    <!-- Content will go here later -->
+  </div>
+</div>
+
 <div class="controls">
   <div class="search-line">
     <input type="text" id="searchBox" placeholder="Search..." />
@@ -1319,6 +1361,26 @@ fetch('final_workshop_db.json')
     console.error("Failed to load database:", err);
     document.getElementById('results').innerHTML = '<li>Error loading database.</li>';
   });
+
+const infoBtn = document.getElementById('infoBtn');
+const infoModal = document.getElementById('infoModal');
+const closeModal = document.getElementById('closeModal');
+// Open modal
+infoBtn.addEventListener('click', () => {
+  infoModal.style.display = 'block';
+});
+
+// Close modal via X
+closeModal.addEventListener('click', () => {
+  infoModal.style.display = 'none';
+});
+
+// Close modal by clicking outside content
+window.addEventListener('click', (event) => {
+  if (event.target === infoModal) {
+    infoModal.style.display = 'none';
+  }
+});
 
 // --- Dropdown elements ---
 const dropdownSelected = document.getElementById('dropdownSelected');
