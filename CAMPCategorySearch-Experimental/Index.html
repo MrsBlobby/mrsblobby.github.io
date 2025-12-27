@@ -488,9 +488,25 @@
     border-radius: 8px;
     overflow-y: auto;        
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--card-bg);
   }
 
-
+    /* Modal scrollbar */
+  .modal-content::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .modal-content::-webkit-scrollbar-track {
+    background: var(--card-bg); /* same as modal bg */
+    border-radius: 4px;
+  }
+  
+  .modal-content::-webkit-scrollbar-thumb {
+    background-color: var(--accent); /* accent color */
+    border-radius: 4px;
+    border: 2px solid var(--card-bg); /* optional padding around thumb */
+  } 
 
   /* Close button */
   .close {
@@ -1434,6 +1450,9 @@ const closeModal = document.getElementById('closeModal');
 // Open modal
 infoBtn.addEventListener('click', () => {
   infoModal.style.display = 'block';
+  // Reset scroll to top
+  const content = infoModal.querySelector('.modal-content');
+  if (content) content.scrollTop = 0;
 });
 
 // Close modal via X
@@ -1562,15 +1581,15 @@ faqItems.forEach(item => {
     iconBox.style.display = 'flex';
     iconBox.style.justifyContent = 'center';
     iconBox.style.alignItems = 'center';
-      
+
     const img = document.createElement('img');
     img.src = iconData.src;
     img.style.maxWidth = '100%';      // scale up to container width
     img.style.maxHeight = '100%';     // scale up to container height
     img.style.objectFit = 'contain';  // preserve aspect ratio
-      
+
     iconBox.appendChild(img);
-      
+
     iconContainer.appendChild(iconBox);
   
     const label = document.createElement('span');
