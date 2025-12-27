@@ -490,35 +490,46 @@
   }
 
   .modal-content {
-    position: relative;       /* add this */
+    position: relative;
     background-color: var(--card-bg);
     color: var(--text);
-    width: 50%;              
-    max-height: 70vh;        
-    margin: 50px auto;       
-    padding: 20px;
+    width: 50%;
+    max-height: 70vh;
+    margin: 50px auto;
     border-radius: 8px;
-    overflow-y: auto;        
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent) var(--card-bg);
+    overflow: hidden; 
     transform: translateY(-6px);
     transition: transform 120ms ease-out, opacity 120ms ease-out;
-    overscroll-behavior: contain;
     opacity: 0;
   }
 
+  .modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .modal-body {
+    max-height: 60vh;       /* adjust for header */
+    overflow-y: auto;       /* only this scrolls */
+    padding: 10px 15px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--card-bg);
+  }
+
     /* Modal scrollbar */
-  .modal-content::-webkit-scrollbar {
+  .modal-body::-webkit-scrollbar {
     width: 8px;
   }
   
-  .modal-content::-webkit-scrollbar-track {
+  .modal-body::-webkit-scrollbar-track {
     background: var(--card-bg); /* same as modal bg */
     border-radius: 4px;
   }
   
-  .modal-content::-webkit-scrollbar-thumb {
+  .modal-body::-webkit-scrollbar-thumb {
     background-color: var(--accent); /* accent color */
     border-radius: 4px;
     border: 2px solid var(--card-bg); /* optional padding around thumb */
@@ -531,9 +542,6 @@
 
   /* Close button */
   .close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
@@ -1038,22 +1046,25 @@
     </details>
   </div>
 
-
 <button id="infoBtn" class="accent-btn">Info & FAQ</button>
+
 <!-- Modal Window -->
 <div id="infoModal" class="modal">
   <div class="modal-content">
-    <span id="closeModal" class="close">&times;</span>
+    <!-- Header with X stays fixed -->
+    <div class="modal-header">
+      <h2 style="margin:0;">Info & FAQ</h2>
+      <span id="closeModal" class="close">&times;</span>
+    </div>
+    
 
-    <!-- Modal header -->
-    <h2 style="margin-top:0;">Info & FAQ</h2>
-
-    <!-- Modal body -->
-    <div id="infoBody">
+    <!-- Scrollable body -->
+    <div id="infoBody" class="modal-body">
       <!-- Content will go here -->
     </div>
   </div>
 </div>
+
 
 
 <div class="controls">
