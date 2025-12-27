@@ -1484,6 +1484,13 @@ fetch('final_workshop_db.json')
 const infoBtn = document.getElementById('infoBtn');
 const infoModal = document.getElementById('infoModal');
 const closeModal = document.getElementById('closeModal');
+
+window.addEventListener('popstate', () => {
+  if (infoModal.style.display === 'block') {
+    closeInfoModal(true);
+  }
+});
+
 // Open modal
 infoBtn.addEventListener('click', () => {
   infoModal.style.display = 'block';
