@@ -1480,9 +1480,39 @@ const faqItems = [
       { src: "/assets/EquinoxIcon.svg", text: "Mothman Equinox Seasonal Event Reward" },
       { src: "/assets/GrahmIcon.webp", text: "Sold by Grahm" },
       { src: "/assets/HolidayScorchedIcon.webp", text: "Holiday Scorched Seasonal Event Reward" },
-      { src: "/assets/LearnOnPickupIcon.webp", text: "Loot to Unlock" }
+      { src: "/assets/InvadersIcon.webp", text: "Invaders from Beyond Seasonal Event Reward" },
+      { src: "/assets/LearnOnPickupIcon.webp", text: "Loot to Unlock" },
+      { src: "/assets/MeatWeekIcon.svg", text: "Meat Week Seasonal Event Reward" },
+      { src: "/assets/MischiefNightIcon.svg", text: "Mischief Night Seasonal Event Reward" },
+      { src: "/assets/NPCVendorIcon.svg", text: "Sold by non-robot NPC vendor for Caps" },
+      { src: "/assets/PublicEventIcon.svg", text: "Non-seasonal Public Event Reward" },
+      { src: "/assets/RobotVendorIcon.webp", text: "Sold by robot NPC vendor for Caps" },
+      { src: "/assets/SeasonIcon.webp", text: "(Mini) Season S.C.O.R.E Reward" },
+      { src: "/assets/SpookyScorchedIcon.svg", text: "Spooky Scorched Seasonal Event Reward" },
+      { src: "/assets/StampIcon.webp", text: "Sold by Giuseppe for Stamps" },
+      { src: "/assets/TreasureHuntersIcon.webp", text: "Treasure Hunters Seasonal Event Reward" },
+      { src: "/assets/UnusedContentIcon.svg", text: "Unused Content" },
+      { src: "/assets/V51Icon.webp", text: "Nuclear Winter Gamemode Reward" },
+      { src: "/assets/WorkshopIcon.svg", text: "Commonly obtained when claiming/defending Workshops" }
     ]
-  }
+  },
+    { 
+    q: "What does it mean when there is no placement condition icon?", 
+    a: "This simply means it's not covered by any particular category I have defined so far. Plans are obtained in a very wide selection of ways, and documenting all plan sources is a whole task in and of itself, especially in an automated manner. I may expand this in the future, but for now, as of V3.0, I tried to have the categories be as broad as possible while also keeping the time investment on my part relatively reasonable." 
+  },
+    {
+    q: "What are the different budget cost tiers, and what is a Flamingo Unit?"
+    a: ["Like the name implies, a Flamingo Unit is the budget cost of a lawn flamingo decor item. The vast majority of C.A.M.P. items costs 1 Flamingo Unit. This unit of measurement is used because budget limits vary between C.A.M.P.s, Shelters, and Workshops, so percentages aren't always the same. A C.A.M.P. has a max budget of 500 FUs. Most Shelters have a max budget of 700 FUs, and some have a max budget of 1500 FUs. Workshops have a max budget of 1500 FUs.",
+        "The different budget tiers are chosen in an arbitrary manner. Each tier threshold is double of the previous threshold."
+    ],
+    icons: [
+      { src: "/assets/BudgetBar-Tier1.webp", text: "Budget Cost: Very Low (0-2 FUs)" },
+      { src: "/assets/BudgetBar-Tier2.webp", text: "Budget Cost: Low (2-4 FUs)" },
+      { src: "/assets/BudgetBar-Tier3.webp", text: "Budget Cost: Medium (4-8 FUs)" },
+      { src: "/assets/BudgetBar-Tier4.webp", text: "Budget Cost: High (8-16 FUs)" },
+      { src: "/assets/BudgetBar-Tier5.webp", text: "Budget Cost: Very High (16+ FUs)" },
+    ]
+    }
 ];
 
 
@@ -1524,8 +1554,8 @@ faqItems.forEach(item => {
   
     const img = document.createElement('img');
     img.src = iconData.src;
-    img.style.width = '60px';
-    img.style.height = '60px';
+    img.style.width = 'auto';
+    img.style.height = '45px';
     img.style.marginRight = '8px';  // space between icon and text
   
     const label = document.createElement('span');
