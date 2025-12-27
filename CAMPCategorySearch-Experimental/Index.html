@@ -1546,45 +1546,43 @@ faqItems.forEach(item => {
   if (item.icons && item.icons.length) {
   const iconWrapper = document.createElement('div');
   iconWrapper.style.display = 'flex';
-  iconWrapper.style.flexDirection = 'column';  // stack vertically
+  iconWrapper.style.flexDirection = 'column'; // stack vertically
   iconWrapper.style.gap = '10px';
   iconWrapper.style.marginTop = '10px';
-  
+    
   item.icons.forEach(iconData => {
     const iconContainer = document.createElement('div');
     iconContainer.style.display = 'flex';
     iconContainer.style.alignItems = 'center';
-    iconContainer.style.fontSize = '0.9em';
-    iconContainer.style.color = 'var(--text)';
-    iconContainer.style.width = '200px';   // fixed width for all icon+label pairs
-    iconContainer.style.gap = '8px';
-
-    const imgWrapper = document.createElement('div');
-    imgWrapper.style.width = '45px';       // fixed width for icon
-    imgWrapper.style.height = '45px';
-    imgWrapper.style.display = 'flex';
-    imgWrapper.style.justifyContent = 'center';
-    imgWrapper.style.alignItems = 'center';
-
+  
+    // Fixed-size box for the icon
+    const iconBox = document.createElement('div');
+    iconBox.style.width = '45px';  // fixed width
+    iconBox.style.height = '45px';
+    iconBox.style.display = 'flex';
+    iconBox.style.justifyContent = 'center';
+    iconBox.style.alignItems = 'center';
+  
     const img = document.createElement('img');
     img.src = iconData.src;
     img.style.maxWidth = '100%';
     img.style.maxHeight = '100%';
     img.style.objectFit = 'contain';
-
-    imgWrapper.appendChild(img);
-    iconContainer.appendChild(imgWrapper);
-
+  
+    iconBox.appendChild(img);
+    iconContainer.appendChild(iconBox);
+  
     const label = document.createElement('span');
     label.textContent = iconData.text;
-
+    label.style.marginLeft = '10px';     // consistent gap
     iconContainer.appendChild(label);
+  
     iconWrapper.appendChild(iconContainer);
-
   });
-
+  
   infoBody.appendChild(iconWrapper);
-}
+  
+  }
 });
 
 
