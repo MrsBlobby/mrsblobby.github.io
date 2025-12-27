@@ -1514,7 +1514,7 @@ infoBtn.addEventListener('click', () => {
   history.pushState({ modal: 'info' }, '');
 
   // Reset scroll to top
-  const content = infoModal.querySelector('.modal-content');
+  const content = infoModal.querySelector('.modal-body');
   if (content) content.scrollTop = 0;
 });
 
