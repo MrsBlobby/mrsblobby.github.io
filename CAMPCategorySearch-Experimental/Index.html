@@ -1487,20 +1487,25 @@ const closeModal = document.getElementById('closeModal');
 // Open modal
 infoBtn.addEventListener('click', () => {
   infoModal.style.display = 'block';
-    requestAnimationFrame(() => {
+
+  requestAnimationFrame(() => {
     infoModal.classList.add('is-open');
   });
+
   history.pushState({ modal: 'info' }, '');
+
   // Reset scroll to top
   const content = infoModal.querySelector('.modal-content');
   if (content) content.scrollTop = 0;
-  
 });
 
-function closeInfoModal() {
+function closeInfoModal(fromPopState = false) {
   infoModal.classList.remove('is-open');
+
   if (!fromPopState && history.state?.modal === 'info') {
-  history.back();
+    history.back();
+  }
+
   // wait for fade-out to finish
   setTimeout(() => {
     infoModal.style.display = 'none';
