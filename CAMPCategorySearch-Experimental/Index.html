@@ -477,6 +477,11 @@
     background-color: rgba(26,26,26, 0.5); 
   }
 
+  .modal.is-open {
+    display: block;
+    opacity: 1;
+  }
+
   .modal-content {
     position: relative;       /* add this */
     background-color: var(--card-bg);
@@ -490,6 +495,9 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
     scrollbar-width: thin;
     scrollbar-color: var(--accent) var(--card-bg);
+    transform: translateY(-6px);
+    transition: transform 120ms ease-out, opacity 120ms ease-out;
+    opacity: 0;
   }
 
     /* Modal scrollbar */
@@ -507,6 +515,11 @@
     border-radius: 4px;
     border: 2px solid var(--card-bg); /* optional padding around thumb */
   } 
+
+  .modal.is-open .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+  }
 
   /* Close button */
   .close {
@@ -1467,22 +1480,34 @@ const closeModal = document.getElementById('closeModal');
 // Open modal
 infoBtn.addEventListener('click', () => {
   infoModal.style.display = 'block';
+    requestAnimationFrame(() => {
+    infoModal.classList.add('is-open');
+  });
   // Reset scroll to top
   const content = infoModal.querySelector('.modal-content');
   if (content) content.scrollTop = 0;
+  
 });
+
+function closeInfoModal() {
+  infoModal.classList.remove('is-open');
+
+  // wait for fade-out to finish
+  setTimeout(() => {
+    infoModal.style.display = 'none';
+  }, 120); // must match CSS transition duration
+}
 
 // Close modal via X
-closeModal.addEventListener('click', () => {
-  infoModal.style.display = 'none';
-});
+closeModal.addEventListener('click', closeInfoModal);
 
 // Close modal by clicking outside content
-window.addEventListener('click', (event) => {
+infoModal.addEventListener('click', (event) => {
   if (event.target === infoModal) {
-    infoModal.style.display = 'none';
+    closeInfoModal();
   }
 });
+
 
 const infoBody = document.getElementById('infoBody');
 
