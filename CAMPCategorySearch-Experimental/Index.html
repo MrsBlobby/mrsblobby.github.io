@@ -1456,7 +1456,7 @@ const faqItems = [
     a: [
       "Search by Item Name: Quite self-explanatory. Search results are based on the name of the item that is built.",
       "Search by Plan Name: Search results are based on the plan name listed under Placement Conditions. This can come in handy if you want to see what a particular, more vague-sounding plan unlocks, i.e. Plan: Metal Signs.",
-      "Search by Entitlement: Similarly to the Plan Name option, this does essentially the same, but for Atomic Shop/S.C.O.R.E items. Entitlements act like account-wide plans used by these items."
+      "Search by Entitlement Name: Similarly to the Plan Name option, this does essentially the same, but for Atomic Shop/S.C.O.R.E items. Entitlements act like account-wide plans used by these items."
     ]
   },
    { 
@@ -1465,6 +1465,23 @@ const faqItems = [
       "The Placement Condition filters operate on a logic that is sort of a mix of XOR and AND logic. If you select just 1 placement condition filter, you will only get results with that particular type of placement condition, i.e. selecting Plan will only yield items that are plan-only. Selecting 2 or more placement condition filters at once will result in results that meet both of those requirements at once, i.e. selecting Plan and Entitlement will only yield items that have both in their placement conditions.",
       "The Workshop Category Filters operate purely on OR logic. You will get results that are under any of the selected categories." 
    ]
+  },
+  {
+    q: "What do the different placement condition icons mean?",
+    a: [
+      "The icons tend to have a broader meaning, stated below. Note that you can hover your mouse or tap on icons to see a more detailed description, if available."
+    ],
+    icons: [
+      { src: "/assets/AtomIcon.webp", text: "Atomic Shop item" },
+      { src: "/assets/BigBloomIcon.webp", text: "Big Bloom Seasonal Event Reward" },
+      { src: "/assets/BullionIcon.webp", text: "Sold by Gold Bullion Vendor" },
+      { src: "/assets/ChallengeIcon.svg", text: "Complete a Challenge to Unlock" },
+      { src: "/assets/DOpsIcon.webp", text: "Daily Ops Reward" },
+      { src: "/assets/EquinoxIcon.svg", text: "Mothman Equinox Seasonal Event Reward" },
+      { src: "/assets/GrahmIcon.webp", text: "Sold by Grahm" },
+      { src: "/assets/HolidayScorchedIcon.webp", text: "Holiday Scorched Seasonal Event Reward" },
+      { src: "/assets/LearnOnPickupIcon.webp", text: "Loot to Unlock" }
+    ]
   }
 ];
 
@@ -1475,7 +1492,7 @@ faqItems.forEach(item => {
   qEl.textContent = item.q;
   infoBody.appendChild(qEl);
 
-  // If a is an array, render multiple paragraphs
+  // Multi-paragraph answer
   if (Array.isArray(item.a)) {
     item.a.forEach(paragraph => {
       const aEl = document.createElement('p');
@@ -1488,6 +1505,39 @@ faqItems.forEach(item => {
     aEl.className = 'answer';
     aEl.textContent = item.a;
     infoBody.appendChild(aEl);
+  }
+
+  // Icons, if any
+  if (item.icons && item.icons.length) {
+    const iconWrapper = document.createElement('div');
+    iconWrapper.style.display = 'flex';
+    iconWrapper.style.flexWrap = 'wrap';
+    iconWrapper.style.gap = '10px';
+    iconWrapper.style.marginTop = '10px';
+
+    item.icons.forEach(iconData => {
+      const iconContainer = document.createElement('div');
+      iconContainer.style.display = 'flex';
+      iconContainer.style.flexDirection = 'column';
+      iconContainer.style.alignItems = 'center';
+      iconContainer.style.fontSize = '0.9em';
+      iconContainer.style.color = 'var(--text)';
+
+      const img = document.createElement('img');
+      img.src = iconData.src;
+      img.style.width = '30px';
+      img.style.height = '30px';
+      img.style.marginBottom = '4px';
+
+      const label = document.createElement('span');
+      label.textContent = iconData.text;
+
+      iconContainer.appendChild(img);
+      iconContainer.appendChild(label);
+      iconWrapper.appendChild(iconContainer);
+    });
+
+    infoBody.appendChild(iconWrapper);
   }
 });
 
