@@ -1557,19 +1557,20 @@ faqItems.forEach(item => {
   
     // Fixed-size box for the icon
     const iconBox = document.createElement('div');
-    iconBox.style.width = '45px';  // fixed width
+    iconBox.style.width = '45px';
     iconBox.style.height = '45px';
     iconBox.style.display = 'flex';
     iconBox.style.justifyContent = 'center';
     iconBox.style.alignItems = 'center';
-  
+      
     const img = document.createElement('img');
     img.src = iconData.src;
-    img.style.maxWidth = '100%';
-    img.style.maxHeight = '100%';
-    img.style.objectFit = 'contain';
-  
+    img.style.maxWidth = '100%';      // scale up to container width
+    img.style.maxHeight = '100%';     // scale up to container height
+    img.style.objectFit = 'contain';  // preserve aspect ratio
+      
     iconBox.appendChild(img);
+      
     iconContainer.appendChild(iconBox);
   
     const label = document.createElement('span');
