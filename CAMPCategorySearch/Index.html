@@ -1637,7 +1637,7 @@ faqItems.forEach(item => {
   item.icons.forEach(iconData => {
     const iconContainer = document.createElement('div');
     iconContainer.style.display = 'flex';
-    iconContainer.style.alignItems = 'center';
+    iconContainer.style.alignItems = 'flex-start';
   
     // Fixed-size box for the icon
     const iconBox = document.createElement('div');
@@ -1646,6 +1646,7 @@ faqItems.forEach(item => {
     iconBox.style.display = 'flex';
     iconBox.style.justifyContent = 'center';
     iconBox.style.alignItems = 'center';
+    iconBox.style.flexShrink = '0'
 
     const img = document.createElement('img');
     img.src = iconData.src;
@@ -1660,6 +1661,7 @@ faqItems.forEach(item => {
     const label = document.createElement('span');
     label.textContent = iconData.text;
     label.style.marginLeft = '10px';     // consistent gap
+    label.style.lineHeight = '1.3'
     iconContainer.appendChild(label);
   
     iconWrapper.appendChild(iconContainer);
