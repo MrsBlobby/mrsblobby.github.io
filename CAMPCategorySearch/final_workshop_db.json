@@ -89349,8 +89349,8 @@
     "BOOK_EditorID": "Recipe_Workshop_WallDecor_76Taxidermy_RadFrogBlue",
     "BOOK_SOURCE": "DIRECT",
     "BOOK_SOURCE_TAG": "HolidayScorched",
-    "ENTM_FULL": "Frog Leg",
-    "ENTM_EDID": "RadFrogLeg",
+    "ENTM_FULL": null,
+    "ENTM_EDID": null,
     "GLOB_Value": null
   },
   {
