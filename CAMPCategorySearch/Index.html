@@ -1661,7 +1661,8 @@ faqItems.forEach(item => {
     const label = document.createElement('span');
     label.textContent = iconData.text;
     label.style.marginLeft = '10px';     // consistent gap
-    label.style.lineHeight = '1.3'
+    label.style.lineHeight = '1.3';
+    label.style.paddingTop = '12px';
     iconContainer.appendChild(label);
   
     iconWrapper.appendChild(iconContainer);
