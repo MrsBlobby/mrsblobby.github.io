@@ -2367,7 +2367,6 @@ bookFulls.forEach((fullName, i) => {
     let tooltipText = getTooltipTextForTag(normalizedTag, tags);
     if (/Challenge_/.test(bookEditorId)) {
       tooltipText = `Complete a Challenge to Unlock`;
-      if (globValue != null) tooltipText += ` (X/${globValue})`;
     } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
       tooltipText = `Loot to Unlock`;
     }
