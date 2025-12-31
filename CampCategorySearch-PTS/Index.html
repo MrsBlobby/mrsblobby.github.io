@@ -2367,12 +2367,12 @@ bookFulls.forEach((fullName, i) => {
 
     let tooltipText = getTooltipTextForTag(normalizedTag, tags);
     if (/Challenge_/.test(bookEditorId)) {
-      tooltipText = `Challenge: "${fullName}"`;
-      if (globValue != null) tooltipText += ` (X/${globValue})`;
+      tooltipText = `Complete a Challenge to Unlock`;
     } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
       tooltipText = `Loot to Unlock`;
     }
     attachTooltipToIcon(icon, tooltipText);
+
 
     appendedIcon = true;
   });
