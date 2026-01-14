@@ -945,7 +945,7 @@
       Made by <span class="author-name">MrsBlobby</span>
       <a href="https://mrsblobby.github.io/76Tools.html" class="badge-link">Other Tools</a>
     </p>
-    <p class="updated">Last Updated: December 27, 2025</p>
+    <p class="updated">Last Updated: January 14, 2026</p>
   </div>
 </div>
 
@@ -954,6 +954,17 @@
     <details>
       <summary>Version History</summary>
       <div class="changelog-entry">
+               <div class="changelog-entry">
+          <h4>v3.0.1</h4>
+          <ul>
+              <li>
+                  <div>
+                      Added technical info to each entry
+                      Current known issue: certain budget values are being underreported
+                  </div>
+              </li>
+          </ul>
+      </div>
           <h4>v3.0</h4>
           <ul>
               <li>
@@ -2679,6 +2690,49 @@ if (r.BudgetCost !== undefined && r.BudgetCost !== null && (r.Category || '').to
 
   budgetWrap.appendChild(budgetPill);
   right.appendChild(budgetWrap);
+}
+
+// --- Technical header + pills ---
+if (r.CNAM_FormID || r.CNAM_EditorID) {
+  const techHeader = document.createElement('div');
+  techHeader.className = 'section-header';
+  techHeader.textContent = 'Technical';
+  techHeader.style.marginTop = '8px';
+  right.appendChild(techHeader);
+
+  const techWrap = document.createElement('div');
+  techWrap.className = 'inline-wrap';
+  techWrap.style.flexDirection = 'column'; // stack pills
+  techWrap.style.gap = '4px';
+
+  // --- Form ID pill ---
+  if (r.CNAM_FormID) {
+    const formPill = document.createElement('span');
+    formPill.className = 'pill';
+    formPill.textContent = `Form ID: ${r.CNAM_FormID}`;
+    techWrap.appendChild(formPill);
+  }
+
+  // --- Editor ID pill ---
+  if (r.CNAM_EditorID) {
+    const edidPill = document.createElement('span');
+    edidPill.className = 'pill';
+
+    const label = document.createElement('span');
+    
+
+    const value = document.createElement('span');
+    value.textContent = r.CNAM_EditorID;
+    value.style.wordBreak = 'break-all';  // prevent overflow
+    edidPill.style.maxWidth = 'none';
+    edidPill.style.width = 'fit-content';
+
+    edidPill.appendChild(label);
+    edidPill.appendChild(value);
+    techWrap.appendChild(edidPill);
+  }
+
+  right.appendChild(techWrap);
 }
 
 
