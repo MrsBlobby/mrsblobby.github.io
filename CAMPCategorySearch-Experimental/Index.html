@@ -2706,20 +2706,21 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
   if (r.CNAM_EditorID) {
     const edidPill = document.createElement('span');
     edidPill.className = 'pill';
-    edidPill.style.maxWidth = 'none';
-    edidPill.style.width = 'fit-content';
-      
+
     const label = document.createElement('span');
     label.textContent = 'EDID: ';
-      
+
     const value = document.createElement('span');
     value.textContent = r.CNAM_EditorID;
-    value.style.fontSize = '0.85em';
-    value.style.wordBreak = 'break-all';
-      
+    value.style.fontSize = '0.75em';      // smaller font
+    value.style.opacity = '0.9';
+    value.style.wordBreak = 'break-all';  // prevent overflow
+    edidPill.style.maxWidth = 'none';
+    edidPill.style.width = 'fit-content';
+
     edidPill.appendChild(label);
     edidPill.appendChild(value);
-      
+    techWrap.appendChild(edidPill);
   }
 
   right.appendChild(techWrap);
