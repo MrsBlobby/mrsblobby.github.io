@@ -2681,6 +2681,28 @@ if (r.BudgetCost !== undefined && r.BudgetCost !== null && (r.Category || '').to
   right.appendChild(budgetWrap);
 }
 
+// --- Technical header + pill ---
+if (r.CNAM_FormID && r.CNAM_EditorID) {
+  const techHeader = document.createElement('div');
+  techHeader.className = 'section-header';
+  techHeader.textContent = 'Technical';
+  techHeader.style.marginTop = '8px';
+  right.appendChild(techHeader);
+
+  const techWrap = document.createElement('div');
+  techWrap.className = 'inline-wrap';
+
+  const techPill = document.createElement('span');
+  techPill.className = 'pill';
+
+  // Format: <formID> - <editorID>
+  techPill.textContent = `${r.CNAM_FormID} - ${r.CNAM_EditorID}`;
+
+  techWrap.appendChild(techPill);
+  right.appendChild(techWrap);
+}
+
+
 
     // --- attach left + right divs to li ---
     li.appendChild(left);
