@@ -2698,7 +2698,7 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
   if (r.CNAM_FormID) {
     const formPill = document.createElement('span');
     formPill.className = 'pill';
-    formPill.textContent = `Form ID: ${r.CNAM_FormID}`;
+    formPill.textContent = `${r.CNAM_FormID}`;
     techWrap.appendChild(formPill);
   }
 
@@ -2708,11 +2708,11 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
     edidPill.className = 'pill';
 
     const label = document.createElement('span');
-    label.textContent = 'EDID: ';
+    
 
     const value = document.createElement('span');
     value.textContent = r.CNAM_EditorID;
-    value.style.fontSize = '0.75em';      // smaller font
+    value.style.fontSize = '0.8em';      // smaller font
     value.style.opacity = '0.9';
     value.style.wordBreak = 'break-all';  // prevent overflow
     edidPill.style.maxWidth = 'none';
