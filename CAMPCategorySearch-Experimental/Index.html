@@ -2681,8 +2681,8 @@ if (r.BudgetCost !== undefined && r.BudgetCost !== null && (r.Category || '').to
   right.appendChild(budgetWrap);
 }
 
-// --- Technical header + pill ---
-if (r.CNAM_FormID && r.CNAM_EditorID) {
+// --- Technical header + pills ---
+if (r.CNAM_FormID || r.CNAM_EditorID) {
   const techHeader = document.createElement('div');
   techHeader.className = 'section-header';
   techHeader.textContent = 'Technical';
@@ -2691,14 +2691,36 @@ if (r.CNAM_FormID && r.CNAM_EditorID) {
 
   const techWrap = document.createElement('div');
   techWrap.className = 'inline-wrap';
+  techWrap.style.flexDirection = 'column'; // stack pills
+  techWrap.style.gap = '4px';
 
-  const techPill = document.createElement('span');
-  techPill.className = 'pill';
+  // --- Form ID pill ---
+  if (r.CNAM_FormID) {
+    const formPill = document.createElement('span');
+    formPill.className = 'pill';
+    formPill.textContent = `Form ID: ${r.CNAM_FormID}`;
+    techWrap.appendChild(formPill);
+  }
 
-  // Format: <formID> - <editorID>
-  techPill.textContent = `${r.CNAM_FormID} - ${r.CNAM_EditorID}`;
+  // --- Editor ID pill ---
+  if (r.CNAM_EditorID) {
+    const edidPill = document.createElement('span');
+    edidPill.className = 'pill';
 
-  techWrap.appendChild(techPill);
+    const label = document.createElement('span');
+    label.textContent = 'EDID: ';
+
+    const value = document.createElement('span');
+    value.textContent = r.CNAM_EditorID;
+    value.style.fontSize = '0.85em';      // smaller font
+    value.style.opacity = '0.9';
+    value.style.wordBreak = 'break-all';  // prevent overflow
+
+    edidPill.appendChild(label);
+    edidPill.appendChild(value);
+    techWrap.appendChild(edidPill);
+  }
+
   right.appendChild(techWrap);
 }
 
