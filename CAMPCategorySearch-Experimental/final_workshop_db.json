@@ -37147,7 +37147,7 @@
     "Name": "Fire Barrel",
     "Category": "Lights",
     "SubCategory": "Fire",
-    "BudgetCost": 3.0,
+    "BudgetCost": 2.0,
     "COBJ_FormEditorID": "workshop_co_Lights_MetalFireBarrel01",
     "COBJ_FormID": "10fea0",
     "CNAM_FormID": "0010FEA5",
