@@ -14,9 +14,9 @@
   <link rel="shortcut icon" type="image/png" href="https://mrsblobby.github.io/assets/CAMPIcon2-32x32.png">
   <title>Fallout 76 C.A.M.P. Item Database</title>
  <style>
-  :root {
-    --accent: #ffc00f;
-    --accent-dim: #ffb300;
+  :root { 
+    --accent: #ffc00f; /*Live Color: #ffc00f, PTS Color: #497ab4 */
+    --accent-dim: #ffb300; /* Live Color: #ffb300, PTS Color: #223b5a*/
     --bg: #1a1a1a;
     --card-bg: #2a2a2a;
     --text: #e0e0e0;
@@ -102,6 +102,12 @@
     cursor: default;
   }
 
+  #pagination button.active-page {
+    background: var(--accent);
+    color: black;
+    font-weight: bold;
+  }
+  
   .controls {
     position: flex;
     top: 0;
@@ -358,7 +364,7 @@
       color: var(--accent);
     }
 
-    .changelog-entry {
+    .changelog-entry { /*Live Color: rgba(255, 192, 15, 0.05), PTS Color: rgba(15, 147, 255, 0.05); */
       background: rgba(255, 192, 15, 0.05);
       border-left: 3px solid var(--accent);
       border-radius: 4px;
@@ -644,7 +650,7 @@
     padding: 0 12px;
     font-size: 14px;
     width: 100%;
-    border: 2px solid var(--accent); /* keep border if you like */
+    border: 2px solid var(--accent); 
     border-radius: 6px 0 0 6px;
     background-color: var(--card-bg);
     color: var(--text);
@@ -945,7 +951,7 @@
       Made by <span class="author-name">MrsBlobby</span>
       <a href="https://mrsblobby.github.io/76Tools.html" class="badge-link">Other Tools</a>
     </p>
-    <p class="updated">Last Updated: January 20, 2026</p>
+    <p class="updated">Last Updated: February 4, 2026</p>
   </div>
 </div>
 
@@ -953,6 +959,17 @@
 <div class="container">
     <details>
       <summary>Version History</summary>
+      <div class="changelog-entry">
+          <h4>v3.0.2</h4>
+          <ul>
+              <li>
+                  <div>
+                      Fixed budget values being underreported, primarily affecting lights and prefabs <br>
+                      Whichever page is the current page is now better shown to the user
+                  </div>
+              </li>
+          </ul>
+      </div>
       <div class="changelog-entry">
           <h4>v3.0.1</h4>
           <ul>
@@ -1887,27 +1904,31 @@ function renderPagination(totalItems) {
   if (totalPages <= 1) return;
 
   const prevBtn = document.createElement('button');
-  prevBtn.textContent = '← Prev';
+  prevBtn.textContent = 'Prev';
   prevBtn.disabled = currentPage === 1;
   prevBtn.onclick = () => { currentPage--; renderResults(document.getElementById('searchBox').value); };
   pagination.appendChild(prevBtn);
 
-  for (let i=1; i<=totalPages; i++) {
-    if (i === 1 || i === totalPages || Math.abs(i-currentPage) <= 2) {
+  for (let i = 1; i <= totalPages; i++) {
+    if (i === 1 || i === totalPages || Math.abs(i - currentPage) <= 2) {
       const btn = document.createElement('button');
       btn.textContent = i;
-      btn.style.fontWeight = i===currentPage ? 'bold' : 'normal';
-      btn.onclick = () => { currentPage = i; renderResults(document.getElementById('searchBox').value); };
+      if (i === currentPage) btn.classList.add('active-page'); // highlight current page
+      btn.onclick = () => { 
+        currentPage = i; 
+        renderResults(document.getElementById('searchBox').value); 
+      };
       pagination.appendChild(btn);
-    } else if (Math.abs(i-currentPage) === 3) {
+    } else if (Math.abs(i - currentPage) === 3) {
       const span = document.createElement('span');
       span.textContent = ' ... ';
       pagination.appendChild(span);
     }
   }
 
+
   const nextBtn = document.createElement('button');
-  nextBtn.textContent = 'Next →';
+  nextBtn.textContent = 'Next';
   nextBtn.disabled = currentPage === totalPages;
   nextBtn.onclick = () => { currentPage++; renderResults(document.getElementById('searchBox').value); };
   pagination.appendChild(nextBtn);
