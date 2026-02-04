@@ -102,6 +102,12 @@
     cursor: default;
   }
 
+  #pagination button.active-page {
+    background: var(--accent);
+    color: black;
+    font-weight: bold;
+  }
+  
   .controls {
     position: flex;
     top: 0;
@@ -945,7 +951,7 @@
       Made by <span class="author-name">MrsBlobby</span>
       <a href="https://mrsblobby.github.io/76Tools.html" class="badge-link">Other Tools</a>
     </p>
-    <p class="updated">Last Updated: January 20, 2026</p>
+    <p class="updated">Last Updated: February 4, 2026</p>
   </div>
 </div>
 
@@ -953,6 +959,17 @@
 <div class="container">
     <details>
       <summary>Version History</summary>
+      <div class="changelog-entry">
+          <h4>v3.0.2</h4>
+          <ul>
+              <li>
+                  <div>
+                      Fixed budget values being underreported, primarily affecting lights and prefabs <br>
+                      
+                  </div>
+              </li>
+          </ul>
+      </div>
       <div class="changelog-entry">
           <h4>v3.0.1</h4>
           <ul>
@@ -1880,6 +1897,10 @@ function paginate(items) {
   return items.slice(start, end);
 }
 
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 function renderPagination(totalItems) {
   const pagination = document.getElementById('pagination');
   const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -1892,14 +1913,18 @@ function renderPagination(totalItems) {
   prevBtn.onclick = () => { currentPage--; renderResults(document.getElementById('searchBox').value); };
   pagination.appendChild(prevBtn);
 
-  for (let i=1; i<=totalPages; i++) {
-    if (i === 1 || i === totalPages || Math.abs(i-currentPage) <= 2) {
+  for (let i = 1; i <= totalPages; i++) {
+    if (i === 1 || i === totalPages || Math.abs(i - currentPage) <= 2) {
       const btn = document.createElement('button');
       btn.textContent = i;
-      btn.style.fontWeight = i===currentPage ? 'bold' : 'normal';
-      btn.onclick = () => { currentPage = i; renderResults(document.getElementById('searchBox').value); };
+      if (i === currentPage) btn.classList.add('active-page'); // add class
+      btn.onclick = () => { 
+        currentPage = i; 
+        renderResults(document.getElementById('searchBox').value); 
+        scrollToTop(); // scroll after changing page
+      };
       pagination.appendChild(btn);
-    } else if (Math.abs(i-currentPage) === 3) {
+    } else if (Math.abs(i - currentPage) === 3) {
       const span = document.createElement('span');
       span.textContent = ' ... ';
       pagination.appendChild(span);
