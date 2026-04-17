@@ -737,27 +737,31 @@ function renderPagination(totalItems) {
   if (totalPages <= 1) return;
 
   const prevBtn = document.createElement('button');
-  prevBtn.textContent = '← Prev';
+  prevBtn.textContent = 'Prev';
   prevBtn.disabled = currentPage === 1;
   prevBtn.onclick = () => { currentPage--; renderResults(document.getElementById('searchBox').value); };
   pagination.appendChild(prevBtn);
 
-  for (let i=1; i<=totalPages; i++) {
-    if (i === 1 || i === totalPages || Math.abs(i-currentPage) <= 2) {
+  for (let i = 1; i <= totalPages; i++) {
+    if (i === 1 || i === totalPages || Math.abs(i - currentPage) <= 2) {
       const btn = document.createElement('button');
       btn.textContent = i;
-      btn.style.fontWeight = i===currentPage ? 'bold' : 'normal';
-      btn.onclick = () => { currentPage = i; renderResults(document.getElementById('searchBox').value); };
+      if (i === currentPage) btn.classList.add('active-page'); // highlight current page
+      btn.onclick = () => { 
+        currentPage = i; 
+        renderResults(document.getElementById('searchBox').value); 
+      };
       pagination.appendChild(btn);
-    } else if (Math.abs(i-currentPage) === 3) {
+    } else if (Math.abs(i - currentPage) === 3) {
       const span = document.createElement('span');
       span.textContent = ' ... ';
       pagination.appendChild(span);
     }
   }
 
+
   const nextBtn = document.createElement('button');
-  nextBtn.textContent = 'Next →';
+  nextBtn.textContent = 'Next';
   nextBtn.disabled = currentPage === totalPages;
   nextBtn.onclick = () => { currentPage++; renderResults(document.getElementById('searchBox').value); };
   pagination.appendChild(nextBtn);
@@ -1233,7 +1237,6 @@ bookFulls.forEach((fullName, i) => {
       tooltipText = `Loot to Unlock`;
     }
     attachTooltipToIcon(icon, tooltipText);
-
 
     appendedIcon = true;
   });

@@ -67,26 +67,29 @@ h1 {
 }
 
 #pagination button {
-    padding: 6px 10px;
-    margin-left: 2px;
-    margin-left: 2px;
-    background: var(--card-bg);
-    color: var(--text);
-    border: 2px solid var(--accent);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-#pagination button:hover:not(:disabled) {
-    background: var(--accent);
-    color: black;
-}
-
-#pagination button:disabled {
-    opacity: 0.4;
-    cursor: default;
-}
+        padding: 6px 10px;
+        margin-left: 2px;
+        margin-left: 2px;
+        background: var(--card-bg);
+        color: var(--text);
+        border: 2px solid var(--accent);
+        border-radius: 4px;
+        cursor: pointer;
+        transition: 0.2s;
+  }
+    #pagination button:hover:not(:disabled) {
+        background: var(--accent);
+        color: black;
+  }
+    #pagination button:disabled {
+        opacity: 0.4;
+        cursor: default;
+  }
+    #pagination button.active-page {
+        background: var(--accent);
+        color: black;
+        font-weight: bold;
+  }
 
 .controls {
     position: flex;
