@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Detailed view for Fallout 76 C.A.M.P. Item">
+  <meta property="og:title" content="Fallout 76 C.A.M.P. Item Database - Detailed View">
+  <meta property="og:description" content="Look up C.A.M.P. item details: build menu category, placement conditions, budget cost, and more.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/76-CAMPDatabase/assets/CAMPIcon2.webp">
+  <meta property="og:type" content="website">
   <link rel="icon" href="./favicon.ico" sizes="any">
   <link rel="shortcut icon" type="image/png" href="../assets/CAMPIcon2-32x32.png">
   <title>C.A.M.P. Item Details</title>
@@ -625,7 +629,8 @@
       .storefront-row { grid-column: 1; grid-row: 3; }
       .right-panel-title { font-size: 22px; }
       .detail-pill { max-width: 100%; }
-      .storefront-thumb img { width: 45vw; height: 45vw; max-width: 200px; max-height: 200px; }
+      .storefront-thumb { aspect-ratio: 1; }
+      .storefront-thumb img { width: 100%; height: 100%; }
     }
   </style>
 </head>
@@ -782,8 +787,36 @@
       sessionStorage.removeItem('itemViewHistory_idx');
     });
 
+    // ── Scroll lock utility ──
+    let _scrollLockCount = 0;
+    function lockScroll() {
+      if (_scrollLockCount === 0) {
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        document.body.style.overflow = 'hidden';
+        if (scrollbarWidth > 0) document.body.style.paddingRight = scrollbarWidth + 'px';
+      }
+      _scrollLockCount++;
+    }
+    function unlockScroll() {
+      _scrollLockCount = Math.max(0, _scrollLockCount - 1);
+      if (_scrollLockCount === 0) {
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
+      }
+    }
+
     // ── Navigation history (prev/next within item-view) ──
     const NAV_KEY = 'itemViewHistory';
+
+    // If arriving fresh from index.html, wipe any stale history first
+    const _initParams = new URLSearchParams(window.location.search);
+    if (_initParams.get('fresh') === '1') {
+      sessionStorage.removeItem(NAV_KEY);
+      sessionStorage.removeItem(NAV_KEY + '_idx');
+      const cleanUrl = window.location.pathname + '?id=' + encodeURIComponent(_initParams.get('id'));
+      history.replaceState(null, '', cleanUrl);
+    }
+
     let navHistory = JSON.parse(sessionStorage.getItem(NAV_KEY) || '[]');
     let navIndex   = parseInt(sessionStorage.getItem(NAV_KEY + '_idx') || '-1', 10);
 
@@ -865,19 +898,20 @@
       const closeBtn = document.createElement('button');
       closeBtn.className = 'lightbox-close';
       closeBtn.textContent = '✕';
-      closeBtn.addEventListener('click', () => document.body.removeChild(overlay));
+      closeBtn.addEventListener('click', () => { unlockScroll(); document.body.removeChild(overlay); });
 
       inner.appendChild(img);
       inner.appendChild(closeBtn);
       overlay.appendChild(inner);
 
       // Click outside inner closes
-      overlay.addEventListener('click', () => document.body.removeChild(overlay));
+      overlay.addEventListener('click', () => { unlockScroll(); document.body.removeChild(overlay); });
 
       // Escape key closes
-      const onKey = e => { if (e.key === 'Escape') { document.body.removeChild(overlay); document.removeEventListener('keydown', onKey); } };
+      const onKey = e => { if (e.key === 'Escape') { unlockScroll(); document.body.removeChild(overlay); document.removeEventListener('keydown', onKey); } };
       document.addEventListener('keydown', onKey);
 
+      lockScroll();
       document.body.appendChild(overlay);
     }
 
@@ -1275,7 +1309,7 @@
                   const closeBtn = document.createElement('button');
                   closeBtn.className = 'shared-modal-close';
                   closeBtn.textContent = '✕';
-                  closeBtn.addEventListener('click', () => document.body.removeChild(overlay));
+                  closeBtn.addEventListener('click', () => { unlockScroll(); document.body.removeChild(overlay); });
 
                   const h3 = document.createElement('h3');
                   h3.textContent = 'Shared Max Build Count';
@@ -1309,11 +1343,12 @@
                   wrap.appendChild(closeBtn);
                   wrap.appendChild(modal);
                   overlay.appendChild(wrap);
-                  overlay.addEventListener('click', () => document.body.removeChild(overlay));
-                  const onKey = e => { if (e.key === 'Escape') { document.body.removeChild(overlay); document.removeEventListener('keydown', onKey); } };
+                  overlay.addEventListener('click', () => { unlockScroll(); document.body.removeChild(overlay); });
+                  const onKey = e => { if (e.key === 'Escape') { unlockScroll(); document.body.removeChild(overlay); document.removeEventListener('keydown', onKey); } };
                   document.addEventListener('keydown', onKey);
+                  lockScroll();
                   document.body.appendChild(overlay);
-                  if (window.matchMedia("(hover: hover)").matches) searchInput.focus();
+                  if (window.matchMedia('(hover: hover)').matches) searchInput.focus();
                 });
                 grid.appendChild(more);
               }
@@ -1403,7 +1438,7 @@
                 const closeBtn = document.createElement('button');
                 closeBtn.className = 'shared-modal-close';
                 closeBtn.textContent = '✕';
-                closeBtn.addEventListener('click', () => document.body.removeChild(overlay));
+                closeBtn.addEventListener('click', () => { unlockScroll(); document.body.removeChild(overlay); });
 
                 const h3 = document.createElement('h3');
                 h3.textContent = 'Build Menu Slot';
@@ -1436,11 +1471,12 @@
                 wrap.appendChild(closeBtn);
                 wrap.appendChild(modal);
                 overlay.appendChild(wrap);
-                overlay.addEventListener('click', () => document.body.removeChild(overlay));
-                const onKey = e => { if (e.key === 'Escape') { document.body.removeChild(overlay); document.removeEventListener('keydown', onKey); } };
+                overlay.addEventListener('click', () => { unlockScroll(); document.body.removeChild(overlay); });
+                const onKey = e => { if (e.key === 'Escape') { unlockScroll(); document.body.removeChild(overlay); document.removeEventListener('keydown', onKey); } };
                 document.addEventListener('keydown', onKey);
+                lockScroll();
                 document.body.appendChild(overlay);
-                if (window.matchMedia("(hover: hover)").matches) searchInput.focus();
+                if (window.matchMedia('(hover: hover)').matches) searchInput.focus();
               });
               grid.appendChild(more);
             }
