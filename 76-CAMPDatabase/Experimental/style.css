@@ -946,7 +946,7 @@
     align-items: center;
     justify-content: center;
     gap: 4px;
-    padding: 0 28px;
+    padding: 0 20px;
     font-size: 13px;
     border: 2px solid var(--accent);
     border-radius: 6px 0 0 6px;
