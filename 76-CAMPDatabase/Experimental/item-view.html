@@ -1472,8 +1472,8 @@
           imageNames.forEach(name => {
             const baseName = name.replace(/\.dds$/i, '');
             const relativePath = basePath.replace(/^Textures\//i, '');
-            const src = `../Storefront/${relativePath}${baseName}.png`;
-            const srcFallback = `../Storefront/${relativePath}${baseName}_l.png`;
+            const src = `../storefront/${relativePath}${baseName}.png`.toLowerCase();
+            const srcFallback = `../storefront/${relativePath}${baseName}_l.png`.toLowerCase();
 
             const thumb = document.createElement('div');
             thumb.className = 'storefront-thumb';
