@@ -385,6 +385,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     transition: opacity 0.15s ease;
+    min-height: 200px;
   }
   .filter-col-sub button { flex: 0 0 auto; }
   .filter-col-sub-empty {

@@ -887,11 +887,12 @@
       // Update title
       document.title = `${item.Name} - C.A.M.P. Database`;
       const titleTag = document.querySelector('meta[property="og:title"]');
-      if (titleTag) titleTag.setAttribute('content', item.Name);
+      const ogTitle = `${item.Name} - Detailed View`;
+      if (titleTag) titleTag.setAttribute('content', ogTitle);
       else {
         const newTag = document.createElement('meta');
         newTag.setAttribute('property', 'og:title');
-        newTag.setAttribute('content', item.Name);
+        newTag.setAttribute('content', ogTitle);
         document.head.appendChild(newTag);
       }
 
@@ -906,7 +907,7 @@
         document.head.appendChild(newTag);
       }
 
-      // Update image
+      // Update image — prefer storefront, fall back to item icon
       let imageUrl = null;
       if (item.ENTM_ImagePath && item.ENTM_ImageNames && item.ENTM_ImageNames.trim()) {
         const basePath = item.ENTM_ImagePath.trim().replace(/\\/g, '/');
@@ -914,6 +915,9 @@
         const relativePath = basePath.replace(/^Textures\//i, '');
         const imagePath = `storefront/${relativePath}${firstImageName}.png`;
         imageUrl = `https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/76-CAMPDatabase/Experimental/${imagePath}`;
+      } else {
+        const iconFile = (item.ARTO_FormID || item.CNAM_FormID || '').toLowerCase();
+        if (iconFile) imageUrl = `https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/76-CAMPDatabase/Experimental/Images/${iconFile}.webp`;
       }
       
       const imageTag = document.querySelector('meta[property="og:image"]');
