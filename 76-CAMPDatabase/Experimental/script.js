@@ -1242,7 +1242,7 @@ function renderResults(query) {
 
     // --- View Detailed View Button ---
     const detailButton = document.createElement('a');
-    detailButton.href = `item-view.html?id=${encodeURIComponent(r.CNAM_FormID)}`;
+    detailButton.href = `item-view.html?id=${encodeURIComponent(r.CNAM_FormID)}&fresh=1`;
     detailButton.className = 'detail-button';
     detailButton.textContent = 'Open Detailed View';
     left.appendChild(detailButton);

@@ -1313,7 +1313,7 @@
                   const onKey = e => { if (e.key === 'Escape') { document.body.removeChild(overlay); document.removeEventListener('keydown', onKey); } };
                   document.addEventListener('keydown', onKey);
                   document.body.appendChild(overlay);
-                  searchInput.focus();
+                  if (window.matchMedia("(hover: hover)").matches) searchInput.focus();
                 });
                 grid.appendChild(more);
               }
@@ -1440,7 +1440,7 @@
                 const onKey = e => { if (e.key === 'Escape') { document.body.removeChild(overlay); document.removeEventListener('keydown', onKey); } };
                 document.addEventListener('keydown', onKey);
                 document.body.appendChild(overlay);
-                searchInput.focus();
+                if (window.matchMedia("(hover: hover)").matches) searchInput.focus();
               });
               grid.appendChild(more);
             }
