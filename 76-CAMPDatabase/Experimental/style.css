@@ -51,8 +51,10 @@
     transition: background 0.2s;
   }
 
-  .badge-link:hover {
-    background: #555;
+  @media (hover: hover) {
+    .badge-link:hover {
+      background: #555;
+    }
   }
 
   .placement-note {
@@ -80,9 +82,11 @@
     text-align: center;
     transition: 0.2s;
   }
-  #pagination button:hover:not(:disabled) {
-    background: var(--accent);
-    color: black;
+  @media (hover: hover) {
+    #pagination button:hover:not(:disabled) {
+      background: var(--accent);
+      color: black;
+    }
   }
   #pagination button:disabled {
     opacity: 0.4;
@@ -115,10 +119,12 @@
     text-align: center;
     transition: 0.2s;
   }
-  #paginationTop button:hover:not(:disabled) {
-    background: var(--accent);
-    color: black;
-    border-color: var(--accent);
+  @media (hover: hover) {
+    #paginationTop button:hover:not(:disabled) {
+      background: var(--accent);
+      color: black;
+      border-color: var(--accent);
+    }
   }
   #paginationTop button:disabled {
     opacity: 0.3;
@@ -222,9 +228,11 @@
     color: #ff4d4f;
   }
 
-  #clearFiltersExternal:hover {
-    background-color: #ff4d4f;
-    color: black;
+  @media (hover: hover) {
+    #clearFiltersExternal:hover {
+      background-color: #ff4d4f;
+      color: black;
+    }
   }
 
   .inline-group label {
@@ -322,7 +330,11 @@
     border-radius: 4px;
     transition: color 0.15s;
   }
-  .filter-modal-close:hover { color: var(--text); }
+  @media (hover: hover) {
+    @media (hover: hover) {
+    .filter-modal-close:hover { color: var(--text); }
+  }
+  }
   .filter-modal-body {
     display: flex;
     flex-direction: row;
@@ -347,9 +359,11 @@
     padding: 4px 12px;
     transition: background-color 0.15s, color 0.15s;
   }
-  .filter-modal-footer .clear-filters:hover {
-    background: #ff4d4f;
-    color: black;
+  @media (hover: hover) {
+    .filter-modal-footer .clear-filters:hover {
+      background: #ff4d4f;
+      color: black;
+    }
   }
   .filter-modal-done {
     background: var(--accent);
@@ -362,7 +376,9 @@
     cursor: pointer;
     transition: background-color 0.15s;
   }
-  .filter-modal-done:hover { background: var(--accent-dim); }
+  @media (hover: hover) {
+    .filter-modal-done:hover { background: var(--accent-dim); }
+  }
 
   .filter-col-placement,
   .filter-col-categories {
@@ -752,9 +768,11 @@
     transition: background-color 0.15s, color 0.15s;
   }
 
-  #dropdownSelected:hover {
-    background-color: var(--accent);
-    color: black;
+  @media (hover: hover) {
+    #dropdownSelected:hover {
+      background-color: var(--accent);
+      color: black;
+    }
   }
 
   #dropdownSelected.open {
@@ -851,8 +869,10 @@
     color: var(--accent);
   }
 
-  .close:hover {
-    color: var(--accent-dim);
+  @media (hover: hover) {
+    .close:hover {
+      color: var(--accent-dim);
+    }
   }
 
   /* Accent button style */
@@ -871,9 +891,11 @@
     transition: background-color 0.2s, color 0.2s;
   }
 
-  .accent-btn:hover {
-    background-color: var(--accent);
-    color: black;
+  @media (hover: hover) {
+    .accent-btn:hover {
+      background-color: var(--accent);
+      color: black;
+    }
   }
 
   .modal-content h2 {
@@ -961,7 +983,13 @@
     transition: background-color 0.15s, color 0.15s;
     white-space: nowrap;
   }
-  #filtersButton:hover, #filtersButton.active {
+  @media (hover: hover) {
+    #filtersButton:hover {
+      background-color: var(--accent);
+      color: black;
+    }
+  }
+  #filtersButton.active {
     background-color: var(--accent);
     color: black;
   }
@@ -1001,7 +1029,12 @@
     cursor: pointer;
     border-radius: 3px;
   }
-  #filtersOptions button[data-filter]:hover,
+  @media (hover: hover) {
+    #filtersOptions button[data-filter]:hover {
+      background-color: var(--accent);
+      color: black;
+    }
+  }
   #filtersOptions button[data-filter].selected {
     background-color: var(--accent);
     color: black;
@@ -1026,9 +1059,11 @@
     transition: background-color 0.15s, color 0.15s;
   }
 
-  .clear-filters:hover {
-    background-color: #ff4d4f;
-    color: black;
+  @media (hover: hover) {
+    .clear-filters:hover {
+      background-color: #ff4d4f;
+      color: black;
+    }
   }
 
   #sortSelected,
@@ -1060,9 +1095,11 @@
     transition: background-color 0.15s, color 0.15s;
   }
 
-  #sortSelected:hover {
-    background-color: var(--accent);
-    color: black;
+  @media (hover: hover) {
+    #sortSelected:hover {
+      background-color: var(--accent);
+      color: black;
+    }
   }
 
   #sortSelected.open {
@@ -1075,9 +1112,11 @@
     cursor: pointer;
   }
 
-  #sortOptions .option:hover {
-    background: var(--accent-dim);
-    color: black;
+  @media (hover: hover) {
+    #sortOptions .option:hover {
+      background: var(--accent-dim);
+      color: black;
+    }
   }
 
   .tooltip {
@@ -1138,10 +1177,12 @@
     transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   }
 
-  .detail-button:hover {
-    background-color: var(--accent-dim);
-    color: black;
-    border-color: var(--accent-dim);
+  @media (hover: hover) {
+    .detail-button:hover {
+      background-color: var(--accent-dim);
+      color: black;
+      border-color: var(--accent-dim);
+    }
   }
 
   .return-to-top {

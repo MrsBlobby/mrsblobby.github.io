@@ -9,6 +9,24 @@ let _onRenderDone = null; // callback fired after next render fade-in completes
 let _isPageSwap = false;  // true only when triggered by pagination prev/next/number
 let _useFade = true;      // false for search-typing renders, true otherwise
 
+// ── Scroll lock utility (prevents background scroll when modal is open) ──
+let _scrollLockCount = 0;
+function lockScroll() {
+  if (_scrollLockCount === 0) {
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = 'hidden';
+    if (scrollbarWidth > 0) document.body.style.paddingRight = scrollbarWidth + 'px';
+  }
+  _scrollLockCount++;
+}
+function unlockScroll() {
+  _scrollLockCount = Math.max(0, _scrollLockCount - 1);
+  if (_scrollLockCount === 0) {
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
+  }
+}
+
 function saveSearchState() {
   const results = document.getElementById('results');
   sessionStorage.setItem('searchState', JSON.stringify({
@@ -419,6 +437,7 @@ window.addEventListener('popstate', () => {
 // Open modal
 infoBtn.addEventListener('click', () => {
   infoModal.style.display = 'block';
+  lockScroll();
 
   requestAnimationFrame(() => {
     infoModal.classList.add('is-open');
@@ -433,6 +452,7 @@ infoBtn.addEventListener('click', () => {
 
 function closeInfoModal(fromPopState = false) {
   infoModal.classList.remove('is-open');
+  unlockScroll();
 
   if (!fromPopState && history.state?.modal === 'info') {
     history.back();
@@ -717,10 +737,12 @@ const filterModalClear = document.getElementById('filterModalClear');
 
 function openFilterModal() {
   filterModal.style.display = 'flex';
+  lockScroll();
   closeAllDropdowns();
 }
 function closeFilterModal() {
   filterModal.classList.add('closing');
+  unlockScroll();
   const modalElement = document.querySelector('.filter-modal');
   if (modalElement) {
     modalElement.classList.add('closing');

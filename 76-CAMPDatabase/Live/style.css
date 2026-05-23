@@ -721,7 +721,13 @@
     border-radius: 0; 
   }
 
-  #filtersOptions button[data-filter]:hover,
+@media (hover: hover) {
+    #filtersOptions button[data-filter]:hover,
+    #filtersOptions button[data-filter].selected:hover {
+      background-color: var(--accent);
+      color: black;
+    }
+  }
   #filtersOptions button[data-filter].selected {
     background-color: var(--accent);     
     color: black;                        
@@ -838,7 +844,7 @@
     cursor: pointer;
   }
 
-  #sortOptions .option:hover {
+  #dropdownOptions .option:hover {
     background: var(--accent-dim);
     color: black;
   }
