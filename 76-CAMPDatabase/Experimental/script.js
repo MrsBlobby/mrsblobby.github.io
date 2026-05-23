@@ -4,7 +4,23 @@ const itemsPerPage = 50;
 let lastQuery = '';
 let currentSort = 'camp-top';
 let currentSearchBy = 'name';
-let activeFilters = new Set()
+let activeFilters = new Set();
+let _onRenderDone = null; // callback fired after next render fade-in completes
+let _isPageSwap = false;  // true only when triggered by pagination prev/next/number
+let _useFade = true;      // false for search-typing renders, true otherwise
+
+function saveSearchState() {
+  const results = document.getElementById('results');
+  sessionStorage.setItem('searchState', JSON.stringify({
+    query:       lastQuery,
+    sort:        currentSort,
+    searchBy:    currentSearchBy,
+    page:        currentPage,
+    filters:     Array.from(activeFilters),
+    scrollY:     window.scrollY,
+    resultsH:    results ? results.offsetHeight : 0
+  }));
+}
 
 function initLazyImages(options = {}) {
   const selector = options.selector || 'img.lazy[data-src]';
@@ -145,28 +161,73 @@ const CategoryIcons = {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-  // Clear search bar
   const searchBox = document.getElementById('searchBox');
-  searchBox.value = '';
-  lastQuery = '';
+
+  const saved = sessionStorage.getItem('searchState');
+  if (saved) {
+    try {
+      const state = JSON.parse(saved);
+      lastQuery       = state.query    || '';
+      currentSort     = state.sort     || 'camp-top';
+      currentSearchBy = state.searchBy || 'name';
+      currentPage     = state.page     || 1;
+      activeFilters   = new Set(state.filters || []);
+      searchBox.value = lastQuery;
+
+      // Lock results to its previous height immediately so the page height
+      // is stable before the DB loads — prevents scroll jump on back-navigation
+      const savedH = state.resultsH || 0;
+      if (savedH > 0) {
+        const results = document.getElementById('results');
+        results.style.minHeight = savedH + 'px';
+        // Release after DB has loaded and rendered (fetch callback handles this)
+      }
+    } catch(e) {}
+  } else {
+    searchBox.value = '';
+    lastQuery = '';
+  }
+
 
   // Hide all dropdowns on load
-  const filtersOptions = document.getElementById('filtersOptions');
-  filtersOptions.classList.remove('open');
-
-  const filtersButton = document.getElementById('filtersButton');
-  filtersButton.classList.remove('open');
-
-  const dropdownOptions = document.getElementById('dropdownOptions');
   dropdownOptions.classList.remove('open');
   dropdownSelected.classList.remove('open');
-
-  const sortOptions = document.getElementById('sortOptions');
   sortOptions.classList.remove('open');
   sortSelected.classList.remove('open');
 
-  // Optional: render all results initially
-  renderResults('');
+  // Pre-render last page snapshot immediately so document height is correct
+  // before the DB fetch completes — enables accurate scroll restore
+  const snapshot = sessionStorage.getItem('pageSnapshot');
+  if (snapshot && saved) {
+    try {
+      const items = JSON.parse(snapshot);
+      const results = document.getElementById('results');
+      results.innerHTML = '';
+      results.style.opacity = '0';
+      items.forEach(r => {
+        const li = document.createElement('li');
+        const left = document.createElement('div'); left.className = 'result-left';
+        const name = document.createElement('div'); name.className = 'result-name'; name.textContent = r.Name;
+        left.appendChild(name);
+        const img = document.createElement('img');
+        img.src = r.ARTO_FormID ? `Images/${r.ARTO_FormID.toLowerCase()}.webp` : `Images/${(r.CNAM_FormID||'').toLowerCase()}.webp`;
+        img.style.cssText = 'width:128px;height:128px;object-fit:contain;display:block;opacity:0;';
+        left.appendChild(img);
+        li.appendChild(left);
+        results.appendChild(li);
+      });
+      // Scroll immediately — document height is now correct
+      const savedScrollY = JSON.parse(saved).scrollY || 0;
+      if (savedScrollY > 0) requestAnimationFrame(() => window.scrollTo({ top: savedScrollY }));
+    } catch(e) {}
+  }
+
+  // Save scroll position continuously
+  window.addEventListener('scroll', () => saveSearchState(), { passive: true });
+
+  // Initial render with empty DB — no fade needed, just reserves space
+  _useFade = false;
+  renderResults(lastQuery);
 });
 
 function createTooltipElement(text) {
@@ -338,7 +399,7 @@ fetch('final_workshop_db.json')
   .then(response => response.json())
   .then(data => {
     db = data;
-    renderResults('');
+    renderResults(lastQuery);
   })
   .catch(err => {
     console.error("Failed to load database:", err);
@@ -405,7 +466,8 @@ const faqItems = [
     q: "What do the different search options mean?",
     a: [
       "Search by Item Name: Quite self-explanatory. Search results are based on the name of the item that is built.",
-      "Search by Plan/Challenge Name: Search results are based on the plan/challenge name listed under Placement Conditions. This can come in handy if you want to see what a particular, more vague-sounding plan unlocks, i.e. Plan: Metal Signs.",
+      "Search by Plan Name: Search results are based on the plan name listed under Placement Conditions. This can come in handy if you want to see what a particular, more vague-sounding plan unlocks, i.e. Plan: Metal Signs.",
+      "Search by Challenge Name: Similar to Plan Name, but filters to challenge-unlocked items only.",
       "Search by Entitlement Name: Similarly to the Plan/Challenge Name option, this does essentially the same, but for Atomic Shop/S.C.O.R.E items. Entitlements act like account-wide plans used by these items."
     ]
   },
@@ -454,7 +516,7 @@ const faqItems = [
     q: "What are the different budget cost tiers, and what is a Flamingo Unit?",
     a: [
         "Like the name implies, a Flamingo Unit is the budget cost of a lawn flamingo decor item. The vast majority of C.A.M.P. items costs 1 Flamingo Unit. This unit of measurement is used because budget limits vary between C.A.M.P.s, Shelters, and Workshops, so percentages aren't always the same. A C.A.M.P. has a max budget of 500 FUs. Most Shelters have a max budget of 700 FUs, and some have a max budget of 1500 FUs. Workshops have a max budget of 1500 FUs.",
-        "The different budget tiers are chosen in an arbitrary manner. Each tier threshold is double of the previous threshold."
+        "The different budget tiers are chosen in an arbitrary manner. Very Low is below 1 Flamingo Unit, Low is 1–2, Medium is 2–4, High is 4–8, and Very High is 8 or above."
     ],
     icons: [
       { src: "../assets/BudgetBar-Tier1.webp", text: "Budget Cost: Very Low (0-1 FUs)" },
@@ -548,7 +610,6 @@ const sortOptions = document.getElementById('sortOptions');
 const sortLabel = document.getElementById('sortLabel');
 const filtersButton = document.getElementById('filtersButton');
 const filtersOptions = document.getElementById('filtersOptions');
-const clearFiltersBtn = document.querySelector('.clear-filters');
 
 // --- Close logic ---
 function closeAllDropdowns() {
@@ -556,10 +617,7 @@ function closeAllDropdowns() {
   dropdownSelected.classList.remove('open');
   sortOptions.classList.remove('open');
   sortSelected.classList.remove('open');
-  filtersOptions.classList.remove('open');
-  filtersButton.classList.remove('open');
 }
-
 
 function closeOtherDropdowns(except) {
   if (except !== 'search') {
@@ -569,10 +627,6 @@ function closeOtherDropdowns(except) {
   if (except !== 'sort') {
     sortOptions.classList.remove('open');
     sortSelected.classList.remove('open');
-  }
-  if (except !== 'filters') {
-    filtersOptions.classList.remove('open');
-    filtersButton.classList.remove('open');
   }
 }
 
@@ -588,7 +642,7 @@ dropdownSelected.addEventListener('click', e => {
 });
 
 // --- Initial button text ---
-sortSelected.textContent = 'Sort By: Workshop Menu ▼';
+sortSelected.textContent = 'Sort By: Build Menu (Top - Bottom)';
 
 // --- Toggle dropdown on button click ---
 sortSelected.addEventListener('click', e => {
@@ -655,45 +709,66 @@ function updateFiltersButton() {
 }
 
 
-// --- Filters dropdown ---
+// --- Filters modal ---
+const filterModal = document.getElementById('filterModal');
+const filterModalClose = document.getElementById('filterModalClose');
+const filterModalDone = document.getElementById('filterModalDone');
+const filterModalClear = document.getElementById('filterModalClear');
+
+function openFilterModal() {
+  filterModal.style.display = 'flex';
+  closeAllDropdowns();
+}
+function closeFilterModal() {
+  filterModal.classList.add('closing');
+  const modalElement = document.querySelector('.filter-modal');
+  if (modalElement) {
+    modalElement.classList.add('closing');
+  }
+  setTimeout(() => {
+    filterModal.style.display = 'none';
+    filterModal.classList.remove('closing');
+    if (modalElement) {
+      modalElement.classList.remove('closing');
+    }
+  }, 150);
+}
+
 filtersButton.addEventListener('click', e => {
   e.stopPropagation();
-  const isOpen = filtersOptions.classList.contains('open');
-  closeAllDropdowns(); // Close everything before toggling filters
-  if (!isOpen) {
-    filtersOptions.classList.add('open');
-    filtersButton.classList.add('open');
-  }
+  closeAllDropdowns();
+  openFilterModal();
 });
+filterModalClose.addEventListener('click', closeFilterModal);
+filterModalDone.addEventListener('click', closeFilterModal);
+filterModal.addEventListener('click', e => { if (e.target === filterModal) closeFilterModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeFilterModal(); });
 
-// Prevent clicks inside filters dropdown from closing it
-filtersOptions.addEventListener('click', e => e.stopPropagation());
-
-// Clear button handler
-clearFiltersBtn.addEventListener('click', e => {
+filterModalClear.addEventListener('click', e => {
   e.stopPropagation();
-
-  // Close the other two dropdowns (always)
-  dropdownOptions.classList.remove('open');
-  dropdownSelected.classList.remove('open');
-  sortOptions.classList.remove('open');
-  sortSelected.classList.remove('open');
-
-  // Clear activeFilters data and UI
   activeFilters.clear();
   filtersOptions.querySelectorAll('button[data-filter].selected')
-    .forEach(btn => btn.classList.remove('selected'));
-
-  // Update Filters button text and highlight
+    .forEach(b => b.classList.remove('selected'));
+  filterSubPanel.innerHTML = '<div class="filter-col-sub-empty">Click a category to see subcategories</div>';
   updateFiltersButton();
-
-  // Refresh results using current searchbox value (safe lookup)
-  const sb = document.getElementById('searchBox');
-  renderResults(sb ? sb.value : '');
+  renderResults(document.getElementById('searchBox').value);
 });
 
+// External clear button (next to filter button in toolbar)
+const clearFiltersBtn = document.getElementById('clearFiltersExternal');
+if (clearFiltersBtn) {
+  clearFiltersBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    activeFilters.clear();
+    filtersOptions.querySelectorAll('button[data-filter].selected')
+      .forEach(btn => btn.classList.remove('selected'));
+    filterSubPanel.innerHTML = '<div class="filter-col-sub-empty">Click a category to see subcategories</div>';
+    updateFiltersButton();
+    renderResults(document.getElementById('searchBox').value);
+  });
+}
 
-// --- Global click closes everything ---
+// --- Global click closes dropdowns ---
 document.addEventListener('click', () => closeAllDropdowns());
 
 
@@ -708,7 +783,10 @@ dropdownOptions.querySelectorAll('.option').forEach(option => {
   });
 });
 
-document.getElementById('searchBox').addEventListener('input', e => renderResults(e.target.value));
+document.getElementById('searchBox').addEventListener('input', e => {
+  _useFade = false;
+  renderResults(e.target.value);
+});
 
 // --- Sorting / Pagination ---
 function sortItems(items) {
@@ -732,42 +810,206 @@ function paginate(items) {
 
 function renderPagination(totalItems) {
   const pagination = document.getElementById('pagination');
+  const paginationTop = document.getElementById('paginationTop');
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   pagination.innerHTML = '';
+  if (paginationTop) paginationTop.innerHTML = '';
   if (totalPages <= 1) return;
 
-  const prevBtn = document.createElement('button');
-  prevBtn.textContent = 'Prev';
-  prevBtn.disabled = currentPage === 1;
-  prevBtn.onclick = () => { currentPage--; renderResults(document.getElementById('searchBox').value); };
-  pagination.appendChild(prevBtn);
-
-  for (let i = 1; i <= totalPages; i++) {
-    if (i === 1 || i === totalPages || Math.abs(i - currentPage) <= 2) {
-      const btn = document.createElement('button');
-      btn.textContent = i;
-      if (i === currentPage) btn.classList.add('active-page'); // highlight current page
-      btn.onclick = () => { 
-        currentPage = i; 
-        renderResults(document.getElementById('searchBox').value); 
-      };
-      pagination.appendChild(btn);
-    } else if (Math.abs(i - currentPage) === 3) {
-      const span = document.createElement('span');
-      span.textContent = ' ... ';
-      pagination.appendChild(span);
-    }
+  function makePageBtn(i) {
+    const btn = document.createElement('button');
+    btn.textContent = i;
+    if (i === currentPage) btn.classList.add('active-page');
+    btn.onclick = () => { _isPageSwap = true; currentPage = i; renderResults(document.getElementById('searchBox').value); };
+    return btn;
+  }
+  function makeEllipsis() {
+    const span = document.createElement('span');
+    span.textContent = '…';
+    return span;
   }
 
+  function buildPaginationNodes() {
+    const nodes = [];
+    const delta = 0; // no adjacent pages — prev/next buttons handle stepping
 
-  const nextBtn = document.createElement('button');
-  nextBtn.textContent = 'Next';
-  nextBtn.disabled = currentPage === totalPages;
-  nextBtn.onclick = () => { currentPage++; renderResults(document.getElementById('searchBox').value); };
-  pagination.appendChild(nextBtn);
+    const prevBtn = document.createElement('button');
+    prevBtn.textContent = '‹';
+    prevBtn.disabled = currentPage === 1;
+    prevBtn.onclick = () => { _isPageSwap = true; currentPage--; renderResults(document.getElementById('searchBox').value); };
+    nodes.push(prevBtn);
+
+    // Always show page 1
+    nodes.push(makePageBtn(1));
+
+    const windowStart = Math.max(2, currentPage - delta);
+    const windowEnd   = Math.min(totalPages - 1, currentPage + delta);
+
+    if (windowStart > 2) nodes.push(makeEllipsis());
+
+    for (let i = windowStart; i <= windowEnd; i++) nodes.push(makePageBtn(i));
+
+    if (windowEnd < totalPages - 1) nodes.push(makeEllipsis());
+
+    // Always show last page (if more than 1 page)
+    if (totalPages > 1) nodes.push(makePageBtn(totalPages));
+
+    const nextBtn = document.createElement('button');
+    nextBtn.textContent = '›';
+    nextBtn.disabled = currentPage === totalPages;
+    nextBtn.onclick = () => { _isPageSwap = true; currentPage++; renderResults(document.getElementById('searchBox').value); };
+    nodes.push(nextBtn);
+
+    return nodes;
+  }
+
+  buildPaginationNodes().forEach(n => pagination.appendChild(n));
+  if (paginationTop) buildPaginationNodes().forEach(n => paginationTop.appendChild(n));
 }
 
-filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
+// ── Filter sub-panel ──
+const filterSubPanel = document.getElementById('filterSubPanel');
+
+const subLabels = {
+  'foundations':'Foundations','floors':'Floors','walls':'Walls','roofs':'Roofs',
+  'stairs':'Stairs','porches':'Porches','doors':'Doors','columns':'Columns',
+  'fences':'Fences','shelters':'Shelters',
+  'balloons':'Balloons','clutter':'Clutter','crockery':'Crockery',
+  'entertainment':'Entertainment','fauna':'Fauna','holiday':'Holiday',
+  'lawn & garden':'Lawn & Garden','novelties':'Novelties','outdoor':'Outdoor',
+  'rugs':'Rugs','decoration signs':'Signs','signs':'Signs','statues':'Statues',
+  'taxidermy':'Taxidermy','toys':'Toys','vehicles':'Vehicles',
+  'barricades':'Barricades','traps':'Traps','turrets':'Turrets',
+  'allies':'Allies','pets':'Pets','pet furniture':'Pet Furniture',
+  'appliances':'Appliances','beds':'Beds','candles':'Candles','electronics':'Electronics',
+  'seating':'Seating','shelves':'Shelves','surfaces':'Surfaces',
+  'lights signs':'Signs','ceiling lights':'Ceiling Lights','fire':'Fire',
+  'lamps':'Lamps','wall lights':'Wall Lights',
+  'accents':'Accents','ceiling':'Ceiling','mounted':'Mounted','tapestry':'Tapestry',
+  'wall art':'Wall Art','wall decor signs':'Signs','wall letters':'Wall Letters','window':'Window',
+  'generators':'Generators','power connectors':'Power Connectors',
+  'crafting':'Crafting','collectors':'Collectors','food':'Food',
+  'producers':'Producers','water':'Water',
+  'additional storage':'Additional Storage','displays':'Displays','stash boxes':'Stash Boxes',
+  'farm':'Farm','frontier':'Frontier','industrial':'Industrial','military':'Military',
+  'modern':'Modern','retail':'Retail','rustic':'Rustic','scavenger':'Scavenger',
+  'instruments':'Instruments','player buffs':'Player Buffs','services':'Services',
+  'vending machines':'Vending Machines',
+};
+
+function populateSubPanel(subs, fade) {
+  if (fade) {
+    filterSubPanel.style.opacity = '0';
+    filterSubPanel.style.transition = 'opacity 0.15s ease';
+    setTimeout(() => {
+      buildSubPanel(subs);
+      filterSubPanel.style.opacity = '1';
+    }, 120);
+  } else {
+    buildSubPanel(subs);
+  }
+}
+
+function buildSubPanel(subs) {
+  filterSubPanel.innerHTML = '';
+  if (!subs || subs.length === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'filter-col-sub-empty';
+    empty.textContent = 'No subcategories';
+    filterSubPanel.appendChild(empty);
+    return;
+  }
+  // Sort subcategories alphabetically by their display labels
+  const sortedSubs = [...subs].sort((a, b) => {
+    const labelA = subLabels[a] || a;
+    const labelB = subLabels[b] || b;
+    return labelA.localeCompare(labelB);
+  });
+  sortedSubs.forEach(sub => {
+    const btn = document.createElement('button');
+    btn.dataset.filter = sub;
+    btn.textContent = subLabels[sub] || sub;
+    if (activeFilters.has(sub)) btn.classList.add('selected');
+    btn.addEventListener('click', () => {
+      const parentCat = btn.closest('.filter-col-categories') 
+        ? null 
+        : (() => {
+          // find parent from subToParent map in matchesItem scope — use data attr
+          return null;
+        })();
+      if (activeFilters.has(sub)) {
+        activeFilters.delete(sub);
+        btn.classList.remove('selected');
+      } else {
+        activeFilters.add(sub);
+        btn.classList.add('selected');
+        // Auto-activate the parent category button visually
+        const parentFilter = Object.entries(
+          document.querySelectorAll('.filter-col-categories button[data-subs]')
+        ).find ? null : null;
+        document.querySelectorAll('.filter-col-categories button[data-filter]').forEach(catBtn => {
+          const catSubs = (catBtn.dataset.subs || '').split('|');
+          if (catSubs.includes(sub)) {
+            if (!activeFilters.has(catBtn.dataset.filter)) {
+              activeFilters.add(catBtn.dataset.filter);
+              catBtn.classList.add('selected');
+            }
+          }
+        });
+      }
+      updateFiltersButton();
+      renderResults(searchBox.value);
+    });
+    filterSubPanel.appendChild(btn);
+  });
+}
+
+// Show subcategories when hovering OR when category is toggled
+document.querySelectorAll('#filtersOptions .filter-col-categories button[data-filter]').forEach(btn => {
+  const subsAttr = btn.dataset.subs;
+  const subs = subsAttr ? subsAttr.split('|') : [];
+
+  btn.addEventListener('mouseenter', () => {
+    if (!activeFilters.has(btn.dataset.filter)) return; // only show on hover if active
+    // Check if these subcategories are already displayed (don't fade if they are)
+    const currentActiveCatBtn = document.querySelector('.filter-col-categories button.cat-active');
+    const alreadyActive = currentActiveCatBtn === btn;
+    document.querySelectorAll('.filter-col-categories button').forEach(b => b.classList.remove('cat-active'));
+    btn.classList.add('cat-active');
+    populateSubPanel(subs, !alreadyActive); // fade only if different from currently active
+  });
+
+  btn.addEventListener('click', () => {
+    const filter = btn.dataset.filter;
+
+    // Toggle active state
+    if (activeFilters.has(filter)) {
+      activeFilters.delete(filter);
+      btn.classList.remove('selected');
+      // When deselecting, reset the sub-panel
+      filterSubPanel.innerHTML = '<div class="filter-col-sub-empty">Click a category to see subcategories</div>';
+    } else {
+      activeFilters.add(filter);
+      btn.classList.add('selected');
+      // Show subcategories immediately upon selection
+      document.querySelectorAll('.filter-col-categories button').forEach(b => b.classList.remove('cat-active'));
+      btn.classList.add('cat-active');
+      populateSubPanel(subs, false);
+    }
+    updateFiltersButton();
+    renderResults(document.getElementById('searchBox').value);
+  });
+});
+
+// Reset sub-panel when mouse leaves the whole filter options area
+filtersOptions.addEventListener('mouseleave', () => {
+  document.querySelectorAll('.filter-col-categories button').forEach(b => b.classList.remove('cat-active'));
+  // Show any already-active subcategories if filters are set
+  filterSubPanel.innerHTML = '<div class="filter-col-sub-empty">Click a category to see subcategories</div>';
+});
+
+// --- Placement filter buttons ---
+document.querySelectorAll('.filter-col-placement button[data-filter]').forEach(btn => {
   btn.addEventListener('click', () => {
     const filter = btn.dataset.filter;
     if (activeFilters.has(filter)) {
@@ -778,26 +1020,32 @@ filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
       btn.classList.add('selected');
     }
     updateFiltersButton();
-    renderResults(searchBox.value);
+    renderResults(document.getElementById('searchBox').value);
   });
 });
 
 
 // --- Render results ---
+let _renderPending = false;
 function renderResults(query) {
   const normalizedQuery = query.toLowerCase();
   const queryChanged = normalizedQuery !== lastQuery;
   lastQuery = normalizedQuery;
+  saveSearchState();
 
-  // --- filters setup ---
-  let placementFilters = new Set(['plan', 'entitlement', 'challenge', 'learn']);
+  const results    = document.getElementById('results');
+  const pagination = document.getElementById('pagination');
+
+  // Build the new content off-screen, then swap with a fade
+  const _doRender = () => {
+    // --- filters setup ---
+    let placementFilters = new Set(['plan', 'entitlement', 'challenge', 'learn']);
 
  function matchesItem(item) {
   if (activeFilters.size === 0) return true;
 
   // Separate placement vs category filters
   const placementActive = [...activeFilters].filter(f => placementFilters.has(f));
-  const categoryActive  = [...activeFilters].filter(f => !placementFilters.has(f));
 
   // Determine flags
   const id = String(item.BOOK_EditorID || '').toLowerCase();
@@ -825,10 +1073,62 @@ function renderResults(query) {
   if (placementActive.includes('learn'))      placementMatch = placementMatch && hasLearn;
 
 
-  // --- Category/subcategory filters (OR) ---
-  const categoryMatch = categoryActive.length === 0 || categoryActive.some(f =>
-    (item.Category || '').toLowerCase() === f || (item.SubCategory || '').toLowerCase() === f
-  );
+  // --- Category/subcategory filters ---
+  // Build a map of which subcategories belong to which parent category
+  const subToParent = {
+    'foundations':'c.a.m.p. pieces','floors':'c.a.m.p. pieces','walls':'c.a.m.p. pieces',
+    'roofs':'c.a.m.p. pieces','stairs':'c.a.m.p. pieces','porches':'c.a.m.p. pieces',
+    'doors':'c.a.m.p. pieces','columns':'c.a.m.p. pieces','fences':'c.a.m.p. pieces','shelters':'c.a.m.p. pieces',
+    'balloons':'decorations','clutter':'decorations','crockery':'decorations',
+    'entertainment':'decorations','fauna':'decorations','holiday':'decorations',
+    'lawn & garden':'decorations','novelties':'decorations','outdoor':'decorations',
+    'rugs':'decorations','decoration signs':'decorations',
+    'statues':'decorations','taxidermy':'decorations','toys':'decorations','vehicles':'decorations',
+    'barricades':'defense','traps':'defense','turrets':'defense',
+    'allies':'dwellers','pets':'dwellers','pet furniture':'dwellers',
+    'appliances':'furniture','beds':'furniture','electronics':'furniture',
+    'seating':'furniture','shelves':'furniture','surfaces':'furniture',
+    'candles':'lights','ceiling lights':'lights','fire':'lights','lamps':'lights',
+    'lights signs':'lights','wall lights':'lights',
+    'generators':'power','power connectors':'power',
+    'crafting':'resources','collectors':'resources','food':'resources','producers':'resources','water':'resources',
+    'additional storage':'storage','displays':'storage','stash boxes':'storage',
+    'farm':'structure','frontier':'structure','industrial':'structure','military':'structure',
+    'modern':'structure','retail':'structure','rustic':'structure','scavenger':'structure',
+    'instruments':'utility','player buffs':'utility','services':'utility','vending machines':'utility',
+    'accents':'wall decor','ceiling':'wall decor','mounted':'wall decor','tapestry':'wall decor',
+    'wall art':'wall decor','wall decor signs':'wall decor','wall letters':'wall decor','window':'wall decor',
+  };
+
+  const categoryActive = [...activeFilters].filter(f => !placementFilters.has(f));
+
+  // Separate into parent categories and subcategories
+  const activeSubs    = categoryActive.filter(f => f in subToParent);
+  const activeParents = categoryActive.filter(f => !(f in subToParent));
+
+  let categoryMatch;
+  if (categoryActive.length === 0) {
+    categoryMatch = true;
+  } else if (activeSubs.length > 0) {
+    const subsParents = new Set(activeSubs.map(s => subToParent[s]));
+    const orphanParents = activeParents.filter(p => !subsParents.has(p));
+    const itemCat = (item.Category || '').toLowerCase();
+    const itemSub = (item.SubCategory || '').toLowerCase();
+    // Compound keys: 'decoration signs' = Category:decorations + SubCategory:signs
+    //                'lights signs'      = Category:lights      + SubCategory:signs
+    //                'wall decor signs'   = Category:wall decor  + SubCategory:signs
+    const matchSub = s => {
+      if (s === 'decoration signs') return itemCat === 'decorations' && itemSub === 'signs';
+      if (s === 'lights signs')     return itemCat === 'lights'      && itemSub === 'signs';
+      if (s === 'wall decor signs') return itemCat === 'wall decor'  && itemSub === 'signs';
+      return itemSub === s;
+    };
+    categoryMatch =
+      activeSubs.some(matchSub) ||
+      orphanParents.some(p => itemCat === p);
+  } else {
+    categoryMatch = activeParents.some(p => (item.Category || '').toLowerCase() === p);
+  }
 
   return placementMatch && categoryMatch;
 }
@@ -850,7 +1150,20 @@ function renderResults(query) {
     if (!normalizedQuery) matchesSearch = true;
     else if (currentSearchBy === 'name') matchesSearch = item.Name && item.Name.toLowerCase().includes(normalizedQuery);
     else if (currentSearchBy === 'book') matchesSearch = item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
+    else if (currentSearchBy === 'plan') {
+      // Plans only — exclude challenge entries
+      const bookEdid = String(item.BOOK_EditorID || '').toLowerCase();
+      const isChallenge = bookEdid.includes('challenge_');
+      matchesSearch = !isChallenge && item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
+    }
+    else if (currentSearchBy === 'challenge') {
+      // Challenges only
+      const bookEdid = String(item.BOOK_EditorID || '').toLowerCase();
+      const isChallenge = bookEdid.includes('challenge_');
+      matchesSearch = isChallenge && item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
+    }
     else if (currentSearchBy === 'entm') matchesSearch = item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
+    else if (currentSearchBy === 'formid') matchesSearch = item.CNAM_FormID && item.CNAM_FormID.toLowerCase().includes(normalizedQuery);
 
     const matchesFilters = matchesItem(item); // call the new function
 
@@ -864,13 +1177,25 @@ function renderResults(query) {
   if (queryChanged || currentPage > totalPages) currentPage = 1;
 
   const paged = paginate(sorted);
-  results.innerHTML = '';
+  const frag = document.createDocumentFragment();
 
   if (!paged.length) {
     results.innerHTML = '<li class="no-results">No matches found</li>';
     pagination.innerHTML = '';
+    const paginationTop = document.getElementById('paginationTop');
+    if (paginationTop) paginationTop.innerHTML = '';
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      results.style.opacity = '1';
+      results.style.transition = 'opacity 0.25s ease';
+    }));
     return;
   }
+
+  // Save a lightweight snapshot of current page items for instant pre-render on return
+  const pageSnapshot = paged
+    .filter(r => (r.SubCategory||'').trim().toLowerCase() !== 'testsubcat')
+    .map(r => ({ CNAM_FormID: r.CNAM_FormID, ARTO_FormID: r.ARTO_FormID, Name: r.Name }));
+  try { sessionStorage.setItem('pageSnapshot', JSON.stringify(pageSnapshot)); } catch(e) {}
 
   paged.forEach(r => {
     if ((r.SubCategory || '').trim().toLowerCase() === 'testsubcat'.toLowerCase()) return;
@@ -896,7 +1221,14 @@ function renderResults(query) {
     const img = document.createElement('img');
     img.src = imgSrc;
     img.alt = r.Name;
-    
+
+    // Fade in on load to avoid jarring pop-in
+    if (img.complete && img.naturalWidth > 0) {
+      img.classList.add('loaded');
+    } else {
+      img.addEventListener('load',  () => img.classList.add('loaded'), { once: true });
+      img.addEventListener('error', () => img.classList.add('loaded'), { once: true });
+    }
 
     // If ARTO was tried first, fallback on error to CNAM
     if (r.ARTO_FormID && r.CNAM_FormID) {
@@ -907,6 +1239,13 @@ function renderResults(query) {
     }
 
     left.appendChild(img);
+
+    // --- View Detailed View Button ---
+    const detailButton = document.createElement('a');
+    detailButton.href = `item-view.html?id=${encodeURIComponent(r.CNAM_FormID)}`;
+    detailButton.className = 'detail-button';
+    detailButton.textContent = 'Open Detailed View';
+    left.appendChild(detailButton);
 
 
     const right = document.createElement('div');
@@ -1499,16 +1838,16 @@ if (r.BudgetCost !== undefined && r.BudgetCost !== null && (r.Category || '').to
   let budgetIcon = '';
   let budgetTier = 5; // default
 
-  if (roundedBudget <= 1) {
+  if (roundedBudget < 1) {
     budgetIcon = '../assets/BudgetBar-Tier1.webp';
     budgetTier = 1;
-  } else if (roundedBudget <= 2) {
+  } else if (roundedBudget < 2) {
     budgetIcon = '../assets/BudgetBar-Tier2.webp';
     budgetTier = 2;
-  } else if (roundedBudget <= 4) {
+  } else if (roundedBudget < 4) {
     budgetIcon = '../assets/BudgetBar-Tier3.webp';
     budgetTier = 3;
-  } else if (roundedBudget <= 8) {
+  } else if (roundedBudget < 8) {
     budgetIcon = '../assets/BudgetBar-Tier4.webp';
     budgetTier = 4;
   } else {
@@ -1567,24 +1906,8 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
     techWrap.appendChild(formPill);
   }
 
-  // --- Editor ID pill ---
-  if (r.CNAM_EditorID) {
-    const edidPill = document.createElement('span');
-    edidPill.className = 'pill';
-
-    const label = document.createElement('span');
-    
-
-    const value = document.createElement('span');
-    value.textContent = r.CNAM_EditorID;
-    value.style.wordBreak = 'break-all';  // prevent overflow
-    edidPill.style.maxWidth = 'none';
-    edidPill.style.width = 'fit-content';
-
-    edidPill.appendChild(label);
-    edidPill.appendChild(value);
-    techWrap.appendChild(edidPill);
-  }
+  // --- Editor ID pill --- (hidden on default cards, shown in detailed view)
+  // if (r.CNAM_EditorID) { ... }
 
   right.appendChild(techWrap);
 }
@@ -1593,8 +1916,122 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
     // --- attach left + right divs to li ---
     li.appendChild(left);
     li.appendChild(right);
-    results.appendChild(li);
+    frag.appendChild(li);
   });
 
+  // Swap fragment into results
+  results.innerHTML = '';
+  results.appendChild(frag);
   renderPagination(sorted.length);
+
+  // Double rAF ensures the browser has painted before we fade in
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    if (useFade) {
+      results.style.opacity = '1';
+      results.style.transition = 'opacity 0.25s ease';
+    }
+
+    // If user was near the bottom during a page swap, keep them near the bottom
+    if (isPageSwap && fromBottom < 200) {
+      const docHeightAfter = document.documentElement.scrollHeight;
+      const targetScrollY = docHeightAfter - fromBottom - window.innerHeight;
+      if (targetScrollY > 0 && Math.abs(targetScrollY - scrollBefore) > 10) {
+        window.scrollTo({ top: targetScrollY });
+      }
+    }
+
+    if (typeof _onRenderDone === 'function') {
+      const cb = _onRenderDone;
+      _onRenderDone = null;
+      // Scroll first, then release minHeight in the next frame so the browser
+      // commits the scroll position before the document height can change
+      cb();
+      requestAnimationFrame(() => {
+        results.style.minHeight = '';
+      });
+    } else {
+      // No scroll restore needed — release minHeight normally
+      results.style.minHeight = '';
+    }
+  }));
+  }; // end _doRender
+
+  // Capture scroll position before fade — only correct on explicit page swaps
+  const isPageSwap = _isPageSwap;
+  _isPageSwap = false;
+  const useFade = _useFade;
+  _useFade = true; // reset for next call
+  const scrollBefore = window.scrollY;
+  const docHeightBefore = document.documentElement.scrollHeight;
+  const fromBottom = docHeightBefore - scrollBefore - window.innerHeight;
+
+  if (useFade) {
+    // Fade out, then swap content
+    results.style.transition = 'opacity 0.12s ease';
+    results.style.opacity = '0';
+    setTimeout(_doRender, 120);
+  } else {
+    // No fade — render immediately, just ensure opacity is visible
+    results.style.transition = '';
+    results.style.opacity = '1';
+    _doRender();
+  }
 }
+
+// ── Restore sessionStorage state (runs after all initialisers) ──
+(function restoreSearchState() {
+  const saved = sessionStorage.getItem('searchState');
+  if (!saved) return;
+  try {
+    const state = JSON.parse(saved);
+    lastQuery       = state.query    || '';
+    currentSort     = state.sort     || 'camp-top';
+    currentSearchBy = state.searchBy || 'name';
+    currentPage     = state.page     || 1;
+    activeFilters   = new Set(state.filters || []);
+
+    // Restore search box
+    const searchBox = document.getElementById('searchBox');
+    if (searchBox) searchBox.value = lastQuery;
+
+    // Restore sort label — keys match actual data-value attributes in index.html
+    const sortOptionEl = sortOptions.querySelector(`.option[data-value="${currentSort}"]`);
+    if (sortOptionEl) sortSelected.textContent = 'Sort By: ' + sortOptionEl.textContent.trim();
+
+    // Restore search-by label — keys match actual data-value attributes
+    const searchByOptionEl = dropdownOptions.querySelector(`.option[data-value="${currentSearchBy}"]`);
+    if (searchByOptionEl) dropdownSelected.textContent = 'Search By: ' + searchByOptionEl.textContent.trim();
+
+    // Restore filter button visual state and count
+    if (activeFilters.size > 0) {
+      filtersOptions.querySelectorAll('button[data-filter]').forEach(btn => {
+        if (activeFilters.has(btn.dataset.filter)) {
+          btn.classList.add('selected');
+          // Re-open accordion if a subcategory button is selected
+          const sub = btn.closest('.filter-sub');
+          if (sub) sub.closest('.filter-accordion-item').classList.add('open');
+        }
+      });
+      updateFiltersButton();
+    }
+  } catch (e) { /* ignore malformed state */ }
+})();
+
+// ── Return to Top Button ──
+const returnToTopBtn = document.getElementById('returnToTop');
+const scrollThreshold = 300; // Show button after scrolling 300px
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > scrollThreshold) {
+    returnToTopBtn.classList.add('show');
+  } else {
+    returnToTopBtn.classList.remove('show');
+  }
+});
+
+returnToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
