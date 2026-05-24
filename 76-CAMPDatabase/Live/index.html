@@ -16,16 +16,15 @@
 </head>
 <body>
 <div class="container">
-  <img src="../assets/CoverImage.webp" 
-       alt="Fallout 76 C.A.M.P. Item Lookup" 
-       height="442"
-       style="display:block; margin:0 auto; max-width:100%; height:auto;">
+  <div class="cover-image-wrap">
+    <img src="../assets/CoverImage.webp" alt="Fallout 76 C.A.M.P. Item Lookup" class="cover-image">
+  </div>
   <div class="meta">
     <p class="author">
       Made by <span class="author-name">MrsBlobby</span>
       <a href="../../" class="badge-link">Other Tools</a>
     </p>
-    <p class="updated">Last Updated: May 6, 2026</p>
+    <p class="updated">Last Updated: May 23, 2026</p>
   </div>
 </div>
 
@@ -33,7 +32,18 @@
 <div class="container">
     <details>
       <summary>Version History</summary>
-      <div class="changelog-entry">
+            <div class="changelog-entry">
+          <h4>v3.1.0</h4>
+          <ul>
+              <li>Added "Detailed View" pages for each item, that lists additional info compared to what's on the main page cards</li>
+              <li>Various minor UI improvements</li>
+              <li>Changed how budget tier cutoff points are defined. Notably, only items with &lt1 FU budget cost are now considered Very Low cost, 1 FU cost items are now considered Low cost, and 2 FU items are considered Medium cost</li>
+              <li>"Search by: Challenge/Plan name" has been split up into its 2 respective categories</li>
+              <li>Fixed an edge case of item budget being underreported affecting a handful of lights</li>
+              <li>Added subcategory filters</li>
+          </ul>
+      </div>
+            <div class="changelog-entry">
           <h4>v3.0.3</h4>
           <ul>
               <li>
@@ -46,55 +56,39 @@
       <div class="changelog-entry">
           <h4>v3.0.2</h4>
           <ul>
-              <li>
-                  <div>
-                      Fixed budget values being underreported, primarily affecting lights and prefabs <br>
-                      Whichever page is the current page is now better shown to the user
-                  </div>
-              </li>
+              <li>Fixed budget values being underreported, primarily affecting lights and prefabs</li>
+              <li>Whichever page is the current page is now better shown to the user</li>
           </ul>
       </div>
       <div class="changelog-entry">
           <h4>v3.0.1</h4>
           <ul>
-              <li>
-                  <div>
-                      Added technical info to each entry <br>
-                      Current known issue: certain budget values are being underreported
-                  </div>
-              </li>
+              <li>Added technical info to each entry</li>
+              <li>known issue: certain budget values are being underreported</li>
           </ul>
       </div>
        <div class="changelog-entry">
           <h4>v3.0</h4>
           <ul>
-              <li>
-                  <div>
-                      Added CAMP budget cost to items. Massive thank you to Eckserah for helping out with the script side of this.<br>
-                      Added support for items unlocked by challenges<br>
-                      Added support for items that have "loot to unlock" placement conditions<br>
-                      Fixed various items and/or placement conditions being missing<br>
-                      Added more placement condition icons<br>
-                      Added "sort by budget"<br>
-                      Various UI fixes<br>
-                      Added Info & FAQ section
-                  </div>
-              </li>
+              <li>Added CAMP budget cost to items. Massive thank you to Eckserah for helping out with the script side of this.</li>
+              <li>Added support for items unlocked by challenges</li>
+              <li>Added support for items that have "loot to unlock" placement conditions</li>
+              <li>Fixed various items and/or placement conditions being missing</li>
+              <li>Added more placement condition icons</li>
+              <li>Added "sort by budget"</li>
+              <li>Various UI fixes</li>
+              <li>Added Info & FAQ section</li>
           </ul>
       </div>
        <div class="changelog-entry">
           <h4>v3.0 Beta</h4>
           <ul>
-              <li>
-                  <div>
-                      Expansion towards a more generalized database tool:<br>
-                      Added category icons<br>
-                      Added placement conditions (plan, entitlement) for objects, and added respective source icons, i.e. SCORE, Gold Bullion, Stamps, Atomic Shop icons. Known issue with beta version: certain plans will not show yet (i.e. Nuclear Winter stash boxes), nor do challenge requirements (i.e. Kelp Curtain). NOTE: THIS TOOL DOES NOT DISTINGUISH BETWEEN WHAT IS AND ISN'T OBTAINABLE. PLEASE DOUBLE CHECK THIS YOURSELF IF APPLICABLE<br>
-                      Added search filters<br>
-                      General UI cleanup<br>
-                      Full v3.0 release will also list CAMP budget costs, have more source icons, and include further polishing of minor issues
-                  </div>
-              </li>
+              <li>Expansion towards a more generalized database tool</li>
+              <li>Added category icons</li>
+              <li>Added placement conditions (plan, entitlement) for objects, and added respective source icons, i.e. SCORE, Gold Bullion, Stamps, Atomic Shop icons. Known issue with beta version: certain plans will not show yet (i.e. Nuclear Winter stash boxes), nor do challenge requirements (i.e. Kelp Curtain). NOTE: THIS TOOL DOES NOT DISTINGUISH BETWEEN WHAT IS AND ISN'T OBTAINABLE. PLEASE DOUBLE CHECK THIS YOURSELF IF APPLICABLE</li>
+              <li>Added search filters</li>
+              <li>General UI cleanup</li>
+              <li>Full v3.0 release will also list CAMP budget costs, have more source icons, and include further polishing of minor issues</li>
           </ul>
       </div>
       <div class="changelog-entry">
@@ -169,15 +163,63 @@
 
 
 
+<!-- Filter Modal (outside controls) -->
+<div id="filterModal" class="filter-modal-overlay" style="display:none;">
+  <div class="filter-modal">
+    <div class="filter-modal-header">
+      <span class="filter-modal-title">Filters</span>
+      <button id="filterModalClose" class="filter-modal-close">&#x2715;</button>
+    </div>
+    <div class="filter-modal-body" id="filtersOptions">
+      <!-- Col 1: Placement -->
+      <div class="filter-col-placement">
+        <div class="filter-header">Placement</div>
+        <button data-filter="plan">Plan</button>
+        <button data-filter="entitlement">Entitlement</button>
+        <button data-filter="challenge">Challenge</button>
+        <button data-filter="learn">Learn on Pickup</button>
+      </div>
+      <!-- Col 2: Categories -->
+      <div class="filter-col-categories">
+        <div class="filter-header">Category</div>
+        <button data-filter="c.a.m.p. pieces" data-subs="foundations|floors|walls|roofs|stairs|porches|doors|columns|fences|shelters">C.A.M.P. Pieces</button>
+        <button data-filter="decorations" data-subs="balloons|clutter|crockery|entertainment|fauna|holiday|lawn & garden|novelties|outdoor|rugs|decoration signs|statues|taxidermy|toys|vehicles">Decorations</button>
+        <button data-filter="defense" data-subs="barricades|traps|turrets">Defense</button>
+        <button data-filter="dwellers" data-subs="allies|pets|pet furniture">Dwellers</button>
+        <button data-filter="furniture" data-subs="appliances|beds|electronics|seating|shelves|surfaces">Furniture</button>
+        <button data-filter="lights" data-subs="candles|ceiling lights|fire|lamps|lights signs|wall lights">Lights</button>
+        <button data-filter="power" data-subs="generators|power connectors">Power</button>
+        <button data-filter="quest">Quest</button>
+        <button data-filter="resources" data-subs="crafting|collectors|food|producers|water">Resources</button>
+        <button data-filter="storage" data-subs="additional storage|displays|stash boxes">Storage</button>
+        <button data-filter="structure" data-subs="farm|frontier|industrial|military|modern|retail|rustic|scavenger">Structure</button>
+        <button data-filter="utility" data-subs="instruments|player buffs|services|vending machines">Utility</button>
+        <button data-filter="wall decor" data-subs="accents|ceiling|mounted|tapestry|wall art|wall decor signs|wall letters|window">Wall Decor</button>
+        <button data-filter="wallpapers">Wallpapers</button>
+      </div>
+      <!-- Col 3: Subcategories (populated by JS) -->
+      <div class="filter-col-sub" id="filterSubPanel">
+        <div class="filter-col-sub-empty">Click a category to see subcategories</div>
+      </div>
+    </div>
+    <div class="filter-modal-footer">
+      <button id="filterModalClear" class="clear-filters">Clear All</button>
+      <button id="filterModalDone" class="filter-modal-done">Done</button>
+    </div>
+  </div>
+</div>
+
 <div class="controls">
   <div class="search-line">
     <input type="text" id="searchBox" placeholder="Search..." />
     <div class="custom-dropdown">
-      <div id="dropdownSelected">Item Name</div>
+      <div id="dropdownSelected">Search By: Item Name</div>
       <div id="dropdownOptions">
         <div class="option" data-value="name">Item Name</div>
-        <div class="option" data-value="book">Plan/Challenge Name</div>
+        <div class="option" data-value="challenge">Challenge</div>
         <div class="option" data-value="entm">Entitlement Name</div>
+        <div class="option" data-value="formid">Form ID</div>
+        <div class="option" data-value="plan">Plan Name</div>
       </div>
     </div>
   </div>
@@ -185,68 +227,42 @@
 <div class="inline-group">
   <!-- Filters group -->
   <div class="group-filters" style="display: flex; align-items: center;">
-    <div class="custom-dropdown" id="filtersDropdown">
-      <div id="filtersButton">
-        <span class="filters-label">Filters</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="filter-icon" style="width:16px; height:16px;">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
-        </svg>
-      </div>
-
-
-      <div id="filtersOptions">
-        <div class="filter-columns">
-          <div class="filter-header">Placement Condition</div>
-          <button data-filter="plan">Plan</button>
-          <button data-filter="entitlement">Entitlement</button>
-          <button data-filter="challenge">Challenge</button>
-          <button data-filter="learn">Learn on Pickup</button>
-        </div>
-
-        <div class="filter-columns">
-          <div class="filter-header">Workshop Category</div>
-          <button data-filter="c.a.m.p. pieces">C.A.M.P. Pieces</button>
-          <button data-filter="decorations">Decorations</button>
-          <button data-filter="defense">Defense</button>
-          <button data-filter="dwellers">Dwellers</button>
-          <button data-filter="furniture">Furniture</button>
-          <button data-filter="lights">Lights</button>
-          <button data-filter="power">Power</button>
-          <button data-filter="quest">Quest</button>
-          <button data-filter="resources">Resource</button>
-          <button data-filter="storage">Storage</button>
-          <button data-filter="structure">Structure</button>
-          <button data-filter="utility">Utility</button>
-          <button data-filter="wall decor">Wall Decor</button>
-          <button data-filter="wallpapers">Wallpapers</button>
-        </div>
-      </div>
+    <div id="filtersButton">
+      <span class="filters-label">Filters</span>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="filter-icon" style="width:16px; height:16px;">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+      </svg>
     </div>
-
-    <!-- Attached Clear All button -->
     <button class="clear-filters" id="clearFiltersExternal">Clear</button>
   </div>
 
   <!-- Sort group -->
   <div class="group-sort">
     <div class="custom-dropdown" id="sortDropdown">
-     <div id="sortSelected">Sort By: Workshop Menu ▼</div>
+     <div id="sortSelected">Sort By: Build Menu (Top - Bottom)</div>
       <div id="sortOptions">
-        <div class="option" data-value="camp-top">Workshop Menu ▼</div>
-        <div class="option" data-value="camp-bottom">Workshop Menu ▲</div>
-        <div class="option" data-value="az">Alphabetical ▼</div>
-        <div class="option" data-value="za">Alphabetical ▲</div>
-	<div class="option" data-value="budget-high-low">Budget Cost ▼</div>
-	<div class="option" data-value="budget-low-high">Budget Cost ▲</div>
-        <div class="option" data-value="old-new">Oldest</div>
-        <div class="option" data-value="new-old">Newest</div>
+        <div class="option" data-value="camp-top">Build Menu (Top - Bottom)</div>
+        <div class="option" data-value="camp-bottom">Build Menu (Bottom - Top)</div>
+        <div class="option" data-value="az">Alphabetical (A-Z)</div>
+        <div class="option" data-value="za">Alphabetical (Z-A)</div>
+        <div class="option" data-value="budget-high-low">Budget Cost (High - Low)</div>
+        <div class="option" data-value="budget-low-high">Budget Cost (Low - High)</div>
+        <div class="option" data-value="new-old">New - Old</div>
+        <div class="option" data-value="old-new">Old - New</div>
       </div>
     </div>
   </div>
 </div>
 
+  <div id="paginationTop"></div>
   <ul id="results"></ul>
   <div id="pagination" style="text-align:center; margin: 16px 0;"></div>
+
+  <button id="returnToTop" class="return-to-top" aria-label="Return to top">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
+    </svg>
+  </button>
 
 <script src="script.js"></script>
 </body>
