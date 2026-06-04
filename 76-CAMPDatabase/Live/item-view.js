@@ -863,19 +863,40 @@
             const relativePath = basePath.replace(/^Textures\//i, '');
             const lowerRelative = relativePath.toLowerCase();
             const lowerBase = baseName.toLowerCase();
-            const src = `../Storefront/${lowerRelative}${lowerBase}.png`;
-            const srcFallback = `../Storefront/${lowerRelative}${lowerBase}_l.png`;
+            const srcNoATX = lowerBase.replace(/^atx_/, '');
+            
+            // Generate multiple attempts targeting different underscore patterns
+            const attemptsList = [
+              `../Storefront/${lowerRelative}${lowerBase}.png`,
+              `../Storefront/${lowerRelative}${lowerBase}_l.png`,
+              `../Storefront/${lowerRelative}${srcNoATX}.png`,
+              `../Storefront/${lowerRelative}${srcNoATX}_l.png`,
+              // Try just doubling underscore before 's' (common in SirLoin pattern)
+              `../Storefront/${lowerRelative}${srcNoATX.replace(/_s/, '__s')}.png`,
+              `../Storefront/${lowerRelative}${srcNoATX.replace(/_s/, '__s')}_l.png`,
+              // Try all underscores doubled
+              `../Storefront/${lowerRelative}${srcNoATX.replace(/_/g, '__')}.png`,
+              `../Storefront/${lowerRelative}${srcNoATX.replace(/_/g, '__')}_l.png`
+            ];
+            // Remove duplicates while preserving order
+            const attempts = [...new Set(attemptsList)];
 
             const thumb = document.createElement('div');
             thumb.className = 'storefront-thumb';
             thumb.title = baseName;
 
             const img = document.createElement('img');
-            img.src = src;
+            img.src = attempts[0];
             img.alt = baseName;
             img.loading = 'lazy';
+            let attemptIndex = 0;
             img.onerror = function() {
-              if (!this.src.endsWith(srcFallback)) { this.onerror = null; this.src = srcFallback; }
+              attemptIndex++;
+              if (attemptIndex < attempts.length) {
+                this.src = attempts[attemptIndex];
+              } else {
+                this.onerror = null;
+              }
             };
             fadeImg(img);
 
