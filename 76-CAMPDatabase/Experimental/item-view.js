@@ -56,6 +56,21 @@
       SinkholeSolutionsRewards: { alt: "Reward from Event: Sinkhole Solutions" },
     };
 
+    function getWeatherType(weatherKeywords) {
+      if (!weatherKeywords) return 'Clear';
+      const keywords = String(weatherKeywords).split(';').map(k => k.trim()).filter(Boolean);
+      const radstormKeywords = ['s_wt_StormRad', 's_wt_StormNuke'];
+      const rainyKeywords = ['s_wt_StormMistyRainy', 's_wt_StormRain', 's_wt_StormRainOcclusion', 'ATX_Weather_WeatherTypeKW_ThunderStorm'];
+      
+      if (keywords.some(k => radstormKeywords.includes(k))) {
+        return 'Radstorm / Nuked';
+      }
+      if (keywords.some(k => rainyKeywords.includes(k))) {
+        return 'Rainy';
+      }
+      return 'Clear';
+    }
+
     function normalizeTag(tag) {
       for (const [key, data] of Object.entries(multiVendorCategories)) {
         if (key === tag || (data.prefixes && data.prefixes.some(p => tag.startsWith(p)))) return key;
@@ -428,6 +443,7 @@
       const hasCategory = (item.Category&&item.Category.trim()) || (item.SubCategory&&item.SubCategory.trim());
       const hasBook = !!(item.BOOK_FULL&&String(item.BOOK_FULL).trim());
       const hasEntm = !!(item.ENTM_FULL&&String(item.ENTM_FULL).trim());
+      const hasWeather = !!(item.WeatherKeywords && String(item.WeatherKeywords).trim());
       const hasWorkshopMax = item.Workshop_Max != null;
       const hasCAMPMax     = item.CAMP_Max != null;
 
@@ -549,6 +565,33 @@
         }
 
         block.appendChild(wrap);
+        panel.appendChild(block);
+      }
+
+      // ── C.A.M.P. Weather Type block ──
+      if (hasWeather) {
+        const block = document.createElement('div');
+        block.className = 'right-panel-block';
+        const h2 = document.createElement('h2'); h2.textContent = 'C.A.M.P. WEATHER TYPE (FISHING)';
+        block.appendChild(h2);
+
+        const weatherType = getWeatherType(item.WeatherKeywords);
+        const weatherIconMap = {
+          'Clear':          '../assets/ClearWeather.png',
+          'Rainy':          '../assets/RainyWeather.png',
+          'Radstorm / Nuked': '../assets/RadWeather.png',
+        };
+
+        const keywords = String(item.WeatherKeywords).split(';').map(k => k.trim()).filter(Boolean);
+        const sandstormFlavor = keywords.includes('s_wt_Sandstorm')
+          ? 'Counts as Sandstorm weather for related challenges, does not affect fishing odds'
+          : '';
+
+        const wrap = document.createElement('div');
+        wrap.className = 'detail-inline-wrap';
+        wrap.appendChild(makePill(weatherType, weatherIconMap[weatherType] || '', sandstormFlavor));
+        block.appendChild(wrap);
+
         panel.appendChild(block);
       }
 
@@ -896,6 +939,7 @@
                 this.src = attempts[attemptIndex];
               } else {
                 this.onerror = null;
+                this.src = '../assets/ImageNotFound.png';
               }
             };
             fadeImg(img);

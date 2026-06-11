@@ -297,7 +297,7 @@
   margin-bottom: 8px;
 }
 
-.clearfix::after { content: ''; display: table; clear: both; }
+
 
 .error-message {
   padding: 16px;
