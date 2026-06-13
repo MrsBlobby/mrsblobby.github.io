@@ -314,8 +314,8 @@
       if (item.ENTM_ImagePath && item.ENTM_ImageNames && item.ENTM_ImageNames.trim()) {
         const basePath = item.ENTM_ImagePath.trim().replace(/\\/g, '/');
         const firstImageName = item.ENTM_ImageNames.split(';')[0].trim().replace(/\.dds$/i, '');
-        const relativePath = basePath.replace(/^Textures\//i, '');
-        const imagePath = `storefront/${relativePath}${firstImageName}.png`;
+        const relativePath = basePath.replace(/^Textures\//i, '').toLowerCase().replace(/^tga(?=atx\/)/, '');
+        const imagePath = `storefront/${relativePath}${firstImageName.toLowerCase()}.png`;
         imageUrl = `https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/76-CAMPDatabase/Experimental/${imagePath}`;
       } else {
         const iconFile = (item.ARTO_FormID || item.CNAM_FormID || '').toLowerCase();
@@ -905,22 +905,28 @@
             const baseName = name.replace(/\.dds$/i, '');
             const relativePath = basePath.replace(/^Textures\//i, '');
             const lowerRelative = relativePath.toLowerCase();
+            // If basePath started with 'tgatextures/', lowerRelative now starts with 'tga'.
+            // Strip any leading 'tga' immediately before the atx/ segment so we also try the clean path.
+            const lowerRelativeNoTGA = lowerRelative.replace(/^tga(?=atx\/)/, '');
+            // Collect unique path prefixes to try (deduped in case both are identical)
+            const relativeVariants = [...new Set([lowerRelative, lowerRelativeNoTGA])];
+
             const lowerBase = baseName.toLowerCase();
             const srcNoATX = lowerBase.replace(/^atx_/, '');
-            
-            // Generate multiple attempts targeting different underscore patterns
-            const attemptsList = [
-              `../Storefront/${lowerRelative}${lowerBase}.png`,
-              `../Storefront/${lowerRelative}${lowerBase}_l.png`,
-              `../Storefront/${lowerRelative}${srcNoATX}.png`,
-              `../Storefront/${lowerRelative}${srcNoATX}_l.png`,
+
+            // Generate multiple attempts across all relative-path variants × filename patterns
+            const attemptsList = relativeVariants.flatMap(rel => [
+              `../Storefront/${rel}${lowerBase}.png`,
+              `../Storefront/${rel}${lowerBase}_l.png`,
+              `../Storefront/${rel}${srcNoATX}.png`,
+              `../Storefront/${rel}${srcNoATX}_l.png`,
               // Try just doubling underscore before 's' (common in SirLoin pattern)
-              `../Storefront/${lowerRelative}${srcNoATX.replace(/_s/, '__s')}.png`,
-              `../Storefront/${lowerRelative}${srcNoATX.replace(/_s/, '__s')}_l.png`,
+              `../Storefront/${rel}${srcNoATX.replace(/_s/, '__s')}.png`,
+              `../Storefront/${rel}${srcNoATX.replace(/_s/, '__s')}_l.png`,
               // Try all underscores doubled
-              `../Storefront/${lowerRelative}${srcNoATX.replace(/_/g, '__')}.png`,
-              `../Storefront/${lowerRelative}${srcNoATX.replace(/_/g, '__')}_l.png`
-            ];
+              `../Storefront/${rel}${srcNoATX.replace(/_/g, '__')}.png`,
+              `../Storefront/${rel}${srcNoATX.replace(/_/g, '__')}_l.png`,
+            ]);
             // Remove duplicates while preserving order
             const attempts = [...new Set(attemptsList)];
 
