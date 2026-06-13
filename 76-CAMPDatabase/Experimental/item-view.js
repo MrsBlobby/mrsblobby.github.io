@@ -314,7 +314,9 @@
       if (item.ENTM_ImagePath && item.ENTM_ImageNames && item.ENTM_ImageNames.trim()) {
         const basePath = item.ENTM_ImagePath.trim().replace(/\\/g, '/');
         const firstImageName = item.ENTM_ImageNames.split(';')[0].trim().replace(/\.dds$/i, '');
-        const relativePath = basePath.replace(/^Textures\//i, '').toLowerCase().replace(/^tga(?=atx\/)/, '');
+        const relativePath = basePath.replace(/^Textures\//i, '').toLowerCase()
+          .replace(/^tgatextures\/atx\//, 'atx/')
+          .replace(/^tgaatx\//, 'atx/');
         const imagePath = `storefront/${relativePath}${firstImageName.toLowerCase()}.png`;
         imageUrl = `https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/76-CAMPDatabase/Experimental/${imagePath}`;
       } else {
@@ -905,11 +907,22 @@
             const baseName = name.replace(/\.dds$/i, '');
             const relativePath = basePath.replace(/^Textures\//i, '');
             const lowerRelative = relativePath.toLowerCase();
-            // If basePath started with 'tgatextures/', lowerRelative now starts with 'tga'.
-            // Strip any leading 'tga' immediately before the atx/ segment so we also try the clean path.
-            const lowerRelativeNoTGA = lowerRelative.replace(/^tga(?=atx\/)/, '');
-            // Collect unique path prefixes to try (deduped in case both are identical)
-            const relativeVariants = [...new Set([lowerRelative, lowerRelativeNoTGA])];
+
+            // Normalise the many on-disk spellings that arise from DB paths like
+            // "TGATextures/ATX/Storefront/Camp/Ally/" → files live under either
+            //   Storefront/atx/…      (clean path, most common)
+            //   Storefront/tgaatx/…  (TGA-prefixed folder, also present on disk)
+            // Strategy: derive the canonical "atx/…" form first, then the "tgaatx/…"
+            // variant, and keep the original as a last-resort fallback.
+            const lowerRelativeClean = lowerRelative
+              .replace(/^tgatextures\/atx\//, 'atx/')   // tgatextures/atx/… → atx/…
+              .replace(/^tgaatx\//, 'atx/');             // tgaatx/…          → atx/…
+
+            const lowerRelativeTGAATX = lowerRelativeClean
+              .replace(/^atx\//, 'tgaatx/');             // atx/…             → tgaatx/…
+
+            // Collect unique path prefixes to try, in priority order
+            const relativeVariants = [...new Set([lowerRelativeClean, lowerRelativeTGAATX, lowerRelative])];
 
             const lowerBase = baseName.toLowerCase();
             const srcNoATX = lowerBase.replace(/^atx_/, '');
