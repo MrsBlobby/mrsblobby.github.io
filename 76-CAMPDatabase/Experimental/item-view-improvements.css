@@ -1,0 +1,269 @@
+/* ============================================================
+   item-view-improvements.css — v3, verified against item-view.js
+   Append after your existing item-view.css. Reuses --accent-secondary,
+   --divider, and --bg-chip from style-improvements.css — make sure
+   that file (or those variables) is loaded first.
+   ============================================================ */
+
+/* ── Description: left-align instead of centered.
+   Centered multi-line body text is harder to scan — the eye has to
+   re-find the start of each line. Left-aligned reads noticeably
+   faster for anything longer than one sentence. ── */
+.entm-description {
+  text-align: left;
+}
+.entm-description-label {
+  text-align: left;
+}
+
+/* ── Structural dividers shift from flat gray to a faint steel-blue
+   tint, freeing amber to mean "important" rather than "everything" ── */
+.infobox-row { border-bottom-color: var(--divider); }
+.infobox-label { border-right-color: var(--divider); }
+.right-panel-block + .right-panel-block,
+.right-panel-title,
+.storefront-row {
+  border-color: var(--divider);
+}
+
+/* Technical/debug rows (Form ID, Editor ID, Model) are reference
+   data, not primary content — de-emphasize them with plain muted
+   grey rather than any accent color, so they read as secondary
+   info without introducing a second hue on the page. */
+.infobox-label {
+  color: var(--text-muted);
+}
+.infobox-value {
+  color: var(--text-muted);
+}
+
+/* Alternating section tint removed per feedback — with pills now
+   using their own --bg-chip background (see below), tinting the
+   section behind them too made the panel look busier, not calmer.
+   Sections now separate purely by the divider line + whitespace. */
+
+/* ── "Shares Max Build Count With" thumbnails.
+   CORRECTED: this section is NOT .assignable-grid/.assignable-item
+   (that's the separate "Assignables Info" block above it) — it's
+   built from .shared-grid/.shared-item/.shared-item-name in
+   item-view.js (~line 2050+). The previous version of this file
+   only resized the Assignables Info tiles and never touched the
+   ones visible in the screenshot. Both are fixed here now.
+
+   FIX: the earlier version of this rule turned these into a
+   horizontal-scroll strip (flex-wrap: nowrap + overflow-x: auto),
+   but never gave the row a bounded width. Without min-width: 0 /
+   width: 100% on the flex container, the browser sizes it to fit
+   all the nowrap items at once — so instead of scrolling, the row
+   just expanded past its column and bled out of the card. Reverted
+   to normal wrapping (matches your original layout) with just the
+   larger tile size kept. ── */
+.shared-grid,
+.assignable-grid {
+  flex-wrap: wrap;
+}
+.shared-item,
+.shared-view-more,
+.shared-none,
+.assignable-item,
+.assignable-view-more,
+.assignable-none {
+  width: 96px;
+}
+.shared-item img,
+.assignable-item img {
+  width: 64px;
+  height: 64px;
+}
+.shared-item-name,
+.assignable-item-name {
+  font-size: 10px;
+  -webkit-line-clamp: 2;
+}
+
+/* ── Reduce nested amber borders ──
+   Feedback: the page reads as box-in-a-box-in-a-box — outer card
+   border > infobox/right-panel > section blocks > pill-groups > pills
+   > icons, each with its own fence. Outer containers now use a subtle
+   dark-gray border (#2a2a2a) with elevated surface, so amber is freed
+   for text hierarchy only. ── */
+
+/* Pills become flat chips: no border, subtle background, off-white text
+   for maximum readability. Hierarchy from typography, not a fence. */
+.detail-pill {
+  border: none;
+  border-radius: 6px;
+  background: #222222;
+  color: #e0e0e0;
+}
+.detail-pill-group {
+  border: none;
+  border-radius: 6px;
+  background: #222222;
+}
+/* A pill inside a group would otherwise be a chip inside a chip —
+   the exact nesting problem being fixed. Let the group's background
+   carry the color; the inner pill goes transparent. */
+.detail-pill-group .detail-pill {
+  background: transparent;
+}
+
+/* Infobox title: item name above the image render. */
+.infobox-title {
+  padding: 14px 12px 10px;
+  text-align: center;
+  color: var(--accent);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--divider);
+}
+
+/* Infobox image / budget hero: hairline divider instead of a full
+   2px accent rule under every block. Match the image's dark background
+   so the two flow together as one visual unit. */
+.infobox-image {
+  background: #121212;
+  border-bottom: 1px solid var(--divider);
+}
+.infobox-budget {
+  background: #161616;
+  border-bottom: 1px solid var(--divider);
+}
+
+/* Shared / assignable item tiles: background instead of a resting
+   border. Accent border only appears on hover, so amber still means
+   "you can act on this" instead of being permanent scaffolding
+   around every single tile in a grid of 18. */
+.shared-item,
+.assignable-item,
+.shared-view-more,
+.assignable-view-more {
+  border-color: transparent;
+  background: var(--bg-chip);
+}
+@media (hover: hover) {
+  .shared-item:hover,
+  .assignable-item:hover {
+    border-color: var(--accent);
+  }
+}
+
+/* Max Build Count stat boxes: same background-over-border swap. */
+.max-build-stat {
+  border-color: transparent;
+  background: var(--bg-chip);
+}
+
+/* ── Even out spacing around the section dividers in the right panel.
+   The space BEFORE each divider was already consistent (both the
+   description section and .block-category use 1.25rem of bottom
+   padding before their line). The space AFTER a divider, before the
+   next heading, was not:
+     - description's line → "Build Menu Category": 34px
+       (1.25rem margin-bottom on .entm-description-section
+       + .block-category's default 14px padding-top)
+     - category's line → "Placement Conditions": 0px
+       (.block-conditions explicitly zeroed its padding-top)
+   Normalized both to the panel's standard 14px top padding, so every
+   divider has the same amount of breathing room above the heading
+   that follows it. ── */
+.entm-description-section {
+  margin-bottom: 0;
+}
+.block-conditions {
+  padding-top: 14px;
+}
+
+/* ── Inline preview grid row cap ──
+   The ASSIGNABLES INFO, SHARES MAX BUILD COUNT WITH, and BUILD MENU SLOT
+   grids in the item detail page are previews — they should never expand
+   to show all 8,500+ items. JS builds each grid with all items, then
+   trimPreviewGrids() measures the real rendered width to compute column
+   count and trims to exactly 2 rows (3 on mobile) with a "+X more" tile
+   as the final slot. The CSS max-height below is a safety net that
+   matches the worst-case tile height (~102px per row + 8px gap) so if
+   JS miscalculates, content still doesn't spill. */
+.assignable-grid,
+.shared-grid {
+  overflow: hidden;
+}
+/* 2 rows on desktop/tablet: 2 × 102px tiles + 1 × 8px gap = ~212px */
+@media (min-width: 601px) {
+  .right-panel .assignable-grid,
+  .right-panel .shared-grid {
+    max-height: 220px;
+  }
+}
+/* 3 rows on mobile: 3 × 102px tiles + 2 × 8px gaps = ~322px */
+@media (max-width: 600px) {
+  .right-panel .assignable-grid,
+  .right-panel .shared-grid {
+    max-height: 330px;
+  }
+}
+
+/* ── Collapsible "Technical" accordion in infobox ── */
+.tech-accordion {
+  border-top: 1px solid var(--divider);
+}
+.tech-accordion-toggle {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 12px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: transparent;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+/* Label sits in normal flow, centered by the flex container above —
+   no reserved padding or absolute-position math needed. */
+.tech-accordion-label {
+  line-height: 1.2;
+}
+/* CSS border-triangle instead of a Unicode glyph (\25BE): glyph
+   coverage depends on the active font-stack and can render as
+   nothing on fonts that lack it. A border-triangle always renders,
+   and matches the .back-arrow technique used elsewhere on this page.
+   Absolutely positioned so it overlays without affecting the
+   flex-centered label's available width. */
+.tech-accordion-arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease;
+  pointer-events: none;
+}
+.tech-accordion.open .tech-accordion-arrow {
+  transform: translateY(-50%) rotate(180deg);
+}
+@media (hover: hover) {
+  .tech-accordion-toggle:hover {
+    background: rgba(255,255,255,0.04);
+    color: #f0d68a;
+  }
+}
+.tech-accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+.tech-accordion-body .infobox-row:last-child {
+  border-bottom: none;
+}

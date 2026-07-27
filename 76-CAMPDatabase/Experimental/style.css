@@ -1,10 +1,11 @@
   :root { 
-    --accent: #ffc00f; /*Live Color: #ffc00f, PTS Color: #497ab4 */
-    --accent-dim: #ffb300; /* Live Color: #ffb300, PTS Color: #223b5a*/
+    --accent: #E5C158; /*Live Color: #E5C158, PTS Color: #497ab4 */
+    --accent-dim: #D1B366; /* Live Color: #D1B366, PTS Color: #223b5a*/
     --bg: #1a1a1a;
-    --card-bg: #2a2a2a;
+    --card-bg: #181818;
     --text: #e0e0e0;
     --text-muted: #aaa;
+    --border-subtle: rgba(229, 193, 88, 0.18);
     --content-width: 800px;
     --card-width: 720px;
   }
@@ -37,7 +38,7 @@
 
   .author {
     color: var(--text-muted);
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .badge-link {
@@ -45,9 +46,8 @@
     color: var(--accent);
     border-radius: 4px;
     padding: 2px 6px;
-    margin-left: 6px;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 13px;
     transition: background 0.2s;
   }
 
@@ -64,19 +64,13 @@
   }
 
 
-  .updated {
-    color: var(--text-muted);
-    font-size: 12px;
-    margin-top: 4px;
-  }
-
   #pagination button {
     padding: 6px 0;
     width: 50px;
     margin-left: 2px;
     background: var(--card-bg);
     color: var(--text);
-    border: 2px solid var(--accent);
+    border: 1px solid var(--border-subtle);
     border-radius: 4px;
     cursor: pointer;
     text-align: center;
@@ -103,21 +97,28 @@
     justify-content: center;
     align-items: center;
     gap: 2px;
-    margin: 2px 0 0;
+    margin: 10px 0 0;
     padding: 0;
   }
   #paginationTop button {
     padding: 2px 0;
     width: 34px;
+    height: 40px;
     margin: 0;
     background: var(--card-bg);
     color: var(--text-muted);
-    border: 1px solid #444;
+    border: 1px solid var(--border-subtle);
     border-radius: 4px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     transition: 0.2s;
+    box-sizing: border-box;
   }
   @media (hover: hover) {
     #paginationTop button:hover:not(:disabled) {
@@ -159,10 +160,16 @@
     font-size: 16px;
     width: 100%;
     max-width: 350px;
-    border: 2px solid var(--accent);
+    border: 1px solid var(--border-subtle);
     border-radius: 6px;
     background-color: var(--card-bg);
     color: var(--text);
+  }
+  .search-line input[type="text"] {
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    max-width: none;
   }
 
   .controls .search-line {
@@ -170,6 +177,18 @@
     gap: 0;
     width: 100%;
     max-width: 450px;
+    height: 40px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    align-items: stretch;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .controls .search-line:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(229, 193, 88, 0.15);
   }
 
   .search-line input:focus,
@@ -183,14 +202,6 @@
     -webkit-appearance: none;
   }
 
-  .search-line {
-    display: flex;
-    gap: 0;
-    width: 100%;
-    max-width: 450px;
-    align-items: center; 
-  }
-
   .controls label {
     font-size: 14px;
     color: var(--text-muted);
@@ -202,7 +213,6 @@
     align-items: center;
     gap: -10px;
     justify-content: center;
-    margin-top: 8px;
   }
 
   .inline-group {
@@ -210,28 +220,28 @@
     align-items: center;
     gap: 0px;
     justify-content: center;
-    margin-top: 8px;
     width: 100%;
   }
 
   #clearFiltersExternal {
-    background-color: var(--bg);
-    border: 2px solid var(--accent);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-subtle);
     border-left: none;
     position: relative;
-    top: -4px;
+    top: -8px;
     border-radius: 0 6px 6px 0;
     height: 36px;
     padding: 0 12px;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    color: #ff4d4f;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    color: #888;
   }
 
   @media (hover: hover) {
     #clearFiltersExternal:hover {
-      background-color: #ff4d4f;
-      color: black;
+      background-color: rgba(255, 77, 79, 0.15);
+      color: #ff6b6b;
+      border-color: rgba(255, 77, 79, 0.4);
     }
   }
 
@@ -252,25 +262,13 @@
     gap: 8px; 
   }
 
-  ul {
-    list-style-type: none;
+  #results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     padding: 16px;
     margin: 0 auto;
-    max-width: 600px;
-  }
-
-  li {
-    display: flex;
-    align-items: center;
-    gap: 0px;
-    padding: 12px;
-    background-color: var(--card-bg);
-    box-sizing: border-box;
-    margin-bottom: 14px;
-    border-radius: 6px;
-    border: 2px solid var(--accent);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-    width: 100%;
+    max-width: 1200px;
   }
 
   /* ── Filter Modal ── */
@@ -282,26 +280,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: filterFadeIn 0.15s ease;
+    animation: filterFadeIn 0.15s ease forwards;
   }
   .filter-modal-overlay.closing {
-    animation: filterFadeOut 0.15s ease;
+    animation: filterFadeOut 0.15s ease forwards;
   }
   @keyframes filterFadeIn { from { opacity: 0; } to { opacity: 1; } }
   @keyframes filterFadeOut { from { opacity: 1; } to { opacity: 0; } }
   .filter-modal {
     background: var(--card-bg);
-    border: 2px solid var(--accent);
+    border: 1px solid var(--border-subtle);
     border-radius: 8px;
     width: min(700px, 95vw);
     height: 92vh;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    animation: filterSlideIn 0.15s ease;
+    animation: filterSlideIn 0.15s ease forwards;
   }
   .filter-modal.closing {
-    animation: filterSlideOut 0.15s ease;
+    animation: filterSlideOut 0.15s ease forwards;
   }
   @keyframes filterSlideIn { from { transform: scale(0.97); opacity: 0; } to { transform: scale(1); opacity: 1; } }
   @keyframes filterSlideOut { from { transform: scale(1); opacity: 1; } to { transform: scale(0.97); opacity: 0; } }
@@ -310,7 +308,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 12px 16px;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid var(--border-subtle);
     flex-shrink: 0;
   }
   .filter-modal-title {
@@ -346,7 +344,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 16px;
-    border-top: 1px solid #444;
+    border-top: 1px solid var(--border-subtle);
     flex-shrink: 0;
   }
   .filter-modal-footer .clear-filters {
@@ -401,7 +399,7 @@
     flex-direction: column;
     gap: 2px;
     padding: 10px 8px;
-    border-right: 1px solid #444;
+    border-right: 1px solid var(--border-subtle);
     overflow-y: auto;
     flex-shrink: 0;
   }
@@ -512,46 +510,11 @@
     }
   }
 
-  .result-left {
-    display: flex;
-    padding: 0px 6px 0px 6px;
-    flex-direction: column;
-    align-items: center;
-    flex-shrink: 0;
-    width: 220px;
-  }
 
-  .result-name {
-    font-weight: bold;
-    font-size: 18px;
-    color: var(--accent);
-    margin-bottom: 6px;
-    max-width: 220px;
-    text-align: center;
-  }
-
-  .result-left img {
-    border-radius: 6px;
-    width: 128px;
-    height: 128px;
-    object-fit: contain;
-    display: block;
-    opacity: 0;
-    transition: opacity 0.25s ease;
-  }
-  .result-left img.loaded {
-    opacity: 1;
-  }
-
-  #results {
-    opacity: 0;
-    transition: opacity 0.18s ease;
-    overflow-anchor: none;
-  }
 
   .cover-image-wrap {
     width: 100%;
-    aspect-ratio: 1042 / 442;
+    aspect-ratio: 1042 / 340;
     overflow: hidden;
   }
   .cover-image {
@@ -561,38 +524,7 @@
     object-fit: contain;
   }
 
-  .result-right {
-    display: flex;
-    padding: 0px 6px 0px 6px;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    text-align: center;
-    width: 100%;
-    justify-content: center;
-  }
 
-  .result-right .section-header {
-    font-weight: 700;
-    font-size: 14px;
-    color: var(--accent);
-    text-align: center;
-    margin: 4px 0;
-  }
-
-  .result-right span.pill {
-    background: var(--bg);
-    border: 2px solid var(--accent);
-    border-radius: 20px;
-    padding: 3px 10px;
-    font-size: 14px;
-    color: var(--accent);
-    font-weight: normal;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
 
   .inline-wrap {
     display: inline-flex;
@@ -602,13 +534,42 @@
     flex-wrap: wrap;
   }
 
+  /* Used specifically for Placement Conditions. By default this is a plain
+     left-aligned row — if everything fits on one line, it stays that way,
+     unchanged from before. Only when content actually wraps does JS add
+     .is-wrapped, which switches to a single max-content grid column: the
+     first (topmost) condition sets the column's width and stays
+     left-aligned, while the connector and whatever follows it centers
+     underneath in that same width. minmax(0, ...) lets the column shrink on
+     narrow cards instead of overflowing. */
+  .inline-wrap--conditions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    max-width: 100%;
+  }
+  .inline-wrap--conditions.is-wrapped {
+    display: inline-grid;
+    grid-template-columns: 1fr;
+    row-gap: 6px;
+    justify-items: center;
+  }
+  .inline-wrap--conditions.is-wrapped > *:first-child {
+    justify-self: start;
+  }
+  .inline-wrap--conditions.is-wrapped .connector {
+    text-align: center;
+  }
+
   .connector {
     color: var(--accent);
-    width: 100%;
     font-weight: 600;
     font-size: 13px;
     margin: 0 6px;
     line-height: 1;
+    text-transform: uppercase;
   }
 
   .arrow {
@@ -639,24 +600,49 @@
     text-align: center;
     line-height: 1.2;
     max-width: 240px;
-    min-height: 30px;
+    min-height: 32px;
     word-break: break-word;
   }
 
-  details {
-    margin: 10px 0 20px 0;
-    font-size: 12px;
-    color: var(--text-muted);
+  /* Merged group for pills that satisfy an OR requirement (any one fulfills it) */
+  .pill-group {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--accent);
+    border-radius: 14px;
+    overflow: hidden;
+    max-width: 240px;
+    width: 100%;
+    background: var(--bg);
   }
 
-  details summary {
-    cursor: pointer;
-    font-weight: bold;
-    color: var(--accent);
-    text-align: center;
-    max-width: 200px;
-    margin: 0 auto;           
-    padding: 2px 6px;
+  .pill-group .pill {
+    border: none;
+    border-radius: 0;
+    max-width: none;
+    width: 100%;
+    padding: 6px 12px;
+  }
+
+  .pill-group-divider {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 10px;
+    font-size: 10px;
+    line-height: 1.4;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .pill-group-divider::before,
+  .pill-group-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--accent-dim);
+    opacity: 0.4;
   }
 
   .changelog-entry h4 {
@@ -666,20 +652,25 @@
       color: var(--accent);
     }
 
-    .changelog-entry { /*Live Color: rgba(255, 192, 15, 0.05), PTS Color: rgba(15, 147, 255, 0.05); */
-      background: rgba(255, 192, 15, 0.05);
+    .changelog-entry { /*Live Color: rgba(229, 193, 88, 0.05), PTS Color: rgba(15, 147, 255, 0.05); */
+      background: rgba(229, 193, 88, 0.05);
       border-left: 3px solid var(--accent);
       border-radius: 4px;
       padding: 6px 12px;
       margin: 6px 0;
       text-align: left;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      word-wrap: break-word;
     }
 
     .changelog-entry ul {
       padding: 0;
       margin: 4px 0;
       background: transparent;
-      list-style-position: inside;
+      list-style-type: disc;
+      list-style-position: outside;
+      min-width: 0;
     }
 
     .changelog-entry li {
@@ -688,44 +679,48 @@
       border: none;
       box-shadow: none;
       margin-bottom: 6px;
-      padding: 2px 0 2px 6px;
+      margin-left: 16px;
+      padding: 2px 0;
       border-radius: 0;
-      margin-left: 0;
       align-items: baseline;
       width: auto;
       text-align: left;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      word-wrap: break-word;
+    }
+
+    .changelog-entry li ul {
+      margin: 2px 0 0 0;
+      list-style-type: circle;
+    }
+
+    .changelog-entry li li {
+      margin-bottom: 2px;
+      margin-left: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
     }
 
   #searchBox {
     flex: 1;
-    height: 40px;
+    min-width: 0;
     font-size: 16px;
     padding: 0 12px;
-    border: 2px solid var(--accent);
-    border-right: none;
-    border-radius: 6px 0 0 6px;
-    background-color: var(--card-bg);
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
     color: var(--text);
     box-sizing: border-box;
+    outline: none;
   }
 
-    #searchBox, #dropdownSelected {
-      width: 100%;
-      border-right: none; 
-    }
-
-  #dropdownOptions {
-    position: absolute;
-    font-size: 14px;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    margin-top: -2px;
-    background-color: var(--card-bg);
-    border: 2px solid var(--accent);
-    box-sizing: border-box;
-    border-radius: 0 0 6px 6px;
-    z-index: 200;
+  .search-line .custom-dropdown::before {
+    content: '';
+    width: 1px;
+    align-self: stretch;
+    background-color: rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
   }
 
   #dropdownOptions .option {
@@ -744,10 +739,11 @@
     top: 100%;
     left: 0;
     min-width: 100%;
-    width: max-content;
+    width: 100%;
+    font-size: 14px;
     margin-top: -2px;
     background-color: var(--card-bg);
-    border: 2px solid var(--accent);
+    border: 1px solid var(--border-subtle);
     border-radius: 0 0 6px 6px;
     box-sizing: border-box;
     z-index: 200;
@@ -773,14 +769,14 @@
     align-items: center;
     padding: 0 12px;
     font-size: 14px;
-    border: 2px solid var(--accent);
-    border-left: 2px solid var(--accent);
-    border-radius: 0 6px 6px 0;
-    background-color: var(--card-bg);
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: transparent;
     color: var(--text);
     cursor: pointer;
     box-sizing: border-box;
     transition: background-color 0.15s, color 0.15s;
+    white-space: nowrap;
   }
 
   @media (hover: hover) {
@@ -894,7 +890,7 @@
     .accent-btn {
     background-color: var(--card-bg);      /* dark background */
     color: var(--accent);                   /* yellow text */
-    border: 2px solid var(--accent);       /* 2px accent border */
+    border: 1px solid var(--border-subtle);       /* subtle border */
     padding: 6px 20px;
     border-radius: 6px;
     font-weight: bold;
@@ -950,7 +946,7 @@
     padding: 0 6px;
     font-size: 13px;
     line-height: 1;
-    border: 2px solid var(--accent);
+    border: 1px solid var(--border-subtle);
     border-radius: 6px;
     background-color: var(--card-bg);
     color: var(--text);
@@ -986,7 +982,7 @@
     gap: 4px;
     padding: 0 20px;
     font-size: 13px;
-    border: 2px solid var(--accent);
+    border: 1px solid var(--border-subtle);
     border-radius: 6px 0 0 6px;
     background-color: var(--card-bg);
     color: var(--text);
@@ -1024,7 +1020,7 @@
 
   #filtersOptions button {
     padding: 5px 10px;
-    border: 1px solid var(--accent);
+    border: 1px solid var(--border-subtle);
     border-radius: 4px;
     background: var(--card-bg);
     color: var(--text);
@@ -1100,7 +1096,7 @@
     font-size: 14px;
     max-width: none;
     width: 100%;
-    border: 2px solid var(--accent);
+    border: 1px solid var(--border-subtle);
     border-radius: 6px;
     background-color: var(--card-bg);
     white-space: nowrap;
@@ -1141,7 +1137,7 @@
     padding: 6px 10px;
     border-radius: 4px;
     font-size: 13px;
-    border: 2px solid var(--accent);
+    border: 1px solid var(--border-subtle);
     opacity: 0;
     pointer-events: none;
     transform: translateY(-4px);
@@ -1170,7 +1166,7 @@
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.25s ease; 
-    border: 2px solid var(--accent);
+    border: 1px solid var(--border-subtle);
   }
 
   #mobile-tooltip-box.show {
@@ -1178,26 +1174,81 @@
     opacity: 1;
   }
 
-  .detail-button {
-    display: block;
-    margin-top: 8px;
-    padding: 8px 16px;
-    background-color: var(--card-bg);
-    color: var(--accent-dim);
-    border: 2px solid var(--accent-dim);
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: normal;
-    font-size: 14px;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  .grid-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
-
-  @media (hover: hover) {
-    .detail-button:hover {
-      background-color: var(--accent-dim);
-      color: black;
-      border-color: var(--accent-dim);
-    }
+  .grid-card-name {
+    background: var(--card-bg);
+    padding: 12px 14px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent);
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-subtle);
+    transition: color 0.15s;
+    text-decoration: none;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+  }
+  .grid-card-name:hover {
+    color: #fff;
+    background: #252525;
+  }
+  .grid-card-image-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: var(--card-bg);
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+  .grid-card-image-wrap img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+  }
+  .grid-card-info {
+    padding: 12px 14px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .grid-card-section {
+    margin-bottom: 10px;
+  }
+  .grid-card-section:last-child {
+    margin-bottom: 0;
+  }
+  .grid-card-section .section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+  }
+  .grid-card-section .section-value {
+    font-size: 14px;
+    color: #ccc;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
   }
 
   .return-to-top {
@@ -1207,7 +1258,7 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    border: 2px solid var(--accent);
+    border: 1px solid var(--border-subtle);
     background-color: var(--card-bg);
     color: var(--accent);
     cursor: pointer;
@@ -1235,37 +1286,341 @@
   }
 
   @media (max-width: 600px) {
-    li {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .result-left {
-      max-width: none;
-    }
-    .result-right {
-      justify-content: center;
-      margin-top: 10px;
-    }
-    .result-left, .result-right {
-      max-width: none;
-      width: 100%;
-    }
-    .result-right span.pill {
-      font-size: 12px;
-      padding: 2px 6px;
-    }
-    .result-right span.arrow {
-      border-top: 4px solid transparent;
-      border-bottom: 4px solid transparent;
-      border-left: 8px solid var(--accent);
-      margin: 0 4px;
-    }
     .controls {
       flex-direction: column;
     }
-      .modal-content {
-            width: 80%;              
+    .modal-content {
+      width: 80%;
     }
-
   }
+
+  @media (max-width: 600px) {
+    #results {
+      grid-template-columns: 1fr;
+    }
+  }
+
+/* ============================================================
+   Merged improvements (previously style-improvements.css)
+   Appended in original load order so cascade/output is identical
+   to the old two-file setup — these rules intentionally come
+   after the base rules above to override/refine them.
+   ============================================================ */
+
+/* ============================================================
+   style-improvements.css — v3
+   ============================================================ */
+
+:root {
+  --accent-secondary: #5f8fc4;
+  --accent-secondary-dim: #3f5f82;
+  --divider: rgba(229, 193, 88, 0.12);
+}
+
+body {
+  overflow-y: visible;
+}
+
+#pagination {
+  display: none;
+}
+
+/* ── Meta row ── */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 0 0;
+  font-size: 13px;
+}
+.meta .author {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  color: var(--text-muted);
+}
+
+.meta-sep {
+  color: var(--text-muted);
+  margin: 0 10px;
+  opacity: 0.5;
+  user-select: none;
+}
+
+.badge-link,
+.meta-link {
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: normal;
+  vertical-align: middle;
+  box-sizing: border-box;
+  margin: 0;
+  cursor: pointer;
+  padding: 2px 6px;
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+@media (hover: hover) {
+  .badge-link:hover,
+  .meta-link:hover {
+    color: var(--accent);
+    border-color: var(--border-subtle);
+    background-color: rgba(229, 193, 88, 0.06);
+  }
+}
+
+/* ── Toolbar height fix ── */
+#filtersButton,
+#sortSelected,
+#sortDropdown {
+  height: 40px;
+}
+
+#clearFiltersExternal {
+  height: 40px;
+  top: -4px;
+}
+
+.group-filters,
+.group-sort {
+  display: flex;
+  align-items: center;
+}
+
+/* ── Pagination ── */
+#paginationTop {
+  gap: 2px;
+  align-items: center;
+}
+#paginationTop button {
+  border-color: var(--border-subtle);
+}
+#paginationTop span {
+  color: var(--text-muted);
+  font-size: 13px;
+  min-width: 50px;
+  text-align: center;
+}
+@media (hover: hover) {
+  #paginationTop button:hover:not(:disabled) {
+    border-color: var(--accent);
+  }
+}
+
+/* Disabled pagination: single page / no results — layout stays stable */
+.pagination-single {
+  opacity: 0.4;
+  pointer-events: none;
+  user-select: none;
+}
+.pagination-single button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Site header ── */
+.site-header {
+  position: relative;
+  padding: 12px 0 0;
+}
+.site-header .cover-image-wrap {
+  line-height: 0;
+  font-size: 0;
+}
+.site-header .meta {
+  line-height: 1.4;
+}
+.site-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: -20px;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  background: var(--bg-elevated);
+  z-index: -1;
+}
+
+/* ── Grid cards ── */
+.grid-card {
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+@media (hover: hover) {
+  .grid-card:hover {
+    transform: translateY(-2px);
+  }
+}
+.grid-card-section .section-title {
+  color: var(--text-muted);
+}
+.grid-card-section .section-value {
+  color: var(--text);
+}
+.grid-card-name {
+  border-bottom: 1px solid var(--divider);
+}
+
+/* ── Sticky toolbar ── */
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  row-gap: 10px;
+  column-gap: 12px;
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 12px 16px;
+  margin: -1px -16px 0;
+}
+.toolbar .search-line {
+  flex: 1 1 380px;
+  max-width: 450px;
+}
+.toolbar .inline-group {
+  flex: 0 0 auto;
+  width: auto;
+}
+.toolbar #paginationTop {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+}
+.controls {
+  display: block;
+  padding: 8px 0 0;
+  margin: 0;
+  gap: 0;
+  border: none;
+  background: var(--bg-elevated);
+}
+
+@media (max-width: 600px) {
+  .toolbar {
+    flex-direction: column;
+  }
+  .toolbar .search-line,
+  .toolbar .inline-group,
+  .toolbar #paginationTop {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    justify-content: center;
+  }
+}
+
+/* ── Depth ── */
+:root {
+  --bg-elevated: #232323;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+.grid-card {
+  border-color: var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+@media (hover: hover) {
+  .grid-card:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+#sortSelected {
+  border-color: var(--border-subtle);
+}
+@media (hover: hover) {
+  #sortSelected:hover {
+    border-color: var(--accent);
+  }
+}
+
+/* ── Changelog fade-in ── */
+.changelog-entry {
+  animation: changelogFadeIn 0.15s ease;
+}
+@keyframes changelogFadeIn {
+  from { opacity: 0; transform: translateY(-2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Pills ── */
+:root {
+  --bg-chip: #222222;
+}
+.pill {
+  border: none;
+  border-radius: 6px;
+  background: var(--bg-chip);
+  color: var(--accent);
+}
+
+/* ── Placement condition pills: left-aligned list ──
+   Overrides the old centered/stacked "wrap" treatment from style.css with a
+   plain left-aligned list: each pill on its own line, with AND/OR shown as
+   small inline text between them rather than big centered block text. */
+.inline-wrap--conditions,
+.inline-wrap--conditions.is-wrapped {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: auto;
+  max-width: 100%;
+}
+
+.inline-wrap--conditions.is-wrapped > *:first-child {
+  justify-self: unset;
+}
+
+.inline-wrap--conditions .connector,
+.inline-wrap--conditions.is-wrapped .connector {
+  margin: 0 0 0 2px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-align: left;
+  color: var(--text-muted);
+}
+
+.inline-wrap--conditions .pill {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+/* ── Empty results ── */
+.no-results {
+  grid-column: 1 / -1;
+  list-style: none;
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+#results:has(.no-results) {
+  min-height: 678px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
