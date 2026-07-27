@@ -1989,7 +1989,7 @@
             }
           }
           const h2 = document.createElement('h2');
-          h2.textContent = 'Assignables Info';
+          h2.textContent = 'Assignables';
           const h2Icon = document.createElement('span');
           h2Icon.className = 'info-icon info-icon--h2';
           h2Icon.textContent = '?';
@@ -2099,7 +2099,7 @@
             _returningFromItem = false;
 
             const { modal, close } = openModalShell({
-                title: 'Assignables Info',
+                title: 'Assignables',
                 onClose: () => {
                   if (!_returningFromItem) {
                     assignableState.activeTab = 0;
