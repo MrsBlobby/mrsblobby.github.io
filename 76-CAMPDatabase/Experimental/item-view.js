@@ -1525,7 +1525,7 @@
       contentDiv.classList.add('detail-content-loading');
       updateOGMetaTags(item);
       const formID = ((item.ARTO_FormID||item.CNAM_FormID||'')).toLowerCase();
-      let imgSrc = `../ModelRender/CAMPitem/${formID}_thumbnail.webp`;
+      let imgSrc = `../ModelRender/CAMPitem/${formID.toUpperCase()}_thumbnail.webp`;
 
       const roundedBudget = item.BudgetCost != null ? Math.round(item.BudgetCost * 100) / 100 : null;
       const budgetIcons = ['','../assets/BudgetBar-Tier1.webp','../assets/BudgetBar-Tier2.webp','../assets/BudgetBar-Tier3.webp','../assets/BudgetBar-Tier4.webp','../assets/BudgetBar-Tier5.webp'];
@@ -1558,8 +1558,12 @@
       const img = document.createElement('img');
       img.src = imgSrc; img.alt = item.Name; fadeImg(img);
       img.onerror = function() {
-        this.onerror = null;
-        this.src = `../WorkshopIcons/${formID}.webp`;
+        if (this.src !== `../ModelRender/CAMPitem/${formID}_thumbnail.webp`) {
+          this.src = `../ModelRender/CAMPitem/${formID}_thumbnail.webp`;
+        } else {
+          this.onerror = null;
+          this.src = `../WorkshopIcons/${formID}.webp`;
+        }
       };
       imgBox.appendChild(img);
       imgBox.addEventListener('click', () => {
@@ -2766,14 +2770,18 @@
           const renderThumb = document.createElement('div');
           renderThumb.className = 'storefront-thumb';
           const renderImg = document.createElement('img');
-          const renderSrc = `../ModelRender/CAMPitem/${formID}${suffix}.webp`;
+          const renderSrc = `../ModelRender/CAMPitem/${formID.toUpperCase()}${suffix}.webp`;
           renderImg.src = renderSrc;
           renderImg.alt = `Render ${suffix}`;
           renderImg.loading = 'lazy';
           renderImg.onerror = function() {
-            this.onerror = null;
-            renderThumb.remove();
-            checkRendersEmpty();
+            if (this.src !== `../ModelRender/CAMPitem/${formID}${suffix}.webp`) {
+              this.src = `../ModelRender/CAMPitem/${formID}${suffix}.webp`;
+            } else {
+              this.onerror = null;
+              renderThumb.remove();
+              checkRendersEmpty();
+            }
           };
           fadeImg(renderImg);
           renderThumb.appendChild(renderImg);

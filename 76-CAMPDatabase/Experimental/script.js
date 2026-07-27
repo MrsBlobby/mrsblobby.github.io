@@ -1293,8 +1293,8 @@ function renderResults(query) {
     imageLink.className = 'grid-card-image-wrap';
     imageLink.href = detailHref;
 
-    const thumbnailSrc = `../ModelRender/CAMPitem/${formID}_thumbnail.webp`;
-    const fallbackSrc = `Images/${formID}.webp`;
+    const thumbnailSrc = `../ModelRender/CAMPitem/${formID.toUpperCase()}_thumbnail.webp`;
+    const fallbackSrc = `../ModelRender/CAMPitem/${formID}_thumbnail.webp`;
     const placeholderSrc = `Images/item-placeholder.webp`;
 
     const img = document.createElement('img');
