@@ -1194,6 +1194,10 @@ img.lazy-fade.loaded {
 .lightbox-nav-prev { left: 2rem; }
 .lightbox-nav-next { right: 2rem; }
 
+@media (max-width: 600px) {
+  .lightbox-nav { display: none; }
+}
+
 /* ── Assignable/Display Info ── */
 .assignable-label {
   font-size: 12px;
@@ -1521,6 +1525,32 @@ img.lazy-fade.loaded {
   .storefront-thumb img { width: 100%; height: 100%; }
 }
 
+/* ── Tablet: stack layout vertically, center infobox ── */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .detail-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  .infobox {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 24px;
+    border-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  .item-card {
+    margin-left: 0;
+    margin-top: 0;
+    border-radius: 8px;
+    width: 100%;
+  }
+  .back-button,
+  .item-nav {
+    margin-left: 0;
+  }
+}
+
 /* ── Wide screens: item-card is centered on the actual viewport — a third,
    empty grid column mirrors the infobox's width on the right, so the
    [infobox][item-card] pair sits symmetrically around center instead of
@@ -1833,4 +1863,8 @@ img.lazy-fade.loaded {
 }
 .tech-accordion-body .infobox-row:last-child {
   border-bottom: none;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
 }

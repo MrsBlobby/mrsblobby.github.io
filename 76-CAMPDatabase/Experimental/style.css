@@ -16,7 +16,6 @@
     background-color: var(--bg);
     color: var(--text);
     overflow-x: hidden;
-    scrollbar-gutter: stable;
   }
 
   .container {
@@ -1300,6 +1299,12 @@
     }
   }
 
+  @media (min-width: 601px) and (max-width: 800px) {
+    #results {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
 /* ============================================================
    Merged improvements (previously style-improvements.css)
    Appended in original load order so cascade/output is identical
@@ -1515,6 +1520,7 @@ body {
 @media (max-width: 600px) {
   .toolbar {
     flex-direction: column;
+    margin: 0;
   }
   .toolbar .search-line,
   .toolbar .inline-group,
@@ -1623,4 +1629,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
 }

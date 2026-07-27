@@ -1357,6 +1357,55 @@
         if (onBack) { closeAllAndHistory(); } else { closeLightboxSoft(); }
       });
 
+      // ── Mobile: tap overlay to close ──
+      {
+        let tapStartX = 0;
+        let tapStartY = 0;
+        overlay.addEventListener('touchstart', e => {
+          if (e.touches.length !== 1) return;
+          tapStartX = e.touches[0].clientX;
+          tapStartY = e.touches[0].clientY;
+        }, { passive: true });
+        overlay.addEventListener('touchend', e => {
+          const dx = Math.abs(e.changedTouches[0].clientX - tapStartX);
+          const dy = Math.abs(e.changedTouches[0].clientY - tapStartY);
+          if (dx < 10 && dy < 10) {
+            if (zoomPan.consumeSuppress()) return;
+            if (onBack) { closeAllAndHistory(); } else { closeLightboxSoft(); }
+          }
+        }, { passive: true });
+      }
+
+      // ── Swipe to navigate (mobile) ──
+      if (isGallery) {
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let swiping = false;
+        const SWIPE_THRESHOLD = 50;
+        const SWIPE_MAX_Y = 80;
+        stage.addEventListener('touchstart', e => {
+          if (e.touches.length !== 1) return;
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+          swiping = true;
+        }, { passive: true });
+        stage.addEventListener('touchmove', e => {
+          if (!swiping) return;
+          const dx = e.touches[0].clientX - touchStartX;
+          const dy = Math.abs(e.touches[0].clientY - touchStartY);
+          if (dy > SWIPE_MAX_Y) { swiping = false; return; }
+          if (Math.abs(dx) > 10) e.preventDefault();
+        }, { passive: false });
+        stage.addEventListener('touchend', e => {
+          if (!swiping) return;
+          swiping = false;
+          const dx = e.changedTouches[0].clientX - touchStartX;
+          if (Math.abs(dx) >= SWIPE_THRESHOLD) {
+            showImage(dx > 0 ? activeIndex - 1 : activeIndex + 1);
+          }
+        }, { passive: true });
+      }
+
       const onKey = e => {
         if (e.key === 'Escape') {
           if (onBack) { closeAllAndHistory(); } else { closeLightboxSoft(); }
@@ -1422,7 +1471,7 @@
         imageUrl = `https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/76-CAMPDatabase/Experimental/${imagePath}`;
       } else {
         const iconFile = (item.ARTO_FormID || item.CNAM_FormID || '').toLowerCase();
-        if (iconFile) imageUrl = `https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/76-CAMPDatabase/Experimental/Images/${iconFile}.webp`;
+        if (iconFile) imageUrl = `../WorkshopIcons/${iconFile}.webp`;
       }
       
       const imageTag = document.querySelector('meta[property="og:image"]');
@@ -1479,14 +1528,19 @@
         img.src = `../ModelRender/${displayItem.StaticRender}`;
       } else {
         const itemType = ((displayItem.ItemType || '').trim() || '_Other').replace(/\//g, '-');
-        img.src = `../ModelRender/Assignables/${itemType}/${(displayItem.FormID||'').toLowerCase()}_thumbnail.webp`;
+        img.src = `../ModelRender/Assignables/${itemType}/${(displayItem.FormID||'').toUpperCase()}_thumbnail.webp`;
       }
       img.alt = displayItem.Name || '';
       img.draggable = false;
       img.style.cssText = 'width:100%;height:100%;object-fit:contain;';
       img.onerror = function() {
-        this.onerror = null;
-        this.src = '../assets/ImageNotFound.png';
+        if (!img._triedLower) {
+          img._triedLower = true;
+          this.src = `../ModelRender/Assignables/${((displayItem.ItemType || '').trim() || '_Other').replace(/\//g, '-')}/${(displayItem.FormID||'').toLowerCase()}_thumbnail.webp`;
+        } else {
+          this.onerror = null;
+          this.src = '../assets/ImageNotFound.png';
+        }
       };
       imgWrap.appendChild(fadeImg(img));
       imgWrap.addEventListener('click', () => {
@@ -1558,7 +1612,8 @@
       const img = document.createElement('img');
       img.src = imgSrc; img.alt = item.Name; fadeImg(img);
       img.onerror = function() {
-        if (this.src !== `../ModelRender/CAMPitem/${formID}_thumbnail.webp`) {
+        if (!img._triedLower) {
+          img._triedLower = true;
           this.src = `../ModelRender/CAMPitem/${formID}_thumbnail.webp`;
         } else {
           this.onerror = null;
@@ -2058,14 +2113,21 @@
             if (displayItem.StaticRender) {
               tileImg.src = `../ModelRender/${displayItem.StaticRender}`;
             } else {
-              const formID = (displayItem.FormID || '').toLowerCase();
+              const formID = (displayItem.FormID || '');
               const itemType = ((displayItem.ItemType || '').trim() || '_Other').replace(/\//g, '-');
-              tileImg.src = `../ModelRender/Assignables/${itemType}/${formID}_thumbnail.webp`;
+              tileImg.src = `../ModelRender/Assignables/${itemType}/${formID.toUpperCase()}_thumbnail.webp`;
             }
             tileImg.alt = displayItem.Name || '';
             tileImg.onerror = function() {
-              this.onerror = null;
-              this.src = '../assets/ImageNotFound.png';
+              if (!tileImg._triedLower) {
+                tileImg._triedLower = true;
+                const formID = (displayItem.FormID || '');
+                const itemType = ((displayItem.ItemType || '').trim() || '_Other').replace(/\//g, '-');
+                tileImg.src = `../ModelRender/Assignables/${itemType}/${formID.toLowerCase()}_thumbnail.webp`;
+              } else {
+                this.onerror = null;
+                this.src = '../assets/ImageNotFound.png';
+              }
             };
             fadeImg(tileImg);
             a.appendChild(tileImg);
@@ -2775,8 +2837,9 @@
           renderImg.alt = `Render ${suffix}`;
           renderImg.loading = 'lazy';
           renderImg.onerror = function() {
-            if (this.src !== `../ModelRender/CAMPitem/${formID}${suffix}.webp`) {
-              this.src = `../ModelRender/CAMPitem/${formID}${suffix}.webp`;
+            if (!renderImg._triedLower) {
+              renderImg._triedLower = true;
+              renderImg.src = `../ModelRender/CAMPitem/${formID}${suffix}.webp`;
             } else {
               this.onerror = null;
               renderThumb.remove();

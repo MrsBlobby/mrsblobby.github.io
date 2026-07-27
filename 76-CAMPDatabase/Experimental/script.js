@@ -257,7 +257,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const name = document.createElement('div'); name.className = 'result-name'; name.textContent = r.Name;
         left.appendChild(name);
         const img = document.createElement('img');
-        img.src = r.ARTO_FormID ? `Images/${r.ARTO_FormID.toLowerCase()}.webp` : `Images/${(r.CNAM_FormID||'').toLowerCase()}.webp`;
+        img.src = r.ARTO_FormID ? `../WorkshopIcons/${r.ARTO_FormID.toLowerCase()}.webp` : `../WorkshopIcons/${(r.CNAM_FormID||'').toLowerCase()}.webp`;
         img.style.cssText = 'width:128px;height:128px;object-fit:contain;display:block;opacity:0;';
         left.appendChild(img);
         li.appendChild(left);
@@ -1295,7 +1295,7 @@ function renderResults(query) {
 
     const thumbnailSrc = `../ModelRender/CAMPitem/${formID.toUpperCase()}_thumbnail.webp`;
     const fallbackSrc = `../ModelRender/CAMPitem/${formID}_thumbnail.webp`;
-    const placeholderSrc = `Images/item-placeholder.webp`;
+    const placeholderSrc = `../WorkshopIcons/item-placeholder.webp`;
 
     const img = document.createElement('img');
     img.loading = 'lazy';
@@ -1303,7 +1303,7 @@ function renderResults(query) {
     img.style.cssText = 'opacity:0;transition:opacity 0.3s ease;';
     img.onload = function() { this.style.opacity = '1'; };
     img.onerror = function() {
-      if (this.src !== fallbackSrc) { this.src = fallbackSrc; }
+      if (!img._triedLower) { img._triedLower = true; this.src = fallbackSrc; }
       else { this.src = placeholderSrc; }
       this.style.opacity = '1';
     };
