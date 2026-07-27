@@ -1370,10 +1370,11 @@
           const dx = Math.abs(e.changedTouches[0].clientX - tapStartX);
           const dy = Math.abs(e.changedTouches[0].clientY - tapStartY);
           if (dx < 10 && dy < 10) {
+            e.preventDefault();
             if (zoomPan.consumeSuppress()) return;
             if (onBack) { closeAllAndHistory(); } else { closeLightboxSoft(); }
           }
-        }, { passive: true });
+        }, { passive: false });
       }
 
       // ── Swipe to navigate (mobile) ──

@@ -561,6 +561,7 @@
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+  width: 90vw;
   max-width: 95vw;
   background: #121212;
   color: var(--text);
