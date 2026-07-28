@@ -1702,8 +1702,9 @@
       contentDiv.classList.remove('detail-content-ready');
       contentDiv.classList.add('detail-content-loading');
       updateOGMetaTags(item);
-      const formID = ((item.ARTO_FormID||item.CNAM_FormID||'')).toLowerCase();
-      let imgSrc = `../ModelRender/CAMPitem/${formID.toUpperCase()}_thumbnail.webp`;
+      const cnamFormID = ((item.CNAM_FormID||'')).toLowerCase();
+      const artoFormID = ((item.ARTO_FormID||'')).toLowerCase();
+      const imgSrc = `../ModelRender/CAMPitem/${cnamFormID.toUpperCase()}_thumbnail.webp`;
 
       const roundedBudget = item.BudgetCost != null ? Math.round(item.BudgetCost * 100) / 100 : null;
       const budgetIcons = ['','../assets/BudgetBar-Tier1.webp','../assets/BudgetBar-Tier2.webp','../assets/BudgetBar-Tier3.webp','../assets/BudgetBar-Tier4.webp','../assets/BudgetBar-Tier5.webp'];
@@ -1735,13 +1736,17 @@
       imgBox.className = 'infobox-image';
       const img = document.createElement('img');
       img.src = imgSrc; img.alt = item.Name; fadeImg(img);
+      // Chain: CNAM upper → CNAM lower → WorkshopIcons(arto) → WorkshopIcons(cnam)
+      const artoIconSrc = artoFormID ? `../WorkshopIcons/${artoFormID}.webp` : null;
+      const cnamIconSrc = cnamFormID ? `../WorkshopIcons/${cnamFormID}.webp` : null;
+      const fbChain = [`../ModelRender/CAMPitem/${cnamFormID}_thumbnail.webp`, artoIconSrc, cnamIconSrc].filter(Boolean);
+      let fbIdx = 0;
       img.onerror = function() {
-        if (!img._triedLower) {
-          img._triedLower = true;
-          this.src = `../ModelRender/CAMPitem/${formID}_thumbnail.webp`;
+        if (fbIdx < fbChain.length) {
+          this.src = fbChain[fbIdx++];
         } else {
           this.onerror = null;
-          this.src = `../WorkshopIcons/${formID}.webp`;
+          this.src = '../WorkshopIcons/item-placeholder.webp';
         }
       };
       imgBox.appendChild(img);
@@ -2946,14 +2951,14 @@
           const renderThumb = document.createElement('div');
           renderThumb.className = 'storefront-thumb';
           const renderImg = document.createElement('img');
-          const renderSrc = `../ModelRender/CAMPitem/${formID.toUpperCase()}${suffix}.webp`;
+          const renderSrc = `../ModelRender/CAMPitem/${cnamFormID.toUpperCase()}${suffix}.webp`;
           renderImg.src = renderSrc;
           renderImg.alt = `Render ${suffix}`;
           renderImg.loading = 'lazy';
           renderImg.onerror = function() {
             if (!renderImg._triedLower) {
               renderImg._triedLower = true;
-              renderImg.src = `../ModelRender/CAMPitem/${formID}${suffix}.webp`;
+              renderImg.src = `../ModelRender/CAMPitem/${cnamFormID}${suffix}.webp`;
             } else {
               this.onerror = null;
               renderThumb.remove();
