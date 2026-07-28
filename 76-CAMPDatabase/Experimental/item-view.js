@@ -1096,13 +1096,22 @@
       const PINCH_MIN = 1;
       const PINCH_MAX = 5;
 
+      // Touch-pan state (single finger when zoomed in)
+      let isTouchPanning = false;
+      let touchPanStartX = 0;
+      let touchPanStartY = 0;
+      let touchPanOrigX = 0;
+      let touchPanOrigY = 0;
+      let touchPanMoved = false;
+
       img.style.transformOrigin = 'center center';
 
       function applyTransform() {
-        const scale = ZOOM_SCALES[zoomLevel];
-        img.style.transform = `translate(${panX}px, ${panY}px) scale(${scale || 1})`;
+        const scale = ZOOM_SCALES[zoomLevel] || 1;
+        img.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
         viewport.classList.toggle('zoomed-1', zoomLevel === 1);
         viewport.classList.toggle('zoomed-2', zoomLevel === 2);
+        viewport.classList.toggle('zoomed-active', scale > 1);
       }
 
       function resetView() {
@@ -1205,6 +1214,7 @@
           e.preventDefault();
           e.stopPropagation();
           isPinching = true;
+          isTouchPanning = false;
           isDragging = false;
           pinchStartDist = getPinchDist(e.touches[0], e.touches[1]);
           pinchStartScale = getCurrentScale();
@@ -1214,44 +1224,79 @@
           pinchMidX = mid.x;
           pinchMidY = mid.y;
           img.style.transition = 'none';
+        } else if (e.touches.length === 1 && getCurrentScale() > 1) {
+          e.preventDefault();
+          e.stopPropagation();
+          isTouchPanning = true;
+          touchPanMoved = false;
+          touchPanStartX = e.touches[0].clientX;
+          touchPanStartY = e.touches[0].clientY;
+          touchPanOrigX = panX;
+          touchPanOrigY = panY;
+          img.style.transition = 'none';
+          viewport.classList.add('dragging');
         }
       }
 
       function onTouchMove(e) {
-        if (!isPinching || e.touches.length !== 2) return;
-        e.preventDefault();
-        e.stopPropagation();
-        const dist = getPinchDist(e.touches[0], e.touches[1]);
-        const scaleRatio = dist / pinchStartDist;
-        const newScale = Math.max(PINCH_MIN, Math.min(PINCH_MAX, pinchStartScale * scaleRatio));
+        if (isPinching && e.touches.length === 2) {
+          e.preventDefault();
+          e.stopPropagation();
+          const dist = getPinchDist(e.touches[0], e.touches[1]);
+          const scaleRatio = dist / pinchStartDist;
+          const newScale = Math.max(PINCH_MIN, Math.min(PINCH_MAX, pinchStartScale * scaleRatio));
 
-        const mid = getPinchMid(e.touches[0], e.touches[1]);
-        const dx = mid.x - pinchMidX;
-        const dy = mid.y - pinchMidY;
-        const [cx, cy] = clampPan(pinchStartPanX + dx, pinchStartPanY + dy, newScale);
+          const mid = getPinchMid(e.touches[0], e.touches[1]);
+          const dx = mid.x - pinchMidX;
+          const dy = mid.y - pinchMidY;
+          const [cx, cy] = clampPan(pinchStartPanX + dx, pinchStartPanY + dy, newScale);
 
-        img.style.transform = `translate(${cx}px, ${cy}px) scale(${newScale})`;
-        viewport.classList.toggle('zoomed-1', newScale >= 1.5);
-        viewport.classList.toggle('zoomed-2', newScale >= 2.5);
+          img.style.transform = `translate(${cx}px, ${cy}px) scale(${newScale})`;
+          viewport.classList.toggle('zoomed-1', newScale >= 1.5);
+          viewport.classList.toggle('zoomed-2', newScale >= 2.5);
+          viewport.classList.toggle('zoomed-active', newScale > 1);
+        } else if (isTouchPanning && e.touches.length === 1) {
+          e.preventDefault();
+          e.stopPropagation();
+          const dx = e.touches[0].clientX - touchPanStartX;
+          const dy = e.touches[0].clientY - touchPanStartY;
+          if (!touchPanMoved && Math.hypot(dx, dy) > DRAG_THRESHOLD) {
+            touchPanMoved = true;
+          }
+          if (touchPanMoved) {
+            const [cx, cy] = clampPan(touchPanOrigX + dx, touchPanOrigY + dy);
+            panX = cx;
+            panY = cy;
+            applyTransform();
+          }
+        }
       }
 
       function onTouchEnd(e) {
-        if (!isPinching) return;
-        isPinching = false;
-        img.style.transition = '';
+        if (isPinching) {
+          isPinching = false;
+          img.style.transition = '';
 
-        const transform = img.style.transform;
-        const scaleMatch = transform.match(/scale\(([^)]+)\)/);
-        const finalScale = scaleMatch ? parseFloat(scaleMatch[1]) : 1;
-        const txMatch = transform.match(/translate\(([^,]+)px,\s*([^)]+)px\)/);
-        const finalTx = txMatch ? parseFloat(txMatch[1]) : 0;
-        const finalTy = txMatch ? parseFloat(txMatch[2]) : 0;
+          const transform = img.style.transform;
+          const scaleMatch = transform.match(/scale\(([^)]+)\)/);
+          const finalScale = scaleMatch ? parseFloat(scaleMatch[1]) : 1;
+          const txMatch = transform.match(/translate\(([^,]+)px,\s*([^)]+)px\)/);
+          const finalTx = txMatch ? parseFloat(txMatch[1]) : 0;
+          const finalTy = txMatch ? parseFloat(txMatch[2]) : 0;
 
-        zoomLevel = findNearestLevel(finalScale);
-        panX = finalTx;
-        panY = finalTy;
-        applyTransform();
-        suppressNextClick = true;
+          zoomLevel = findNearestLevel(finalScale);
+          panX = finalTx;
+          panY = finalTy;
+          applyTransform();
+          suppressNextClick = true;
+        } else if (isTouchPanning) {
+          isTouchPanning = false;
+          img.style.transition = '';
+          viewport.classList.remove('dragging');
+          if (touchPanMoved) {
+            suppressNextClick = true;
+          }
+        }
       }
 
       viewport.addEventListener('mousedown', onMouseDown);
@@ -1280,6 +1325,7 @@
         cleanup,
         consumeSuppress,
         get zoomLevel() { return zoomLevel; },
+        get isZoomed() { return getCurrentScale() > 1; },
         onKeySpace() {
           const maxLevel = ZOOM_SCALES.length - 1;
           if (zoomLevel >= maxLevel) resetView(); else { zoomLevel++; applyTransform(); }
@@ -1473,12 +1519,16 @@
         const SWIPE_MAX_Y = 80;
         stage.addEventListener('touchstart', e => {
           if (e.touches.length !== 1) return;
+          // Don't start a swipe when the image is zoomed in — panning takes priority
+          if (zoomPan.isZoomed) return;
           touchStartX = e.touches[0].clientX;
           touchStartY = e.touches[0].clientY;
           swiping = true;
         }, { passive: true });
         stage.addEventListener('touchmove', e => {
           if (!swiping) return;
+          // If zoom happened mid-gesture, abort
+          if (zoomPan.isZoomed) { swiping = false; return; }
           const dx = e.touches[0].clientX - touchStartX;
           const dy = Math.abs(e.touches[0].clientY - touchStartY);
           if (dy > SWIPE_MAX_Y) { swiping = false; return; }
@@ -1487,6 +1537,7 @@
         stage.addEventListener('touchend', e => {
           if (!swiping) return;
           swiping = false;
+          if (zoomPan.isZoomed) return;
           const dx = e.changedTouches[0].clientX - touchStartX;
           if (Math.abs(dx) >= SWIPE_THRESHOLD) {
             showImage(dx > 0 ? activeIndex - 1 : activeIndex + 1);
