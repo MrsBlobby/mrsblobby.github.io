@@ -1129,6 +1129,7 @@ img.lazy-fade.loaded {
   width: 100%;
   max-width: 900px;
   min-height: 0;
+  overflow: hidden;
   cursor: pointer;
 }
 .lightbox-image-viewport {

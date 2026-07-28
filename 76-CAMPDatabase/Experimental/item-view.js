@@ -1434,13 +1434,75 @@
 
       const zoomPan = attachZoomPan(viewport, img);
 
-      function showImage(index) {
+      let sliding = false;
+      function waitForTransition(el) {
+        return new Promise(resolve => {
+          let done = false;
+          const onEnd = () => { if (done) return; done = true; el.removeEventListener('transitionend', onEnd); resolve(); };
+          el.addEventListener('transitionend', onEnd, { once: true });
+          setTimeout(onEnd, 300);
+        });
+      }
+
+      function showImage(index, direction) {
         if (!isGallery) return;
-        activeIndex = (index + allImages.length) % allImages.length;
-        img.src = allImages[activeIndex].src;
-        img.alt = allImages[activeIndex].alt || '';
-        zoomPan.resetView();
-        updateHeader();
+        const newIndex = (index + allImages.length) % allImages.length;
+        if (newIndex === activeIndex) return;
+        if (sliding) return;
+
+        if (!direction) {
+          activeIndex = newIndex;
+          img.src = allImages[activeIndex].src;
+          img.alt = allImages[activeIndex].alt || '';
+          zoomPan.resetView();
+          updateHeader();
+          return;
+        }
+
+        sliding = true;
+
+        if (direction === 'fade') {
+          img.style.transition = 'opacity 180ms ease';
+          img.style.opacity = '0';
+          setTimeout(() => {
+            activeIndex = newIndex;
+            img.src = allImages[activeIndex].src;
+            img.alt = allImages[activeIndex].alt || '';
+            zoomPan.resetView();
+            updateHeader();
+            img.style.opacity = '1';
+            setTimeout(() => { img.style.transition = ''; sliding = false; }, 180);
+          }, 180);
+          return;
+        }
+
+        const goingLeft = direction === 'left';
+        stage.style.willChange = 'transform';
+
+        stage.style.transition = 'transform 250ms cubic-bezier(0.4, 0, 0.2, 1)';
+        stage.style.transform = `translateX(${goingLeft ? '-100%' : '100%'})`;
+
+        waitForTransition(stage).then(() => {
+          activeIndex = newIndex;
+          img.src = allImages[activeIndex].src;
+          img.alt = allImages[activeIndex].alt || '';
+          zoomPan.resetView();
+          updateHeader();
+
+          stage.style.transition = 'none';
+          stage.style.transform = `translateX(${goingLeft ? '100%' : '-100%'})`;
+          stage.offsetHeight;
+
+          stage.style.transition = 'transform 250ms cubic-bezier(0.4, 0, 0.2, 1)';
+          stage.style.transform = 'translateX(0)';
+
+          waitForTransition(stage).then(() => {
+            stage.style.transition = '';
+            stage.style.transform = '';
+            stage.style.willChange = '';
+            sliding = false;
+          });
+        });
       }
 
       function updateHeader() {
@@ -1463,7 +1525,7 @@
       prevBtn.setAttribute('aria-label', 'Previous image');
       prevBtn.addEventListener('click', e => {
         e.stopPropagation();
-        showImage(activeIndex - 1);
+        showImage(activeIndex - 1, 'fade');
       });
 
       const nextBtn = document.createElement('button');
@@ -1472,7 +1534,7 @@
       nextBtn.setAttribute('aria-label', 'Next image');
       nextBtn.addEventListener('click', e => {
         e.stopPropagation();
-        showImage(activeIndex + 1);
+        showImage(activeIndex + 1, 'fade');
       });
 
       // ── Assemble DOM ──
@@ -1500,6 +1562,8 @@
           tapStartY = e.touches[0].clientY;
         }, { passive: true });
         overlay.addEventListener('touchend', e => {
+          // Don't intercept touches on buttons/links — let their click handlers fire
+          if (e.target.closest('button, a')) return;
           const dx = Math.abs(e.changedTouches[0].clientX - tapStartX);
           const dy = Math.abs(e.changedTouches[0].clientY - tapStartY);
           if (dx < 10 && dy < 10) {
@@ -1519,20 +1583,23 @@
         const SWIPE_MAX_Y = 80;
         stage.addEventListener('touchstart', e => {
           if (e.touches.length !== 1) return;
-          // Don't start a swipe when the image is zoomed in — panning takes priority
           if (zoomPan.isZoomed) return;
+          if (sliding) return;
           touchStartX = e.touches[0].clientX;
           touchStartY = e.touches[0].clientY;
           swiping = true;
         }, { passive: true });
         stage.addEventListener('touchmove', e => {
           if (!swiping) return;
-          // If zoom happened mid-gesture, abort
           if (zoomPan.isZoomed) { swiping = false; return; }
           const dx = e.touches[0].clientX - touchStartX;
           const dy = Math.abs(e.touches[0].clientY - touchStartY);
           if (dy > SWIPE_MAX_Y) { swiping = false; return; }
-          if (Math.abs(dx) > 10) e.preventDefault();
+          if (Math.abs(dx) > 10) {
+            e.preventDefault();
+            stage.style.transition = 'none';
+            stage.style.transform = `translateX(${dx}px)`;
+          }
         }, { passive: false });
         stage.addEventListener('touchend', e => {
           if (!swiping) return;
@@ -1540,7 +1607,19 @@
           if (zoomPan.isZoomed) return;
           const dx = e.changedTouches[0].clientX - touchStartX;
           if (Math.abs(dx) >= SWIPE_THRESHOLD) {
-            showImage(dx > 0 ? activeIndex - 1 : activeIndex + 1);
+            const dir = dx > 0 ? 'right' : 'left';
+            const target = dir === 'left' ? activeIndex + 1 : activeIndex - 1;
+            showImage(target, dir);
+          } else if (Math.abs(dx) > 5) {
+            sliding = true;
+            stage.style.transition = 'transform 250ms ease';
+            stage.style.transform = 'translateX(0)';
+            stage.addEventListener('transitionend', () => {
+              stage.style.transition = '';
+              stage.style.transform = '';
+              sliding = false;
+            }, { once: true });
+            setTimeout(() => { if (sliding) { stage.style.transition = ''; stage.style.transform = ''; sliding = false; } }, 300);
           }
         }, { passive: true });
       }
@@ -1549,9 +1628,9 @@
         if (e.key === 'Escape') {
           if (onBack) { closeAllAndHistory(); } else { closeLightboxSoft(); }
         } else if (e.key === 'ArrowLeft' && isGallery) {
-          showImage(activeIndex - 1);
+          showImage(activeIndex - 1, 'fade');
         } else if (e.key === 'ArrowRight' && isGallery) {
-          showImage(activeIndex + 1);
+          showImage(activeIndex + 1, 'fade');
         } else if (e.key === ' ') {
           e.preventDefault();
           zoomPan.onKeySpace();
