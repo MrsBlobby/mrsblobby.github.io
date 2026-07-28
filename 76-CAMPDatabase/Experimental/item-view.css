@@ -301,10 +301,13 @@
 @media (hover: hover) {
   .info-icon:hover { background: var(--text-muted); color: #1a1a1a; }
 }
+.h2--with-icon {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
 .info-icon--h2 {
-  vertical-align: text-bottom;
-  margin-left: 6px;
-  margin-bottom: 2px;
+  margin: 0;
   color: inherit;
   border-color: inherit;
 }
@@ -946,7 +949,6 @@
   color: var(--text-muted);
   white-space: nowrap;
 }
-.assignable-modal .shared-grid { flex-wrap: wrap; width: 100%; }
 .shared-none {
   display: inline-flex;
   align-items: center;
@@ -1311,9 +1313,8 @@ img.lazy-fade.loaded {
   border: none;
   border-radius: 8px;
   padding: 0 20px 20px 20px;
-  min-height: 70vh;
-  max-height: 70vh;
-  overflow: hidden;
+  max-height: 85vh;
+  overflow-y: auto;
   box-sizing: border-box;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
@@ -1375,6 +1376,18 @@ img.lazy-fade.loaded {
   transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
 }
 .assignable-modal-back .back-arrow { transform: translateX(-1.5px); }
+
+/* ── Lightbox header back arrow — match close button sizing ── */
+.lightbox-header .assignable-modal-back {
+  width: 36px;
+  height: 36px;
+}
+.lightbox-header .assignable-modal-back .back-arrow {
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 12px solid currentColor;
+  transform: translateX(-1px);
+}
 .assignable-modal-back:hover {
   background: var(--accent);
   color: black;
@@ -1468,7 +1481,7 @@ img.lazy-fade.loaded {
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
-  transition: background 0.15s, color 0.15s, font-weight 0.15s;
+  transition: background 0.15s, color 0.15s;
   flex-shrink: 0;
 }
 @media (hover: hover) {
@@ -1477,14 +1490,25 @@ img.lazy-fade.loaded {
 .modal-filter-chip.active {
   background: var(--accent);
   color: #000;
-  font-weight: 600;
 }
 @media (hover: hover) {
   .modal-filter-chip.active:hover { background: #E5C158; }
 }
 
-.assignable-modal .assignable-grid { flex-wrap: wrap; width: 100%; }
-.assignable-modal .shared-grid { flex-wrap: wrap; width: 100%; }
+/* Grid (not inline-flex) so rows share fixed column tracks: the whole
+   block of tracks is centered via justify-content, but auto-placement
+   fills each row left-to-right, so an incomplete final row lands in
+   the same left-most columns as the rows above it instead of being
+   centered on its own. */
+.assignable-modal .assignable-grid,
+.assignable-modal .shared-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 96px);
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin: 8px 0 0;
+}
 
 .assignable-none {
   display: inline-flex;
@@ -1524,6 +1548,10 @@ img.lazy-fade.loaded {
   .detail-pill { max-width: 100%; }
   .storefront-thumb { aspect-ratio: 1; }
   .storefront-thumb img { width: 100%; height: 100%; }
+  .info-icon {
+    vertical-align: middle;
+    margin-bottom: 0;
+  }
 }
 
 /* ── Tablet: stack layout vertically, center infobox ── */
@@ -1549,6 +1577,10 @@ img.lazy-fade.loaded {
   .back-button,
   .item-nav {
     margin-left: 0;
+  }
+  .info-icon {
+    vertical-align: middle;
+    margin-bottom: 0;
   }
 }
 
@@ -1864,6 +1896,22 @@ img.lazy-fade.loaded {
 }
 .tech-accordion-body .infobox-row:last-child {
   border-bottom: none;
+}
+
+/* ── Assignable modal: mobile/tablet centered ── */
+@media (max-width: 1024px) {
+  .assignable-modal-overlay {
+    align-items: center;
+    padding: 16px;
+  }
+  .assignable-modal-wrap {
+    width: 92vw;
+    max-width: 560px;
+  }
+  .assignable-modal {
+    border-radius: 12px;
+    max-height: 80vh;
+  }
 }
 
 * {

@@ -60,6 +60,7 @@
     margin: 0px;
     font-size: 0.85rem;
     color: var(--text-muted);
+    width: 100%;
   }
 
 
@@ -328,9 +329,7 @@
     transition: color 0.15s;
   }
   @media (hover: hover) {
-    @media (hover: hover) {
     .filter-modal-close:hover { color: var(--text); }
-  }
   }
   .filter-modal-body {
     display: flex;
@@ -727,9 +726,11 @@
     cursor: pointer;
   }
 
-  #dropdownOptions .option:hover {
-    background-color: var(--accent);
-    color: black;
+  @media (hover: hover) {
+    #dropdownOptions .option:hover {
+      background-color: var(--accent);
+      color: black;
+    }
   }
 
   #dropdownOptions,
@@ -1039,7 +1040,7 @@
     cursor: pointer;
     border-radius: 3px;
   }
-  @media (hover: hover) {
+  @media (hover: hover) and (pointer: fine) {
     #filtersOptions button[data-filter]:hover {
       background-color: var(--accent);
       color: black;
@@ -1199,9 +1200,11 @@
     text-overflow: ellipsis;
     word-break: break-word;
   }
-  .grid-card-name:hover {
-    color: #fff;
-    background: #252525;
+  @media (hover: hover) {
+    .grid-card-name:hover {
+      color: #fff;
+      background: #252525;
+    }
   }
   .grid-card-image-wrap {
     display: flex;
@@ -1269,10 +1272,12 @@
     z-index: 999;
   }
 
-  .return-to-top:hover {
-    background-color: var(--accent);
-    color: black;
-    transform: translateY(-4px);
+  @media (hover: hover) {
+    .return-to-top:hover {
+      background-color: var(--accent);
+      color: black;
+      transform: translateY(-4px);
+    }
   }
 
   .return-to-top.show {
@@ -1347,6 +1352,28 @@ body {
   justify-content: center;
   gap: 0;
   color: var(--text-muted);
+}
+.author-text {
+  white-space: nowrap;
+}
+.author-text::after {
+  content: '\2022';
+  margin: 0 10px;
+  color: var(--text-muted);
+  opacity: 0.5;
+  user-select: none;
+}
+@media (max-width: 600px) {
+  .author-text::after {
+    display: none;
+  }
+}
+.author-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
 }
 
 .meta-sep {
@@ -1633,4 +1660,23 @@ body {
 
 * {
   -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Touch devices: remove lingering focus/active states on buttons ── */
+@media (hover: none) {
+  #filtersOptions button[data-filter]:focus,
+  #filtersOptions button[data-filter]:active,
+  #sortOptions .option:focus,
+  #dropdownOptions .option:focus,
+  .filter-modal-done:focus,
+  .filter-modal-close:focus {
+    outline: none;
+    background-color: inherit;
+    color: inherit;
+  }
+  #filtersOptions button[data-filter].selected:focus,
+  #filtersOptions button[data-filter].selected:active {
+    background-color: var(--accent);
+    color: black;
+  }
 }

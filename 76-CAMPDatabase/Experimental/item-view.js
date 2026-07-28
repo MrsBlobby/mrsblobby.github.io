@@ -475,11 +475,13 @@
       sessionStorage.removeItem('itemViewHistory_idx');
 
       let pageToRestore = 1;
+      let scrollYToRestore = 0;
       try {
         const saved = sessionStorage.getItem('searchState');
         if (saved) {
           const state = JSON.parse(saved);
           pageToRestore = state.page || 1;
+          scrollYToRestore = state.scrollY || 0;
         }
       } catch (err) {
         console.warn('Unable to read search state for back navigation:', err);
@@ -488,6 +490,7 @@
       try {
         const currentState = JSON.parse(sessionStorage.getItem('searchState') || '{}');
         currentState.page = pageToRestore;
+        currentState.scrollY = scrollYToRestore;
         sessionStorage.setItem('searchState', JSON.stringify(currentState));
       } catch (err) {
         console.warn('Unable to update search state for back navigation:', err);
@@ -777,8 +780,7 @@
 
       function updatePagerUI() {
         const tp = totalPages();
-        const multiPage = tp > 1;
-        pagerEl.style.display = multiPage ? 'flex' : 'none';
+        pagerEl.style.display = 'flex';
         prevBtn.disabled = page === 0;
         nextBtn.disabled = page >= tp - 1;
         label.textContent = `Page ${page + 1} of ${tp}`;
@@ -1083,6 +1085,17 @@
       const DRAG_THRESHOLD = 4;
       const OVERDRAG_BUFFER = 40;
 
+      // Pinch zoom state
+      let isPinching = false;
+      let pinchStartDist = 0;
+      let pinchStartScale = 1;
+      let pinchStartPanX = 0;
+      let pinchStartPanY = 0;
+      let pinchMidX = 0;
+      let pinchMidY = 0;
+      const PINCH_MIN = 1;
+      const PINCH_MAX = 5;
+
       img.style.transformOrigin = 'center center';
 
       function applyTransform() {
@@ -1103,8 +1116,8 @@
         return ZOOM_SCALES[zoomLevel] || 1;
       }
 
-      function clampPan(x, y) {
-        const scale = getCurrentScale();
+      function clampPan(x, y, scale) {
+        if (scale == null) scale = getCurrentScale();
         const rect = viewport.getBoundingClientRect();
         const maxX = (rect.width * (scale - 1)) / 2 + OVERDRAG_BUFFER;
         const maxY = (rect.height * (scale - 1)) / 2 + OVERDRAG_BUFFER;
@@ -1170,8 +1183,82 @@
         }
       }
 
+      // ── Pinch-to-zoom (mobile) ──
+      function getPinchDist(t1, t2) {
+        return Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
+      }
+      function getPinchMid(t1, t2) {
+        return { x: (t1.clientX + t2.clientX) / 2, y: (t1.clientY + t2.clientY) / 2 };
+      }
+      function findNearestLevel(scale) {
+        let best = 0;
+        let bestDiff = Infinity;
+        for (let i = 0; i < ZOOM_SCALES.length; i++) {
+          const diff = Math.abs(ZOOM_SCALES[i] - scale);
+          if (diff < bestDiff) { bestDiff = diff; best = i; }
+        }
+        return best;
+      }
+
+      function onTouchStart(e) {
+        if (e.touches.length === 2) {
+          e.preventDefault();
+          e.stopPropagation();
+          isPinching = true;
+          isDragging = false;
+          pinchStartDist = getPinchDist(e.touches[0], e.touches[1]);
+          pinchStartScale = getCurrentScale();
+          pinchStartPanX = panX;
+          pinchStartPanY = panY;
+          const mid = getPinchMid(e.touches[0], e.touches[1]);
+          pinchMidX = mid.x;
+          pinchMidY = mid.y;
+          img.style.transition = 'none';
+        }
+      }
+
+      function onTouchMove(e) {
+        if (!isPinching || e.touches.length !== 2) return;
+        e.preventDefault();
+        e.stopPropagation();
+        const dist = getPinchDist(e.touches[0], e.touches[1]);
+        const scaleRatio = dist / pinchStartDist;
+        const newScale = Math.max(PINCH_MIN, Math.min(PINCH_MAX, pinchStartScale * scaleRatio));
+
+        const mid = getPinchMid(e.touches[0], e.touches[1]);
+        const dx = mid.x - pinchMidX;
+        const dy = mid.y - pinchMidY;
+        const [cx, cy] = clampPan(pinchStartPanX + dx, pinchStartPanY + dy, newScale);
+
+        img.style.transform = `translate(${cx}px, ${cy}px) scale(${newScale})`;
+        viewport.classList.toggle('zoomed-1', newScale >= 1.5);
+        viewport.classList.toggle('zoomed-2', newScale >= 2.5);
+      }
+
+      function onTouchEnd(e) {
+        if (!isPinching) return;
+        isPinching = false;
+        img.style.transition = '';
+
+        const transform = img.style.transform;
+        const scaleMatch = transform.match(/scale\(([^)]+)\)/);
+        const finalScale = scaleMatch ? parseFloat(scaleMatch[1]) : 1;
+        const txMatch = transform.match(/translate\(([^,]+)px,\s*([^)]+)px\)/);
+        const finalTx = txMatch ? parseFloat(txMatch[1]) : 0;
+        const finalTy = txMatch ? parseFloat(txMatch[2]) : 0;
+
+        zoomLevel = findNearestLevel(finalScale);
+        panX = finalTx;
+        panY = finalTy;
+        applyTransform();
+        suppressNextClick = true;
+      }
+
       viewport.addEventListener('mousedown', onMouseDown);
       viewport.addEventListener('click', onViewportClick);
+      viewport.addEventListener('touchstart', onTouchStart, { passive: false });
+      viewport.addEventListener('touchmove', onTouchMove, { passive: false });
+      viewport.addEventListener('touchend', onTouchEnd, { passive: true });
       document.addEventListener('mousemove', onDragMove);
       document.addEventListener('mouseup', onDragEnd);
 
@@ -1519,7 +1606,6 @@
         onBack
       });
       modal.classList.add('assignable-item-modal');
-      modal.style.maxHeight = '85vh';
 
       const imgWrap = document.createElement('div');
       imgWrap.className = 'assignable-item-modal-image';
@@ -1569,9 +1655,46 @@
 
       fieldsWrap.appendChild(makeField('Item Type', displayItem.ItemType, false));
       fieldsWrap.appendChild(makeField('Weight', displayItem.Weight != null ? String(displayItem.Weight) : null, false));
-      fieldsWrap.appendChild(makeField('Editor ID', displayItem.EditorID));
-      fieldsWrap.appendChild(makeField('Form ID', displayItem.FormID));
       modal.appendChild(fieldsWrap);
+
+      const techAccordion = document.createElement('div');
+      techAccordion.className = 'tech-accordion';
+
+      const techToggle = document.createElement('div');
+      techToggle.className = 'tech-accordion-toggle';
+      const techLabel = document.createElement('span');
+      techLabel.className = 'tech-accordion-label';
+      techLabel.textContent = 'Technical';
+      const techArrow = document.createElement('span');
+      techArrow.className = 'tech-accordion-arrow';
+      techToggle.appendChild(techLabel);
+      techToggle.appendChild(techArrow);
+      techAccordion.appendChild(techToggle);
+
+      const techBody = document.createElement('div');
+      techBody.className = 'tech-accordion-body';
+      techAccordion.appendChild(techBody);
+
+      techToggle.addEventListener('click', () => {
+        const open = techAccordion.classList.toggle('open');
+        if (open) {
+          techBody.style.maxHeight = techBody.scrollHeight + 'px';
+          techBody.addEventListener('transitionend', () => {
+            if (techAccordion.classList.contains('open')) techBody.style.maxHeight = 'none';
+          }, { once: true });
+        } else {
+          techBody.style.maxHeight = techBody.scrollHeight + 'px';
+          requestAnimationFrame(() => { techBody.style.maxHeight = '0px'; });
+        }
+      });
+
+      const techFields = document.createElement('div');
+      techFields.style.cssText = 'padding: 0 0 4px;';
+      techFields.appendChild(makeField('Editor ID', displayItem.EditorID));
+      techFields.appendChild(makeField('Form ID', displayItem.FormID));
+      techBody.appendChild(techFields);
+
+      modal.appendChild(techAccordion);
     }
 
     function renderDetailPage(item, db, assignableInfo = [], playerBuffInfo = {}) {
@@ -2050,6 +2173,7 @@
           }
           const h2 = document.createElement('h2');
           h2.textContent = 'Assignables';
+          h2.classList.add('h2--with-icon');
           const h2Icon = document.createElement('span');
           h2Icon.className = 'info-icon info-icon--h2';
           h2Icon.textContent = '?';
@@ -2165,7 +2289,7 @@
             const wasReturning = _returningFromItem;
             _returningFromItem = false;
 
-            const { modal, close } = openModalShell({
+            const { modal, close, syncOverflow } = openModalShell({
                 title: 'Assignables',
                 onClose: () => {
                   if (!_returningFromItem) {
@@ -2298,7 +2422,7 @@
               tab1Content.className = 'assignable-modal-tab-content active';
 
               const includedLabel = document.createElement('div');
-              includedLabel.style.cssText = 'font-size:12px;color:var(--text-muted);margin:12px 0;';
+              includedLabel.style.cssText = 'font-size:12px;color:var(--text-muted);margin:12px 0;text-align:left;';
               includedLabel.textContent = `Allows the following items to be assigned from list "${assignableEntry.AllowedItemsList?.Name || 'Unknown'}"`;
               tab1Content.appendChild(includedLabel);
 
@@ -2315,24 +2439,13 @@
               // scrollable blank gap below the few visible tiles.
               function syncTabHeights() {
                 requestAnimationFrame(() => {
-                  const h1 = tab1Content.scrollHeight;
-                  let h2 = 0;
-                  if (hasExclusions) {
-                    const tab2C = tabContentWrapper.children[1];
-                    if (tab2C) {
-                      const prevDisplay = tab2C.style.display;
-                      const prevVisibility = tab2C.style.visibility;
-                      const prevPosition = tab2C.style.position;
-                      tab2C.style.display = 'block';
-                      tab2C.style.visibility = 'hidden';
-                      tab2C.style.position = 'absolute';
-                      h2 = tab2C.scrollHeight;
-                      tab2C.style.display = prevDisplay;
-                      tab2C.style.visibility = prevVisibility;
-                      tab2C.style.position = prevPosition;
-                    }
+                  const activeContent = assignableState.activeTab === 1
+                    ? tabContentWrapper.children[1]
+                    : tabContentWrapper.children[0];
+                  if (activeContent) {
+                    tabContentWrapper.style.minHeight = activeContent.scrollHeight + 'px';
                   }
-                  tabContentWrapper.style.minHeight = Math.max(h1, h2) + 'px';
+                  syncOverflow();
                 });
               }
 
@@ -2356,7 +2469,7 @@
                 tab2Content.className = 'assignable-modal-tab-content';
 
                 const excludedLabel = document.createElement('div');
-                excludedLabel.style.cssText = 'font-size:12px;color:var(--text-muted);margin:12px 0;';
+                excludedLabel.style.cssText = 'font-size:12px;color:var(--text-muted);margin:12px 0;text-align:left;';
                 excludedLabel.textContent = `Explicitly excludes the following items from list "${assignableEntry.ExcludedItemsList?.Name || 'Unknown'}"`;
                 tab2Content.appendChild(excludedLabel);
 

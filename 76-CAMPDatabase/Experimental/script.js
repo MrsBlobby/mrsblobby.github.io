@@ -11,6 +11,18 @@ let _useFade = true;      // false for search-typing renders, true otherwise
 let _skipInitialPageReset = true;
 let _searchDebounceTimer = null;
 const placementFilters = new Set(['plan', 'entitlement', 'challenge', 'learn']);
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+// ── Scroll restore helpers (module scope so fetch callback can use them) ──
+function readScrollY() {
+  try {
+    const raw = sessionStorage.getItem('searchState');
+    return raw ? (JSON.parse(raw).scrollY || 0) : 0;
+  } catch(e) { return 0; }
+}
+function applyScroll(y) {
+  if (y > 0) window.scrollTo({ top: y, behavior: 'instant' });
+}
 
 // Map of which subcategories belong to which parent category (used by matchesItem filtering)
 const subToParent = {
@@ -263,14 +275,38 @@ window.addEventListener('DOMContentLoaded', () => {
         li.appendChild(left);
         results.appendChild(li);
       });
-      // Scroll immediately — document height is now correct
-      const savedScrollY = JSON.parse(saved).scrollY || 0;
-      if (savedScrollY > 0) requestAnimationFrame(() => window.scrollTo({ top: savedScrollY }));
     } catch(e) {}
   }
 
+  // ── Scroll restore ──
+
+  // Desktop: browser default handles it, just do one shot after snapshot
+  const sy = readScrollY();
+  if (sy > 0) {
+    requestAnimationFrame(() => applyScroll(sy));
+  }
+
+  // Mobile: override scrollRestoration + retry after DB loads
+  if (isTouchDevice && window.history && window.history.scrollRestoration) {
+    window.history.scrollRestoration = 'manual';
+  }
+
+  // pageshow fires after bfcache restore — re-apply on mobile
+  window.addEventListener('pageshow', () => {
+    if (!isTouchDevice) return;
+    const y = readScrollY();
+    if (y > 0) {
+      applyScroll(y);
+      setTimeout(() => applyScroll(y), 150);
+      setTimeout(() => applyScroll(y), 400);
+    }
+  });
+
   // Save scroll position continuously
   window.addEventListener('scroll', () => saveSearchState(), { passive: true });
+  // Also save on page hide / before unload (mobile browsers may not fire scroll before unload)
+  window.addEventListener('pagehide', () => saveSearchState(), { once: true });
+  window.addEventListener('beforeunload', () => saveSearchState(), { once: true });
 
   // Initial render with empty DB — no fade needed, just reserves space
   _useFade = false;
@@ -445,7 +481,7 @@ const miniSeasonAliases = {
 fetch('final_workshop_db.json')
   .then(response => response.json())
   .then(data => {
-    db = data;
+     db = data;
     db.forEach(item => {
       item._nameLower = (item.Name || '').toLowerCase();
       item._bookFullLower = (item.BOOK_FULL || '').toLowerCase();
@@ -455,6 +491,20 @@ fetch('final_workshop_db.json')
       item._sourceLower = (String(item.BOOK_SOURCE || '')).toLowerCase();
     });
     renderResults(lastQuery);
+    // Re-restore scroll after real results replace the snapshot content.
+    // Needed on all devices: the initial render is skipped while the DB is
+    // still loading (see the db.length === 0 guard in renderResults), so
+    // this is the render that actually determines final page height.
+    const y = readScrollY();
+    if (y > 0) {
+      requestAnimationFrame(() => {
+        applyScroll(y);
+        // Extra retries matter most on mobile (async layout/viewport
+        // settling) but are harmless no-ops elsewhere.
+        setTimeout(() => applyScroll(y), 200);
+        setTimeout(() => applyScroll(y), 500);
+      });
+    }
   })
   .catch(err => {
     console.error("Failed to load database:", err);
@@ -474,6 +524,9 @@ window.addEventListener('popstate', () => {
   }
   if (versionModal.style.display === 'block') {
     closeVersionModalFn(true);
+  }
+  if (filterModal.style.display !== 'none') {
+    closeFilterModal(true);
   }
 });
 
@@ -828,8 +881,9 @@ function openFilterModal() {
   filterModal.style.display = 'flex';
   lockScroll();
   closeAllDropdowns();
+  history.pushState({ modal: 'filter' }, '');
 }
-function closeFilterModal() {
+function closeFilterModal(fromPopState = false) {
   if (filterModal.style.display === 'none') return; // already closed, nothing to do
   if (filterModalCloseTimeout) {
     clearTimeout(filterModalCloseTimeout);
@@ -839,6 +893,9 @@ function closeFilterModal() {
   const modalElement = document.querySelector('.filter-modal');
   if (modalElement) {
     modalElement.classList.add('closing');
+  }
+  if (!fromPopState && history.state?.modal === 'filter') {
+    history.back();
   }
   filterModalCloseTimeout = setTimeout(() => {
     filterModal.style.display = 'none';
@@ -1088,6 +1145,7 @@ document.querySelectorAll('#filtersOptions .filter-col-categories button[data-fi
     if (activeFilters.has(filter)) {
       activeFilters.delete(filter);
       btn.classList.remove('selected');
+      btn.classList.remove('cat-active');
       // When deselecting, reset the sub-panel
       filterSubPanel.innerHTML = '<div class="filter-col-sub-empty">Click a category to see subcategories</div>';
     } else {
@@ -1100,6 +1158,7 @@ document.querySelectorAll('#filtersOptions .filter-col-categories button[data-fi
     }
     updateFiltersButton();
     renderResults(document.getElementById('searchBox').value);
+    btn.blur();
   });
 });
 
@@ -1123,6 +1182,7 @@ document.querySelectorAll('.filter-col-placement button[data-filter]').forEach(b
     }
     updateFiltersButton();
     renderResults(document.getElementById('searchBox').value);
+    btn.blur();
   });
 });
 
@@ -1134,6 +1194,12 @@ function renderResults(query) {
   const queryChanged = normalizedQuery !== lastQuery;
   lastQuery = normalizedQuery;
   saveSearchState();
+
+  // DB hasn't loaded yet — bail out instead of rendering a "no results" state,
+  // which would wipe the height-preserving snapshot/minHeight before scroll
+  // restore gets a chance to run. The fetch .then() callback re-renders once
+  // real data is available.
+  if (db.length === 0) return;
 
   const results    = document.getElementById('results');
   const pagination = document.getElementById('pagination');
@@ -1279,7 +1345,8 @@ function renderResults(query) {
     const card = document.createElement('div');
     card.className = 'grid-card';
 
-    const formID = (r.ARTO_FormID || r.CNAM_FormID || '').toLowerCase();
+    const cnamFormID = (r.CNAM_FormID || '').toLowerCase();
+    const artoFormID = (r.ARTO_FormID || '').toLowerCase();
     const slug = (r.Name || '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
     const detailHref = `item-view.html?fresh=1#${encodeURIComponent(slug || 'item')}/${encodeURIComponent(r.CNAM_FormID)}`;
 
@@ -1293,18 +1360,28 @@ function renderResults(query) {
     imageLink.className = 'grid-card-image-wrap';
     imageLink.href = detailHref;
 
-    const thumbnailSrc = `../ModelRender/CAMPitem/${formID.toUpperCase()}_thumbnail.webp`;
-    const fallbackSrc = `../ModelRender/CAMPitem/${formID}_thumbnail.webp`;
+    // ModelRender always uses CNAM; WorkshopIcons tries ARTO then CNAM
+    const thumbnailSrc = `../ModelRender/CAMPitem/${cnamFormID.toUpperCase()}_thumbnail.webp`;
+    const fallbackLower = `../ModelRender/CAMPitem/${cnamFormID}_thumbnail.webp`;
     const placeholderSrc = `../WorkshopIcons/item-placeholder.webp`;
+    const artoIconSrc = artoFormID ? `../WorkshopIcons/${artoFormID}.webp` : null;
+    const cnamIconSrc = cnamFormID ? `../WorkshopIcons/${cnamFormID}.webp` : null;
 
     const img = document.createElement('img');
     img.loading = 'lazy';
     img.alt = r.Name;
     img.style.cssText = 'opacity:0;transition:opacity 0.3s ease;';
     img.onload = function() { this.style.opacity = '1'; };
+    // Chain: CNAM upper → CNAM lower → WorkshopIcons(arto) → WorkshopIcons(cnam) → placeholder
+    const fallbackChain = [fallbackLower, artoIconSrc, cnamIconSrc].filter(Boolean);
+    let fallbackIdx = 0;
     img.onerror = function() {
-      if (!img._triedLower) { img._triedLower = true; this.src = fallbackSrc; }
-      else { this.src = placeholderSrc; }
+      if (fallbackIdx < fallbackChain.length) {
+        this.src = fallbackChain[fallbackIdx++];
+      } else {
+        this.onerror = null;
+        this.src = placeholderSrc;
+      }
       this.style.opacity = '1';
     };
     img.src = thumbnailSrc;
@@ -1955,13 +2032,32 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
       results.style.transition = 'opacity 0.25s ease';
     }
 
-    // If user was near the bottom during a page swap, keep them near the bottom
-    if (isPageSwap && fromBottom < 200) {
-      const docHeightAfter = document.documentElement.scrollHeight;
-      const targetScrollY = docHeightAfter - fromBottom - window.innerHeight;
-      if (targetScrollY > 0 && Math.abs(targetScrollY - scrollBefore) > 10) {
-        window.scrollTo({ top: targetScrollY });
+    // Scroll to top of page on pagination (next/prev buttons) — but don't
+    // scroll further up than necessary. If the user was already scrolled
+    // past the point where .toolbar locks into its sticky position, only
+    // scroll back up to that point, so the sticky toolbar stays pinned and
+    // the logo header above it doesn't get re-revealed. If the header was
+    // already visible (user hadn't scrolled that far), go all the way to 0.
+    //
+    // Note: `offsetTop` on a `position: sticky` element is unreliable once
+    // it's actually stuck (browsers disagree on whether it reports the
+    // static flow position or the current stuck position). To get an
+    // unambiguous answer, briefly force it out of sticky mode, measure,
+    // then restore — this avoids relying on offsetTop for a sticky element.
+    if (isPageSwap) {
+      const toolbar = document.querySelector('.toolbar');
+      let stickyOffset = 0;
+      if (toolbar) {
+        const prevPosition = toolbar.style.position;
+        toolbar.style.position = 'static';
+        stickyOffset = Math.round(toolbar.getBoundingClientRect().top + window.scrollY);
+        toolbar.style.position = prevPosition;
       }
+      // Small tolerance guards against sub-pixel rounding differences
+      // between the scroll position we land on and the offset we
+      // re-measure on the next click (fractional scrollY/rect values).
+      const target = scrollYBeforeSwap >= stickyOffset - 2 ? stickyOffset : 0;
+      window.scrollTo({ top: target });
     }
 
     if (typeof _onRenderDone === 'function') {
@@ -1980,14 +2076,12 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
   }));
   }; // end _doRender
 
-  // Capture scroll position before fade — only correct on explicit page swaps
+  // Track page-swap / fade state
   const isPageSwap = _isPageSwap;
   _isPageSwap = false;
   const useFade = _useFade;
   _useFade = true; // reset for next call
-  const scrollBefore = window.scrollY;
-  const docHeightBefore = document.documentElement.scrollHeight;
-  const fromBottom = docHeightBefore - scrollBefore - window.innerHeight;
+  const scrollYBeforeSwap = Math.round(window.scrollY);
 
   if (useFade) {
     // Fade out, then swap content
