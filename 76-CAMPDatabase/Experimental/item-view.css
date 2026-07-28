@@ -1118,6 +1118,30 @@ img.lazy-fade.loaded {
   background: rgba(229, 193, 88, 0.85);
   color: #000;
 }
+.lightbox-header,
+.lightbox-nav {
+  transition: opacity 300ms ease;
+}
+.lightbox-header.auto-hidden,
+.lightbox-nav.auto-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.lightbox-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(255,255,255,0.15);
+  border-top-color: rgba(255,255,255,0.7);
+  border-radius: 50%;
+  animation: lb-spin 0.7s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+@keyframes lb-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
 
 /* ── Main stage: centered image ── */
 .lightbox-stage {
@@ -1191,7 +1215,7 @@ img.lazy-fade.loaded {
   justify-content: center;
   padding: 0;
   line-height: 0;
-  transition: background-color 150ms ease, color 150ms ease;
+  transition: background-color 150ms ease, color 150ms ease, opacity 300ms ease;
 }
 .lightbox-nav svg {
   display: block;

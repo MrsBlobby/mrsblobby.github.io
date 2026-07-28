@@ -1285,9 +1285,13 @@
           const finalTy = txMatch ? parseFloat(txMatch[2]) : 0;
 
           zoomLevel = findNearestLevel(finalScale);
-          panX = finalTx;
-          panY = finalTy;
-          applyTransform();
+          if (zoomLevel === 0) {
+            resetView();
+          } else {
+            panX = finalTx;
+            panY = finalTy;
+            applyTransform();
+          }
           suppressNextClick = true;
         } else if (isTouchPanning) {
           isTouchPanning = false;
@@ -1304,6 +1308,35 @@
       viewport.addEventListener('touchstart', onTouchStart, { passive: false });
       viewport.addEventListener('touchmove', onTouchMove, { passive: false });
       viewport.addEventListener('touchend', onTouchEnd, { passive: true });
+
+      // ── Double-tap to zoom (mobile) ──
+      {
+        let lastTapTime = 0;
+        let lastTapX = 0;
+        let lastTapY = 0;
+        viewport.addEventListener('touchend', e => {
+          if (e.touches.length > 0) return;
+          if (isPinching) return;
+          e.preventDefault();
+          const now = Date.now();
+          const x = e.changedTouches[0].clientX;
+          const y = e.changedTouches[0].clientY;
+          if (now - lastTapTime < 300 && Math.abs(x - lastTapX) < 30 && Math.abs(y - lastTapY) < 30) {
+            if (zoomLevel > 0) {
+              resetView();
+            } else {
+              zoomLevel = 1;
+              zoomToPoint(x, y);
+            }
+            lastTapTime = 0;
+          } else {
+            lastTapTime = now;
+            lastTapX = x;
+            lastTapY = y;
+          }
+        }, { passive: false });
+      }
+
       document.addEventListener('mousemove', onDragMove);
       document.addEventListener('mouseup', onDragEnd);
 
@@ -1329,6 +1362,20 @@
         onKeySpace() {
           const maxLevel = ZOOM_SCALES.length - 1;
           if (zoomLevel >= maxLevel) resetView(); else { zoomLevel++; applyTransform(); }
+        },
+        zoomIn(centerX, centerY) {
+          const maxLevel = ZOOM_SCALES.length - 1;
+          if (zoomLevel < maxLevel) {
+            zoomLevel++;
+            if (centerX != null && centerY != null) zoomToPoint(centerX, centerY);
+            else applyTransform();
+          }
+        },
+        zoomOut() {
+          if (zoomLevel > 0) {
+            zoomLevel--;
+            if (zoomLevel === 0) resetView(); else applyTransform();
+          }
         }
       };
     }
@@ -1354,12 +1401,20 @@
       let activeIndex = startIndex;
       const isGallery = !isMainRender && allImages.length > 1;
 
+      const _preloads = [];
+      let _idleTimer = null;
+
       // ── Close helpers ──
       let _lbClosed = false;
       let _lbBackTriggered = false; // guards backBtn against firing history.back() twice
       function closeLightboxImmediate() {
         if (_lbClosed) return;
         _lbClosed = true;
+        clearTimeout(_idleTimer);
+        _preloads.forEach(l => l.remove());
+        overlay.style.transform = '';
+        overlay.style.opacity = '';
+        overlay.style.transition = '';
         unlockScroll();
         zoomPan.cleanup();
         document.removeEventListener('keydown', onKey);
@@ -1369,6 +1424,11 @@
       function closeLightboxSoft() {
         if (_lbClosed) return;
         _lbClosed = true;
+        clearTimeout(_idleTimer);
+        _preloads.forEach(l => l.remove());
+        overlay.style.transform = '';
+        overlay.style.opacity = '';
+        overlay.style.transition = '';
         unlockScroll();
         zoomPan.cleanup();
         document.removeEventListener('keydown', onKey);
@@ -1434,6 +1494,13 @@
 
       const zoomPan = attachZoomPan(viewport, img);
 
+      // ── Loading spinner ──
+      const spinner = document.createElement('div');
+      spinner.className = 'lightbox-spinner';
+      viewport.appendChild(spinner);
+      img.addEventListener('load', () => { spinner.style.display = 'none'; });
+      if (img.complete) spinner.style.display = 'none';
+
       let sliding = false;
       function waitForTransition(el) {
         return new Promise(resolve => {
@@ -1452,10 +1519,12 @@
 
         if (!direction) {
           activeIndex = newIndex;
+          spinner.style.display = '';
           img.src = allImages[activeIndex].src;
           img.alt = allImages[activeIndex].alt || '';
           zoomPan.resetView();
           updateHeader();
+          refreshPreloads();
           return;
         }
 
@@ -1466,10 +1535,12 @@
           img.style.opacity = '0';
           setTimeout(() => {
             activeIndex = newIndex;
+            spinner.style.display = '';
             img.src = allImages[activeIndex].src;
             img.alt = allImages[activeIndex].alt || '';
             zoomPan.resetView();
             updateHeader();
+            refreshPreloads();
             img.style.opacity = '1';
             setTimeout(() => { img.style.transition = ''; sliding = false; }, 180);
           }, 180);
@@ -1484,10 +1555,12 @@
 
         waitForTransition(stage).then(() => {
           activeIndex = newIndex;
+          spinner.style.display = '';
           img.src = allImages[activeIndex].src;
           img.alt = allImages[activeIndex].alt || '';
           zoomPan.resetView();
           updateHeader();
+          refreshPreloads();
 
           stage.style.transition = 'none';
           stage.style.transform = `translateX(${goingLeft ? '100%' : '-100%'})`;
@@ -1562,8 +1635,8 @@
           tapStartY = e.touches[0].clientY;
         }, { passive: true });
         overlay.addEventListener('touchend', e => {
-          // Don't intercept touches on buttons/links — let their click handlers fire
-          if (e.target.closest('button, a')) return;
+          // Don't intercept touches on buttons/links/image viewport — let their handlers fire
+          if (e.target.closest('button, a, .lightbox-image-viewport')) return;
           const dx = Math.abs(e.changedTouches[0].clientX - tapStartX);
           const dy = Math.abs(e.changedTouches[0].clientY - tapStartY);
           if (dx < 10 && dy < 10) {
@@ -1634,6 +1707,12 @@
         } else if (e.key === ' ') {
           e.preventDefault();
           zoomPan.onKeySpace();
+        } else if (e.key === '+' || e.key === '=') {
+          e.preventDefault();
+          zoomPan.zoomIn();
+        } else if (e.key === '-' || e.key === '_') {
+          e.preventDefault();
+          zoomPan.zoomOut();
         }
       };
       document.addEventListener('keydown', onKey);
@@ -1645,6 +1724,89 @@
       }
       if (onBack) {
         window.addEventListener('popstate', onLbPopState);
+      }
+
+      // ── Preload adjacent images ──
+      function refreshPreloads() {
+        _preloads.forEach(l => l.remove());
+        _preloads.length = 0;
+        if (!isGallery) return;
+        [activeIndex - 1, activeIndex + 1].forEach(i => {
+          const idx = (i + allImages.length) % allImages.length;
+          if (idx === activeIndex || !allImages[idx]?.src) return;
+          const link = document.createElement('link');
+          link.rel = 'preload';
+          link.as = 'image';
+          link.href = allImages[idx].src;
+          document.head.appendChild(link);
+          _preloads.push(link);
+        });
+      }
+      refreshPreloads();
+
+      // ── Hide UI on idle (mobile) ──
+      const _idleTargets = [header];
+      function resetIdle() {
+        _idleTargets.forEach(el => el.classList.remove('auto-hidden'));
+        clearTimeout(_idleTimer);
+        _idleTimer = setTimeout(() => {
+          _idleTargets.forEach(el => el.classList.add('auto-hidden'));
+        }, 3000);
+      }
+      overlay.addEventListener('touchstart', resetIdle, { passive: true });
+      overlay.addEventListener('mousemove', resetIdle);
+      resetIdle();
+
+      // ── Swipe-down to dismiss (mobile) ──
+      {
+        let swipeStartX = 0;
+        let swipeStartY = 0;
+        let swipingDown = false;
+        overlay.addEventListener('touchstart', e => {
+          if (e.touches.length !== 1) return;
+          if (e.target.closest('button, a')) return;
+          swipeStartX = e.touches[0].clientX;
+          swipeStartY = e.touches[0].clientY;
+          swipingDown = false;
+        }, { passive: true });
+        overlay.addEventListener('touchmove', e => {
+          if (e.touches.length !== 1) return;
+          if (e.target.closest('button, a')) return;
+          if (zoomPan.isZoomed) return;
+          const dx = Math.abs(e.touches[0].clientX - swipeStartX);
+          const dy = e.touches[0].clientY - swipeStartY;
+          if (!swipingDown && dy > 10 && dy > dx * 1.5) swipingDown = true;
+          if (swipingDown && dy > 0) {
+            e.preventDefault();
+            overlay.style.transform = `translateY(${dy}px)`;
+            overlay.style.opacity = String(Math.max(0, 1 - dy / 400));
+          }
+        }, { passive: false });
+        overlay.addEventListener('touchend', e => {
+          if (!swipingDown) return;
+          swipingDown = false;
+          if (zoomPan.isZoomed) {
+            overlay.style.transition = 'transform 250ms ease, opacity 250ms ease';
+            overlay.style.transform = 'translateY(0)';
+            overlay.style.opacity = '1';
+            setTimeout(() => { overlay.style.transition = ''; overlay.style.transform = ''; overlay.style.opacity = ''; }, 260);
+            return;
+          }
+          const dy = e.changedTouches[0].clientY - swipeStartY;
+          if (dy > 80) {
+            overlay.style.transition = 'transform 250ms ease, opacity 250ms ease';
+            overlay.style.transform = 'translateY(100vh)';
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+              if (onBack) { closeAllAndHistory(); } else { closeLightboxSoft(); }
+            }, 250);
+          } else {
+            overlay.style.transition = 'transform 250ms ease, opacity 250ms ease';
+            overlay.style.transform = 'translateY(0)';
+            overlay.style.opacity = '1';
+            setTimeout(() => { overlay.style.transition = ''; overlay.style.transform = ''; overlay.style.opacity = ''; }, 260);
+          }
+        }, { passive: true });
       }
 
       lockScroll();
