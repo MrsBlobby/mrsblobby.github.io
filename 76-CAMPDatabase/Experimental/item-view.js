@@ -1071,7 +1071,7 @@
     // closing things right after a drag-release, and remove the
     // document-level drag listeners when done.
     function attachZoomPan(viewport, img) {
-      const ZOOM_SCALES = [0, 1.5, 2.5];
+      const ZOOM_SCALES = [1, 1.5, 2.5];
       let zoomLevel = 0;
       let panX = 0;
       let panY = 0;
