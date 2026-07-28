@@ -2734,13 +2734,15 @@
               // (e.g. a search that matches 2 items) would keep the modal
               // locked to the height of the original full list and leave a
               // scrollable blank gap below the few visible tiles.
+              let _tabMinHeight = 0;
               function syncTabHeights() {
                 requestAnimationFrame(() => {
                   const activeContent = assignableState.activeTab === 1
                     ? tabContentWrapper.children[1]
                     : tabContentWrapper.children[0];
                   if (activeContent) {
-                    tabContentWrapper.style.minHeight = activeContent.scrollHeight + 'px';
+                    _tabMinHeight = Math.max(_tabMinHeight, activeContent.scrollHeight);
+                    tabContentWrapper.style.minHeight = _tabMinHeight + 'px';
                   }
                   syncOverflow();
                 });

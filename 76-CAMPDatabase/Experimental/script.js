@@ -1320,6 +1320,21 @@ function renderResults(query) {
   }
 
   const paged = paginate(sorted);
+
+  // Skip DOM swap if the page's visible card IDs haven't changed (search typing
+  // that narrows/widens the match set but the current page is identical).
+  if (!useFade && !isPageSwap) {
+    const prevIds = Array.from(results.querySelectorAll('.grid-card-name'))
+      .map(a => decodeURIComponent(a.getAttribute('href').split('/').pop()));
+    const nextIds = paged
+      .filter(r => (r.SubCategory || '').trim().toLowerCase() !== 'testsubcat')
+      .map(r => r.CNAM_FormID);
+    if (prevIds.length === nextIds.length && prevIds.every((id, i) => id === nextIds[i])) {
+      renderPagination(sorted.length);
+      return;
+    }
+  }
+
   const frag = document.createDocumentFragment();
 
   if (!paged.length) {
@@ -2029,7 +2044,22 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
   requestAnimationFrame(() => requestAnimationFrame(() => {
     if (useFade) {
       results.style.opacity = '1';
-      results.style.transition = 'opacity 0.25s ease';
+      results.style.transition = '';
+    }
+
+    // Stagger card entrance on initial load and pagination, skip for search/filter
+    if (isPageSwap) {
+      const cards = results.querySelectorAll('.grid-card');
+      const STAGGER = 20;
+      const MAX_DELAY = 600;
+      cards.forEach((card, i) => {
+        const delay = Math.min(i * STAGGER, MAX_DELAY);
+        setTimeout(() => card.classList.add('visible'), delay);
+      });
+    } else {
+      const cards = results.querySelectorAll('.grid-card');
+      cards.forEach(c => { c.style.transition = 'none'; c.classList.add('visible'); });
+      requestAnimationFrame(() => cards.forEach(c => c.style.transition = ''));
     }
 
     // Scroll to top of page on pagination (next/prev buttons) — but don't

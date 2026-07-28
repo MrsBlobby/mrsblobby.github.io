@@ -1,7 +1,7 @@
   :root { 
     --accent: #E5C158; /*Live Color: #E5C158, PTS Color: #497ab4 */
     --accent-dim: #D1B366; /* Live Color: #D1B366, PTS Color: #223b5a*/
-    --bg: #1a1a1a;
+    --bg: #181818;
     --card-bg: #181818;
     --text: #e0e0e0;
     --text-muted: #aaa;
@@ -1181,6 +1181,13 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .grid-card.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
   .grid-card-name {
     background: var(--card-bg);
