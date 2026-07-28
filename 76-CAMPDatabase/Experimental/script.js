@@ -2066,8 +2066,8 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
     // scroll further up than necessary. If the user was already scrolled
     // past the point where .toolbar locks into its sticky position, only
     // scroll back up to that point, so the sticky toolbar stays pinned and
-    // the logo header above it doesn't get re-revealed. If the header was
-    // already visible (user hadn't scrolled that far), go all the way to 0.
+    // the logo header above it doesn't get re-revealed. If the user was
+    // above that point (header already visible), leave scroll untouched.
     //
     // Note: `offsetTop` on a `position: sticky` element is unreliable once
     // it's actually stuck (browsers disagree on whether it reports the
@@ -2083,11 +2083,10 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
         stickyOffset = Math.round(toolbar.getBoundingClientRect().top + window.scrollY);
         toolbar.style.position = prevPosition;
       }
-      // Small tolerance guards against sub-pixel rounding differences
-      // between the scroll position we land on and the offset we
-      // re-measure on the next click (fractional scrollY/rect values).
-      const target = scrollYBeforeSwap >= stickyOffset - 2 ? stickyOffset : 0;
-      window.scrollTo({ top: target });
+      if (scrollYBeforeSwap >= stickyOffset) {
+        window.scrollTo({ top: stickyOffset });
+      }
+      // else: user was above the sticky point — leave scroll alone
     }
 
     if (typeof _onRenderDone === 'function') {
