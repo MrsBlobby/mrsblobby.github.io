@@ -1,0 +1,7565 @@
+{
+  "005D80E0": {
+    "ItemName": "Antique Speed Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Agility Boost",
+        "Duration": 1800.0,
+        "Description": "+2 AGI",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "00609E0A": {
+    "ItemName": "Antique Speed Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Agility Boost",
+        "Duration": 1800.0,
+        "Description": "+2 AGI",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006F459F": {
+    "ItemName": "Boardwalk Bonanza Pinball Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Agility Boost",
+        "Duration": 1800.0,
+        "Description": "+2 AGI",
+        "Notes": null,
+        "WaitTime": 15.0
+      },
+      {
+        "BuffSpell": "Perception Boost",
+        "Duration": 1800.0,
+        "Description": "+2 PER",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "0076A6C0": {
+    "ItemName": "Atomic Roller Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Agility Boost",
+        "Duration": 1800.0,
+        "Description": "+2 AGI",
+        "Notes": null,
+        "WaitTime": 15.0
+      },
+      {
+        "BuffSpell": "Perception Boost",
+        "Duration": 1800.0,
+        "Description": "+2 PER",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "0076E0FF": {
+    "ItemName": "Astro Attack Pinball Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Agility Boost",
+        "Duration": 1800.0,
+        "Description": "+2 AGI",
+        "Notes": null,
+        "WaitTime": 15.0
+      },
+      {
+        "BuffSpell": "Perception Boost",
+        "Duration": 1800.0,
+        "Description": "+2 PER",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "007CEA86": {
+    "ItemName": "Five Finger Filet Table",
+    "Buffs": [
+      {
+        "BuffSpell": "Agility Boost",
+        "Duration": 1800.0,
+        "Description": "+2 AGI",
+        "Notes": null,
+        "WaitTime": 15.0
+      },
+      {
+        "BuffSpell": "Luck Boost",
+        "Duration": 1800.0,
+        "Description": "+2 LCK",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "007CF731": {
+    "ItemName": "Cosmic Capture",
+    "Buffs": [
+      {
+        "BuffSpell": "Agility Boost",
+        "Duration": 1800.0,
+        "Description": "+2 AGI",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "007DB370": {
+    "ItemName": "Vault-Tec Pinball Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Agility Boost",
+        "Duration": 1800.0,
+        "Description": "+2 AGI",
+        "Notes": null,
+        "WaitTime": 15.0
+      },
+      {
+        "BuffSpell": "Perception Boost",
+        "Duration": 1800.0,
+        "Description": "+2 PER",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "00804F5B": {
+    "ItemName": "Raider Speed Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Agility Boost",
+        "Duration": 1800.0,
+        "Description": "+2 AGI",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "008B12E0": {
+    "ItemName": "Rip Daring Pinball Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Agility Boost",
+        "Duration": 1800.0,
+        "Description": "+2 AGI",
+        "Notes": null,
+        "WaitTime": 15.0
+      },
+      {
+        "BuffSpell": "Perception Boost",
+        "Duration": 1800.0,
+        "Description": "+2 PER",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "00646D80": {
+    "ItemName": "Arm Wrestle Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006628D8": {
+    "ItemName": "Red 9 Ball Table",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006628D9": {
+    "ItemName": "Wood 9 Ball Table",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006628DA": {
+    "ItemName": "Blue 9 Ball Table",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006628DB": {
+    "ItemName": "Green 9 Ball Table",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "00684BAA": {
+    "ItemName": "Arm Wrestle Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006A274D": {
+    "ItemName": "Hollywood Vanity",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006A910B": {
+    "ItemName": "Bowling Alley Lane",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      },
+      {
+        "BuffSpell": "Luck Boost",
+        "Duration": 1800.0,
+        "Description": "+2 LCK",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006B8E0F": {
+    "ItemName": "Casino Pool Table",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006D1DD7": {
+    "ItemName": "Arm Wrestle Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006D3A61": {
+    "ItemName": null,
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006D3A62": {
+    "ItemName": null,
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006D3A63": {
+    "ItemName": null,
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006E739E": {
+    "ItemName": "Shoeshine Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006EB2BF": {
+    "ItemName": "American Bowling Alley Lane",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      },
+      {
+        "BuffSpell": "Luck Boost",
+        "Duration": 1800.0,
+        "Description": "+2 LCK",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "007267B6": {
+    "ItemName": "Hollywood Vanity",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "0078CA7D": {
+    "ItemName": "Pool Table",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "007D18CA": {
+    "ItemName": "Motorcycle",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      },
+      {
+        "BuffSpell": "Endurance Boost",
+        "Duration": 1800.0,
+        "Description": "+2 END",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "007DBEAA": {
+    "ItemName": "Poseidon Arm Wrestle Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "00840E70": {
+    "ItemName": "Rustic 9 Ball Table",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "008C9559": {
+    "ItemName": "Hot Shot Motorcycle",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      },
+      {
+        "BuffSpell": "Endurance Boost",
+        "Duration": 1800.0,
+        "Description": "+2 END",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "008D1C8C": {
+    "ItemName": "Atomic Hair Dryer",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "00644EA2": {
+    "ItemName": "Exercise Bike",
+    "Buffs": [
+      {
+        "BuffSpell": "Endurance Boost",
+        "Duration": 1800.0,
+        "Description": "+2 END",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "00830006": {
+    "ItemName": "Ice Bath",
+    "Buffs": [
+      {
+        "BuffSpell": "Endurance Boost",
+        "Duration": 1800.0,
+        "Description": "+2 END",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "007D6A59": {
+    "ItemName": "Summoning Circle",
+    "Buffs": [
+      {
+        "BuffSpell": "Intelligence Boost",
+        "Duration": 1800.0,
+        "Description": "+2 INT",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006C50B8": {
+    "ItemName": "Bowling Arcade Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Luck Boost",
+        "Duration": 1800.0,
+        "Description": "+2 LCK",
+        "Notes": null,
+        "WaitTime": 15.0
+      },
+      {
+        "BuffSpell": "Perception Boost",
+        "Duration": 1800.0,
+        "Description": "+2 PER",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006FA9F0": {
+    "ItemName": "Bowling Arcade Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Luck Boost",
+        "Duration": 1800.0,
+        "Description": "+2 LCK",
+        "Notes": null,
+        "WaitTime": 15.0
+      },
+      {
+        "BuffSpell": "Perception Boost",
+        "Duration": 1800.0,
+        "Description": "+2 PER",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006FCB2E": {
+    "ItemName": "Rolling Stars Bowling Arcade Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Luck Boost",
+        "Duration": 1800.0,
+        "Description": "+2 LCK",
+        "Notes": null,
+        "WaitTime": 15.0
+      },
+      {
+        "BuffSpell": "Perception Boost",
+        "Duration": 1800.0,
+        "Description": "+2 PER",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "008B12DC": {
+    "ItemName": "Camden Park Claw Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Luck Boost",
+        "Duration": 1800.0,
+        "Description": "+2 LCK",
+        "Notes": null,
+        "WaitTime": 15.0
+      },
+      {
+        "BuffSpell": "Perception Boost",
+        "Duration": 1800.0,
+        "Description": "+2 PER",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "006628DF": {
+    "ItemName": "Radiation Glove Box",
+    "Buffs": [
+      {
+        "BuffSpell": "Perception Boost",
+        "Duration": 1800.0,
+        "Description": "+2 PER",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "00766AA3": {
+    "ItemName": "Stargazer's Telescope",
+    "Buffs": [
+      {
+        "BuffSpell": "Perception Boost",
+        "Duration": 1800.0,
+        "Description": "+2 PER",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "005A2C4B": {
+    "ItemName": "Communal Firepit",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0060212D": {
+    "ItemName": "Hot Tub",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0060EC27": {
+    "ItemName": "Vault-Tec Spa",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00677B9B": {
+    "ItemName": "Cappy Hot Tub",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0068380D": {
+    "ItemName": "Goo-Tub",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0068DF0A": {
+    "ItemName": "Skulls Fire Pitt",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00692563": {
+    "ItemName": "Communal Campfire",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0079B885": {
+    "ItemName": "Cauldron Hot Tub",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0056744C": {
+    "ItemName": "Weight Bench",
+    "Buffs": [
+      {
+        "BuffSpell": "Strength Boost",
+        "Duration": 1800.0,
+        "Description": "+2 STR",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "005F56CA": {
+    "ItemName": "Weight Bench",
+    "Buffs": [
+      {
+        "BuffSpell": "Strength Boost",
+        "Duration": 1800.0,
+        "Description": "+2 STR",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "00015B28": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00019B16": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0001E34D": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0002D562": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0004329F": {
+    "ItemName": "Simple Made Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "000432A8": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00047FBD": {
+    "ItemName": "Bunk Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0005238E": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00052390": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "000530F7": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00054835": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "000AB567": {
+    "ItemName": "Simple Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "000AB568": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00112602": {
+    "ItemName": "Simple Made Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00118F4B": {
+    "ItemName": "Simple Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "001340D3": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "001340D4": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "001340D5": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0013FE00": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0013FE01": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0013FE02": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0013FE04": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0013FE05": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0013FE06": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0014D090": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0014D091": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0014EA9F": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0018C56F": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0018C570": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0018E7A9": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0018E7AA": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0018E7AC": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "001AADE8": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "001AADE9": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0023C9C4": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0023C9C5": {
+    "ItemName": "Hospital Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "002462E4": {
+    "ItemName": "Simple Made Bunk Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "002472CD": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00249040": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003665FD": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EFB17": {
+    "ItemName": "Classic Twin Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EFB1B": {
+    "ItemName": "Vault-Tec Twin Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EFB1C": {
+    "ItemName": "Unstoppables! Twin Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EFB1D": {
+    "ItemName": "Captain Cosmos Twin Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EFB45": {
+    "ItemName": "Mothman Twin Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EFB46": {
+    "ItemName": "American Flag Twin Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EFB47": {
+    "ItemName": "Grafton High Twin Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EFB48": {
+    "ItemName": "Nuka-Cola Twin Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EFB49": {
+    "ItemName": "Red Rocket Twin Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "004287DA": {
+    "ItemName": "Mothman Cultist Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "004711DA": {
+    "ItemName": "Racecar Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0048C04B": {
+    "ItemName": "Four Poster Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00490B89": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00495073": {
+    "ItemName": "Princess Castle Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005441D0": {
+    "ItemName": "Clean Hospital Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005A2433": {
+    "ItemName": "Gurney Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005A2436": {
+    "ItemName": "Black Gurney Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005A2437": {
+    "ItemName": "Red Gurney Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005A2852": {
+    "ItemName": "Sleazy Heart Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005A2D88": {
+    "ItemName": "Cot",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005D00B0": {
+    "ItemName": "Hammock",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005D1F1F": {
+    "ItemName": "Bed of Nails",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005EF71D": {
+    "ItemName": "Vault Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005FAB9B": {
+    "ItemName": "APC Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00605EF0": {
+    "ItemName": "Cryogenic Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0060EF91": {
+    "ItemName": "Cryogenic Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0063470D": {
+    "ItemName": "Wavy Willards Waterbed Top",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0063470E": {
+    "ItemName": "Wavy Willards Waterbed Bottom",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00644859": {
+    "ItemName": "Alien Stasis Chamber",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "006572CE": {
+    "ItemName": "Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0066F202": {
+    "ItemName": "Tomb Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0067A956": {
+    "ItemName": "NukaBlitz Dart Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0067B5D7": {
+    "ItemName": "Spore Plant",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00685148": {
+    "ItemName": "Rustic Fur Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0068DF09": {
+    "ItemName": "Iron Maiden",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0069079C": {
+    "ItemName": "Kids Truck Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00691D2B": {
+    "ItemName": "Kids Truck Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "006A434E": {
+    "ItemName": "Huntsman Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "006CA22A": {
+    "ItemName": "Raider Four-Poster Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "006E79F5": {
+    "ItemName": "Cot",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "006F0568": {
+    "ItemName": "Heart Shaped Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "006F1E4A": {
+    "ItemName": "Modern Conveniences Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "006F591C": {
+    "ItemName": "Cot",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0073DFC3": {
+    "ItemName": "Flatbed Truck Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "007451B8": {
+    "ItemName": "Hammock",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "007803FB": {
+    "ItemName": null,
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "007808BF": {
+    "ItemName": "Cot",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00787EEB": {
+    "ItemName": "Cream Hammock",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0078DB6D": {
+    "ItemName": "Verdant Alien Stasis Chamber",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0078DEB7": {
+    "ItemName": "Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00799A97": {
+    "ItemName": "Enclave Cot",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "007AECA7": {
+    "ItemName": "Stasis Fluid Chamber Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "007B28CE": {
+    "ItemName": "Body Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "007F4A2A": {
+    "ItemName": "Tailgate Bed - Red",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "007F4A2D": {
+    "ItemName": "Tailgate Bed - Teal",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00803C16": {
+    "ItemName": "Tiki Canopy Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "008050C7": {
+    "ItemName": "Red Tailgate Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0081DED0": {
+    "ItemName": "Cream Hammock",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0082E163": {
+    "ItemName": "Grognak Castle Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0084E959": {
+    "ItemName": "Autopsy Table",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "008B275D": {
+    "ItemName": "Train Car Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "008B7A24": {
+    "ItemName": "GNN News Van Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "008EE1F3": {
+    "ItemName": "Cot",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Well Rested",
+        "Duration": 7200.0,
+        "Description": "+2 AGI",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Lover's Embrace",
+        "Duration": 10800.0,
+        "Description": "+2 CHA",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Kindred Spirit",
+        "Duration": 10800.0,
+        "Description": "+2 PER",
+        "Notes": "Homebody Perk (conditional)",
+        "WaitTime": 30.0
+      },
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00015B29": {
+    "ItemName": "Mattress",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00020C40": {
+    "ItemName": "Mattress",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0002FBF9": {
+    "ItemName": "Mattress",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00052877": {
+    "ItemName": "Mattress",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00099508": {
+    "ItemName": "Mattress",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "001909CF": {
+    "ItemName": "Mattress",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00246985": {
+    "ItemName": "Mattress",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0024980E": {
+    "ItemName": "Mattress",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "000975D5": {
+    "ItemName": "Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "000D75BC": {
+    "ItemName": "Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00118F57": {
+    "ItemName": "Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0024D07D": {
+    "ItemName": "Dirty Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0024D07E": {
+    "ItemName": "Dirty Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00252314": {
+    "ItemName": "Dirty Mattress",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00252315": {
+    "ItemName": "Dirty Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00252316": {
+    "ItemName": "Dirty Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00252317": {
+    "ItemName": "Dirty Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00252318": {
+    "ItemName": "Dirty Bed",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBEBC": {
+    "ItemName": "Clean American Flag Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBEBD": {
+    "ItemName": "Clean Bottle and Cappy Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBEBE": {
+    "ItemName": "Clean Camden Park Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBEBF": {
+    "ItemName": "Clean Camo Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBEC0": {
+    "ItemName": "Clean Grafton High Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBEC1": {
+    "ItemName": "Clean Grognak Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBEC2": {
+    "ItemName": "Clean Inspector Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBEC3": {
+    "ItemName": "Clean Jangles Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBEC4": {
+    "ItemName": "Clean Legend of Mothman Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBEC5": {
+    "ItemName": "Clean Manta Man Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBEC6": {
+    "ItemName": "Clean Mistress of Mystery Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBEC7": {
+    "ItemName": "Clean Nuka-Cola Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBEC8": {
+    "ItemName": "Clean Nuka-Cola Quantum Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBEC9": {
+    "ItemName": "Clean Poodle Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBECA": {
+    "ItemName": "Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBECB": {
+    "ItemName": "Clean Red Rocket Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBECC": {
+    "ItemName": "Clean RobCo Fireman Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBECD": {
+    "ItemName": "Clean Sugar Bombs Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBECE": {
+    "ItemName": "Clean Vault-Tec Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBECF": {
+    "ItemName": "Silver Shroud Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003EBED0": {
+    "ItemName": "Clean Silver Shroud Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003F7F88": {
+    "ItemName": "Pioneer Scout Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00439F59": {
+    "ItemName": "Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00439F5B": {
+    "ItemName": "Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0043E634": {
+    "ItemName": "Bottle and Cappy Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0043E635": {
+    "ItemName": "Inspector Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00454DD4": {
+    "ItemName": "RobCo Fireman Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00454DD5": {
+    "ItemName": "Sugar Bombs Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00454DD6": {
+    "ItemName": "Vault-Tec Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0047B822": {
+    "ItemName": "Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0047B823": {
+    "ItemName": "Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0047B824": {
+    "ItemName": "Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0047B825": {
+    "ItemName": "Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0047B826": {
+    "ItemName": "Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0047F432": {
+    "ItemName": "Camden Park Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0047F433": {
+    "ItemName": "Camo Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0047F434": {
+    "ItemName": "Grafton High Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0047F435": {
+    "ItemName": "Jangles Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0047F436": {
+    "ItemName": "Nuka Cola Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0047F43B": {
+    "ItemName": "American Flag Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0047F43C": {
+    "ItemName": "Legend of Mothman Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0047F43D": {
+    "ItemName": "Poodle Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0047F43E": {
+    "ItemName": "Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00482C7C": {
+    "ItemName": "Grognak Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00482C7D": {
+    "ItemName": "Manta Man Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00482C7E": {
+    "ItemName": "Mistress of Mystery Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00482C7F": {
+    "ItemName": "Nuka-Cola Quantum Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00482C80": {
+    "ItemName": "Red Rocket Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0056F0A5": {
+    "ItemName": "Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0058ECB3": {
+    "ItemName": "Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0059EE9D": {
+    "ItemName": "Xmas Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005A13D6": {
+    "ItemName": "Xmas Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005A1A84": {
+    "ItemName": "Responders Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005A29F2": {
+    "ItemName": "Raider Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005A29F3": {
+    "ItemName": "Raider Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005E896A": {
+    "ItemName": "Sleeping Bag - Princess Castle Pink",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0066E172": {
+    "ItemName": "Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00682F87": {
+    "ItemName": "Clean Blue Ridge Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00682F88": {
+    "ItemName": "Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00687BEE": {
+    "ItemName": "Blue Ridge Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00691D29": {
+    "ItemName": "Fur Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00691D2A": {
+    "ItemName": "Dirty Blue Ridge Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0069758F": {
+    "ItemName": "Nuka-Cola Sleeping Bag",
+    "Buffs": [
+      {
+        "BuffSpell": "Rested",
+        "Duration": 3600.0,
+        "Description": "+5% Bonus XP",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005D98A5": {
+    "ItemName": "Sympto-matic",
+    "Buffs": [
+      {
+        "BuffSpell": "Sympto-Matic Disease Cure",
+        "Duration": 0.0,
+        "Description": "Cures one disease",
+        "Notes": null,
+        "WaitTime": 1.0
+      }
+    ]
+  },
+  "00006F48": {
+    "ItemName": "Steel Guitar",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0000C22A": {
+    "ItemName": "Banjo",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0000CFA7": {
+    "ItemName": "Acoustic Guitar",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0003A0F7": {
+    "ItemName": "Trumpet",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00044DB4": {
+    "ItemName": "Cello",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00044DBC": {
+    "ItemName": "Snare Drum",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "000522F4": {
+    "ItemName": "Violin",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00075D5A": {
+    "ItemName": "Harmonica",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0010F30F": {
+    "ItemName": "Grand Piano",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0010F3BC": {
+    "ItemName": "Upright Piano",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "001199CA": {
+    "ItemName": "Chemical Barrel",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0033AE56": {
+    "ItemName": "Metal Barrel",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00344416": {
+    "ItemName": "Flute",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0034D1F5": {
+    "ItemName": "Tuba",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0037B7F4": {
+    "ItemName": "Bass",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "003B7692": {
+    "ItemName": "Frame Drum",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "004E0FA9": {
+    "ItemName": "Mouth Harp",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0052A8F9": {
+    "ItemName": "Acoustic Guitar",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0055A338": {
+    "ItemName": "Theremin",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005856C7": {
+    "ItemName": "Wanderer's Guitar",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005D1C15": {
+    "ItemName": "Orgatronic Deluxe",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005FD994": {
+    "ItemName": "Drum Set",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0061E075": {
+    "ItemName": "Acoustic Guitar",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0062C3E2": {
+    "ItemName": "Pipe Organ",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "006381B4": {
+    "ItemName": "Pipe Organ",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0064E9E7": {
+    "ItemName": "Skull Drum Set",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0065BFF1": {
+    "ItemName": "Resonator Guitar",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00662764": {
+    "ItemName": "Nuka-lele",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00664E7D": {
+    "ItemName": "Hambone Stool",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00668025": {
+    "ItemName": "Nuka-lele",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0066F201": {
+    "ItemName": "Homemade Xylophone",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00678D16": {
+    "ItemName": "Resonator Guitar B",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00684B85": {
+    "ItemName": "Acoustic Guitar",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00691B73": {
+    "ItemName": "Violin",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "006B8E0E": {
+    "ItemName": "Drum Set",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00728409": {
+    "ItemName": "Xylophone",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00769104": {
+    "ItemName": "Tuba",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "007746A5": {
+    "ItemName": "Accordion",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0078C78E": {
+    "ItemName": "Rusty Saxophone",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "007AE386": {
+    "ItemName": "Accordion",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "007AE563": {
+    "ItemName": "Radioactive Barrel Drum",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "007AE564": {
+    "ItemName": "Metal Barrel Drum",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "007AE565": {
+    "ItemName": "Chemical Barrel Drum",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "007AE566": {
+    "ItemName": "Chemical Barrel Drum (Blue)",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0084A53B": {
+    "ItemName": "Raider Guitar",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "0084A53C": {
+    "ItemName": "Raider Guitar",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "008C9558": {
+    "ItemName": "Black Piano",
+    "Buffs": [
+      {
+        "BuffSpell": "Well Tuned",
+        "Duration": 3600.0,
+        "Description": "+25% AP Regen",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "00755EB1": {
+    "ItemName": "Sacred Mothman Tome",
+    "Buffs": [
+      {
+        "BuffSpell": "Wisdom of the Mothman",
+        "Duration": 3600.0,
+        "Description": "+5% XP",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "0089ADB0": {
+    "ItemName": "Phoropter",
+    "Buffs": [
+      {
+        "BuffSpell": "Accuracy Boost",
+        "Duration": 7200.0,
+        "Description": "+25% VATS Accuracy",
+        "Notes": null,
+        "WaitTime": 15.0
+      }
+    ]
+  },
+  "00897409": {
+    "ItemName": "Lethal Loveseat",
+    "Buffs": [
+      {
+        "BuffSpell": "Rush of Love",
+        "Duration": 3600.0,
+        "Description": "<+MAG> <ITEM1.ABBR>",
+        "Notes": null,
+        "WaitTime": 30.0
+      }
+    ]
+  },
+  "005FB427": {
+    "ItemName": "Fortune Teller Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Luck Boost",
+        "Duration": 1800.0,
+        "Description": "+2 LCK",
+        "Notes": null,
+        "WaitTime": null
+      }
+    ]
+  },
+  "006064F4": {
+    "ItemName": "Mechanical Derby Game",
+    "Buffs": [
+      {
+        "BuffSpell": "Intelligence Boost",
+        "Duration": 1800.0,
+        "Description": "+2 INT",
+        "Notes": null,
+        "WaitTime": null
+      }
+    ]
+  },
+  "006CC815": {
+    "ItemName": "Mechanical Derby Game",
+    "Buffs": [
+      {
+        "BuffSpell": "Intelligence Boost",
+        "Duration": 1800.0,
+        "Description": "+2 INT",
+        "Notes": null,
+        "WaitTime": null
+      }
+    ]
+  },
+  "006E1D97": {
+    "ItemName": "Atlantic City Horse Racing Game",
+    "Buffs": [
+      {
+        "BuffSpell": "Intelligence Boost",
+        "Duration": 1800.0,
+        "Description": "+2 INT",
+        "Notes": null,
+        "WaitTime": null
+      }
+    ]
+  },
+  "006F4CE6": {
+    "ItemName": "Scent-o-matic Perfume Dispenser",
+    "Buffs": [
+      {
+        "BuffSpell": "Charisma Boost",
+        "Duration": 1800.0,
+        "Description": "+2 CHA",
+        "Notes": null,
+        "WaitTime": null
+      }
+    ]
+  },
+  "0073AED6": {
+    "ItemName": "Fortune Teller Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Luck Boost",
+        "Duration": 1800.0,
+        "Description": "+2 LCK",
+        "Notes": null,
+        "WaitTime": null
+      }
+    ]
+  },
+  "007AE529": {
+    "ItemName": "Unfortunate Fortune Teller Machine",
+    "Buffs": [
+      {
+        "BuffSpell": "Luck Boost",
+        "Duration": 1800.0,
+        "Description": "+2 LCK",
+        "Notes": null,
+        "WaitTime": null
+      }
+    ]
+  },
+  "008308E5": {
+    "ItemName": "Chryslus Motors Mechanical Derby Game",
+    "Buffs": [
+      {
+        "BuffSpell": "Intelligence Boost",
+        "Duration": 1800.0,
+        "Description": "+2 INT",
+        "Notes": null,
+        "WaitTime": null
+      }
+    ]
+  },
+  "008B1553": {
+    "ItemName": "Rip Daring Vault Boy Statue",
+    "Buffs": [
+      {
+        "BuffSpell": "Rip's Bounty",
+        "Duration": 3600.0,
+        "Description": "Cryptids may drop extra scraps",
+        "Notes": null,
+        "WaitTime": null
+      }
+    ]
+  },
+  "008B1D5A": {
+    "ItemName": "Sharpening Stone",
+    "Buffs": [
+      {
+        "BuffSpell": "Sharpening Stone",
+        "Duration": 1800.0,
+        "Description": "5% Blood Pack chance from enemies killed with melee weapon.",
+        "Notes": null,
+        "WaitTime": null
+      }
+    ]
+  }
+}

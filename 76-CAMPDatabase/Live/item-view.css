@@ -1,7 +1,14 @@
 .detail-container {
-  max-width: 860px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 20px 16px 48px;
+}
+
+/* ── Sidebar (infobox) + main card, side by side ── */
+.detail-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
 }
 
 /* ── Back button ── */
@@ -24,53 +31,80 @@
   width: 0; height: 0;
   border-top: 6px solid transparent;
   border-bottom: 6px solid transparent;
-  border-right: 10px solid black;
+  border-right: 10px solid currentColor;
   flex-shrink: 0;
+}
+
+#content {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+#content.detail-content-ready {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#content.detail-content-loading {
+  opacity: 0;
+  transform: translateY(6px);
 }
 
 /* ── Unified card ── */
 .item-card {
-  border: 2px solid var(--accent);
+  border: 1px solid #2a2a2a;
   border-radius: 8px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
   overflow: hidden;
-  background: var(--card-bg);
+  background: #161616;
   display: grid;
-  grid-template-columns: 214px 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: auto auto;
   margin-bottom: 0;
+  margin-left: -1px;
+  flex: 1;
+  min-width: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* ── Infobox (left column, row 1 only) ── */
+/* ── Infobox: standalone sidebar card, sibling of .item-card, flush against it ── */
 .infobox {
-  grid-column: 1;
-  grid-row: 1;
-  border-right: 2px solid var(--accent);
-  background: var(--card-bg);
+  width: 386px;
+  flex-shrink: 0;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  overflow: hidden;
+  background: #161616;
   font-size: 13px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .infobox-image {
-  background: #1f1f1f;
+  background: #121212;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 16px;
-  border-bottom: 2px solid var(--accent);
-  min-height: 130px;
+  border-bottom: 1px solid var(--divider);
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
 }
 .infobox-image img {
-  max-width: 210px;
-  max-height: 210px;
-  width: auto;
-  height: auto;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
   display: block;
 }
 
 .infobox-rows { display: flex; flex-direction: column; flex: 1; }
-.infobox-row { display: flex; align-items: stretch; border-bottom: 1px solid #383838; flex: 1; }
+.infobox-row { display: flex; align-items: stretch; border-bottom: 1px solid var(--border-subtle); flex: 1; }
 .infobox-row:last-child { border-bottom: none; }
 .infobox-budget {
   display: flex;
@@ -80,7 +114,7 @@
   gap: 4px;
   padding: 10px 12px;
   border-bottom: 2px solid var(--accent);
-  background: #1e1e1e;
+  background: #121212;
   text-align: center;
 }
 .infobox-budget-main {
@@ -108,7 +142,6 @@
 .infobox-budget-tier {
   font-size: 10px;
   color: var(--text-muted);
-  font-style: italic;
 }
 
 .infobox-label {
@@ -120,8 +153,8 @@
   padding: 8px 9px;
   width: 70px;
   flex-shrink: 0;
-  border-right: 1px solid #383838;
-  background: #232323;
+  border-right: 1px solid var(--border-subtle);
+  background: var(--card-bg);
   display: flex;
   align-items: center;
   align-self: stretch;
@@ -132,7 +165,9 @@
   padding: 8px 10px;
   color: var(--text);
   flex: 1;
+  min-width: 0;
   word-break: break-all;
+  overflow-wrap: anywhere;
   line-height: 1.4;
   display: flex;
   align-items: center;
@@ -142,7 +177,7 @@
 
 /* ── Right column: content blocks ── */
 .right-panel {
-  grid-column: 2;
+  grid-column: 1;
   grid-row: 1;
   display: flex;
   flex-direction: column;
@@ -155,13 +190,19 @@
   font-weight: 700;
   line-height: 1.1;
   margin: 0;
-  border-bottom: 1px solid #383838;
+  border-bottom: 1px solid var(--border-subtle);
 }
 .right-panel-block {
   padding: 14px 18px;
 }
+.block-category {
+  padding-bottom: 1.25rem;
+}
+.block-conditions {
+  padding-top: 0;
+}
 .right-panel-block + .right-panel-block {
-  border-top: 1px solid #383838;
+  border-top: 1px solid var(--border-subtle);
 }
 .right-panel-block h2 {
   margin: 0 0 10px 0;
@@ -172,27 +213,19 @@
   letter-spacing: 0.05em;
 }
 
-.entm-description-label {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 8px;
-}
 .entm-description {
-  font-size: 13.5px;
-  color: var(--text);
-  line-height: 1.75;
-  white-space: pre-wrap;
-  text-align: center;
+  text-align: left;
+  color: #b0b0b0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre-line;
 }
 
 /* ── Storefront row (full width, row 2) ── */
 .storefront-row {
-  grid-column: 1 / 3;
+  grid-column: 1;
   grid-row: 2;
-  border-top: 2px solid var(--accent);
+  border-top: 1px solid var(--border-subtle);
   padding: 14px 18px;
 }
 .storefront-row h2 {
@@ -210,18 +243,400 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 2px;
+  min-width: 0;
+  width: 100%;
 }
 
 .infobox-value-row {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  row-gap: 4px;
   gap: 7px;
+  min-width: 0;
+  width: 100%;
+}
+.infobox-value-row:has(.info-icon) {
+  flex-wrap: nowrap;
+}
+
+/* Monospace technical value (model paths, editor/form IDs). min-width: 0
+   + overflow-wrap keep it wrapping correctly inside a flex row instead
+   of overflowing/getting clipped by an ancestor's overflow: hidden. */
+.infobox-mono {
+  font-family: monospace;
+  font-size: 11px;
+  word-break: normal;
+  overflow-wrap: anywhere;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .infobox-value .budget-icon {
   width: 20px;
   height: 20px;
   object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Small circular "?" marker that a detail tooltip is attached to (Model
+   full paths, Material Swaps details) — see attachDetailTooltip in
+   item-view.js. */
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid var(--text-muted);
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+}
+@media (hover: hover) {
+  .info-icon:hover { background: var(--text-muted); color: #1a1a1a; }
+}
+.h2--with-icon {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.info-icon--h2 {
+  margin: 0;
+  color: inherit;
+  border-color: inherit;
+  padding-left: 1px;
+  width: 14px;
+}
+@media (hover: hover) {
+  .info-icon--h2:hover { background: var(--accent); color: #1a1a1a; }
+}
+
+/* ── Detail tooltip (Model paths / Material Swaps popovers) ──
+   Positioned in JS directly above/below the "?" icon. Stays open on
+   hover of the box itself (see attachDetailTooltip) so its monospace
+   content can be selected/copied. */
+.detail-tooltip {
+  position: fixed;
+  z-index: 9999;
+  background: #121212;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 8px 10px;
+  max-width: 90vw;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  user-select: text;
+}
+.detail-tooltip.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.detail-tooltip--sticky {
+  cursor: default;
+}
+.detail-tooltip--assignable {
+  max-width: 380px;
+}
+.detail-tooltip--assignable .detail-tooltip-line {
+  word-break: normal;
+  overflow-wrap: normal;
+  text-align: center;
+}
+.detail-tooltip-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-family: monospace;
+  font-size: 11px;
+  color: var(--text);
+  word-break: break-all;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+.detail-tooltip-line--word-wrap {
+  word-break: normal;
+  overflow-wrap: normal;
+  text-align: center;
+}
+.detail-tooltip-line + .detail-tooltip-line {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border-subtle);
+}
+.detail-tooltip-swap {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+/* ── Interactive path pill (click-to-copy inside model-path tooltips) ── */
+.path-pill {
+  font-family: monospace;
+  font-size: 11px;
+  color: #d1d5db;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.03);
+  transition: background-color 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+  word-break: break-word;
+  line-height: 1.5;
+  position: relative;
+}
+@media (hover: hover) {
+  .path-pill:hover {
+    background: rgba(229,193,88,0.15);
+    color: var(--accent);
+  }
+}
+.path-pill.copied {
+  background: #2e7d32;
+  color: transparent;
+}
+.path-pill.copied::after {
+  content: 'Copied!';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ── Material swap tooltip: dynamic width ── */
+.detail-tooltip--swap {
+  width: max-content;
+  min-width: 280px;
+  max-width: min(90vw, 1100px);
+}
+
+#detail-mobile-tooltip.detail-tooltip--swap {
+  width: 90vw;
+  max-width: 90vw;
+  text-align: left;
+}
+
+#detail-mobile-tooltip.detail-tooltip--swap .swap-header,
+#detail-mobile-tooltip.detail-tooltip--swap .swap-mapping-row {
+  grid-template-columns: 1fr auto 1fr;
+}
+
+/* ── Material swap pill-bar layout ── */
+.swap-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0 0.5rem 4px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #333;
+}
+.swap-header-label {
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  text-align: center;
+}
+.swap-mapping-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2px 0.5rem;
+  border-radius: 4px;
+}
+.swap-mapping-row + .swap-mapping-row {
+  margin-top: 2px;
+}
+.swap-arrow {
+  font-size: 9px;
+  color: var(--text-muted);
+}
+
+/* ── Swap pill: path + optional remap sub-pill ── */
+.swap-pill {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.03);
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+  position: relative;
+}
+@media (hover: hover) {
+  .swap-pill:hover { background: rgba(229,193,88,0.12); }
+}
+.swap-pill.copied {
+  background: #2e7d32;
+}
+.swap-pill.copied > * { visibility: hidden; }
+.swap-pill.copied::after {
+  content: 'Copied!';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.path-text {
+  font-family: monospace;
+  font-size: 11px;
+  color: #d1d5db;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.remap-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: monospace;
+  font-size: 10px;
+  color: #888;
+  margin-top: 2px;
+  white-space: nowrap;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+  position: relative;
+  align-self: flex-start;
+}
+@media (hover: hover) {
+  .remap-line:hover {
+    color: var(--accent);
+    background: rgba(229,193,88,0.1);
+    border-color: rgba(229,193,88,0.25);
+  }
+}
+.remap-label {
+  color: #666;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.remap-line .remap-val {
+  color: #ccc;
+}
+.remap-line.copied {
+  color: transparent;
+  background: #2e7d32;
+  border-color: #2e7d32;
+}
+.remap-line.copied .remap-label,
+.remap-line.copied .remap-val { color: transparent; }
+.remap-line.copied::after {
+  content: 'Copied!';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* Mobile detail tooltip — bottom-of-screen popup */
+#detail-mobile-tooltip {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  max-width: 95vw;
+  background: #121212;
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  z-index: 9999;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  border: 1px solid #333;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+}
+#detail-mobile-tooltip.show {
+  opacity: 1;
+}
+#detail-mobile-tooltip .detail-tooltip-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-family: monospace;
+  font-size: 11px;
+  color: var(--text);
+  justify-content: center;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+#detail-mobile-tooltip .detail-tooltip-line + .detail-tooltip-line {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border-subtle);
+}
+#detail-mobile-tooltip .detail-tooltip-line--word-wrap {
+  word-break: normal;
+  overflow-wrap: normal;
+  text-align: center;
+}
+#detail-mobile-tooltip .arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid var(--accent);
+  margin: 0 2px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+@media (max-width: 400px) {
+  #detail-mobile-tooltip {
+    max-width: 95vw;
+    font-size: 12px;
+  }
+}
+
+/* Same triangle used between Build Menu Category pills, reused here
+   between a material swap's source and target path. */
+.arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid var(--accent);
+  margin: 0 2px;
+  vertical-align: middle;
   flex-shrink: 0;
 }
 
@@ -242,12 +657,12 @@
 }
 
 .detail-pill {
-  background: var(--bg);
-  border: 2px solid var(--accent);
+  background: #222222;
+  border: 2px solid #2a2a2a;
   border-radius: 20px;
   padding: 6px 14px;
   font-size: 14px;
-  color: var(--accent);
+  color: #e0e0e0;
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
@@ -260,6 +675,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  min-height: 34px;
 }
 .detail-pill img {
   width: auto;
@@ -270,16 +686,35 @@
 .detail-pill-flavor {
   font-size: 11px;
   color: var(--text-muted);
-  font-style: italic;
   padding-left: 2px;
   line-height: 1.3;
 }
 
 .detail-connector {
-  color: var(--accent);
-  font-weight: 600;
-  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 12px;
   white-space: nowrap;
+  text-transform: uppercase;
+}
+.detail-connector-row {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  padding-left: 14px;
+}
+
+/* Used where a plain AND/OR connects two pills (Placement Conditions).
+   Always a plain left-aligned stacked list — each pill on its own line with
+   AND/OR shown as small left-aligned text between them. */
+.detail-inline-wrap--conditions,
+.detail-inline-wrap--conditions.is-wrapped {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  max-width: 100%;
 }
 
 .detail-arrow {
@@ -297,7 +732,57 @@
   margin-bottom: 8px;
 }
 
-.clearfix::after { content: ''; display: table; clear: both; }
+/* ── Player Buffs block ── */
+.block-buffs {
+  padding-top: 14px;
+}
+.buff-activation {
+  color: #cccccc;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+.buff-activation strong {
+  color: #e0e0e0;
+}
+.buff-provides-label {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 0.5rem;
+}
+.buff-options-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 0 0 0.75rem;
+}
+.buff-option {
+  margin-bottom: 0.6rem;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+.buff-option strong {
+  color: #e0e0e0;
+}
+.buff-details-list {
+  list-style: none;
+  padding-left: 1rem;
+  margin: 0.2rem 0 0;
+}
+.buff-details-list li {
+  font-size: 0.85rem;
+  color: #b0b0b0;
+}
+.buff-details-list li::before {
+  content: '○ ';
+  color: #888;
+}
+.buff-footnote {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+
 
 .error-message {
   padding: 16px;
@@ -372,6 +857,7 @@
   align-items: center;
   gap: 5px;
   transition: border-color 0.15s;
+  box-sizing: border-box;
 }
 @media (hover: hover) {
   .shared-item:hover { border-color: var(--accent); }
@@ -391,10 +877,12 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 .shared-view-more {
   width: 80px;
-  height: 80px;
+  min-height: 0;
+  align-self: stretch;
   background: #1a1a1a;
   border: 1px dashed #666;
   border-radius: 6px;
@@ -407,64 +895,63 @@
   text-align: center;
   padding: 6px;
   transition: border-color 0.15s, color 0.15s;
+  box-sizing: border-box;
 }
 @media (hover: hover) {
   .shared-view-more:hover { border-color: var(--accent); color: var(--accent); }
 }
 
-/* ── Shared items modal ── */
-.shared-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.75);
-  z-index: 9998;
+/* ── Search bar + pager row used inside "view more" style modals ── */
+.modal-search-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.modal-search-input {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 6px 10px;
+  background: #111;
+  border: 1px solid #444;
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+}
+.modal-pager {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.modal-pager-btn {
+  width: 24px;
+  height: 24px;
+  background: #1a1a1a;
+  border: 1px solid #444;
+  border-radius: 4px;
+  color: var(--text);
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  animation: lbFadeIn 0.15s ease;
-  overflow: hidden;
+  font-size: 14px;
+  line-height: 1;
+  transition: border-color 0.15s, color 0.15s;
 }
-.shared-modal-wrap {
-  position: relative;
-  max-width: 560px;
-  width: 90vw;
+.modal-pager-btn:disabled {
+  opacity: 0.35;
   cursor: default;
 }
-.shared-modal {
-  background: #1e1e1e;
-  border: 2px solid var(--accent);
-  border-radius: 8px;
-  padding: 20px;
-  max-height: 70vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  box-sizing: border-box;
+@media (hover: hover) {
+  .modal-pager-btn:not(:disabled):hover { border-color: var(--accent); color: var(--accent); }
 }
-.shared-modal h3 {
-  color: var(--accent);
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 0 0 14px 0;
-}
-.shared-modal-close {
-  position: absolute;
-  top: -14px;
-  right: -14px;
-  width: 28px;
-  height: 28px;
-  background: var(--accent);
-  color: black;
-  border: none;
-  border-radius: 50%;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
+.modal-pager-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
 }
 .shared-none {
   display: inline-flex;
@@ -477,8 +964,8 @@
   border-radius: 6px;
   color: #555;
   font-size: 13px;
+  box-sizing: border-box;
 }
-.shared-modal .shared-grid { flex-wrap: wrap; }
 /* ── Prev / Next nav ── */
 .item-nav {
   display: flex;
@@ -567,45 +1054,330 @@ img.lazy-fade.loaded {
 .lightbox-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem 1.5rem;
+  cursor: default;
+  animation: lbFadeIn 0.15s ease;
+}
+.lightbox-overlay.closing {
+  animation: lbFadeOut 0.15s ease forwards;
+  pointer-events: none;
+}
+@keyframes lbFadeIn { from { opacity:0; } to { opacity:1; } }
+
+/* ── Top bar: title + counter + close ── */
+.lightbox-header {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
+  cursor: default;
+}
+.lightbox-title {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.lightbox-counter {
+  color: rgba(255,255,255,0.5);
+  font-size: 13px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.lightbox-close {
+  width: 36px;
+  height: 36px;
+  margin-left: auto;
+  background: rgba(255,255,255,0.08);
+  color: #ccc;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.lightbox-close:hover {
+  background: rgba(229, 193, 88, 0.85);
+  color: #000;
+}
+.lightbox-header,
+.lightbox-nav {
+  transition: opacity 300ms ease;
+}
+.lightbox-header.auto-hidden,
+.lightbox-nav.auto-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.lightbox-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(255,255,255,0.15);
+  border-top-color: rgba(255,255,255,0.7);
+  border-radius: 50%;
+  animation: lb-spin 0.7s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+@keyframes lb-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+/* ── Main stage: centered image ── */
+.lightbox-stage {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+  min-height: 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+.lightbox-image-viewport {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: min(80vw, 800px);
+  max-height: 75vh;
+  min-width: 0;
+  min-height: 0;
+  cursor: zoom-in;
+  touch-action: none;
+}
+.lightbox-image-viewport.zoomed-1 {
+  cursor: zoom-in;
+}
+.lightbox-image-viewport.zoomed-2 {
+  cursor: zoom-out;
+}
+.lightbox-image-viewport.zoomed-active {
+  touch-action: none;
+}
+.lightbox-image-viewport.dragging {
+  cursor: grabbing;
+}
+.lightbox-image-viewport img {
+  min-width: 0;
+  min-height: 0;
+  max-width: min(90vw, 1024px); 
+  max-height: 85vh; 
+  object-fit: contain;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  transform-origin: center center;
+  transition: transform 180ms ease;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+  image-rendering: auto;
+}
+
+/* ── Navigation arrows: float at screen edges ── */
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50%;
+  color: #ccc;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 0;
+  transition: background-color 150ms ease, color 150ms ease, opacity 300ms ease;
+}
+.lightbox-nav svg {
+  display: block;
+}
+.lightbox-nav:hover {
+  background: rgba(229, 193, 88, 0.85);
+  color: #000;
+}
+.lightbox-nav-prev { left: 2rem; }
+.lightbox-nav-next { right: 2rem; }
+
+@media (max-width: 600px) {
+  .lightbox-nav { display: none; }
+}
+
+/* ── Assignable/Display Info ── */
+.assignable-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.assignable-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.assignable-item {
+  width: 80px;
+  background: #1a1a1a;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+@media (hover: hover) {
+  .assignable-item:hover { border-color: var(--accent); }
+}
+.assignable-item img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+.assignable-item-name {
+  font-size: 9px;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.3;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.assignable-view-more {
+  width: 80px;
+  min-height: 0;
+  align-self: stretch;
+  background: #1a1a1a;
+  border: 1px dashed #666;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 8px;
+  transition: border-color 0.15s, color 0.15s;
+  box-sizing: border-box;
+}
+@media (hover: hover) {
+  .assignable-view-more:hover { border-color: var(--accent); color: var(--accent); }
+}
+
+/* ── Assignable items modal ── */
+.assignable-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 9998;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   animation: lbFadeIn 0.15s ease;
+  overflow: hidden;
 }
-@keyframes lbFadeIn { from { opacity:0; } to { opacity:1; } }
-
-.lightbox-inner {
+.assignable-modal-overlay.closing {
+  animation: lbFadeOut 0.15s ease forwards;
+  pointer-events: none;
+}
+@keyframes lbFadeOut { from { opacity: 1; } to { opacity: 0; } }
+.assignable-modal-wrap {
   position: relative;
+  max-width: 560px;
+  width: 90vw;
   cursor: default;
-  max-width: 90vw;
-  max-height: 90vh;
+  animation: assignableModalIn 0.18s ease;
+}
+.assignable-modal-overlay.closing .assignable-modal-wrap {
+  animation: assignableModalOut 0.15s ease forwards;
+}
+@keyframes assignableModalIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes assignableModalOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.94); }
+}
+.assignable-modal {
+  background: #1e1e1e;
+  border: none;
+  border-radius: 8px;
+  padding: 0 20px 20px 20px;
+  min-height: min(400px, 50vh);
+  max-height: 85vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+.assignable-modal-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: #1a1a1a;
-  border: 2px solid var(--accent);
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+  padding: 8px 0 10px;
+  gap: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 11;
+  background: #1e1e1e;
 }
-.lightbox-inner img {
-  max-width: calc(90vw - 32px);
-  max-height: calc(85vh - 32px);
-  object-fit: contain;
-  display: block;
+.assignable-modal-title {
+  color: var(--accent);
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+  line-height: 28px;
+  white-space: nowrap;
 }
-.lightbox-close {
-  position: absolute;
-  top: -14px;
-  right: -14px;
+.assignable-modal-close {
   width: 28px;
   height: 28px;
-  background: var(--accent);
-  color: black;
-  border: none;
+  background: #2b2b2b;
+  color: var(--text-muted);
+  border: 1px solid #444;
   border-radius: 50%;
   font-size: 16px;
   font-weight: 700;
@@ -614,14 +1386,569 @@ img.lazy-fade.loaded {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
 }
+.assignable-modal-close:hover {
+  background: var(--accent);
+  color: black;
+  border-color: var(--accent);
+}
+.assignable-modal-back {
+  width: 28px;
+  height: 28px;
+  background: #2b2b2b;
+  color: var(--text-muted);
+  border: 1px solid #444;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+.assignable-modal-back .back-arrow { transform: translateX(-1.5px); }
+
+/* ── Lightbox header back arrow — match close button sizing ── */
+.lightbox-header .assignable-modal-back {
+  width: 36px;
+  height: 36px;
+}
+.lightbox-header .assignable-modal-back .back-arrow {
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 12px solid currentColor;
+  transform: translateX(-1px);
+}
+.assignable-modal-back:hover {
+  background: var(--accent);
+  color: black;
+  border-color: var(--accent);
+}
+
+/* ── Modal tabs ── */
+.assignable-modal-tabs {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.assignable-modal-tab {
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.15s;
+}
+@media (hover: hover) {
+  .assignable-modal-tab:hover { color: var(--accent); }
+}
+.assignable-modal-tab.active {
+  color: var(--accent);
+}
+.assignable-modal-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--accent);
+  border-radius: 1px;
+}
+
+.assignable-modal-tab-content {
+  display: none;
+}
+.assignable-modal-tab-content.active {
+  display: block;
+}
+
+/* ── Header inside the view-more modal (tabs + filters + search) ── */
+.modal-sticky-header {
+  position: sticky;
+  top: var(--header-height, 0px);
+  z-index: 10;
+  background: #1e1e1e;
+  padding-top: 0;
+  padding-bottom: 8px;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── ItemType filter row ── */
+.modal-filter-row {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-bottom: 10px;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+}
+.modal-filter-row::-webkit-scrollbar { display: none; }
+@media (min-width: 768px) {
+  .assignable-modal-wrap { max-width: 800px; }
+  .modal-filter-row {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    white-space: normal;
+  }
+}
+.modal-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  background: #2b2b2b;
+  color: #a0a0a0;
+  border: none;
+  border-radius: 16px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+@media (hover: hover) {
+  .modal-filter-chip:hover { background: #3a3a3a; color: #ccc; }
+}
+.modal-filter-chip.active {
+  background: var(--accent);
+  color: #000;
+}
+@media (hover: hover) {
+  .modal-filter-chip.active:hover { background: #E5C158; }
+}
+
+/* Grid (not inline-flex) so rows share fixed column tracks: the whole
+   block of tracks is centered via justify-content, but auto-placement
+   fills each row left-to-right, so an incomplete final row lands in
+   the same left-most columns as the rows above it instead of being
+   centered on its own. */
+.assignable-modal .assignable-grid,
+.assignable-modal .shared-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 96px);
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin: 8px 0 0;
+}
+
+.assignable-none {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #555;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+/* ── Model Renders (non-thumbnail render images) ── */
+.model-renders-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
 @media (max-width: 600px) {
-  .item-card { grid-template-columns: 1fr; }
-  .infobox { grid-column: 1; grid-row: 1; border-right: none; border-bottom: 2px solid var(--accent); }
-  .right-panel { grid-column: 1; grid-row: 2; }
-  .storefront-row { grid-column: 1; grid-row: 3; }
+  .detail-layout { flex-direction: column; align-items: stretch; }
+  .infobox {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px 8px 0 0;
+  }
+  .item-card {
+    margin-left: 0;
+    margin-top: -1px;
+    border-radius: 0 0 8px 8px;
+  }
   .right-panel-title { font-size: 22px; }
   .detail-pill { max-width: 100%; }
   .storefront-thumb { aspect-ratio: 1; }
   .storefront-thumb img { width: 100%; height: 100%; }
+  .info-icon {
+    vertical-align: middle;
+    margin-bottom: 0;
+  }
+}
+
+/* ── Tablet: stack layout vertically, center infobox ── */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .detail-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  .infobox {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 24px;
+    border-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  .item-card {
+    margin-left: 0;
+    margin-top: 0;
+    border-radius: 8px;
+    width: 100%;
+  }
+  .back-button,
+  .item-nav {
+    margin-left: 0;
+  }
+  .info-icon {
+    vertical-align: middle;
+    margin-bottom: 0;
+  }
+}
+
+/* ── Wide screens: item-card is centered on the actual viewport — a third,
+   empty grid column mirrors the infobox's width on the right, so the
+   [infobox][item-card] pair sits symmetrically around center instead of
+   the infobox's width dragging item-card off to one side. infobox still
+   sits directly against item-card's left edge (adjacent grid columns,
+   no gap) — it just isn't pinned to the literal screen edge anymore.
+
+   The breakpoint has to fit infobox + item-card + the matching spacer
+   (386 + 933 + 386 = 1705px, +32px container padding = 1737px), so this
+   only kicks in on sufficiently wide viewports; below it, the existing
+   side-by-side layout is untouched. ── */
+@media (min-width: 1780px) {
+  .detail-container {
+    max-width: 1737px;
+  }
+  .back-button,
+  .item-nav {
+    margin-left: 384px;
+  }
+  .detail-layout {
+    display: grid;
+    grid-template-columns: 386px 933px 386px;
+    align-items: start;
+  }
+  .infobox {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .item-card {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  /* grid-column 3 is intentionally left empty — a spacer equal to the
+     infobox's width so item-card is centered on the viewport. */
+}
+
+
+/* ============================================================
+   Merged improvements (previously item-view-improvements.css)
+   Appended in original load order so cascade/output is identical
+   to the old two-file setup — these rules intentionally come
+   after the base rules above to override/refine them.
+   ============================================================ */
+
+/* ============================================================
+   item-view-improvements.css — v3, verified against item-view.js
+   Append after your existing item-view.css. Reuses --accent-secondary,
+   --divider, and --bg-chip from style-improvements.css — make sure
+   that file (or those variables) is loaded first.
+   ============================================================ */
+
+/* ── Description: left-align instead of centered.
+   Centered multi-line body text is harder to scan — the eye has to
+   re-find the start of each line. Left-aligned reads noticeably
+   faster for anything longer than one sentence. ── */
+.entm-description {
+  text-align: left;
+}
+.entm-description-label {
+  text-align: left;
+}
+
+/* ── Structural dividers shift from flat gray to a faint steel-blue
+   tint, freeing amber to mean "important" rather than "everything" ── */
+.infobox-row { border-bottom-color: var(--divider); }
+.infobox-label { border-right-color: var(--divider); }
+.right-panel-block + .right-panel-block,
+.right-panel-title,
+.storefront-row {
+  border-color: var(--divider);
+}
+
+/* Technical/debug rows (Form ID, Editor ID, Model) are reference
+   data, not primary content — de-emphasize them with plain muted
+   grey rather than any accent color, so they read as secondary
+   info without introducing a second hue on the page. */
+.infobox-label {
+  color: var(--text-muted);
+}
+.infobox-value {
+  color: var(--text-muted);
+}
+
+/* Alternating section tint removed per feedback — with pills now
+   using their own --bg-chip background (see below), tinting the
+   section behind them too made the panel look busier, not calmer.
+   Sections now separate purely by the divider line + whitespace. */
+
+/* ── "Shares Max Build Count With" thumbnails.
+   CORRECTED: this section is NOT .assignable-grid/.assignable-item
+   (that's the separate "Assignables Info" block above it) — it's
+   built from .shared-grid/.shared-item/.shared-item-name in
+   item-view.js (~line 2050+). The previous version of this file
+   only resized the Assignables Info tiles and never touched the
+   ones visible in the screenshot. Both are fixed here now.
+
+   FIX: the earlier version of this rule turned these into a
+   horizontal-scroll strip (flex-wrap: nowrap + overflow-x: auto),
+   but never gave the row a bounded width. Without min-width: 0 /
+   width: 100% on the flex container, the browser sizes it to fit
+   all the nowrap items at once — so instead of scrolling, the row
+   just expanded past its column and bled out of the card. Reverted
+   to normal wrapping (matches your original layout) with just the
+   larger tile size kept. ── */
+.shared-grid,
+.assignable-grid {
+  flex-wrap: wrap;
+}
+.shared-item,
+.shared-view-more,
+.shared-none,
+.assignable-item,
+.assignable-view-more,
+.assignable-none {
+  width: 96px;
+}
+.shared-item img,
+.assignable-item img {
+  width: 64px;
+  height: 64px;
+}
+.shared-item-name,
+.assignable-item-name {
+  font-size: 10px;
+  -webkit-line-clamp: 2;
+}
+
+/* ── Reduce nested amber borders ──
+   Feedback: the page reads as box-in-a-box-in-a-box — outer card
+   border > infobox/right-panel > section blocks > pill-groups > pills
+   > icons, each with its own fence. Outer containers now use a subtle
+   dark-gray border (#2a2a2a) with elevated surface, so amber is freed
+   for text hierarchy only. ── */
+
+/* Pills become flat chips: no border, subtle background, off-white text
+   for maximum readability. Hierarchy from typography, not a fence. */
+.detail-pill {
+  border: none;
+  border-radius: 6px;
+  background: #222222;
+  color: #e0e0e0;
+}
+.detail-pill-group {
+  border: none;
+  border-radius: 6px;
+  background: #222222;
+}
+/* A pill inside a group would otherwise be a chip inside a chip —
+   the exact nesting problem being fixed. Let the group's background
+   carry the color; the inner pill goes transparent. */
+.detail-pill-group .detail-pill {
+  background: transparent;
+}
+
+/* Infobox title: item name above the image render. */
+.infobox-title {
+  padding: 14px 12px 10px;
+  text-align: center;
+  color: var(--accent);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--divider);
+}
+
+/* Infobox image / budget hero: hairline divider instead of a full
+   2px accent rule under every block. Match the image's dark background
+   so the two flow together as one visual unit. */
+.infobox-image {
+  background: #121212;
+  border-bottom: 1px solid var(--divider);
+}
+.infobox-budget {
+  background: #161616;
+  border-bottom: 1px solid var(--divider);
+}
+
+/* Shared / assignable item tiles: background instead of a resting
+   border. Accent border only appears on hover, so amber still means
+   "you can act on this" instead of being permanent scaffolding
+   around every single tile in a grid of 18. */
+.shared-item,
+.assignable-item,
+.shared-view-more,
+.assignable-view-more {
+  border-color: transparent;
+  background: var(--bg-chip);
+}
+@media (hover: hover) {
+  .shared-item:hover,
+  .assignable-item:hover {
+    border-color: var(--accent);
+  }
+}
+
+/* Max Build Count stat boxes: same background-over-border swap. */
+.max-build-stat {
+  border-color: transparent;
+  background: var(--bg-chip);
+}
+
+/* ── Even out spacing around the section dividers in the right panel.
+   The space BEFORE each divider was already consistent (both the
+   description section and .block-category use 1.25rem of bottom
+   padding before their line). The space AFTER a divider, before the
+   next heading, was not:
+     - description's line → "Build Menu Category": 34px
+       (1.25rem margin-bottom on .entm-description-section
+       + .block-category's default 14px padding-top)
+     - category's line → "Placement Conditions": 0px
+       (.block-conditions explicitly zeroed its padding-top)
+   Normalized both to the panel's standard 14px top padding, so every
+   divider has the same amount of breathing room above the heading
+   that follows it. ── */
+.entm-description-section {
+  margin-bottom: 0;
+}
+.block-conditions {
+  padding-top: 14px;
+}
+
+/* ── Inline preview grid row cap ──
+   The ASSIGNABLES INFO, SHARES MAX BUILD COUNT WITH, and BUILD MENU SLOT
+   grids in the item detail page are previews — they should never expand
+   to show all 8,500+ items. JS builds each grid with all items, then
+   trimPreviewGrids() measures the real rendered width to compute column
+   count and trims to exactly 2 rows (3 on mobile) with a "+X more" tile
+   as the final slot. The CSS max-height below is a safety net that
+   matches the worst-case tile height (~102px per row + 8px gap) so if
+   JS miscalculates, content still doesn't spill. */
+.assignable-grid,
+.shared-grid {
+  overflow: hidden;
+}
+/* 2 rows on desktop/tablet: 2 × 102px tiles + 1 × 8px gap = ~212px */
+@media (min-width: 601px) {
+  .right-panel .assignable-grid,
+  .right-panel .shared-grid {
+    max-height: 220px;
+  }
+}
+/* 3 rows on mobile: 3 × 102px tiles + 2 × 8px gaps = ~322px */
+@media (max-width: 600px) {
+  .right-panel .assignable-grid,
+  .right-panel .shared-grid {
+    max-height: 330px;
+  }
+}
+
+/* ── Collapsible "Technical" accordion in infobox ── */
+.tech-accordion {
+  border-top: 1px solid var(--divider);
+}
+.tech-accordion-toggle {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 12px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: transparent;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+/* Label sits in normal flow, centered by the flex container above —
+   no reserved padding or absolute-position math needed. */
+.tech-accordion-label {
+  line-height: 1.2;
+}
+/* CSS border-triangle instead of a Unicode glyph (\25BE): glyph
+   coverage depends on the active font-stack and can render as
+   nothing on fonts that lack it. A border-triangle always renders,
+   and matches the .back-arrow technique used elsewhere on this page.
+   Absolutely positioned so it overlays without affecting the
+   flex-centered label's available width. */
+.tech-accordion-arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease;
+  pointer-events: none;
+}
+.tech-accordion.open .tech-accordion-arrow {
+  transform: translateY(-50%) rotate(180deg);
+}
+@media (hover: hover) {
+  .tech-accordion-toggle:hover {
+    background: rgba(255,255,255,0.04);
+    color: #f0d68a;
+  }
+}
+.tech-accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+.tech-accordion-body .infobox-row:last-child {
+  border-bottom: none;
+}
+
+/* ── Assignable modal: mobile/tablet centered ── */
+@media (max-width: 1024px) {
+  .assignable-modal-overlay {
+    align-items: center;
+    padding: 16px;
+  }
+  .assignable-modal-wrap {
+    width: 92vw;
+    max-width: 560px;
+  }
+  .assignable-modal {
+    border-radius: 12px;
+    max-height: 80vh;
+  }
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
 }

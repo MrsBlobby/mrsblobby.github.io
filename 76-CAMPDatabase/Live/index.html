@@ -15,158 +15,178 @@
  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
+<div class="container site-header">
   <div class="cover-image-wrap">
     <img src="../assets/CoverImage.webp" alt="Fallout 76 C.A.M.P. Item Lookup" class="cover-image">
   </div>
   <div class="meta">
     <p class="author">
-      Made by <span class="author-name">MrsBlobby</span>
-      <a href="../../" class="badge-link">Other Tools</a>
+      <span class="author-text">Made by&nbsp;<span class="author-name">MrsBlobby</span></span>
+      <span class="author-links">
+        <a href="../../" class="badge-link">Other Tools</a>
+        <span class="meta-sep">•</span>
+        <button id="versionHistoryBtn" class="meta-link">v3.2.0 (Changelog)</button>
+        <span class="meta-sep">•</span>
+        <button id="infoBtn" class="meta-link">Info & FAQ</button>
+      </span>
     </p>
-    <p class="updated">Last Updated: July 21, 2026</p>
   </div>
 </div>
 
-    <!-- Version history -->
-<div class="container">
-    <details>
-      <summary>Version History</summary>
-            <div class="changelog-entry">
-          <h4>v3.1.5</h4>
-          <ul>
-              <li>Weather Control Stations now state what type of weather they are considered for the purposes of fishing</li>
-          </ul>
-      </div>
-            <div class="changelog-entry">
-          <h4>v3.1.1</h4>
-          <ul>
-              <li>Fixed edge case causing storefront images to not load properly on Detailed View page</li>
-          </ul>
-      </div>
-            <div class="changelog-entry">
-          <h4>v3.1.0</h4>
-          <ul>
-              <li>Added "Detailed View" pages for each item that list additional info compared to what's on the main page cards. These will likely be expanded upon later down the line</li>
-              <li>Various minor UI improvements</li>
-              <li>Changed how budget tier cutoff points are defined. Notably, only items with &lt1 FU budget cost are now considered Very Low cost, 1 FU cost items are now considered Low cost, and 2 FU items are considered Medium cost</li>
-              <li>"Search by: Challenge/Plan name" has been split up into its 2 respective categories</li>
-              <li>Fixed an edge case of item budget being underreported affecting a handful of lights</li>
-              <li>Added subcategory filters</li>
-          </ul>
-      </div>
-            <div class="changelog-entry">
-          <h4>v3.0.3</h4>
-          <ul>
-              <li>
-                  <div>
-                      Fixed certain plushies unintentionally being labeled as Meat Week rewards
-                  </div>
-              </li>
-          </ul>
+<!-- Version History Modal -->
+<div id="versionModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 style="margin:0;">Version History</h2>
+      <span id="closeVersionModal" class="close">&times;</span>
+    </div>
+    <div id="versionBody" class="modal-body">
+      <p style="color: var(--text-muted); font-size: 12px; margin: 0 0 8px 0;">Last Updated: July 29, 2026</p>
+      <div class="changelog-entry">
+        <h4>v3.2.0</h4>
+        <ul>
+            <li>Made various UI changes.</li>
+            <li>Added model renders of every C.A.M.P. item.</li>
+            <li>Shelters now list their interior budget values.</li>
+            <li>Player Buffs type items &lpar;beds, mechanical derby machine, mothman tome, etc.&rpar; now provide details about the buffs they provide, interaction wait time, etc.</li>
+            <li>C.A.M.P. items that allow item assignment &lpar;displays, punch bowl, fusion core recharger, etc.&rpar; now list what items can be assigned to them.
+              <ul>
+                <li>Note: Unused items are filtered out with a "does this item ever touch a legitimate's player in some way" mentality. This means fully unused/illegitimate items are filtered out, but some of the quest-only MISC items people like to collect are still listed in there.</li>
+              </ul>
+            </li>
+            <li>Added item model + material swaps to technical info section.</li>
+            <li>item-view links now also contain the item name for human readability. Older links still remain functional as well.</li>
+        </ul>
       </div>
       <div class="changelog-entry">
-          <h4>v3.0.2</h4>
-          <ul>
-              <li>Fixed budget values being underreported, primarily affecting lights and prefabs</li>
-              <li>Whichever page is the current page is now better shown to the user</li>
-          </ul>
+        <h4>v3.1.5</h4>
+        <ul>
+            <li>Weather Control Stations now state what type of weather they are considered for the purposes of fishing.</li>
+        </ul>
       </div>
       <div class="changelog-entry">
-          <h4>v3.0.1</h4>
-          <ul>
-              <li>Added technical info to each entry</li>
-              <li>known issue: certain budget values are being underreported</li>
-          </ul>
+        <h4>v3.1.1</h4>
+        <ul>
+            <li>Fixed edge case causing storefront images to not load properly on detailed view page.</li>
+        </ul>
       </div>
-       <div class="changelog-entry">
-          <h4>v3.0</h4>
-          <ul>
-              <li>Added CAMP budget cost to items. Massive thank you to Eckserah for helping out with the script side of this.</li>
-              <li>Added support for items unlocked by challenges</li>
-              <li>Added support for items that have "loot to unlock" placement conditions</li>
-              <li>Fixed various items and/or placement conditions being missing</li>
-              <li>Added more placement condition icons</li>
-              <li>Added "sort by budget"</li>
-              <li>Various UI fixes</li>
-              <li>Added Info & FAQ section</li>
-          </ul>
+      <div class="changelog-entry">
+        <h4>v3.1.0</h4>
+        <ul>
+            <li>Added "Detailed View" pages for each item that list additional info compared to what's on the main page cards. These will likely be expanded upon later down the line.</li>
+            <li>Made various minor UI improvements.</li>
+            <li>Changed how budget tier cutoff points are defined. Notably, only items with &lt;1 FU budget cost are now considered Very Low cost, 1 FU cost items are now considered Low cost, and 2 FU items are considered Medium cost.</li>
+            <li>"Search by: Challenge/Plan name" has been split up into its 2 respective categories.</li>
+            <li>Fixed an edge case of item budget being underreported affecting a handful of lights.</li>
+            <li>Added subcategory filters.</li>
+        </ul>
       </div>
-       <div class="changelog-entry">
-          <h4>v3.0 Beta</h4>
-          <ul>
-              <li>Expansion towards a more generalized database tool</li>
-              <li>Added category icons</li>
-              <li>Added placement conditions (plan, entitlement) for objects, and added respective source icons, i.e. SCORE, Gold Bullion, Stamps, Atomic Shop icons. Known issue with beta version: certain plans will not show yet (i.e. Nuclear Winter stash boxes), nor do challenge requirements (i.e. Kelp Curtain). NOTE: THIS TOOL DOES NOT DISTINGUISH BETWEEN WHAT IS AND ISN'T OBTAINABLE. PLEASE DOUBLE CHECK THIS YOURSELF IF APPLICABLE</li>
-              <li>Added search filters</li>
-              <li>General UI cleanup</li>
-              <li>Full v3.0 release will also list CAMP budget costs, have more source icons, and include further polishing of minor issues</li>
-          </ul>
+      <div class="changelog-entry">
+        <h4>v3.0.3</h4>
+        <ul>
+            <li>Fixed certain plushies unintentionally being labeled as Meat Week rewards.</li>
+        </ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v3.0.2</h4>
+        <ul>
+            <li>Fixed budget values being underreported, primarily affecting lights and prefabs.</li>
+            <li>Whichever page is the current page is now better shown to the user.</li>
+        </ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v3.0.1</h4>
+        <ul>
+            <li>Added technical info to each entry.</li>
+            <li>known issue: certain budget values are being underreported.</li>
+        </ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v3.0</h4>
+        <ul>
+            <li>Added CAMP budget cost to items. Massive thank you to Eckserah for helping out with the script side of this.</li>
+            <li>Added support for items unlocked by challenges.</li>
+            <li>Added support for items that have "loot to unlock" placement conditions.</li>
+            <li>Fixed various items and/or placement conditions being missing.</li>
+            <li>Added more placement condition icons.</li>
+            <li>Added "sort by budget".</li>
+            <li>Various UI fixes.</li>
+            <li>Added Info & FAQ section.</li>
+        </ul>
+      </div>
+      <div class="changelog-entry">
+        <h4>v3.0 Beta</h4>
+        <ul>
+            <li>Expansion towards a more generalized database tool.</li>
+            <li>Added category icons.</li>
+            <li>Added placement conditions (plan, entitlement) for objects, and added respective source icons, i.e. SCORE, Gold Bullion, Stamps, Atomic Shop icons. Known issue with beta version: certain plans will not show yet (i.e. Nuclear Winter stash boxes), nor do challenge requirements (i.e. Kelp Curtain). 
+              <ul>
+                <li>Note: This tool does not distinguish between what is and isn't obtainable. Please double check this yourself if applicable.</li>
+              </ul>
+            <li>Added search filters.</li>
+            <li>Further cleaned up UI.</li>
+            <li>Full v3.0 release will also list CAMP budget costs, have more source icons, and include further polishing of minor issues.</li>
+        </ul>
       </div>
       <div class="changelog-entry">
         <h4>v2.3.1</h4>
-        <ul><li>Fixed issue that caused crops to not have preview images</li></ul>
+        <ul><li>Fixed issue that caused crops to not have preview images.</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v2.3</h4>
-        <ul><li>Results are now displayed in pages of up to 50 entries in an effort to optimize performance</li></ul>
+        <ul><li>Results are now displayed in pages of up to 50 entries to optimize performance.</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v2.2.1</h4>
-        <ul><li>Hid entries that returned null as a name in database</li></ul>
+        <ul><li>Hid entries that returned null as a name in database.</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v2.2</h4>
-        <ul><li>Added sorting options</li></ul>
+        <ul><li>Added sorting options.</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v2.1.2</h4>
-        <ul><li>Fixed issue that caused a lot of Turret entries to be missing</li></ul>
+        <ul><li>Fixed issue that caused a lot of Turret entries to be missing.</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v2.1.1</h4>
-        <ul><li>Fixed Fauna subcategory not displaying correctly</li></ul>
+        <ul><li>Fixed Fauna subcategory not displaying correctly.</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v2.1</h4>
-        <ul><li>Added embed when linking tool on Discord</li></ul>
+        <ul><li>Added embed when linking tool on Discord.</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v2.0</h4>
-        <ul><li>Reworked UI entirely. Added more mobile-friendly UI</li></ul>
+        <ul><li>Reworked UI entirely. Added more mobile-friendly UI.</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v1.2</h4>
-        <ul><li>Added version history</li></ul>
+        <ul><li>Added version history.</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v1.1.1</h4>
-        <ul><li>Fixed wallpaper images</li></ul>
+        <ul><li>Fixed wallpaper images.</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v1.1</h4>
-        <ul><li>Added image support</li></ul>
+        <ul><li>Added image support.</li></ul>
       </div>
       <div class="changelog-entry">
         <h4>v1.0</h4>
         <ul><li>Initial creation</li></ul>
       </div>
-    </details>
+    </div>
   </div>
+</div>
 
-<button id="infoBtn" class="accent-btn">Info & FAQ</button>
-
-<!-- Modal Window -->
+<!-- Info & FAQ Modal -->
 <div id="infoModal" class="modal">
   <div class="modal-content">
-    <!-- Header with X stays fixed -->
     <div class="modal-header">
       <h2 style="margin:0;">Info & FAQ</h2>
       <span id="closeModal" class="close">&times;</span>
     </div>
-    
-
-    <!-- Scrollable body -->
     <div id="infoBody" class="modal-body">
       <!-- Content will go here -->
     </div>
@@ -222,51 +242,54 @@
 </div>
 
 <div class="controls">
-  <div class="search-line">
-    <input type="text" id="searchBox" placeholder="Search..." />
-    <div class="custom-dropdown">
-      <div id="dropdownSelected">Search By: Item Name</div>
-      <div id="dropdownOptions">
-        <div class="option" data-value="name">Item Name</div>
-        <div class="option" data-value="challenge">Challenge</div>
-        <div class="option" data-value="entm">Entitlement Name</div>
-        <div class="option" data-value="formid">Form ID</div>
-        <div class="option" data-value="plan">Plan Name</div>
+  <div class="toolbar">
+    <div class="search-line">
+      <input type="text" id="searchBox" placeholder="Search..." />
+      <div class="custom-dropdown">
+        <div id="dropdownSelected">Search By: Item</div>
+        <div id="dropdownOptions">
+          <div class="option" data-value="name">Item</div>
+          <div class="option" data-value="challenge">Challenge</div>
+          <div class="option" data-value="entm">Entitlement</div>
+          <div class="option" data-value="formid">Form ID</div>
+          <div class="option" data-value="plan">Plan</div>
+        </div>
+      </div>
+    </div>
+
+  <div class="inline-group">
+    <!-- Filters group -->
+    <div class="group-filters" style="display: flex; align-items: center;">
+      <div id="filtersButton">
+        <span class="filters-label">Filters</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="filter-icon" style="width:16px; height:16px;">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+        </svg>
+      </div>
+      <button class="clear-filters" id="clearFiltersExternal">Clear</button>
+    </div>
+
+    <!-- Sort group -->
+    <div class="group-sort">
+      <div class="custom-dropdown" id="sortDropdown">
+       <div id="sortSelected">Sort By: Build Menu (Top - Bottom)</div>
+        <div id="sortOptions">
+          <div class="option" data-value="camp-top">Build Menu (Top - Bottom)</div>
+          <div class="option" data-value="camp-bottom">Build Menu (Bottom - Top)</div>
+          <div class="option" data-value="az">Alphabetical (A-Z)</div>
+          <div class="option" data-value="za">Alphabetical (Z-A)</div>
+          <div class="option" data-value="budget-high-low">Budget Cost (High - Low)</div>
+          <div class="option" data-value="budget-low-high">Budget Cost (Low - High)</div>
+          <div class="option" data-value="new-old">New - Old</div>
+          <div class="option" data-value="old-new">Old - New</div>
+        </div>
       </div>
     </div>
   </div>
 
-<div class="inline-group">
-  <!-- Filters group -->
-  <div class="group-filters" style="display: flex; align-items: center;">
-    <div id="filtersButton">
-      <span class="filters-label">Filters</span>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="filter-icon" style="width:16px; height:16px;">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
-      </svg>
-    </div>
-    <button class="clear-filters" id="clearFiltersExternal">Clear</button>
+  <div id="paginationTop"><button disabled>‹</button><span class="pagination-single">1 / 1</span><button disabled>›</button></div>
   </div>
 
-  <!-- Sort group -->
-  <div class="group-sort">
-    <div class="custom-dropdown" id="sortDropdown">
-     <div id="sortSelected">Sort By: Build Menu (Top - Bottom)</div>
-      <div id="sortOptions">
-        <div class="option" data-value="camp-top">Build Menu (Top - Bottom)</div>
-        <div class="option" data-value="camp-bottom">Build Menu (Bottom - Top)</div>
-        <div class="option" data-value="az">Alphabetical (A-Z)</div>
-        <div class="option" data-value="za">Alphabetical (Z-A)</div>
-        <div class="option" data-value="budget-high-low">Budget Cost (High - Low)</div>
-        <div class="option" data-value="budget-low-high">Budget Cost (Low - High)</div>
-        <div class="option" data-value="new-old">New - Old</div>
-        <div class="option" data-value="old-new">Old - New</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <div id="paginationTop"></div>
   <ul id="results"></ul>
   <div id="pagination" style="text-align:center; margin: 16px 0;"></div>
 

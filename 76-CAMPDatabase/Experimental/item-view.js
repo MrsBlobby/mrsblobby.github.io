@@ -1847,7 +1847,7 @@
         const relativePath = basePath.replace(/^Textures\//i, '').toLowerCase()
           .replace(/^tgatextures\/atx\//, 'atx/')
           .replace(/^tgaatx\//, 'atx/');
-        const imagePath = `storefront/${relativePath}${firstImageName.toLowerCase()}.png`;
+        const imagePath = `storefront/${relativePath}${firstImageName.toLowerCase()}.webp`;
         imageUrl = `https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/76-CAMPDatabase/Experimental/${imagePath}`;
       } else {
         const iconFile = (item.ARTO_FormID || item.CNAM_FormID || '').toLowerCase();
@@ -3177,16 +3177,16 @@
 
             // Generate multiple attempts across all relative-path variants × filename patterns
             const attemptsList = relativeVariants.flatMap(rel => [
-              `../Storefront/${rel}${lowerBase}.png`,
-              `../Storefront/${rel}${lowerBase}_l.png`,
-              `../Storefront/${rel}${srcNoATX}.png`,
-              `../Storefront/${rel}${srcNoATX}_l.png`,
+              `../Storefront/${rel}${lowerBase}.webp`,
+              `../Storefront/${rel}${lowerBase}_l.webp`,
+              `../Storefront/${rel}${srcNoATX}.webp`,
+              `../Storefront/${rel}${srcNoATX}_l.webp`,
               // Try just doubling underscore before 's' (common in SirLoin pattern)
-              `../Storefront/${rel}${srcNoATX.replace(/_s/, '__s')}.png`,
-              `../Storefront/${rel}${srcNoATX.replace(/_s/, '__s')}_l.png`,
+              `../Storefront/${rel}${srcNoATX.replace(/_s/, '__s')}.webp`,
+              `../Storefront/${rel}${srcNoATX.replace(/_s/, '__s')}_l.webp`,
               // Try all underscores doubled
-              `../Storefront/${rel}${srcNoATX.replace(/_/g, '__')}.png`,
-              `../Storefront/${rel}${srcNoATX.replace(/_/g, '__')}_l.png`,
+              `../Storefront/${rel}${srcNoATX.replace(/_/g, '__')}.webp`,
+              `../Storefront/${rel}${srcNoATX.replace(/_/g, '__')}_l.webp`,
             ]);
             // Remove duplicates while preserving order
             const attempts = [...new Set(attemptsList)];

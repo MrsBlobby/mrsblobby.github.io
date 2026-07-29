@@ -1,6 +1,6 @@
 let db = [];
 let currentPage = 1;
-const itemsPerPage = 50;
+const itemsPerPage = 51;
 let lastQuery = '';
 let currentSort = 'camp-top';
 let currentSearchBy = 'name';
@@ -8,6 +8,47 @@ let activeFilters = new Set();
 let _onRenderDone = null; // callback fired after next render fade-in completes
 let _isPageSwap = false;  // true only when triggered by pagination prev/next/number
 let _useFade = true;      // false for search-typing renders, true otherwise
+let _skipInitialPageReset = true;
+let _searchDebounceTimer = null;
+const placementFilters = new Set(['plan', 'entitlement', 'challenge', 'learn']);
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+// ── Scroll restore helpers (module scope so fetch callback can use them) ──
+function readScrollY() {
+  try {
+    const raw = sessionStorage.getItem('searchState');
+    return raw ? (JSON.parse(raw).scrollY || 0) : 0;
+  } catch(e) { return 0; }
+}
+function applyScroll(y) {
+  if (y > 0) window.scrollTo({ top: y, behavior: 'instant' });
+}
+
+// Map of which subcategories belong to which parent category (used by matchesItem filtering)
+const subToParent = {
+  'foundations':'c.a.m.p. pieces','floors':'c.a.m.p. pieces','walls':'c.a.m.p. pieces',
+  'roofs':'c.a.m.p. pieces','stairs':'c.a.m.p. pieces','porches':'c.a.m.p. pieces',
+  'doors':'c.a.m.p. pieces','columns':'c.a.m.p. pieces','fences':'c.a.m.p. pieces','shelters':'c.a.m.p. pieces',
+  'balloons':'decorations','clutter':'decorations','crockery':'decorations',
+  'entertainment':'decorations','fauna':'decorations','holiday':'decorations',
+  'lawn & garden':'decorations','novelties':'decorations','outdoor':'decorations',
+  'rugs':'decorations','decoration signs':'decorations',
+  'statues':'decorations','taxidermy':'decorations','toys':'decorations','vehicles':'decorations',
+  'barricades':'defense','traps':'defense','turrets':'defense',
+  'allies':'dwellers','pets':'dwellers','pet furniture':'dwellers',
+  'appliances':'furniture','beds':'furniture','electronics':'furniture',
+  'seating':'furniture','shelves':'furniture','surfaces':'furniture',
+  'candles':'lights','ceiling lights':'lights','fire':'lights','lamps':'lights',
+  'lights signs':'lights','wall lights':'lights',
+  'generators':'power','power connectors':'power',
+  'crafting':'resources','collectors':'resources','food':'resources','producers':'resources','water':'resources',
+  'additional storage':'storage','displays':'storage','stash boxes':'storage',
+  'farm':'structure','frontier':'structure','industrial':'structure','military':'structure',
+  'modern':'structure','retail':'structure','rustic':'structure','scavenger':'structure',
+  'instruments':'utility','player buffs':'utility','services':'utility','vending machines':'utility',
+  'accents':'wall decor','ceiling':'wall decor','mounted':'wall decor','tapestry':'wall decor',
+  'wall art':'wall decor','wall decor signs':'wall decor','wall letters':'wall decor','window':'wall decor',
+};
 
 // ── Scroll lock utility (prevents background scroll when modal is open) ──
 let _scrollLockCount = 0;
@@ -188,7 +229,7 @@ window.addEventListener('DOMContentLoaded', () => {
       lastQuery       = state.query    || '';
       currentSort     = state.sort     || 'camp-top';
       currentSearchBy = state.searchBy || 'name';
-      currentPage     = state.page     || 1;
+      currentPage     = state.page || 1;
       activeFilters   = new Set(state.filters || []);
       searchBox.value = lastQuery;
 
@@ -228,20 +269,44 @@ window.addEventListener('DOMContentLoaded', () => {
         const name = document.createElement('div'); name.className = 'result-name'; name.textContent = r.Name;
         left.appendChild(name);
         const img = document.createElement('img');
-        img.src = r.ARTO_FormID ? `Images/${r.ARTO_FormID.toLowerCase()}.webp` : `Images/${(r.CNAM_FormID||'').toLowerCase()}.webp`;
+        img.src = r.ARTO_FormID ? `../WorkshopIcons/${r.ARTO_FormID.toLowerCase()}.webp` : `../WorkshopIcons/${(r.CNAM_FormID||'').toLowerCase()}.webp`;
         img.style.cssText = 'width:128px;height:128px;object-fit:contain;display:block;opacity:0;';
         left.appendChild(img);
         li.appendChild(left);
         results.appendChild(li);
       });
-      // Scroll immediately — document height is now correct
-      const savedScrollY = JSON.parse(saved).scrollY || 0;
-      if (savedScrollY > 0) requestAnimationFrame(() => window.scrollTo({ top: savedScrollY }));
     } catch(e) {}
   }
 
+  // ── Scroll restore ──
+
+  // Desktop: browser default handles it, just do one shot after snapshot
+  const sy = readScrollY();
+  if (sy > 0) {
+    requestAnimationFrame(() => applyScroll(sy));
+  }
+
+  // Mobile: override scrollRestoration + retry after DB loads
+  if (isTouchDevice && window.history && window.history.scrollRestoration) {
+    window.history.scrollRestoration = 'manual';
+  }
+
+  // pageshow fires after bfcache restore — re-apply on mobile
+  window.addEventListener('pageshow', () => {
+    if (!isTouchDevice) return;
+    const y = readScrollY();
+    if (y > 0) {
+      applyScroll(y);
+      setTimeout(() => applyScroll(y), 150);
+      setTimeout(() => applyScroll(y), 400);
+    }
+  });
+
   // Save scroll position continuously
   window.addEventListener('scroll', () => saveSearchState(), { passive: true });
+  // Also save on page hide / before unload (mobile browsers may not fire scroll before unload)
+  window.addEventListener('pagehide', () => saveSearchState(), { once: true });
+  window.addEventListener('beforeunload', () => saveSearchState(), { once: true });
 
   // Initial render with empty DB — no fade needed, just reserves space
   _useFade = false;
@@ -416,8 +481,30 @@ const miniSeasonAliases = {
 fetch('final_workshop_db.json')
   .then(response => response.json())
   .then(data => {
-    db = data;
+     db = data;
+    db.forEach(item => {
+      item._nameLower = (item.Name || '').toLowerCase();
+      item._bookFullLower = (item.BOOK_FULL || '').toLowerCase();
+      item._entmFullLower = (item.ENTM_FULL || '').toLowerCase();
+      item._formIdLower = (item.CNAM_FormID || '').toLowerCase();
+      item._bookEdidLower = (String(item.BOOK_EditorID || '')).toLowerCase();
+      item._sourceLower = (String(item.BOOK_SOURCE || '')).toLowerCase();
+    });
     renderResults(lastQuery);
+    // Re-restore scroll after real results replace the snapshot content.
+    // Needed on all devices: the initial render is skipped while the DB is
+    // still loading (see the db.length === 0 guard in renderResults), so
+    // this is the render that actually determines final page height.
+    const y = readScrollY();
+    if (y > 0) {
+      requestAnimationFrame(() => {
+        applyScroll(y);
+        // Extra retries matter most on mobile (async layout/viewport
+        // settling) but are harmless no-ops elsewhere.
+        setTimeout(() => applyScroll(y), 200);
+        setTimeout(() => applyScroll(y), 500);
+      });
+    }
   })
   .catch(err => {
     console.error("Failed to load database:", err);
@@ -427,10 +514,55 @@ fetch('final_workshop_db.json')
 const infoBtn = document.getElementById('infoBtn');
 const infoModal = document.getElementById('infoModal');
 const closeModal = document.getElementById('closeModal');
+const versionBtn = document.getElementById('versionHistoryBtn');
+const versionModal = document.getElementById('versionModal');
+const closeVersionModal = document.getElementById('closeVersionModal');
 
 window.addEventListener('popstate', () => {
   if (infoModal.style.display === 'block') {
     closeInfoModal(true);
+  }
+  if (versionModal.style.display === 'block') {
+    closeVersionModalFn(true);
+  }
+  if (filterModal.style.display !== 'none') {
+    closeFilterModal(true);
+  }
+});
+
+// Version History modal
+versionBtn.addEventListener('click', () => {
+  versionModal.style.display = 'block';
+  lockScroll();
+
+  requestAnimationFrame(() => {
+    versionModal.classList.add('is-open');
+  });
+
+  history.pushState({ modal: 'version' }, '');
+
+  const content = versionModal.querySelector('.modal-body');
+  if (content) content.scrollTop = 0;
+});
+
+function closeVersionModalFn(fromPopState = false) {
+  versionModal.classList.remove('is-open');
+  unlockScroll();
+
+  if (!fromPopState && history.state?.modal === 'version') {
+    history.back();
+  }
+
+  setTimeout(() => {
+    versionModal.style.display = 'none';
+  }, 120);
+}
+
+closeVersionModal.addEventListener('click', closeVersionModalFn);
+
+versionModal.addEventListener('click', (event) => {
+  if (event.target === versionModal) {
+    closeVersionModalFn();
   }
 });
 
@@ -480,22 +612,23 @@ const infoBody = document.getElementById('infoBody');
 const faqItems = [
   { 
     q: "What is this?", 
-    a: "This is a database tool for Fallout 76 C.A.M.P. items. You can search for items, and sort/filter based on different variables. Currently, this tool lists the build menu category, the placement conditions, and the budget cost of a particular C.A.M.P. item." 
+    a: "This is a database tool for Fallout 76 C.A.M.P. items. You can search for items, and sort/filter based on different variables. This tool lists the build menu category, the placement conditions, and the budget cost of a particular C.A.M.P. item. Each item also has a detailed view page that shows additional information such as max build counts, shared build limits, storefront images, player buff details, etc." 
   },
   { 
     q: "What do the different search options mean?",
     a: [
-      "Search by Item Name: Quite self-explanatory. Search results are based on the name of the item that is built.",
-      "Search by Plan Name: Search results are based on the plan name listed under Placement Conditions. This can come in handy if you want to see what a particular, more vague-sounding plan unlocks, i.e. Plan: Metal Signs.",
-      "Search by Challenge Name: Similar to Plan Name, but filters to challenge-unlocked items only.",
-      "Search by Entitlement Name: Similarly to the Plan/Challenge Name option, this does essentially the same, but for Atomic Shop/S.C.O.R.E items. Entitlements act like account-wide plans used by these items."
+      "Search by Item: Quite self-explanatory. Search results are based on the name of the item that is built.",
+      "Search by Plan: Search results are based on the plan name listed under Placement Conditions. This can come in handy if you want to see what a particular, more vague-sounding plan unlocks, i.e. Plan: Metal Signs.",
+      "Search by Challenge: Similar to Plan, but filters to challenge-unlocked items only.",
+      "Search by Entitlement: Similarly to the Plan/Challenge option, this does essentially the same, but for Atomic Shop/S.C.O.R.E items. Entitlements act like account-wide plans used by these items."
     ]
   },
    { 
     q: "How do the filters work?", 
     a: [
       "The Placement Condition filters operate on a logic that is sort of a mix of XOR and AND logic. If you select just 1 placement condition filter, you will only get results with that particular type of placement condition, i.e. selecting Plan will only yield items that are plan-only. Selecting 2 or more placement condition filters at once will result in results that meet both of those requirements at once, i.e. selecting Plan and Entitlement will only yield items that have both in their placement conditions.",
-      "The Workshop Category Filters operate purely on OR logic. You will get results that are under any of the selected categories." 
+      "The Workshop Category Filters operate purely on OR logic. You will get results that are under any of the selected categories.",
+      "You can also filter by subcategory. Click a category button in the filter panel to reveal its available subcategories, and select them to narrow down results further."
    ]
   },
   {
@@ -623,7 +756,7 @@ faqItems.forEach(item => {
 
 // --- Dropdown elements ---
 const dropdownSelected = document.getElementById('dropdownSelected');
-dropdownSelected.textContent = 'Search By: Item Name';
+dropdownSelected.textContent = 'Search By: Item';
 const dropdownOptions = document.getElementById('dropdownOptions');
 const sortSelected = document.getElementById('sortSelected');
 const sortOptions = document.getElementById('sortOptions');
@@ -735,24 +868,43 @@ const filterModalClose = document.getElementById('filterModalClose');
 const filterModalDone = document.getElementById('filterModalDone');
 const filterModalClear = document.getElementById('filterModalClear');
 
+let filterModalCloseTimeout = null;
+
 function openFilterModal() {
+  if (filterModalCloseTimeout) {
+    clearTimeout(filterModalCloseTimeout);
+    filterModalCloseTimeout = null;
+  }
+  const modalElement = document.querySelector('.filter-modal');
+  filterModal.classList.remove('closing');
+  if (modalElement) modalElement.classList.remove('closing');
   filterModal.style.display = 'flex';
   lockScroll();
   closeAllDropdowns();
+  history.pushState({ modal: 'filter' }, '');
 }
-function closeFilterModal() {
+function closeFilterModal(fromPopState = false) {
+  if (filterModal.style.display === 'none') return; // already closed, nothing to do
+  if (filterModalCloseTimeout) {
+    clearTimeout(filterModalCloseTimeout);
+    filterModalCloseTimeout = null;
+  }
   filterModal.classList.add('closing');
-  unlockScroll();
   const modalElement = document.querySelector('.filter-modal');
   if (modalElement) {
     modalElement.classList.add('closing');
   }
-  setTimeout(() => {
+  if (!fromPopState && history.state?.modal === 'filter') {
+    history.back();
+  }
+  filterModalCloseTimeout = setTimeout(() => {
     filterModal.style.display = 'none';
     filterModal.classList.remove('closing');
     if (modalElement) {
       modalElement.classList.remove('closing');
     }
+    unlockScroll();
+    filterModalCloseTimeout = null;
   }, 150);
 }
 
@@ -764,7 +916,9 @@ filtersButton.addEventListener('click', e => {
 filterModalClose.addEventListener('click', closeFilterModal);
 filterModalDone.addEventListener('click', closeFilterModal);
 filterModal.addEventListener('click', e => { if (e.target === filterModal) closeFilterModal(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeFilterModal(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && filterModal.style.display !== 'none') closeFilterModal();
+});
 
 filterModalClear.addEventListener('click', e => {
   e.stopPropagation();
@@ -807,17 +961,24 @@ dropdownOptions.querySelectorAll('.option').forEach(option => {
 
 document.getElementById('searchBox').addEventListener('input', e => {
   _useFade = false;
-  renderResults(e.target.value);
+  clearTimeout(_searchDebounceTimer);
+  _searchDebounceTimer = setTimeout(() => {
+    renderResults(e.target.value);
+  }, 150);
 });
 
 // --- Sorting / Pagination ---
+// Cached collator: reused across every sort call instead of letting localeCompare()
+// re-resolve locale/collation options on every single pairwise comparison.
+const _collator = new Intl.Collator();
+
 function sortItems(items) {
   switch(currentSort) {
     case 'camp-bottom': return [...items].reverse();
-    case 'new-old': return [...items].sort((a,b) => (b.CNAM_FormID || '').localeCompare(a.CNAM_FormID || ''));
-    case 'old-new': return [...items].sort((a,b) => (a.CNAM_FormID || '').localeCompare(b.CNAM_FormID || ''));
-    case 'az': return [...items].sort((a,b) => (a.Name || '').localeCompare(b.Name || ''));
-    case 'za': return [...items].sort((a,b) => (b.Name || '').localeCompare(a.Name || ''));
+    case 'new-old': return [...items].sort((a,b) => _collator.compare(b.CNAM_FormID || '', a.CNAM_FormID || ''));
+    case 'old-new': return [...items].sort((a,b) => _collator.compare(a.CNAM_FormID || '', b.CNAM_FormID || ''));
+    case 'az': return [...items].sort((a,b) => _collator.compare(a.Name || '', b.Name || ''));
+    case 'za': return [...items].sort((a,b) => _collator.compare(b.Name || '', a.Name || ''));
     case 'budget-high-low': return [...items].sort((a, b) => (b.BudgetCost || 0) - (a.BudgetCost || 0));
     case 'budget-low-high': return [...items].sort((a, b) => (a.BudgetCost || 0) - (b.BudgetCost || 0));
     default: return items;
@@ -836,57 +997,33 @@ function renderPagination(totalItems) {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   pagination.innerHTML = '';
   if (paginationTop) paginationTop.innerHTML = '';
-  if (totalPages <= 1) return;
 
-  function makePageBtn(i) {
-    const btn = document.createElement('button');
-    btn.textContent = i;
-    if (i === currentPage) btn.classList.add('active-page');
-    btn.onclick = () => { _isPageSwap = true; currentPage = i; renderResults(document.getElementById('searchBox').value); };
-    return btn;
-  }
-  function makeEllipsis() {
-    const span = document.createElement('span');
-    span.textContent = '…';
-    return span;
-  }
-
-  function buildPaginationNodes() {
+  function buildNodes(top) {
     const nodes = [];
-    const delta = 0; // no adjacent pages — prev/next buttons handle stepping
+    const isSingle = totalPages <= 1;
 
     const prevBtn = document.createElement('button');
     prevBtn.textContent = '‹';
-    prevBtn.disabled = currentPage === 1;
-    prevBtn.onclick = () => { _isPageSwap = true; currentPage--; renderResults(document.getElementById('searchBox').value); };
+    prevBtn.disabled = isSingle || currentPage === 1;
+    if (!isSingle) prevBtn.onclick = () => { _isPageSwap = true; currentPage--; renderResults(document.getElementById('searchBox').value); };
     nodes.push(prevBtn);
 
-    // Always show page 1
-    nodes.push(makePageBtn(1));
-
-    const windowStart = Math.max(2, currentPage - delta);
-    const windowEnd   = Math.min(totalPages - 1, currentPage + delta);
-
-    if (windowStart > 2) nodes.push(makeEllipsis());
-
-    for (let i = windowStart; i <= windowEnd; i++) nodes.push(makePageBtn(i));
-
-    if (windowEnd < totalPages - 1) nodes.push(makeEllipsis());
-
-    // Always show last page (if more than 1 page)
-    if (totalPages > 1) nodes.push(makePageBtn(totalPages));
+    const label = document.createElement('span');
+    label.textContent = `${currentPage} / ${totalPages || 1}`;
+    if (isSingle && top) label.classList.add('pagination-single');
+    nodes.push(label);
 
     const nextBtn = document.createElement('button');
     nextBtn.textContent = '›';
-    nextBtn.disabled = currentPage === totalPages;
-    nextBtn.onclick = () => { _isPageSwap = true; currentPage++; renderResults(document.getElementById('searchBox').value); };
+    nextBtn.disabled = isSingle || currentPage === totalPages;
+    if (!isSingle) nextBtn.onclick = () => { _isPageSwap = true; currentPage++; renderResults(document.getElementById('searchBox').value); };
     nodes.push(nextBtn);
 
     return nodes;
   }
 
-  buildPaginationNodes().forEach(n => pagination.appendChild(n));
-  if (paginationTop) buildPaginationNodes().forEach(n => paginationTop.appendChild(n));
+  buildNodes(false).forEach(n => pagination.appendChild(n));
+  if (paginationTop) buildNodes(true).forEach(n => paginationTop.appendChild(n));
 }
 
 // ── Filter sub-panel ──
@@ -1008,6 +1145,7 @@ document.querySelectorAll('#filtersOptions .filter-col-categories button[data-fi
     if (activeFilters.has(filter)) {
       activeFilters.delete(filter);
       btn.classList.remove('selected');
+      btn.classList.remove('cat-active');
       // When deselecting, reset the sub-panel
       filterSubPanel.innerHTML = '<div class="filter-col-sub-empty">Click a category to see subcategories</div>';
     } else {
@@ -1020,6 +1158,7 @@ document.querySelectorAll('#filtersOptions .filter-col-categories button[data-fi
     }
     updateFiltersButton();
     renderResults(document.getElementById('searchBox').value);
+    btn.blur();
   });
 });
 
@@ -1043,6 +1182,7 @@ document.querySelectorAll('.filter-col-placement button[data-filter]').forEach(b
     }
     updateFiltersButton();
     renderResults(document.getElementById('searchBox').value);
+    btn.blur();
   });
 });
 
@@ -1055,13 +1195,18 @@ function renderResults(query) {
   lastQuery = normalizedQuery;
   saveSearchState();
 
+  // DB hasn't loaded yet — bail out instead of rendering a "no results" state,
+  // which would wipe the height-preserving snapshot/minHeight before scroll
+  // restore gets a chance to run. The fetch .then() callback re-renders once
+  // real data is available.
+  if (db.length === 0) return;
+
   const results    = document.getElementById('results');
   const pagination = document.getElementById('pagination');
 
   // Build the new content off-screen, then swap with a fade
   const _doRender = () => {
     // --- filters setup ---
-    let placementFilters = new Set(['plan', 'entitlement', 'challenge', 'learn']);
 
  function matchesItem(item) {
   if (activeFilters.size === 0) return true;
@@ -1096,32 +1241,6 @@ function renderResults(query) {
 
 
   // --- Category/subcategory filters ---
-  // Build a map of which subcategories belong to which parent category
-  const subToParent = {
-    'foundations':'c.a.m.p. pieces','floors':'c.a.m.p. pieces','walls':'c.a.m.p. pieces',
-    'roofs':'c.a.m.p. pieces','stairs':'c.a.m.p. pieces','porches':'c.a.m.p. pieces',
-    'doors':'c.a.m.p. pieces','columns':'c.a.m.p. pieces','fences':'c.a.m.p. pieces','shelters':'c.a.m.p. pieces',
-    'balloons':'decorations','clutter':'decorations','crockery':'decorations',
-    'entertainment':'decorations','fauna':'decorations','holiday':'decorations',
-    'lawn & garden':'decorations','novelties':'decorations','outdoor':'decorations',
-    'rugs':'decorations','decoration signs':'decorations',
-    'statues':'decorations','taxidermy':'decorations','toys':'decorations','vehicles':'decorations',
-    'barricades':'defense','traps':'defense','turrets':'defense',
-    'allies':'dwellers','pets':'dwellers','pet furniture':'dwellers',
-    'appliances':'furniture','beds':'furniture','electronics':'furniture',
-    'seating':'furniture','shelves':'furniture','surfaces':'furniture',
-    'candles':'lights','ceiling lights':'lights','fire':'lights','lamps':'lights',
-    'lights signs':'lights','wall lights':'lights',
-    'generators':'power','power connectors':'power',
-    'crafting':'resources','collectors':'resources','food':'resources','producers':'resources','water':'resources',
-    'additional storage':'storage','displays':'storage','stash boxes':'storage',
-    'farm':'structure','frontier':'structure','industrial':'structure','military':'structure',
-    'modern':'structure','retail':'structure','rustic':'structure','scavenger':'structure',
-    'instruments':'utility','player buffs':'utility','services':'utility','vending machines':'utility',
-    'accents':'wall decor','ceiling':'wall decor','mounted':'wall decor','tapestry':'wall decor',
-    'wall art':'wall decor','wall decor signs':'wall decor','wall letters':'wall decor','window':'wall decor',
-  };
-
   const categoryActive = [...activeFilters].filter(f => !placementFilters.has(f));
 
   // Separate into parent categories and subcategories
@@ -1170,22 +1289,18 @@ function renderResults(query) {
     // basic search
     let matchesSearch;
     if (!normalizedQuery) matchesSearch = true;
-    else if (currentSearchBy === 'name') matchesSearch = item.Name && item.Name.toLowerCase().includes(normalizedQuery);
-    else if (currentSearchBy === 'book') matchesSearch = item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
+    else if (currentSearchBy === 'name') matchesSearch = item._nameLower.includes(normalizedQuery);
+    else if (currentSearchBy === 'book') matchesSearch = item._bookFullLower.includes(normalizedQuery);
     else if (currentSearchBy === 'plan') {
-      // Plans only — exclude challenge entries
-      const bookEdid = String(item.BOOK_EditorID || '').toLowerCase();
-      const isChallenge = bookEdid.includes('challenge_');
-      matchesSearch = !isChallenge && item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
+      const isChallenge = item._bookEdidLower.includes('challenge_');
+      matchesSearch = !isChallenge && item._bookFullLower.includes(normalizedQuery);
     }
     else if (currentSearchBy === 'challenge') {
-      // Challenges only
-      const bookEdid = String(item.BOOK_EditorID || '').toLowerCase();
-      const isChallenge = bookEdid.includes('challenge_');
-      matchesSearch = isChallenge && item.BOOK_FULL && item.BOOK_FULL.toLowerCase().includes(normalizedQuery);
+      const isChallenge = item._bookEdidLower.includes('challenge_');
+      matchesSearch = isChallenge && item._bookFullLower.includes(normalizedQuery);
     }
-    else if (currentSearchBy === 'entm') matchesSearch = item.ENTM_FULL && item.ENTM_FULL.toLowerCase().includes(normalizedQuery);
-    else if (currentSearchBy === 'formid') matchesSearch = item.CNAM_FormID && item.CNAM_FormID.toLowerCase().includes(normalizedQuery);
+    else if (currentSearchBy === 'entm') matchesSearch = item._entmFullLower.includes(normalizedQuery);
+    else if (currentSearchBy === 'formid') matchesSearch = item._formIdLower.includes(normalizedQuery);
 
     const matchesFilters = matchesItem(item); // call the new function
 
@@ -1194,18 +1309,38 @@ function renderResults(query) {
 
   const sorted = sortItems(filtered);
 
-  // reset to page 1 if query changed or current page is out of range
+  // reset to page 1 only for explicit new searches/filters, not for initial restore
   const totalPages = Math.ceil(sorted.length / itemsPerPage);
-  if (queryChanged || currentPage > totalPages) currentPage = 1;
+  if (_skipInitialPageReset) {
+    _skipInitialPageReset = false;
+  } else if (queryChanged || currentPage > totalPages) {
+    currentPage = 1;
+  } else if (currentPage > totalPages) {
+    currentPage = totalPages || 1;
+  }
 
   const paged = paginate(sorted);
+
+  // Skip DOM swap if the page's visible card IDs haven't changed (search typing
+  // that narrows/widens the match set but the current page is identical).
+  if (!useFade && !isPageSwap) {
+    const prevIds = Array.from(results.querySelectorAll('.grid-card-name'))
+      .map(a => decodeURIComponent(a.getAttribute('href').split('/').pop()));
+    const nextIds = paged
+      .filter(r => (r.SubCategory || '').trim().toLowerCase() !== 'testsubcat')
+      .map(r => r.CNAM_FormID);
+    if (prevIds.length === nextIds.length && prevIds.every((id, i) => id === nextIds[i])) {
+      renderPagination(sorted.length);
+      return;
+    }
+  }
+
   const frag = document.createDocumentFragment();
 
   if (!paged.length) {
+    results.style.minHeight = '';
     results.innerHTML = '<li class="no-results">No matches found</li>';
-    pagination.innerHTML = '';
-    const paginationTop = document.getElementById('paginationTop');
-    if (paginationTop) paginationTop.innerHTML = '';
+    renderPagination(0);
     requestAnimationFrame(() => requestAnimationFrame(() => {
       results.style.opacity = '1';
       results.style.transition = 'opacity 0.25s ease';
@@ -1222,118 +1357,105 @@ function renderResults(query) {
   paged.forEach(r => {
     if ((r.SubCategory || '').trim().toLowerCase() === 'testsubcat'.toLowerCase()) return;
 
-    const li = document.createElement('li');
+    const card = document.createElement('div');
+    card.className = 'grid-card';
 
-    const left = document.createElement('div');
-    left.className = 'result-left';
+    const cnamFormID = (r.CNAM_FormID || '').toLowerCase();
+    const artoFormID = (r.ARTO_FormID || '').toLowerCase();
+    const slug = (r.Name || '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    const detailHref = `item-view.html?fresh=1#${encodeURIComponent(slug || 'item')}/${encodeURIComponent(r.CNAM_FormID)}`;
 
-    const name = document.createElement('div');
-    name.className = 'result-name';
-    name.textContent = r.Name;
-    left.appendChild(name);
+    const nameLink = document.createElement('a');
+    nameLink.className = 'grid-card-name';
+    nameLink.href = detailHref;
+    nameLink.textContent = r.Name;
+    card.appendChild(nameLink);
 
-    // Entry images
-    let imgSrc = `Images/${(r.ARTO_FormID || '').toLowerCase()}.webp`;
+    const imageLink = document.createElement('a');
+    imageLink.className = 'grid-card-image-wrap';
+    imageLink.href = detailHref;
 
-    // Fallback to CNAM if ARTO image fails to load
-    if (!r.ARTO_FormID) {
-      imgSrc = `Images/${(r.CNAM_FormID || '').toLowerCase()}.webp`;
-    }
+    // ModelRender always uses CNAM; WorkshopIcons tries ARTO then CNAM
+    const thumbnailSrc = `../ModelRender/CAMPitem/${cnamFormID.toUpperCase()}_thumbnail.webp`;
+    const fallbackLower = `../ModelRender/CAMPitem/${cnamFormID}_thumbnail.webp`;
+    const placeholderSrc = `../WorkshopIcons/item-placeholder.webp`;
+    const artoIconSrc = artoFormID ? `../WorkshopIcons/${artoFormID}.webp` : null;
+    const cnamIconSrc = cnamFormID ? `../WorkshopIcons/${cnamFormID}.webp` : null;
 
     const img = document.createElement('img');
-    img.src = imgSrc;
+    img.loading = 'lazy';
     img.alt = r.Name;
+    img.style.cssText = 'opacity:0;transition:opacity 0.3s ease;';
+    img.onload = function() { this.style.opacity = '1'; };
+    // Chain: CNAM upper → CNAM lower → WorkshopIcons(arto) → WorkshopIcons(cnam) → placeholder
+    const fallbackChain = [fallbackLower, artoIconSrc, cnamIconSrc].filter(Boolean);
+    let fallbackIdx = 0;
+    img.onerror = function() {
+      if (fallbackIdx < fallbackChain.length) {
+        this.src = fallbackChain[fallbackIdx++];
+      } else {
+        this.onerror = null;
+        this.src = placeholderSrc;
+      }
+      this.style.opacity = '1';
+    };
+    img.src = thumbnailSrc;
 
-    // Fade in on load to avoid jarring pop-in
-    if (img.complete && img.naturalWidth > 0) {
-      img.classList.add('loaded');
-    } else {
-      img.addEventListener('load',  () => img.classList.add('loaded'), { once: true });
-      img.addEventListener('error', () => img.classList.add('loaded'), { once: true });
-    }
+    imageLink.appendChild(img);
+    card.appendChild(imageLink);
 
-    // If ARTO was tried first, fallback on error to CNAM
-    if (r.ARTO_FormID && r.CNAM_FormID) {
-      img.onerror = function() {
-        this.onerror = null; // prevent infinite loop if CNAM also fails
-        this.src = `Images/${r.CNAM_FormID.toLowerCase()}.webp`;
-      };
-    }
+    const info = document.createElement('div');
+    info.className = 'grid-card-info';
 
-    left.appendChild(img);
-
-    // --- View Detailed View Button ---
-    const detailButton = document.createElement('a');
-    detailButton.href = `item-view.html?id=${encodeURIComponent(r.CNAM_FormID)}&fresh=1`;
-    detailButton.className = 'detail-button';
-    detailButton.textContent = 'Open Detailed View';
-    left.appendChild(detailButton);
-
-
-    const right = document.createElement('div');
-    right.className = 'result-right';
-
-
-    // --- Build Menu Category header + pills ---
     if ((r.Category && r.Category.trim() !== '') || (r.SubCategory && r.SubCategory.trim() !== '')) {
-      const catHeader = document.createElement('div');
-      catHeader.className = 'section-header';
-      catHeader.textContent = 'Build Menu Category';
-      right.appendChild(catHeader);
-
-      const catWrap = document.createElement('div');
-      catWrap.className = 'inline-wrap';
-
+      const section = document.createElement('div');
+      section.className = 'grid-card-section';
+      const title = document.createElement('div');
+      title.className = 'section-title';
+      title.textContent = 'Build Menu';
+      section.appendChild(title);
+      const value = document.createElement('div');
+      value.className = 'section-value';
       const categories = [];
-
       if (r.Category && r.Category.trim() !== '') {
         if (r.Category.toLowerCase() === 'wallpapers') {
-          categories.push('Modify');          
-          categories.push(r.Category);        // keep "Wallpapers" as subcategory
+          categories.push('Modify');
+          categories.push(r.Category);
         } else {
           categories.push(r.Category);
-          if (
-            r.SubCategory &&
-            r.SubCategory.trim() !== '' &&
-            r.Category.toLowerCase() !== 'wallpapers'
-          ) {
+          if (r.SubCategory && r.SubCategory.trim() !== '' && r.Category.toLowerCase() !== 'wallpapers') {
             categories.push(r.SubCategory);
           }
         }
       }
-
-
       categories.forEach((cat, i) => {
         const catSpan = document.createElement('span');
         catSpan.className = 'pill';
-        catSpan.textContent = '';
-
+        catSpan.style.fontSize = '14px';
+        catSpan.style.minHeight = 'auto';
         const iconPath = CategoryIcons[cat];
         if (iconPath) {
           const icon = document.createElement('img');
           icon.src = iconPath;
-          const isSVG = iconPath.toLowerCase().endsWith('.svg');
-          icon.style.height = isSVG ? '24px' : '30px';
-          icon.style.width = 'auto';
+          icon.style.height = '30px';
+          icon.style.objectFit = 'contain';
+          icon.style.width = '30px';
           icon.style.verticalAlign = 'middle';
-          icon.style.marginRight = '6px';
+          icon.style.marginRight = '4px';
           catSpan.appendChild(icon);
         }
-
         catSpan.appendChild(document.createTextNode(cat));
-        catWrap.appendChild(catSpan);
-
+        value.appendChild(catSpan);
         if (i < categories.length - 1) {
           const arrow = document.createElement('span');
           arrow.className = 'arrow';
-          catWrap.appendChild(arrow);
+          value.appendChild(arrow);
         }
       });
-
-      right.appendChild(catWrap);
+      section.appendChild(value);
+      info.appendChild(section);
     }
 
-    // --- Placement Conditions header + pills ---
     const cnamUnlockText = {
       '00424740': '(Unlock 2 or more)',
       '0042716B': '(Unlock 3 or more)',
@@ -1344,24 +1466,48 @@ function renderResults(query) {
     const hasBook = !!(r.BOOK_FULL && String(r.BOOK_FULL).trim());
     const hasEntm = !!(r.ENTM_FULL && String(r.ENTM_FULL).trim());
     if (hasBook || hasEntm) {
-      const condHeader = document.createElement('div');
-      condHeader.className = 'section-header';
-      condHeader.textContent = 'Placement Conditions';
-      condHeader.style.marginTop = '8px';
-      right.appendChild(condHeader);
+      const section = document.createElement('div');
+      section.className = 'grid-card-section';
+      const title = document.createElement('div');
+      title.className = 'section-title';
+      title.textContent = 'Placement';
+      section.appendChild(title);
+      const value = document.createElement('div');
+      value.className = 'section-value';
 
-      // Optional CNAM-based unlock note
       const unlockText = cnamUnlockText[String(r.CNAM_FormID || '').trim()];
       if (unlockText) {
         const unlockNote = document.createElement('div');
         unlockNote.className = 'placement-note';
         unlockNote.textContent = unlockText;
-        right.appendChild(unlockNote);
+        value.appendChild(unlockNote);
       }
 
-
       const condWrap = document.createElement('div');
-      condWrap.className = 'inline-wrap';
+      condWrap.className = 'inline-wrap inline-wrap--conditions';
+
+      // Appends a set of pills to a container, each as its own individual
+      // box, with a plain connector (e.g. 'and'/'or') between them.
+      function appendPillGroup(container, pills, connector) {
+        pills.forEach((pill, i) => {
+          container.appendChild(pill);
+          if (i < pills.length - 1) {
+            const conn = document.createElement('span');
+            conn.className = 'connector';
+            conn.textContent = connector;
+            container.appendChild(conn);
+          }
+        });
+      }
+
+      // Checks (after layout) whether the condition wrap actually wrapped to
+      // more than one line. If so, adds .is-wrapped so CSS switches it from
+      // a normal inline row to the stacked/centered treatment. Left alone
+      // (a single line fits), it stays exactly as it always has.
+      // Conditions now always render as a plain left-aligned stacked list
+      // (see .inline-wrap--conditions in style-improvements.css), so the old
+      // post-layout measure-and-center behavior is no longer needed.
+      function finalizeConditionWrap(wrap) {}
 
       const bookSource = String(r.BOOK_SOURCE || '').trim();
 
@@ -1371,26 +1517,20 @@ function renderResults(query) {
 
       switch (bookSource) {
         case 'direct':
-          // all AND → defaults already correct
           break;
-      
         case 'CNDF':
           bookBookConnector = 'or';
           bookEntmConnector = 'or';
           break;
-      
         case 'CNDFException':
           bookBookConnector = 'or';
           bookEntmConnector = 'and';
           entmEntmConnector = 'or';
           break;
-      
         default:
-          // unknown source → safest fallback
           bookBookConnector = 'and';
           bookEntmConnector = 'and';
       }
-
 
 if (hasBook) {
   const BookTagIcons = {
@@ -1451,13 +1591,11 @@ const multiVendorCategories = {
 
 
 function normalizeTag(tag) {
-  // Check multi-vendor categories first
   for (const [key, data] of Object.entries(multiVendorCategories)) {
     if (key === tag || (data.prefixes && data.prefixes.some(p => tag.startsWith(p)))) {
       return key;
     }
   }
-  // fallback: single tags
   return tag;
 }
 
@@ -1467,28 +1605,24 @@ function getTooltipTextForTag(tag, originalTags) {
   if (normalized in multiVendorCategories) {
     const category = multiVendorCategories[normalized];
 
-    // Map original tags to readable vendor names
     const presentVendors = originalTags
       .filter(t => t === normalized || (category.prefixes && category.prefixes.some(p => t.startsWith(p))))
       .map(t => {
       if (t === normalized) {
-          // Special case for BullionVendor
           if (normalized === 'BullionVendor') return 'Gold Bullion';
-      
           return normalized.replace('Vendor', '');
       }
     
       const match = category.prefixes.find(p => t.startsWith(p));
       if (!match) return t;
     
-      let name = match.replace(normalized, ''); // REMOVE the normalized prefix
-      name = name.replace('Vendor', '');        // Remove trailing Vendor
-      name = name.replace(/([a-z])([A-Z])/g, '$1 $2'); // Add spacing
+      let name = match.replace(normalized, '');
+      name = name.replace('Vendor', '');
+      name = name.replace(/([a-z])([A-Z])/g, '$1 $2');
       return name.trim();
   });
   
 
-    // NPC vendors have different wording
     if (normalized === 'NPCVendor') {
       return `Sold by NPC Vendor (${presentVendors.join(', ')})`;
     }
@@ -1520,7 +1654,6 @@ function getTooltipTextForTag(tag, originalTags) {
   } else if (Array.isArray(r.BOOK_SOURCE_TAG)) {
     tagEntries = r.BOOK_SOURCE_TAG;
   } else {
-    // string
     tagEntries = String(r.BOOK_SOURCE_TAG)
       .split(/[,;]/)
       .map(s => s.trim())
@@ -1529,12 +1662,10 @@ function getTooltipTextForTag(tag, originalTags) {
   
   const getTagsForBook = (index) => {
     if (bookFulls.length === 1) {
-      // For a single book, return all tags
       return tagEntries.map(t => t);
     }
   
     if (Array.isArray(tagEntries) && tagEntries.length === bookFulls.length) {
-      // One-to-one mapping between BOOK and tag array
       const entry = tagEntries[index];
       if (entry === null) return [null];
       return String(entry)
@@ -1543,18 +1674,19 @@ function getTooltipTextForTag(tag, originalTags) {
         .filter(Boolean);
     }
   
-    // Fallback: return all tags for every book
     return tagEntries.map(t => t);
   };
   
 
+const bookPills = [];
+
 bookFulls.forEach((fullName, i) => {
   const pill = document.createElement('span');
   pill.className = 'pill';
+  pill.style.fontSize = '14px';
 
   const tags = getTagsForBook(i);
 
-  // Make tags null-safe and deduplicate
   const uniqueNormalizedTags = [
     ...new Set(
       tags.map(t => (t === null ? "None" : normalizeTag(t)))
@@ -1569,12 +1701,10 @@ bookFulls.forEach((fullName, i) => {
   uniqueNormalizedTags.forEach(normalizedTag => {
     let iconSrc = BookTagIcons[normalizedTag];
 
-    // Multi-vendor icon
     if (multiVendorCategories[normalizedTag]?.icon) {
       iconSrc = multiVendorCategories[normalizedTag].icon;
     }
 
-    // Challenge / Learn-on-Pickup icons
     if (/Challenge_/.test(bookEditorId)) {
       iconSrc = '../assets/ChallengeIcon.svg';
     } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
@@ -1585,10 +1715,11 @@ bookFulls.forEach((fullName, i) => {
 
     const icon = document.createElement('img');
     icon.src = iconSrc;
-    icon.style.width = 'auto';
+    icon.style.width = '30px';
     icon.style.height = '30px';
+    icon.style.objectFit = 'contain';
     icon.style.verticalAlign = 'middle';
-    icon.style.marginRight = '6px';
+    icon.style.marginRight = '4px';
     pill.appendChild(icon);
 
     let tooltipText = getTooltipTextForTag(normalizedTag, tags);
@@ -1602,7 +1733,6 @@ bookFulls.forEach((fullName, i) => {
     appendedIcon = true;
   });
 
-  // If no tags produced an icon, still add Challenge/Learn icon
   if (!appendedIcon) {
     let iconSrc = '';
     let tooltipText = '';
@@ -1617,17 +1747,17 @@ bookFulls.forEach((fullName, i) => {
     if (iconSrc) {
       const icon = document.createElement('img');
       icon.src = iconSrc;
-      icon.style.width = 'auto';
+      icon.style.width = '30px';
       icon.style.height = '30px';
+      icon.style.objectFit = 'contain';
       icon.style.verticalAlign = 'middle';
-      icon.style.marginRight = '6px';
+      icon.style.marginRight = '4px';
       pill.appendChild(icon);
       attachTooltipToIcon(icon, tooltipText);
     }
   }
 
 
-  // Pill text
   let pillText = fullName;
   if (/Challenge_/.test(bookEditorId)) {
     pillText = `Challenge: "${fullName}"`;
@@ -1637,19 +1767,12 @@ bookFulls.forEach((fullName, i) => {
   }
 
   pill.appendChild(document.createTextNode(pillText));
-  condWrap.appendChild(pill);
-
-  // Connector
-  if (i < bookFulls.length - 1) {
-    const conn = document.createElement('span');
-    conn.className = 'connector';
-    conn.textContent = bookBookConnector;
-    condWrap.appendChild(conn);
-  }
+  bookPills.push(pill);
 });
 
+appendPillGroup(condWrap, bookPills, bookBookConnector);
+
 }
-   // --- connector ---
    if (hasBook && hasEntm) {
     const conn = document.createElement('span');
     conn.className = 'connector';
@@ -1659,9 +1782,7 @@ bookFulls.forEach((fullName, i) => {
 
 
 
- // --- ENTM pills ---
 if (hasEntm) {
-  // Prepare lists
   const entmFulls = String(r.ENTM_FULL || '')
     .split(';')
     .map(s => s
@@ -1729,7 +1850,6 @@ if (hasEntm) {
     const edidUpper = String(matchedEdid || '').toUpperCase();
     const fullUpper = fullName.trim().toUpperCase();
 
-    // Decide icon
     let iconSrc = '';
     if (ExactPairs[fullUpper] && (edidUpper === ExactPairs[fullUpper] || edidUpper.includes(ExactPairs[fullUpper]) || edidUpper.startsWith('F1_ENTM'))) {
       iconSrc = '../assets/SubCategory-AdditionalStorageIcon.svg';
@@ -1749,23 +1869,23 @@ if (hasEntm) {
       else if (/SCORE[_-]?S?\d+/i.test(matchedEdid) || edidUpper.includes('SCORE')) iconSrc = '../assets/SeasonIcon.webp';
     }
 
-    // Build pill
     const pill = document.createElement('span');
     pill.className = 'pill';
+    pill.style.fontSize = '14px';
       
     if (iconSrc) {
       const icon = document.createElement('img');
       icon.src = iconSrc;
       icon.style.width = '30px';
       icon.style.height = '30px';
+      icon.style.objectFit = 'contain';
       icon.style.verticalAlign = 'middle';
-      icon.style.marginRight = '6px';
+      icon.style.marginRight = '4px';
       pill.appendChild(icon);
     
-      let tooltipText = fullName; // fallback
+      let tooltipText = fullName;
         const edidUpper = String(matchedEdid || '').toUpperCase();
 
-        // 1️startsWith priority
         for (const key in IconAltText_ENTM) {
           if (edidUpper.startsWith(key.toUpperCase())) {
             tooltipText = IconAltText_ENTM[key];
@@ -1773,7 +1893,6 @@ if (hasEntm) {
           }
         }
 
-        // 2️fallback includes (only if not already matched)
         if (tooltipText === fullName) {
           for (const key in IconAltText_ENTM) {
             if (edidUpper.includes(key.toUpperCase())) {
@@ -1788,22 +1907,17 @@ if (hasEntm) {
     
     
     
-    // optional season suffix
     let textSuffix = '';
     if (matchedEdid) {
-      // Check alias keys as prefix
       const aliasKey = Object.keys(miniSeasonAliases).find(key => matchedEdid.startsWith(key));
       if (aliasKey) {
         textSuffix = ` (Mini Season: ${miniSeasonAliases[aliasKey]})`;
       } else {
-        // Try to extract MiniSeason name after "MiniSeason_"
         const miniMatch = matchedEdid.match(/MiniSeason_(?:\d+_)?([A-Za-z0-9]+)/i);
         if (miniMatch) {
-          // Split camel case for readability
           const cleanedName = miniMatch[1].replace(/([a-z])([A-Z])/g, '$1 $2');
           textSuffix = ` (Mini Season: ${cleanedName})`;
         } else {
-          // Fallback to generic SCORE season number
           const seasonMatch = matchedEdid.match(/SCORE[_]?S?(\d+)/i);
           if (seasonMatch) textSuffix = ` (Season ${seasonMatch[1]})`;
         }
@@ -1814,39 +1928,27 @@ if (hasEntm) {
     entmPills.push(pill);
   });
 
-  // Append pills with connectors
-  entmPills.forEach((pill, i) => {
-    condWrap.appendChild(pill);
-    if (i < entmPills.length - 1) {
-      const conn = document.createElement('span');
-      conn.className = 'connector';
-      conn.textContent = entmEntmConnector;
-      condWrap.appendChild(conn);
-    }
-  });
+  appendPillGroup(condWrap, entmPills, entmEntmConnector);
 }
 
-      right.appendChild(condWrap);
+      value.appendChild(condWrap);
+      finalizeConditionWrap(condWrap);
+      section.appendChild(value);
+      info.appendChild(section);
     }
 
-// --- Budget Cost header + pill ---
 if (r.BudgetCost !== undefined && r.BudgetCost !== null && (r.Category || '').toLowerCase() !== 'wallpapers') {
-  const budgetHeader = document.createElement('div');
-  budgetHeader.className = 'section-header';
-  budgetHeader.textContent = 'Budget Cost';
-  budgetHeader.style.marginTop = '8px';
-  right.appendChild(budgetHeader);
+  const section = document.createElement('div');
+  section.className = 'grid-card-section';
+  const title = document.createElement('div');
+  title.className = 'section-title';
+  title.textContent = 'Budget';
+  section.appendChild(title);
+  const value = document.createElement('div');
+  value.className = 'section-value';
 
-  const budgetWrap = document.createElement('div');
-  budgetWrap.className = 'inline-wrap';
-
-  const budgetPill = document.createElement('span');
-  budgetPill.className = 'pill';
-
-  // Round to 1 decimal
   const roundedBudget = Math.round(r.BudgetCost * 100) / 100;
 
-  // Budget cost labels for purposes of icon tooltips
   const BudgetTierLabels = {
   1: 'Very Low',
   2: 'Low',
@@ -1855,10 +1957,8 @@ if (r.BudgetCost !== undefined && r.BudgetCost !== null && (r.Category || '').to
   5: 'Very High'
   };
 
-
-  // ---- Budget Tiers ----
   let budgetIcon = '';
-  let budgetTier = 5; // default
+  let budgetTier = 5;
 
   if (roundedBudget < 1) {
     budgetIcon = '../assets/BudgetBar-Tier1.webp';
@@ -1877,17 +1977,20 @@ if (r.BudgetCost !== undefined && r.BudgetCost !== null && (r.Category || '').to
     budgetTier = 5;
   }
 
+  const budgetPill = document.createElement('span');
+  budgetPill.className = 'pill';
+  budgetPill.style.fontSize = '14px';
+  budgetPill.style.minHeight = 'auto';
 
-  // Add icon
   if (budgetIcon) {
     const icon = document.createElement('img');
     icon.src = budgetIcon;
     icon.style.width = '30px';
     icon.style.height = '30px';
+    icon.style.objectFit = 'contain';
     icon.style.verticalAlign = 'middle';
-    icon.style.marginRight = '6px';
+    icon.style.marginRight = '4px';
 
-    // Attach tooltip using BudgetTierLabels
     if (budgetTier && BudgetTierLabels[budgetTier]) {
       attachTooltipToIcon(icon, `Budget Cost: ${BudgetTierLabels[budgetTier]}`);
     }
@@ -1895,51 +1998,42 @@ if (r.BudgetCost !== undefined && r.BudgetCost !== null && (r.Category || '').to
     budgetPill.appendChild(icon);
   }
 
-
-  // Singular/plural
   const unitText = (roundedBudget === 1) ? 'Flamingo Unit' : 'Flamingo Units';
 
   budgetPill.appendChild(
     document.createTextNode(`${roundedBudget} ${unitText}`)
   );
 
-  budgetWrap.appendChild(budgetPill);
-  right.appendChild(budgetWrap);
+  value.appendChild(budgetPill);
+  section.appendChild(value);
+  info.appendChild(section);
 }
 
-// --- Technical header + pills ---
 if (r.CNAM_FormID || r.CNAM_EditorID) {
-  const techHeader = document.createElement('div');
-  techHeader.className = 'section-header';
-  techHeader.textContent = 'Technical';
-  techHeader.style.marginTop = '8px';
-  right.appendChild(techHeader);
+  const section = document.createElement('div');
+  section.className = 'grid-card-section';
+  const title = document.createElement('div');
+  title.className = 'section-title';
+  title.textContent = 'Technical';
+  section.appendChild(title);
+  const value = document.createElement('div');
+  value.className = 'section-value';
 
-  const techWrap = document.createElement('div');
-  techWrap.className = 'inline-wrap';
-  techWrap.style.flexDirection = 'column'; // stack pills
-  techWrap.style.gap = '4px';
-
-  // --- Form ID pill ---
   if (r.CNAM_FormID) {
-    const formPill = document.createElement('span');
-    formPill.className = 'pill';
-    formPill.textContent = `Form ID: ${r.CNAM_FormID}`;
-    techWrap.appendChild(formPill);
+    const code = document.createElement('code');
+    code.style.cssText = 'background:#333;padding:2px 6px;border-radius:3px;font-size:12px;color:#aaa;';
+    code.textContent = r.CNAM_FormID;
+    value.appendChild(code);
   }
 
-  // --- Editor ID pill --- (hidden on default cards, shown in detailed view)
-  // if (r.CNAM_EditorID) { ... }
-
-  right.appendChild(techWrap);
+  section.appendChild(value);
+  info.appendChild(section);
 }
 
-
-    // --- attach left + right divs to li ---
-    li.appendChild(left);
-    li.appendChild(right);
-    frag.appendChild(li);
+    card.appendChild(info);
+    frag.appendChild(card);
   });
+
 
   // Swap fragment into results
   results.innerHTML = '';
@@ -1950,16 +2044,49 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
   requestAnimationFrame(() => requestAnimationFrame(() => {
     if (useFade) {
       results.style.opacity = '1';
-      results.style.transition = 'opacity 0.25s ease';
+      results.style.transition = '';
     }
 
-    // If user was near the bottom during a page swap, keep them near the bottom
-    if (isPageSwap && fromBottom < 200) {
-      const docHeightAfter = document.documentElement.scrollHeight;
-      const targetScrollY = docHeightAfter - fromBottom - window.innerHeight;
-      if (targetScrollY > 0 && Math.abs(targetScrollY - scrollBefore) > 10) {
-        window.scrollTo({ top: targetScrollY });
+    // Stagger card entrance on initial load and pagination, skip for search/filter
+    if (isPageSwap) {
+      const cards = results.querySelectorAll('.grid-card');
+      const STAGGER = 20;
+      const MAX_DELAY = 600;
+      cards.forEach((card, i) => {
+        const delay = Math.min(i * STAGGER, MAX_DELAY);
+        setTimeout(() => card.classList.add('visible'), delay);
+      });
+    } else {
+      const cards = results.querySelectorAll('.grid-card');
+      cards.forEach(c => { c.style.transition = 'none'; c.classList.add('visible'); });
+      requestAnimationFrame(() => cards.forEach(c => c.style.transition = ''));
+    }
+
+    // Scroll to top of page on pagination (next/prev buttons) — but don't
+    // scroll further up than necessary. If the user was already scrolled
+    // past the point where .toolbar locks into its sticky position, only
+    // scroll back up to that point, so the sticky toolbar stays pinned and
+    // the logo header above it doesn't get re-revealed. If the user was
+    // above that point (header already visible), leave scroll untouched.
+    //
+    // Note: `offsetTop` on a `position: sticky` element is unreliable once
+    // it's actually stuck (browsers disagree on whether it reports the
+    // static flow position or the current stuck position). To get an
+    // unambiguous answer, briefly force it out of sticky mode, measure,
+    // then restore — this avoids relying on offsetTop for a sticky element.
+    if (isPageSwap) {
+      const toolbar = document.querySelector('.toolbar');
+      let stickyOffset = 0;
+      if (toolbar) {
+        const prevPosition = toolbar.style.position;
+        toolbar.style.position = 'static';
+        stickyOffset = Math.round(toolbar.getBoundingClientRect().top + window.scrollY);
+        toolbar.style.position = prevPosition;
       }
+      if (scrollYBeforeSwap >= stickyOffset) {
+        window.scrollTo({ top: stickyOffset });
+      }
+      // else: user was above the sticky point — leave scroll alone
     }
 
     if (typeof _onRenderDone === 'function') {
@@ -1978,14 +2105,12 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
   }));
   }; // end _doRender
 
-  // Capture scroll position before fade — only correct on explicit page swaps
+  // Track page-swap / fade state
   const isPageSwap = _isPageSwap;
   _isPageSwap = false;
   const useFade = _useFade;
   _useFade = true; // reset for next call
-  const scrollBefore = window.scrollY;
-  const docHeightBefore = document.documentElement.scrollHeight;
-  const fromBottom = docHeightBefore - scrollBefore - window.innerHeight;
+  const scrollYBeforeSwap = Math.round(window.scrollY);
 
   if (useFade) {
     // Fade out, then swap content
@@ -2009,7 +2134,7 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
     lastQuery       = state.query    || '';
     currentSort     = state.sort     || 'camp-top';
     currentSearchBy = state.searchBy || 'name';
-    currentPage     = state.page     || 1;
+    currentPage     = state.page || 1;
     activeFilters   = new Set(state.filters || []);
 
     // Restore search box
