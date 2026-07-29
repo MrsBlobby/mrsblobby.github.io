@@ -416,7 +416,7 @@
       activationDiv.appendChild(actLabel);
       const actSpan = document.createElement('span');
       actSpan.textContent = waitTime > 0
-        ? 'Interact with object for ' + waitTime + 's to receive buff*'
+        ? 'Interact with object for ' + waitTime + 's to receive buff'
         : 'Receive buff instantly on activation';
       activationDiv.appendChild(actSpan);
       block.appendChild(activationDiv);
