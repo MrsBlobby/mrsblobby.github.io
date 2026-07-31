@@ -858,6 +858,34 @@
       };
     }
 
+    // ── Fixed-frame height lock for single-grid "view more" modals ──
+    // Locks the MODAL's own outer box height to its first, unfiltered
+    // render, then holds it fixed. Search can only narrow the result set,
+    // so that first render is already the tallest this modal will ever
+    // need to be — and since the browser has already clamped it to the
+    // modal's own CSS max-height by the time it's measured, the locked
+    // value can never exceed what's actually visible on screen. (An
+    // earlier version of this locked the grid's own min-height instead,
+    // which had a real bug: if the full unfiltered list was itself taller
+    // than max-height — i.e. it already needed scrolling to see it all —
+    // then a later search narrowing things down to a couple of items still
+    // left the grid claiming all that vertical space, so the modal stayed
+    // scrollable through what was now mostly blank filler.)
+    // Returns a function to pass as `onChange` to renderPaginatedGrid.
+    function createHeightLock(modal, syncOverflow) {
+      let locked = false;
+      return function syncHeight() {
+        if (!locked) {
+          const h = modal.getBoundingClientRect().height;
+          if (h > 0) {
+            modal.style.height = h + 'px';
+            locked = true;
+          }
+        }
+        if (typeof syncOverflow === 'function') syncOverflow();
+      };
+    }
+
     function slugify(text) {
       return String(text || '')
         .normalize('NFKD')
@@ -1481,7 +1509,23 @@
       // ── Main stage: image + nav arrows ──
       const stage = document.createElement('div');
       stage.className = 'lightbox-stage';
-      stage.addEventListener('click', e => e.stopPropagation());
+      // Clicks are "inside" (shouldn't close the lightbox) when they land
+      // within the image's actual current rendered bounds — not the static
+      // stage box. This matters once zoomed in: the image can extend past
+      // the stage's box (see .lightbox-stage overflow:visible), so the
+      // "click outside closes" hit-test has to track the image's real,
+      // possibly-larger footprint rather than a fixed rectangle.
+      function isPointInsideImage(x, y) {
+        const r = img.getBoundingClientRect();
+        return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom;
+      }
+      stage.addEventListener('click', e => {
+        if (isPointInsideImage(e.clientX, e.clientY)) {
+          e.stopPropagation();
+        }
+        // Otherwise let it bubble to the overlay's click handler, which
+        // closes the lightbox.
+      });
 
       const viewport = document.createElement('div');
       viewport.className = 'lightbox-image-viewport';
@@ -2714,9 +2758,18 @@
               // ── Tab content (grids only, no search rows inside) ──
               const tabContentWrapper = document.createElement('div');
               tabContentWrapper.className = 'assignable-modal-content-wrapper';
+              // Attached to `modal` right away — before any grid content
+              // exists inside it — so that when syncTabHeights measures
+              // modal.getBoundingClientRect() during the grids' initial
+              // render below, that content is already part of the live
+              // layout tree and actually counted. Attaching it later (after
+              // populating the grids) would mean the very first measurement
+              // sees an incomplete tree and locks in a too-small height.
+              modal.appendChild(tabContentWrapper);
 
               const tab1Content = document.createElement('div');
               tab1Content.className = 'assignable-modal-tab-content active';
+              tabContentWrapper.appendChild(tab1Content);
 
               const includedLabel = document.createElement('div');
               includedLabel.style.cssText = 'font-size:12px;color:var(--text-muted);margin:12px 0;text-align:left;';
@@ -2727,25 +2780,47 @@
               allGrid.className = 'assignable-grid';
               tab1Content.appendChild(allGrid);
               const sortedAllowedForModal = [...effectiveAllowedItems].sort((a, b) => (a.Name || '').localeCompare(b.Name || ''));
-              // Measures both tabs' current content height and locks the
-              // wrapper to the taller of the two, so switching tabs doesn't
-              // jump. Re-run after every render (search, filter, or page
-              // change) rather than once — otherwise a narrowed result set
-              // (e.g. a search that matches 2 items) would keep the modal
-              // locked to the height of the original full list and leave a
-              // scrollable blank gap below the few visible tiles.
-              let _tabMinHeight = 0;
+              // Locks the MODAL'S OWN outer box height — not an inner
+              // wrapper's min-height — to each tab's first, unfiltered
+              // render, taking the taller of the two tabs once both have
+              // been visited so switching tabs doesn't jump.
+              //
+              // This used to pad an inner wrapper instead, but that had a
+              // real bug: if a tab's full unfiltered list was itself taller
+              // than the modal's max-height (i.e. it already needed to
+              // scroll to see everything), locking the wrapper to that full
+              // height meant a later search — narrowing the list down to a
+              // couple of items — still left the wrapper claiming all that
+              // vertical space, so the modal stayed scrollable through what
+              // was now mostly blank filler below the few visible tiles.
+              // Locking the outer modal box instead is safe because the
+              // browser has already clamped it to max-height by the time
+              // it's measured, so the locked value can never exceed what's
+              // actually visible on screen — a narrowed search just leaves
+              // quiet, non-scrolling empty space within that same box.
+              //
+              // The read is synchronous (not requestAnimationFrame) and
+              // gated on the tab's content actually being visible, because
+              // this can be called during construction — before any saved
+              // search has been restored, and before a returning-to-tab-2
+              // visit has toggled tab2 visible — and a deferred read would
+              // only ever see the LAST DOM state from this tick (already
+              // narrowed by that restoration), not the natural one.
+              let _tab1Height = 0;
+              let _tab2Height = 0;
               function syncTabHeights() {
-                requestAnimationFrame(() => {
-                  const activeContent = assignableState.activeTab === 1
-                    ? tabContentWrapper.children[1]
-                    : tabContentWrapper.children[0];
-                  if (activeContent) {
-                    _tabMinHeight = Math.max(_tabMinHeight, activeContent.scrollHeight);
-                    tabContentWrapper.style.minHeight = _tabMinHeight + 'px';
+                const isTab2 = assignableState.activeTab === 1;
+                const activeContent = isTab2 ? tab2Content : tab1Content;
+                const visible = !!activeContent && activeContent.classList.contains('active');
+                const alreadyLocked = isTab2 ? _tab2Height > 0 : _tab1Height > 0;
+                if (visible && !alreadyLocked) {
+                  const h = modal.getBoundingClientRect().height;
+                  if (h > 0) {
+                    if (isTab2) _tab2Height = h; else _tab1Height = h;
+                    modal.style.height = Math.max(_tab1Height, _tab2Height) + 'px';
                   }
-                  syncOverflow();
-                });
+                }
+                syncOverflow();
               }
 
               const inclGridCtrl = renderPaginatedGrid({
@@ -2759,13 +2834,16 @@
               });
               _inclGridCtrl = inclGridCtrl;
 
-              tabContentWrapper.appendChild(tab1Content);
-
               let tab2Content = null;
               let exclGridCtrl = null;
               if (hasExclusions) {
                 tab2Content = document.createElement('div');
                 tab2Content.className = 'assignable-modal-tab-content';
+                // Same reasoning as tab1Content above: attach before
+                // populating, so the initial (unfiltered) render this tab
+                // gets the first time it's ever visible is measured
+                // against a complete tree.
+                tabContentWrapper.appendChild(tab2Content);
 
                 const excludedLabel = document.createElement('div');
                 excludedLabel.style.cssText = 'font-size:12px;color:var(--text-muted);margin:12px 0;text-align:left;';
@@ -2786,8 +2864,6 @@
                   onChange: syncTabHeights
                 });
                 _exclGridCtrl = exclGridCtrl;
-
-                tabContentWrapper.appendChild(tab2Content);
 
                 tab1.addEventListener('click', () => {
                   tab1.classList.add('active');
@@ -2816,8 +2892,6 @@
                   if (exclGridCtrl) exclGridCtrl.setFilter(null);
                 });
               }
-
-              modal.appendChild(tabContentWrapper);
 
               // ── Filter chip click handlers ──
               if (filterRow) {
@@ -2849,6 +2923,10 @@
                 searchRow1.style.display = 'none';
                 searchRow2.style.display = '';
                 if (filterRow) rebuildFilterChips(1);
+                // Capture tab2's natural height now, while its content is
+                // still the full unfiltered list — the search restore right
+                // below this may narrow it, and by then it'd be too late.
+                syncTabHeights();
               }
 
               // Restore saved search state
@@ -2875,8 +2953,11 @@
                 });
               }
 
-              // Initial measurement (subsequent changes are handled by the
-              // onChange: syncTabHeights hook passed to renderPaginatedGrid).
+              // Height is already locked by this point (captured
+              // synchronously at construction and, if applicable, right
+              // after restoring tab2 as active — both before any saved
+              // search could narrow the content). This call just refreshes
+              // the scrollbar state for the final restored view.
               syncTabHeights();
             }
 
@@ -2979,7 +3060,7 @@
 
               uniqueShared.forEach(d => grid.appendChild(makeSharedTile(d)));
               registerPreviewGrid(grid, uniqueShared.length, 'shared-view-more', () => {
-                const { modal } = openModalShell({ title: 'Shared Max Build Count' });
+                const { modal, syncOverflow } = openModalShell({ title: 'Shared Max Build Count' });
 
                 // Search bar + pager, wrapped in the same sticky-header
                 // shell the assignables modal uses so it stays pinned
@@ -3009,7 +3090,8 @@
                   grid: allGrid,
                   pagerEl,
                   searchInput,
-                  tileFactory: makeSharedTile
+                  tileFactory: makeSharedTile,
+                  onChange: createHeightLock(modal, syncOverflow)
                 });
 
                 if (window.matchMedia('(hover: hover)').matches) searchInput.focus();
@@ -3085,7 +3167,7 @@
 
             uniqueSlot.forEach(d => grid.appendChild(makeSlotTile(d)));
             registerPreviewGrid(grid, uniqueSlot.length, 'shared-view-more', () => {
-              const { modal } = openModalShell({ title: 'Build Menu Slot' });
+              const { modal, syncOverflow } = openModalShell({ title: 'Build Menu Slot' });
 
               // Search bar + pager, wrapped in the same sticky-header
               // shell the assignables modal uses so it stays pinned
@@ -3115,7 +3197,8 @@
                 grid: allGrid,
                 pagerEl,
                 searchInput,
-                tileFactory: makeSlotTile
+                tileFactory: makeSlotTile,
+                onChange: createHeightLock(modal, syncOverflow)
               });
 
               if (window.matchMedia('(hover: hover)').matches) searchInput.focus();

@@ -1354,11 +1354,45 @@ function renderResults(query) {
     .map(r => ({ CNAM_FormID: r.CNAM_FormID, ARTO_FormID: r.ARTO_FormID, Name: r.Name }));
   try { sessionStorage.setItem('pageSnapshot', JSON.stringify(pageSnapshot)); } catch(e) {}
 
+  // Reconciliation (search-typing renders only): reuse the DOM nodes of
+  // cards that are still in the result set instead of destroying and
+  // rebuilding every card on each keystroke. This is what stops already-
+  // loaded images from flashing back to opacity:0 and re-fading-in, and
+  // avoids a full-grid reflow when only a handful of cards actually changed.
+  const reconcile = !useFade && !isPageSwap;
+  const existingCardsByFormId = new Map();
+  if (reconcile) {
+    // Drop anything in #results that isn't a real, keyed card — e.g. the
+    // sessionStorage snapshot placeholders rendered before the DB fetch
+    // resolved, or a leftover "No matches found" message. Reconciliation
+    // only ever knows how to reuse .grid-card[data-formid] elements, so
+    // anything else needs to be swept out explicitly or it's stuck forever.
+    Array.from(results.children).forEach(c => {
+      if (c.classList.contains('grid-card') && c.dataset.formid) {
+        existingCardsByFormId.set(c.dataset.formid, c);
+      } else {
+        c.remove();
+      }
+    });
+  }
+
   paged.forEach(r => {
     if ((r.SubCategory || '').trim().toLowerCase() === 'testsubcat'.toLowerCase()) return;
 
+    if (reconcile) {
+      const existingCard = existingCardsByFormId.get(r.CNAM_FormID);
+      if (existingCard) {
+        // Already on screen and unchanged — just move it into the new
+        // fragment in its new position. No re-render, no image reload.
+        existingCardsByFormId.delete(r.CNAM_FormID);
+        frag.appendChild(existingCard);
+        return;
+      }
+    }
+
     const card = document.createElement('div');
     card.className = 'grid-card';
+    card.dataset.formid = r.CNAM_FormID || '';
 
     const cnamFormID = (r.CNAM_FormID || '').toLowerCase();
     const artoFormID = (r.ARTO_FormID || '').toLowerCase();
@@ -1386,7 +1420,15 @@ function renderResults(query) {
     img.loading = 'lazy';
     img.alt = r.Name;
     img.style.cssText = 'opacity:0;transition:opacity 0.3s ease;';
-    img.onload = function() { this.style.opacity = '1'; };
+    const loadStart = performance.now();
+    img.onload = function() {
+      // If it loaded from cache (near-instant), skip the transition so it
+      // just appears instead of doing a visible 0.3s fade.
+      if (performance.now() - loadStart < 50) {
+        this.style.transition = 'none';
+      }
+      this.style.opacity = '1';
+    };
     // Chain: CNAM upper → CNAM lower → WorkshopIcons(arto) → WorkshopIcons(cnam) → placeholder
     const fallbackChain = [fallbackLower, artoIconSrc, cnamIconSrc].filter(Boolean);
     let fallbackIdx = 0;
@@ -2035,9 +2077,18 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
   });
 
 
-  // Swap fragment into results
-  results.innerHTML = '';
-  results.appendChild(frag);
+  // Swap fragment into results.
+  if (reconcile) {
+    // Reused cards were already moved out of `results` and into `frag`
+    // above. Anything still left in the map fell out of the result set —
+    // drop those, then append the fragment, which re-inserts reused cards
+    // in their new order and adds any brand-new ones.
+    existingCardsByFormId.forEach(c => c.remove());
+    results.appendChild(frag);
+  } else {
+    results.innerHTML = '';
+    results.appendChild(frag);
+  }
   renderPagination(sorted.length);
 
   // Double rAF ensures the browser has painted before we fade in

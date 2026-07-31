@@ -1,13 +1,17 @@
   :root { 
     --accent: #E5C158; /*Live Color: #E5C158, PTS Color: #497ab4 */
     --accent-dim: #D1B366; /* Live Color: #D1B366, PTS Color: #223b5a*/
-    --bg: #181818;
+    --bg: #232323;
     --card-bg: #181818;
     --text: #e0e0e0;
     --text-muted: #aaa;
     --border-subtle: rgba(229, 193, 88, 0.18);
     --content-width: 800px;
     --card-width: 720px;
+  }
+
+  html {
+    background-color: var(--bg);
   }
 
   body {
@@ -509,6 +513,17 @@
   }
 
 
+
+  /* While #results has no cards in it yet (first paint, before the DB
+     fetch resolves), hold open roughly the amount of space the grid will
+     occupy. This stops the page from being short-then-suddenly-tall, which
+     is what causes the header's elevated background to visually "flash"
+     before the darker page background takes over. Once JS inserts cards,
+     :empty stops matching and this rule drops out automatically. */
+  #results:empty {
+    display: block;
+    min-height: 60vh;
+  }
 
   .cover-image-wrap {
     width: 100%;
@@ -1470,6 +1485,7 @@ body {
 .site-header {
   position: relative;
   padding: 12px 0 0;
+  background: var(--bg-elevated);
 }
 .site-header .cover-image-wrap {
   line-height: 0;
@@ -1522,10 +1538,9 @@ body {
   row-gap: 10px;
   column-gap: 12px;
   background: var(--bg-elevated);
-  box-shadow: var(--shadow-sm);
   border-bottom: 1px solid var(--border-subtle);
   padding: 12px 16px;
-  margin: -1px -16px 0;
+  margin: -1px 0 0;
 }
 .toolbar .search-line {
   flex: 1 1 380px;

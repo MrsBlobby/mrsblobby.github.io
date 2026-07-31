@@ -71,7 +71,7 @@
 
 /* ── Infobox: standalone sidebar card, sibling of .item-card, flush against it ── */
 .infobox {
-  width: 386px;
+  width: var(--infobox-w, 386px);
   flex-shrink: 0;
   border: 1px solid #2a2a2a;
   border-radius: 8px;
@@ -1157,7 +1157,11 @@ img.lazy-fade.loaded {
   width: 100%;
   max-width: 900px;
   min-height: 0;
-  overflow: hidden;
+  /* Intentionally not clipped: a zoomed image should be able to visibly
+     extend past this box's edges rather than being cut off at the stage
+     boundary. The lightbox overlay itself covers the full viewport, so
+     there's nothing meaningful for this to clip against anyway. */
+  overflow: visible;
   cursor: pointer;
 }
 .lightbox-image-viewport {
@@ -1589,8 +1593,16 @@ img.lazy-fade.loaded {
   }
 }
 
-/* ── Tablet: stack layout vertically, center infobox ── */
-@media (min-width: 601px) and (max-width: 1024px) {
+/* ── Tablet: stack layout vertically, center infobox.
+   Landscape tablets (900–1024px wide, e.g. older 1024×768 iPads)
+   are deliberately excluded — they have enough horizontal room for
+   the side-by-side layout, so they fall through to the default flex
+   row (.detail-layout's base rule) instead of stacking and wasting
+   width. Narrower landscape widths (601–899px, e.g. phones in
+   landscape) still stack — a fixed 386px infobox would leave too
+   little room for item-card at that width. ── */
+@media (min-width: 601px) and (max-width: 1024px) and (orientation: portrait),
+       (min-width: 601px) and (max-width: 899px) and (orientation: landscape) {
   .detail-layout {
     flex-direction: column;
     align-items: center;
@@ -1608,6 +1620,7 @@ img.lazy-fade.loaded {
     margin-top: 0;
     border-radius: 8px;
     width: 100%;
+    max-width: 700px;
   }
   .back-button,
   .item-nav {
@@ -1619,28 +1632,40 @@ img.lazy-fade.loaded {
   }
 }
 
-/* ── Wide screens: item-card is centered on the actual viewport — a third,
-   empty grid column mirrors the infobox's width on the right, so the
-   [infobox][item-card] pair sits symmetrically around center instead of
-   the infobox's width dragging item-card off to one side. infobox still
-   sits directly against item-card's left edge (adjacent grid columns,
-   no gap) — it just isn't pinned to the literal screen edge anymore.
+/* ── Desktop (+ landscape tablets): item-card is centered on the actual
+   viewport — a third, empty grid column mirrors the infobox's width on
+   the right, so the [infobox][item-card] pair sits symmetrically around
+   center instead of the infobox's width dragging item-card off to one
+   side. infobox still sits directly against item-card's left edge
+   (adjacent grid columns, no gap) — it just isn't pinned to the literal
+   screen edge anymore.
 
-   The breakpoint has to fit infobox + item-card + the matching spacer
-   (386 + 933 + 386 = 1705px, +32px container padding = 1737px), so this
-   only kicks in on sufficiently wide viewports; below it, the existing
-   side-by-side layout is untouched. ── */
-@media (min-width: 1780px) {
+   This applies at 1025px+ (right above the tablet stacking breakpoint)
+   AND at 900–1024px in landscape (tablets that skip stacking — see the
+   tablet rule above). Without the second clause, that landscape-tablet
+   band would fall through to the plain flex row and get the same
+   asymmetric look this whole grid exists to avoid.
+
+   --infobox-w shrinks fluidly toward the narrow end of this combined
+   range (clamp floor 200px, low enough to leave item-card enough room
+   at 900px) and grows back to its normal 386px by ~1930px viewport
+   width. Both grid spacer columns read the same variable so they stay
+   mirrored at every width. item-card's own floor (400px) is lowered to
+   match — together they keep the layout from overflowing/squeezing at
+   the narrow end. ── */
+@media (min-width: 1025px),
+       (min-width: 900px) and (max-width: 1024px) and (orientation: landscape) {
   .detail-container {
+    --infobox-w: clamp(200px, 20vw, 386px);
     max-width: 1737px;
   }
   .back-button,
   .item-nav {
-    margin-left: 384px;
+    margin-left: calc(var(--infobox-w) - 2px);
   }
   .detail-layout {
     display: grid;
-    grid-template-columns: 386px 933px 386px;
+    grid-template-columns: var(--infobox-w) minmax(400px, 1fr) var(--infobox-w);
     align-items: start;
   }
   .infobox {
