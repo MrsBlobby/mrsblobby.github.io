@@ -335,6 +335,11 @@
   @media (hover: hover) {
     .filter-modal-close:hover { color: var(--text); }
   }
+  .filter-modal-close:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    color: var(--text);
+  }
   .filter-modal-body {
     display: flex;
     flex-direction: row;
@@ -442,7 +447,7 @@
     text-align: center;
   }
 
-  /* Mobile Support: Tablets and smaller — keep 3 columns, just tighten */
+  /* Mobile Support: Tablets and smaller. Keep 3 columns, just tighten */
   @media (max-width: 800px) {
     .filter-modal {
       width: min(700px, 95vw);
@@ -457,7 +462,7 @@
     }
   }
 
-  /* Mobile Support: Phones (max 599px) — keep 3 columns, shrink further */
+  /* Mobile Support: Phones (max 599px). Keep 3 columns, shrink further */
   @media (max-width: 599px) {
     .filter-modal {
       width: 95vw;
@@ -548,7 +553,7 @@
   }
 
   /* Used specifically for Placement Conditions. By default this is a plain
-     left-aligned row — if everything fits on one line, it stays that way,
+     left-aligned row. If everything fits on one line, it stays that way,
      unchanged from before. Only when content actually wraps does JS add
      .is-wrapped, which switches to a single max-content grid column: the
      first (topmost) condition sets the column's width and stays
@@ -900,6 +905,11 @@
       color: var(--accent-dim);
     }
   }
+  .close:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
 
   /* Accent button style */
     .accent-btn {
@@ -1015,6 +1025,10 @@
       color: black;
     }
   }
+  #filtersButton:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
   #filtersButton.active {
     background-color: var(--accent);
     color: black;
@@ -1025,7 +1039,7 @@
     flex-shrink: 0;
   }
 
-  /* filtersOptions is now the modal body — no dropdown positioning */
+  /* filtersOptions is now the modal body, no dropdown positioning */
   #filtersOptions {
     display: flex;
     flex-direction: row;
@@ -1335,12 +1349,12 @@
 /* ============================================================
    Merged improvements (previously style-improvements.css)
    Appended in original load order so cascade/output is identical
-   to the old two-file setup — these rules intentionally come
+   to the old two-file setup. These rules intentionally come
    after the base rules above to override/refine them.
    ============================================================ */
 
 /* ============================================================
-   style-improvements.css — v3
+   style-improvements.css v3
    ============================================================ */
 
 :root {
@@ -1385,10 +1399,10 @@ body {
   opacity: 0.5;
   user-select: none;
 }
-@media (max-width: 600px) {
-  .author-text::after {
-    display: none;
-  }
+/* Hidden only when JS detects the author line has actually wrapped
+   (see checkAuthorWrap() in script.js) rather than at a fixed breakpoint */
+.author.wrapped .author-text::after {
+  display: none;
 }
 .author-links {
   display: flex;
@@ -1470,7 +1484,7 @@ body {
   }
 }
 
-/* Disabled pagination: single page / no results — layout stays stable */
+/* Disabled pagination: single page / no results, layout stays stable */
 .pagination-single {
   opacity: 0.4;
   pointer-events: none;

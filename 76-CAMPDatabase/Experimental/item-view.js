@@ -83,7 +83,7 @@
     // Tooltip boxes are appended directly to document.body (so they can float
     // above everything, positioned off the icon rather than clipped by any
     // ancestor). Because of that they live outside contentDiv and don't get
-    // cleared by contentDiv.replaceChildren() on navigation — track them here
+    // cleared by contentDiv.replaceChildren() on navigation - track them here
     // so loadItemRoute can remove the previous item's tooltips before
     // rendering the next one.
     let _activeDetailTooltips = [];
@@ -327,7 +327,7 @@
     }
 
     // iconSrcs: string | string[]
-    // flavorLines: string | string[]  — each rendered as its own line/bullet
+    // flavorLines: string | string[]  - each rendered as its own line/bullet
     function makePill(text, iconSrcs, flavorLines) {
       const pill = document.createElement('span');
       pill.className = 'detail-pill';
@@ -341,12 +341,13 @@
       icons.filter(Boolean).forEach(src => {
         const img = document.createElement('img');
         img.src = src;
+        img.alt = ''; // decorative - the pill's text label already conveys the meaning
         main.appendChild(img);
       });
       main.appendChild(document.createTextNode(text));
       pill.appendChild(main);
 
-      // Flavor lines — deduplicated, skip if same as pill text
+      // Flavor lines - deduplicated, skip if same as pill text
       const uniqueFlavors = [...new Set(flavors.filter(f => f && f !== text))];
       if (uniqueFlavors.length === 1) {
         const flavor = document.createElement('span');
@@ -389,7 +390,7 @@
         return (h === Math.floor(h)) ? h + 'h' : h + 'h';
       }
       const m = seconds / 60;
-      return (m === Math.floor(m)) ? m + 'm' : m + 'm';
+      return (m === Math.floor(m)) ? m + 'min' : m + 'min';
     }
 
     function renderPlayerBuffs(block, buffs) {
@@ -469,6 +470,466 @@
       }
     }
 
+    // Renders the "Resource Collection" section (production modes + drop
+    // tables) into `container`. Returns true if anything was rendered so
+    // the caller knows whether to add a trailing separator, false if the
+    // item has no resource-collection data.
+    function renderResourceCollection(container, item, db, resourceInfo) {
+      const key = String(item.CNAM_FormID || '').trim().toUpperCase();
+      const info = resourceInfo[key];
+      if (!info || !info.Resources || !info.Resources.length) return false;
+
+      // Item weights can be as small as 0.025 lbs - round to 3 decimals and
+      // let trailing zeros drop off naturally (0.05 stays "0.05", 0.025
+      // stays "0.025") instead of collapsing everything to 2 decimals.
+      function fmtWeight(n) {
+        if (n == null) return '';
+        return String(Math.round(n * 1000) / 1000);
+      }
+
+      // Shared "Xh Ymin" duration format for both the production interval
+      // and the estimated container fill time (e.g. "45min", "2h 13min",
+      // "1h", "12.3min"). Rounds to 1 decimal place, but only shows the
+      // decimal when it's actually non-zero, so whole-number durations
+      // still read as clean "45min" rather than "45.0min".
+      function fmtTime(minutes, decimals = 1) {
+        if (minutes == null || isNaN(minutes)) return '';
+        const factor = Math.pow(10, decimals);
+        function fmtN(n) {
+          const r = Math.round(n * factor) / factor;
+          return decimals === 0 || Number.isInteger(r) ? String(r) : r.toFixed(decimals);
+        }
+        const total = Math.round(minutes * factor) / factor;
+        if (total < 60) return `${fmtN(total)}min`;
+        const h = Math.floor(total / 60);
+        const rem = Math.round((total - h * 60) * factor) / factor;
+        return rem > 0 ? `${h}h ${fmtN(rem)}min` : `${h}h`;
+      }
+
+      // "5 minutes" / "1 minute" full-text formatter used for the Mystery
+      // Machine cooldown line (kept spelled out rather than the "min"
+      // abbreviation used elsewhere).
+      function fmtMinutesFull(seconds) {
+        if (seconds == null || isNaN(seconds)) return '';
+        const r = Math.round((seconds / 60) * 10) / 10;
+        const display = Number.isInteger(r) ? String(r) : r.toFixed(1);
+        return `${display} minute${r === 1 ? '' : 's'}`;
+      }
+
+      // Estimated minutes for the container to reach its max weight
+      // capacity, based on the expected weight produced per production
+      // tick: Fill Time = (Max Capacity / Weighted Avg Item Weight per Tick)
+      // × Interval. Returns null when it can't be meaningfully computed.
+      function computeFillTime(resource, carryWeight) {
+        if (carryWeight == null || carryWeight <= 0) return null;
+        const drops = resource.Drops || [];
+        if (!drops.length) return null;
+        let expectedWeight = 0;
+        drops.forEach(d => {
+          const p = (Number(d.DropChancePercent) || 0) / 100;
+          const w = Number(d.Weight) || 0;
+          const q = Number(d.Quantity) || 1;
+          expectedWeight += p * w * q;
+        });
+        if (expectedWeight <= 0) return null;
+        const intervalMin = Math.round((resource.RealDelay_Hours || 0) * 60 * 100) / 100;
+        return (carryWeight / expectedWeight) * intervalMin;
+      }
+
+      const h2 = document.createElement('h2');
+      h2.textContent = info.IsMystery ? 'Resource Collection' : 'Resource Collection';
+      container.appendChild(h2);
+
+      const wrap = document.createElement('div');
+      wrap.className = 'resource-collection';
+
+      if (info.CarryWeight != null) {
+        const capacityLabel = document.createElement('div');
+        capacityLabel.className = 'resource-collection-meta';
+        const strong = document.createElement('strong');
+        strong.textContent = 'Max Capacity:';
+        capacityLabel.appendChild(strong);
+        const capacityUnits = info.CarryWeight === 1 ? 'lb' : 'lbs';
+        capacityLabel.appendChild(document.createTextNode(` ${fmtWeight(info.CarryWeight)} ${capacityUnits}`));
+        wrap.appendChild(capacityLabel);
+      }
+
+      if (info.IsMystery) {
+        // Mystery Machines: caps-per-interaction + cooldown, sitting outside
+        // the boxed table area (same level as Max Capacity above).
+        const activationDiv = document.createElement('div');
+        activationDiv.className = 'buff-activation';
+        const actLabel = document.createElement('strong');
+        actLabel.textContent = 'Activation: ';
+        activationDiv.appendChild(actLabel);
+        activationDiv.appendChild(document.createTextNode(
+          `Interact with object for ${info.RequiredCaps} caps to receive random item`
+        ));
+        wrap.appendChild(activationDiv);
+
+        const cooldownDiv = document.createElement('div');
+        cooldownDiv.className = 'buff-activation';
+        const cdLabel = document.createElement('strong');
+        cdLabel.textContent = 'Cooldown: ';
+        cooldownDiv.appendChild(cdLabel);
+        cooldownDiv.appendChild(document.createTextNode(fmtMinutesFull(info.Cooldown_Seconds)));
+        wrap.appendChild(cooldownDiv);
+      }
+
+      const modesUl = document.createElement('ul');
+      modesUl.className = 'resource-mode-list';
+
+      (info.Resources || []).forEach(resource => {
+        const li = document.createElement('li');
+        li.className = 'resource-mode';
+
+        const minutes = Math.round((resource.RealDelay_Hours || 0) * 60 * 100) / 100;
+
+        if (!info.IsMystery) {
+          const modeTitle = document.createElement('div');
+          modeTitle.className = 'resource-mode-title';
+          const modeTitleStrong = document.createElement('strong');
+          modeTitleStrong.textContent = 'Resource:';
+          modeTitle.appendChild(modeTitleStrong);
+          modeTitle.appendChild(document.createTextNode(' ' + (resource.AVIF_Name || 'Unknown')));
+
+          // Collectors built on these AVIFs share one production interval -
+          // adding more collectors only grows max storage, not output rate.
+          const stackingAvifIds = new Set(['00799A90', '00000332']);
+          if (stackingAvifIds.has(String(resource.AVIF_FormID || '').trim().toUpperCase())) {
+            const rcIcon = document.createElement('span');
+            rcIcon.className = 'info-icon';
+            rcIcon.textContent = '?';
+            rcIcon.setAttribute('aria-label', 'Collector stacking info');
+            attachDetailTooltip(rcIcon, (box) => {
+              box.classList.add('detail-tooltip--assignable');
+              const line = document.createElement('div');
+              line.className = 'detail-tooltip-line detail-tooltip-line--word-wrap';
+              line.textContent = 'Placing several collectors yields the same production interval with a larger max storage. It does not speed up production.';
+              box.appendChild(line);
+            });
+            modeTitle.appendChild(rcIcon);
+          }
+
+          li.appendChild(modeTitle);
+
+          const metaLine = document.createElement('div');
+          metaLine.className = 'resource-mode-meta';
+          const fillTime = computeFillTime(resource, info.CarryWeight);
+          // Tea Wizard produces at public events rather than on a fixed
+          // interval - manual override for the production line.
+          const isTeaWizard = String(item.CNAM_FormID || '').trim().toUpperCase() === '008B5408';
+
+          let intervalPart, fillPart;
+          if (isTeaWizard) {
+            intervalPart = 'Interval: Every Public Event Start';
+            fillPart = 'Est. Fill Time: ~20min';
+          } else {
+            intervalPart = `Interval: ${fmtTime(minutes)}`;
+            fillPart = fillTime != null ? `Est. Fill Time: ~${fmtTime(fillTime, 0)}` : null;
+          }
+
+          const intervalSpan = document.createElement('span');
+          intervalSpan.textContent = intervalPart;
+          metaLine.appendChild(intervalSpan);
+          if (fillPart) {
+            const sep = document.createElement('span');
+            sep.className = 'resource-mode-meta-sep';
+            sep.textContent = '•';
+            metaLine.appendChild(document.createTextNode(' '));
+            metaLine.appendChild(sep);
+            metaLine.appendChild(document.createTextNode(' '));
+            const fillSpan = document.createElement('span');
+            fillSpan.textContent = fillPart;
+            metaLine.appendChild(fillSpan);
+          }
+          li.appendChild(metaLine);
+        }
+
+        const drops = resource.Drops || [];
+        const initialLimit = 30;
+        const hasMore = drops.length > initialLimit;
+        const limitedDrops = hasMore ? drops.slice(0, initialLimit) : drops;
+
+        function buildTable(withHead) {
+          const t = document.createElement('table');
+          t.className = 'resource-drops';
+          if (withHead) {
+            const thead = document.createElement('thead');
+            const headRow = document.createElement('tr');
+            const headers = [
+              ['', 'resource-col-icon', ''],
+              ['Item', 'resource-col-name', 'Item Name'],
+              ['Qty', 'resource-col-qty', 'Quantity'],
+              ['Chance', 'resource-col-chance', 'Drop Chance'],
+              ['Wt', 'resource-col-weight', 'Weight']
+            ];
+            headers.forEach(([text, cls, sortLabel], idx) => {
+              const th = document.createElement('th');
+              th.className = cls;
+              th.textContent = text;
+              if (idx > 0) {
+                th.title = `Click to sort by ${sortLabel}`;
+                th.addEventListener('click', () => {
+                  if (th.classList.contains('resource-sort-leave')) return;
+                  const otherHeaders = Array.from(headRow.children);
+                  otherHeaders.forEach((h, i) => {
+                    if (i !== idx) h.removeAttribute('data-sort-dir');
+                  });
+                  // 3-state toggle: ascending (▲) → descending (▼) → reset
+                  // to the original .json index order with no arrow.
+                  const cur = th.getAttribute('data-sort-dir');
+                  if (cur === 'asc') {
+                    th.setAttribute('data-sort-dir', 'desc');
+                    sortAndRedistribute(idx, -1);
+                  } else if (cur === 'desc') {
+                    // Fade the arrow out first, then reset the order.
+                    th.classList.add('resource-sort-leave');
+                    th.addEventListener('animationend', () => {
+                      th.classList.remove('resource-sort-leave');
+                      th.removeAttribute('data-sort-dir');
+                      resetOrder();
+                    }, { once: true });
+                  } else {
+                    th.setAttribute('data-sort-dir', 'asc');
+                    sortAndRedistribute(idx, 1);
+                  }
+                });
+              }
+              headRow.appendChild(th);
+            });
+            thead.appendChild(headRow);
+            t.appendChild(thead);
+          }
+          const tb = document.createElement('tbody');
+          t.appendChild(tb);
+          return { table: t, tbody: tb };
+        }
+
+        function makeDropRow(drop) {
+          const tr = document.createElement('tr');
+
+          // Clicking a drop opens the same assignable-item detail modal as
+          // the assignables grid tiles (name, item type, weight, and a
+          // Technical accordion listing Editor ID + Form ID).
+          const displayItem = {
+            Name: drop.Name || '',
+            ItemType: drop.ItemType || '',
+            Weight: drop.Weight,
+            FormID: drop.FormID || '',
+            EditorID: drop.EditorID || '',
+            StaticRender: drop.StaticRender || ''
+          };
+          const openDropModal = e => {
+            e.preventDefault();
+            openAssignableItemModal(displayItem);
+          };
+          // The whole row is clickable; the icon/name anchors just stop the
+          // click from bubbling so it isn't handled twice.
+          tr.addEventListener('click', openDropModal);
+
+          // Icon cell
+          const iconTd = document.createElement('td');
+          iconTd.className = 'resource-col-icon';
+          const iconLink = document.createElement('a');
+          iconLink.className = 'resource-drop-icon-link';
+          iconLink.href = '#';
+          iconLink.setAttribute('aria-label', `View details for ${drop.Name || 'item'}`);
+          iconLink.onclick = e => { e.stopPropagation(); openDropModal(e); };
+          const iconImg = document.createElement('img');
+          iconImg.className = 'resource-drop-icon';
+          // Reuse the existing Assignables renders when the drop carries an
+          // ItemType (added to ResourceInfo.json), falling back to the
+          // ResourceCollectors folder and finally the generic missing-image
+          // placeholder - WorkshopIcons aren't used here at all.
+          const formId = String(drop.FormID || '').trim();
+          const itemTypeFolder = ((drop.ItemType || '').trim() || '_Other').replace(/\//g, '-');
+          const fbChain = [];
+          // A drop's StaticRender (a generic render shared by several
+          // items, e.g. GenericVegetableSoup.webp) takes priority, then its
+          // Assignables render, then the ResourceCollectors folder, and
+          // finally the generic missing-image placeholder.
+          if (drop.StaticRender) {
+            fbChain.push(`../ModelRender/${drop.StaticRender}`);
+          }
+          if (formId) {
+            if (drop.ItemType) {
+              fbChain.push(
+                `../ModelRender/Assignables/${itemTypeFolder}/${formId.toUpperCase()}_thumbnail.webp`,
+                `../ModelRender/Assignables/${itemTypeFolder}/${formId.toLowerCase()}_thumbnail.webp`
+              );
+            }
+            fbChain.push(`../ModelRender/ResourceCollectors/${itemTypeFolder}/${formId.toUpperCase()}_thumbnail.webp`);
+          }
+          iconImg.src = fbChain.shift() || '../assets/ImageNotFound.png';
+          iconImg.alt = drop.Name || '';
+          iconImg.loading = 'lazy';
+          iconImg.onerror = function() {
+            if (fbChain.length) {
+              this.src = fbChain.shift();
+            } else {
+              this.onerror = null;
+              this.src = '../assets/ImageNotFound.png';
+            }
+          };
+          iconLink.appendChild(iconImg);
+          iconTd.appendChild(iconLink);
+          tr.appendChild(iconTd);
+
+          // Name cell
+          const nameTd = document.createElement('td');
+          nameTd.className = 'resource-col-name';
+          const nameEl = document.createElement('a');
+          nameEl.className = 'resource-drop-name';
+          nameEl.href = '#';
+          nameEl.textContent = drop.Name || '';
+          nameEl.onclick = e => { e.stopPropagation(); openDropModal(e); };
+          nameTd.appendChild(nameEl);
+          tr.appendChild(nameTd);
+
+          // Quantity cell
+          const qtyTd = document.createElement('td');
+          qtyTd.className = 'resource-col-qty';
+          qtyTd.textContent = drop.Quantity || 1;
+          tr.appendChild(qtyTd);
+
+          // Drop chance cell
+          const chanceTd = document.createElement('td');
+          chanceTd.className = 'resource-col-chance';
+          chanceTd.textContent = Number(drop.DropChancePercent).toFixed(2) + '%';
+          tr.appendChild(chanceTd);
+
+          // Weight cell
+          const weightTd = document.createElement('td');
+          weightTd.className = 'resource-col-weight';
+          weightTd.textContent = fmtWeight(drop.Weight);
+          tr.appendChild(weightTd);
+
+          return tr;
+        }
+
+        // Footer row shown when a production tick can yield nothing -
+        // pinned to the bottom of the main table and excluded from sorting.
+        function makeNothingRow() {
+          const tr = document.createElement('tr');
+          tr.className = 'resource-drop-nothing';
+          const iconTd = document.createElement('td');
+          iconTd.className = 'resource-col-icon';
+          tr.appendChild(iconTd);
+          const nameTd = document.createElement('td');
+          nameTd.className = 'resource-col-name';
+          nameTd.textContent = 'Nothing';
+          tr.appendChild(nameTd);
+          const qtyTd = document.createElement('td');
+          qtyTd.className = 'resource-col-qty';
+          tr.appendChild(qtyTd);
+          const chanceTd = document.createElement('td');
+          chanceTd.className = 'resource-col-chance';
+          chanceTd.textContent = `${Number(resource.NothingChance).toFixed(2)}%`;
+          tr.appendChild(chanceTd);
+          const weightTd = document.createElement('td');
+          weightTd.className = 'resource-col-weight';
+          tr.appendChild(weightTd);
+          return tr;
+        }
+
+        const main = buildTable(true);
+        limitedDrops.forEach(drop => main.tbody.appendChild(makeDropRow(drop)));
+        if (resource.NothingChance > 0) main.tbody.appendChild(makeNothingRow());
+        li.appendChild(main.table);
+
+        let extra = null; // { table, tbody } - built lazily on first expand
+        let sortedDrops = null; // current display order; null = original .json order
+
+        // Renders the current display order into the main tbody (first
+        // `initialLimit` rows) and, if expanded, the overflow into the
+        // extra tbody. The "Nothing" footer row always sits last.
+        function renderTables() {
+          const src = sortedDrops || drops;
+          main.tbody.replaceChildren();
+          src.slice(0, initialLimit).forEach(drop => main.tbody.appendChild(makeDropRow(drop)));
+          if (resource.NothingChance > 0) main.tbody.appendChild(makeNothingRow());
+          if (extra) {
+            extra.tbody.replaceChildren();
+            src.slice(initialLimit).forEach(drop => extra.tbody.appendChild(makeDropRow(drop)));
+          }
+        }
+
+        // Third sort state: clear the sort and restore the original .json
+        // index order for all rows (hidden "show more" items included).
+        function resetOrder() {
+          sortedDrops = null;
+          renderTables();
+        }
+
+        function dropSortValue(drop, idx) {
+          if (idx === 2) return Number(drop.Quantity) || 0;
+          if (idx === 3) return Number(drop.DropChancePercent) || 0;
+          if (idx === 4) return Number(drop.Weight) || 0;
+          return String(drop.Name || '').toLowerCase();
+        }
+
+        // Sorts the FULL drop list - hidden "show more" items included -
+        // then redistributes the sorted order across the main/extra tables.
+        function sortAndRedistribute(idx, direction) {
+          sortedDrops = [...drops].sort((a, b) => {
+            const va = dropSortValue(a, idx);
+            const vb = dropSortValue(b, idx);
+            if (typeof va === 'string') return direction * va.localeCompare(vb);
+            return direction * (va - vb);
+          });
+          renderTables();
+        }
+
+        if (hasMore) {
+          const moreWrap = document.createElement('div');
+          moreWrap.className = 'resource-more-wrap';
+
+          const moreBody = document.createElement('div');
+          moreBody.className = 'resource-more-body';
+          moreWrap.appendChild(moreBody);
+
+          const moreBtn = document.createElement('div');
+          moreBtn.className = 'resource-more-toggle';
+          moreBtn.textContent = `▼ Show ${drops.length - initialLimit} more items`;
+          moreWrap.appendChild(moreBtn);
+
+          moreBtn.addEventListener('click', () => {
+            const open = moreWrap.classList.toggle('open');
+            if (open) {
+              moreBtn.textContent = '▲ Hide extra items';
+              if (!extra) {
+                extra = buildTable(false);
+                moreBody.appendChild(extra.table);
+              }
+              renderTables();
+              moreBody.style.maxHeight = moreBody.scrollHeight + 'px';
+              moreBody.addEventListener('transitionend', () => {
+                if (moreWrap.classList.contains('open')) moreBody.style.maxHeight = 'none';
+              }, { once: true });
+            } else {
+              moreBtn.textContent = `▼ Show ${drops.length - initialLimit} more items`;
+              // maxHeight may currently be 'none' (fully open and settled),
+              // which can't be transitioned from directly. Pin it to an
+              // explicit pixel value and force a reflow before animating
+              // to 0 so the browser always has a real starting point.
+              moreBody.style.maxHeight = moreBody.scrollHeight + 'px';
+              void moreBody.offsetHeight;
+              moreBody.style.maxHeight = '0px';
+            }
+          });
+
+          li.appendChild(moreWrap);
+        }
+
+        modesUl.appendChild(li);
+      });
+
+      wrap.appendChild(modesUl);
+      container.appendChild(wrap);
+      return true;
+    }
+
     document.getElementById('backBtn').addEventListener('click', (e) => {
       e.preventDefault();
       sessionStorage.removeItem('itemViewHistory');
@@ -522,7 +983,7 @@
     // in CSS) then removes the overlay once the animation has had time to
     // finish. Duration must stay in sync with the CSS transition length.
     // Pass `immediate` to skip the animation entirely (used when a page
-    // navigation happens while a modal is open — the underlying content is
+    // navigation happens while a modal is open - the underlying content is
     // about to be replaced, so the modal should just vanish, not linger).
     const MODAL_CLOSE_ANIM_MS = 150;
     function animateCloseOverlay(overlay, immediate) {
@@ -538,11 +999,12 @@
 
     // ── Global modal registry ──
     // Every modal opened via openModalShell() registers its close function
-    // here so any open modal(s) can be force-closed in one shot — used when
+    // here so any open modal(s) can be force-closed in one shot - used when
     // the item route changes (e.g. clicking a shared/assignable item tile
     // navigates via a hash change, which doesn't reload the page, so a
     // stray modal would otherwise stay open on top of the new content).
     let openModalRegistry = [];
+    let _modalTitleIdCounter = 0;
     let _lightboxPopStateHandled = false;
     function closeAllModals() {
       const toClose = openModalRegistry;
@@ -555,14 +1017,14 @@
     // every popup modal (specific-item detail, assignables "view more",
     // shared max-build-count "view more", shared build-slot "view more") so
     // they all share identical open/close animation and Escape/outside-click
-    // handling. `onBack`, when provided, shows a back arrow that — only when
-    // clicked — closes this modal and invokes onBack(); clicking outside or
+    // handling. `onBack`, when provided, shows a back arrow that - only when
+    // clicked - closes this modal and invokes onBack(); clicking outside or
     // the ✕ always just closes.
     //
     // Browser history integration: opening a modal pushes a history entry so
     // the back button / swipe-back gesture closes the modal (acting as ✕)
     // or triggers onBack if present.
-    function openModalShell({ maxWidth, title, onBack, onClose } = {}) {
+    function openModalShell({ maxWidth, title, onBack, onClose, skipHistoryPush } = {}) {
       const overlay = document.createElement('div');
       overlay.className = 'assignable-modal-overlay';
 
@@ -576,7 +1038,13 @@
 
       const modal = document.createElement('div');
       modal.className = 'assignable-modal';
+      modal.setAttribute('role', 'dialog');
+      modal.setAttribute('aria-modal', 'true');
       if (maxWidth) modal.style.maxWidth = maxWidth + 'px';
+
+      // Return focus to whatever had it before the modal opened, since it's
+      // otherwise lost to <body> once the modal is removed.
+      const _previouslyFocused = document.activeElement;
 
       let _closed = false;
       let _pendingAction = null; // 'back' when back-arrow was clicked, null otherwise
@@ -593,15 +1061,24 @@
         document.removeEventListener('keydown', onKey);
         window.removeEventListener('popstate', onPopState);
         openModalRegistry = openModalRegistry.filter(fn => fn !== close);
+        if (_previouslyFocused && typeof _previouslyFocused.focus === 'function') {
+          _previouslyFocused.focus();
+        }
       }
       function goBack() {
-        close();
+        // Immediate: this modal is being swapped for another one (onBack),
+        // not dismissed to nothing, so there's no need to fade it out - the
+        // replacement modal is already fully built and ready underneath by
+        // the time onBack() runs. Animating here just means the outgoing
+        // modal sits on top, fully opaque, hiding the new one for the
+        // length of the fade for no visual benefit.
+        close(true);
         if (typeof onBack === 'function') onBack();
       }
 
       // Single entry point for every dismissal path (overlay click, ✕,
       // Escape, back-arrow). Guards against firing history.back() more
-      // than once per modal instance — without this, a click registered
+      // than once per modal instance - without this, a click registered
       // before the first click's popstate has resolved would queue a
       // second history.back(), popping one entry further than intended
       // (since only one entry was ever pushed for this modal) and landing
@@ -650,8 +1127,10 @@
       if (title) {
         const h3 = document.createElement('h3');
         h3.className = 'assignable-modal-title';
+        h3.id = `modal-title-${++_modalTitleIdCounter}`;
         h3.textContent = title;
         header.appendChild(h3);
+        modal.setAttribute('aria-labelledby', h3.id);
       }
 
       const spacer = document.createElement('span');
@@ -661,6 +1140,7 @@
       const closeBtn = document.createElement('button');
       closeBtn.className = 'assignable-modal-close';
       closeBtn.textContent = '✕';
+      closeBtn.setAttribute('aria-label', 'Close');
       closeBtn.addEventListener('click', () => requestClose('close'));
       header.appendChild(closeBtn);
 
@@ -683,7 +1163,15 @@
       document.body.appendChild(overlay);
       openModalRegistry.push(close);
       window.addEventListener('popstate', onPopState);
-      history.pushState({ modal: true }, '');
+      if (!skipHistoryPush) {
+        history.pushState({ modal: true }, '');
+      }
+
+      // Move focus into the modal so keyboard/screen-reader users land
+      // somewhere sensible instead of focus staying on the (now hidden) trigger.
+      requestAnimationFrame(() => {
+        (modal.querySelector('.assignable-modal-back') || closeBtn).focus();
+      });
 
       function syncOverflow() {
         requestAnimationFrame(() => {
@@ -702,7 +1190,7 @@
     // rendered width: columns × row limit. Desktop gets 15 rows per
     // page, mobile gets 20. If `searchInput` is given, typing in it
     // switches to showing every match across the full list (pagination
-    // doesn't apply to search results — the filtered set is usually
+    // doesn't apply to search results - the filtered set is usually
     // small); clearing the search restores the paginated view.
     const MODAL_TILE_W = 96;
     const MODAL_TILE_GAP = 8;
@@ -734,7 +1222,7 @@
     function renderPaginatedGrid({ items, grid, pagerEl, tileFactory, searchInput, filterFn, onChange }) {
       let page = 0;
       let activeFilter = filterFn || null;
-      // `baseItems` is the filter-only view (no search applied yet) — this is
+      // `baseItems` is the filter-only view (no search applied yet) - this is
       // what search should always narrow from. Previously search narrowed
       // whatever `filteredItems` happened to be, which was itself the
       // *previous* search's result set. That meant once a search produced
@@ -744,8 +1232,10 @@
       let baseItems = activeFilter ? items.filter(activeFilter) : items;
       let filteredItems = baseItems;
 
-      // Pre-lowercase names once so filtering avoids repeated toLowerCase()
-      items.forEach(it => { it._searchName = (it.Name || '').toLowerCase(); });
+      // Pre-lowercase names once so filtering avoids repeated toLowerCase().
+      // Cached on the item itself since it never changes - recomputing this
+      // over the full list every time the modal opens/reopens is pure waste.
+      items.forEach(it => { if (it._searchName === undefined) it._searchName = (it.Name || '').toLowerCase(); });
 
       function totalPages() { return Math.max(1, Math.ceil(filteredItems.length / getModalPageSize(grid))); }
 
@@ -862,12 +1352,12 @@
     // Locks the MODAL's own outer box height to its first, unfiltered
     // render, then holds it fixed. Search can only narrow the result set,
     // so that first render is already the tallest this modal will ever
-    // need to be — and since the browser has already clamped it to the
+    // need to be - and since the browser has already clamped it to the
     // modal's own CSS max-height by the time it's measured, the locked
     // value can never exceed what's actually visible on screen. (An
     // earlier version of this locked the grid's own min-height instead,
     // which had a real bug: if the full unfiltered list was itself taller
-    // than max-height — i.e. it already needed scrolling to see it all —
+    // than max-height - i.e. it already needed scrolling to see it all -
     // then a later search narrowing things down to a couple of items still
     // left the grid claiming all that vertical space, so the modal stayed
     // scrollable through what was now mostly blank filler.)
@@ -928,11 +1418,38 @@
       _previewGrids.length = 0;
     }
 
+    // Hash-only relative link for same-document JS-driven navigation (e.g.
+    // the "shares max build count with" tiles below) - resolves against
+    // whatever pathname the page is currently on, so location.assign()
+    // stays a fast hash-only change instead of a full page load, exactly
+    // like updateNavButtons()'s prev/next links.
     function buildItemViewUrl(item) {
       const formId = item && item.CNAM_FormID ? item.CNAM_FormID : item && item.FormID ? item.FormID : '';
+      return formId ? `#item/${encodeURIComponent(formId)}` : '';
+    }
+
+    // Folder containing item-view.html - computed by stripping either
+    // "item-view.html" or "item/{file}.html" off the current path, so this
+    // is correct whether the user's current entry point is item-view.html
+    // itself or a canonical item/*.html stub page generated by Search.py's
+    // generate_item_pages().
+    function getSiteBaseFolder() {
+      return window.location.pathname
+        .replace(/item-view\.html$/, '')
+        .replace(/item\/[^/]*\.html$/, '');
+    }
+
+    // The same real, crawlable path generate_item_pages() writes to disk.
+    // No hash needed here - parseItemViewRoute() below can recover the
+    // FormID straight from this pathname, so the resting/shared URL stays
+    // clean. history.replaceState() never triggers a real navigation, so
+    // calling this on every route change doesn't affect load performance.
+    function buildCanonicalPathUrl(item) {
+      const formId = item && item.CNAM_FormID ? item.CNAM_FormID : item && item.FormID ? item.FormID : '';
+      if (!formId) return null;
       const name = item && item.Name ? item.Name : '';
-      const slug = slugify(name);
-      return formId ? `item-view.html#${encodeURIComponent(slug || 'item')}/${encodeURIComponent(formId)}` : 'item-view.html';
+      const slug = slugify(name) || 'item';
+      return `${getSiteBaseFolder()}item/${formId}-${slug}.html`;
     }
 
     function parseItemViewRoute() {
@@ -945,6 +1462,14 @@
         const slug = decodeURIComponent(hashParts[hashParts.length - 2] || '');
         return { id: formId || idParam || '', slug };
       }
+      // No hash present - e.g. a freshly-loaded canonical item/*.html page
+      // (generate_item_pages() no longer sets a hash at all), or our own
+      // history.replaceState() below having just dropped it. Recover the
+      // FormID directly from the filename: item/{formId}-{slug}.html.
+      const pathMatch = window.location.pathname.match(/\/item\/([^/-]+)-([^/]*)\.html$/);
+      if (pathMatch) {
+        return { id: decodeURIComponent(pathMatch[1]), slug: decodeURIComponent(pathMatch[2]) };
+      }
       return { id: idParam || '', slug: '' };
     }
 
@@ -956,8 +1481,11 @@
     if (_initParams.get('fresh') === '1') {
       sessionStorage.removeItem(NAV_KEY);
       sessionStorage.removeItem(NAV_KEY + '_idx');
-      const route = parseItemViewRoute();
-      const cleanUrl = route.id ? `item-view.html#${route.slug ? `${encodeURIComponent(route.slug)}/` : ''}${encodeURIComponent(route.id)}` : 'item-view.html';
+      // Just strip the ?fresh=1 marker here - pathname is left as-is
+      // (whatever the user actually arrived on) and gets upgraded to the
+      // canonical item/*.html URL below in loadItemRoute() once real item
+      // data is available to build a correct, case-matching slug.
+      const cleanUrl = `${window.location.pathname}${window.location.hash}`;
       history.replaceState(null, '', cleanUrl);
     }
 
@@ -971,7 +1499,11 @@
       const next = document.getElementById('navNext');
       if (navIndex > 0) {
         prev.classList.add('active');
-        prev.href = `item-view.html#item/${encodeURIComponent(navHistory[navIndex - 1])}`;
+        // Hash-only relative href - resolves against whatever pathname the
+        // page is currently on (item-view.html or a canonical item/*.html
+        // stub), so location.assign() below still optimizes this into a
+        // fast same-document hash change instead of a full page load.
+        prev.href = `#item/${encodeURIComponent(navHistory[navIndex - 1])}`;
         prev.onclick = e => { e.preventDefault(); navIndex--; sessionStorage.setItem(NAV_KEY + '_idx', navIndex); window.location.assign(prev.href); };
       } else {
         prev.classList.remove('active');
@@ -979,12 +1511,36 @@
       }
       if (navIndex < navHistory.length - 1) {
         next.classList.add('active');
-        next.href = `item-view.html#item/${encodeURIComponent(navHistory[navIndex + 1])}`;
+        next.href = `#item/${encodeURIComponent(navHistory[navIndex + 1])}`;
         next.onclick = e => { e.preventDefault(); navIndex++; sessionStorage.setItem(NAV_KEY + '_idx', navIndex); window.location.assign(next.href); };
       } else {
         next.classList.remove('active');
         next.removeAttribute('href');
       }
+    }
+
+    // ── Cached JSON fetch (shared with script.js via sessionStorage) ──────
+    // SITE_DATA_VERSION should be bumped any time final_workshop_db.json (or
+    // the other data files) are regenerated with new content, so returning
+    // visitors don't get served a stale cached copy. Bump it alongside the
+    // version history entry in index.html. Kept identical to script.js's
+    // copy so both pages read/write the same sessionStorage cache entries.
+    const SITE_DATA_VERSION = 'v3.2.1';
+
+    function fetchJSONCached(url) {
+      const cacheKey = `dataCache:${SITE_DATA_VERSION}:${url}`;
+      try {
+        const cached = sessionStorage.getItem(cacheKey);
+        if (cached) return Promise.resolve(JSON.parse(cached));
+      } catch (e) { /* corrupt cache entry, fall through to network */ }
+
+      return fetch(`${url}?v=${SITE_DATA_VERSION}`)
+        .then(response => response.json())
+        .then(data => {
+          try { sessionStorage.setItem(cacheKey, JSON.stringify(data)); }
+          catch (e) { /* storage full/unavailable - data still usable, just not cached */ }
+          return data;
+        });
     }
 
     // ── Load ──
@@ -998,6 +1554,7 @@
     let dbPromise = null;
     let assignableInfoPromise = null;
     let playerBuffInfoPromise = null;
+    let resourceInfoPromise = null;
 
     function loadItemRoute() {
       closeAllModals();
@@ -1007,7 +1564,7 @@
       // jumping the scroll position back to top. Without this, scrollTo(0,0)
       // fires while the previous item's content is still fully visible,
       // producing a jarring flash of the old page at the top for a frame
-      // before it clears — worst when navigating from a shared-item tile
+      // before it clears - worst when navigating from a shared-item tile
       // near the bottom of a long detail page. Hiding first means the jump
       // happens while contentDiv is already invisible, so it's never seen.
       contentDiv.classList.remove('detail-content-ready');
@@ -1042,11 +1599,12 @@
       updateNavButtons(formId);
 
       Promise.all([
-        (dbPromise || (dbPromise = fetch('final_workshop_db.json').then(r => r.json()))),
-        (assignableInfoPromise || (assignableInfoPromise = fetch('AssignableInfo.json').then(r => r.json()).catch(() => ({})))),
-        (playerBuffInfoPromise || (playerBuffInfoPromise = fetch('PlayerBuffInfo.json').then(r => r.json()).catch(() => ({}))))
+        (dbPromise || (dbPromise = fetchJSONCached('final_workshop_db.json'))),
+        (assignableInfoPromise || (assignableInfoPromise = fetchJSONCached('AssignableInfo.json').catch(() => ({})))),
+        (playerBuffInfoPromise || (playerBuffInfoPromise = fetchJSONCached('PlayerBuffInfo.json').catch(() => ({})))),
+        (resourceInfoPromise || (resourceInfoPromise = fetchJSONCached('ResourceInfo.json').catch(() => ({}))))
       ])
-        .then(([data, assignableInfo, playerBuffInfo]) => {
+        .then(([data, assignableInfo, playerBuffInfo, resourceInfo]) => {
           if (currentToken !== activeRouteToken) return;
           const item = data.find(i => i.CNAM_FormID === formId);
           if (!item) {
@@ -1056,16 +1614,17 @@
             return;
           }
           const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
-          const cleanUrl = `${window.location.pathname}${window.location.search}${buildItemViewUrl(item).includes('#') ? buildItemViewUrl(item).slice(buildItemViewUrl(item).indexOf('#')) : ''}`;
+          const cleanUrl = buildCanonicalPathUrl(item) || currentUrl;
           if (currentUrl !== cleanUrl) {
             history.replaceState(null, '', cleanUrl);
           }
-          renderDetailPage(item, data, assignableInfo, playerBuffInfo);
+          renderDetailPage(item, data, assignableInfo, playerBuffInfo, resourceInfo);
         })
         .catch(err => {
           dbPromise = null;
           assignableInfoPromise = null;
           playerBuffInfoPromise = null;
+          resourceInfoPromise = null;
           if (currentToken !== activeRouteToken) return;
           console.error(err);
           contentDiv.classList.remove('detail-content-loading');
@@ -1092,7 +1651,7 @@
     // Wires up click-to-zoom (cycling through ZOOM_SCALES) and drag-to-pan
     // once zoomed in, on any `.lightbox-image-viewport`-style container.
     // Cursor stays a zoom cursor at all times (zoom-in while there's more
-    // room to zoom, zoom-out once at max) — it only switches to a grab
+    // room to zoom, zoom-out once at max) - it only switches to a grab
     // hand while the mouse button is actually held down and dragging (see
     // .dragging in CSS). Returns { resetView, consumeSuppress, cleanup }
     // so callers can reset zoom on image change, avoid a stray click
@@ -1411,6 +1970,10 @@
     function openLightbox(startImage, onBack) {
       const overlay = document.createElement('div');
       overlay.className = 'lightbox-overlay';
+      overlay.setAttribute('role', 'dialog');
+      overlay.setAttribute('aria-modal', 'true');
+      overlay.setAttribute('aria-label', 'Image viewer');
+      const _lbPreviouslyFocused = document.activeElement;
 
       const isMainRender = startImage && startImage.isMainRender;
       const galleryRoot = !isMainRender && startImage && startImage.closest
@@ -1448,6 +2011,7 @@
         document.removeEventListener('keydown', onKey);
         window.removeEventListener('popstate', onLbPopState);
         animateCloseOverlay(overlay, true);
+        if (_lbPreviouslyFocused && typeof _lbPreviouslyFocused.focus === 'function') _lbPreviouslyFocused.focus();
       }
       function closeLightboxSoft() {
         if (_lbClosed) return;
@@ -1462,6 +2026,7 @@
         document.removeEventListener('keydown', onKey);
         window.removeEventListener('popstate', onLbPopState);
         animateCloseOverlay(overlay);
+        if (_lbPreviouslyFocused && typeof _lbPreviouslyFocused.focus === 'function') _lbPreviouslyFocused.focus();
       }
       function closeAllAndHistory() {
         closeLightboxImmediate();
@@ -1510,7 +2075,7 @@
       const stage = document.createElement('div');
       stage.className = 'lightbox-stage';
       // Clicks are "inside" (shouldn't close the lightbox) when they land
-      // within the image's actual current rendered bounds — not the static
+      // within the image's actual current rendered bounds - not the static
       // stage box. This matters once zoomed in: the image can extend past
       // the stage's box (see .lightbox-stage overflow:visible), so the
       // "click outside closes" hit-test has to track the image's real,
@@ -1679,7 +2244,7 @@
           tapStartY = e.touches[0].clientY;
         }, { passive: true });
         overlay.addEventListener('touchend', e => {
-          // Don't intercept touches on buttons/links/image viewport — let their handlers fire
+          // Don't intercept touches on buttons/links/image viewport - let their handlers fire
           if (e.target.closest('button, a, .lightbox-image-viewport')) return;
           const dx = Math.abs(e.changedTouches[0].clientX - tapStartX);
           const dy = Math.abs(e.changedTouches[0].clientY - tapStartY);
@@ -1742,7 +2307,7 @@
       }
 
       const onKey = e => {
-        if (e.key === 'Escape') {
+        if (e.key === 'Escape' || e.key === 'Enter') {
           if (onBack) { closeAllAndHistory(); } else { closeLightboxSoft(); }
         } else if (e.key === 'ArrowLeft' && isGallery) {
           showImage(activeIndex - 1, 'fade');
@@ -1883,9 +2448,15 @@
         document.head.appendChild(newTag);
       }
 
-      // Update image — prefer storefront, fall back to item icon
+      // Update image - prefer the model render thumbnail, since that's the
+      // same hero image this page shows as its own primary picture (see
+      // imgSrc/fbChain in renderDetailPage). Falls back to the storefront
+      // image, then the item icon, for items without a render.
       let imageUrl = null;
-      if (item.ENTM_ImagePath && item.ENTM_ImageNames && item.ENTM_ImageNames.trim()) {
+      const formIdForImage = item.CNAM_FormID || '';
+      if (formIdForImage && formIdForImage !== 'Unknown') {
+        imageUrl = `https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/76-CAMPDatabase/ModelRender/CAMPitem/${formIdForImage.toUpperCase()}_thumbnail.webp`;
+      } else if (item.ENTM_ImagePath && item.ENTM_ImageNames && item.ENTM_ImageNames.trim()) {
         const basePath = item.ENTM_ImagePath.trim().replace(/\\/g, '/');
         const firstImageName = item.ENTM_ImageNames.split(';')[0].trim().replace(/\.dds$/i, '');
         const relativePath = basePath.replace(/^Textures\//i, '').toLowerCase()
@@ -1895,7 +2466,10 @@
         imageUrl = `https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/76-CAMPDatabase/Experimental/${imagePath}`;
       } else {
         const iconFile = (item.ARTO_FormID || item.CNAM_FormID || '').toLowerCase();
-        if (iconFile) imageUrl = `../WorkshopIcons/${iconFile}.webp`;
+        // Absolute, not relative: <meta> content isn't resolved against
+        // <base> or the document's own URL the way an <img src> would be,
+        // so link-preview bots need a real, fully-qualified URL here.
+        if (iconFile) imageUrl = `https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/76-CAMPDatabase/WorkshopIcons/${iconFile}.webp`;
       }
       
       const imageTag = document.querySelector('meta[property="og:image"]');
@@ -1931,9 +2505,9 @@
     // Assignables list (AssignableInfo.json entries don't have their own
     // detail page). Structured so an image can be dropped in later by
     // reusing the storefront gallery markup (openLightbox above) minus the
-    // prev/next controls — see the `imageSrc` hook below.
+    // prev/next controls - see the `imageSrc` hook below.
     // `onBack`, when provided, is called only when the back arrow is
-    // clicked — it re-opens the "view more" modal a tile was clicked from.
+    // clicked - it re-opens the "view more" modal a tile was clicked from.
     // Clicking outside the modal or the ✕ always just closes it.
     function openAssignableItemModal(displayItem, onBack) {
       const { modal } = openModalShell({
@@ -2019,8 +2593,13 @@
             if (techAccordion.classList.contains('open')) techBody.style.maxHeight = 'none';
           }, { once: true });
         } else {
+          // maxHeight may currently be 'none' (fully open and settled),
+          // which can't be transitioned from directly. Pin it to an
+          // explicit pixel value and force a reflow before animating
+          // to 0 so the browser always has a real starting point.
           techBody.style.maxHeight = techBody.scrollHeight + 'px';
-          requestAnimationFrame(() => { techBody.style.maxHeight = '0px'; });
+          void techBody.offsetHeight;
+          techBody.style.maxHeight = '0px';
         }
       });
 
@@ -2033,7 +2612,7 @@
       modal.appendChild(techAccordion);
     }
 
-    function renderDetailPage(item, db, assignableInfo = [], playerBuffInfo = {}) {
+    function renderDetailPage(item, db, assignableInfo = [], playerBuffInfo = {}, resourceInfo = {}) {
       contentDiv.replaceChildren();
       contentDiv.classList.remove('detail-content-ready');
       contentDiv.classList.add('detail-content-loading');
@@ -2116,6 +2695,7 @@
         const bImg = document.createElement('img');
         bImg.src = budgetIcons[budgetTier];
         bImg.title = budgetLabels[budgetTier];
+        bImg.alt = `Budget Cost: ${budgetLabels[budgetTier]}`;
         budgetMain.appendChild(bImg);
         budgetMain.appendChild(document.createTextNode(`${roundedBudget} ${unitText}`));
         const budgetTierLabel = document.createElement('div');
@@ -2147,6 +2727,7 @@
         const sImg = document.createElement('img');
         sImg.src = shelterIcon;
         sImg.title = shelterLabel;
+        sImg.alt = `Interior Shelter Budget: ${shelterLabel}`;
         shelterMain.appendChild(sImg);
         shelterMain.appendChild(document.createTextNode(`${shelterBudget} Flamingo Units`));
 
@@ -2186,6 +2767,7 @@
         const wImg = document.createElement('img');
         wImg.src = weatherIconMap[weatherType] || '';
         wImg.title = weatherType;
+        wImg.alt = `Weather Type: ${weatherType}`;
         weatherMain.appendChild(wImg);
         weatherMain.appendChild(document.createTextNode(weatherType));
 
@@ -2229,8 +2811,13 @@
             if (techAccordion.classList.contains('open')) techBody.style.maxHeight = 'none';
           }, { once: true });
         } else {
+          // maxHeight may currently be 'none' (fully open and settled),
+          // which can't be transitioned from directly. Pin it to an
+          // explicit pixel value and force a reflow before animating
+          // to 0 so the browser always has a real starting point.
           techBody.style.maxHeight = techBody.scrollHeight + 'px';
-          requestAnimationFrame(() => { techBody.style.maxHeight = '0px'; });
+          void techBody.offsetHeight;
+          techBody.style.maxHeight = '0px';
         }
       });
 
@@ -2258,7 +2845,7 @@
         addTechRow('Editor ID', mono);
       }
 
-      // Model(s) — singular label for a single model, plural for a
+      // Model(s) - singular label for a single model, plural for a
       // composite (multiple NIFs referenced by the record, e.g. PKINs
       // and composite mannequin NPCs). Each row shows just the filename;
       // a "?" reveals the full path (hoverable/copyable, see
@@ -2289,7 +2876,7 @@
         addTechRow(modelPaths.length > 1 ? 'Models' : 'Model', col);
       }
 
-      // Material Swaps — MSWP editor/form ID, plus (if AllRecords.csv
+      // Material Swaps - MSWP editor/form ID, plus (if AllRecords.csv
       // captured any .bgsm swap pairs for this record) a hoverable "?"
       // that reveals the raw source -> target swap list.
       if (item.MSWP_EditorID || item.MSWP_FormID) {
@@ -2351,7 +2938,7 @@
         const h2 = document.createElement('h2'); h2.textContent = 'Build Menu Category';
         block.appendChild(h2);
 
-        // An item can be placeable from more than one build-menu location —
+        // An item can be placeable from more than one build-menu location -
         // gather every distinct Category/SubCategory chain sharing this CNAM_FormID.
         const categoryChains = [];
         const seenChains = new Set();
@@ -2492,6 +3079,14 @@
         const bottomRow = document.createElement('div');
         bottomRow.className = 'storefront-row';
 
+        // ── Resource Collection (shown first, when present) ──
+        const resourceRendered = renderResourceCollection(bottomRow, item, db, resourceInfo);
+        if (resourceRendered) {
+          const sepAfterResource = document.createElement('hr');
+          sepAfterResource.style.cssText = 'border:none;border-top:1px solid #383838;margin:16px 0;';
+          bottomRow.appendChild(sepAfterResource);
+        }
+
         // ── Assignables Info (shown first in this section, when present) ──
         // Support both the new { AllowedFormLists, ExcludedFormLists, Entries }
         // format and a legacy plain-array format.
@@ -2544,6 +3139,12 @@
           const excludedFormIDs = new Set((assignableEntry.ExcludedItems || []).map(x => x.FormID));
           const effectiveAllowedItems = assignableEntry.AllowedItems.filter(x => !excludedFormIDs.has(x.FormID));
           const sortedAllowedItems = [...effectiveAllowedItems].sort((a, b) => (a.Name || '').localeCompare(b.Name || ''));
+          // Sorted once here rather than inside openViewMoreModal(), which
+          // used to re-run both sorts (and re-sort the allowed list a
+          // *second* time, redundantly) on every single open/reopen of the
+          // "view more" modal, including every return trip from an item's
+          // detail view.
+          const sortedExcludedItemsForModal = [...(assignableEntry.ExcludedItems || [])].sort((a, b) => (a.Name || '').localeCompare(b.Name || ''));
 
           const grid = document.createElement('div');
           grid.className = 'assignable-grid';
@@ -2610,7 +3211,7 @@
           // reopened again via the item modal's back arrow.
           let viewMoreClose = null;
           function closeViewMoreModal() {
-            if (viewMoreClose) { viewMoreClose(); viewMoreClose = null; }
+            if (viewMoreClose) { viewMoreClose(true); viewMoreClose = null; }
           }
 
           const assignableState = { activeTab: 0, inclusionsSearch: '', exclusionsSearch: '', scrollPos: 0, activePage: 0, activeTypes: new Set() };
@@ -2632,6 +3233,7 @@
 
             const { modal, close, syncOverflow } = openModalShell({
                 title: 'Assignables',
+                skipHistoryPush: wasReturning,
                 onClose: () => {
                   if (!_returningFromItem) {
                     assignableState.activeTab = 0;
@@ -2758,8 +3360,8 @@
               // ── Tab content (grids only, no search rows inside) ──
               const tabContentWrapper = document.createElement('div');
               tabContentWrapper.className = 'assignable-modal-content-wrapper';
-              // Attached to `modal` right away — before any grid content
-              // exists inside it — so that when syncTabHeights measures
+              // Attached to `modal` right away - before any grid content
+              // exists inside it - so that when syncTabHeights measures
               // modal.getBoundingClientRect() during the grids' initial
               // render below, that content is already part of the live
               // layout tree and actually counted. Attaching it later (after
@@ -2779,9 +3381,8 @@
               const allGrid = document.createElement('div');
               allGrid.className = 'assignable-grid';
               tab1Content.appendChild(allGrid);
-              const sortedAllowedForModal = [...effectiveAllowedItems].sort((a, b) => (a.Name || '').localeCompare(b.Name || ''));
-              // Locks the MODAL'S OWN outer box height — not an inner
-              // wrapper's min-height — to each tab's first, unfiltered
+              // Locks the MODAL'S OWN outer box height - not an inner
+              // wrapper's min-height - to each tab's first, unfiltered
               // render, taking the taller of the two tabs once both have
               // been visited so switching tabs doesn't jump.
               //
@@ -2789,21 +3390,21 @@
               // real bug: if a tab's full unfiltered list was itself taller
               // than the modal's max-height (i.e. it already needed to
               // scroll to see everything), locking the wrapper to that full
-              // height meant a later search — narrowing the list down to a
-              // couple of items — still left the wrapper claiming all that
+              // height meant a later search - narrowing the list down to a
+              // couple of items - still left the wrapper claiming all that
               // vertical space, so the modal stayed scrollable through what
               // was now mostly blank filler below the few visible tiles.
               // Locking the outer modal box instead is safe because the
               // browser has already clamped it to max-height by the time
               // it's measured, so the locked value can never exceed what's
-              // actually visible on screen — a narrowed search just leaves
+              // actually visible on screen - a narrowed search just leaves
               // quiet, non-scrolling empty space within that same box.
               //
               // The read is synchronous (not requestAnimationFrame) and
               // gated on the tab's content actually being visible, because
-              // this can be called during construction — before any saved
+              // this can be called during construction - before any saved
               // search has been restored, and before a returning-to-tab-2
-              // visit has toggled tab2 visible — and a deferred read would
+              // visit has toggled tab2 visible - and a deferred read would
               // only ever see the LAST DOM state from this tick (already
               // narrowed by that restoration), not the natural one.
               let _tab1Height = 0;
@@ -2823,28 +3424,40 @@
                 syncOverflow();
               }
 
-              const inclGridCtrl = renderPaginatedGrid({
-                items: sortedAllowedForModal,
-                grid: allGrid,
-                pagerEl,
-                searchInput,
-                tileFactory: displayItem => makeAssignableTile(displayItem, true),
-                filterFn: getActiveTypeFilter(),
-                onChange: syncTabHeights
-              });
-              _inclGridCtrl = inclGridCtrl;
-
               let tab2Content = null;
               let exclGridCtrl = null;
-              if (hasExclusions) {
-                tab2Content = document.createElement('div');
-                tab2Content.className = 'assignable-modal-tab-content';
-                // Same reasoning as tab1Content above: attach before
-                // populating, so the initial (unfiltered) render this tab
-                // gets the first time it's ever visible is measured
-                // against a complete tree.
-                tabContentWrapper.appendChild(tab2Content);
+              let inclGridCtrl = null;
 
+              // Building a grid (filtering the full list, precomputing
+              // search names, rendering the first page, measuring layout
+              // for pagination) is real synchronous work. Previously both
+              // the Inclusions and Exclusions grids were built eagerly on
+              // every single open - including every return trip from an
+              // item's detail view - even though only one tab is ever
+              // visible at a time. These now build lazily, on first visit
+              // to each tab, so reopening straight onto (say) Exclusions
+              // only ever does the work Exclusions actually needs.
+              function ensureInclGrid() {
+                if (inclGridCtrl) return;
+                inclGridCtrl = renderPaginatedGrid({
+                  items: sortedAllowedItems,
+                  grid: allGrid,
+                  pagerEl,
+                  searchInput,
+                  tileFactory: displayItem => makeAssignableTile(displayItem, true),
+                  filterFn: assignableState.activeTab === 1 ? null : getActiveTypeFilter(),
+                  onChange: syncTabHeights
+                });
+                _inclGridCtrl = inclGridCtrl;
+                // Covers building this grid on demand *after* saved search
+                // state was already restored into the (until-now-inert)
+                // search box - without this, the box would show the
+                // restored text while the freshly-built grid ignores it.
+                if (searchInput.value) searchInput.dispatchEvent(new Event('input'));
+              }
+
+              function ensureExclGrid() {
+                if (!hasExclusions || exclGridCtrl) return;
                 const excludedLabel = document.createElement('div');
                 excludedLabel.style.cssText = 'font-size:12px;color:var(--text-muted);margin:12px 0;text-align:left;';
                 excludedLabel.textContent = `Explicitly excludes the following items from list "${assignableEntry.ExcludedItemsList?.Name || 'Unknown'}"`;
@@ -2853,44 +3466,72 @@
                 const excludedGrid = document.createElement('div');
                 excludedGrid.className = 'assignable-grid';
                 tab2Content.appendChild(excludedGrid);
-                const sortedExcludedItems = [...assignableEntry.ExcludedItems].sort((a, b) => (a.Name || '').localeCompare(b.Name || ''));
                 exclGridCtrl = renderPaginatedGrid({
-                  items: sortedExcludedItems,
+                  items: sortedExcludedItemsForModal,
                   grid: excludedGrid,
                   pagerEl: excludedPagerEl,
                   searchInput: excludedSearchInput,
                   tileFactory: displayItem => makeAssignableTile(displayItem, true),
-                  filterFn: getActiveTypeFilter(),
+                  filterFn: assignableState.activeTab === 1 ? getActiveTypeFilter() : null,
                   onChange: syncTabHeights
                 });
                 _exclGridCtrl = exclGridCtrl;
+                // See the matching comment in ensureInclGrid().
+                if (excludedSearchInput.value) excludedSearchInput.dispatchEvent(new Event('input'));
+              }
 
-                tab1.addEventListener('click', () => {
-                  tab1.classList.add('active');
-                  tab2.classList.remove('active');
-                  tab1Content.classList.add('active');
-                  tab2Content.classList.remove('active');
-                  searchRow1.style.display = '';
-                  searchRow2.style.display = 'none';
-                  assignableState.activeTab = 0;
-                  assignableState.activeTypes.clear();
-                  if (filterRow) rebuildFilterChips(0);
-                  inclGridCtrl.setFilter(null);
+              // Applies the current type filter to only the active tab's
+              // grid, clearing the other one. The two grids' filter chips
+              // are already scoped per tab (rebuildFilterChips shows a
+              // different type list per tab), but without this, a filter
+              // selected on one tab (e.g. "Weapons" under Exclusions) would
+              // stay applied to the other tab's grid too, since both grids
+              // were previously built from the same shared activeTypes set.
+              // That's harmless while the other tab is hidden, but becomes
+              // visible - and can leave a grid looking wrongly empty - the
+              // moment the active tab is switched or restored.
+              function applyTabFilters() {
+                const filterFn = getActiveTypeFilter();
+                if (assignableState.activeTab === 1) {
+                  if (exclGridCtrl) exclGridCtrl.setFilter(filterFn);
+                  if (inclGridCtrl) inclGridCtrl.setFilter(null);
+                } else {
+                  if (inclGridCtrl) inclGridCtrl.setFilter(filterFn);
                   if (exclGridCtrl) exclGridCtrl.setFilter(null);
-                });
-                tab2.addEventListener('click', () => {
-                  tab1.classList.remove('active');
-                  tab2.classList.add('active');
-                  tab1Content.classList.remove('active');
-                  tab2Content.classList.add('active');
-                  searchRow1.style.display = 'none';
-                  searchRow2.style.display = '';
-                  assignableState.activeTab = 1;
-                  assignableState.activeTypes.clear();
-                  if (filterRow) rebuildFilterChips(1);
-                  inclGridCtrl.setFilter(null);
-                  if (exclGridCtrl) exclGridCtrl.setFilter(null);
-                });
+                }
+              }
+
+              // Single source of truth for switching tabs, used both for a
+              // manual tab click and for restoring the previously-active
+              // tab when the modal is reopened after backing out of an item
+              // detail view. `preserveFilter` keeps the current type-filter
+              // selection (used on restore, since the user's filters should
+              // carry over exactly); a manual click always clears it.
+              function switchAssignableTab(tabIndex, { preserveFilter = false } = {}) {
+                const toTab2 = tabIndex === 1 && hasExclusions;
+                assignableState.activeTab = toTab2 ? 1 : 0;
+                tab1.classList.toggle('active', !toTab2);
+                if (tab2) tab2.classList.toggle('active', toTab2);
+                tab1Content.classList.toggle('active', !toTab2);
+                if (tab2Content) tab2Content.classList.toggle('active', toTab2);
+                searchRow1.style.display = toTab2 ? 'none' : '';
+                if (searchRow2) searchRow2.style.display = toTab2 ? '' : 'none';
+                if (!preserveFilter) assignableState.activeTypes.clear();
+                if (filterRow) rebuildFilterChips(assignableState.activeTab);
+                if (toTab2) ensureExclGrid(); else ensureInclGrid();
+                applyTabFilters();
+              }
+
+              if (hasExclusions) {
+                tab2Content = document.createElement('div');
+                tab2Content.className = 'assignable-modal-tab-content';
+                // Attached before populating so that whenever this tab is
+                // first visited, its initial render is measured against a
+                // complete tree.
+                tabContentWrapper.appendChild(tab2Content);
+
+                tab1.addEventListener('click', () => switchAssignableTab(0));
+                tab2.addEventListener('click', () => switchAssignableTab(1));
               }
 
               // ── Filter chip click handlers ──
@@ -2905,26 +3546,23 @@
                   } else {
                     assignableState.activeTypes.add(rawType);
                   }
-                  const filterFn = assignableState.activeTypes.size === 0 ? null : getActiveTypeFilter();
                   filterChips.forEach(c => {
                     c.chip.classList.toggle('active', assignableState.activeTypes.has(c.type));
                   });
-                  inclGridCtrl.setFilter(filterFn);
-                  if (exclGridCtrl) exclGridCtrl.setFilter(filterFn);
+                  applyTabFilters();
                 });
               }
 
-              // Switch to the saved active tab
-              if (hasExclusions && assignableState.activeTab === 1) {
-                tab1.classList.remove('active');
-                tab2.classList.add('active');
-                tab1Content.classList.remove('active');
-                tab2Content.classList.add('active');
-                searchRow1.style.display = 'none';
-                searchRow2.style.display = '';
-                if (filterRow) rebuildFilterChips(1);
+              // Build/activate whichever tab is actually current - the
+              // default Inclusions tab on a fresh open, or the previously
+              // active tab (with its filter preserved) when reopening after
+              // backing out of an item's detail view. This is also what
+              // lazily builds that tab's grid, since fresh opens no longer
+              // eagerly construct both grids up front.
+              switchAssignableTab(assignableState.activeTab, { preserveFilter: wasReturning });
+              if (wasReturning && assignableState.activeTab === 1) {
                 // Capture tab2's natural height now, while its content is
-                // still the full unfiltered list — the search restore right
+                // still the full unfiltered list - the search restore right
                 // below this may narrow it, and by then it'd be too late.
                 syncTabHeights();
               }
@@ -2955,7 +3593,7 @@
 
               // Height is already locked by this point (captured
               // synchronously at construction and, if applicable, right
-              // after restoring tab2 as active — both before any saved
+              // after restoring tab2 as active - both before any saved
               // search could narrow the content). This call just refreshes
               // the scrollbar state for the final restored view.
               syncTabHeights();
@@ -3104,7 +3742,7 @@
               bottomRow.appendChild(none);
             }
           } else {
-            // No glob key — no sharing data
+            // No glob key - no sharing data
             const none = document.createElement('div');
             none.className = 'shared-none';
             none.textContent = 'None';
