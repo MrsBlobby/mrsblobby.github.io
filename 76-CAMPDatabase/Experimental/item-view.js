@@ -65,7 +65,51 @@
       }).catch(() => {});
     }
 
-    // ── Detail tooltip (Model paths / Material Swaps "?" popovers) ──
+    // ── Shared "?" / "✕" icon glyphs ──
+    // Both were previously plain text characters ('?', '✕') centered via
+    // flexbox on their containing circle. Flexbox centers the *box*, not
+    // the glyph's ink - question marks and X's have uneven visual weight
+    // (the "?" curl leans one way, the "✕" glyph has font-specific side
+    // bearings), so every new instance ended up needing its own
+    // hand-tuned padding/margin nudge to *look* centered (see the old
+    // .info-icon--h2 padding-left and .resource-mode-title .info-icon
+    // margin-left/padding-right tweaks). These build a small inline SVG
+    // instead - a fixed-geometry glyph inside a viewBox centered on
+    // (8,8) - so centering is exact by construction and needs no
+    // per-instance tuning, now or when adding future icons.
+    const ICON_SVG_NS = 'http://www.w3.org/2000/svg';
+    function makeGlyphIcon(pathD, size) {
+      const svg = document.createElementNS(ICON_SVG_NS, 'svg');
+      svg.setAttribute('viewBox', '0 0 16 16');
+      svg.setAttribute('width', size);
+      svg.setAttribute('height', size);
+      svg.setAttribute('aria-hidden', 'true');
+      svg.classList.add('icon-svg');
+      const path = document.createElementNS(ICON_SVG_NS, 'path');
+      path.setAttribute('d', pathD);
+      svg.appendChild(path);
+      return svg;
+    }
+    // "?" glyph: hook stroke + separate dot, both path-based so they
+    // share one stroke width and sit on the same (8,8)-centered grid.
+    const QUESTION_ICON_PATH = 'M5.6 6.15c0-1.42 1.07-2.45 2.4-2.45s2.4.97 2.4 2.15c0 1.06-.62 1.65-1.4 2.13-.72.44-1.1.92-1.1 1.72v.35M8 12.15h.01';
+    // "✕" glyph: two strokes crossing dead-center of the same grid.
+    const CLOSE_ICON_PATH = 'M4.2 4.2l7.6 7.6M11.8 4.2l-7.6 7.6';
+    function makeQuestionIcon(size = 13) {
+      return makeGlyphIcon(QUESTION_ICON_PATH, size);
+    }
+    function makeCloseIcon(size = 16) {
+      const svg = makeGlyphIcon(CLOSE_ICON_PATH, size);
+      // The geometry above is already mathematically centered on (8,8),
+      // but the crossing "X" reads as sitting slightly low in a
+      // flex-centered circle (crossed-diagonal shapes are a known case
+      // where true geometric center and perceived/optical center don't
+      // quite match). One small, permanent correction here - not a
+      // per-instance nudge - fixes every close/back "✕" at once.
+      svg.classList.add('icon-svg--close');
+      return svg;
+    }
+
     //
     // Unlike a plain hover tooltip, this one:
     //  - stays open while the mouse is over the popup itself, so long
@@ -591,7 +635,9 @@
           const modeTitleStrong = document.createElement('strong');
           modeTitleStrong.textContent = 'Resource:';
           modeTitle.appendChild(modeTitleStrong);
-          modeTitle.appendChild(document.createTextNode(' ' + (resource.AVIF_Name || 'Unknown')));
+          const resourceNameSpan = document.createElement('span');
+          resourceNameSpan.textContent = resource.AVIF_Name || 'Unknown';
+          modeTitle.appendChild(resourceNameSpan);
 
           // Collectors built on these AVIFs share one production interval -
           // adding more collectors only grows max storage, not output rate.
@@ -599,7 +645,7 @@
           if (stackingAvifIds.has(String(resource.AVIF_FormID || '').trim().toUpperCase())) {
             const rcIcon = document.createElement('span');
             rcIcon.className = 'info-icon';
-            rcIcon.textContent = '?';
+            rcIcon.appendChild(makeQuestionIcon());
             rcIcon.setAttribute('aria-label', 'Collector stacking info');
             attachDetailTooltip(rcIcon, (box) => {
               box.classList.add('detail-tooltip--assignable');
@@ -1139,19 +1185,12 @@
 
       const closeBtn = document.createElement('button');
       closeBtn.className = 'assignable-modal-close';
-      closeBtn.textContent = '✕';
+      closeBtn.appendChild(makeCloseIcon(16));
       closeBtn.setAttribute('aria-label', 'Close');
       closeBtn.addEventListener('click', () => requestClose('close'));
       header.appendChild(closeBtn);
 
-      modal.appendChild(header);
-
-      // Measure header height so the sticky header (tabs/search/filter)
-      // can position itself directly below it via CSS var(--header-height).
-      requestAnimationFrame(() => {
-        modal.style.setProperty('--header-height', header.offsetHeight + 'px');
-      });
-
+      wrap.appendChild(header);
       wrap.appendChild(modal);
       overlay.appendChild(wrap);
       overlay.addEventListener('click', () => requestClose('close'));
@@ -1170,7 +1209,7 @@
       // Move focus into the modal so keyboard/screen-reader users land
       // somewhere sensible instead of focus staying on the (now hidden) trigger.
       requestAnimationFrame(() => {
-        (modal.querySelector('.assignable-modal-back') || closeBtn).focus();
+        (header.querySelector('.assignable-modal-back') || closeBtn).focus();
       });
 
       function syncOverflow() {
@@ -2062,7 +2101,7 @@
 
       const closeBtn = document.createElement('button');
       closeBtn.className = 'lightbox-close';
-      closeBtn.textContent = '✕';
+      closeBtn.appendChild(makeCloseIcon(18));
       closeBtn.setAttribute('aria-label', 'Close');
       closeBtn.addEventListener('click', () => {
         if (onBack) { closeAllAndHistory(); } else { closeLightboxSoft(); }
@@ -2519,7 +2558,10 @@
 
       const imgWrap = document.createElement('div');
       imgWrap.className = 'assignable-item-modal-image';
-      imgWrap.style.cssText = 'width:100%;max-width:512px;aspect-ratio:1/1;margin:0 auto 16px;border-radius:4px;overflow:hidden;cursor:pointer;';
+      // max-width caps against viewport height too (min(...,60vh)) so the
+      // image itself shrinks on short screens instead of just pushing the
+      // modal into scrolling further to see the fields below it.
+      imgWrap.style.cssText = 'width:100%;max-width:min(512px, 60vh);aspect-ratio:1/1;margin:0 auto 16px;border-radius:4px;overflow:hidden;cursor:pointer;';
       const img = document.createElement('img');
       if (displayItem.StaticRender) {
         img.src = `../ModelRender/${displayItem.StaticRender}`;
@@ -2866,7 +2908,7 @@
 
           const icon = document.createElement('span');
           icon.className = 'info-icon';
-          icon.textContent = '?';
+          icon.appendChild(makeQuestionIcon());
           icon.setAttribute('aria-label', 'Full model path');
           attachDetailTooltip(icon, (box) => buildPathTooltipContent(box, path));
           row.appendChild(icon);
@@ -2892,7 +2934,7 @@
         if (materialPairs.length) {
           const icon = document.createElement('span');
           icon.className = 'info-icon';
-          icon.textContent = '?';
+          icon.appendChild(makeQuestionIcon());
           icon.setAttribute('aria-label', 'Material swap details');
           attachDetailTooltip(icon, (box) => buildMaterialSwapTooltipContent(box, materialPairs), { sticky: true });
           wrap.appendChild(icon);
@@ -3112,7 +3154,7 @@
           h2.classList.add('h2--with-icon');
           const h2Icon = document.createElement('span');
           h2Icon.className = 'info-icon info-icon--h2';
-          h2Icon.textContent = '?';
+          h2Icon.appendChild(makeQuestionIcon());
           h2Icon.setAttribute('aria-label', 'Assignables info');
           attachDetailTooltip(h2Icon, (box) => {
             box.classList.add('detail-tooltip--assignable');

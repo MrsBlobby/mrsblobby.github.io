@@ -279,6 +279,27 @@
   flex-shrink: 0;
 }
 
+/* ── Shared "?" / "✕" icon glyphs ──
+   Both are inline SVGs built by makeQuestionIcon()/makeCloseIcon() in
+   item-view.js rather than text characters - see the comment there.
+   This class only sets the stroke styling; sizing comes from the
+   width/height passed at creation, and centering comes from the
+   containing element's flex centering (display:inline-flex + align/
+   justify:center), which now has an exact, known-size box to center
+   instead of font-dependent glyph ink. */
+.icon-svg {
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.icon-svg--close {
+  transform: translateY(0px);
+}
+
 /* Small circular "?" marker that a detail tooltip is attached to (Model
    full paths, Material Swaps details) - see attachDetailTooltip in
    item-view.js. */
@@ -291,9 +312,6 @@
   border-radius: 50%;
   border: 1px solid var(--text-muted);
   color: var(--text-muted);
-  font-size: 10px;
-  font-weight: 700;
-  line-height: 1;
   cursor: pointer;
   user-select: none;
   flex-shrink: 0;
@@ -310,8 +328,8 @@
   margin: 0;
   color: inherit;
   border-color: inherit;
-  padding-left: 1px;
   width: 14px;
+  height: 14px;
 }
 @media (hover: hover) {
   .info-icon--h2:hover { background: var(--accent); color: #1a1a1a; }
@@ -1107,9 +1125,6 @@ img.lazy-fade.loaded {
   color: #ccc;
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 50%;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1332,8 +1347,21 @@ img.lazy-fade.loaded {
   position: relative;
   max-width: 560px;
   width: 90vw;
+  /* dvh keeps this honest on mobile browsers whose chrome (address bar,
+     etc.) eats into vh - falls back to vh where dvh isn't supported. */
+  max-height: 85vh;
+  max-height: min(85vh, 85dvh);
+  display: flex;
+  flex-direction: column;
   cursor: default;
   animation: assignableModalIn 0.18s ease;
+  background: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  /* Header and body below both paint the same #1e1e1e background and
+     have no radius of their own - this clips them to the wrap's rounded
+     corners so the two pieces still read as one seamless card. */
+  overflow: hidden;
 }
 .assignable-modal-overlay.closing .assignable-modal-wrap {
   animation: assignableModalOut 0.15s ease forwards;
@@ -1349,22 +1377,22 @@ img.lazy-fade.loaded {
 .assignable-modal {
   background: #1e1e1e;
   border: none;
-  border-radius: 8px;
   padding: 0 20px 20px 20px;
-  min-height: min(400px, 50vh);
-  max-height: 85vh;
+  /* Scrolls independently of the header below - this is what lets the
+     ✕ sit flush in the wrap's corner regardless of scrollbar width, and
+     what lets the header stay put while only the body shrinks/scrolls
+     on short viewports. */
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
   box-sizing: border-box;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 .assignable-modal-header {
   display: flex;
   align-items: center;
-  padding: 8px 0 10px;
+  padding: 12px 16px 10px 20px;
   gap: 8px;
-  position: sticky;
-  top: 0;
-  z-index: 11;
+  flex-shrink: 0;
   background: #1e1e1e;
 }
 .assignable-modal-title {
@@ -1383,9 +1411,6 @@ img.lazy-fade.loaded {
   color: var(--text-muted);
   border: 1px solid #444;
   border-radius: 50%;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1502,7 +1527,7 @@ img.lazy-fade.loaded {
 /* ── Header inside the view-more modal (tabs + filters + search) ── */
 .modal-sticky-header {
   position: sticky;
-  top: var(--header-height, 0px);
+  top: 0;
   z-index: 10;
   background: #1e1e1e;
   padding-top: 0;
@@ -1989,10 +2014,25 @@ img.lazy-fade.loaded {
   .assignable-modal-wrap {
     width: 92vw;
     max-width: 560px;
-  }
-  .assignable-modal {
     border-radius: 12px;
     max-height: 80vh;
+    max-height: min(80vh, 80dvh);
+  }
+}
+
+/* ── Extra shrink room on short viewports (landscape phones, small
+   browser windows) - the body already scrolls internally via flex, but
+   loosening the wrap's height ceiling further here means less of it
+   needs to happen, and the fixed-size item image below shrinks with it
+   instead of just pushing scroll. ── */
+@media (max-height: 700px) {
+  .assignable-modal-wrap {
+    max-height: 92vh;
+    max-height: min(92vh, 92dvh);
+  }
+  .assignable-modal-header {
+    padding-top: 8px;
+    padding-bottom: 6px;
   }
 }
 
@@ -2055,11 +2095,10 @@ img.lazy-fade.loaded {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 6px;
 }
 .resource-mode-title .info-icon {
   flex-shrink: 0;
-  padding-right: 1px;
 }
 /* Single-line compact meta row ("Interval: X • Fill Time: ~Y").
    Kept as one flowing text block (not a fixed-width table) so it
