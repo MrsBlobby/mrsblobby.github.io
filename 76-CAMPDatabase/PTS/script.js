@@ -1490,8 +1490,22 @@ function renderResults(query) {
 
     const cnamFormID = (r.CNAM_FormID || '').toLowerCase();
     const artoFormID = (r.ARTO_FormID || '').toLowerCase();
-    const slug = (r.Name || '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-    const detailHref = `item-view.html?fresh=1#${encodeURIComponent(slug || 'item')}/${encodeURIComponent(r.CNAM_FormID)}`;
+
+    // Mirrors item-view.js's slugify() / Search.py's _item_page_slugify()
+    // exactly (case-preserving, NFKD-normalized, non-alnum runs collapsed
+    // to a single dash), so this resolves to the exact filename
+    // generate_item_pages() already wrote to item/*.html.
+    const slug = (r.Name || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'item';
+
+    // Points straight at the real canonical item page - it's not a stub,
+    // item-view.js boots directly off this URL (parseItemViewRoute()'s
+    // path-based fallback reads the FormID out of the filename itself).
+    // ?fresh=1 is still honored from location.search before the path is
+    // even looked at, so prev/next nav history still resets same as
+    // before; item-view.js's own history.replaceState() strips it off
+    // the address bar right after load, so it never lingers in anything
+    // a visitor copies once they're on the page.
+    const detailHref = `item/${r.CNAM_FormID}-${slug}.html?fresh=1`;
 
     const nameLink = document.createElement('a');
     nameLink.className = 'grid-card-name';
