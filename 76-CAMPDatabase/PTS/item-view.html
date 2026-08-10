@@ -2,11 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Pins relative-URL resolution (images, fetch() calls, the back
+       button, hash-only links like #item/formId, etc.) to this actual
+       file, regardless of what history.replaceState() later puts in the
+       address bar. Must point at the file itself, not just the folder:
+       a directory-only base (e.g. "./") resolves a fragment-only link
+       like "#item/formId" to folder/#item/formId, silently dropping
+       item-view.html from the URL and navigating to the wrong page. Must
+       stay the first thing in <head>, before any relative-URL references. -->
+  <base href="item-view.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Detailed view for Fallout 76 C.A.M.P. Item">
-  <meta property="og:title" content="Fallout 76 C.A.M.P. Item Database - Detailed View">
-  <meta property="og:description" content="Shows a more detailed view of an individual C.A.M.P. item, additionally including max build counts, shared build limits, storefront images, etc.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/76-CAMPDatabase/assets/CAMPIcon2.webp">
+  <meta name="description" content="Detailed view for Fallout 76 C.A.M.P. Item" id="metaDescription">
+  <meta property="og:title" content="Fallout 76 C.A.M.P. Item Database - Detailed View" id="ogTitle">
+  <meta property="og:description" content="Shows a more detailed view of an individual C.A.M.P. item, additionally including max build counts, shared build limits, storefront images, etc." id="ogDescription">
+  <meta property="og:image" content="https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/76-CAMPDatabase/assets/CAMPIcon2.webp" id="ogImage">
   <meta property="og:type" content="website">
   <link rel="icon" href="./favicon.ico" sizes="any">
   <link rel="shortcut icon" type="image/png" href="../assets/CAMPIcon2-32x32.png">

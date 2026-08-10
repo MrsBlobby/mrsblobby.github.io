@@ -9,9 +9,37 @@ let _onRenderDone = null; // callback fired after next render fade-in completes
 let _isPageSwap = false;  // true only when triggered by pagination prev/next/number
 let _useFade = true;      // false for search-typing renders, true otherwise
 let _skipInitialPageReset = true;
+let _forcePageReset = false;  // set true right before renderResults() for filter/sort changes
 let _searchDebounceTimer = null;
 const placementFilters = new Set(['plan', 'entitlement', 'challenge', 'learn']);
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+// Cached once here instead of re-querying on every render/handler call
+// Safe because script.js loads at the end of <body>, after #searchBox exists.
+const searchBoxEl = document.getElementById('searchBox');
+
+// ── Cached JSON fetch (shared with item-view.js via sessionStorage) ──────
+// SITE_DATA_VERSION should be bumped any time final_workshop_db.json (or the
+// other data files) are regenerated with new content, so returning visitors
+// don't get served a stale cached copy. Bump it alongside the version
+// history entry in index.html.
+const SITE_DATA_VERSION = 'v3.2.1';
+
+function fetchJSONCached(url) {
+  const cacheKey = `dataCache:${SITE_DATA_VERSION}:${url}`;
+  try {
+    const cached = sessionStorage.getItem(cacheKey);
+    if (cached) return Promise.resolve(JSON.parse(cached));
+  } catch (e) { /* corrupt cache entry, fall through to network */ }
+
+  return fetch(`${url}?v=${SITE_DATA_VERSION}`)
+    .then(response => response.json())
+    .then(data => {
+      try { sessionStorage.setItem(cacheKey, JSON.stringify(data)); }
+      catch (e) { /* storage full/unavailable, data still usable, just not cached */ }
+      return data;
+    });
+}
 
 // ── Scroll restore helpers (module scope so fetch callback can use them) ──
 function readScrollY() {
@@ -219,8 +247,26 @@ const CategoryIcons = {
   'Pet Furniture': '../assets/SubCategory-PetFurnitureIcon.webp'
 };
 
+// Hide the dot between "Made by MrsBlobby" and the header links only when
+// the author line actually wraps onto two lines (rather than a fixed
+// max-width breakpoint, which hid it even when there was no wrapping).
+function checkAuthorWrap() {
+  const authorEl = document.querySelector('.author');
+  const textEl = document.querySelector('.author-text');
+  const linksEl = document.querySelector('.author-links');
+  if (!authorEl || !textEl || !linksEl) return;
+  const wrapped = linksEl.offsetTop > textEl.offsetTop + (textEl.offsetHeight / 2);
+  authorEl.classList.toggle('wrapped', wrapped);
+}
+
 window.addEventListener('DOMContentLoaded', () => {
-  const searchBox = document.getElementById('searchBox');
+  checkAuthorWrap();
+  window.addEventListener('resize', checkAuthorWrap);
+  if (window.ResizeObserver) {
+    new ResizeObserver(checkAuthorWrap).observe(document.querySelector('.author'));
+  }
+
+  const searchBox = searchBoxEl;
 
   const saved = sessionStorage.getItem('searchState');
   if (saved) {
@@ -234,7 +280,7 @@ window.addEventListener('DOMContentLoaded', () => {
       searchBox.value = lastQuery;
 
       // Lock results to its previous height immediately so the page height
-      // is stable before the DB loads — prevents scroll jump on back-navigation
+      // is stable before the DB loads, prevents scroll jump on back-navigation
       const savedH = state.resultsH || 0;
       if (savedH > 0) {
         const results = document.getElementById('results');
@@ -255,7 +301,7 @@ window.addEventListener('DOMContentLoaded', () => {
   sortSelected.classList.remove('open');
 
   // Pre-render last page snapshot immediately so document height is correct
-  // before the DB fetch completes — enables accurate scroll restore
+  // before the DB fetch completes, enables accurate scroll restore
   const snapshot = sessionStorage.getItem('pageSnapshot');
   if (snapshot && saved) {
     try {
@@ -270,6 +316,7 @@ window.addEventListener('DOMContentLoaded', () => {
         left.appendChild(name);
         const img = document.createElement('img');
         img.src = r.ARTO_FormID ? `../WorkshopIcons/${r.ARTO_FormID.toLowerCase()}.webp` : `../WorkshopIcons/${(r.CNAM_FormID||'').toLowerCase()}.webp`;
+        img.alt = ''; // decorative, item name is already announced via the adjacent text node
         img.style.cssText = 'width:128px;height:128px;object-fit:contain;display:block;opacity:0;';
         left.appendChild(img);
         li.appendChild(left);
@@ -291,7 +338,7 @@ window.addEventListener('DOMContentLoaded', () => {
     window.history.scrollRestoration = 'manual';
   }
 
-  // pageshow fires after bfcache restore — re-apply on mobile
+  // pageshow fires after bfcache restore. Re-apply on mobile
   window.addEventListener('pageshow', () => {
     if (!isTouchDevice) return;
     const y = readScrollY();
@@ -308,7 +355,7 @@ window.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('pagehide', () => saveSearchState(), { once: true });
   window.addEventListener('beforeunload', () => saveSearchState(), { once: true });
 
-  // Initial render with empty DB — no fade needed, just reserves space
+  // Initial render with empty DB. No fade needed, just reserves space
   _useFade = false;
   renderResults(lastQuery);
 });
@@ -478,8 +525,7 @@ const miniSeasonAliases = {
 };
 
 // --- Fetch DB ---
-fetch('final_workshop_db.json')
-  .then(response => response.json())
+fetchJSONCached('final_workshop_db.json')
   .then(data => {
      db = data;
     db.forEach(item => {
@@ -518,6 +564,29 @@ const versionBtn = document.getElementById('versionHistoryBtn');
 const versionModal = document.getElementById('versionModal');
 const closeVersionModal = document.getElementById('closeVersionModal');
 
+// role="button" elements (spans/divs, not real <button>s) need Enter/Space
+// wired up manually. Native buttons get this for free, these don't.
+function makeKeyboardClickable(el) {
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+      e.preventDefault();
+      el.click();
+    }
+  });
+}
+makeKeyboardClickable(closeModal);
+makeKeyboardClickable(closeVersionModal);
+
+// Tracks whichever element opened the currently-open modal, so focus can be
+// returned to it on close instead of being lost to <body>.
+let _modalTriggerEl = null;
+
+function focusModal(modalEl) {
+  // Prefer a heading or the close control as the initial focus target.
+  const target = modalEl.querySelector('.close, [role="button"], button, h2');
+  if (target) target.focus();
+}
+
 window.addEventListener('popstate', () => {
   if (infoModal.style.display === 'block') {
     closeInfoModal(true);
@@ -532,11 +601,13 @@ window.addEventListener('popstate', () => {
 
 // Version History modal
 versionBtn.addEventListener('click', () => {
+  _modalTriggerEl = versionBtn;
   versionModal.style.display = 'block';
   lockScroll();
 
   requestAnimationFrame(() => {
     versionModal.classList.add('is-open');
+    focusModal(versionModal);
   });
 
   history.pushState({ modal: 'version' }, '');
@@ -556,6 +627,8 @@ function closeVersionModalFn(fromPopState = false) {
   setTimeout(() => {
     versionModal.style.display = 'none';
   }, 120);
+
+  if (_modalTriggerEl) { _modalTriggerEl.focus(); _modalTriggerEl = null; }
 }
 
 closeVersionModal.addEventListener('click', closeVersionModalFn);
@@ -568,11 +641,13 @@ versionModal.addEventListener('click', (event) => {
 
 // Open modal
 infoBtn.addEventListener('click', () => {
+  _modalTriggerEl = infoBtn;
   infoModal.style.display = 'block';
   lockScroll();
 
   requestAnimationFrame(() => {
     infoModal.classList.add('is-open');
+    focusModal(infoModal);
   });
 
   history.pushState({ modal: 'info' }, '');
@@ -594,6 +669,8 @@ function closeInfoModal(fromPopState = false) {
   setTimeout(() => {
     infoModal.style.display = 'none';
   }, 120); // must match CSS transition duration
+
+  if (_modalTriggerEl) { _modalTriggerEl.focus(); _modalTriggerEl = null; }
 }
 
 // Close modal via X
@@ -727,6 +804,7 @@ faqItems.forEach(item => {
 
     const img = document.createElement('img');
     img.src = iconData.src;
+    img.alt = ''; // decorative, the adjacent label span carries the meaning
     img.style.maxWidth = '100%';      // scale up to container width
     img.style.maxHeight = '100%';     // scale up to container height
     img.style.objectFit = 'contain';  // preserve aspect ratio
@@ -822,7 +900,8 @@ sortOptions.querySelectorAll('.option').forEach(option => {
     sortSelected.classList.remove('open');
 
     // Refresh results
-    const searchBox = document.getElementById('searchBox');
+    const searchBox = searchBoxEl;
+    _forcePageReset = true;
     renderResults(searchBox ? searchBox.value : '');
   });
 });
@@ -882,6 +961,8 @@ function openFilterModal() {
   lockScroll();
   closeAllDropdowns();
   history.pushState({ modal: 'filter' }, '');
+  filtersButton.setAttribute('aria-expanded', 'true');
+  requestAnimationFrame(() => focusModal(filterModal));
 }
 function closeFilterModal(fromPopState = false) {
   if (filterModal.style.display === 'none') return; // already closed, nothing to do
@@ -906,18 +987,28 @@ function closeFilterModal(fromPopState = false) {
     unlockScroll();
     filterModalCloseTimeout = null;
   }, 150);
+  filtersButton.setAttribute('aria-expanded', 'false');
+  if (_modalTriggerEl) { _modalTriggerEl.focus(); _modalTriggerEl = null; }
+  else { filtersButton.focus(); }
 }
 
 filtersButton.addEventListener('click', e => {
   e.stopPropagation();
   closeAllDropdowns();
+  _modalTriggerEl = filtersButton;
   openFilterModal();
 });
+makeKeyboardClickable(filtersButton);
 filterModalClose.addEventListener('click', closeFilterModal);
 filterModalDone.addEventListener('click', closeFilterModal);
 filterModal.addEventListener('click', e => { if (e.target === filterModal) closeFilterModal(); });
+
+// Consolidated Escape handling for all three modals (filter, info, version)
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && filterModal.style.display !== 'none') closeFilterModal();
+  if (e.key !== 'Escape') return;
+  if (filterModal.style.display !== 'none') closeFilterModal();
+  else if (infoModal.style.display === 'block') closeInfoModal();
+  else if (versionModal.style.display === 'block') closeVersionModalFn();
 });
 
 filterModalClear.addEventListener('click', e => {
@@ -927,7 +1018,8 @@ filterModalClear.addEventListener('click', e => {
     .forEach(b => b.classList.remove('selected'));
   filterSubPanel.innerHTML = '<div class="filter-col-sub-empty">Click a category to see subcategories</div>';
   updateFiltersButton();
-  renderResults(document.getElementById('searchBox').value);
+  _forcePageReset = true;
+  renderResults(searchBoxEl.value);
 });
 
 // External clear button (next to filter button in toolbar)
@@ -940,7 +1032,8 @@ if (clearFiltersBtn) {
       .forEach(btn => btn.classList.remove('selected'));
     filterSubPanel.innerHTML = '<div class="filter-col-sub-empty">Click a category to see subcategories</div>';
     updateFiltersButton();
-    renderResults(document.getElementById('searchBox').value);
+    _forcePageReset = true;
+    renderResults(searchBoxEl.value);
   });
 }
 
@@ -955,11 +1048,12 @@ dropdownOptions.querySelectorAll('.option').forEach(option => {
     dropdownSelected.textContent = 'Search By: ' + option.textContent;
     dropdownOptions.classList.remove('open');
     dropdownSelected.classList.remove('open');
-    renderResults(document.getElementById('searchBox').value);
+    _forcePageReset = true;
+    renderResults(searchBoxEl.value);
   });
 });
 
-document.getElementById('searchBox').addEventListener('input', e => {
+searchBoxEl.addEventListener('input', e => {
   _useFade = false;
   clearTimeout(_searchDebounceTimer);
   _searchDebounceTimer = setTimeout(() => {
@@ -1004,8 +1098,9 @@ function renderPagination(totalItems) {
 
     const prevBtn = document.createElement('button');
     prevBtn.textContent = '‹';
+    prevBtn.setAttribute('aria-label', 'Previous page');
     prevBtn.disabled = isSingle || currentPage === 1;
-    if (!isSingle) prevBtn.onclick = () => { _isPageSwap = true; currentPage--; renderResults(document.getElementById('searchBox').value); };
+    if (!isSingle) prevBtn.onclick = () => { _isPageSwap = true; currentPage--; renderResults(searchBoxEl.value); };
     nodes.push(prevBtn);
 
     const label = document.createElement('span');
@@ -1015,8 +1110,9 @@ function renderPagination(totalItems) {
 
     const nextBtn = document.createElement('button');
     nextBtn.textContent = '›';
+    nextBtn.setAttribute('aria-label', 'Next page');
     nextBtn.disabled = isSingle || currentPage === totalPages;
-    if (!isSingle) nextBtn.onclick = () => { _isPageSwap = true; currentPage++; renderResults(document.getElementById('searchBox').value); };
+    if (!isSingle) nextBtn.onclick = () => { _isPageSwap = true; currentPage++; renderResults(searchBoxEl.value); };
     nodes.push(nextBtn);
 
     return nodes;
@@ -1093,7 +1189,7 @@ function buildSubPanel(subs) {
       const parentCat = btn.closest('.filter-col-categories') 
         ? null 
         : (() => {
-          // find parent from subToParent map in matchesItem scope — use data attr
+          // find parent from subToParent map in matchesItem scope, use data attr
           return null;
         })();
       if (activeFilters.has(sub)) {
@@ -1117,6 +1213,7 @@ function buildSubPanel(subs) {
         });
       }
       updateFiltersButton();
+      _forcePageReset = true;
       renderResults(searchBox.value);
     });
     filterSubPanel.appendChild(btn);
@@ -1157,7 +1254,8 @@ document.querySelectorAll('#filtersOptions .filter-col-categories button[data-fi
       populateSubPanel(subs, false);
     }
     updateFiltersButton();
-    renderResults(document.getElementById('searchBox').value);
+    _forcePageReset = true;
+    renderResults(searchBoxEl.value);
     btn.blur();
   });
 });
@@ -1181,7 +1279,8 @@ document.querySelectorAll('.filter-col-placement button[data-filter]').forEach(b
       btn.classList.add('selected');
     }
     updateFiltersButton();
-    renderResults(document.getElementById('searchBox').value);
+    _forcePageReset = true;
+    renderResults(searchBoxEl.value);
     btn.blur();
   });
 });
@@ -1189,26 +1288,10 @@ document.querySelectorAll('.filter-col-placement button[data-filter]').forEach(b
 
 // --- Render results ---
 let _renderPending = false;
-function renderResults(query) {
-  const normalizedQuery = query.toLowerCase();
-  const queryChanged = normalizedQuery !== lastQuery;
-  lastQuery = normalizedQuery;
-  saveSearchState();
-
-  // DB hasn't loaded yet — bail out instead of rendering a "no results" state,
-  // which would wipe the height-preserving snapshot/minHeight before scroll
-  // restore gets a chance to run. The fetch .then() callback re-renders once
-  // real data is available.
-  if (db.length === 0) return;
-
-  const results    = document.getElementById('results');
-  const pagination = document.getElementById('pagination');
-
-  // Build the new content off-screen, then swap with a fade
-  const _doRender = () => {
-    // --- filters setup ---
-
- function matchesItem(item) {
+// Hoisted to module scope: this only ever closes over module-level state
+// (activeFilters, placementFilters, subToParent), so there's no need to
+// recreate it as a fresh closure on every renderResults() call.
+function matchesItem(item) {
   if (activeFilters.size === 0) return true;
 
   // Separate placement vs category filters
@@ -1220,7 +1303,7 @@ function renderResults(query) {
 
   const hasChallenge = id.includes('challenge_');
   const hasLearn     = source === 'learnbypickup'; // exact flag
-  const hasPlan      = !!item.BOOK_FULL?.trim() && !hasChallenge; // exclude challenges
+  const hasPlan      = !!item.BOOK_FULL?.trim() && !hasChallenge && !hasLearn; // exclude challenges & learn-on-pickup
   const hasEnt       = !!item.ENTM_FULL?.trim();
 
   let placementMatch = true;
@@ -1274,14 +1357,24 @@ function renderResults(query) {
   return placementMatch && categoryMatch;
 }
 
+function renderResults(query) {
+  const normalizedQuery = query.toLowerCase();
+  const queryChanged = normalizedQuery !== lastQuery;
+  lastQuery = normalizedQuery;
+  saveSearchState();
 
+  // DB hasn't loaded yet, bail out instead of rendering a "no results" state,
+  // which would wipe the height-preserving snapshot/minHeight before scroll
+  // restore gets a chance to run. The fetch .then() callback re-renders once
+  // real data is available.
+  if (db.length === 0) return;
 
+  const results    = document.getElementById('results');
+  const pagination = document.getElementById('pagination');
 
-  
-    
-
-  
-
+  // Build the new content off-screen, then swap with a fade
+  const _doRender = () => {
+    // --- filters setup ---
 
   // --- Filter the DB ---
   const filtered = db.filter(item => {
@@ -1313,11 +1406,12 @@ function renderResults(query) {
   const totalPages = Math.ceil(sorted.length / itemsPerPage);
   if (_skipInitialPageReset) {
     _skipInitialPageReset = false;
-  } else if (queryChanged || currentPage > totalPages) {
+  } else if (queryChanged || _forcePageReset || currentPage > totalPages) {
     currentPage = 1;
   } else if (currentPage > totalPages) {
     currentPage = totalPages || 1;
   }
+  _forcePageReset = false;
 
   const paged = paginate(sorted);
 
@@ -1362,7 +1456,7 @@ function renderResults(query) {
   const reconcile = !useFade && !isPageSwap;
   const existingCardsByFormId = new Map();
   if (reconcile) {
-    // Drop anything in #results that isn't a real, keyed card — e.g. the
+    // Drop anything in #results that isn't a real, keyed card, i.e. the
     // sessionStorage snapshot placeholders rendered before the DB fetch
     // resolved, or a leftover "No matches found" message. Reconciliation
     // only ever knows how to reuse .grid-card[data-formid] elements, so
@@ -1382,7 +1476,7 @@ function renderResults(query) {
     if (reconcile) {
       const existingCard = existingCardsByFormId.get(r.CNAM_FormID);
       if (existingCard) {
-        // Already on screen and unchanged — just move it into the new
+        // Already on screen and unchanged, just move it into the new
         // fragment in its new position. No re-render, no image reload.
         existingCardsByFormId.delete(r.CNAM_FormID);
         frag.appendChild(existingCard);
@@ -1479,6 +1573,7 @@ function renderResults(query) {
         if (iconPath) {
           const icon = document.createElement('img');
           icon.src = iconPath;
+          icon.alt = ''; // decorative, category name text node follows immediately
           icon.style.height = '30px';
           icon.style.objectFit = 'contain';
           icon.style.width = '30px';
@@ -1770,6 +1865,7 @@ bookFulls.forEach((fullName, i) => {
     } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
       tooltipText = `Loot to Unlock`;
     }
+    icon.alt = tooltipText;
     attachTooltipToIcon(icon, tooltipText);
 
     appendedIcon = true;
@@ -1789,6 +1885,7 @@ bookFulls.forEach((fullName, i) => {
     if (iconSrc) {
       const icon = document.createElement('img');
       icon.src = iconSrc;
+      icon.alt = tooltipText;
       icon.style.width = '30px';
       icon.style.height = '30px';
       icon.style.objectFit = 'contain';
@@ -1944,6 +2041,7 @@ if (hasEntm) {
           }
         }
 
+      icon.alt = tooltipText;
       attachTooltipToIcon(icon, tooltipText); 
     }
     
@@ -2027,6 +2125,7 @@ if (r.BudgetCost !== undefined && r.BudgetCost !== null && (r.Category || '').to
   if (budgetIcon) {
     const icon = document.createElement('img');
     icon.src = budgetIcon;
+    icon.alt = (budgetTier && BudgetTierLabels[budgetTier]) ? `Budget Cost: ${BudgetTierLabels[budgetTier]}` : '';
     icon.style.width = '30px';
     icon.style.height = '30px';
     icon.style.objectFit = 'contain';
@@ -2080,8 +2179,8 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
   // Swap fragment into results.
   if (reconcile) {
     // Reused cards were already moved out of `results` and into `frag`
-    // above. Anything still left in the map fell out of the result set —
-    // drop those, then append the fragment, which re-inserts reused cards
+    // above. Anything still left in the map fell out of the result set
+    // Drop those, then append the fragment, which re-inserts reused cards
     // in their new order and adds any brand-new ones.
     existingCardsByFormId.forEach(c => c.remove());
     results.appendChild(frag);
@@ -2113,7 +2212,7 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
       requestAnimationFrame(() => cards.forEach(c => c.style.transition = ''));
     }
 
-    // Scroll to top of page on pagination (next/prev buttons) — but don't
+    // Scroll to top of page on pagination (next/prev buttons), but don't
     // scroll further up than necessary. If the user was already scrolled
     // past the point where .toolbar locks into its sticky position, only
     // scroll back up to that point, so the sticky toolbar stays pinned and
@@ -2124,7 +2223,7 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
     // it's actually stuck (browsers disagree on whether it reports the
     // static flow position or the current stuck position). To get an
     // unambiguous answer, briefly force it out of sticky mode, measure,
-    // then restore — this avoids relying on offsetTop for a sticky element.
+    // then restore. This avoids relying on offsetTop for a sticky element.
     if (isPageSwap) {
       const toolbar = document.querySelector('.toolbar');
       let stickyOffset = 0;
@@ -2137,7 +2236,7 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
       if (scrollYBeforeSwap >= stickyOffset) {
         window.scrollTo({ top: stickyOffset });
       }
-      // else: user was above the sticky point — leave scroll alone
+      // else: user was above the sticky point, leave scroll alone
     }
 
     if (typeof _onRenderDone === 'function') {
@@ -2150,7 +2249,7 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
         results.style.minHeight = '';
       });
     } else {
-      // No scroll restore needed — release minHeight normally
+      // No scroll restore needed, release minHeight normally
       results.style.minHeight = '';
     }
   }));
@@ -2169,7 +2268,7 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
     results.style.opacity = '0';
     setTimeout(_doRender, 120);
   } else {
-    // No fade — render immediately, just ensure opacity is visible
+    // No fade. Render immediately, just ensure opacity is visible
     results.style.transition = '';
     results.style.opacity = '1';
     _doRender();
@@ -2189,14 +2288,14 @@ if (r.CNAM_FormID || r.CNAM_EditorID) {
     activeFilters   = new Set(state.filters || []);
 
     // Restore search box
-    const searchBox = document.getElementById('searchBox');
+    const searchBox = searchBoxEl;
     if (searchBox) searchBox.value = lastQuery;
 
-    // Restore sort label — keys match actual data-value attributes in index.html
+    // Restore sort label, keys match actual data-value attributes in index.html
     const sortOptionEl = sortOptions.querySelector(`.option[data-value="${currentSort}"]`);
     if (sortOptionEl) sortSelected.textContent = 'Sort By: ' + sortOptionEl.textContent.trim();
 
-    // Restore search-by label — keys match actual data-value attributes
+    // Restore search-by label, keys match actual data-value attributes
     const searchByOptionEl = dropdownOptions.querySelector(`.option[data-value="${currentSearchBy}"]`);
     if (searchByOptionEl) dropdownSelected.textContent = 'Search By: ' + searchByOptionEl.textContent.trim();
 

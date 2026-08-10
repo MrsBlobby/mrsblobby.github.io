@@ -279,8 +279,29 @@
   flex-shrink: 0;
 }
 
+/* ── Shared "?" / "✕" icon glyphs ──
+   Both are inline SVGs built by makeQuestionIcon()/makeCloseIcon() in
+   item-view.js rather than text characters - see the comment there.
+   This class only sets the stroke styling; sizing comes from the
+   width/height passed at creation, and centering comes from the
+   containing element's flex centering (display:inline-flex + align/
+   justify:center), which now has an exact, known-size box to center
+   instead of font-dependent glyph ink. */
+.icon-svg {
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.icon-svg--close {
+  transform: translateY(0px);
+}
+
 /* Small circular "?" marker that a detail tooltip is attached to (Model
-   full paths, Material Swaps details) — see attachDetailTooltip in
+   full paths, Material Swaps details) - see attachDetailTooltip in
    item-view.js. */
 .info-icon {
   display: inline-flex;
@@ -291,9 +312,6 @@
   border-radius: 50%;
   border: 1px solid var(--text-muted);
   color: var(--text-muted);
-  font-size: 10px;
-  font-weight: 700;
-  line-height: 1;
   cursor: pointer;
   user-select: none;
   flex-shrink: 0;
@@ -310,8 +328,8 @@
   margin: 0;
   color: inherit;
   border-color: inherit;
-  padding-left: 1px;
   width: 14px;
+  height: 14px;
 }
 @media (hover: hover) {
   .info-icon--h2:hover { background: var(--accent); color: #1a1a1a; }
@@ -562,7 +580,7 @@
   font-weight: 600;
 }
 
-/* Mobile detail tooltip — bottom-of-screen popup */
+/* Mobile detail tooltip - bottom-of-screen popup */
 #detail-mobile-tooltip {
   position: fixed;
   bottom: 20px;
@@ -705,7 +723,7 @@
 }
 
 /* Used where a plain AND/OR connects two pills (Placement Conditions).
-   Always a plain left-aligned stacked list — each pill on its own line with
+   Always a plain left-aligned stacked list - each pill on its own line with
    AND/OR shown as small left-aligned text between them. */
 .detail-inline-wrap--conditions,
 .detail-inline-wrap--conditions.is-wrapped {
@@ -1107,9 +1125,6 @@ img.lazy-fade.loaded {
   color: #ccc;
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 50%;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1332,8 +1347,21 @@ img.lazy-fade.loaded {
   position: relative;
   max-width: 560px;
   width: 90vw;
+  /* dvh keeps this honest on mobile browsers whose chrome (address bar,
+     etc.) eats into vh - falls back to vh where dvh isn't supported. */
+  max-height: 85vh;
+  max-height: min(85vh, 85dvh);
+  display: flex;
+  flex-direction: column;
   cursor: default;
   animation: assignableModalIn 0.18s ease;
+  background: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  /* Header and body below both paint the same #1e1e1e background and
+     have no radius of their own - this clips them to the wrap's rounded
+     corners so the two pieces still read as one seamless card. */
+  overflow: hidden;
 }
 .assignable-modal-overlay.closing .assignable-modal-wrap {
   animation: assignableModalOut 0.15s ease forwards;
@@ -1349,22 +1377,22 @@ img.lazy-fade.loaded {
 .assignable-modal {
   background: #1e1e1e;
   border: none;
-  border-radius: 8px;
   padding: 0 20px 20px 20px;
-  min-height: min(400px, 50vh);
-  max-height: 85vh;
+  /* Scrolls independently of the header below - this is what lets the
+     ✕ sit flush in the wrap's corner regardless of scrollbar width, and
+     what lets the header stay put while only the body shrinks/scrolls
+     on short viewports. */
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
   box-sizing: border-box;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 .assignable-modal-header {
   display: flex;
   align-items: center;
-  padding: 8px 0 10px;
+  padding: 12px 16px 10px 20px;
   gap: 8px;
-  position: sticky;
-  top: 0;
-  z-index: 11;
+  flex-shrink: 0;
   background: #1e1e1e;
 }
 .assignable-modal-title {
@@ -1383,9 +1411,6 @@ img.lazy-fade.loaded {
   color: var(--text-muted);
   border: 1px solid #444;
   border-radius: 50%;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1398,6 +1423,13 @@ img.lazy-fade.loaded {
   background: var(--accent);
   color: black;
   border-color: var(--accent);
+}
+.assignable-modal-close:focus-visible,
+.assignable-modal-back:focus-visible {
+  background: var(--accent);
+  color: black;
+  border-color: var(--accent);
+  outline: none;
 }
 .assignable-modal-back {
   width: 28px;
@@ -1416,7 +1448,7 @@ img.lazy-fade.loaded {
 }
 .assignable-modal-back .back-arrow { transform: translateX(-1.5px); }
 
-/* ── Lightbox header back arrow — match close button sizing ── */
+/* ── Lightbox header back arrow - match close button sizing ── */
 .lightbox-header .assignable-modal-back {
   width: 36px;
   height: 36px;
@@ -1459,7 +1491,7 @@ img.lazy-fade.loaded {
 .assignable-modal-tab.active {
   color: var(--accent);
 }
-.assignable-modal-tab.active::after {
+.assignable-modal-tab::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -1468,6 +1500,13 @@ img.lazy-fade.loaded {
   height: 2px;
   background-color: var(--accent);
   border-radius: 1px;
+  opacity: 0;
+  transform: scaleX(0.6);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.assignable-modal-tab.active::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .assignable-modal-tab-content {
@@ -1475,12 +1514,20 @@ img.lazy-fade.loaded {
 }
 .assignable-modal-tab-content.active {
   display: block;
+  animation: assignableTabContentIn 0.16s ease-out;
+}
+@keyframes assignableTabContentIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .assignable-modal-tab-content.active { animation: none; }
 }
 
 /* ── Header inside the view-more modal (tabs + filters + search) ── */
 .modal-sticky-header {
   position: sticky;
-  top: var(--header-height, 0px);
+  top: 0;
   z-index: 10;
   background: #1e1e1e;
   padding-top: 0;
@@ -1595,11 +1642,11 @@ img.lazy-fade.loaded {
 
 /* ── Tablet: stack layout vertically, center infobox.
    Landscape tablets (900–1024px wide, e.g. older 1024×768 iPads)
-   are deliberately excluded — they have enough horizontal room for
+   are deliberately excluded - they have enough horizontal room for
    the side-by-side layout, so they fall through to the default flex
    row (.detail-layout's base rule) instead of stacking and wasting
    width. Narrower landscape widths (601–899px, e.g. phones in
-   landscape) still stack — a fixed 386px infobox would leave too
+   landscape) still stack - a fixed 386px infobox would leave too
    little room for item-card at that width. ── */
 @media (min-width: 601px) and (max-width: 1024px) and (orientation: portrait),
        (min-width: 601px) and (max-width: 899px) and (orientation: landscape) {
@@ -1633,15 +1680,15 @@ img.lazy-fade.loaded {
 }
 
 /* ── Desktop (+ landscape tablets): item-card is centered on the actual
-   viewport — a third, empty grid column mirrors the infobox's width on
+   viewport - a third, empty grid column mirrors the infobox's width on
    the right, so the [infobox][item-card] pair sits symmetrically around
    center instead of the infobox's width dragging item-card off to one
    side. infobox still sits directly against item-card's left edge
-   (adjacent grid columns, no gap) — it just isn't pinned to the literal
+   (adjacent grid columns, no gap) - it just isn't pinned to the literal
    screen edge anymore.
 
    This applies at 1025px+ (right above the tablet stacking breakpoint)
-   AND at 900–1024px in landscape (tablets that skip stacking — see the
+   AND at 900–1024px in landscape (tablets that skip stacking - see the
    tablet rule above). Without the second clause, that landscape-tablet
    band would fall through to the plain flex row and get the same
    asymmetric look this whole grid exists to avoid.
@@ -1651,7 +1698,7 @@ img.lazy-fade.loaded {
    at 900px) and grows back to its normal 386px by ~1930px viewport
    width. Both grid spacer columns read the same variable so they stay
    mirrored at every width. item-card's own floor (400px) is lowered to
-   match — together they keep the layout from overflowing/squeezing at
+   match - together they keep the layout from overflowing/squeezing at
    the narrow end. ── */
 @media (min-width: 1025px),
        (min-width: 900px) and (max-width: 1024px) and (orientation: landscape) {
@@ -1676,7 +1723,7 @@ img.lazy-fade.loaded {
     grid-column: 2;
     grid-row: 1;
   }
-  /* grid-column 3 is intentionally left empty — a spacer equal to the
+  /* grid-column 3 is intentionally left empty - a spacer equal to the
      infobox's width so item-card is centered on the viewport. */
 }
 
@@ -1684,19 +1731,19 @@ img.lazy-fade.loaded {
 /* ============================================================
    Merged improvements (previously item-view-improvements.css)
    Appended in original load order so cascade/output is identical
-   to the old two-file setup — these rules intentionally come
+   to the old two-file setup - these rules intentionally come
    after the base rules above to override/refine them.
    ============================================================ */
 
 /* ============================================================
-   item-view-improvements.css — v3, verified against item-view.js
+   item-view-improvements.css - v3, verified against item-view.js
    Append after your existing item-view.css. Reuses --accent-secondary,
-   --divider, and --bg-chip from style-improvements.css — make sure
+   --divider, and --bg-chip from style-improvements.css - make sure
    that file (or those variables) is loaded first.
    ============================================================ */
 
 /* ── Description: left-align instead of centered.
-   Centered multi-line body text is harder to scan — the eye has to
+   Centered multi-line body text is harder to scan - the eye has to
    re-find the start of each line. Left-aligned reads noticeably
    faster for anything longer than one sentence. ── */
 .entm-description {
@@ -1717,7 +1764,7 @@ img.lazy-fade.loaded {
 }
 
 /* Technical/debug rows (Form ID, Editor ID, Model) are reference
-   data, not primary content — de-emphasize them with plain muted
+   data, not primary content - de-emphasize them with plain muted
    grey rather than any accent color, so they read as secondary
    info without introducing a second hue on the page. */
 .infobox-label {
@@ -1727,14 +1774,14 @@ img.lazy-fade.loaded {
   color: var(--text-muted);
 }
 
-/* Alternating section tint removed per feedback — with pills now
+/* Alternating section tint removed per feedback - with pills now
    using their own --bg-chip background (see below), tinting the
    section behind them too made the panel look busier, not calmer.
    Sections now separate purely by the divider line + whitespace. */
 
 /* ── "Shares Max Build Count With" thumbnails.
    CORRECTED: this section is NOT .assignable-grid/.assignable-item
-   (that's the separate "Assignables Info" block above it) — it's
+   (that's the separate "Assignables Info" block above it) - it's
    built from .shared-grid/.shared-item/.shared-item-name in
    item-view.js (~line 2050+). The previous version of this file
    only resized the Assignables Info tiles and never touched the
@@ -1744,7 +1791,7 @@ img.lazy-fade.loaded {
    horizontal-scroll strip (flex-wrap: nowrap + overflow-x: auto),
    but never gave the row a bounded width. Without min-width: 0 /
    width: 100% on the flex container, the browser sizes it to fit
-   all the nowrap items at once — so instead of scrolling, the row
+   all the nowrap items at once - so instead of scrolling, the row
    just expanded past its column and bled out of the card. Reverted
    to normal wrapping (matches your original layout) with just the
    larger tile size kept. ── */
@@ -1772,7 +1819,7 @@ img.lazy-fade.loaded {
 }
 
 /* ── Reduce nested amber borders ──
-   Feedback: the page reads as box-in-a-box-in-a-box — outer card
+   Feedback: the page reads as box-in-a-box-in-a-box - outer card
    border > infobox/right-panel > section blocks > pill-groups > pills
    > icons, each with its own fence. Outer containers now use a subtle
    dark-gray border (#2a2a2a) with elevated surface, so amber is freed
@@ -1791,7 +1838,7 @@ img.lazy-fade.loaded {
   border-radius: 6px;
   background: #222222;
 }
-/* A pill inside a group would otherwise be a chip inside a chip —
+/* A pill inside a group would otherwise be a chip inside a chip -
    the exact nesting problem being fixed. Let the group's background
    carry the color; the inner pill goes transparent. */
 .detail-pill-group .detail-pill {
@@ -1868,7 +1915,7 @@ img.lazy-fade.loaded {
 
 /* ── Inline preview grid row cap ──
    The ASSIGNABLES INFO, SHARES MAX BUILD COUNT WITH, and BUILD MENU SLOT
-   grids in the item detail page are previews — they should never expand
+   grids in the item detail page are previews - they should never expand
    to show all 8,500+ items. JS builds each grid with all items, then
    trimPreviewGrids() measures the real rendered width to compute column
    count and trims to exactly 2 rows (3 on mobile) with a "+X more" tile
@@ -1916,7 +1963,7 @@ img.lazy-fade.loaded {
   background: transparent;
   transition: background 0.15s ease, color 0.15s ease;
 }
-/* Label sits in normal flow, centered by the flex container above —
+/* Label sits in normal flow, centered by the flex container above -
    no reserved padding or absolute-position math needed. */
 .tech-accordion-label {
   line-height: 1.2;
@@ -1967,13 +2014,340 @@ img.lazy-fade.loaded {
   .assignable-modal-wrap {
     width: 92vw;
     max-width: 560px;
-  }
-  .assignable-modal {
     border-radius: 12px;
     max-height: 80vh;
+    max-height: min(80vh, 80dvh);
+  }
+}
+
+/* ── Extra shrink room on short viewports (landscape phones, small
+   browser windows) - the body already scrolls internally via flex, but
+   loosening the wrap's height ceiling further here means less of it
+   needs to happen, and the fixed-size item image below shrinks with it
+   instead of just pushing scroll. ── */
+@media (max-height: 700px) {
+  .assignable-modal-wrap {
+    max-height: 92vh;
+    max-height: min(92vh, 92dvh);
+  }
+  .assignable-modal-header {
+    padding-top: 8px;
+    padding-bottom: 6px;
   }
 }
 
 * {
   -webkit-tap-highlight-color: transparent;
+}
+
+/* ============================================================
+   Resource Collection (resource collectors / extractors)
+   Rendered by renderResourceCollection() in item-view.js from
+   ResourceInfo.json. Compact styling mirrors the Player Buffs
+   block (unbulleted mode list, tight rem typography); the drop
+   table is borderless, constrained to a compact width, and
+   flows down the page naturally (no internal scrollbars).
+   ============================================================ */
+.resource-collection {
+  padding-bottom: 4px;
+}
+.resource-collection-meta {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin: 0 0 1.25rem;
+}
+.resource-collection-meta strong {
+  color: #e0e0e0;
+}
+
+.resource-mode-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.resource-mode {
+  margin-bottom: 24px;
+  color: #ccc;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (min-width: 641px) {
+  .resource-mode {
+    padding: 16px;
+  }
+}
+.resource-mode:last-child {
+  margin-bottom: 0;
+}
+.resource-mode-title strong {
+  color: #e0e0e0;
+}
+/* Flex row so the stacking-info "?" icon centers against the text the
+   same way the Model-path / Assignables icons do elsewhere on this page
+   (see .infobox-value-row and .h2--with-icon) - vertical-align on its own
+   isn't reliable here since this line mixes a <strong> tag with a plain
+   text node. */
+.resource-mode-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.resource-mode-title .info-icon {
+  flex-shrink: 0;
+}
+/* Single-line compact meta row ("Interval: X • Fill Time: ~Y").
+   Kept as one flowing text block (not a fixed-width table) so it
+   wraps cleanly on narrow phones instead of ever constraining the
+   drop table's column widths below it. */
+.resource-mode-meta {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  margin: 4px 0 0.5rem;
+  width: 100%;
+  white-space: normal;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+}
+.resource-mode-meta-sep {
+  margin: 0 2px;
+  opacity: 0.7;
+}
+
+/* ============================================================
+   Resource drop table - semantic <table> markup, but laid out
+   per-row with CSS Grid: table/thead/tbody are set to
+   display:contents (so they don't generate boxes of their own)
+   and each <tr> becomes its own grid container with an explicit
+   grid-template-columns track list. This gives exact, matching
+   pixel-width columns for the header row and every body row
+   (unlike table-layout:fixed, which only supports percentages/
+   auto and can drift out of alignment), and lets the ITEM column
+   truncate cleanly instead of forcing horizontal scroll or
+   wrapping at narrow widths (down to 375px).
+
+   Mobile-first: the base rules below target small phones; the
+   min-width:641px query restores the roomier desktop sizing.
+   ============================================================ */
+.resource-drops {
+  display: block;
+  width: 100%;
+  max-width: 42rem;
+  font-size: 0.78rem;
+  margin: 0.3rem 0 0.5rem;
+  box-sizing: border-box;
+}
+.resource-drops thead,
+.resource-drops tbody {
+  display: contents;
+}
+.resource-drops tr {
+  display: grid;
+  grid-template-columns: 36px 1fr 38px 65px 50px;
+  column-gap: 2px;
+  width: 100%;
+  box-sizing: border-box;
+}
+/* Cells stretch to a uniform row height (grid default) and use flex to
+   center their own content - this keeps every cell's bottom edge (and
+   therefore the header underline / row borders below) lined up evenly,
+   even though the icon column has no text and would otherwise be a
+   different height than its neighbors. */
+.resource-drops th,
+.resource-drops td {
+  display: flex;
+  align-items: center;
+  padding: 3px 4px;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.resource-drops th {
+  padding: 6px 4px;
+  color: var(--text-muted);
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+/* The underline lives on the header row itself, not individual <th>
+   cells - a single continuous line unbroken by column-gap, rather
+   than five separate per-cell borders with gaps between them. */
+.resource-drops thead tr {
+  border-bottom: 1px solid var(--divider);
+}
+.resource-drops th:not(.resource-col-name),
+.resource-drops td:not(.resource-col-name):not(.resource-col-icon) {
+  justify-content: center;
+}
+
+.resource-col-icon {
+  justify-content: center;
+  padding-left: 2px;
+  padding-right: 0;
+}
+.resource-col-name {
+  justify-content: flex-start;
+}
+
+/* Divider above the "nothing produced" row, set on the row itself for
+   the same reason as the header underline (one continuous line). */
+.resource-drops tr.resource-drop-nothing {
+  border-top: 1px solid var(--divider);
+}
+.resource-drops tr.resource-drop-nothing td {
+  padding-top: 8px;
+}
+
+@media (min-width: 641px) {
+  .resource-drops {
+    font-size: 0.85rem;
+  }
+  .resource-drops tr {
+    grid-template-columns: 56px 1fr 80px 110px 80px;
+    column-gap: 4px;
+  }
+  .resource-drops th,
+  .resource-drops td {
+    padding: 3px 8px;
+  }
+  .resource-drops th {
+    padding: 6px 8px;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+  }
+  .resource-drops tr.resource-drop-nothing td {
+    padding-top: 10px;
+  }
+  .resource-col-icon {
+    padding-left: 8px;
+  }
+}
+
+/* Extra rows revealed by "Show more" live in a second table inside a
+   height-animated wrapper - mirrors .tech-accordion-body's slide. */
+.resource-more-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+.resource-more-body .resource-drops {
+  margin-top: 0;
+}
+
+.resource-drop-icon-link {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+}
+.resource-drop-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 4px;
+  background: #161616;
+  display: block;
+  border: none;
+  outline: none;
+}
+@media (min-width: 641px) {
+  .resource-drop-icon-link,
+  .resource-drop-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+.resource-drop-name {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text);
+  text-decoration: none;
+}
+@media (hover: hover) {
+  a.resource-drop-icon-link:hover .resource-drop-icon { outline: 1px solid var(--accent); }
+}
+
+.resource-drops th:not(.resource-col-icon) {
+  cursor: pointer;
+  user-select: none;
+}
+@media (hover: hover) {
+  .resource-drops th:not(.resource-col-icon):hover {
+    color: var(--accent);
+  }
+}
+
+/* Row hover only ever highlights the item name - quantity/chance/
+   weight stay their normal color no matter where in the row the
+   pointer is, and the header row is excluded entirely (tbody-scoped)
+   so it never picks up the gold tint. */
+.resource-drops tbody tr:hover {
+  background: rgba(230, 184, 59, 0.08);
+  transition: background 120ms ease;
+}
+.resource-drops tbody tr:hover .resource-drop-icon {
+  outline: none;
+  border: none;
+}
+@media (hover: hover) {
+  .resource-drops tbody tr:hover .resource-drop-name {
+    color: var(--accent);
+  }
+}
+
+.resource-drops th[data-sort-dir]::after {
+  display: inline-block;
+  content: '\25B2';
+  width: 9px;
+  margin-left: 5px;
+  text-align: center;
+  font-size: 0.6rem;
+  vertical-align: middle;
+  animation: resource-sort-in 160ms ease-out;
+}
+.resource-drops th[data-sort-dir="desc"]::after {
+  content: '\25BC';
+  animation: resource-sort-flip 160ms ease-out;
+}
+@keyframes resource-sort-in {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes resource-sort-flip {
+  from { opacity: 0.3; transform: rotate(-180deg); }
+  to { opacity: 1; transform: rotate(0deg); }
+}
+.resource-drops th.resource-sort-leave::after {
+  display: inline-block;
+  animation: resource-sort-out 160ms ease-in forwards;
+}
+@keyframes resource-sort-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-3px); }
+}
+
+.resource-more-toggle {
+  cursor: pointer;
+  text-align: left;
+  color: var(--accent);
+  font-size: 0.85rem;
+  margin: 6px 0 0;
+  padding: 8px;
+  background: var(--bg-chip);
+  border-radius: 4px;
+  max-width: 42rem;
+}
+@media (hover: hover) {
+  .resource-more-toggle:hover { background: var(--divider); }
 }

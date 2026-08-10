@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Pins relative-URL resolution (images, fetch() calls, the back
+       button, hash-only links like #item/formId, etc.) to the real
+       item-view.html file, even though this file physically sits one
+       level deeper in item/. Must point at the file itself, not just the
+       folder: a directory-only base resolves a fragment-only link like
+       "#item/formId" to folder/#item/formId, silently dropping
+       item-view.html from the URL and navigating to the wrong page. Must
+       stay the first thing in <head>. -->
+  <base href="../item-view.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Skeleton Parts is a decorative item in Fallout 76.&#10;&#10;• Build Menu: Decorations &gt; Taxidermy&#10;• Placement: Skeleton Parts (Season 20)&#10;• Budget: 1 Flamingo Unit">
+  <meta property="og:title" content="Skeleton Parts | Fallout 76 C.A.M.P. Item Database">
+  <meta property="og:description" content="Skeleton Parts is a decorative item in Fallout 76.&#10;&#10;• Build Menu: Decorations &gt; Taxidermy&#10;• Placement: Skeleton Parts (Season 20)&#10;• Budget: 1 Flamingo Unit">
+  <meta property="og:image" content="https://raw.githubusercontent.com/MrsBlobby/mrsblobby.github.io/refs/heads/main/76-CAMPDatabase/ModelRender/CAMPitem/007AD3DF_thumbnail.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mrsblobby.github.io/76-CAMPDatabase/PTS/item/007AD3DF-Skeleton-Parts.html">
+  <link rel="canonical" href="https://mrsblobby.github.io/76-CAMPDatabase/PTS/item/007AD3DF-Skeleton-Parts.html">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="shortcut icon" type="image/png" href="../assets/CAMPIcon2-32x32.png">
+  <title>Skeleton Parts | Fallout 76 C.A.M.P. Item Database</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="item-view.css">
+  <!-- This file is auto-generated. Bootstraps into the same item-view.js
+       SPA used by item-view.html; it exists purely so link-preview bots
+       and search crawlers see correct per-item metadata, since hash-based
+       routes are invisible to them. -->
+</head>
+<body>
+  <div class="detail-container">
+    <a href="./" class="back-button" id="backBtn"><span class="back-arrow"></span>Back to Database</a>
+    <div class="item-nav" id="itemNav">
+      <a class="item-nav-btn" id="navPrev"><span class="nav-arrow-left"></span>Prev</a>
+      <a class="item-nav-btn" id="navNext">Next<span class="nav-arrow-right"></span></a>
+    </div>
+    <div id="content"></div>
+  </div>
+
+  <noscript>
+    <div style="padding:24px;font-family:sans-serif;">
+      <h1>Skeleton Parts | Fallout 76 C.A.M.P. Item Database</h1>
+      <p>Skeleton Parts is a decorative item in Fallout 76.<br><br>• Build Menu: Decorations &gt; Taxidermy<br>• Placement: Skeleton Parts (Season 20)<br>• Budget: 1 Flamingo Unit</p>
+      <img src="../ModelRender/CAMPitem/007AD3DF_thumbnail.webp" alt="Skeleton Parts" style="max-width:300px;">
+      <p>This site requires JavaScript. <a href="./">Return to the database</a>.</p>
+    </div>
+  </noscript>
+
+  <!-- No bootstrap script is needed here. parseItemViewRoute() in
+       item-view.js reads the FormID directly out of this page's own
+       filename (item/{formId}-{slug}.html), so the URL stays clean
+       instead of needing a #slug/formId fragment appended. -->
+  <script src="item-view.js"></script>
+</body>
+</html>
