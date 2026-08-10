@@ -723,7 +723,7 @@ const faqItems = [
       { src: "../assets/GrahmIcon.webp", text: "Sold by Grahm" },
       { src: "../assets/HolidayScorchedIcon.webp", text: "Holiday Scorched Seasonal Event Reward" },
       { src: "../assets/InvadersIcon.webp", text: "Invaders from Beyond Seasonal Event Reward" },
-      { src: "../assets/LearnOnPickupIcon.webp", text: "Loot to Unlock" },
+      { src: "../assets/LearnOnPickupIcon.svg", text: "Loot to Unlock" },
       { src: "../assets/MeatWeekIcon.svg", text: "Meat Week Seasonal Event Reward" },
       { src: "../assets/MischiefNightIcon.svg", text: "Mischief Night Seasonal Event Reward" },
       { src: "../assets/NPCVendorIcon.webp", text: "Sold by non-robot NPC vendor for Caps" },
@@ -1859,7 +1859,7 @@ bookFulls.forEach((fullName, i) => {
     if (/Challenge_/.test(bookEditorId)) {
       iconSrc = '../assets/ChallengeIcon.svg';
     } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
-      iconSrc = '../assets/LearnOnPickupIcon.webp';
+      iconSrc = '../assets/LearnOnPickupIcon.svg';
     }
 
     if (!iconSrc) return;
@@ -1892,7 +1892,7 @@ bookFulls.forEach((fullName, i) => {
       iconSrc = '../assets/ChallengeIcon.svg';
       tooltipText = `Complete a Challenge to Unlock`;
     } else if (String(r.BOOK_SOURCE || '').toLowerCase() === 'learnbypickup') {
-      iconSrc = '../assets/LearnOnPickupIcon.webp';
+      iconSrc = '../assets/LearnOnPickupIcon.svg';
       tooltipText = `Loot to Unlock`;
     }
 

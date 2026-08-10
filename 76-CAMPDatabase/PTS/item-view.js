@@ -345,7 +345,7 @@
 
     function getBookIconSrc(nt, bookEditorId, bookSource) {
       if (/Challenge_/.test(bookEditorId)) return '../assets/ChallengeIcon.svg';
-      if (String(bookSource||'').toLowerCase() === 'learnbypickup') return '../assets/LearnOnPickupIcon.webp';
+      if (String(bookSource||'').toLowerCase() === 'learnbypickup') return '../assets/LearnOnPickupIcon.svg';
       if (multiVendorCategories[nt]?.icon) return multiVendorCategories[nt].icon;
       return BookTagIcons[nt] || '';
     }
