@@ -328,8 +328,8 @@
   margin: 0;
   color: inherit;
   border-color: inherit;
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
 }
 @media (hover: hover) {
   .info-icon--h2:hover { background: var(--accent); color: #1a1a1a; }
