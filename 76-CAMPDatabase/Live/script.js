@@ -23,7 +23,7 @@ const searchBoxEl = document.getElementById('searchBox');
 // other data files) are regenerated with new content, so returning visitors
 // don't get served a stale cached copy. Bump it alongside the version
 // history entry in index.html.
-const SITE_DATA_VERSION = 'v3.2.1';
+const SITE_DATA_VERSION = 'v3.3.1';
 
 function fetchJSONCached(url) {
   const cacheKey = `dataCache:${SITE_DATA_VERSION}:${url}`;

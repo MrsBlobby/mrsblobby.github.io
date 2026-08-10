@@ -1564,7 +1564,7 @@
     // visitors don't get served a stale cached copy. Bump it alongside the
     // version history entry in index.html. Kept identical to script.js's
     // copy so both pages read/write the same sessionStorage cache entries.
-    const SITE_DATA_VERSION = 'v3.3.0';
+    const SITE_DATA_VERSION = 'v3.3.1';
 
     function fetchJSONCached(url) {
       const cacheKey = `dataCache:${SITE_DATA_VERSION}:${url}`;
